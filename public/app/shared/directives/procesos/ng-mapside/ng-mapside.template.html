@@ -1,0 +1,6 @@
+<ul>
+    <li ng-repeat="megaproceso in source" ng-class="{'active': megaproceso.selected}" ng-click="href(position,$index)">
+        <h2>{{megaproceso.title}}</h2>
+        <a>{{megaproceso.name}}</a>
+    </li>
+</ul>

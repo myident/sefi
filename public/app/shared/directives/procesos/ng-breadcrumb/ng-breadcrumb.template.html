@@ -1,0 +1,74 @@
+<section 
+   class="back-subheader" 
+   style="background-color: {{source.color}}"
+   ng-class="{'activate': !openBar}">
+    <a href="#/procesos">
+        <i></i>
+        <span>{{source.dominio}}</span>
+    </a>
+</section><section 
+   class="subheader" 
+   style="background-color: {{source.colorMegaproceso}}"
+   ng-class="{'activate': !openBar}">
+   
+    <div 
+        class="activate-left-bar" 
+        ng-click="hideLeftBar()" 
+        ng-class="{'activate': !openBar}"></div>
+        
+    <span>{{source.titulo}} / {{source.subtitulo}} {{source.proceso}} {{source.capacidad}}</span>
+    
+    
+    <div class="zoom-control">
+        <div class="btn-zoom menos" ng-click="menos()"></div>
+        <div class="zoom-value" ng-click="restablecer()">{{zoom}}</div>
+        <div class="btn-zoom mas" ng-click="mas()"></div> 
+    </div>
+
+    
+    <div class="select-box ver" style="position: absolute;">
+        <div ng-click="muestraVer()">Ver por: <span style="text-decoration: underline; cursor:pointer;">{{ver == 0 ? 'Procesos' : ver == 1 ? 'Capacidades' : 'Reglas de negocio'}}</span></div>
+        <ul ng-hide="selectBoxVerHidden">
+            <li class="level" ng-click="clickVer(0)" ng-class="{'active': ver == 0}">
+                <div>Procesos</div>
+                <div style="font-size: 12px;">Nivel 2</div>
+            </li>
+            <li class="level" ng-click="clickVer(1)" ng-class="{'active': ver == 1}">
+                <div>Capacidades</div>
+                <div style="font-size: 12px;">Nivel 3</div>
+            </li>
+            <li class="level" ng-click="clickVer(2)" ng-class="{'active': ver == 2}">
+                <div>Reglas de Negocio</div>
+                <div style="font-size: 12px;">Nivel 4</div>
+            </li>
+        </ul>
+    </div>
+    
+    
+    <div class="select-box ordenar" style="position: absolute;" ng-show="ver != 0">
+        <div ng-click="muestraOrdenar()">Ordenar por: <span style="text-decoration: underline; cursor:pointer;">{{selected == 0 ? 'Sin ordenar' : selected == 1 ? 'Áreas' : 'Aplicaciones'}}</span></div>
+        <ul ng-hide="selectBoxOrdenarHidden">
+            <li ng-click="clickOption(0)" ng-class="{'active': selected == 0}">Sin ordenar</li>
+            <li ng-click="clickOption(1)" ng-class="{'active': selected == 1}">Áreas</li>
+            <li ng-click="clickOption(2)" ng-class="{'active': selected == 2}">Aplicaciones</li>
+        </ul>
+    </div>
+</section>
+
+
+<!--
+<section class="subheader-back" ng-class="{'open': !openBar}">
+
+    <div class="how-to-see">
+        <div class="txt">VER</div>
+        <div class="btn left">Capacidades</div><div class="btn right" >Reglas de Negocio</div>
+        
+    </div>
+    <div class="how-to-order">
+        <div class="txt">ORDENAR POR</div>
+        <div class="btn" >Procesos</div>
+        <div class="btn" ng-click="clickOption(1)" ng-class="{'active': selected == 1}">Áreas</div>
+        <div class="btn" ng-click="clickOption(2)" ng-class="{'active': selected == 2}">Aplicaciones</div>
+    </div>
+
+</section>-->

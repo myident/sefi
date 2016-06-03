@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+	<meta charset="UTF-8">
+	<title>{{appName}}</title>	
+
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="msapplication-tap-highlight" content="no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+
+	<!-- Style -->
+	<link rel="stylesheet" href="assets/css/style.css">
+	
+	<!-- Directives Style -->
+	<link rel="stylesheet" href="app/shared/directives/main/ng-header/ng-header.style.css">
+	<link rel="stylesheet" href="app/shared/directives/main/ng-background/ng-background.style.css">
+	<link rel="stylesheet" href="app/shared/directives/main/spin/assets/spin.style.css">
+
+	<!-- Modules Style -->
+	<link rel="stylesheet" href="app/modules/home/assets/home.style.css">
+	<link rel="stylesheet" href="app/modules/processes/assets/processes.style.css">
+	<link rel="stylesheet" href="app/modules/processes/assets/processes.detail.style.css">
+	<link rel="stylesheet" href="app/modules/ecosistema/assets/ecosistema.style.css">
+
+</head>
+
+<body ng-controller="AppController">
+
+	<!-- Render view -->
+	<spin ng-show="spin"></spin>
+	<div class="main" ng-view></div> 
+
+	<!-- References any -->
+	<script src="./bower_components/snap.svg/dist/snap.svg-min.js"></script>
+	<script src="./bower_components/snap.svg.zpd/snap.svg.zpd.js"></script>
+	<script src="./app/shared/extensions/multitext.extension.js"></script>
+
+	<!-- References angular.js -->
+	<script src="./bower_components/angular/angular.min.js"></script>
+	<script src="./bower_components/angular-route/angular-route.min.js"></script>
+	<script src="./bower_components/angular-touch/angular-touch.min.js"></script>
+	<script src="./bower_components/angular-resource/angular-resource.min.js"></script>
+	<script src="./bower_components/angular-animate/angular-animate.min.js"></script>
+	
+	<!-- app config -->
+	<script src="app/config/app.module.js"></script>
+	<script src="app/config/app.router.js"></script>
+	<script src="app/config/app.controller.js"></script>
+	<script src="app/config/app.service.js"></script>
+
+	<!-- Directives -->
+	<script src="app/shared/directives/main/ng-header/ng-header.directive.js"></script>
+	<script src="app/shared/directives/main/ng-background/ng-background.directive.js"></script>
+	<script src="app/shared/directives/main/spin/spin.directive.js"></script>
+	
+	<script src="app/shared/directives/procesos/ng-flipcard/ng-flipcard.directive.js"></script>
+	<script src="app/shared/directives/procesos/ng-mapside/ng-mapside.directive.js"></script>
+	<script src="app/shared/directives/procesos/ng-breadcrumb/ng-breadcrumb.directive.js"></script>
+	<script src="app/shared/directives/procesos/ng-index/ng-index.directive.js"></script>
+	<script src="app/shared/directives/procesos/ng-ways/ng-ways_vash.directive.js"></script>
+	<script src="app/shared/directives/procesos/ng-layouts/ng-layouts.directive.js"></script>
+
+	<!-- Modules  -->
+	<script src="app/modules/home/home.module.js"></script>
+	<script src="app/modules/processes/processes.module.js"></script>
+	<script src="app/modules/ecosistema/ecosistema.module.js"></script>
+
+	<!-- Controllers -->
+	<script src="app/modules/home/controllers/home.controller.js"></script>
+	<script src="app/modules/processes/controllers/processes.controller.js"></script>
+	<script src="app/modules/processes/controllers/processes.detail.controller.js"></script>
+	<script src="app/modules/ecosistema/controllers/vista-ecosistemas.controller.js"></script>
+
+	<!-- Services -->
+	<script src="app/config/app.service.js"></script>
+	
+	<!-- Services for Ways-->
+	<script src="app/shared/services/ways/vash.service.js"></script>
+	<script src="app/shared/services/ways/paint.service.js"></script>
+	<script src="app/shared/services/ways/shapes.service.js"></script>
+	<script src="app/shared/services/ways/build.service.js"></script>
+	<script src="app/shared/services/ways/layouts.service.js"></script>
+	<script src="app/shared/services/ways/settings.services.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!--ng Background-->
+<ng-background 
+    set="ba"></ng-background>
+
+<!--ng Header-->   
+<ng-header
+    set-elementos-menu="elementosMenu"></ng-header>
+    
+<main class="processes-detail">
+   
+    <!--ng Breadcrumb-->
+    <ng-breadcrumb 
+        set="breadcrumb"
+        send="getLayout"
+        send-ver="getVista"
+        hide-bar="hideBar"
+        zoom="zoom"
+        zoom-in="mas"
+        zoom-out="menos"
+        zoom-reset="restablecerZoom"
+        ></ng-breadcrumb>
+
+    <section class="sidebar-left" ng-class="{'close': !openBar}">
+       
+        <section class="container-card">
+            <div class="card flipped">
+                <article class="backside" ng-if="!spin">
+                    <div class="dominios">Dominios</div>
+                    <ng-mapside 
+                        source="dominios" 
+                        position="source.rutas[0]" 
+                        subposition="subposicion">
+                    </ng-mapside>
+                </article>
+            </div>
+        </section>
+        
+        <!--ng Index-->
+        <ng-index 
+            source="megaprocesos"
+            get="getIndex"
+            ></ng-index>
+        
+    </section><section class="sidebar-right" ng-class="{'open': !openBar}">
+
+        <!--ng Ways-->
+        <div class="svg-container">
+    
+<!--
+            <div 
+                class="btn-close-side" 
+                ng-click="cerrarSideBar()" 
+                ng-class="{'open': !openBar}"></div>
+-->
+               
+            <div 
+                class="header-container" 
+                ng-layouts 
+                config="config" 
+                layout="layout"
+                ng-style="getHeaderStyle()"
+                ></div>
+            
+            <div 
+                class="diagram-container" 
+                ng-class="{'top-zero': layout == 0}" 
+                ng-style="getStyle()">
+                
+                <svg ng-ways 
+                    style="font-family:'SF'" 
+                    source="procesos" 
+                    config="config" 
+                    layout="layout"
+                    type="type"
+                    activar="abrirCapacidades"
+                    ></svg> 
+            </div>
+
+        </div>
+        
+    </section>
+</main>

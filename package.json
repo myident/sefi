@@ -1,0 +1,13 @@
+{
+    "name": "olverawhite",
+    "version": "0.0.3",
+    "description": "This is the server",
+    "dependencies": {
+        "body-parser": "latest",
+        "compression": "latest",
+        "express": "latest",
+        "express-session": "latest",
+        "method-override": "latest",
+        "morgan": "latest"
+    }
+}

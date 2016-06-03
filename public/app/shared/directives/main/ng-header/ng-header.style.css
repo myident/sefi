@@ -1,0 +1,299 @@
+/*
+    Author: Alan Noé Olvera Ramos,
+    Directive: ngHeader
+*/
+
+ng-header > header {
+    width: 100%;
+    height: 80px;
+    background-image: url(../../../../modules/home/assets/img/Fondo-IT-Book_blur_web_2.png);
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4;
+}
+ng-header > header:before {
+    width: 100%;
+    height: 80px;
+    content: '';
+    display: block;
+    background-color: rgba(47, 47, 47, 0.85);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+ng-header > header > div.logo-it-book {
+    max-width: 1440px;
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+    z-index: 2;
+}
+
+ng-header > header > div.logo-it-book > i.logo-att {
+    width: 85px;
+    height: 35px;
+    background-image: url(img/Logo%20AT&T.svg);
+    display: inline-block;
+    margin: 20px 30px 0 20px;
+    position: relative;
+}
+
+ng-header > header > div.logo-it-book > i.logo-att:after {
+    width: 1.5px;
+    height: 35px;
+    background-color: #fff;
+    display: inline-block;
+    position: absolute;
+    right: -17px;
+    content: '';
+}
+
+ng-header > header > div.logo-it-book > p.it-book {
+    font-weight: 100;
+    color: #ffffff;
+    display: inline-block;
+    line-height: 80px;
+    margin: 0;
+    vertical-align: top;
+    font-family: 'Clearview Light';
+    font-weight: 100;
+    font-size: 30px;
+}
+
+ng-header > header > div.logo-it-book > p.it-book > span:first-child {
+    color: #70C5E8;
+    margin-right: 10px;
+}
+
+
+/* INPUT */
+
+.input-search {
+    width: 350px;
+    display: inline-block;
+    float: right;
+    margin-right: 20px;
+    margin-top: 20px;
+    background: #fff;
+    height: 40px;
+    border-radius: 20px;
+    box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.input-search > input {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    position: absolute;
+    top: 13px;
+    left: 20px;
+    font-size: 16px;
+    color: #868686;
+    font-family: 'Omnes Regular';
+    width: calc(100% - 40px);
+}
+
+.input-search > .search-icon {
+    background: url(img/Icono%20Lupa%20Copy.svg);
+    width: 27px;
+    height: 27px;
+    display: inline-block;
+    position: absolute;
+    right: 13px;
+    top: 8px;
+}
+
+
+/* INPUT */
+
+
+/* MENU */
+
+.header-menu-it-book {
+    width: 100%;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 4px 2px 0px rgba(0, 0, 0, 0.1);
+    position: relative;
+    background-image: url(../../../../modules/home/assets/img/Fondo-IT-Book_blur_web_2.png);
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+}
+
+.header-menu-it-book:before {
+    width: 100%;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.7);
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.header-menu-it-book > nav {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.header-menu-it-book > nav > a {
+    font-size: 16px;
+    font-family: 'Clearview';
+    color: #4E4E4E;
+    line-height: 60px;
+    width: calc(100% / 7);
+    display: inline-block;
+    text-align: center;
+    -webkit-transition: all ease 0.3s;
+}
+
+.header-menu-it-book > nav > a.active {
+    box-shadow: inset 0 -8px 0 0 #009FDB;
+}
+
+/* MENU */
+
+
+/* SUBMENU */
+
+.header-submenu-it-book {
+    width: 100%;
+    height: 140px;
+    background-color: rgba(255, 255, 255, 0.9);
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    -webkit-transition: all ease 0.3s;
+}
+
+.header-submenu-it-book.hide {
+    height: 0px!important;
+}
+
+.header-submenu-it-book > nav {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.header-submenu-it-book > nav > a {
+    text-align: center;
+    width: calc(100% / 6);
+    display: inline-block;
+}
+
+.header-submenu-it-book > nav > a > div > p {
+    padding: 0;
+    margin: 0;
+    color: #4E4E4E;
+    font-size: 16px;
+    font-family: 'Clearview';
+    margin-top: 10px;
+}
+
+.header-submenu-it-book > nav > a > div.active > p {
+    color: #009FDB;
+}
+
+
+/* SUBMENU */
+
+/* SUBMENU ELEMENTS */
+
+.header-submenu-it-book > nav > a > div > i {
+    width: 15px;
+    height: 35px;
+    display: inline-block;
+    margin-top: 30px;
+    -webkit-transition: all ease 0.2s;
+}
+
+.header-submenu-it-book > nav > a > div > i.srm {
+    background-image: url(img/srm.svg);
+    width: 44px;
+    height: 39px;
+}
+
+.header-submenu-it-book > nav > a > div.active > i.srm {
+    background-image: url(img/srm%20blue.svg);
+}
+
+.header-submenu-it-book > nav > a > div > i.arquitectura {
+    background-image: url(img/arquitectura.svg);
+    width: 44px;
+    height: 48px;
+}
+
+.header-submenu-it-book > nav > a > div.active > i.arquitectura {
+    background-image: url(img/aqrqui%20blue.svg);
+}
+
+.header-submenu-it-book > nav > a > div > i.operaciones {
+    background-image: url(img/operaciones.svg);
+    width: 49px;
+    height: 38px;
+}
+
+.header-submenu-it-book > nav > a > div.active > i.operaciones {
+    background-image: url(img/operaciones%20blue.svg);
+    ;
+}
+
+.header-submenu-it-book > nav > a > div > i.seguridad {
+    background-image: url(img/seguridad.svg);
+    width: 44px;
+    height: 51px;
+}
+
+.header-submenu-it-book > nav > a > div.active > i.seguridad {
+    background-image: url(img/seguridad%20blue.svg);
+}
+
+.header-submenu-it-book > nav > a > div > i.desarrollo {
+    background-image: url(img/desarrollo.svg);
+    width: 45px;
+    height: 44px;
+}
+
+.header-submenu-it-book > nav > a > div.active > i.desarrollo {
+    background-image: url(img/desarrollo%20blue.svg);
+}
+
+.header-submenu-it-book > nav > a > div > i.procesos-it {
+    background-image: url(img/procesos%20it.svg);
+    width: 37px;
+    height: 46px;
+}
+
+.header-submenu-it-book > nav > a > div.active > i.procesos-it {
+    background-image: url(img/procesos%20it%20blue.svg);
+}
+
+.overlay {
+    display: inline-block;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: rgba(0,0,0,0);
+    z-index: 0;
+}
+
+
+/* SUBMENU ELEMENTS */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+    .header-menu-it-book > nav > a {
+        font-size: 14px;
+    }
+}

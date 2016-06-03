@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="42px" height="100px" viewBox="0 0 42 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.2 (29753) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="PROCESOS-N1-CON-BARRA" transform="translate(-270.000000, -276.000000)">
+            <g id="PESTAÑAS-LAT-IZQ" transform="translate(270.000000, 276.000000)">
+                <g id="Group">
+                    <rect id="Rectangle-158" fill="#DCDCDC" x="0" y="0" width="41.1199989" height="100" rx="8"></rect>
+                    <text id="Procesos" transform="translate(22.000000, 49.500000) rotate(-90.000000) translate(-22.000000, -49.500000) " font-family="SFUIDisplay-Regular, SF UI Display" font-size="20" font-weight="normal" fill="#3C3C3C">
+                        <tspan x="-18.5" y="56.5">Procesos</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,59 @@
+.header-vista-ecosistemas {
+    position: relative;
+    height: 45px;
+}
+.btn-vista-procesos {
+    width: 57px;
+    height: 45px;
+    line-height: 45px;
+    background: #009FDB;
+    color: white;
+    font-size: 16px;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.btn-vista-procesos:after {
+    content: '';
+    display: block;
+    height: 15px;
+    width: 12px;
+    background: url(./img/triangle-close.svg);
+    position: absolute;
+    right: 24px;
+    top: 15px;
+}
+
+.ttl-vista-procesos {
+    font-size: 18px;
+    position: absolute;
+    top: 0;
+    left: 80px;
+    line-height: 45px;
+    font-family: 'SF Regular';
+    color: #4E4E4E;
+}
+
+.lista-ecosistemas {
+    width: 80%;
+    margin: 0 auto;
+/*
+    background: url(img/Group.png);
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: top center;
+*/
+    height: 100%;
+}
+.lista-ecosistemas img {
+    margin: 0 auto;
+    width: 1200px;
+    display: block;
+}
+.body-vista-ecosistemas {
+    margin-top: 40px;
+    height: calc(100% - 60px);
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="37px" height="37px" viewBox="0 0 37 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.7 (28169) - http://www.bohemiancoding.com/sketch -->
+    <title>ICONO MAS Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="GUÍA-HOVER-BOTONES" transform="translate(-388.000000, -357.000000)">
+            <g id="HOVER-MAS" transform="translate(303.000000, 49.000000)">
+                <g id="ICONO-MAS-Copy" transform="translate(86.000000, 309.000000)">
+                    <path d="M25.5509833,9.87798471 C25.8970478,9.53542466 25.8970478,8.98084534 25.5509833,8.6391614 C25.2057949,8.29660134 24.6450828,8.29660134 24.2998944,8.6391614 L17.0877349,15.8118958 L9.80899084,8.53227565 C9.46380244,8.18621115 8.90309034,8.18621115 8.55790195,8.53227565 C8.21271355,8.87921627 8.21271355,9.44080449 8.55790195,9.78686899 L15.8313893,17.0612325 L8.53161857,24.320702 C8.18643017,24.6632621 8.18643017,25.2178414 8.53161857,25.5595254 C8.87680696,25.9020854 9.43751906,25.9020854 9.78270746,25.5595254 L17.0763454,18.3061886 L24.3261777,25.556897 C24.6713661,25.9029615 25.2320782,25.9029615 25.5772666,25.556897 C25.922455,25.2099564 25.922455,24.6483682 25.5772666,24.3023037 L18.332691,17.0568519 L25.5509833,9.87798471 Z" id="Close" fill="#757575" transform="translate(17.054443, 17.044586) rotate(44.000000) translate(-17.054443, -17.044586) "></path>
+                    <circle id="Oval-15" stroke="#757575" stroke-width="2" cx="17.5" cy="17.5" r="17.5"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
