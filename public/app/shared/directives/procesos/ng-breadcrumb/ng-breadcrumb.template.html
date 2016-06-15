@@ -37,12 +37,10 @@
                 <div>Capacidades</div>
                 <div style="font-size: 12px;">Nivel 3</div>
             </li>
-<!--
             <li class="level" ng-click="clickVer(2)" ng-class="{'active': ver == 2}">
                 <div>Reglas de Negocio</div>
                 <div style="font-size: 12px;">Nivel 4</div>
             </li>
--->
         </ul>
     </div>
     
@@ -51,10 +49,8 @@
         <div ng-click="muestraOrdenar()">Ordenar por: <span style="text-decoration: underline; cursor:pointer;">{{selected == 0 ? 'Sin ordenar' : selected == 1 ? 'Áreas' : 'Aplicaciones'}}</span></div>
         <ul ng-hide="selectBoxOrdenarHidden">
             <li ng-click="clickOption(0)" ng-class="{'active': selected == 0}">Sin ordenar</li>
-<!--
             <li ng-click="clickOption(1)" ng-class="{'active': selected == 1}">Áreas</li>
             <li ng-click="clickOption(2)" ng-class="{'active': selected == 2}">Aplicaciones</li>
--->
         </ul>
     </div>
 </section>
