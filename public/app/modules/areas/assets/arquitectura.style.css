@@ -11,7 +11,22 @@
     background-image: url(img/parte2.png);
     background-size: cover;
 }
+.arq-trayectoria > .regresar {
+    cursor: pointer;
+}
 
+.arq-trayectoria > .regresar > i{
+    width: 8px;
+    height: 14px;
+    background: url(img/regresar.svg);
+    display: inline-block;
+}
+
+.arq-trayectoria > .regresar > span{
+    font-size: 18px;
+    color: #626262;
+    padding-left: 10px;
+}
 .arq-areas {
     width: 100%;
     height: calc(100vh - 40px);
@@ -24,6 +39,24 @@
     height: calc(100vh - 40px);
     background-image: url(img/parte4.png);
     background-size: cover; 
+}
+
+
+.arq-gobierno > .regresar {
+    cursor: pointer;
+}
+
+.arq-gobierno > .regresar > i{
+    width: 8px;
+    height: 14px;
+    background: url(img/regresar.svg);
+    display: inline-block;
+}
+
+.arq-gobierno > .regresar > span{
+    font-size: 18px;
+    color: #626262;
+    padding-left: 10px;
 }
 
 .arq-contenidos {
