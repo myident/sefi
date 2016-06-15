@@ -4,3 +4,70 @@
     background-image: url(img/parte1.png);
     background-size: cover;
 }
+
+.arq-trayectoria {
+    width: 100%;
+    height: calc(100vh - 40px);
+    background-image: url(img/parte2.png);
+    background-size: cover;
+}
+
+.arq-areas {
+    width: 100%;
+    height: calc(100vh - 40px);
+    background-image: url(img/parte3.png);
+    background-size: cover;
+}
+
+.arq-gobierno {
+    width: 100%;
+    height: calc(100vh - 40px);
+    background-image: url(img/parte4.png);
+    background-size: cover; 
+}
+
+.arq-contenidos {
+    width: 100%;
+    height: calc(100vh - 40px);
+    background-color: #F2F2F3;
+}
+
+.arq-contenidos > .contenido {
+    width: 1160px;
+    height: 716px;
+    display: block;
+    margin: 0 auto;
+    background-image: url(img/parte5.png);
+    background-size: cover;
+}
+
+.arq-contenidos > .contenido.open {
+    width: 1160px;
+    height: 716px;
+    display: block;
+    margin: 0 auto;
+    background-image: url(img/parte6.png);
+    background-size: cover;
+}
+
+.arq-contenidos .title-contenidos {
+    display: block;
+    width: 1130px;
+    margin: 0 auto 30px auto;
+}
+
+.arq-contenidos .title-contenidos > i {
+    width: 31px; 
+    height: 33px;
+    display: inline-block;
+    background-image: url(img/arq-contenidos-icon.svg);
+    vertical-align: middle;
+}
+
+.arq-contenidos .title-contenidos > span {
+    font-size: 35px;
+    color: #4E4E4E;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+}

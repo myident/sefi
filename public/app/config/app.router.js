@@ -30,10 +30,34 @@
             controller: 'VistaEcosistemasController'
         });
     
-        // Detalle Procesos
+        // Arquitectura Intro
         $routeProvider.when('/areas/arquitectura', {
             templateUrl: baseUrl + 'areas/views/arquitectura.view.html',
             controller: 'ArquitecturaController'
+        });
+        
+        // Arquitectura Trayectoria
+        $routeProvider.when('/areas/arquitectura/trayectoria', {
+            templateUrl: baseUrl + 'areas/views/trayectoria.view.html',
+            controller: 'TrayectoriaController'
+        });
+        
+        // Arquitectura Areas
+        $routeProvider.when('/areas/arquitectura/areas', {
+            templateUrl: baseUrl + 'areas/views/arq-areas.view.html',
+            controller: 'ArqAreasController'
+        });
+        
+        // Arquitectura Gobierno IT
+        $routeProvider.when('/areas/arquitectura/gobierno', {
+            templateUrl: baseUrl + 'areas/views/gobierno.view.html',
+            controller: 'GobiernoController'
+        });
+        
+        // Arquitectura Contenidos
+        $routeProvider.when('/areas/arquitectura/contenidos', {
+            templateUrl: baseUrl + 'areas/views/arq-contenidos.view.html',
+            controller: 'ArqContenidosController'
         });
     };
 
