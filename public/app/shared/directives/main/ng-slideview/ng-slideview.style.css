@@ -13,7 +13,7 @@ ng-slideview > .vertical-line{
 	margin-top: -45px;
 	height: 90px;
 	width: 1px;
-	background-color: rgb(150,150,150);
+	background-color: #C4C4C4;
 }
 ng-slideview > ul.items li{
 	height: 45px;
