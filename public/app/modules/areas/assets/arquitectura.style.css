@@ -1,0 +1,6 @@
+.arq {
+    width: 100%;
+    height: calc(100vh - 40px);
+    background-image: url(img/parte1.png);
+    background-size: cover;
+}
