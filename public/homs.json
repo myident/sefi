@@ -1133,7 +1133,8 @@
                         "reglas": []
                     }],
                     "areas": []
-                }, {
+                }, 
+                                  {
                     "title": "Subscription Management",
                     "open": false,
                     "aplicaciones": [{
