@@ -29,6 +29,12 @@
             templateUrl: baseUrl + 'ecosistema/views/vista-ecosistemas.view.html',
             controller: 'VistaEcosistemasController'
         });
+    
+        // Detalle Procesos
+        $routeProvider.when('/areas/arquitectura', {
+            templateUrl: baseUrl + 'areas/views/arquitectura.view.html',
+            controller: 'ArquitecturaController'
+        });
     };
 
     router.$inject = ['$routeProvider'];
