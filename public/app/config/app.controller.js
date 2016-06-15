@@ -14,6 +14,7 @@
             },
             {
                 title: 'Nuestras áreas',
+                link: 'areas/arquitectura',
                 subElements: [
                     {
                         title: 'SR&M',
@@ -23,7 +24,7 @@
                     },
                     {
                         title: 'Arquitectura',
-                        link: '',
+                        link: 'areas/arquitectura',
                         imgClass: 'arquitectura',
                         active: false
                     },

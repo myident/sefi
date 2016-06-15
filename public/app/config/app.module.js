@@ -2,7 +2,7 @@
 (function () {
 
     var angularModules      = ["ngRoute","ngTouch", "ngResource", "ngAnimate"];
-    var customModules       = ["mHome", "mProcesses", "mEcosistema"];
+    var customModules       = ["mHome", "mProcesses", "mEcosistema", "mAreas"];
     var componentsModules   = ["mHeaderDirective", "mBackground", "Spin"];
     var services            = ["mainService", "mVash"];
 
