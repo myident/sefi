@@ -35,8 +35,8 @@
             var lastOffset = self.offsetProcesos.x[(self.offsetProcesos.x.length - 1)];
             var lastWidth = (self.widthProcesos[(self.widthProcesos.length - 1)] / 2);
             var totalWidth = lastWidth + lastOffset + 25;
-//            return (totalWidth * self.zoom);
-            return 600;
+            return (totalWidth * self.zoom);
+//            return 600;
         };
 
         
@@ -62,17 +62,19 @@
             var textToMatch = '';
 
             if (searchIn !== '') {
-                console.log(capacity[searchIn]);
+                
                 if (capacity[searchIn] !== undefined && capacity[searchIn].length) {
-
+//                    console.log(capacity.name)
                     // Search In: Array
                     for (var k in arr) {
                         textInTheArray = arr[k].text;
+                        
                         for (var l in capacity[searchIn]) {
                             textToMatch = capacity[searchIn][l][searchBy];
+                            
                             if (textToMatch !== undefined &&
                                 textToMatch.toUpperCase() == textInTheArray.toUpperCase()) {
-
+                                
                                 offset = arr[k].offset;
                             }
                         }

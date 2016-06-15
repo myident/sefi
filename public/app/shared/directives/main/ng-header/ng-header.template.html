@@ -16,7 +16,7 @@
     </div>
     <div class="header-submenu-it-book" ng-class="{'hide':submenuHidden}" ng-mouseleave="hidesubmenu()">
         <nav>
-            <a href="#/" ng-repeat="subMenu in menu[elementHovering].subElements" ng-mouseenter="activateElement($index)" ng-mouseleave="deactivateElement()">
+            <a href="#/{{subMenu.link}}" ng-repeat="subMenu in menu[elementHovering].subElements" ng-mouseenter="activateElement($index)" ng-mouseleave="deactivateElement()">
                 <div ng-class="{'active': subMenu.active}">
                     <i class="{{subMenu.imgClass}}" ng-class="{'active': subMenu.active}"></i>
                     <p>{{subMenu.title}}</p>

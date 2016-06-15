@@ -16,6 +16,8 @@
                     
                     for (var j in proceso[type]) {
                         var capacidad = proceso[type][j];
+                        console.log(proceso);
+
                         capacidad.offsets = [
                             {
                                 x: 0,
@@ -30,9 +32,16 @@
                                 y: 0
                             }
                         ];
+                        
                         offsets[0].x = config.layouts.initial[i].offset.x;
                         offsets[0].y = offsets[0].y;
+                        
+                        if (proceso.name != 'Activation') {
                         offsets[1].x = $vash.findOffsetInArray(config.layouts.vertical, capacidad, 'areas').x;
+                        }
+                        
+
+                        
                         offsets[1].y = offsets[1].y;
                         
                         offsets[2].x = $vash.findOffsetInArray(config.layouts.horizontal, capacidad, 'aplicaciones').x;
