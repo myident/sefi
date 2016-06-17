@@ -194,6 +194,12 @@
 
         $scope.abrirCapacidades = false;
         
+        $scope.imprimir = "";
+        
+        $scope.imprimirDesdeBreadCrumb = function() {
+            $scope.imprimir = "print";
+        };
+        
 
         
         

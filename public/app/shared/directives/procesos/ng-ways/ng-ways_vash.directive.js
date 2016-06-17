@@ -1,18 +1,18 @@
-/* global angular, Snap */
+/* global angular, Snap, svgAsPngUri, jsPDF */
 (function () {
     var Directive = function ($vash, $build, $layout, $settings) {
-        
-        var Link = function ($scope, element) {
-            
-            $scope.svg           = Snap(element[0]); // Creación del Paper
 
-            $scope.layoutGroups  = [{},{},{}]; // Grupos de Layout para guardar los Layouts
-            $scope.objss         = []; // Array que contiene las capacidades del proceso
-            $scope.prccessArr    = []; // Array que contiene los procesos
+        var Link = function ($scope, element) {
+
+            $scope.svg = Snap(element[0]); // Creación del Paper
+
+            $scope.layoutGroups = [{}, {}, {}]; // Grupos de Layout para guardar los Layouts
+            $scope.objss = []; // Array que contiene las capacidades del proceso
+            $scope.prccessArr = []; // Array que contiene los procesos
             $scope.procesosGroup = {}; // Grupo que contiene los procesos a nivel de SVG
-            
+
             // MARK: - Watchers que escuchan los cambios de la directiva
-            
+
             $scope.$watch('source', function () {
                 $scope.reset();
             });
@@ -24,12 +24,54 @@
             $scope.$watch('type', function () {
                 $scope.reset();
             });
-            
+
             $scope.$watch('activar', function () {
                 $scope.reset();
             });
-            
-            
+
+            $scope.$watch('print', function (n, o) {
+                if (n == 'print') {
+                    $scope.imprimir();
+                    $scope.print = "";
+                } else {
+                    $scope.print = "";
+                }
+            });
+
+            $scope.imprimir = function () {
+                var ancho, alto, nuevaAltura;
+                
+                if ($scope.layout > 0) {
+                    
+                    ancho = $vash.sumOffsetsInX();
+                    alto = $vash.sumOffsetsInY();
+                    nuevaAltura = ((780 * ancho) / alto);
+
+                    svgAsPngUri(element[0], {}, function (uri) {
+                        
+                        var pdf = new jsPDF('p', 'pt', 'letter' );
+                        
+                        pdf.addImage(uri, 'PNG', 0, 0, nuevaAltura, 780);
+                        pdf.save('Test.pdf');
+                    });
+                    
+                } else {
+                    
+                    ancho = $vash.sumOffsetsInX();
+                    alto = $vash.heightProcesosMax();
+                    nuevaAltura = ((780 * alto) / ancho);
+
+                    svgAsPngUri(element[0], {}, function (uri) {
+                        var pdf = new jsPDF('l', 'pt', 'letter' );
+                        pdf.addImage(uri, 'PNG', 0, 0, 780, nuevaAltura);
+                        pdf.save('Test.pdf');
+                    });
+
+                }
+                
+            };
+
+
             //MARK: - Funciones
             $scope.main = {
                 procesos: {
@@ -59,7 +101,7 @@
             };
             // Constructor de los Layouts
             $scope.buildLayouts = function () {
-                
+
                 // Tamaño de cada uno de los Layouts
                 // En orden queda [initial, areas, applications]
                 var layoutSizes = [
@@ -87,24 +129,24 @@
                         }
                     }
                 ];
-                
+
                 // Se crea la configuración para utilizar el servicio $layout
                 $layout.setConfiguration(
-                    $scope.config, 
-                    $scope.svg, 
-                    $scope.source, 
+                    $scope.config,
+                    $scope.svg,
+                    $scope.source,
                     $scope.sizes);
-                
+
                 // Con el servicio $layout se crea cada layout, de acuerdo al $scope.layout
                 // Se debe tener en cuenta que $scope.layout se recibe en la directiva
                 $layout.create[0](
                     layoutSizes[0],
                     $scope.layoutGroups[0]);
-                
+
                 $layout.create[1](
                     layoutSizes[1],
                     $scope.layoutGroups[1]);
-                
+
                 $layout.create[2](
                     layoutSizes[2],
                     $scope.layoutGroups[2]);
@@ -128,28 +170,28 @@
                         y: 140
                     }
                 ];
-                
+
                 // Se limpia el SVG
                 $scope.svg.clear();
                 $vash.zoom = 1;
-                
+
                 // Se reconstruyen los layouts
                 $scope.buildLayouts();
 
-                
+
                 // Se verifica que existan procesos en $scope.source
                 if ($scope.source.length) {
-                    
+
                     // Se preparan los procesos para dibujarlos
                     $settings.processes(
                         $scope.source, // array que contiene los procesos
-                        offsetsInit,   // offsets por default para los procesos
+                        offsetsInit, // offsets por default para los procesos
                         $scope.config, // el config que recibe la directiva
                         $scope.layout, // el layout que debe cargar segun la directiva
                         $scope.type,
                         $scope.main,
-                        $scope.activar);  // se refiere si muestra capacidades o reglas de negocio
-                    
+                        $scope.activar); // se refiere si muestra capacidades o reglas de negocio
+
                     // Se dibujan los procesos
                     $build.processes(
                         $scope.source,
@@ -161,7 +203,7 @@
                         $scope.type,
                         $scope.main,
                         $scope.activar);
-                    
+
                     if ($scope.layout > 0) {
                         $scope.svg.attr({
                             viewBox: "0 0 " + $vash.sumOffsetsInX() + " " + $vash.sumOffsetsInY()
@@ -171,10 +213,10 @@
                             viewBox: "0 0 " + $vash.sumOffsetsInX() + " " + $vash.heightProcesosMax()
                         });
                     }
-                    
+
 
                 }
-            
+
             };
 
         };
@@ -187,7 +229,8 @@
                 config: '=',
                 layout: '=',
                 type: '=',
-                activar: '='
+                activar: '=',
+                print: '='
 
             }
         };
