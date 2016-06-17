@@ -29,6 +29,8 @@
                 $scope.reset();
             });
 
+            $scope.$watch('documentName', function () {});
+
             $scope.$watch('print', function (n, o) {
                 if (n == 'print') {
                     $scope.imprimir();
@@ -38,37 +40,49 @@
                 }
             });
 
+            function camelize(str) {
+                return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (letter, index) {
+                    return letter.toLowerCase();
+                }).replace(/\s+/g, '_');
+            }
+
             $scope.imprimir = function () {
                 var ancho, alto, nuevaAltura;
                 
+                var nombre = camelize($scope.documentName);
+
                 if ($scope.layout > 0) {
-                    
+
                     ancho = $vash.sumOffsetsInX();
                     alto = $vash.sumOffsetsInY();
                     nuevaAltura = ((780 * ancho) / alto);
+                    //saveSvgAsPng(element[0], "diagram.png", {scale: 3.5});
+                    svgAsPngUri(element[0], {
+                        scale: 1.5
+                    }, function (uri) {
 
-                    svgAsPngUri(element[0], {}, function (uri) {
-                        
-                        var pdf = new jsPDF('p', 'pt', 'letter' );
-                        
+                        var pdf = new jsPDF('p', 'pt', 'letter');
+
                         pdf.addImage(uri, 'PNG', 0, 0, nuevaAltura, 780);
-                        pdf.save('Test.pdf');
+                        pdf.save(nombre + '_areas.pdf');
                     });
-                    
+
                 } else {
-                    
+
                     ancho = $vash.sumOffsetsInX();
                     alto = $vash.heightProcesosMax();
                     nuevaAltura = ((780 * alto) / ancho);
-
-                    svgAsPngUri(element[0], {}, function (uri) {
-                        var pdf = new jsPDF('l', 'pt', 'letter' );
+                    //saveSvgAsPng(element[0], "diagram.png", {scale: 3.5});
+                    svgAsPngUri(element[0], {
+                        scale: 3.5
+                    }, function (uri) {
+                        var pdf = new jsPDF('l', 'pt', 'letter');
                         pdf.addImage(uri, 'PNG', 0, 0, 780, nuevaAltura);
-                        pdf.save('Test.pdf');
+                        pdf.save(nombre + '_capacities.pdf');
                     });
 
                 }
-                
+
             };
 
 
@@ -230,7 +244,8 @@
                 layout: '=',
                 type: '=',
                 activar: '=',
-                print: '='
+                print: '=',
+                documentName: '='
 
             }
         };

@@ -122,14 +122,14 @@
                         };
                     }
                     // Se guarda el macroproceso elegido en el breadcrumb
-                    $scope.breadcrumb.capacidad = '/ ' + $scope.megaprocesos[$scope.indexMega].macroprocesos[index].title;
+                    $scope.breadcrumb.capacidad =  $scope.megaprocesos[$scope.indexMega].macroprocesos[index].title;
 
                 }
             } else {
                 // Cuando se elige un megaproceso en el índice, se guarda el $index en indexMega
                 $scope.indexMega = index;
                 // Se guarda el megaproceso elegido en el breadcrumb
-                $scope.breadcrumb.proceso = '/ ' + $scope.megaprocesos[$scope.indexMega].title;
+                $scope.breadcrumb.proceso = '/ ' + $scope.megaprocesos[$scope.indexMega].title + '/ ';
             }
 
         };
