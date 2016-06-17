@@ -35,8 +35,9 @@
                         offsets[0].x = config.layouts.initial[i].offset.x;
                         offsets[0].y = offsets[0].y;
                         
+                        if (proceso.name != 'Activation') {
                         offsets[1].x = $vash.findOffsetInArray(config.layouts.vertical, capacidad, 'areas').x;
-
+                        }
                         
 
                         

@@ -1,6 +1,6 @@
 /* global angular, Snap, svgAsPngUri, jsPDF */
 (function () {
-    var Directive = function ($vash, $build, $layout, $settings) {
+    var Directive = function ($vash, $build, $layout, $settings, $rootScope) {
 
         var Link = function ($scope, element) {
 
@@ -31,7 +31,7 @@
 
             $scope.$watch('documentName', function () {});
 
-            $scope.$watch('print', function (n, o) {
+            $scope.$watch('print', function (n) {
                 if (n == 'print') {
                     $scope.imprimir();
                     $scope.print = "";
@@ -41,47 +41,52 @@
             });
 
             function camelize(str) {
-                return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (letter, index) {
+                return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (letter) {
                     return letter.toLowerCase();
                 }).replace(/\s+/g, '_');
             }
 
             $scope.imprimir = function () {
-                var ancho, alto, nuevaAltura;
                 
-                var nombre = camelize($scope.documentName);
+                if ($scope.documentName !== '') {
+                    $rootScope.spin = true;
 
-                if ($scope.layout > 0) {
+                    var ancho, alto, nuevaAltura;
 
-                    ancho = $vash.sumOffsetsInX();
-                    alto = $vash.sumOffsetsInY();
-                    nuevaAltura = ((780 * ancho) / alto);
-                    //saveSvgAsPng(element[0], "diagram.png", {scale: 3.5});
-                    svgAsPngUri(element[0], {
-                        scale: 1.5
-                    }, function (uri) {
+                    var nombre = camelize($scope.documentName);
 
-                        var pdf = new jsPDF('p', 'pt', 'letter');
+                    if ($scope.layout > 0) {
 
-                        pdf.addImage(uri, 'PNG', 0, 0, nuevaAltura, 780);
-                        pdf.save(nombre + '_areas.pdf');
-                    });
+                        ancho = $vash.sumOffsetsInX();
+                        alto = $vash.sumOffsetsInY();
+                        nuevaAltura = ((780 * ancho) / alto);
+                        svgAsPngUri(element[0], {
+                            scale: 1.5
+                        }, function (uri) {
 
-                } else {
+                            var pdf = new jsPDF('p', 'pt', 'letter');
 
-                    ancho = $vash.sumOffsetsInX();
-                    alto = $vash.heightProcesosMax();
-                    nuevaAltura = ((780 * alto) / ancho);
-                    //saveSvgAsPng(element[0], "diagram.png", {scale: 3.5});
-                    svgAsPngUri(element[0], {
-                        scale: 3.5
-                    }, function (uri) {
-                        var pdf = new jsPDF('l', 'pt', 'letter');
-                        pdf.addImage(uri, 'PNG', 0, 0, 780, nuevaAltura);
-                        pdf.save(nombre + '_capacities.pdf');
-                    });
+                            pdf.addImage(uri, 'PNG', 0, 0, nuevaAltura, 780);
+                            $rootScope.spin = false;
+                            pdf.save(nombre + '_areas.pdf');
+                        });
 
+                    } else {
+                        ancho = $vash.sumOffsetsInX();
+                        alto = $vash.heightProcesosMax();
+                        nuevaAltura = ((780 * alto) / ancho);
+                        svgAsPngUri(element[0], {
+                            scale: 3.5
+                        }, function (uri) {
+                            var pdf = new jsPDF('l', 'pt', 'letter');
+                            pdf.addImage(uri, 'PNG', 0, 0, 780, nuevaAltura);
+                            $rootScope.spin = false;
+                            pdf.save(nombre + '_capacities.pdf');
+                        });
+
+                    }
                 }
+
 
             };
 
@@ -103,13 +108,6 @@
                     },
                     capacidadMargenProceso: {
                         y: 145 // distancia de las capacidades con respecto a sus procesos
-                    },
-                    layoutSizes: {
-                        offset: {
-                            x: 130,
-                            y: 200
-                        },
-                        width: 172
                     }
                 }
             };
@@ -121,10 +119,10 @@
                 var layoutSizes = [
                     {
                         offset: {
-                            x: $scope.main.procesos.layoutSizes.offset.x,
-                            y: $scope.main.procesos.layoutSizes.offset.y
+                            x: 130,
+                            y: 200
                         },
-                        width: $scope.main.procesos.layoutSizes.width
+                        width: 172
                     },
                     {
                         width: 184,
@@ -195,6 +193,7 @@
 
                 // Se verifica que existan procesos en $scope.source
                 if ($scope.source.length) {
+                    
 
                     // Se preparan los procesos para dibujarlos
                     $settings.processes(
@@ -205,6 +204,7 @@
                         $scope.type,
                         $scope.main,
                         $scope.activar); // se refiere si muestra capacidades o reglas de negocio
+                    
 
                     // Se dibujan los procesos
                     $build.processes(
@@ -217,7 +217,9 @@
                         $scope.type,
                         $scope.main,
                         $scope.activar);
-
+                    
+                    
+                    // Se configura el tamaño del SVG para poder hacer el ZOOM
                     if ($scope.layout > 0) {
                         $scope.svg.attr({
                             viewBox: "0 0 " + $vash.sumOffsetsInX() + " " + $vash.sumOffsetsInY()
@@ -240,12 +242,12 @@
             require: '?ngModel',
             scope: {
                 source: '=',
-                config: '=',
-                layout: '=',
-                type: '=',
-                activar: '=',
-                print: '=',
-                documentName: '='
+                config: '=catalogos',
+                layout: '=verPor',
+                type: '=ordenarPor',
+                activar: '=soloProcesos',
+                print: '=enviarImprimir',
+                documentName: '=nombrePDF'
 
             }
         };

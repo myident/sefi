@@ -72,6 +72,9 @@ textarea {
 body {
     /*    padding-bottom: 20px;*/
 }
+svg {
+    font-family: 'SF';
+}
 
 /*
 svg {
