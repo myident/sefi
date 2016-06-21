@@ -46,8 +46,6 @@
         
         $scope.zoom = Math.round($vash.zoom * 100) + '%';
         
-        // MARK: - Botones zoom
-        
         $scope.mas = function () {
             if($vash.zoom < 2) {
                 $vash.zoom += 0.02;
@@ -70,9 +68,13 @@
         
         
         
+        
+        
         // MARK: - Mapside Directive
         
         $scope.dominios = []; // Se llena en $scope.init()
+        
+        
         
         
         
@@ -137,11 +139,17 @@
         
         
         
+        
+        
+        
+        
         // MARK: - Pestaña cerrar sideBar
         
         $scope.cerrarSideBar = function () {
             $scope.openBar = !$scope.openBar;
         };
+        
+        
         
         
         
@@ -156,6 +164,8 @@
         };
         
         $scope.layout = 0;
+        
+        
         
         
         
@@ -185,6 +195,8 @@
         
         
         
+        
+        
         // MARK: - Ways Directive
         
         $scope.macroprocesos = [];
@@ -201,6 +213,8 @@
         };
         
 
+        
+        
         
         
         // MARK: - Inicializa el controller
@@ -247,6 +261,8 @@
             $scope.indexMega = 0;
         };
 
+        
+        
         
         
         

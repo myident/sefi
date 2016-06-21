@@ -32,85 +32,59 @@
             $scope.$watch('documentName', function () {});
 
             $scope.$watch('print', function (n) {
-                if (n == 'print') {
-                    $scope.imprimir();
-                    $scope.print = "";
-                } else {
-                    $scope.print = "";
-                }
+                $scope.imprimir(n);
             });
-
-            function camelize(str) {
-                return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (letter) {
-                    return letter.toLowerCase();
-                }).replace(/\s+/g, '_');
-            }
-
-            $scope.imprimir = function () {
-                
-                if ($scope.documentName !== '') {
-                    $rootScope.spin = true;
-
-                    var ancho, alto, nuevaAltura;
-
-                    var nombre = camelize($scope.documentName);
-
-                    if ($scope.layout > 0) {
-
-                        ancho = $vash.sumOffsetsInX();
-                        alto = $vash.sumOffsetsInY();
-                        nuevaAltura = ((780 * ancho) / alto);
-                        svgAsPngUri(element[0], {
-                            scale: 1.5
-                        }, function (uri) {
-
-                            var pdf = new jsPDF('p', 'pt', 'letter');
-
-                            pdf.addImage(uri, 'PNG', 0, 0, nuevaAltura, 780);
-                            $rootScope.spin = false;
-                            pdf.save(nombre + '_areas.pdf');
-                        });
-
-                    } else {
-                        ancho = $vash.sumOffsetsInX();
-                        alto = $vash.heightProcesosMax();
-                        nuevaAltura = ((780 * alto) / ancho);
-                        svgAsPngUri(element[0], {
-                            scale: 3.5
-                        }, function (uri) {
-                            var pdf = new jsPDF('l', 'pt', 'letter');
-                            pdf.addImage(uri, 'PNG', 0, 0, 780, nuevaAltura);
-                            $rootScope.spin = false;
-                            pdf.save(nombre + '_capacities.pdf');
-                        });
-
-                    }
-                }
-
-
-            };
-
+            
 
             //MARK: - Funciones
-            $scope.main = {
-                procesos: {
-                    capacidadSizes: {
-                        width: 90,
-                        height: 50
-                    },
-                    procesoMargen: {
-                        x: 132,
-                        y: 165
-                    },
-                    distanciaLineaProcesos: 105,
-                    capacidadMargen: {
-                        y: 80
-                    },
-                    capacidadMargenProceso: {
-                        y: 145 // distancia de las capacidades con respecto a sus procesos
+            
+            // Función para imprimir el PDF
+            $scope.imprimir = function (n) {
+                if (n == 'print') {
+                    if ($scope.documentName !== '') {
+                        $rootScope.spin = true;
+
+                        var ancho, alto, nuevaAltura;
+
+                        var nombre = $vash.camelize($scope.documentName);
+
+                        if ($scope.layout > 0) {
+
+                            ancho = $vash.sumOffsetsInX();
+                            alto = $vash.sumOffsetsInY();
+                            nuevaAltura = ((780 * ancho) / alto);
+                            
+                            svgAsPngUri(element[0], {
+                                scale: 1.5
+                            }, function (uri) {
+
+                                var pdf = new jsPDF('p', 'pt', 'letter');
+
+                                pdf.addImage(uri, 'PNG', 0, 0, nuevaAltura, 780);
+                                $rootScope.spin = false;
+                                pdf.save(nombre + '_areas.pdf');
+                            });
+
+                        } else {
+                            ancho = $vash.sumOffsetsInX();
+                            alto = $vash.heightProcesosMax();
+                            nuevaAltura = ((780 * alto) / ancho);
+                            svgAsPngUri(element[0], {
+                                scale: 3.5
+                            }, function (uri) {
+                                var pdf = new jsPDF('l', 'pt', 'letter');
+                                pdf.addImage(uri, 'PNG', 0, 0, 780, nuevaAltura);
+                                $rootScope.spin = false;
+                                pdf.save(nombre + '_capacities.pdf');
+                            });
+
+                        }
                     }
                 }
+                $scope.print = "";
             };
+
+            
             // Constructor de los Layouts
             $scope.buildLayouts = function () {
 
@@ -193,7 +167,7 @@
 
                 // Se verifica que existan procesos en $scope.source
                 if ($scope.source.length) {
-                    
+
 
                     // Se preparan los procesos para dibujarlos
                     $settings.processes(
@@ -202,9 +176,8 @@
                         $scope.config, // el config que recibe la directiva
                         $scope.layout, // el layout que debe cargar segun la directiva
                         $scope.type,
-                        $scope.main,
                         $scope.activar); // se refiere si muestra capacidades o reglas de negocio
-                    
+
 
                     // Se dibujan los procesos
                     $build.processes(
@@ -215,10 +188,9 @@
                         $scope.prccessArr,
                         $scope.procesosGroup,
                         $scope.type,
-                        $scope.main,
                         $scope.activar);
-                    
-                    
+
+
                     // Se configura el tamaño del SVG para poder hacer el ZOOM
                     if ($scope.layout > 0) {
                         $scope.svg.attr({
@@ -247,7 +219,7 @@
                 type: '=ordenarPor',
                 activar: '=soloProcesos',
                 print: '=enviarImprimir',
-                documentName: '=nombrePDF'
+                documentName: '=nombrePdf'
 
             }
         };

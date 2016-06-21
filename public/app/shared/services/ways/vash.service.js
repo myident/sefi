@@ -36,21 +36,29 @@
             var lastWidth = (self.widthProcesos[(self.widthProcesos.length - 1)] / 2);
             var totalWidth = lastWidth + lastOffset + 25;
             return (totalWidth * self.zoom);
-//            return 600;
+        };
+        
+        /* camelize(): - convierte el string que recibe a camelCase */
+        /* ******************************************************** */
+        /* Recibes los siguientes parametros:                       */
+        /* - str: es el String que se convertirá                    */
+        /* ******************************************************** */
+        /* - return: regresa el String en formato CamelCase         */
+        self.camelize = function (str) {
+            return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (letter) {
+                return letter.toLowerCase();
+            }).replace(/\s+/g, '_');
         };
 
-        
-        //filter: scope.svg.filter(Snap.filter.shadow(0, 3, 3, '#000', 0.3))
-
-        /* findOffsetInArray(): - encuentra un arreglo de offsets basado en un arreglo */
-        /* ************************************************************************************** */
-        /* Recibes los siguientes parametros:  */
-        /* arr:       es el arreglo de coordenadas con nombre [{nombre, offset}] */
-        /* capacity:         es la capacidad que buscamos {nombre, aplicaciones, kpis, ...}*/
-        /* searchIn:        es la busqueda en determinado lugar (areas, aplicaciones, ...) */
-        /* searchBy:         es la busqueda por determinado atributo (name, title, text, ...) */
-        /* ************************************************************************************** */
-        /* return:  offset {x, y} */
+        /* findOffsetInArray(): - encuentra un arreglo de offsets basado en un arreglo          */
+        /* ************************************************************************************ */
+        /* Recibes los siguientes parametros:                                                   */
+        /* - arr:       es el arreglo de coordenadas con nombre [{nombre, offset}]              */
+        /* - capacity:         es la capacidad que buscamos {nombre, aplicaciones, kpis, ...}   */
+        /* - searchIn:        es la busqueda en determinado lugar (areas, aplicaciones, ...)    */
+        /* - searchBy:         es la busqueda por determinado atributo (name, title, text, ...) */
+        /* ************************************************************************************ */
+        /* - return:  offset {x, y}                                                             */
         self.findOffsetInArray = function (arr, capacity, searchIn, searchBy) {
 
             var offset = {};
@@ -109,15 +117,15 @@
 
             return offset;
         };
-
-        /* intersectionFill(): - encuentra las intersecciones y la dirección de acuerdo a dos elementos */
-        /* ************************************************************************************** */
-        /* Recibes los siguientes parametros:  */
-        /* first:    es el primer elemento, contiene: {nombre, aplicaciones, kpis, ...} */
-        /* second:   es el segundo elemento, también contiene: {nombre, aplicaciones, kpis, ...}*/
-        /* matrix:   es una variable booleana, que se recibe para iterar*/
-        /* ************************************************************************************** */
-        /* return:  first ~ {nombre, aplicaciones, kpis, ...} + direction:Array[Int], intersection:Array[Array] */
+        
+        /* intersectionFill(): - encuentra las intersecciones y la dirección de acuerdo a dos elementos           */
+        /* ****************************************************************************************************** */
+        /* Recibes los siguientes parametros:                                                                     */
+        /* - first:    es el primer elemento, contiene: {nombre, aplicaciones, kpis, ...}                         */
+        /* - second:   es el segundo elemento, también contiene: {nombre, aplicaciones, kpis, ...}                */
+        /* - matrix:   es una variable booleana, que se recibe para iterar                                        */
+        /* ****************************************************************************************************** */
+        /* - return:  first ~ {nombre, aplicaciones, kpis, ...} + direction:Array[Int], intersection:Array[Array] */
         self.intersectionFill = function (first, second, matrix) {
             var intersectionArray = [[], [], []];
             var directionsArray = [];
@@ -209,7 +217,13 @@
             return first;
         };
         
-        
+        /* customIntersectionFill(): - encuentra las intersecciones personalizadas de acuerdo a dos elementos     */
+        /* ****************************************************************************************************** */
+        /* Recibes los siguientes parametros:                                                                     */
+        /* - first:    es el primer elemento, contiene: {nombre, aplicaciones, kpis, ...}                         */
+        /* - second:   es el segundo elemento, también contiene: {nombre, aplicaciones, kpis, ...}                */
+        /* ****************************************************************************************************** */
+        /* - return:  first ~ {nombre, aplicaciones, kpis, ...} + direction:Array[Int], intersection:Array[Array] */
         self.customIntersectionFill = function(first, second) { 
             var intersectionArray = [[], [], []];
             var directionsArray = [];
@@ -338,8 +352,15 @@
 
             return first;
         };
-
-        self.settingDimensionsToProcess = function (proceso, matrix, indice, switchCapacidades, main) {
+        
+        /* settingDimensionsToProcess(): - encuentra las intersecciones personalizadas de acuerdo a dos elementos */
+        /* ****************************************************************************************************** */
+        /* Recibes los siguientes parametros:                                                                     */
+        /* - first:    es el primer elemento, contiene: {nombre, aplicaciones, kpis, ...}                         */
+        /* - second:   es el segundo elemento, también contiene: {nombre, aplicaciones, kpis, ...}                */
+        /* ****************************************************************************************************** */
+        /* - return:  first ~ {nombre, aplicaciones, kpis, ...} + direction:Array[Int], intersection:Array[Array] */
+        self.settingDimensionsToProcess = function (proceso, matrix, indice, switchCapacidades) {
             if (matrix) {
                 if (proceso[switchCapacidades] !== undefined && proceso[switchCapacidades].length) {
 
@@ -395,8 +416,8 @@
 
                     // Alto y ancho
 
-                    var height0 = last0.y - first0.y + main.procesos.procesoMargen.y;
-                    var width0 = last0.x - first0.x + main.procesos.procesoMargen.x;
+                    var height0 = last0.y - first0.y + 165;
+                    var width0 = last0.x - first0.x + 132;
                     
                     var height = last.y - first.y + 180;
                     var width = last.x - first.x + 132;
@@ -526,49 +547,6 @@
                     return proceso;
             }
 
-        };
-
-        self.getElementsTransformY = function (arrayProcesos, capacidad, switchCapacidades) {
-
-            var indexProcesoComienzo = 0;
-            var indexCapacidadComienzo = 0;
-
-            //Buscamos el index en procesos y capacidades respecto a la capacidad elegida
-
-            for (var i in arrayProcesos) {
-                var proceso = arrayProcesos[i];
-                for (var j in proceso[switchCapacidades]) {
-
-                    var capacidadElegida = capacidad.name;
-                    var capacidadEncontrada = proceso[switchCapacidades][j].name;
-
-                    if (capacidadEncontrada == capacidadElegida) {
-                        indexProcesoComienzo = (Number(i));
-                        indexCapacidadComienzo = (Number(j));
-                    }
-                }
-            }
-
-
-            // Se crea el objeto a regresar, vacío por defecto
-
-            var arrayRetorno = {
-                procesos: [],
-                capacidades: [],
-                index: [indexProcesoComienzo, indexCapacidadComienzo],
-                indexProceso: indexProcesoComienzo,
-                indexCapacidad: indexCapacidadComienzo
-            };
-
-            for (var k = (indexProcesoComienzo + 1); k < arrayProcesos.length; k++) {
-                arrayRetorno.procesos.push(arrayProcesos[k]);
-            }
-
-            for (var l = (indexCapacidadComienzo + 1); l < arrayProcesos[(indexProcesoComienzo)][switchCapacidades].length; l++) {
-                arrayRetorno[switchCapacidades].push(arrayProcesos[(indexProcesoComienzo)][switchCapacidades][l]);
-            }
-
-            return arrayRetorno;
         };
 
         self.setIntersectionsWithDirection = function(capacidad, intersections, width, height) {
