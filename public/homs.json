@@ -17,43 +17,23 @@
                     "title": "Account Management",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
-                    }, {
-                        "text": "COEXISTENSE"
+                        "text": "Maximage"
                     }, {
                         "text": "OPUS"
                     }, {
-                        "text": "AMDOCS"
+                        "text": "Amdocs Billing"
+                    }, {
+                        "text": "Amdocs CRM"
                     }, {
                         "text": "AT&T API"
                     }, {
                         "text": "ICAS"
                     }, {
-                        "text": "MAXIMAGE"
-                    }, {
-                        "text": "TBD"
-                    }, {
-                        "text": "NPS"
-                    }, {
-                        "text": "SRM"
-                    }, {
-                        "text": "MEC"
-                    }, {
-                        "text": "EDOC"
-                    }, {
-                        "text": "OFA"
-                    }, {
-                        "text": "ASD"
-                    }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
-                    }, {
                         "text": "OMS"
                     }, {
-                        "text": "INAR"
+                        "text": "Coexistence"
+                    }, {
+                        "text": "Welcome center OPUS"
                     }],
                     "procesos": [{
                         "name": "Queue Management",
@@ -225,43 +205,43 @@
                     "title": "Migration",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
+                        "text": "Invoice Gateway"
                     }, {
-                        "text": "COEXISTENSE"
+                        "text": "Maximage"
+                    }, {
+                        "text": "INAR"
+                    }, {
+                        "text": "Oracle Financials Application"
                     }, {
                         "text": "OPUS"
                     }, {
-                        "text": "AMDOCS"
+                        "text": "Customer Account Payment Management"
+                    }, {
+                        "text": "Amdocs Billing"
+                    }, {
+                        "text": "Amdocs MEC"
+                    }, {
+                        "text": "Amdocs OMS"
+                    }, {
+                        "text": "Amdocs SRM"
                     }, {
                         "text": "AT&T API"
                     }, {
+                        "text": "AT&T Blacklist Mangement"
+                    }, {
+                        "text": "eDOC"
+                    }, {
                         "text": "ICAS"
-                    }, {
-                        "text": "MAXIMAGE"
-                    }, {
-                        "text": "TBD"
                     }, {
                         "text": "NPS"
                     }, {
-                        "text": "SRM"
+                        "text": "OMS"
                     }, {
-                        "text": "MEC"
-                    }, {
-                        "text": "EDOC"
-                    }, {
-                        "text": "OFA"
+                        "text": "TBD"
                     }, {
                         "text": "ASD"
                     }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
-                    }, {
-                        "text": "OMS"
-                    }, {
-                        "text": "INAR"
+                        "text": "Express Pay"
                     }],
                     "procesos": [{
                         "name": "Queue Management",
@@ -632,43 +612,35 @@
                     "title": "Replacements",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
+                        "text": "Invoice Gateway"
                     }, {
-                        "text": "COEXISTENSE"
+                        "text": "Maximage"
+                    }, {
+                        "text": "Oracle Financials Application"
                     }, {
                         "text": "OPUS"
                     }, {
-                        "text": "AMDOCS"
+                        "text": "Customer Account Payment Management"
+                    }, {
+                        "text": "Amdocs Billing"
                     }, {
                         "text": "AT&T API"
                     }, {
                         "text": "ICAS"
                     }, {
-                        "text": "MAXIMAGE"
-                    }, {
-                        "text": "TBD"
-                    }, {
-                        "text": "NPS"
-                    }, {
-                        "text": "SRM"
-                    }, {
                         "text": "MEC"
-                    }, {
-                        "text": "EDOC"
-                    }, {
-                        "text": "OFA"
-                    }, {
-                        "text": "ASD"
-                    }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
                     }, {
                         "text": "OMS"
                     }, {
-                        "text": "INAR"
+                        "text": "SRM"
+                    }, {
+                        "text": "TBD"
+                    }, {
+                        "text": "Welcome center OPUS"
+                    }, {
+                        "text": "ASD"
+                    }, {
+                        "text": "Validaor"
                     }],
                     "procesos": [{
                         "name": "Queue Management",
@@ -901,43 +873,21 @@
                     "title": "Services Management",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
+                        "text": "Customer Account Payment Management"
                     }, {
-                        "text": "COEXISTENSE"
+                        "text": "Amdocs Billing"
                     }, {
-                        "text": "OPUS"
-                    }, {
-                        "text": "AMDOCS"
-                    }, {
-                        "text": "AT&T API"
+                        "text": "Amdocs CRM"
                     }, {
                         "text": "ICAS"
                     }, {
-                        "text": "MAXIMAGE"
-                    }, {
-                        "text": "TBD"
-                    }, {
-                        "text": "NPS"
-                    }, {
-                        "text": "SRM"
-                    }, {
                         "text": "MEC"
-                    }, {
-                        "text": "EDOC"
-                    }, {
-                        "text": "OFA"
-                    }, {
-                        "text": "ASD"
-                    }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
                     }, {
                         "text": "OMS"
                     }, {
-                        "text": "INAR"
+                        "text": "Coexistence"
+                    }, {
+                        "text": "Welcome center OPUS"
                     }],
                     "procesos": [{
                         "name": "Queue Management",
@@ -1116,48 +1066,50 @@
                     "title": "Subscription Management",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
-                    }, {
-                        "text": "COEXISTENSE"
+                        "text": "Maximage"
                     }, {
                         "text": "OPUS"
                     }, {
-                        "text": "AMDOCS"
+                        "text": "Customer Account Payment Management"
                     }, {
-                        "text": "AT&T API"
+                        "text": "Amdocs Billing"
+                    }, {
+                        "text": "Amdocs CRM"
                     }, {
                         "text": "ICAS"
                     }, {
-                        "text": "MAXIMAGE"
-                    }, {
-                        "text": "TBD"
+                        "text": "MEC"
                     }, {
                         "text": "NPS"
                     }, {
-                        "text": "SRM"
-                    }, {
-                        "text": "MEC"
-                    }, {
-                        "text": "EDOC"
-                    }, {
-                        "text": "OFA"
-                    }, {
-                        "text": "ASD"
-                    }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
-                    }, {
                         "text": "OMS"
                     }, {
-                        "text": "INAR"
+                        "text": "SRM"
+                    }, {
+                        "text": "Coexistence"
+                    }, {
+                        "text": "Welcome center OPUS"
+                    }, {
+                        "text": "EIR"
                     }],
                     "procesos": [{
                         "name": "Queue Management",
                         "selected": false,
-                        "capacidades": [],
+                        "capacidades": [{
+                            "name": "Customer Billing System Identification",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "subcapacidades": [],
+                            "areas": []
+                        }, {
+                            "name": "Customer Identification",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "subcapacidades": [],
+                            "areas": []
+                        }],
                         "reglas": []
                     }, {
                         "name": "Credit Check",
@@ -1382,43 +1334,41 @@
                     "title": "Sales at Call Center Postpaid",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
+                        "text": "Invoice Gateway"
                     }, {
-                        "text": "COEXISTENSE"
+                        "text": "Maximage"
                     }, {
-                        "text": "OPUS"
+                        "text": "INAR"
                     }, {
-                        "text": "AMDOCS"
+                        "text": "Oracle Financials Application"
                     }, {
-                        "text": "AT&T API"
+                        "text": "Customer Account Payment Management"
+                    }, {
+                        "text": "Amdocs Billing"
+                    }, {
+                        "text": "Amdocs CRM"
+                    }, {
+                        "text": "Amdocs OMS"
+                    }, {
+                        "text": "Amdocs SRM"
+                    }, {
+                        "text": "AT&T Blacklist Mangement"
+                    }, {
+                        "text": "eDOC"
                     }, {
                         "text": "ICAS"
                     }, {
-                        "text": "MAXIMAGE"
-                    }, {
-                        "text": "TBD"
+                        "text": "IVR"
                     }, {
                         "text": "NPS"
                     }, {
-                        "text": "SRM"
+                        "text": "Oracle GL"
                     }, {
-                        "text": "MEC"
-                    }, {
-                        "text": "EDOC"
-                    }, {
-                        "text": "OFA"
+                        "text": "TBD"
                     }, {
                         "text": "ASD"
                     }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
-                    }, {
-                        "text": "OMS"
-                    }, {
-                        "text": "INAR"
+                        "text": "Express Pay"
                     }],
                     "procesos": [{
                         "name": "Customer Registration",
@@ -1720,43 +1670,47 @@
                     "title": "Sales at Store Postpaid",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
+                        "text": "Maximage"
                     }, {
-                        "text": "COEXISTENSE"
+                        "text": "INAR"
+                    }, {
+                        "text": "Oracle Financials Application"
                     }, {
                         "text": "OPUS"
                     }, {
-                        "text": "AMDOCS"
+                        "text": "Customer Account Payment Management"
+                    }, {
+                        "text": "Amdocs"
+                    }, {
+                        "text": "Amdocs Billing"
                     }, {
                         "text": "AT&T API"
                     }, {
+                        "text": "AT&T Blacklist Mangement"
+                    }, {
+                        "text": "eDOC"
+                    }, {
                         "text": "ICAS"
-                    }, {
-                        "text": "MAXIMAGE"
-                    }, {
-                        "text": "TBD"
-                    }, {
-                        "text": "NPS"
-                    }, {
-                        "text": "SRM"
                     }, {
                         "text": "MEC"
                     }, {
-                        "text": "EDOC"
-                    }, {
-                        "text": "OFA"
-                    }, {
-                        "text": "ASD"
-                    }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
+                        "text": "NPS"
                     }, {
                         "text": "OMS"
                     }, {
-                        "text": "INAR"
+                        "text": "Opus Validator"
+                    }, {
+                        "text": "Oracle GL"
+                    }, {
+                        "text": "SRM"
+                    }, {
+                        "text": "TBD"
+                    }, {
+                        "text": "Coexistence"
+                    }, {
+                        "text": "Welcome center OPUS"
+                    }, {
+                        "text": "ASD"
                     }],
                     "procesos": [{
                         "name": "Queue Management",
@@ -1765,7 +1719,10 @@
                             "name": "Customer Billing System Identification",
                             "selected": false,
                             "kpis": [],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "Coexistence",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "Sales Rep",
@@ -1775,7 +1732,10 @@
                             "name": "Customer Identification",
                             "selected": false,
                             "kpis": [],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "Welcome center OPUS",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "Sales Rep",
@@ -1793,7 +1753,10 @@
                                 "name": "# Rate Plans",
                                 "selected": false
                             }],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "OPUS",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "Sales Rep",
@@ -1808,7 +1771,10 @@
                             "name": "Address Validation",
                             "selected": false,
                             "kpis": [],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "AT&T API",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "Sales Rep",
@@ -1818,7 +1784,10 @@
                             "name": "Contract Creation",
                             "selected": false,
                             "kpis": [],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "OPUS",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "Sales Rep",
@@ -1831,7 +1800,10 @@
                                 "name": "# Contract Orders",
                                 "selected": false
                             }],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "ICAS",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "Credit",
@@ -1844,7 +1816,10 @@
                                 "name": "# Customers",
                                 "selected": false
                             }],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "Amdocs Billing",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "Sales Rep",
@@ -1854,7 +1829,10 @@
                             "name": "Document Repository",
                             "selected": false,
                             "kpis": [],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "Maximage",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "Credit",
@@ -1869,7 +1847,10 @@
                             "name": "Black List",
                             "selected": false,
                             "kpis": [],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "AT&T Blacklist Mangement",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "Credit",
@@ -1882,7 +1863,10 @@
                                 "name": "# Contract Orders by status",
                                 "selected": false
                             }],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "ICAS",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "Credit",
@@ -1900,7 +1884,10 @@
                                 "name": "# Rate Plans",
                                 "selected": false
                             }],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "MEC",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "Sales Rep",
@@ -1910,7 +1897,10 @@
                             "name": "Form Creator",
                             "selected": false,
                             "kpis": [],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "eDOC",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "Sales Rep",
@@ -1920,7 +1910,10 @@
                             "name": "NIR Management",
                             "selected": false,
                             "kpis": [],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "SRM",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "Sales Rep",
@@ -1933,7 +1926,10 @@
                                 "name": "# Port-In",
                                 "selected": false
                             }],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "NPS",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "Sales Rep",
@@ -1946,7 +1942,10 @@
                                 "name": "# Devices",
                                 "selected": false
                             }],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "SRM",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "Sales Rep",
@@ -1967,7 +1966,10 @@
                                 "name": "# Warranties",
                                 "selected": false
                             }],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "ICAS",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "Credit",
@@ -1977,7 +1979,10 @@
                             "name": "Print Documents",
                             "selected": false,
                             "kpis": [],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "eDOC",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "Credit",
@@ -1987,7 +1992,10 @@
                             "name": "Storage Documents",
                             "selected": false,
                             "kpis": [],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "Maximage",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "Credit",
@@ -2002,7 +2010,13 @@
                             "name": "Assignment",
                             "selected": false,
                             "kpis": [],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "OPUS",
+                                "selected": false
+                            }, {
+                                "name": "Amdocs",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "Sales Rep",
@@ -2015,7 +2029,10 @@
                                 "name": "# Contracts",
                                 "selected": false
                             }],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "Oracle GL",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "IT",
@@ -2031,7 +2048,10 @@
                                 "name": "# Devices",
                                 "selected": false
                             }],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "Oracle Financials Application",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "IT",
@@ -2044,7 +2064,10 @@
                                 "name": "Conciliations",
                                 "selected": false
                             }],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "ASD",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "IT",
@@ -2101,7 +2124,10 @@
                                 "name": "Amount",
                                 "selected": false
                             }],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "Opus Validator",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "Sales Rep",
@@ -2135,7 +2161,10 @@
                                 "name": "# Devices",
                                 "selected": false
                             }],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "ASD",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "IT",
@@ -2151,7 +2180,10 @@
                                 "name": "# Devices",
                                 "selected": false
                             }],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "OPUS",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "Sales Rep",
@@ -2169,7 +2201,10 @@
                                 "name": "# Contract Orders",
                                 "selected": false
                             }],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "ICAS",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "IT",
@@ -2182,7 +2217,10 @@
                                 "name": "# Warranties",
                                 "selected": false
                             }],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "Customer Account Payment Management",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "IT",
@@ -2200,26 +2238,15 @@
                                 "name": "# Contracts",
                                 "selected": false
                             }],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "INAR",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "IT",
                                 "selected": false
                             }]
-                        }, {
-                            "name": "Customer Billing System Identification",
-                            "selected": false,
-                            "kpis": [],
-                            "aplicaciones": [],
-                            "subcapacidades": [],
-                            "areas": []
-                        }, {
-                            "name": "Customer Identification",
-                            "selected": false,
-                            "kpis": [],
-                            "aplicaciones": [],
-                            "subcapacidades": [],
-                            "areas": []
                         }, {
                             "name": "Provisioning",
                             "selected": false,
@@ -2227,7 +2254,10 @@
                                 "name": "# Contracts",
                                 "selected": false
                             }],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "OMS",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "IT",
@@ -2237,7 +2267,10 @@
                             "name": "Temporary Resource Management",
                             "selected": false,
                             "kpis": [],
-                            "aplicaciones": [],
+                            "aplicaciones": [{
+                                "name": "TBD",
+                                "selected": false
+                            }],
                             "subcapacidades": [],
                             "areas": [{
                                 "name": "IT",
@@ -2257,43 +2290,47 @@
                     "title": "Sales at Store Prepaid",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
+                        "text": "Maximage"
                     }, {
-                        "text": "COEXISTENSE"
+                        "text": "INAR"
+                    }, {
+                        "text": "Oracle Financials Application"
                     }, {
                         "text": "OPUS"
                     }, {
-                        "text": "AMDOCS"
+                        "text": "ATT Shipment Delivery"
+                    }, {
+                        "text": "Amdocs"
+                    }, {
+                        "text": "Amdocs Billing"
+                    }, {
+                        "text": "Amdocs CRM"
+                    }, {
+                        "text": "Amdocs MEC"
+                    }, {
+                        "text": "Amdocs SRM"
                     }, {
                         "text": "AT&T API"
                     }, {
-                        "text": "ICAS"
+                        "text": "AT&T Blacklist Mangement"
                     }, {
-                        "text": "MAXIMAGE"
+                        "text": "eDOC"
                     }, {
-                        "text": "TBD"
+                        "text": "IVR"
                     }, {
                         "text": "NPS"
                     }, {
-                        "text": "SRM"
-                    }, {
-                        "text": "MEC"
-                    }, {
-                        "text": "EDOC"
-                    }, {
-                        "text": "OFA"
-                    }, {
-                        "text": "ASD"
-                    }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
-                    }, {
                         "text": "OMS"
                     }, {
-                        "text": "INAR"
+                        "text": "Opus Validator"
+                    }, {
+                        "text": "Oracle GL"
+                    }, {
+                        "text": "TBD"
+                    }, {
+                        "text": "Coexistence"
+                    }, {
+                        "text": "Welcome center OPUS"
                     }],
                     "procesos": [{
                         "name": "Queue Management",
@@ -2573,43 +2610,41 @@
                     "title": "Selfservice Postpaid",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
+                        "text": "Invoice Gateway"
                     }, {
-                        "text": "COEXISTENSE"
+                        "text": "Maximage"
                     }, {
-                        "text": "OPUS"
+                        "text": "INAR"
                     }, {
-                        "text": "AMDOCS"
+                        "text": "MiATT"
+                    }, {
+                        "text": "Oracle Financials Application"
+                    }, {
+                        "text": "Customer Account Payment Management"
+                    }, {
+                        "text": "Amdocs MEC"
+                    }, {
+                        "text": "Amdocs SRM"
                     }, {
                         "text": "AT&T API"
                     }, {
+                        "text": "AT&T Blacklist Mangement"
+                    }, {
+                        "text": "eDOC"
+                    }, {
                         "text": "ICAS"
                     }, {
-                        "text": "MAXIMAGE"
-                    }, {
-                        "text": "TBD"
+                        "text": "IVR"
                     }, {
                         "text": "NPS"
                     }, {
-                        "text": "SRM"
-                    }, {
-                        "text": "MEC"
-                    }, {
-                        "text": "EDOC"
-                    }, {
-                        "text": "OFA"
-                    }, {
-                        "text": "ASD"
-                    }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
-                    }, {
                         "text": "OMS"
                     }, {
-                        "text": "INAR"
+                        "text": "TBD"
+                    }, {
+                        "text": "Coexistence"
+                    }, {
+                        "text": "ASD"
                     }],
                     "procesos": [{
                         "name": "Customer Registration",
@@ -2896,43 +2931,31 @@
                     "title": "Top Up Sales Store",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
+                        "text": "Modulo de AdministaciÃ³n de Recargas"
                     }, {
-                        "text": "COEXISTENSE"
+                        "text": "NotificadorSMS"
                     }, {
                         "text": "OPUS"
                     }, {
-                        "text": "AMDOCS"
+                        "text": "Customer Account Payment Management"
+                    }, {
+                        "text": "Amdocs CRM"
                     }, {
                         "text": "AT&T API"
                     }, {
-                        "text": "ICAS"
+                        "text": "ESB"
                     }, {
-                        "text": "MAXIMAGE"
+                        "text": "IVR"
                     }, {
-                        "text": "TBD"
+                        "text": "Coexistence"
                     }, {
-                        "text": "NPS"
+                        "text": "MAR"
                     }, {
-                        "text": "SRM"
+                        "text": "Reconciliation System"
                     }, {
-                        "text": "MEC"
+                        "text": "RPL"
                     }, {
-                        "text": "EDOC"
-                    }, {
-                        "text": "OFA"
-                    }, {
-                        "text": "ASD"
-                    }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
-                    }, {
-                        "text": "OMS"
-                    }, {
-                        "text": "INAR"
+                        "text": "Turbo Charging"
                     }],
                     "procesos": [{
                         "name": "Queue Management",
@@ -3174,43 +3197,19 @@
                     "title": "Wholesales Prepaid",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
+                        "text": "Invoice Gateway"
                     }, {
-                        "text": "COEXISTENSE"
+                        "text": "Oracle Financials Application"
                     }, {
                         "text": "OPUS"
                     }, {
-                        "text": "AMDOCS"
+                        "text": "IVR"
                     }, {
-                        "text": "AT&T API"
+                        "text": "Retailer System"
                     }, {
-                        "text": "ICAS"
+                        "text": "Wholesale Manager"
                     }, {
-                        "text": "MAXIMAGE"
-                    }, {
-                        "text": "TBD"
-                    }, {
-                        "text": "NPS"
-                    }, {
-                        "text": "SRM"
-                    }, {
-                        "text": "MEC"
-                    }, {
-                        "text": "EDOC"
-                    }, {
-                        "text": "OFA"
-                    }, {
-                        "text": "ASD"
-                    }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
-                    }, {
-                        "text": "OMS"
-                    }, {
-                        "text": "INAR"
+                        "text": "XEnabler"
                     }],
                     "procesos": [{
                         "name": "Setup and Backup Activities",
@@ -3462,43 +3461,33 @@
                     "title": "Billing",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
+                        "text": "DOC1"
                     }, {
-                        "text": "COEXISTENSE"
+                        "text": "SeguriData Invoice Electronic Seal"
                     }, {
-                        "text": "OPUS"
+                        "text": "Tralix Interactive"
                     }, {
-                        "text": "AMDOCS"
+                        "text": "Amdocs CRM"
                     }, {
-                        "text": "AT&T API"
+                        "text": "TC"
                     }, {
-                        "text": "ICAS"
+                        "text": "Billing Batch"
                     }, {
-                        "text": "MAXIMAGE"
+                        "text": "Doc Designer"
                     }, {
-                        "text": "TBD"
+                        "text": "Document Designer"
                     }, {
-                        "text": "NPS"
+                        "text": "E2Vault"
                     }, {
-                        "text": "SRM"
+                        "text": "Invoicing"
                     }, {
-                        "text": "MEC"
+                        "text": "Print Center"
                     }, {
-                        "text": "EDOC"
+                        "text": "Receivable"
                     }, {
-                        "text": "OFA"
+                        "text": "Turbo Charging"
                     }, {
-                        "text": "ASD"
-                    }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
-                    }, {
-                        "text": "OMS"
-                    }, {
-                        "text": "INAR"
+                        "text": "Xenabler Service Control & Invoicing"
                     }],
                     "procesos": [{
                         "name": "Bill Execution",
@@ -3667,43 +3656,25 @@
                     "title": "Interconnection",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
+                        "text": "Intec"
                     }, {
-                        "text": "COEXISTENSE"
+                        "text": "ALADINO"
                     }, {
-                        "text": "OPUS"
+                        "text": "SAP"
                     }, {
-                        "text": "AMDOCS"
+                        "text": "Oracle Financials Application"
                     }, {
-                        "text": "AT&T API"
+                        "text": "iConective"
                     }, {
-                        "text": "ICAS"
+                        "text": "Mediation IX"
                     }, {
-                        "text": "MAXIMAGE"
+                        "text": "NES"
                     }, {
-                        "text": "TBD"
+                        "text": "Policia"
                     }, {
-                        "text": "NPS"
+                        "text": "RPC"
                     }, {
-                        "text": "SRM"
-                    }, {
-                        "text": "MEC"
-                    }, {
-                        "text": "EDOC"
-                    }, {
-                        "text": "OFA"
-                    }, {
-                        "text": "ASD"
-                    }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
-                    }, {
-                        "text": "OMS"
-                    }, {
-                        "text": "INAR"
+                        "text": "SCP"
                     }],
                     "procesos": [{
                         "name": "Service Usage",
@@ -3905,43 +3876,29 @@
                     "title": "Mediation",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
+                        "text": "Intec"
                     }, {
-                        "text": "COEXISTENSE"
+                        "text": "TC"
                     }, {
-                        "text": "OPUS"
+                        "text": "Coexistence"
                     }, {
-                        "text": "AMDOCS"
+                        "text": "BSCS"
                     }, {
-                        "text": "AT&T API"
+                        "text": "DWH"
                     }, {
-                        "text": "ICAS"
+                        "text": "ICC"
                     }, {
-                        "text": "MAXIMAGE"
+                        "text": "ICC DB"
                     }, {
-                        "text": "TBD"
+                        "text": "Mediation IX"
                     }, {
-                        "text": "NPS"
+                        "text": "NES"
                     }, {
-                        "text": "SRM"
+                        "text": "Network Elements"
                     }, {
-                        "text": "MEC"
+                        "text": "Xenabler OFCA"
                     }, {
-                        "text": "EDOC"
-                    }, {
-                        "text": "OFA"
-                    }, {
-                        "text": "ASD"
-                    }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
-                    }, {
-                        "text": "OMS"
-                    }, {
-                        "text": "INAR"
+                        "text": "Xenabler Service Control & Invoicing"
                     }],
                     "procesos": [{
                         "name": "Service Usage",
@@ -4105,43 +4062,33 @@
                     "title": "Roaming",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
+                        "text": "Clearing House Syniverse"
                     }, {
-                        "text": "COEXISTENSE"
+                        "text": "Sterling Connect Direct"
                     }, {
-                        "text": "OPUS"
+                        "text": "NE"
                     }, {
-                        "text": "AMDOCS"
+                        "text": "TC"
                     }, {
-                        "text": "AT&T API"
+                        "text": "BSCS"
                     }, {
-                        "text": "ICAS"
+                        "text": "Charging"
                     }, {
-                        "text": "MAXIMAGE"
+                        "text": "Chu-TX"
                     }, {
-                        "text": "TBD"
+                        "text": "Ciber"
                     }, {
-                        "text": "NPS"
+                        "text": "Data Med"
                     }, {
-                        "text": "SRM"
+                        "text": "DCH"
                     }, {
-                        "text": "MEC"
+                        "text": "ICC"
                     }, {
-                        "text": "EDOC"
+                        "text": "iCore"
                     }, {
-                        "text": "OFA"
+                        "text": "Mediation IX"
                     }, {
-                        "text": "ASD"
-                    }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
-                    }, {
-                        "text": "OMS"
-                    }, {
-                        "text": "INAR"
+                        "text": "Xenabler Service Control & Invoicing"
                     }],
                     "procesos": [{
                         "name": "Roaming Consumptions",
@@ -4319,43 +4266,11 @@
                     "title": "Commercial Offer",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
-                    }, {
-                        "text": "COEXISTENSE"
-                    }, {
-                        "text": "OPUS"
-                    }, {
-                        "text": "AMDOCS"
-                    }, {
-                        "text": "AT&T API"
-                    }, {
-                        "text": "ICAS"
-                    }, {
-                        "text": "MAXIMAGE"
-                    }, {
-                        "text": "TBD"
-                    }, {
-                        "text": "NPS"
-                    }, {
-                        "text": "SRM"
+                        "text": "INAR"
                     }, {
                         "text": "MEC"
                     }, {
-                        "text": "EDOC"
-                    }, {
-                        "text": "OFA"
-                    }, {
-                        "text": "ASD"
-                    }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
-                    }, {
-                        "text": "OMS"
-                    }, {
-                        "text": "INAR"
+                        "text": "XEnabler"
                     }],
                     "procesos": [{
                         "name": "Offer Definition",
@@ -4482,43 +4397,9 @@
                     "title": "Provisioning",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
+                        "text": "Xenabler AUA"
                     }, {
-                        "text": "COEXISTENSE"
-                    }, {
-                        "text": "OPUS"
-                    }, {
-                        "text": "AMDOCS"
-                    }, {
-                        "text": "AT&T API"
-                    }, {
-                        "text": "ICAS"
-                    }, {
-                        "text": "MAXIMAGE"
-                    }, {
-                        "text": "TBD"
-                    }, {
-                        "text": "NPS"
-                    }, {
-                        "text": "SRM"
-                    }, {
-                        "text": "MEC"
-                    }, {
-                        "text": "EDOC"
-                    }, {
-                        "text": "OFA"
-                    }, {
-                        "text": "ASD"
-                    }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
-                    }, {
-                        "text": "OMS"
-                    }, {
-                        "text": "INAR"
+                        "text": "Xenabler CRM"
                     }],
                     "procesos": [{
                         "name": "Resource Management",
@@ -4736,43 +4617,15 @@
                     "title": "Rating",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
+                        "text": "NE"
                     }, {
-                        "text": "COEXISTENSE"
+                        "text": "Not manager"
                     }, {
-                        "text": "OPUS"
+                        "text": "RLC"
                     }, {
-                        "text": "AMDOCS"
+                        "text": "TC"
                     }, {
-                        "text": "AT&T API"
-                    }, {
-                        "text": "ICAS"
-                    }, {
-                        "text": "MAXIMAGE"
-                    }, {
-                        "text": "TBD"
-                    }, {
-                        "text": "NPS"
-                    }, {
-                        "text": "SRM"
-                    }, {
-                        "text": "MEC"
-                    }, {
-                        "text": "EDOC"
-                    }, {
-                        "text": "OFA"
-                    }, {
-                        "text": "ASD"
-                    }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
-                    }, {
-                        "text": "OMS"
-                    }, {
-                        "text": "INAR"
+                        "text": "DWH"
                     }],
                     "procesos": [{
                         "name": "User Consumtion",
@@ -4919,43 +4772,31 @@
                     "title": "Portability",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
-                    }, {
-                        "text": "COEXISTENSE"
+                        "text": "Maximage"
                     }, {
                         "text": "OPUS"
                     }, {
-                        "text": "AMDOCS"
+                        "text": "Amdocs CRM"
                     }, {
-                        "text": "AT&T API"
+                        "text": "AUA "
                     }, {
-                        "text": "ICAS"
+                        "text": "ESB"
                     }, {
-                        "text": "MAXIMAGE"
-                    }, {
-                        "text": "TBD"
+                        "text": "NPAC "
                     }, {
                         "text": "NPS"
                     }, {
-                        "text": "SRM"
-                    }, {
-                        "text": "MEC"
-                    }, {
-                        "text": "EDOC"
-                    }, {
-                        "text": "OFA"
-                    }, {
-                        "text": "ASD"
-                    }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
-                    }, {
                         "text": "OMS"
                     }, {
-                        "text": "INAR"
+                        "text": "SRM"
+                    }, {
+                        "text": "MDR"
+                    }, {
+                        "text": "Portability Batch"
+                    }, {
+                        "text": "SOA"
+                    }, {
+                        "text": "Xenabler Ordering"
                     }],
                     "procesos": [{
                         "name": "Customer Request",
@@ -5141,43 +4982,27 @@
                     "title": "Accounting",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
-                    }, {
-                        "text": "COEXISTENSE"
+                        "text": "Oracle Financials Application"
                     }, {
                         "text": "OPUS"
                     }, {
-                        "text": "AMDOCS"
+                        "text": "CCAS"
                     }, {
-                        "text": "AT&T API"
+                        "text": "Customer Account Payment Management"
                     }, {
-                        "text": "ICAS"
+                        "text": "Amdocs"
                     }, {
-                        "text": "MAXIMAGE"
+                        "text": "Oracle GL"
                     }, {
-                        "text": "TBD"
+                        "text": "CESAT"
                     }, {
-                        "text": "NPS"
+                        "text": "CFAS"
                     }, {
-                        "text": "SRM"
+                        "text": "Oracle AP"
                     }, {
-                        "text": "MEC"
+                        "text": "Oracle INV"
                     }, {
-                        "text": "EDOC"
-                    }, {
-                        "text": "OFA"
-                    }, {
-                        "text": "ASD"
-                    }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
-                    }, {
-                        "text": "OMS"
-                    }, {
-                        "text": "INAR"
+                        "text": "ReconNet"
                     }],
                     "procesos": [{
                         "name": "Validation",
@@ -5380,43 +5205,19 @@
                     "title": "Billing Services",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
+                        "text": "DOC1"
                     }, {
-                        "text": "COEXISTENSE"
+                        "text": "SeguriData Invoice Electronic Seal"
                     }, {
-                        "text": "OPUS"
+                        "text": "Tralix Interactive"
                     }, {
-                        "text": "AMDOCS"
+                        "text": "MiATT"
                     }, {
-                        "text": "AT&T API"
+                        "text": "Amdocs"
                     }, {
-                        "text": "ICAS"
+                        "text": "Diverza"
                     }, {
-                        "text": "MAXIMAGE"
-                    }, {
-                        "text": "TBD"
-                    }, {
-                        "text": "NPS"
-                    }, {
-                        "text": "SRM"
-                    }, {
-                        "text": "MEC"
-                    }, {
-                        "text": "EDOC"
-                    }, {
-                        "text": "OFA"
-                    }, {
-                        "text": "ASD"
-                    }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
-                    }, {
-                        "text": "OMS"
-                    }, {
-                        "text": "INAR"
+                        "text": "Xerox"
                     }],
                     "procesos": [{
                         "name": "Delivery",
@@ -5578,43 +5379,25 @@
                     "title": "Billing Universal",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
+                        "text": "Invoice Gateway"
                     }, {
-                        "text": "COEXISTENSE"
+                        "text": "SeguriData Invoice Electronic Seal"
+                    }, {
+                        "text": "MiATT"
+                    }, {
+                        "text": "Oracle Financials Application"
                     }, {
                         "text": "OPUS"
                     }, {
-                        "text": "AMDOCS"
+                        "text": "Re-invoice"
                     }, {
-                        "text": "AT&T API"
+                        "text": "Amdocs"
                     }, {
-                        "text": "ICAS"
+                        "text": "Amdocs CRM"
                     }, {
-                        "text": "MAXIMAGE"
+                        "text": "Diverza"
                     }, {
-                        "text": "TBD"
-                    }, {
-                        "text": "NPS"
-                    }, {
-                        "text": "SRM"
-                    }, {
-                        "text": "MEC"
-                    }, {
-                        "text": "EDOC"
-                    }, {
-                        "text": "OFA"
-                    }, {
-                        "text": "ASD"
-                    }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
-                    }, {
-                        "text": "OMS"
-                    }, {
-                        "text": "INAR"
+                        "text": "Service Mail"
                     }],
                     "procesos": [{
                         "name": "Delivery",
@@ -5733,43 +5516,11 @@
                     "title": "Collections",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
+                        "text": "Sistema de Cobranza"
                     }, {
-                        "text": "COEXISTENSE"
+                        "text": "Amdocs"
                     }, {
-                        "text": "OPUS"
-                    }, {
-                        "text": "AMDOCS"
-                    }, {
-                        "text": "AT&T API"
-                    }, {
-                        "text": "ICAS"
-                    }, {
-                        "text": "MAXIMAGE"
-                    }, {
-                        "text": "TBD"
-                    }, {
-                        "text": "NPS"
-                    }, {
-                        "text": "SRM"
-                    }, {
-                        "text": "MEC"
-                    }, {
-                        "text": "EDOC"
-                    }, {
-                        "text": "OFA"
-                    }, {
-                        "text": "ASD"
-                    }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
-                    }, {
-                        "text": "OMS"
-                    }, {
-                        "text": "INAR"
+                        "text": "Mosaix"
                     }],
                     "procesos": [{
                         "name": "Extraction",
@@ -5914,43 +5665,43 @@
                     "title": "Payment",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
+                        "text": "BSCS iX"
                     }, {
-                        "text": "COEXISTENSE"
+                        "text": "BSCS V"
+                    }, {
+                        "text": "MiATT"
                     }, {
                         "text": "OPUS"
                     }, {
-                        "text": "AMDOCS"
+                        "text": "Customer Account Payment Management"
                     }, {
-                        "text": "AT&T API"
+                        "text": "Amdocs"
                     }, {
-                        "text": "ICAS"
-                    }, {
-                        "text": "MAXIMAGE"
-                    }, {
-                        "text": "TBD"
-                    }, {
-                        "text": "NPS"
-                    }, {
-                        "text": "SRM"
-                    }, {
-                        "text": "MEC"
-                    }, {
-                        "text": "EDOC"
-                    }, {
-                        "text": "OFA"
-                    }, {
-                        "text": "ASD"
-                    }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
+                        "text": "IVR"
                     }, {
                         "text": "OMS"
                     }, {
-                        "text": "INAR"
+                        "text": "ASD"
+                    }, {
+                        "text": "Autorizador"
+                    }, {
+                        "text": "ESK"
+                    }, {
+                        "text": "Express Pay"
+                    }, {
+                        "text": "FSDA"
+                    }, {
+                        "text": "GCS"
+                    }, {
+                        "text": "MAR"
+                    }, {
+                        "text": "Oracle AR"
+                    }, {
+                        "text": "ReconNet"
+                    }, {
+                        "text": "Redirect"
+                    }, {
+                        "text": "UploadP"
                     }],
                     "procesos": [{
                         "name": "Setup and Backup Activities",
@@ -6228,43 +5979,11 @@
                     "title": "Campaigns",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
+                        "text": "SAS Customer Intelligence"
                     }, {
-                        "text": "COEXISTENSE"
+                        "text": "SAS Enterprise Guide"
                     }, {
-                        "text": "OPUS"
-                    }, {
-                        "text": "AMDOCS"
-                    }, {
-                        "text": "AT&T API"
-                    }, {
-                        "text": "ICAS"
-                    }, {
-                        "text": "MAXIMAGE"
-                    }, {
-                        "text": "TBD"
-                    }, {
-                        "text": "NPS"
-                    }, {
-                        "text": "SRM"
-                    }, {
-                        "text": "MEC"
-                    }, {
-                        "text": "EDOC"
-                    }, {
-                        "text": "OFA"
-                    }, {
-                        "text": "ASD"
-                    }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
-                    }, {
-                        "text": "OMS"
-                    }, {
-                        "text": "INAR"
+                        "text": "SAS Management Console"
                     }],
                     "procesos": [{
                         "name": "Access",
@@ -6374,43 +6093,23 @@
                     "title": "Data Lake",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
+                        "text": "MicroStrategy"
                     }, {
-                        "text": "COEXISTENSE"
+                        "text": "SAS Data Mining"
                     }, {
-                        "text": "OPUS"
+                        "text": "SAS ATT"
                     }, {
-                        "text": "AMDOCS"
+                        "text": "SAS (CampaÃ±as)"
                     }, {
-                        "text": "AT&T API"
+                        "text": "BCV"
                     }, {
-                        "text": "ICAS"
+                        "text": "Data Lake"
                     }, {
-                        "text": "MAXIMAGE"
+                        "text": "Golden Gate"
                     }, {
-                        "text": "TBD"
+                        "text": "Hadoop"
                     }, {
-                        "text": "NPS"
-                    }, {
-                        "text": "SRM"
-                    }, {
-                        "text": "MEC"
-                    }, {
-                        "text": "EDOC"
-                    }, {
-                        "text": "OFA"
-                    }, {
-                        "text": "ASD"
-                    }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
-                    }, {
-                        "text": "OMS"
-                    }, {
-                        "text": "INAR"
+                        "text": "SQL"
                     }],
                     "procesos": [{
                         "name": "Data Gathering",
@@ -6541,43 +6240,11 @@
                     "title": "Data Mining",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
+                        "text": "SAS Data Mining"
                     }, {
-                        "text": "COEXISTENSE"
+                        "text": "SAS Enterprise Guide"
                     }, {
-                        "text": "OPUS"
-                    }, {
-                        "text": "AMDOCS"
-                    }, {
-                        "text": "AT&T API"
-                    }, {
-                        "text": "ICAS"
-                    }, {
-                        "text": "MAXIMAGE"
-                    }, {
-                        "text": "TBD"
-                    }, {
-                        "text": "NPS"
-                    }, {
-                        "text": "SRM"
-                    }, {
-                        "text": "MEC"
-                    }, {
-                        "text": "EDOC"
-                    }, {
-                        "text": "OFA"
-                    }, {
-                        "text": "ASD"
-                    }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
-                    }, {
-                        "text": "OMS"
-                    }, {
-                        "text": "INAR"
+                        "text": "SAS Management Console"
                     }],
                     "procesos": [{
                         "name": "Data Gathering",
@@ -6715,43 +6382,13 @@
                     "title": "KPIs and Reporting",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
+                        "text": "SAS ATT"
                     }, {
-                        "text": "COEXISTENSE"
+                        "text": "Informatica"
                     }, {
-                        "text": "OPUS"
+                        "text": "Oracle Process"
                     }, {
-                        "text": "AMDOCS"
-                    }, {
-                        "text": "AT&T API"
-                    }, {
-                        "text": "ICAS"
-                    }, {
-                        "text": "MAXIMAGE"
-                    }, {
-                        "text": "TBD"
-                    }, {
-                        "text": "NPS"
-                    }, {
-                        "text": "SRM"
-                    }, {
-                        "text": "MEC"
-                    }, {
-                        "text": "EDOC"
-                    }, {
-                        "text": "OFA"
-                    }, {
-                        "text": "ASD"
-                    }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
-                    }, {
-                        "text": "OMS"
-                    }, {
-                        "text": "INAR"
+                        "text": "Outlook"
                     }],
                     "procesos": [{
                         "name": "Data Gathering",
@@ -6859,43 +6496,19 @@
                     "title": "Sales Commissions",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
+                        "text": "MicroStrategy"
                     }, {
-                        "text": "COEXISTENSE"
+                        "text": "SAS Data Mining"
                     }, {
-                        "text": "OPUS"
+                        "text": "Vertica"
                     }, {
-                        "text": "AMDOCS"
+                        "text": "SAS ATT"
                     }, {
-                        "text": "AT&T API"
+                        "text": "Informatica"
                     }, {
-                        "text": "ICAS"
+                        "text": "Oracle Process"
                     }, {
-                        "text": "MAXIMAGE"
-                    }, {
-                        "text": "TBD"
-                    }, {
-                        "text": "NPS"
-                    }, {
-                        "text": "SRM"
-                    }, {
-                        "text": "MEC"
-                    }, {
-                        "text": "EDOC"
-                    }, {
-                        "text": "OFA"
-                    }, {
-                        "text": "ASD"
-                    }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
-                    }, {
-                        "text": "OMS"
-                    }, {
-                        "text": "INAR"
+                        "text": "SQL"
                     }],
                     "procesos": [{
                         "name": "Data Gathering",
@@ -7066,43 +6679,15 @@
                     "title": "Subscribers Counting",
                     "open": false,
                     "aplicaciones": [{
-                        "text": "WELCOME CENTER"
+                        "text": "SAS Nextel"
                     }, {
-                        "text": "COEXISTENSE"
+                        "text": "INAR Audit"
                     }, {
-                        "text": "OPUS"
+                        "text": "Informatica"
                     }, {
-                        "text": "AMDOCS"
+                        "text": "Oracle Package"
                     }, {
-                        "text": "AT&T API"
-                    }, {
-                        "text": "ICAS"
-                    }, {
-                        "text": "MAXIMAGE"
-                    }, {
-                        "text": "TBD"
-                    }, {
-                        "text": "NPS"
-                    }, {
-                        "text": "SRM"
-                    }, {
-                        "text": "MEC"
-                    }, {
-                        "text": "EDOC"
-                    }, {
-                        "text": "OFA"
-                    }, {
-                        "text": "ASD"
-                    }, {
-                        "text": "ORACLE GL"
-                    }, {
-                        "text": "INVOICE GATEWAY"
-                    }, {
-                        "text": "CAPM"
-                    }, {
-                        "text": "OMS"
-                    }, {
-                        "text": "INAR"
+                        "text": "Outlook"
                     }],
                     "procesos": [{
                         "name": "Data Gathering",
@@ -7196,6 +6781,12 @@
                     "areas": []
                 }]
             }]
+        }, {
+            "title": "SECURITY",
+            "name": "SECURITY",
+            "color": "#9063CD",
+            "selected": false,
+            "megaprocesos": []
         }]
     }, {
         "title": "AA",
