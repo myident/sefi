@@ -46,8 +46,6 @@
         
         $scope.zoom = Math.round($vash.zoom * 100) + '%';
         
-        // MARK: - Botones zoom
-        
         $scope.mas = function () {
             if($vash.zoom < 2) {
                 $vash.zoom += 0.02;
@@ -70,9 +68,13 @@
         
         
         
+        
+        
         // MARK: - Mapside Directive
         
         $scope.dominios = []; // Se llena en $scope.init()
+        
+        
         
         
         
@@ -122,17 +124,21 @@
                         };
                     }
                     // Se guarda el macroproceso elegido en el breadcrumb
-                    $scope.breadcrumb.capacidad = '/ ' + $scope.megaprocesos[$scope.indexMega].macroprocesos[index].title;
+                    $scope.breadcrumb.capacidad =  $scope.megaprocesos[$scope.indexMega].macroprocesos[index].title;
 
                 }
             } else {
                 // Cuando se elige un megaproceso en el índice, se guarda el $index en indexMega
                 $scope.indexMega = index;
                 // Se guarda el megaproceso elegido en el breadcrumb
-                $scope.breadcrumb.proceso = '/ ' + $scope.megaprocesos[$scope.indexMega].title;
+                $scope.breadcrumb.proceso = '/ ' + $scope.megaprocesos[$scope.indexMega].title + '/ ';
             }
 
         };
+        
+        
+        
+        
         
         
         
@@ -142,6 +148,8 @@
         $scope.cerrarSideBar = function () {
             $scope.openBar = !$scope.openBar;
         };
+        
+        
         
         
         
@@ -156,6 +164,8 @@
         };
         
         $scope.layout = 0;
+        
+        
         
         
         
@@ -185,6 +195,8 @@
         
         
         
+        
+        
         // MARK: - Ways Directive
         
         $scope.macroprocesos = [];
@@ -194,7 +206,15 @@
 
         $scope.abrirCapacidades = false;
         
+        $scope.imprimir = "";
+        
+        $scope.imprimirDesdeBreadCrumb = function() {
+            $scope.imprimir = "print";
+        };
+        
 
+        
+        
         
         
         // MARK: - Inicializa el controller
@@ -241,6 +261,8 @@
             $scope.indexMega = 0;
         };
 
+        
+        
         
         
         

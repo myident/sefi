@@ -1,4 +1,4 @@
-/* global angular */
+/* global angular, Snap */
 
 (function () {
 
@@ -14,7 +14,7 @@
             /* prccessArr:    es el array de procesos que se llenará una vez que se terminé de iterar el JSON */
             /* procesosGroup: es el grupo de snapSVG donde se agruparán los  svg de Procesos */
             /* type:          se refiere a si se visualizarán reglas o capacidades */
-            processes: function (source, paper, layout, objss, prccessArr, procesosGroup, type, main, justProcess) {
+            processes: function (source, paper, layout, objss, prccessArr, procesosGroup, type, justProcess) {
 
                 procesosGroup = paper.group();
 
@@ -69,9 +69,9 @@
                         }
                         
                         // Tamaño de la flecha en procesos
-                        intersections[0][1].x = intersections[0][0].x + main.procesos.distanciaLineaProcesos;
-                        intersections[0][2].x = intersections[0][0].x + main.procesos.distanciaLineaProcesos;
-                        intersections[0][1].x = intersections[0][0].x + main.procesos.distanciaLineaProcesos;
+                        intersections[0][1].x = intersections[0][0].x + 105;
+                        intersections[0][2].x = intersections[0][0].x + 105;
+                        intersections[0][1].x = intersections[0][0].x + 105;
 
 
                         var arr = [
@@ -130,7 +130,7 @@
 
 
                         var arrow = $shapes.factory.arrow(offsetsArrow[layout], baseArrow);
-                        if (layout == 0) {
+                        if (layout === 0) {
                             $paint.rotate90(arrow);
                         }
                         if (connection.direction == 'right' && layout == 2) {
@@ -171,7 +171,7 @@
 
                     }
                     
-                    if (layout == 0) {
+                    if (layout === 0) {
                         var etiquetaProcesos, etiquetaCapacidades, etiquetaReglas;
                         if (justProcess) {
                             if (type == 'reglas') {
@@ -269,7 +269,7 @@
                         for (var j in source[i][type]) {
                             var obj = {};
                             var capacidad = source[i][type][j];
-                            obj = self.capacidades(capacidad, i, j, paper, layout, source, type, main);
+                            obj = self.capacidades(capacidad, i, j, paper, layout, source, type);
                             procesoCapacidadesGroup.append(obj.gCapacidad);
 
                             // Event
@@ -305,10 +305,10 @@
             /* layout:    se refiere al layout que pintará ya sea por procesos, por áreas o aplicaciones */
             /* source:    es el JSON que contiene los procesos */
             /* type:      se refiere a si se visualizarán reglas o capacidades */
-            capacidades: function (capacidad, i, j, paper, layout, source, type, main) {
+            capacidades: function (capacidad, i, j, paper, layout, source, type) {
                 
-                var capacidadWidth = main.procesos.capacidadSizes.width;
-                var capacidadHeight = main.procesos.capacidadSizes.height;
+                var capacidadWidth = 90;
+                var capacidadHeight = 50;
                 
                 var rect, textbox, intersection, arrow, rectTrasparent;
                 

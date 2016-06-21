@@ -706,20 +706,6 @@
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
-                        }, {
-                            "name": "Home Delivery",
-                            "selected": false,
-                            "kpis": [],
-                            "aplicaciones": [],
-                            "subcapacidades": [],
-                            "areas": []
-                        }, {
-                            "name": "Store Delivery",
-                            "selected": false,
-                            "kpis": [],
-                            "aplicaciones": [],
-                            "subcapacidades": [],
-                            "areas": []
                         }],
                         "reglas": []
                     }, {
@@ -863,13 +849,6 @@
                         "name": "Replacement Type",
                         "selected": false,
                         "capacidades": [{
-                            "name": "Reason Codes",
-                            "selected": false,
-                            "kpis": [],
-                            "aplicaciones": [],
-                            "subcapacidades": [],
-                            "areas": []
-                        }, {
                             "name": "Home Delivery",
                             "selected": false,
                             "kpis": [],
@@ -1133,8 +1112,7 @@
                         "reglas": []
                     }],
                     "areas": []
-                }, 
-                                  {
+                }, {
                     "title": "Subscription Management",
                     "open": false,
                     "aplicaciones": [{
@@ -1179,14 +1157,7 @@
                     "procesos": [{
                         "name": "Queue Management",
                         "selected": false,
-                        "capacidades": [{
-                            "name": null,
-                            "selected": false,
-                            "kpis": [],
-                            "aplicaciones": [],
-                            "subcapacidades": [],
-                            "areas": []
-                        }],
+                        "capacidades": [],
                         "reglas": []
                     }, {
                         "name": "Credit Check",
@@ -1462,49 +1433,31 @@
                         }, {
                             "name": "Contact/Customer Creation",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Customers",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "Sales",
-                                "selected": false
-                            }]
+                            "areas": []
                         }, {
                             "name": "Credit Prevalidation",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Contract Orders",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "Sales",
-                                "selected": false
-                            }]
+                            "areas": []
                         }, {
                             "name": "Customer Billing System Identification",
                             "selected": false,
                             "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "Sales",
-                                "selected": false
-                            }]
+                            "areas": []
                         }, {
                             "name": "Document Repository",
                             "selected": false,
                             "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "Sales",
-                                "selected": false
-                            }]
+                            "areas": []
                         }],
                         "reglas": []
                     }, {
@@ -1513,26 +1466,17 @@
                         "capacidades": [{
                             "name": "Document Repository Contract",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Devices",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "IT",
-                                "selected": false
-                            }]
+                            "areas": []
                         }, {
                             "name": "Document Repository (customer provided)",
                             "selected": false,
                             "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "Sales",
-                                "selected": false
-                            }]
+                            "areas": []
                         }],
                         "reglas": []
                     }, {
@@ -1544,20 +1488,14 @@
                             "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "IT",
-                                "selected": false
-                            }]
+                            "areas": []
                         }, {
                             "name": "Print Documents Contract",
                             "selected": false,
                             "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "IT",
-                                "selected": false
-                            }]
+                            "areas": []
                         }],
                         "reglas": []
                     }, {
@@ -1569,23 +1507,14 @@
                             "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "Credit",
-                                "selected": false
-                            }]
+                            "areas": []
                         }, {
                             "name": "Credit Score (Questionnaire/Audio)",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Contract Orders by status",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "Credit",
-                                "selected": false
-                            }]
+                            "areas": []
                         }],
                         "reglas": []
                     }, {
@@ -1594,52 +1523,31 @@
                         "capacidades": [{
                             "name": "Commercial Offer",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Rate Plans",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "Sales",
-                                "selected": false
-                            }]
+                            "areas": []
                         }, {
                             "name": "NIR Management",
                             "selected": false,
                             "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "Sales",
-                                "selected": false
-                            }]
+                            "areas": []
                         }, {
                             "name": "Portability (Port in)",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Port-In",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "Sales",
-                                "selected": false
-                            }]
+                            "areas": []
                         }, {
                             "name": "Store Catalog",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Devices",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "Sales",
-                                "selected": false
-                            }]
+                            "areas": []
                         }],
                         "reglas": []
                     }, {
@@ -1648,19 +1556,10 @@
                         "capacidades": [{
                             "name": "AT&T Credit Policy",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Contracts",
-                                "selected": false
-                            }, {
-                                "name": "# Warranties",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "Credit",
-                                "selected": false
-                            }]
+                            "areas": []
                         }],
                         "reglas": []
                     }, {
@@ -1669,65 +1568,38 @@
                         "capacidades": [{
                             "name": "Accounting Configuration",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Root Account",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "IT",
-                                "selected": false
-                            }]
+                            "areas": []
                         }, {
                             "name": "Equipment Invoice",
                             "selected": false,
                             "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "Sales",
-                                "selected": false
-                            }]
+                            "areas": []
                         }, {
                             "name": "Payment Accounting",
                             "selected": false,
-                            "kpis": [{
-                                "name": "Conciliations",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "IT",
-                                "selected": false
-                            }]
+                            "areas": []
                         }, {
                             "name": "Payments",
                             "selected": false,
-                            "kpis": [{
-                                "name": "Amount",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "Sales",
-                                "selected": false
-                            }]
+                            "areas": []
                         }, {
                             "name": "Sales Accounting",
                             "selected": false,
-                            "kpis": [{
-                                "name": "Conciliations",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "IT",
-                                "selected": false
-                            }]
+                            "areas": []
                         }],
                         "reglas": []
                     }, {
@@ -1736,71 +1608,38 @@
                         "capacidades": [{
                             "name": "Assignment",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Contracts",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "Warehouse",
-                                "selected": false
-                            }]
+                            "areas": []
                         }, {
                             "name": "Cost Accounting",
                             "selected": false,
-                            "kpis": [{
-                                "name": "Conciliations",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "IT",
-                                "selected": false
-                            }]
+                            "areas": []
                         }, {
                             "name": "Equipment Invoice",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Devices",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "IT",
-                                "selected": false
-                            }]
+                            "areas": []
                         }, {
                             "name": "Inventory",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Devices by Contract Order",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "IT",
-                                "selected": false
-                            }]
+                            "areas": []
                         }, {
                             "name": "Supply Chain",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Contract Orders",
-                                "selected": false
-                            }, {
-                                "name": "# Devices",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "Warehouse",
-                                "selected": false
-                            }]
+                            "areas": []
                         }],
                         "reglas": []
                     }, {
@@ -1809,19 +1648,10 @@
                         "capacidades": [{
                             "name": "Home Delivery",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Contract Orders",
-                                "selected": false
-                            }, {
-                                "name": "# Devices",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "IT",
-                                "selected": false
-                            }]
+                            "areas": []
                         }],
                         "reglas": []
                     }, {
@@ -1830,29 +1660,17 @@
                         "capacidades": [{
                             "name": "Close Credit",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Contract Orders",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "IT",
-                                "selected": false
-                            }]
+                            "areas": []
                         }, {
                             "name": "Warranties Postpaid Products",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Warranties",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "IT",
-                                "selected": false
-                            }]
+                            "areas": []
                         }],
                         "reglas": []
                     }, {
@@ -1861,49 +1679,31 @@
                         "capacidades": [{
                             "name": "Activation Register",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Contracts",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "IT",
-                                "selected": false
-                            }]
+                            "areas": []
                         }, {
                             "name": "Provisioning",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Contracts",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "IT",
-                                "selected": false
-                            }]
+                            "areas": []
                         }, {
                             "name": "Temporary Resource Management",
                             "selected": false,
                             "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "IT",
-                                "selected": false
-                            }]
+                            "areas": []
                         }, {
                             "name": "*228",
                             "selected": false,
                             "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
-                            "areas": [{
-                                "name": "IT",
-                                "selected": false
-                            }]
+                            "areas": []
                         }],
                         "reglas": []
                     }],
@@ -2508,10 +2308,7 @@
                         }, {
                             "name": "Customer Identification",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Customers",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -2523,10 +2320,7 @@
                         "capacidades": [{
                             "name": "Commercial Offer",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Rate Plans",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -2538,10 +2332,7 @@
                         "capacidades": [{
                             "name": "Address Validation",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Events successful",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -2555,10 +2346,7 @@
                         }, {
                             "name": "Customer/Contact Creation",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Customers",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -2596,10 +2384,7 @@
                         "capacidades": [{
                             "name": "Commercial Offer",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Rate Plans",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -2613,20 +2398,14 @@
                         }, {
                             "name": "Portability (Port in)",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Port in",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "Store Catalog",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Devices",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -2650,20 +2429,14 @@
                         "capacidades": [{
                             "name": "Assignment",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Contracts",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "Cost Accounting",
                             "selected": false,
-                            "kpis": [{
-                                "name": "Conciliations",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -2677,23 +2450,14 @@
                         }, {
                             "name": "Inventory",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Devices by Contract Order",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "Supply Chain",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Contract Orders",
-                                "selected": false
-                            }, {
-                                "name": "# Devices",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -2705,50 +2469,35 @@
                         "capacidades": [{
                             "name": "Accounting Configuration",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Root Account",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "Equipment Invoice",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Devices",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "Payment Accounting",
                             "selected": false,
-                            "kpis": [{
-                                "name": "Conciliations",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "Payments",
                             "selected": false,
-                            "kpis": [{
-                                "name": "Amount",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "Sales Accounting",
                             "selected": false,
-                            "kpis": [{
-                                "name": "Conciliations",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -2767,13 +2516,7 @@
                         }, {
                             "name": "Home Delivery",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Contract Orders",
-                                "selected": false
-                            }, {
-                                "name": "# Devices",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -2804,20 +2547,14 @@
                         "capacidades": [{
                             "name": "Activation Register",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Contracts",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "Provisioning",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Contracts",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -3481,10 +3218,7 @@
                         "capacidades": [{
                             "name": "Channels & Retailers Management",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Retailers",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -3498,10 +3232,7 @@
                         }, {
                             "name": "Retailers Promotions",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# SIMs",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -3520,20 +3251,14 @@
                         }, {
                             "name": "Pre-Activation",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# SIMs Preactivated",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "Rate Plans Setup",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Plans",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -3566,20 +3291,14 @@
                         }, {
                             "name": "Picking & Shipping",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Contract Orders by status",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "Retailer Sales Order",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Orders",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -3591,13 +3310,7 @@
                         "capacidades": [{
                             "name": "Credit Score",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Orders Approved",
-                                "selected": false
-                            }, {
-                                "name": "# Orders Rejected",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -3616,10 +3329,7 @@
                         }, {
                             "name": "Universal Billing",
                             "selected": false,
-                            "kpis": [{
-                                "name": "Amount",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -3638,10 +3348,7 @@
                         }, {
                             "name": "Payment",
                             "selected": false,
-                            "kpis": [{
-                                "name": "Amount",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -3653,10 +3360,7 @@
                         "capacidades": [{
                             "name": "Commercial Sales Register",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# SIMs Registered",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -3684,10 +3388,7 @@
                         }, {
                             "name": "Unblock for Activation",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# SIMs",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -3699,10 +3400,7 @@
                         "capacidades": [{
                             "name": "Activation Register",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# SIMs",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -3716,10 +3414,7 @@
                         }, {
                             "name": "*228",
                             "selected": false,
-                            "kpis": [{
-                                "name": "Events IVR",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -3731,30 +3426,21 @@
                         "capacidades": [{
                             "name": "Commissions",
                             "selected": false,
-                            "kpis": [{
-                                "name": "Detail",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "Retailers Settlement",
                             "selected": false,
-                            "kpis": [{
-                                "name": "Conciliations",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "Sales Reconciliation",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# SIMS by Channel",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -4854,23 +4540,14 @@
                         }, {
                             "name": "SIMS & Handset Inventory",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Devices by Contract Order",
-                                "selected": false
-                            }, {
-                                "name": "# SIMs by Contract Order",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "Stolen resources",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Devices",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -4908,20 +4585,14 @@
                         "capacidades": [{
                             "name": "Port IN",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Port in",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "Reversal Port IN",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Reversal Port in",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -4933,50 +4604,35 @@
                         "capacidades": [{
                             "name": "Data Provisioning",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Contracts",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "PTT Provisioning",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Contracts",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "VAS & MSG Provisioning",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Contracts",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "Voice Provisioning",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Contracts",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "3PP Provisioning",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Contracts",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -4988,50 +4644,35 @@
                         "capacidades": [{
                             "name": "Changes & Cancelation",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Contracts",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "Reporting",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Reports",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "Service Change",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Services",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "Service Reactivation",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Services",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "Service Suspension",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Services",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -5050,30 +4691,21 @@
                         }, {
                             "name": "Port Out",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Port Out",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "Reversal Port Out",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Reversal Port Out",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "Suspend Monitor",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Devices",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -5085,20 +4717,14 @@
                         "capacidades": [{
                             "name": "INAR Information",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Contracts",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "Reporting",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Reports",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -5154,10 +4780,7 @@
                         "capacidades": [{
                             "name": "Service Usage",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Events",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -5188,20 +4811,14 @@
                         "capacidades": [{
                             "name": "Event Enrichment",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Events",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "Event Reception",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Events",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -5227,30 +4844,21 @@
                         "capacidades": [{
                             "name": "Discount Calculation",
                             "selected": false,
-                            "kpis": [{
-                                "name": "Amount",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "Event Rating",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Events",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "SDP Calcuation",
                             "selected": false,
-                            "kpis": [{
-                                "name": "Amount",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
@@ -5274,40 +4882,28 @@
                         "capacidades": [{
                             "name": "Data Events",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Events",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "Direct Debit Event",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Events",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "PTT|Other Services Events",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Events",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []
                         }, {
                             "name": "VAS|Content Events",
                             "selected": false,
-                            "kpis": [{
-                                "name": "# Events",
-                                "selected": false
-                            }],
+                            "kpis": [],
                             "aplicaciones": [],
                             "subcapacidades": [],
                             "areas": []

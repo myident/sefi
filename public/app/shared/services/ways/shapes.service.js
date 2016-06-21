@@ -1,4 +1,4 @@
-/* global angular */
+/* global angular, Snap */
 
 (function () {
 
@@ -25,23 +25,25 @@
                     return scope.svg.line(start.x, start.y, end.x, end.y);
                 },
                 text: function (offset, w, text) {
-                    var text = scope.svg.multitext(offset.x, offset.y, text, w, {
-                        "text-anchor": "middle"
+                    var multitext = scope.svg.multitext(offset.x, offset.y, text, w, {
+                        "text-anchor": "middle",
+                        "font-family": "sans-serif"
                     });
-                    return text;
+                    return multitext;
                 },
                 textbox: function (offset, w, h, text, fontSize) {
-                    var text = scope.svg.multitext(offset.x, offset.y, text, w, {
+                    var textbox = scope.svg.multitext(offset.x, offset.y, text, w, {
                         "text-anchor": "middle",
-                        'font-size': fontSize + 'px'
+                        "font-size": fontSize + 'px',
+                        "font-family": "sans-serif"
                     });
                     // var yt = offset.y - (text.node.clientHeight / 2);
                     // //var yt = (offset.y +(h / 2) - (text.node.clientHeight / 2))+10;
-                    var yt = offset.y - (text.node.clientHeight / 2) + fontSize - 2;
-                    text.attr({
+                    var yt = offset.y - (textbox.node.clientHeight / 2) + fontSize - 2;
+                    textbox.attr({
                         y: yt
                     });
-                    return text;
+                    return textbox;
                 },
                 polyline: function (arr) {
                     var polyline = scope.svg.polyline(arr);

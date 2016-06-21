@@ -18,6 +18,7 @@
         zoom-in="mas"
         zoom-out="menos"
         zoom-reset="restablecerZoom"
+        print="imprimirDesdeBreadCrumb"
         ></ng-breadcrumb>
 
     <section class="sidebar-left" ng-class="{'close': !openBar}">
@@ -45,14 +46,7 @@
 
         <!--ng Ways-->
         <div class="svg-container">
-    
-<!--
-            <div 
-                class="btn-close-side" 
-                ng-click="cerrarSideBar()" 
-                ng-class="{'open': !openBar}"></div>
--->
-               
+            
             <div 
                 class="header-container" 
                 ng-layouts 
@@ -67,12 +61,13 @@
                 ng-style="getStyle()">
                 
                 <svg ng-ways 
-                    style="font-family:'SF'" 
                     source="procesos" 
-                    config="config" 
-                    layout="layout"
-                    type="type"
-                    activar="abrirCapacidades"
+                    catalogos="config" 
+                    ver-por="layout"
+                    ordenar-por="type"
+                    solo-procesos="abrirCapacidades"
+                    enviar-imprimir="imprimir"
+                    nombre-pdf="breadcrumb.capacidad"
                     ></svg> 
             </div>
 

@@ -1,18 +1,18 @@
-/* global angular, Snap */
+/* global angular, Snap, svgAsPngUri, jsPDF */
 (function () {
-    var Directive = function ($vash, $build, $layout, $settings) {
-        
-        var Link = function ($scope, element) {
-            
-            $scope.svg           = Snap(element[0]); // Creación del Paper
+    var Directive = function ($vash, $build, $layout, $settings, $rootScope) {
 
-            $scope.layoutGroups  = [{},{},{}]; // Grupos de Layout para guardar los Layouts
-            $scope.objss         = []; // Array que contiene las capacidades del proceso
-            $scope.prccessArr    = []; // Array que contiene los procesos
+        var Link = function ($scope, element) {
+
+            $scope.svg = Snap(element[0]); // Creación del Paper
+
+            $scope.layoutGroups = [{}, {}, {}]; // Grupos de Layout para guardar los Layouts
+            $scope.objss = []; // Array que contiene las capacidades del proceso
+            $scope.prccessArr = []; // Array que contiene los procesos
             $scope.procesosGroup = {}; // Grupo que contiene los procesos a nivel de SVG
-            
+
             // MARK: - Watchers que escuchan los cambios de la directiva
-            
+
             $scope.$watch('source', function () {
                 $scope.reset();
             });
@@ -24,51 +24,79 @@
             $scope.$watch('type', function () {
                 $scope.reset();
             });
-            
+
             $scope.$watch('activar', function () {
                 $scope.reset();
             });
+
+            $scope.$watch('documentName', function () {});
+
+            $scope.$watch('print', function (n) {
+                $scope.imprimir(n);
+            });
             
-            
+
             //MARK: - Funciones
-            $scope.main = {
-                procesos: {
-                    capacidadSizes: {
-                        width: 90,
-                        height: 50
-                    },
-                    procesoMargen: {
-                        x: 132,
-                        y: 165
-                    },
-                    distanciaLineaProcesos: 105,
-                    capacidadMargen: {
-                        y: 80
-                    },
-                    capacidadMargenProceso: {
-                        y: 145 // distancia de las capacidades con respecto a sus procesos
-                    },
-                    layoutSizes: {
-                        offset: {
-                            x: 130,
-                            y: 200
-                        },
-                        width: 172
+            
+            // Función para imprimir el PDF
+            $scope.imprimir = function (n) {
+                if (n == 'print') {
+                    if ($scope.documentName !== '') {
+                        $rootScope.spin = true;
+
+                        var ancho, alto, nuevaAltura;
+
+                        var nombre = $vash.camelize($scope.documentName);
+
+                        if ($scope.layout > 0) {
+
+                            ancho = $vash.sumOffsetsInX();
+                            alto = $vash.sumOffsetsInY();
+                            nuevaAltura = ((780 * ancho) / alto);
+                            
+                            svgAsPngUri(element[0], {
+                                scale: 1.5
+                            }, function (uri) {
+
+                                var pdf = new jsPDF('p', 'pt', 'letter');
+
+                                pdf.addImage(uri, 'PNG', 0, 0, nuevaAltura, 780);
+                                $rootScope.spin = false;
+                                pdf.save(nombre + '_areas.pdf');
+                            });
+
+                        } else {
+                            ancho = $vash.sumOffsetsInX();
+                            alto = $vash.heightProcesosMax();
+                            nuevaAltura = ((780 * alto) / ancho);
+                            svgAsPngUri(element[0], {
+                                scale: 3.5
+                            }, function (uri) {
+                                var pdf = new jsPDF('l', 'pt', 'letter');
+                                pdf.addImage(uri, 'PNG', 0, 0, 780, nuevaAltura);
+                                $rootScope.spin = false;
+                                pdf.save(nombre + '_capacities.pdf');
+                            });
+
+                        }
                     }
                 }
+                $scope.print = "";
             };
+
+            
             // Constructor de los Layouts
             $scope.buildLayouts = function () {
-                
+
                 // Tamaño de cada uno de los Layouts
                 // En orden queda [initial, areas, applications]
                 var layoutSizes = [
                     {
                         offset: {
-                            x: $scope.main.procesos.layoutSizes.offset.x,
-                            y: $scope.main.procesos.layoutSizes.offset.y
+                            x: 130,
+                            y: 200
                         },
-                        width: $scope.main.procesos.layoutSizes.width
+                        width: 172
                     },
                     {
                         width: 184,
@@ -87,24 +115,24 @@
                         }
                     }
                 ];
-                
+
                 // Se crea la configuración para utilizar el servicio $layout
                 $layout.setConfiguration(
-                    $scope.config, 
-                    $scope.svg, 
-                    $scope.source, 
+                    $scope.config,
+                    $scope.svg,
+                    $scope.source,
                     $scope.sizes);
-                
+
                 // Con el servicio $layout se crea cada layout, de acuerdo al $scope.layout
                 // Se debe tener en cuenta que $scope.layout se recibe en la directiva
                 $layout.create[0](
                     layoutSizes[0],
                     $scope.layoutGroups[0]);
-                
+
                 $layout.create[1](
                     layoutSizes[1],
                     $scope.layoutGroups[1]);
-                
+
                 $layout.create[2](
                     layoutSizes[2],
                     $scope.layoutGroups[2]);
@@ -128,28 +156,29 @@
                         y: 140
                     }
                 ];
-                
+
                 // Se limpia el SVG
                 $scope.svg.clear();
                 $vash.zoom = 1;
-                
+
                 // Se reconstruyen los layouts
                 $scope.buildLayouts();
 
-                
+
                 // Se verifica que existan procesos en $scope.source
                 if ($scope.source.length) {
-                    
+
+
                     // Se preparan los procesos para dibujarlos
                     $settings.processes(
                         $scope.source, // array que contiene los procesos
-                        offsetsInit,   // offsets por default para los procesos
+                        offsetsInit, // offsets por default para los procesos
                         $scope.config, // el config que recibe la directiva
                         $scope.layout, // el layout que debe cargar segun la directiva
                         $scope.type,
-                        $scope.main,
-                        $scope.activar);  // se refiere si muestra capacidades o reglas de negocio
-                    
+                        $scope.activar); // se refiere si muestra capacidades o reglas de negocio
+
+
                     // Se dibujan los procesos
                     $build.processes(
                         $scope.source,
@@ -159,9 +188,10 @@
                         $scope.prccessArr,
                         $scope.procesosGroup,
                         $scope.type,
-                        $scope.main,
                         $scope.activar);
-                    
+
+
+                    // Se configura el tamaño del SVG para poder hacer el ZOOM
                     if ($scope.layout > 0) {
                         $scope.svg.attr({
                             viewBox: "0 0 " + $vash.sumOffsetsInX() + " " + $vash.sumOffsetsInY()
@@ -171,10 +201,10 @@
                             viewBox: "0 0 " + $vash.sumOffsetsInX() + " " + $vash.heightProcesosMax()
                         });
                     }
-                    
+
 
                 }
-            
+
             };
 
         };
@@ -184,10 +214,12 @@
             require: '?ngModel',
             scope: {
                 source: '=',
-                config: '=',
-                layout: '=',
-                type: '=',
-                activar: '='
+                config: '=catalogos',
+                layout: '=verPor',
+                type: '=ordenarPor',
+                activar: '=soloProcesos',
+                print: '=enviarImprimir',
+                documentName: '=nombrePdf'
 
             }
         };

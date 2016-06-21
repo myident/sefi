@@ -18,6 +18,8 @@
         
     <span>{{source.titulo}} / {{source.subtitulo}} {{source.proceso}} {{source.capacidad}}</span>
     
+    <span ng-click="imprimir()" style="position: absolute; right: 520px; cursor: pointer;" ng-show="source.capacidad !== ''">Imprimir</span>
+    
     
     <div class="zoom-control">
         <div class="btn-zoom menos" ng-click="menos()"></div>
@@ -54,21 +56,3 @@
         </ul>
     </div>
 </section>
-
-
-<!--
-<section class="subheader-back" ng-class="{'open': !openBar}">
-
-    <div class="how-to-see">
-        <div class="txt">VER</div>
-        <div class="btn left">Capacidades</div><div class="btn right" >Reglas de Negocio</div>
-        
-    </div>
-    <div class="how-to-order">
-        <div class="txt">ORDENAR POR</div>
-        <div class="btn" >Procesos</div>
-        <div class="btn" ng-click="clickOption(1)" ng-class="{'active': selected == 1}">Áreas</div>
-        <div class="btn" ng-click="clickOption(2)" ng-class="{'active': selected == 2}">Aplicaciones</div>
-    </div>
-
-</section>-->

@@ -7,6 +7,10 @@
 
             });
             
+            $scope.imprimir = function(){
+                $scope.print();
+            };
+            
             $scope.selected = 0;
             $scope.ver = 0;
             $scope.openBar = true;
@@ -73,7 +77,8 @@
                 zoom: '=',
                 zoomIn: '=',
                 zoomOut: '=',
-                zoomReset: '='
+                zoomReset: '=',
+                print: '='
             }
         };
     };

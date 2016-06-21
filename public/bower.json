@@ -8,6 +8,6 @@
         "angular-touch": "latest",
         "angular-animate": "latest",
         "snap.svg":"latest",
-        "snap.svg.zpd": "latest"
+        "jspdf": "latest"
     }
 }
