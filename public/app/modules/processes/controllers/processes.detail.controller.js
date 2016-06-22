@@ -77,9 +77,18 @@
         
         
         // MARK: - Index Directive
+        
+        if ($routeParams.mega && $routeParams.macro) {
+            $scope.mega = $routeParams.mega;
+            $scope.macro = $routeParams.macro;
+            $scope.indiceAbierto = true;
+        } else {
+            $scope.mega = 0;
+            $scope.macro = 0;
+            $scope.indiceAbierto = false;
+        }
 
-        $scope.mega = $routeParams.mega;
-        $scope.macro = $routeParams.macro;
+
         
         $scope.megaprocesos = []; // Se llena en $scope.init()
         
