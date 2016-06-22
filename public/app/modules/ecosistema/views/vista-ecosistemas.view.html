@@ -9,5 +9,99 @@
         <figure class="lista-ecosistemas">
             <img src="/app/modules/ecosistema/assets/img/Group.png" alt="">
         </figure>
+		
+		<div class="row">
+			<div class="md-col-1 sm-col-12">
+	        </div>
+	        <div class="md-col-4 sm-col-12" >
+	        	<div class="header-bar" ng-style="{backgroundColor: dominios[0].color}"> 
+	        		<span class="title">{{dominios[0].title}} </span> 
+	        		<span class="name">{{dominios[0].name}}</span>
+	        	</div>
+				
+				<div class="row" id="crm">
+					<div class="md-col-6 sm-col-12">
+						<div class="item-bar" style="border:1px solid {{dominios[0].color}}" ng-repeat="macroproceso in dominios[0].megaprocesos[1].macroprocesos">{{macroproceso.title}}</div>
+					</div>
+					<div class="md-col-6 sm-col-12">
+						<div class="item-bar" style="border:1px solid {{dominios[0].color}}" ng-repeat="macroproceso in dominios[0].megaprocesos[0].macroprocesos">
+							{{macroproceso.title}}
+						</div>
+					</div>
+				</div>
+
+				<div class="header-bar" ng-style="{backgroundColor: '#EC7400'}">
+					<span class="title">{{dominios[1].title}} </span> 
+	        		<span class="name">{{dominios[1].name}}</span>
+				</div>
+				
+				<div class="row" id="bss">
+					<div class="md-col-6 sm-col-12">
+						<div class="item-bar" style="border:1px solid #EC7400" ng-repeat="macroproceso in dominios[1].megaprocesos[0].macroprocesos">{{macroproceso.title}}</div>
+					</div>
+					<div class="md-col-6 sm-col-12">
+						<div class="item-bar" style="border:1px solid #EC7400" ng-repeat="macroproceso in dominios[1].megaprocesos[1].macroprocesos">
+							{{macroproceso.title}}
+						</div>
+					</div>
+				</div>
+
+	        </div>
+	        <div class="md-col-6 sm-col-12">
+	        	<div class="header-bar" ng-style="{backgroundColor: '#B5BF00'}">
+	        		<span class="title">{{dominios[2].title}} </span> 
+	        		<span class="name">{{dominios[2].name}}</span>
+	        	</div>
+	        	<div class="row" id="em">
+					<div class="md-col-4 sm-col-12">
+						<div class="item-bar" style="border:1px solid #B5BF00" ng-repeat="macroproceso in dominios[2].megaprocesos[0].macroprocesos">
+							{{macroproceso.title}}
+						</div>
+						<div class="item-bar" style="border:1px solid #B5BF00" ng-repeat="macroproceso in dominios[2].megaprocesos[3].macroprocesos">
+							{{macroproceso.title}}
+						</div>
+					</div>
+					<div class="md-col-4 sm-col-12">
+						<div class="item-bar" style="border:1px solid #B5BF00" ng-repeat="macroproceso in dominios[2].megaprocesos[1].macroprocesos">
+							{{macroproceso.title}}
+						</div>
+					</div>
+					<div class="md-col-4 sm-col-12">
+						<div class="item-bar" style="border:1px solid #B5BF00" ng-repeat="macroproceso in dominios[2].megaprocesos[2].macroprocesos">
+							{{macroproceso.title}}
+						</div>
+					</div>
+				</div>
+				
+
+	        </div>
+			<div class="md-col-1 sm-col-12">
+	        </div>
+		</div>
+        <div class="row">
+			<div class="md-col-1 sm-col-12"></div>
+	        <div class="md-col-10 sm-col-12">
+	        	<div class="header-bar" ng-style="{backgroundColor: '#0066B0'}">
+	        		<span class="title">{{dominios[3].title}} </span> 
+	        		<span class="name">{{dominios[3].name}}</span>
+	        	</div>
+				<div class="row" id="bi">
+					<div class="md-col-2 sm-col-12"></div>
+					<div class="md-col-8 sm-col-12">
+						<div class="row">
+							<div class="md-col-4 sm-col-12">
+							<div class="item-bar" style="border:1px solid #0066B0" ng-repeat="macroproceso in dominios[3].megaprocesos[0].macroprocesos">
+							{{macroproceso.title}}
+						</div>
+							</div>
+						</div>
+						
+					</div>
+					<div class="md-col-2 sm-col-12"></div>
+				</div>
+			</div>
+			<div class="md-col-1 sm-col-12"></div>
+		</div>
+
     </section>
 </main>
