@@ -7,7 +7,9 @@
         
         $scope.dominios = $rootScope.source.arquitectura[0].dominios;
 
-        console.log($scope.dominios);
+        $scope.link = function(i1,i2,i3,i4){
+        	window.location = '#/procesos/'+i1+'/detalle/'+i2+'/mega/'+i3+'/macro/'+i4;
+        };
     };
     
     Controller.$inject = ['$rootScope','$scope', '$location'];
