@@ -1,7 +1,7 @@
 .arq {
     width: 100%;
     height: calc(100vh - 40px);
-    background-image: url(img/parte1.png);
+    background-image: url(img/fernando_1.png);
     background-size: cover;
 }
 
@@ -84,13 +84,13 @@
     background-size: cover;
 }
 
-.arq-contenidos .title-contenidos {
+.title-contenidos {
     display: block;
     width: 1130px;
     margin: 0 auto 30px auto;
 }
 
-.arq-contenidos .title-contenidos > i {
+.title-contenidos > i {
     width: 31px; 
     height: 33px;
     display: inline-block;
@@ -98,10 +98,42 @@
     vertical-align: middle;
 }
 
-.arq-contenidos .title-contenidos > span {
+.title-contenidos > span {
     font-size: 35px;
     color: #4E4E4E;
     display: inline-block;
     vertical-align: middle;
     margin-left: 10px;
+}
+
+.body-contenidos {
+    font-size: 20px;
+    width: 1160px;
+    margin: 0 auto;
+}
+
+.body-contenidos > .parrafo-contenidos {
+    width: 70%;
+}
+
+.body-contenidos > .datos-personales {
+    margin-top: 80px;
+    width: 70%;
+    color: #505050;
+    text-align: right;
+}
+
+.body-contenidos > .datos-personales > .link-datos-personales {
+    color: #009FDB;
+    cursor: pointer;
+}
+.body-contenidos > .datos-personales > .link-datos-personales > i {
+    display: inline-block;
+    width: 8px;
+    height: 14px;
+    background-image: url(img/avanzar.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    vertical-align: middle;
 }
