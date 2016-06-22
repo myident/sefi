@@ -6,9 +6,9 @@
         <div class="ttl-vista-procesos">Business Architecture E2E AT&T (67 Macroprocesos)</div>
     </section>
     <section class="body-vista-ecosistemas">
-        <figure class="lista-ecosistemas">
+        <!-- <figure class="lista-ecosistemas">
             <img src="/app/modules/ecosistema/assets/img/Group.png" alt="">
-        </figure>
+        </ -->figure>
 		
 		<div class="row">
 			<div class="md-col-1 sm-col-12">
@@ -20,11 +20,11 @@
 	        	</div>
 				
 				<div class="row" id="crm">
-					<div class="md-col-6 sm-col-12">
-						<div class="item-bar" style="border:1px solid {{dominios[0].color}}" ng-repeat="macroproceso in dominios[0].megaprocesos[1].macroprocesos">{{macroproceso.title}}</div>
+					<div class="md-col-6 sm-col-12" ng-repeat="macroproceso in dominios[0].megaprocesos[1].macroprocesos">
+						<div class="item-bar" ng-click="link(0,0,1,$index)" style="border:1px solid {{dominios[0].color}}" >{{macroproceso.title}}</div>
 					</div>
-					<div class="md-col-6 sm-col-12">
-						<div class="item-bar" style="border:1px solid {{dominios[0].color}}" ng-repeat="macroproceso in dominios[0].megaprocesos[0].macroprocesos">
+					<div class="md-col-6 sm-col-12" ng-repeat="macroproceso in dominios[0].megaprocesos[0].macroprocesos">
+						<div class="item-bar" ng-click="link(0,0,0,$index)" style="border:1px solid {{dominios[0].color}}" >
 							{{macroproceso.title}}
 						</div>
 					</div>
@@ -36,11 +36,11 @@
 				</div>
 				
 				<div class="row" id="bss">
-					<div class="md-col-6 sm-col-12">
-						<div class="item-bar" style="border:1px solid #EC7400" ng-repeat="macroproceso in dominios[1].megaprocesos[0].macroprocesos">{{macroproceso.title}}</div>
+					<div class="md-col-6 sm-col-12" ng-repeat="macroproceso in dominios[1].megaprocesos[0].macroprocesos">
+						<div class="item-bar" ng-click="link(0,1,0,$index)" style="border:1px solid #EC7400" >{{macroproceso.title}}</div>
 					</div>
-					<div class="md-col-6 sm-col-12">
-						<div class="item-bar" style="border:1px solid #EC7400" ng-repeat="macroproceso in dominios[1].megaprocesos[1].macroprocesos">
+					<div class="md-col-6 sm-col-12" ng-repeat="macroproceso in dominios[1].megaprocesos[1].macroprocesos">
+						<div class="item-bar" ng-click="link(0,1,1,$index)" style="border:1px solid #EC7400" >
 							{{macroproceso.title}}
 						</div>
 					</div>
@@ -53,21 +53,23 @@
 	        		<span class="name">{{dominios[2].name}}</span>
 	        	</div>
 	        	<div class="row" id="em">
-					<div class="md-col-4 sm-col-12">
-						<div class="item-bar" style="border:1px solid #B5BF00" ng-repeat="macroproceso in dominios[2].megaprocesos[0].macroprocesos">
-							{{macroproceso.title}}
-						</div>
-						<div class="item-bar" style="border:1px solid #B5BF00" ng-repeat="macroproceso in dominios[2].megaprocesos[3].macroprocesos">
+					<div class="md-col-4 sm-col-12" ng-repeat="macroproceso in dominios[2].megaprocesos[0].macroprocesos">
+						<div class="item-bar" ng-click="link(0,2,0,$index)" style="border:1px solid #B5BF00" >
 							{{macroproceso.title}}
 						</div>
 					</div>
-					<div class="md-col-4 sm-col-12">
-						<div class="item-bar" style="border:1px solid #B5BF00" ng-repeat="macroproceso in dominios[2].megaprocesos[1].macroprocesos">
+					<div class="md-col-4 sm-col-12" ng-repeat="macroproceso in dominios[2].megaprocesos[1].macroprocesos">
+						<div class="item-bar" ng-click="link(0,2,1,$index)" style="border:1px solid #B5BF00" >
 							{{macroproceso.title}}
 						</div>
 					</div>
-					<div class="md-col-4 sm-col-12">
-						<div class="item-bar" style="border:1px solid #B5BF00" ng-repeat="macroproceso in dominios[2].megaprocesos[2].macroprocesos">
+					<div class="md-col-4 sm-col-12" ng-repeat="macroproceso in dominios[2].megaprocesos[2].macroprocesos">
+						<div class="item-bar" ng-click="link(0,2,2,$index)" style="border:1px solid #B5BF00" >
+							{{macroproceso.title}}
+						</div>
+					</div>
+					<div class="md-col-4 sm-col-12" ng-repeat="macroproceso in dominios[2].megaprocesos[3].macroprocesos"">
+						<div class="item-bar" ng-click="link(0,2,3,$index)" style="border:1px solid #B5BF00" >
 							{{macroproceso.title}}
 						</div>
 					</div>
@@ -89,11 +91,13 @@
 					<div class="md-col-2 sm-col-12"></div>
 					<div class="md-col-8 sm-col-12">
 						<div class="row">
-							<div class="md-col-4 sm-col-12">
-							<div class="item-bar" style="border:1px solid #0066B0" ng-repeat="macroproceso in dominios[3].megaprocesos[0].macroprocesos">
-							{{macroproceso.title}}
-						</div>
-							</div>
+							<div class="md-col-4 sm-col-12" ng-repeat="macroproceso in dominios[3].megaprocesos[0].macroprocesos">
+							<div class="item-bar" ng-click="link(0,3,0,$index)" style="border:1px solid #0066B0">{{macroproceso.title}}</div>
+							<!-- <div class="md-col-4 sm-col-12">
+								<div class="item-bar" ng-click="link(0,3,0,$index)" style="border:1px solid #0066B0" ng-repeat="macroproceso in dominios[3].megaprocesos[0].macroprocesos">
+								{{macroproceso.title}}
+								</div>
+							</div> -->
 						</div>
 						
 					</div>
