@@ -23,8 +23,12 @@
             templateUrl: baseUrl + 'processes/views/processes.detail.view.html',
             controller: 'ProcessesDetailController'
         });
+        $routeProvider.when('/procesos/:procesos/detalle/:subprocesos/mega/:mega/macro/:macro', {
+            templateUrl: baseUrl + 'processes/views/processes.detail.view.html',
+            controller: 'ProcessesDetailController'
+        });
         
-        // Detalle Procesos
+        // Vista ecosistemas
         $routeProvider.when('/ecosistema', {
             templateUrl: baseUrl + 'ecosistema/views/vista-ecosistemas.view.html',
             controller: 'VistaEcosistemasController'

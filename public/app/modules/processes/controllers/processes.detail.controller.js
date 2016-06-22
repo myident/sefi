@@ -4,11 +4,9 @@
 
     var Controller = function ($scope, $rootScope, $routeParams, $itbook, $vash) {
         
+        
         //Background está en $rootScope
         //Header está en $rootScope
-        
-        
-        
         
         // MARK : - Breadcrumb Directive
     
@@ -78,8 +76,10 @@
         
         
         
-        
         // MARK: - Index Directive
+
+        $scope.mega = $routeParams.mega;
+        $scope.macro = $routeParams.macro;
         
         $scope.megaprocesos = []; // Se llena en $scope.init()
         

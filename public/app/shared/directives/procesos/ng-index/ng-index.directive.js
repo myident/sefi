@@ -3,9 +3,10 @@
     var Directive = function () {
 
         var Link = function ($scope) {
+            
 
-            $scope.indexMega = 0;
-            $scope.indexMacro = 0;
+            $scope.indexMega = $scope.mega ||0;
+            $scope.indexMacro = $scope.macro || 0;
             $scope.macroprocesos = [];
 
             for (var n in $scope.megaprocesos) {
@@ -25,6 +26,16 @@
                     }
                 }
             }
+            
+            $scope
+                .megaprocesos[$scope.indexMega].open = true; 
+            
+            $scope
+                .megaprocesos[$scope.indexMega]
+                .macroprocesos[$scope.indexMacro].selected = true;
+            
+            $scope.getIndex('mega', $scope.indexMega);
+            $scope.getIndex('macro', $scope.indexMacro);
 
             // Cuando se selecciona un megaproceso del índice
             $scope.open = function (megaprocesos, megaproceso, index) {
@@ -55,6 +66,8 @@
             link: Link,
             scope: {
                 megaprocesos: '=source',
+                mega: '=',
+                macro: '=',
                 getIndex: '=get'
             }
         };
