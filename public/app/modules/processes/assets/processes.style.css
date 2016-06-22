@@ -173,10 +173,10 @@ ng-mapside ul li {
 }
 
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(1) {
-    height: 100px;
-    width: 160px;
-    left: 25px;
-    top: 150px;
+    height: 90px;
+    width: 150px;
+    left: 35px;
+    top: 130px;
 }
 
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(1):hover,
@@ -186,10 +186,10 @@ section.container-card > div.card > article.backside ng-mapside ul li:nth-child(
 }
 
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(2) {
-    height: 100px;
-    width: 160px;
-    left: 25px;
-    top: 270px;
+    height: 90px;
+    width: 150px;
+    left: 35px;
+    top: 240px;
 }
 
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(2):hover,
@@ -199,10 +199,10 @@ section.container-card > div.card > article.backside ng-mapside ul li:nth-child(
 }
 
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(3) {
-    height: 220px;
-    width: 160px;
+    height: 200px;
+    width: 150px;
     left: 205px;
-    top: 150px;
+    top: 130px;
 }
 
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(3) h2 {
@@ -217,9 +217,9 @@ section.container-card > div.card > article.backside ng-mapside ul li:nth-child(
 
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(4) {
     height: 81px;
-    width: 340px;
-    left: 25px;
-    top: 400px;
+    width: 320px;
+    left: 35px;
+    top: 350px;
 }
 
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(4):hover,
@@ -228,9 +228,38 @@ section.container-card > div.card > article.backside ng-mapside ul li:nth-child(
     color: #ffffff;
 }
 
+section.container-card > div.card > article.backside ng-mapside ul li:nth-child(5) {
+    width: 94%;
+    left: 3%;
+    top: 110px;
+    height: calc(100% - 185px);
+    z-index: -1;
+    background: #dfdfdf;
+    border: 1px solid #7f7f7f;
+}
+
+section.container-card > div.card > article.backside ng-mapside ul li:nth-child(5) h2 {
+    margin-top: 340px;
+}
+
+section.container-card > div.card > article.backside ng-mapside ul li:nth-child(5):hover a,
+section.container-card > div.card > article.backside ng-mapside ul li:nth-child(5).active a,
+section.container-card > div.card > article.backside ng-mapside ul li:nth-child(5).active h2{   
+    color: #747474;
+}
+
 section.container-card > div.card > article.backside ng-mapside ul li:hover a {
     color: #ffffff;
 }
+
+section.container-card > div.card > article.backside ng-mapside ul li h2 {
+    font-size: 20px;
+}
+
+section.container-card > div.card > article.backside ng-mapside ul li a {
+    font-size: 11px;
+}
+
 
 section.container-card > div.card > article.backside ng-mapside ul li h2 {
     margin: 0px;
@@ -299,6 +328,17 @@ section.container-card > div.card > article.backside ng-mapside > ul > li > a {
     width: 224px;
     left: 25px;
     top: 230px;
+}
+
+.sidebar-left section.container-card > div.card > article.backside ng-mapside ul li:nth-child(5) {
+    width: 94%;
+    left: 3%;
+    top: 57px;
+    height: calc(100% - 75px);
+}
+
+.sidebar-left section.container-card > div.card > article.backside ng-mapside ul li:nth-child(5) h2 {
+    margin-top: 235px;
 }
 
 .sidebar-left section.container-card > div.card > article.backside ng-mapside ul li h2 {
@@ -391,9 +431,11 @@ ng-mapside ul li.active:hover {
     border-radius: 8px 0 0 8px;
     cursor: pointer;
 }
+
 .ecosistema:hover {
     text-decoration: underline;
 }
+
 .ecosistema:after {
     content: '';
     display: block;
