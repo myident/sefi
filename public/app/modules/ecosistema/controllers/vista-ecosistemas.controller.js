@@ -1,12 +1,16 @@
 /*global angular*/
 (function () {
-    var Controller = function($scope, $location) {
+    var Controller = function($rootScope, $scope, $location) {
         $scope.goProcesos = function() {
             $location.path('/procesos');
         };
+        
+        $scope.dominios = $rootScope.source.arquitectura[0].dominios;
+
+        console.log($scope.dominios);
     };
     
-    Controller.$inject = ['$scope', '$location'];
+    Controller.$inject = ['$rootScope','$scope', '$location'];
     
     angular
         .module('mEcosistema').controller('VistaEcosistemasController', Controller);

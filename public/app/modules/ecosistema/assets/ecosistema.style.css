@@ -57,3 +57,68 @@
     margin-top: 40px;
     height: calc(100% - 60px);
 }
+
+
+.header-bar{
+    height: 50px;
+    width: 100%;
+    background-color: rgb(200,200,200);
+    border-radius: 25px;
+    /*margin:5px;*/
+    text-align: center;
+    color: rgb(255,255,255);
+}
+.header-bar .title{
+    font-size: 36px;
+    line-height: 1.4;
+}
+.header-bar .name{
+    /*line-height: 2;*/
+    vertical-align: super;
+}
+.item-bar{
+    height: 30px;
+    width: 100%;
+    background-color: rgb(255,255,255);
+    border: 1px solid rgb(200,200,200);
+    border-radius: 25px;
+    padding-left: 20px;
+    line-height: 2;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.body-vista-ecosistemas > .row > div{
+    padding:10px!important;
+}
+.body-vista-ecosistemas > .row > div > .row > div{
+    padding:10px!important;
+}
+.body-vista-ecosistemas > .row > div > .row > div > .row > div{
+    padding:10px!important;
+}
+
+
+#crm{
+
+}
+#crm > div > .item-bar:hover{
+    background-color:rgb(144, 99, 205);
+    color: rgb(255,255,255);
+    cursor: pointer;
+}
+#bss > div > .item-bar:hover{
+    background-color:#EC7400;
+    color: rgb(255,255,255);
+    cursor: pointer;
+}
+#em > div > .item-bar:hover{
+    background-color:#B5BF00;
+    color: rgb(255,255,255);
+    cursor: pointer;
+}
+#bi > div > div > div > .item-bar:hover{
+    background-color:#0066B0;
+    color: rgb(255,255,255);
+    cursor: pointer;
+}
