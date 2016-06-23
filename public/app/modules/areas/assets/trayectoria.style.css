@@ -1,19 +1,22 @@
 .trayectoria-container {
     width: 840px;
     position: absolute;
-    left: 435px;
-    height: 727px;
+        right: 40px;
+    height: calc(100vh - 200px);
     bottom: 0;
-    background: #707070;
+    background: white;
     border-radius: 20px 20px 0 0;
+    box-shadow: 0px 3px 9px 1px rgba(0, 0, 0, 0.1);
 }
+
 .trayectoria-title {
     width: 100%;
     height: 50px;
     margin: 40px;
 }
+
 .trayectoria-title > span:nth-child(1) {
-    font-size: 35px;   
+    font-size: 35px;
     display: inline-block;
     vertical-align: middle;
 }
@@ -22,20 +25,23 @@
     display: inline-block;
     vertical-align: middle;
     font-size: 20px;
+    margin-left: 6px;
 }
 
-.trayectoria-title > span:nth-child(2) > div:nth-child(1){
+.trayectoria-title > span:nth-child(2) > div:nth-child(1) {
     font-family: 'SF Medium';
 }
 
-.trayectoria-title > span:nth-child(2) > div:nth-child(2){
+.trayectoria-title > span:nth-child(2) > div:nth-child(2) {
     font-size: 18px;
 }
+
 .trayectoria-frase {
     width: 80%;
     margin: 0 auto;
     color: #8F8F8F;
 }
+
 .trayectoria-frase > i:nth-child(1) {
     font-size: 20px;
 }
@@ -44,19 +50,48 @@
     font-size: 16px;
     display: block;
 }
+
 .perfil-personal {
     width: 80%;
     margin: 0 auto;
 }
+
 .perfil-personal > .subtitle {
-    
+    width: 60px;
+    vertical-align: top;
+    padding-top: 30px;
+    display: inline-block;
 }
+
 .perfil-personal > .subtitle > figure {
     width: 40px;
     height: 40px;
     display: inline-block;
+    margin: 0;
+}
+
+.perfil-personal > .subtitle > figure > img {
+    width: 100%;
+    height: auto;
 }
 
 .perfil-personal > .content {
     display: inline-block;
-} 
+    padding: 30px 0;
+    width: calc(100% - 70px);
+}
+
+.perfil-personal > .content > span {
+    font-size: 18px;
+    color: #4E4E4E;
+}
+
+.perfil-personal > .content > span:nth-child(1) {
+    font-family: 'SF Medium';
+    display: block;
+    margin-bottom: 20px;
+}
+.container-trayectoria-overflow {
+    overflow: auto;
+    height: calc(100% - 130px);
+}
