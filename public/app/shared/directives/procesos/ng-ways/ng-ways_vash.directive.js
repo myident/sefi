@@ -66,6 +66,7 @@
                             });
 
                         } else {
+                            
                             ancho = $vash.sumOffsetsInX();
                             alto = $vash.heightProcesosMax();
                             nuevaAltura = ((780 * alto) / ancho);

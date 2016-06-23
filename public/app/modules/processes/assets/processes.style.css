@@ -425,8 +425,7 @@ ng-mapside ul li.active:hover {
     right: 0;
     bottom: 20px;
     line-height: 45px;
-    background: #009FDB;
-    color: white;
+    color: #009FDB;
     font-size: 16px;
     border-radius: 8px 0 0 8px;
     cursor: pointer;
@@ -439,10 +438,11 @@ ng-mapside ul li.active:hover {
 .ecosistema:after {
     content: '';
     display: block;
-    height: 15px;
-    width: 12px;
-    background: url(./img/triangle-open.svg);
+    height: 14px;
+    width: 8px;
+    background: url(./img/avanzar.png);
+    background-size: contain;
     position: absolute;
-    right: 4px;
-    top: 15px;
+    right: 11px;
+    top: 16px;
 }

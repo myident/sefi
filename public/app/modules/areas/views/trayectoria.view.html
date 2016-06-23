@@ -1,8 +1,40 @@
 <ng-background></ng-background>
 <ng-header set-elementos-menu="elementosMenu"></ng-header>
 <main class="arq-trayectoria">
+
     <div class="regresar" ng-click="go()">
         <i></i>
         <span>Regresar</span>
     </div>
+
+    <div class="trayectoria-container">
+        <div class="trayectoria-title">
+            <span>Trayectoria | </span>
+            <span>
+                <div>{{content.perfil.nombre}}</div>
+                <div>{{content.perfil.puesto}}</div>
+            </span>
+        </div>
+        <div class="trayectoria-frase">
+            <i>{{content.frase.contenido}}</i>
+            <i>- {{content.frase.autor}}</i>
+        </div>
+        <div class="trayectoria-body">
+
+            <div class="perfil-personal" ng-repeat="personal in content.personales">
+                <div class="subtitle">
+                    <figure>
+                        <img ng-src="{{personal.imagen}}" alt="">
+                    </figure>
+                </div>
+                <div class="content">
+                    <span>{{personal.titulo}}</span>
+                    <span>{{personal.contenido}}</span>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
 </main>
