@@ -31,14 +31,14 @@
 .arq-areas {
     width: 100%;
     height: calc(100vh - 40px);
-    /*background-image: url(img/parte3.png);*/
+    background-image: url(img/ferchoblur.png);
     background-size: cover;
 }
 
 .arq-gobierno {
     width: 100%;
     height: calc(100vh - 40px);
-    background-image: url(img/parte4.png);
+/*    background-image: url(img/parte4.png);*/
     background-size: cover; 
 }
 
