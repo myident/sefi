@@ -10,7 +10,7 @@
         $scope.areas = [
             {
                 nombre: 'Arquitectura de Negocio',
-                imagen: '',
+                imagen: 'assets/img/ARQ_NEGOCIO.png',
                 descripcion: '',
                 subdirector: {
                     nombre: '',
@@ -20,7 +20,7 @@
             },
             {
                 nombre: 'Arquitectura de Datos y Aplicaciones',
-                imagen: '',
+                imagen: 'assets/img/ARQ_DE_APPS.png',
                 descripcion: '',
                 subdirector: {
                     nombre: '',
@@ -30,7 +30,7 @@
             },
             {
                 nombre: 'Arquitectura de Tecnología',
-                imagen: '',
+                imagen: 'assets/img/ARQ_TECNOLOGIA.png',
                 descripcion: '',
                 subdirector: {
                     nombre: '',
@@ -40,7 +40,7 @@
             },
             {
                 nombre: 'Análisis Estratégico',
-                imagen: '',
+                imagen: 'assets/img/ANALISIS_ESTRATEGICO.png',
                 descripcion: '',
                 subdirector: {
                     nombre: '',
@@ -50,7 +50,7 @@
             },
             {
                 nombre: 'Gobierno de TI',
-                imagen: '',
+                imagen: 'assets/img/GOVERNANCE.png',
                 descripcion: '',
                 subdirector: {
                     nombre: '',
@@ -60,7 +60,7 @@
             },
             {
                 nombre: 'Experiencia Digital',
-                imagen: '',
+                imagen: 'assets/img/DIGITAL_EXP.png',
                 descripcion: '',
                 subdirector: {
                     nombre: '',
