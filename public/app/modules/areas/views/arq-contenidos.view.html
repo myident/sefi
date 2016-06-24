@@ -6,6 +6,15 @@
         <span>Arquitectura | Contenidos</span>
     </div>
     <section class="contenido" ng-click="toggleOpen()" ng-class="{'open': open}"></section>
+	
+	<div class="viewer">
+		<div class="row">
+    		<div ng-repeat="item in viewer.items" class="md-col-3 sm-col-12">
+    			<img src="" alt="">
+    			<span>{{item.name}}</span>
+    		</div>
+    	</div>
+	</div>
 
     <ng-slideview active="2"></ng-slideview>
 </main>

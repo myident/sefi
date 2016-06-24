@@ -31,7 +31,7 @@
 .arq-areas {
     width: 100%;
     height: calc(100vh - 40px);
-    background-image: url(img/parte3.png);
+    /*background-image: url(img/parte3.png);*/
     background-size: cover;
 }
 
@@ -83,6 +83,69 @@
     background-image: url(img/parte6.png);
     background-size: cover;
 }
+
+
+.arq-contenidos .viewer{
+    width: 1124px;
+    height: 650px;
+    overflow: hidden;
+    background-color: rgb(255,255,255);
+    border-radius: 20px;
+    margin: auto;
+    box-shadow: 0px 0px 10px rgba(0,0,0,.1);
+    padding: 20px 40px; 
+}
+
+.arq-contenidos .viewer .row div{
+    height: 150px;
+    width: 230px;
+    background-color: rgb(245,245,245);
+    margin:15px;
+    border: 1px solid rgb(235,235,235);
+    text-align: center;
+}
+.arq-contenidos .viewer .row div > img{
+    height: 880px;
+    width: 100px;
+    display: block;
+    margin:auto auto 20px auto;
+
+}
+.arq-contenidos .viewer .row div > span{
+   
+}
+
+
+.arq-areas .viewer{
+    width: 1250px;
+    height: 800px;
+    overflow: hidden;
+    /*background-color: rgb(255,255,255);*/
+    /*border-radius: 20px;*/
+    margin: auto;
+}
+
+.arq-areas .viewer .row div{
+    height: 350px;
+    width: 350px;
+    background-color: rgba(0,0,0,.4);
+    margin:20px;
+    text-align: center;
+}
+.arq-areas .viewer .row div > img{
+    height: 150px;
+    width: 150px;
+    display: block;
+    margin:40px auto 20px auto;
+
+}
+.arq-areas .viewer .row div > span{
+   font-size: 36px;
+   color: rgb(255,255,255);
+}
+
+
+
 
 .title-contenidos {
     display: block;
