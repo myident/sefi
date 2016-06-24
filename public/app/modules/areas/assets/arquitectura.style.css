@@ -115,7 +115,7 @@
     border: 1px solid rgb(235, 235, 235);
     text-align: center;
 }
-<<<<<<< HEAD
+
 
 
 .arq-contenidos .viewer .row div > img {
@@ -127,9 +127,6 @@
 
 .arq-contenidos .viewer .row div > span {}
 
-=======
-<<<<<<< HEAD
->>>>>>> parent of 95922b0... // dos
 .arq-contenidos .viewer .row div > img{
     height: 70px;
     width: 70px;
@@ -167,10 +164,6 @@
     cursor: pointer;
     padding: 5px;
 }
-<<<<<<< HEAD
-
-=======
-=======
 
 .arq-contenidos .viewer .row div > img {
     height: 880px;
@@ -180,8 +173,7 @@
 }
 
 .arq-contenidos .viewer .row div > span {}
->>>>>>> origin/vash
->>>>>>> parent of 95922b0... // dos
+
 
 .arq-areas .viewer {
     width: 930px;
