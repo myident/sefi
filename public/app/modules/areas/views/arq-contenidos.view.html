@@ -5,15 +5,23 @@
         <i></i>
         <span>Arquitectura | Contenidos</span>
     </div>
-    <section class="contenido" ng-click="toggleOpen()" ng-class="{'open': open}"></section>
+    <!-- <section class="contenido" ng-click="toggleOpen()" ng-class="{'open': open}"></section> -->
 	
 	<div class="viewer">
 		<div class="row">
     		<div ng-repeat="item in viewer.items" class="md-col-3 sm-col-12">
-    			<img src="" alt="">
+    			<img src="app/modules/areas/assets/img/{{item.img}}" alt="">
     			<span>{{item.name}}</span>
     		</div>
     	</div>
+
+	<div class="pager">
+		<i class="left" ng-click="viewer.back()"></i>
+    	<ul>
+    		<li ng-click="viewer.goTo($index)" ng-repeat="page in viewer.pages">{{page.number}}</li>
+    	</ul>
+    	<i class="right" ng-click="viewer.forw()"></i>
+    </div>
 	</div>
 
     <ng-slideview active="2"></ng-slideview>
