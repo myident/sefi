@@ -9,92 +9,140 @@
 
         $scope.contents = [
 		        {
-		        	name:'Estrategia 2015',
-		        	img:''
+		        	name:'Estrategia 2014',
+		        	img:'1466033485_Powerpoint.png'
 		        },
 		        {
 		        	name:'Estrategia 2015',
-		        	img:''
+		        	img:'1466033491_Word.png'
+		        },
+		        {
+		        	name:'Estrategia 2016',
+		        	img:'1466033498_Excel.png'
+		        },
+		        {
+		        	name:'Estrategia 2014',
+		        	img:'1466033485_Powerpoint.png'
 		        },
 		        {
 		        	name:'Estrategia 2015',
-		        	img:''
+		        	img:'1466033491_Word.png'
+		        },
+		        {
+		        	name:'Estrategia 2014',
+		        	img:'1466033485_Powerpoint.png'
 		        },
 		        {
 		        	name:'Estrategia 2015',
-		        	img:''
+		        	img:'1466033491_Word.png'
+		        },
+		        {
+		        	name:'Estrategia 2014',
+		        	img:'1466033485_Powerpoint.png'
 		        },
 		        {
 		        	name:'Estrategia 2015',
-		        	img:''
+		        	img:'1466033491_Word.png'
+		        },
+		        {
+		        	name:'Estrategia 2014',
+		        	img:'1466033485_Powerpoint.png'
 		        },
 		        {
 		        	name:'Estrategia 2015',
-		        	img:''
+		        	img:'1466033491_Word.png'
+		        },
+		        {
+		        	name:'Estrategia 2014',
+		        	img:'1466033485_Powerpoint.png'
 		        },
 		        {
 		        	name:'Estrategia 2015',
-		        	img:''
+		        	img:'1466033491_Word.png'
+		        },
+		        {
+		        	name:'Estrategia 2014',
+		        	img:'1466033485_Powerpoint.png'
 		        },
 		        {
 		        	name:'Estrategia 2015',
-		        	img:''
+		        	img:'1466033491_Word.png'
+		        },
+		        {
+		        	name:'Estrategia 2014',
+		        	img:'1466033485_Powerpoint.png'
 		        },
 		        {
 		        	name:'Estrategia 2015',
-		        	img:''
+		        	img:'1466033491_Word.png'
+		        },
+		        {
+		        	name:'Estrategia 2014',
+		        	img:'1466033485_Powerpoint.png'
 		        },
 		        {
 		        	name:'Estrategia 2015',
-		        	img:''
+		        	img:'1466033491_Word.png'
+		        },
+		        {
+		        	name:'Estrategia 2016',
+		        	img:'1466033498_Excel.png'
+		        },
+		        {
+		        	name:'Estrategia 2014',
+		        	img:'1466033485_Powerpoint.png'
 		        },
 		        {
 		        	name:'Estrategia 2015',
-		        	img:''
+		        	img:'1466033491_Word.png'
+		        },
+		        {
+		        	name:'Estrategia 2014',
+		        	img:'1466033485_Powerpoint.png'
 		        },
 		        {
 		        	name:'Estrategia 2015',
-		        	img:''
+		        	img:'1466033491_Word.png'
+		        },
+		        {
+		        	name:'Estrategia 2014',
+		        	img:'1466033485_Powerpoint.png'
 		        },
 		        {
 		        	name:'Estrategia 2015',
-		        	img:''
+		        	img:'1466033491_Word.png'
+		        },
+		        {
+		        	name:'Estrategia 2014',
+		        	img:'1466033485_Powerpoint.png'
 		        },
 		        {
 		        	name:'Estrategia 2015',
-		        	img:''
+		        	img:'1466033491_Word.png'
+		        },
+		        {
+		        	name:'Estrategia 2014',
+		        	img:'1466033485_Powerpoint.png'
 		        },
 		        {
 		        	name:'Estrategia 2015',
-		        	img:''
+		        	img:'1466033491_Word.png'
+		        },
+		        {
+		        	name:'Estrategia 2014',
+		        	img:'1466033485_Powerpoint.png'
 		        },
 		        {
 		        	name:'Estrategia 2015',
-		        	img:''
+		        	img:'1466033491_Word.png'
+		        },
+		        {
+		        	name:'Estrategia 2014',
+		        	img:'1466033485_Powerpoint.png'
 		        },
 		        {
 		        	name:'Estrategia 2015',
-		        	img:''
-		        },
-		        {
-		        	name:'Estrategia 2015',
-		        	img:''
-		        },
-		        {
-		        	name:'Estrategia 2015',
-		        	img:''
-		        },
-		        {
-		        	name:'Estrategia 2015',
-		        	img:''
-		        },
-		        {
-		        	name:'Estrategia 2015',
-		        	img:''
-		        },
-		        {
-		        	name:'Estrategia 2015',
-		        	img:''
+		        	img:'1466033491_Word.png'
 		        }
 		     ];
 
@@ -103,25 +151,42 @@
 		$scope.viewer.items = [];
 		$scope.viewer.change = function(index){
 
+			console.log(index);
 			$scope.viewer.start = index;
 			$scope.viewer.items = [];
-			for(var i = index ; i < $scope.viewer.itemsCount ; i++){
+			var end = (index + $scope.viewer.itemsCount) < $scope.contents.length ? (index + $scope.viewer.itemsCount) : $scope.contents.length;
+			for(var i = index ; i < end ; i++){
 				$scope.viewer.items.push($scope.contents[i]);
 				$scope.viewer.end = i;
 			}
 		};
 
 		$scope.viewer.forw = function(){
-			$scope.viewer.change($scope.viewer.start + itemsCount);
+			if($scope.viewer.start + $scope.viewer.itemsCount < $scope.contents.length){
+				$scope.viewer.change($scope.viewer.start + $scope.viewer.itemsCount);
+			}
 		};
 		$scope.viewer.back = function(){
-			$scope.viewer.change($scope.viewer.start - itemsCount);
+			if($scope.viewer.start - $scope.viewer.itemsCount >= 0){
+				$scope.viewer.change($scope.viewer.start - $scope.viewer.itemsCount);
+			}
 		};
-		$scope.goTo = function(index){
-			$scope.viewer.change(--index * itemsCount);
+		$scope.viewer.goTo = function(index){
+			$scope.viewer.change(index * $scope.viewer.itemsCount);
 		};
 
-		$scope.viewer.change(0);
+		$scope.viewer.setting = function(){
+			$scope.viewer.pages = [];
+			$scope.viewer.pagesCount = Math.ceil($scope.contents.length / $scope.viewer.itemsCount);
+			for(var i = 0 ; i < $scope.viewer.pagesCount ; i++){
+				$scope.viewer.pages.push({ number:(i+1), active:false });
+			}
+			$scope.viewer.change(0);
+		};
+
+		$scope.viewer.setting();
+
+		
 
     };
     Controller.$inject = ['$scope'];
