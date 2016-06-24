@@ -116,6 +116,7 @@
     text-align: center;
 }
 
+
 .arq-contenidos .viewer .row div > img {
     height: 880px;
     width: 100px;
@@ -124,6 +125,45 @@
 }
 
 .arq-contenidos .viewer .row div > span {}
+
+.arq-contenidos .viewer .row div > img{
+    height: 70px;
+    width: 70px;
+    display: block;
+    margin:10px auto 10px auto;
+
+}
+.arq-contenidos .viewer .row div > span{
+   
+
+}
+.arq-contenidos .viewer .pager{
+    text-align: center;
+    margin-top: 30px;
+}
+
+.arq-contenidos .viewer .pager i{
+    display: inline-block;
+    height: 16px;
+    width: 8px;
+    margin: auto 20px;
+    background-image: url(img/ico.arrow.gray.left.png);
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.arq-contenidos .viewer .pager i.right{
+    background-image: url(img/ico.arrow.gray.right.png);
+}
+.arq-contenidos .viewer .pager ul{
+    display: inline-block;
+    vertical-align: super;
+}
+.arq-contenidos .viewer .pager li{
+    display: inline;
+    cursor: pointer;
+    padding: 5px;
+}
+
 
 .arq-areas .viewer {
     width: 930px;
