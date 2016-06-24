@@ -3,58 +3,70 @@
     height: calc(100vh - 40px);
     background-image: url(img/fernando_1.png);
     background-size: cover;
+    background-attachment: fixed;
+    background-position: bottom;
+    background-repeat: no-repeat;
 }
 
 .arq-trayectoria {
     width: 100%;
     height: calc(100vh - 40px);
-/*    min-height: 720px;*/
     background-image: url(img/ferchu.png);
     background-size: cover;
+    background-attachment: fixed;
+    background-position: bottom left;
+    background-repeat: no-repeat;
 }
+
 .arq-trayectoria > .regresar {
     cursor: pointer;
 }
 
-.arq-trayectoria > .regresar > i{
+.arq-trayectoria > .regresar > i {
     width: 8px;
     height: 14px;
     background: url(img/regresar.svg);
     display: inline-block;
 }
 
-.arq-trayectoria > .regresar > span{
+.arq-trayectoria > .regresar > span {
     font-size: 18px;
     color: #626262;
     padding-left: 10px;
 }
+
 .arq-areas {
     width: 100%;
     height: calc(100vh - 40px);
-    /*background-image: url(img/parte3.png);*/
+    background-image: url(img/ferchoblur.png);
     background-size: cover;
+    background-attachment: fixed;
+    background-position: bottom;
+    background-repeat: no-repeat;
 }
 
 .arq-gobierno {
     width: 100%;
     height: calc(100vh - 40px);
-    background-image: url(img/parte4.png);
-    background-size: cover; 
+    background-image: url(img/erika.png);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: bottom;
+    background-repeat: no-repeat;
 }
-
 
 .arq-gobierno > .regresar {
     cursor: pointer;
 }
 
-.arq-gobierno > .regresar > i{
+.arq-gobierno > .regresar > i {
     width: 8px;
     height: 14px;
     background: url(img/regresar.svg);
     display: inline-block;
 }
 
-.arq-gobierno > .regresar > span{
+.arq-gobierno > .regresar > span {
     font-size: 18px;
     color: #626262;
     padding-left: 10px;
@@ -84,26 +96,26 @@
     background-size: cover;
 }
 
-
-.arq-contenidos .viewer{
+.arq-contenidos .viewer {
     width: 1124px;
     height: 650px;
     overflow: hidden;
-    background-color: rgb(255,255,255);
+    background-color: rgb(255, 255, 255);
     border-radius: 20px;
     margin: auto;
-    box-shadow: 0px 0px 10px rgba(0,0,0,.1);
-    padding: 20px 40px; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .1);
+    padding: 20px 40px;
 }
 
-.arq-contenidos .viewer .row div{
+.arq-contenidos .viewer .row div {
     height: 150px;
     width: 230px;
-    background-color: rgb(245,245,245);
-    margin:15px;
-    border: 1px solid rgb(235,235,235);
+    background-color: rgb(245, 245, 245);
+    margin: 15px;
+    border: 1px solid rgb(235, 235, 235);
     text-align: center;
 }
+<<<<<<< HEAD
 .arq-contenidos .viewer .row div > img{
     height: 70px;
     width: 70px;
@@ -113,12 +125,21 @@
 }
 .arq-contenidos .viewer .row div > span{
    
+=======
+
+.arq-contenidos .viewer .row div > img {
+    height: 880px;
+    width: 100px;
+    display: block;
+    margin: auto auto 20px auto;
+>>>>>>> origin/vash
 }
 .arq-contenidos .viewer .pager{
     text-align: center;
     margin-top: 30px;
 }
 
+<<<<<<< HEAD
 .arq-contenidos .viewer .pager i{
     display: inline-block;
     height: 16px;
@@ -140,9 +161,12 @@
     cursor: pointer;
     padding: 5px;
 }
+=======
+.arq-contenidos .viewer .row div > span {}
+>>>>>>> origin/vash
 
-.arq-areas .viewer{
-    width: 1250px;
+.arq-areas .viewer {
+    width: 930px;
     height: 800px;
     overflow: hidden;
     /*background-color: rgb(255,255,255);*/
@@ -150,27 +174,31 @@
     margin: auto;
 }
 
-.arq-areas .viewer .row div{
-    height: 350px;
-    width: 350px;
-    background-color: rgba(0,0,0,.4);
-    margin:20px;
+.arq-areas .viewer .row div {
+    height: 270px;
+    width: 270px;
+    background-color: rgba(0, 0, 0, .4);
+    margin: 20px;
     text-align: center;
+    cursor: pointer;
+    -webkit-transition: all ease 0.3s;
 }
-.arq-areas .viewer .row div > img{
-    height: 150px;
-    width: 150px;
+
+.arq-areas .viewer .row div:hover {
+    background-color: rgba(22, 153, 202, 0.69);
+}
+
+.arq-areas .viewer .row div > img {
+    height: 90px;
+    width: auto;
     display: block;
-    margin:40px auto 20px auto;
-
-}
-.arq-areas .viewer .row div > span{
-   font-size: 36px;
-   color: rgb(255,255,255);
+    margin: 40px auto 20px auto;
 }
 
-
-
+.arq-areas .viewer .row div > span {
+    font-size: 28px;
+    color: rgb(255, 255, 255);
+}
 
 .title-contenidos {
     display: block;
@@ -179,7 +207,7 @@
 }
 
 .title-contenidos > i {
-    width: 31px; 
+    width: 31px;
     height: 33px;
     display: inline-block;
     background-image: url(img/arq-contenidos-icon.svg);
@@ -215,6 +243,7 @@
     color: #009FDB;
     cursor: pointer;
 }
+
 .body-contenidos > .datos-personales > .link-datos-personales > i {
     display: inline-block;
     width: 8px;
