@@ -8,8 +8,8 @@
 .arq-trayectoria {
     width: 100%;
     height: calc(100vh - 40px);
-    min-height: 720px;
-    background-image: url(img/parte2.png);
+/*    min-height: 720px;*/
+    background-image: url(img/ferchu.png);
     background-size: cover;
 }
 .arq-trayectoria > .regresar {
