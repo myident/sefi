@@ -48,7 +48,7 @@
     </section><section class="sidebar-right" ng-class="{'open': !openBar}">
 
         <!--ng Ways-->
-        <div class="svg-container">
+        <div class="svg-container" ng-print>
             
             <div 
                 class="header-container" 
@@ -56,7 +56,8 @@
                 config="config" 
                 layout="layout"
                 ng-style="getHeaderStyle()"
-                ></div>
+                >
+                </div>
             
             <div 
                 class="diagram-container" 
