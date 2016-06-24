@@ -115,7 +115,6 @@
     border: 1px solid rgb(235, 235, 235);
     text-align: center;
 }
-<<<<<<< HEAD
 .arq-contenidos .viewer .row div > img{
     height: 70px;
     width: 70px;
@@ -125,21 +124,13 @@
 }
 .arq-contenidos .viewer .row div > span{
    
-=======
 
-.arq-contenidos .viewer .row div > img {
-    height: 880px;
-    width: 100px;
-    display: block;
-    margin: auto auto 20px auto;
->>>>>>> origin/vash
 }
 .arq-contenidos .viewer .pager{
     text-align: center;
     margin-top: 30px;
 }
 
-<<<<<<< HEAD
 .arq-contenidos .viewer .pager i{
     display: inline-block;
     height: 16px;
@@ -161,9 +152,6 @@
     cursor: pointer;
     padding: 5px;
 }
-=======
-.arq-contenidos .viewer .row div > span {}
->>>>>>> origin/vash
 
 .arq-areas .viewer {
     width: 930px;
