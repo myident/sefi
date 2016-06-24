@@ -147,7 +147,6 @@
 		     ];
 
 		$scope.viewer = {};
-		
 		$scope.viewer.itemsCount = 12;
 		$scope.viewer.items = [];
 		$scope.viewer.change = function(index){
