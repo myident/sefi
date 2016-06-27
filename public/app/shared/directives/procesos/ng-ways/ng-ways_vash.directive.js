@@ -49,21 +49,38 @@
                         var nombre = $vash.camelize($scope.documentName);
 
                         if ($scope.layout > 0) {
+                            
 
                             ancho = $vash.sumOffsetsInX();
                             alto = $vash.sumOffsetsInY();
-                            nuevaAltura = ((780 * ancho) / alto);
                             
-                            svgAsPngUri(element[0], {
-                                scale: 1.5
-                            }, function (uri) {
+                            if (alto > ancho) {
+                                nuevaAltura = ((780 * ancho) / alto);
+                                svgAsPngUri(element[0], {
+                                    scale: 1.5
+                                }, function (uri) {
 
-                                var pdf = new jsPDF('p', 'pt', 'letter');
+                                    var pdf = new jsPDF('p', 'pt', 'letter');
 
-                                pdf.addImage(uri, 'PNG', 0, 0, nuevaAltura, 780);
-                                $rootScope.spin = false;
-                                pdf.save(nombre + '_areas.pdf');
-                            });
+                                    pdf.addImage(uri, 'PNG', 0, 0, nuevaAltura, 780);
+                                    $rootScope.spin = false;
+                                    pdf.save(nombre + '_areas.pdf');
+                                }); 
+                            }
+                            else {
+                                ancho = $vash.sumOffsetsInX();
+                                alto = $vash.heightProcesosMax();
+                                nuevaAltura = ((780 * alto) / ancho);
+                                svgAsPngUri(element[0], {
+                                    scale: 3.5
+                                }, function (uri) {
+                                    var pdf = new jsPDF('l', 'pt', 'letter');
+                                    pdf.addImage(uri, 'PNG', 0, 0, 780, nuevaAltura);
+                                    $rootScope.spin = false;
+                                    pdf.save(nombre + '_capacities.pdf');
+                                });
+                            }
+
 
                         } else {
                             
