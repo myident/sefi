@@ -55,14 +55,21 @@
                             alto = $vash.sumOffsetsInY();
                             
                             if (alto > ancho) {
-                                nuevaAltura = ((780 * ancho) / alto);
+                                nuevaAltura = (((780 * ancho) / alto) * 2);
+                                var nuevaAnchura = (780 * 2);
                                 svgAsPngUri(element[0], {
                                     scale: 1.5
                                 }, function (uri) {
 
                                     var pdf = new jsPDF('p', 'pt', 'letter');
 
-                                    pdf.addImage(uri, 'PNG', 0, 0, nuevaAltura, 780);
+                                    pdf.addImage(uri, 'PNG', 0, 0, 
+                                                 nuevaAltura, nuevaAnchura);
+                                    
+                                    pdf.addPage();
+                                    pdf.addImage(uri, 'PNG', 0, -780, 
+                                                 nuevaAltura, nuevaAnchura);
+                                    
                                     $rootScope.spin = false;
                                     pdf.save(nombre + '_areas.pdf');
                                 }); 
