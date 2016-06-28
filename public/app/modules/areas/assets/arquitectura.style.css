@@ -166,13 +166,15 @@
 }
 
 .arq-contenidos .viewer .row div > img {
-    height: 88px;
-    width: 100px;
+    height: 71px;
+    width: 71px;
     display: block;
     margin: auto auto 20px auto;
 }
 
-.arq-contenidos .viewer .row div > span {}
+.arq-contenidos .viewer .row div > span {
+    font-size: 18px;
+}
 
 
 .arq-areas .viewer {
