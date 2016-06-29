@@ -353,9 +353,7 @@
 
         // MARK: - Consulta al servicio RESTful
 
-        console.log($rootScope.source);
-
-        if (!$rootScope.source.rutas) {
+        if (!$rootScope.source.rutas || $vash.ecosistema) {
             
             $rootScope.spin = true;
             
