@@ -6,6 +6,8 @@
 
         var self = this;
         
+        self.ecosistema = false;
+        
         self.heightProcesos = [];
         self.widthProcesos = [];
         self.offsetProcesos = {

@@ -371,7 +371,6 @@
                     iddominio: Number($routeParams.subprocesos) + 1
                 },
                 function (data) {
-
                     $rootScope.spin = false;
                     $scope.init();
                 });
