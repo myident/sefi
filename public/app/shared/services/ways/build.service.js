@@ -26,7 +26,7 @@
                 var procesoCapacidadesGroup = paper.group();
                 var proceso, connection;
 
-                console.log(source);
+                //console.log(source);
                 
                 for (var i in source) {
                     

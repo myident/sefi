@@ -260,7 +260,7 @@
         $scope.getStyle = function () {
             if ($scope.procesos.length) {
                 return {
-                    width: $vash.sumOffsetsInX() + 'px',
+                    width: $vash.sumMaxInX() + 'px',
                     height: 'calc(100% - ' + $vash.heightHeader() + 'px)',
                     top: $vash.heightHeader() + 'px'
                 };
@@ -270,7 +270,7 @@
         $scope.getHeaderStyle = function () {
             if ($scope.procesos.length) {
                 return {
-                    width: $vash.sumOffsetsInX() + 'px',
+                    width: $vash.sumMaxInX() + 'px',
                     height: $vash.heightHeader() + 'px'
                 };
             }

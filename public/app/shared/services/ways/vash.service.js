@@ -32,10 +32,28 @@
         };
         
         self.sumOffsetsInX = function() {
+            
             var lastOffset = self.offsetProcesos.x[(self.offsetProcesos.x.length - 1)];
+            
             var lastWidth = (self.widthProcesos[(self.widthProcesos.length - 1)] / 2);
+            
             var totalWidth = lastWidth + lastOffset + 25;
+            
             return (totalWidth * self.zoom);
+        };
+        
+        self.sumMaxInX = function() {
+            
+            var arrayTodos = [], suma;
+            
+            for(var i in self.offsetProcesos.x) {
+                suma = self.offsetProcesos.x[i] + (self.widthProcesos[i] / 2);
+                arrayTodos.push(suma);
+            }
+                    
+            var maximoOffset = Math.max.apply(Math, arrayTodos) + 10;
+            
+            return (maximoOffset * self.zoom);
         };
         
         /* camelize(): - convierte el string que recibe a camelCase */

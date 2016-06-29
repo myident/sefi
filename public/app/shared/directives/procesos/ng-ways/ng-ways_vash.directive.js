@@ -218,9 +218,18 @@
 
                     // Se configura el tamaño del SVG para poder hacer el ZOOM
                     if ($scope.layout > 0) {
-                        $scope.svg.attr({
-                            viewBox: "0 0 " + $vash.sumOffsetsInX() + " " + $vash.sumOffsetsInY()
-                        });
+                        
+                        if ($scope.layout == 2) {
+                            $scope.svg.attr({
+                                viewBox: "0 0 " + $vash.sumMaxInX() + " " + $vash.sumOffsetsInY()
+                            });  
+                        } 
+                        if ($scope.layout == 1){
+                            $scope.svg.attr({
+                                viewBox: "0 0 " + $vash.sumMaxInX() + " " + $vash.sumOffsetsInY()
+                            });
+                        }
+
                     } else {
                         $scope.svg.attr({
                             viewBox: "0 0 " + $vash.sumOffsetsInX() + " " + $vash.heightProcesosMax()
