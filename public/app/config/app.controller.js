@@ -9,6 +9,7 @@
         // $rootScope.spin = true;
 >>>>>>> marttin
 
+
         $rootScope.elementosMenu = [
             {
                 title: 'General Vision',
