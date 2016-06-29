@@ -3,7 +3,7 @@
 (function () {
     var Controller = function ($scope, $rootScope, $itbook) {
         $rootScope.appName = 'IT Book';
-        $rootScope.spin = true;
+        // $rootScope.spin = true;
 
         $rootScope.elementosMenu = [
             {
