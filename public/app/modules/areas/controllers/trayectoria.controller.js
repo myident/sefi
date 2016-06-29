@@ -9,27 +9,27 @@
         $scope.content = {
             perfil: {
                 nombre: 'Luis Fernando Valdeón',
-                puesto: 'Director Ejecutivo | Arquitectura'
+                puesto: 'Enterprise Achitecture Executive Director'
             },
             frase: {
-                contenido: 'El éxito está conectado con la acción. La gente exitosa se mantiene en movimiento, comete errores pero nunca se da por vencida.',
+                contenido: '“A goal without a plan is just a wish.”',
                 autor: 'Conrad Hilton'
             },
             personales: [
                 {
-                    titulo: 'Perfil personal',
+                    titulo: 'Personal profile',
                     imagen: '/assets/img/perfil-personal.png',
-                    contenido: 'Lorem ipsum dolor sit amet, his in laoreet adipiscing. Natum nemore essent id mel, melius scribentur in sed. Modus suscipit expetenda te vel. Ne aliquam molestiae mea, cum at dolore ponderum convenire, mei lobortis incorrupte ea.'
+                    contenido: 'Technology and business visionary with executive and hands-on experience in multi million dollars projects. Strong record of success in creating robust IT architectures and infrastructure. Proven ability to bring the benefits of IT to solve business issues while managing costs and risks.'
                 },
                 {
-                    titulo: 'Mayor logro profesional',
+                    titulo: 'Major professional achievement',
                     imagen: '/assets/img/mayor-logro.png',
-                    contenido: 'Lorem ipsum dolor sit amet, his in laoreet adipiscing. Natum nemore essent id mel, melius scribentur in sed. Modus suscipit expetenda te vel. Ne aliquam molestiae mea, cum at dolore ponderum convenire, mei lobortis incorrupte ea.'
+                    contenido: 'Technology and business visionary with executive and hands-on experience in multi million dollars projects. Strong record of success in creating robust IT architectures and infrastructure. Proven ability to bring the benefits of IT to solve business issues while managing costs and risks.'
                 },
                 {
-                    titulo: 'Mayor logro personal',
+                    titulo: 'Major personal achievement',
                     imagen: '/assets/img/mayor-logro-personal.png',
-                    contenido: 'Lorem ipsum dolor sit amet, his in laoreet adipiscing. Natum nemore essent id mel, melius scribentur in sed. Modus suscipit expetenda te vel. Ne aliquam molestiae mea, cum at dolore ponderum convenire, mei lobortis incorrupte ea.'
+                    contenido: 'Technology and business visionary with executive and hands-on experience in multi million dollars projects. Strong record of success in creating robust IT architectures and infrastructure. Proven ability to bring the benefits of IT to solve business issues while managing costs and risks.'
                 }
             ]
         };
