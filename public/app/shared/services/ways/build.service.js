@@ -26,6 +26,8 @@
                 var procesoCapacidadesGroup = paper.group();
                 var proceso, connection;
 
+                console.log(source);
+                
                 for (var i in source) {
                     
                     proceso = source[i];
@@ -396,7 +398,7 @@
                 
                 // Construye Rombos
                 if(capacidad.type){
-                    
+                    console.log(capacidad);
                     var offset = capacidad.offsets[layout], lineElse, arrowElse;
                     
                     rect = $shapes.factory.rombo(

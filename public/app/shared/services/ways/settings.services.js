@@ -17,6 +17,10 @@
                     for (var j in proceso[type]) {
                         var capacidad = proceso[type][j];
 
+                        capacidad.areas.name = capacidad.areas.name || '';
+                        capacidad.aplicaciones = capacidad.aplicaciones || [{ name: ''}];
+                        capacidad.subcapacidades = capacidad.subcapacidades || [];
+
                         capacidad.offsets = [
                             {
                                 x: 0,

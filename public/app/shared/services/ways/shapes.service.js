@@ -21,6 +21,27 @@
                     var y = offset.y - (h / 2);
                     return scope.svg.rect(x, y, w, h);
                 },
+                rectLines: function (offset, w, h) {
+                    var x = offset.x - (w / 2);
+                    var y = offset.y - (h / 2);
+                    var l1x1 = x + 20;
+                    var l1y1 = y;
+                    var l1x2 = x + 20;
+                    var l1y2 = y + h;
+                    var l2x1 = (x + w ) - 20;
+                    var l2y1 = y;
+                    var l2x2 = ( x + w ) - 20;
+                    var l2y2 = y + h;
+
+                    var g = scope.svg.group();
+                    var rect = scope.svg.rect(x, y, w, h);
+                    var l1 = scope.svg.line(l1x1, l1y1m, l1x2, l1y2);
+                    var l2 = scope.svg.line(l2x1, l2y1m, l2x2, l2y2);
+
+                    g.append(rect).append(l1).append(l2);
+
+                    return g;
+                },
                 line: function (start, end) {
                     return scope.svg.line(start.x, start.y, end.x, end.y);
                 },
