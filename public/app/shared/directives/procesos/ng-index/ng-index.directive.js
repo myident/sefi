@@ -3,15 +3,52 @@
     var Directive = function () {
 
         var Link = function ($scope) {
-            
+
 
             $scope.indexMega = $scope.mega;
             $scope.indexMacro = $scope.macro;
             $scope.macroprocesos = [];
 
+            $scope.$watch('megaprocesos', function () {
+
+                if ($scope.indiceAbierto && $scope.megaprocesos.length) {
+
+                    $scope
+                        .megaprocesos[$scope.indexMega].open = true;
+
+                    $scope.getIndex('mega',
+                        $scope.indexMega,
+                        $scope
+                        .megaprocesos[$scope.indexMega].id);
+                    
+                    console.log($scope.megaprocesos[$scope.indexMega]);
+                    
+                    
+
+                    if ($scope.megaprocesos[$scope.indexMega].macroprocesos.length) {
+                        
+                        $scope
+                            .megaprocesos[$scope.indexMega]
+                            .macroprocesos[$scope.indexMacro].selected = true;
+
+                        $scope.getIndex('macro',
+                            $scope.indexMacro,
+                            $scope
+                            .megaprocesos[$scope.indexMega]
+                            .macroprocesos[$scope.indexMacro].id);
+                        
+                    }
+
+
+
+
+                }
+
+            });
+
             for (var n in $scope.megaprocesos) {
                 $scope.megaprocesos[n].open = false;
-                for(var m in $scope.megaprocesos[n].macroprocesos){
+                for (var m in $scope.megaprocesos[n].macroprocesos) {
                     $scope.megaprocesos[n].macroprocesos[m].selected = false;
                 }
             }
@@ -19,6 +56,7 @@
             // Si el Megaproceso tiene macroprocesos
             if ($scope.megaprocesos.length) {
                 if ($scope.megaprocesos[$scope.indexMega].macroprocesos.length) {
+
                     $scope.macroprocesos = $scope.megaprocesos[$scope.indexMega].macroprocesos;
                     // Si el macroproceso tiene procesos
                     if ($scope.macroprocesos[$scope.indexMacro].procesos.length) {
@@ -26,19 +64,9 @@
                     }
                 }
             }
-            
-            if ($scope.indiceAbierto) {
-                $scope
-                    .megaprocesos[$scope.indexMega].open = true; 
 
-                $scope
-                    .megaprocesos[$scope.indexMega]
-                    .macroprocesos[$scope.indexMacro].selected = true;
 
-                $scope.getIndex('mega', $scope.indexMega);
-                $scope.getIndex('macro', $scope.indexMacro);
-            }
-            
+
 
 
 
