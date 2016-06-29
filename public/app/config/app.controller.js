@@ -7,13 +7,13 @@
 
         $rootScope.elementosMenu = [
             {
-                title: 'Visión general',
+                title: 'General Vision',
                 link: '',
                 subElements: [],
                 active: false
             },
             {
-                title: 'Nuestras áreas',
+                title: 'Our Areas',
                 link: '',
                 subElements: [
                     {
@@ -23,31 +23,31 @@
                         active: false
                     },
                     {
-                        title: 'Arquitectura',
+                        title: 'Architecture',
                         link: 'areas/arquitectura',
                         imgClass: 'arquitectura',
                         active: false
                     },
                     {
-                        title: 'Desarrollo',
-                        link: '',
-                        imgClass: 'desarrollo',
-                        active: false
-                    },
-                    {
-                        title: 'Operaciones',
+                        title: 'Operations',
                         link: '',
                         imgClass: 'operaciones',
                         active: false
                     },
                     {
-                        title: 'Seguridad',
+                        title: 'Security',
                         link: '',
                         imgClass: 'seguridad',
                         active: false
                     },
                     {
-                        title: 'Procesos',
+                        title: 'Development',
+                        link: '',
+                        imgClass: 'desarrollo',
+                        active: false
+                    },
+                    {
+                        title: 'IT Processes',
                         link: '',
                         imgClass: 'procesos-it',
                         active: false
@@ -56,7 +56,7 @@
                 active: false
             },
             {
-                title: 'Procesos',
+                title: 'Business Architecture',
                 link: 'procesos',
                 subElements: [],
                 active: false
