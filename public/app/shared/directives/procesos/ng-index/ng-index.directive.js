@@ -50,7 +50,7 @@
                     megaprocesos[i].open = false;
                 }
                 megaproceso.open = value;
-                $scope.getIndex('mega', index);
+                $scope.getIndex('mega', index, megaproceso.id);
             };
 
             // Cuando se selecciona un macroproceso del índice
@@ -61,7 +61,7 @@
                 macroprocesoActual.selected = true;
 
                 $scope.indexMacro = index;
-                $scope.getIndex('macro', index);
+                $scope.getIndex('macro', index, macroprocesoActual.id);
 
             };
         };
