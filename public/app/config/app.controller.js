@@ -3,12 +3,6 @@
 (function () {
     var Controller = function ($scope, $rootScope, $itbook) {
         $rootScope.appName = 'IT Book';
-<<<<<<< HEAD
-//        $rootScope.spin = true;
-=======
-        // $rootScope.spin = true;
->>>>>>> marttin
-
 
         $rootScope.elementosMenu = [
             {

@@ -116,8 +116,6 @@
     text-align: center;
 }
 
-
-
 .arq-contenidos .viewer .row div > img {
     height: 880px;
     width: 100px;
@@ -127,23 +125,21 @@
 
 .arq-contenidos .viewer .row div > span {}
 
-.arq-contenidos .viewer .row div > img{
+.arq-contenidos .viewer .row div > img {
     height: 70px;
     width: 70px;
     display: block;
-    margin:10px auto 10px auto;
-
+    margin: 10px auto 10px auto;
 }
-.arq-contenidos .viewer .row div > span{
-   
 
-}
-.arq-contenidos .viewer .pager{
+.arq-contenidos .viewer .row div > span {}
+
+.arq-contenidos .viewer .pager {
     text-align: center;
     margin-top: 30px;
 }
 
-.arq-contenidos .viewer .pager i{
+.arq-contenidos .viewer .pager i {
     display: inline-block;
     height: 16px;
     width: 8px;
@@ -152,14 +148,17 @@
     background-repeat: no-repeat;
     cursor: pointer;
 }
-.arq-contenidos .viewer .pager i.right{
+
+.arq-contenidos .viewer .pager i.right {
     background-image: url(img/ico.arrow.gray.right.png);
 }
-.arq-contenidos .viewer .pager ul{
+
+.arq-contenidos .viewer .pager ul {
     display: inline-block;
     vertical-align: super;
 }
-.arq-contenidos .viewer .pager li{
+
+.arq-contenidos .viewer .pager li {
     display: inline;
     cursor: pointer;
     padding: 5px;
@@ -175,7 +174,6 @@
 .arq-contenidos .viewer .row div > span {
     font-size: 18px;
 }
-
 
 .arq-areas .viewer {
     width: 930px;
@@ -265,4 +263,16 @@
     background-size: cover;
     background-position: center center;
     vertical-align: middle;
+}
+
+@media (max-height: 800px) {
+    .arq {
+        width: 100%;
+        height: calc(100vh - 40px);
+        background-image: url(img/fernando_1.png);
+        background-size: 100%;
+        background-attachment: fixed;
+        background-position: top;
+        background-repeat: no-repeat;
+    }
 }
