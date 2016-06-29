@@ -1409,7 +1409,97 @@
                             "subcapacidades": [],
                             "areas": []
                         }],
-                        "reglas": []
+                        "reglas": [{
+                            "idregla": 0,
+                            "name": "Customer Billing System Identification (Residential,  Business Customer Or physics with business)",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Credit Prevalidation",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Document Repository",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Customer Creation",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Customer Creation (It is considered the next billing cycle closest)",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Requires tax and legal customer data",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }]
                     }, {
                         "name": "Storage Documents",
                         "selected": false,
@@ -1428,7 +1518,37 @@
                             "subcapacidades": [],
                             "areas": []
                         }],
-                        "reglas": []
+                        "reglas": [{
+                            "idregla": 0,
+                            "name": "Document Repository (customer provided)",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Document Repository Contract",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }]
                     }, {
                         "name": "Print Documents",
                         "selected": false,
@@ -1447,7 +1567,37 @@
                             "subcapacidades": [],
                             "areas": []
                         }],
-                        "reglas": []
+                        "reglas": [{
+                            "idregla": 0,
+                            "name": "Form Creator",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Print Documents Contract",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }]
                     }, {
                         "name": "Credit Check",
                         "selected": false,
@@ -1466,7 +1616,22 @@
                             "subcapacidades": [],
                             "areas": []
                         }],
-                        "reglas": []
+                        "reglas": [{
+                            "idregla": 0,
+                            "name": "Black List",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }]
                     }, {
                         "name": "Product Assignment",
                         "selected": false,
@@ -1499,7 +1664,82 @@
                             "subcapacidades": [],
                             "areas": []
                         }],
-                        "reglas": []
+                        "reglas": [{
+                            "idregla": 0,
+                            "name": "Store Catalog",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Commercial Offer  ( In the product postpaid plans \"Add-On Control\" can be marketed as Add-onThe productâ€œAdd-on Controlâ€ is marketed by offering â€œUnidos con todoâ€ with the add-on â€œAdd-On Controlâ€.",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "In case Next: Commercial Offer for Next customers",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Portability (Port in)",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "NIR Management  (The productâ€œAdd-on Controlâ€ is marketed by offering â€œUnidos con todoâ€ with the add-on â€œAdd-On Controlâ€.",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }]
                     }, {
                         "name": "Policy Check",
                         "selected": false,
@@ -1511,7 +1751,37 @@
                             "subcapacidades": [],
                             "areas": []
                         }],
-                        "reglas": []
+                        "reglas": [{
+                            "idregla": 0,
+                            "name": "AT&T Credit Policy",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "In case NEXT, a down paymet is established (< 30% device total cost)",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }]
                     }, {
                         "name": "Payment Registration",
                         "selected": false,
@@ -1551,7 +1821,52 @@
                             "subcapacidades": [],
                             "areas": []
                         }],
-                        "reglas": []
+                        "reglas": [{
+                            "idregla": 0,
+                            "name": "Payments Credit and debit card (Allows recurring charge and debit from the sale of the product",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Sales Accounting",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Accounting Configuration",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }]
                     }, {
                         "name": "Kitting",
                         "selected": false,
@@ -1591,7 +1906,67 @@
                             "subcapacidades": [],
                             "areas": []
                         }],
-                        "reglas": []
+                        "reglas": [{
+                            "idregla": 0,
+                            "name": "Assignment (Network resources used in the SIM will be temporary network resources,  before of sale and activation process).",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Inventory",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Equipment Invoice",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Cost Accounting",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }]
                     }, {
                         "name": "Delivery",
                         "selected": false,
@@ -1603,7 +1978,22 @@
                             "subcapacidades": [],
                             "areas": []
                         }],
-                        "reglas": []
+                        "reglas": [{
+                            "idregla": 0,
+                            "name": "Home Delivery",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }]
                     }, {
                         "name": "Notifications",
                         "selected": false,
@@ -1622,7 +2012,37 @@
                             "subcapacidades": [],
                             "areas": []
                         }],
-                        "reglas": []
+                        "reglas": [{
+                            "idregla": 0,
+                            "name": "Postpaid Warranties",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Notify close credit",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }]
                     }, {
                         "name": "Activation",
                         "selected": false,
@@ -1655,7 +2075,52 @@
                             "subcapacidades": [],
                             "areas": []
                         }],
-                        "reglas": []
+                        "reglas": [{
+                            "idregla": 0,
+                            "name": "Temporary Resource Management",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Provisioning",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Activation Register",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }]
                     }],
                     "areas": [{
                         "text": "Credit"
@@ -1742,7 +2207,127 @@
                                 "selected": false
                             }]
                         }],
-                        "reglas": []
+                        "reglas": [{
+                            "idregla": 0,
+                            "name": "Customer Identification",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Welcome Center Add Customer Name Opus Reason for Visit",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Customer Billing System Identification",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Capture billing/personal information â€“ name,DOB, SSN",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Contact info (phone, e-mail and billing address)",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Contact info (phone, e-mail and billing address)",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Correct Data",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Correct Data",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }]
                     }, {
                         "name": "Offer Type",
                         "selected": false,
@@ -1763,7 +2348,142 @@
                                 "selected": false
                             }]
                         }],
-                        "reglas": []
+                        "reglas": [{
+                            "idregla": 0,
+                            "name": "Commercial Offer",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Available for the types of residential customers, business , moral and physical with business",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": " Commercial Offer for Next customers",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": " Commercial Offer for Next customers",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Type Customer Correct",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Type Customer Correct",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Anonymous Customer",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Sales Prepaid",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "The product allows you to add contracts",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }]
                     }, {
                         "name": "Customer Registration",
                         "selected": false,
@@ -1839,7 +2559,112 @@
                                 "selected": false
                             }]
                         }],
-                        "reglas": []
+                        "reglas": [{
+                            "idregla": 0,
+                            "name": "Contract Creation",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Customer Creation",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Address Validation",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Shipping addresses and Tax are required",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Paperless is optional. For NEXT when email exists, paperless is mandatory",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Credit Prevalidation",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Document Repository",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }]
                     }, {
                         "name": "Credit Check",
                         "selected": false,
@@ -1873,7 +2698,82 @@
                                 "selected": false
                             }]
                         }],
-                        "reglas": []
+                        "reglas": [{
+                            "idregla": 0,
+                            "name": "Credit Score",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "It requires tax and legal customer data",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Validation postpaid accounts with credit , may have additives Same Customer Account",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "In case NEXT, ICAS will provide quantity of devices available to purchase",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Black List",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }]
                     }, {
                         "name": "Product Assignment",
                         "selected": false,
@@ -1952,7 +2852,142 @@
                                 "selected": false
                             }]
                         }],
-                        "reglas": []
+                        "reglas": [{
+                            "idregla": 0,
+                            "name": "Portability (Port in)",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "The product used in series CPP and MPP mode",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "NIR Management",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Network resources used in the SIM will use temporary network resources",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Store Catalog",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "In the sales process allows hiring Add- ons available in the plan",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Commercial Offer or NEXT Commercial Offer",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "In the product postpaid plans \"Add -On Control\" can be marketed as Add-on",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Form Creator",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }]
                     }, {
                         "name": "Policy Check",
                         "selected": false,
@@ -2002,7 +3037,67 @@
                                 "selected": false
                             }]
                         }],
-                        "reglas": []
+                        "reglas": [{
+                            "idregla": 0,
+                            "name": "AT&T Credit Policy",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "In case NEXT, a down paymet is established (< 30% device total cost)",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Print Documents",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Storage Documents",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }]
                     }, {
                         "name": "Picking",
                         "selected": false,
@@ -2074,7 +3169,67 @@
                                 "selected": false
                             }]
                         }],
-                        "reglas": []
+                        "reglas": [{
+                            "idregla": 0,
+                            "name": "Inventory",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Supply Chain",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Cost Accounting",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Assignment",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }]
                     }, {
                         "name": "Payment Registration",
                         "selected": false,
@@ -2147,7 +3302,52 @@
                                 "selected": false
                             }]
                         }],
-                        "reglas": []
+                        "reglas": [{
+                            "idregla": 0,
+                            "name": "Payments",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Allows recurring charge and debit from the sale of the product",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Payment Credit and debit card, buy back",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }]
                     }, {
                         "name": "Delivery",
                         "selected": false,
@@ -2190,7 +3390,52 @@
                                 "selected": false
                             }]
                         }],
-                        "reglas": []
+                        "reglas": [{
+                            "idregla": 0,
+                            "name": "Store Delivery",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Home Delivery",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "It considers product delivery order in store and courier delivery",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }]
                     }, {
                         "name": "Notifications",
                         "selected": false,
@@ -2227,7 +3472,37 @@
                                 "selected": false
                             }]
                         }],
-                        "reglas": []
+                        "reglas": [{
+                            "idregla": 0,
+                            "name": "Close credit Policy",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Warranties Postpaid Products",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }]
                     }, {
                         "name": "Activation",
                         "selected": false,
@@ -2277,7 +3552,52 @@
                                 "selected": false
                             }]
                         }],
-                        "reglas": []
+                        "reglas": [{
+                            "idregla": 0,
+                            "name": "Temporary Resource Management",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Provisioning",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }, {
+                            "idregla": 0,
+                            "name": "Activation Register",
+                            "selected": false,
+                            "kpis": [],
+                            "aplicaciones": [],
+                            "areas": {
+                                "name": null,
+                                "selected": false
+                            },
+                            "type": "",
+                            "pactual": 0,
+                            "psiguiente": 0,
+                            "caminos": 0,
+                            "desviacion": []
+                        }]
                     }],
                     "areas": [{
                         "text": "Sales Rep"

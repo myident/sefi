@@ -66,11 +66,11 @@
         $rootScope.source = {};
         
 
-        $rootScope.source = $itbook.get(function (data) {
-            $rootScope.spin = false;
-            var nudata = JSON.stringify(data);
-//            console.log(nudata);
-        });
+//        $rootScope.source = $itbook.get(function (data) {
+//            $rootScope.spin = false;
+//            var nudata = JSON.stringify(data);
+////            console.log(nudata);
+//        });
 
 
         $rootScope.n = {
