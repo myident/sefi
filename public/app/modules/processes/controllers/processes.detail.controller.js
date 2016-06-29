@@ -317,6 +317,7 @@
             $scope.dominioActual = $rootScope.source.arquitectura[dominio];
             $scope.megaProcesoActual = $rootScope.source.arquitectura[dominio].dominios[megaproceso];
 
+            
             // El objeto para inicializar el Breadcrumb
             $scope.breadcrumb = {
                 dominio: $scope.dominioActual.name,
@@ -328,6 +329,7 @@
                 capacidad: '',
                 megaproceso: $scope.megaProcesoActual.name
             };
+            
 
             // Se verifica si la arquitectura tiene dominios
             if ($scope.dominioActual.dominios && $scope.dominioActual.dominios.length) {
@@ -341,6 +343,7 @@
             } else {
                 $scope.dominios = [];
             }
+            
             // Index del megaproceso
             $scope.indexMega = 0;
         };
@@ -350,23 +353,59 @@
 
         // MARK: - Consulta al servicio RESTful
 
-
+        console.log($rootScope.source);
 
         if (!$rootScope.source.rutas) {
+            
             $rootScope.spin = true;
+            
+            // Llena dominios
             $rootScope.source = $arquitecturas.get(function () {
                 $rootScope.spin = false;
                 $rootScope.source.rutas = [0, 0, 0];
-
-                $rootScope.source.arquitectura[0].dominios[$routeParams.subprocesos].megaprocesos = $megaprocesos.query({
+                // Llena megaprocesos
+                $megaprocesos.query({
                         iddominio: Number($routeParams.subprocesos) + 1
                     },
-                    function () {
+                    function (data) {
+                    
+                        $rootScope.source.arquitectura[0].dominios[$routeParams.subprocesos].megaprocesos = data;
+                    
+                        if ($routeParams.mega && $routeParams.macro) {
+                            
+                            $macroprocesos.query({
+                                idmegaproceso: data[$routeParams.mega].id
+                            }, function(data) {
+
+                                $scope.megaprocesos[$routeParams.mega].macroprocesos = data;
+                                
+                                $procesos.get({
+                                    idmacroproceso: $scope.megaprocesos[$routeParams.mega].macroprocesos[$routeParams.macro].id
+                                }, function(data){
+                                    
+                                    $scope.megaprocesos[$routeParams.mega].macroprocesos[$routeParams.macro].aplicaciones = data.aplicaciones;
+                                    $scope.megaprocesos[$routeParams.mega].macroprocesos[$routeParams.macro].areas = data.areas;
+                                    $scope.megaprocesos[$routeParams.mega].macroprocesos[$routeParams.macro].procesos = data.procesos;
+                                    
+                                    $scope.procesos =$scope.megaprocesos[$routeParams.mega].macroprocesos[$routeParams.macro].procesos;
+                                    
+                                });
+
+                                
+                            });
+                            
+                        }
+                        
                         $scope.init();
                     });
             });
         } else {
+            
+            
+            
+            
             $rootScope.spin = true;
+            // Llena megaprocesos
             $rootScope.source.arquitectura[0].dominios[$routeParams.subprocesos].megaprocesos = $megaprocesos.query({
                     iddominio: Number($routeParams.subprocesos) + 1
                 },
