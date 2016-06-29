@@ -32,9 +32,23 @@
         };
         
         self.sumOffsetsInX = function() {
+            
             var lastOffset = self.offsetProcesos.x[(self.offsetProcesos.x.length - 1)];
+            
             var lastWidth = (self.widthProcesos[(self.widthProcesos.length - 1)] / 2);
+            
             var totalWidth = lastWidth + lastOffset + 25;
+            
+            return (totalWidth * self.zoom);
+        };
+        
+        self.sumMaxInX = function() {
+            var lastOffset = self.offsetProcesos.x[(self.offsetProcesos.x.length - 1)];
+            
+            var lastWidth = (self.widthProcesos[(self.widthProcesos.length - 1)] / 2);
+            
+            var totalWidth = lastWidth + lastOffset + 450;
+            
             return (totalWidth * self.zoom);
         };
         
