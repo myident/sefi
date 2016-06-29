@@ -43,13 +43,17 @@
         };
         
         self.sumMaxInX = function() {
-            var lastOffset = self.offsetProcesos.x[(self.offsetProcesos.x.length - 1)];
             
-            var lastWidth = (self.widthProcesos[(self.widthProcesos.length - 1)] / 2);
+            var arrayTodos = [], suma;
             
-            var totalWidth = lastWidth + lastOffset + 450;
+            for(var i in self.offsetProcesos.x) {
+                suma = self.offsetProcesos.x[i] + (self.widthProcesos[i] / 2);
+                arrayTodos.push(suma);
+            }
+                    
+            var maximoOffset = Math.max.apply(Math, arrayTodos) + 10;
             
-            return (totalWidth * self.zoom);
+            return (maximoOffset * self.zoom);
         };
         
         /* camelize(): - convierte el string que recibe a camelCase */

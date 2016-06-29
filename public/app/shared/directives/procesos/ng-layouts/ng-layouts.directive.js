@@ -195,10 +195,10 @@
                     } else {
                         if(scope.layout == 1){
                             scope.svg[1].attr({
-                                viewBox: "0 0 " + $vash.sumOffsetsInX() + " 30"
+                                viewBox: "0 0 " + $vash.sumMaxInX() + " 30"
                             });
                             scope.svg[2].attr({
-                                viewBox: "0 0 " + $vash.sumOffsetsInX() + " 30"
+                                viewBox: "0 0 " + $vash.sumMaxInX() + " 30"
                             });
                         }
                         scope.svg[1].attr({

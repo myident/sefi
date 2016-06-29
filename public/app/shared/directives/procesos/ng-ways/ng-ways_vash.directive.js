@@ -226,7 +226,7 @@
                         } 
                         if ($scope.layout == 1){
                             $scope.svg.attr({
-                                viewBox: "0 0 " + $vash.sumOffsetsInX() + " " + $vash.sumOffsetsInY()
+                                viewBox: "0 0 " + $vash.sumMaxInX() + " " + $vash.sumOffsetsInY()
                             });
                         }
 
