@@ -63,6 +63,16 @@
             templateUrl: baseUrl + 'areas/views/arq-contenidos.view.html',
             controller: 'ArqContenidosController'
         });
+        
+        
+        
+        
+        
+        $routeProvider.when('/business-architecture/ecosystem', {
+            templateUrl: baseUrl + 'business-architecture/views/ecosystem.view.html',
+            controller: 'EcosystemController'
+        });
+        
     };
 
     router.$inject = ['$routeProvider'];
