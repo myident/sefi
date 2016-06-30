@@ -98,6 +98,7 @@
                     $procesos.get({
                         idmacroproceso: id
                     }, function (data) {
+                        
                         $scope.megaprocesos[$scope.indexMega].macroprocesos[index].aplicaciones = data.aplicaciones;
                         $scope.megaprocesos[$scope.indexMega].macroprocesos[index].areas = data.areas;
                         $scope.megaprocesos[$scope.indexMega].macroprocesos[index].procesos = data.procesos;
@@ -303,8 +304,9 @@
 
         // MARK: - Llamada a los servicios
 
-        $scope.chapu = function () {
-
+        $scope.llenaProcesos = function () {
+            
+            $rootScope.spin = true;
             // Llena dominios
             $arquitecturas.get(function (data) {
 
@@ -387,16 +389,19 @@
         // MARK: - Consulta al servicio RESTful
 
         if (!$rootScope.source.rutas || $vash.ecosistema) {
-            $rootScope.spin = true;
-            $scope.chapu();
+            
+            $scope.llenaProcesos();
+            
         } else {
 
             $rootScope.spin = true;
+            
             // Llena megaprocesos
-            $rootScope.source.arquitectura[0].dominios[$routeParams.subprocesos].megaprocesos = $megaprocesos.query({
+            $megaprocesos.query({
                     iddominio: Number($routeParams.subprocesos) + 1
                 },
                 function (data) {
+                    $rootScope.source.arquitectura[0].dominios[$routeParams.subprocesos].megaprocesos = data;
                     $rootScope.spin = false;
                     $scope.init();
                 });
