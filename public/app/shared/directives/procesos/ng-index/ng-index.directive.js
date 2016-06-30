@@ -21,7 +21,7 @@
                         $scope
                         .megaprocesos[$scope.indexMega].id);
                     
-                    console.log($scope.megaprocesos[$scope.indexMega]);
+
                     
                     
 
