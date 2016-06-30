@@ -377,6 +377,9 @@
                                     .megaprocesos[$routeParams.mega]
                                     .macroprocesos = data;
                                 
+                                $scope.macros = data;
+                                
+                                
                                 $procesos.get({
                                     idmacroproceso: $scope.megaprocesos[$routeParams.mega].macroprocesos[$routeParams.macro].id
                                 }, function(data){

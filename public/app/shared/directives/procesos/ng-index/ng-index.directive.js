@@ -12,18 +12,17 @@
             $scope.$watch('megaprocesos', function () {
 
                 if ($scope.indiceAbierto && $scope.megaprocesos.length) {
-
+                    
+                    // Abre el megaproceso seleccionado
                     $scope
                         .megaprocesos[$scope.indexMega].open = true;
-
+                    
+                    // Se le informa al controlador, cuál megaproceso está abierto
                     $scope.getIndex('mega',
                         $scope.indexMega,
                         $scope
                         .megaprocesos[$scope.indexMega].id);
-                    
-
-                    
-                    
+                
 
                     if ($scope.megaprocesos[$scope.indexMega].macroprocesos.length) {
                         
@@ -38,13 +37,30 @@
                             .macroprocesos[$scope.indexMacro].id);
                         
                     }
-
-
-
-
                 }
 
             });
+            
+            $scope.$watch('macros', function(){
+
+                if ($scope.indiceAbierto && $scope.megaprocesos.length) {
+                    if ($scope.megaprocesos[$scope.indexMega].macroprocesos.length) {
+                        
+                        $scope
+                            .megaprocesos[$scope.indexMega]
+                            .macroprocesos[$scope.indexMacro].selected = true;
+
+                        $scope.getIndex('macro',
+                            $scope.indexMacro,
+                            $scope
+                            .megaprocesos[$scope.indexMega]
+                            .macroprocesos[$scope.indexMacro].id);
+                    }
+                }
+                
+            });
+            
+            
 
             for (var n in $scope.megaprocesos) {
                 $scope.megaprocesos[n].open = false;
@@ -64,8 +80,6 @@
                     }
                 }
             }
-
-
 
 
 
@@ -100,6 +114,7 @@
             link: Link,
             scope: {
                 megaprocesos: '=source',
+                macros: '=',
                 mega: '=',
                 macro: '=',
                 getIndex: '=get',

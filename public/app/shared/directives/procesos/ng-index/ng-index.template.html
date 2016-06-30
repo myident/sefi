@@ -19,8 +19,8 @@
                
                 <ul>
                     <li 
-                    ng-repeat="proceso in megaproceso.macroprocesos" 
-                    ng-click="selected(megaproceso.macroprocesos, proceso, $index)" 
+                    ng-repeat="proceso in macros" 
+                    ng-click="selected(macros, proceso, $index)" 
                     ng-class="{selected:proceso.selected}">
                     {{proceso.title}}</li>
                 </ul>
