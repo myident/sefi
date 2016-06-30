@@ -68,12 +68,6 @@
 
         // MARK: - Mapside Directive
 
-//        $scope.dominios = []; // Se llena en $scope.init()
-
-
-
-
-
         // MARK: - Index Directive
 
         if ($routeParams.mega && $routeParams.macro) {
@@ -97,46 +91,30 @@
         /* index:  es el índice de macro o mega proceso elegido */
         $scope.getIndex = function (type, index, id) {
             if (type == 'macro') {
-                
-                
-                if(!$scope.megaprocesos[$scope.indexMega].macroprocesos[index].procesos.length){
-                    
+                if (!$scope.megaprocesos[$scope.indexMega].macroprocesos[index].procesos.length) {
+                    console.log('uno');
                     $rootScope.spin = true;
                     
                     $procesos.get({
                         idmacroproceso: id
                     }, function (data) {
-                        
                         $scope.megaprocesos[$scope.indexMega].macroprocesos[index].aplicaciones = data.aplicaciones;
                         $scope.megaprocesos[$scope.indexMega].macroprocesos[index].areas = data.areas;
                         $scope.megaprocesos[$scope.indexMega].macroprocesos[index].procesos = data.procesos;
                         $rootScope.spin = false;
-                        // SVG
-                        if (index < 1) {
-                            $scope.muestralo = true;
-                        } else {
-                            $scope.muestralo = false;
-                        }
-
-
                         // Con el indexMega (índice de megaproceso elegido) se verifica si hay macroprocesos
                         if ($scope.megaprocesos[$scope.indexMega].macroprocesos.length) {
-
                             $scope.macroprocesos = $scope.megaprocesos[$scope.indexMega].macroprocesos;
-
                             // Se verifica si el macroproceso elegido en el índice tiene procesos
-
                             if ($scope.macroprocesos[index].procesos.length) {
                                 // Si tiene procesos se guardan en $scope.procesos
                                 $scope.procesos = $scope.macroprocesos[index].procesos;
-
                                 $scope.config = {
                                     layouts: {
                                         horizontal: $scope.macroprocesos[index].aplicaciones,
                                         vertical: $scope.macroprocesos[index].areas
                                     }
                                 };
-
                             } else {
                                 // Si no tiene, se guarda el arreglo vacío
                                 $scope.procesos = [];
@@ -150,35 +128,23 @@
                             // Se guarda el macroproceso elegido en el breadcrumb
                             $scope.breadcrumb.capacidad = $scope.megaprocesos[$scope.indexMega].macroprocesos[index].title;
                         }
-                        
-                        
-                    }); 
+                    });
                 } else {
-                    if (index < 1) {
-                        $scope.muestralo = true;
-                    } else {
-                        $scope.muestralo = false;
-                    }
-
-
+                    console.log('dos');
+                    
                     // Con el indexMega (índice de megaproceso elegido) se verifica si hay macroprocesos
                     if ($scope.megaprocesos[$scope.indexMega].macroprocesos.length) {
-
                         $scope.macroprocesos = $scope.megaprocesos[$scope.indexMega].macroprocesos;
-
                         // Se verifica si el macroproceso elegido en el índice tiene procesos
-
                         if ($scope.macroprocesos[index].procesos.length) {
                             // Si tiene procesos se guardan en $scope.procesos
                             $scope.procesos = $scope.macroprocesos[index].procesos;
-
                             $scope.config = {
                                 layouts: {
                                     horizontal: $scope.macroprocesos[index].aplicaciones,
                                     vertical: $scope.macroprocesos[index].areas
                                 }
                             };
-
                         } else {
                             // Si no tiene, se guarda el arreglo vacío
                             $scope.procesos = [];
@@ -193,29 +159,22 @@
                         $scope.breadcrumb.capacidad = $scope.megaprocesos[$scope.indexMega].macroprocesos[index].title;
                     }
                 }
-            
             } else {
-
                 if ($scope.megaprocesos[index].macroprocesos.length < 1) {
-
                     $rootScope.spin = true;
-
                     $macroprocesos.query({
                         idmegaproceso: id
                     }, function (data) {
-
                         $rootScope.spin = false;
                         $scope.megaprocesos[index].macroprocesos = data;
-
+                        $scope.macros = data;
                     });
                 }
-
                 // Cuando se elige un megaproceso en el índice, se guarda el $index en indexMega
                 $scope.indexMega = index;
                 // Se guarda el megaproceso elegido en el breadcrumb
                 $scope.breadcrumb.proceso = '/ ' + $scope.megaprocesos[$scope.indexMega].title + '/ ';
             }
-
         };
 
 
@@ -292,8 +251,8 @@
 
         $scope.imprimirDesdeBreadCrumb = function () {
             $scope.imprimir = "print";
-        };        
-        
+        };
+
 
         // MARK: - Inicializa el controller
 
@@ -309,7 +268,7 @@
             $scope.dominioActual = $rootScope.source.arquitectura[dominio];
             $scope.megaProcesoActual = $rootScope.source.arquitectura[dominio].dominios[megaproceso];
 
-            
+
             // El objeto para inicializar el Breadcrumb
             $scope.breadcrumb = {
                 dominio: $scope.dominioActual.name,
@@ -321,7 +280,7 @@
                 capacidad: '',
                 megaproceso: $scope.megaProcesoActual.name
             };
-            
+
 
             // Se verifica si la arquitectura tiene dominios
             if ($scope.dominioActual.dominios && $scope.dominioActual.dominios.length) {
@@ -335,90 +294,90 @@
             } else {
                 $scope.dominios = [];
             }
-            
+
             // Index del megaproceso
             $scope.indexMega = 0;
         };
-        
-        
-        
+
+
+
         // MARK: - Llamada a los servicios
-        
-        $scope.chapu = function() {
-            
+
+        $scope.chapu = function () {
+
             // Llena dominios
             $arquitecturas.get(function (data) {
-                
+
                 // Se llena el source con arquitectura y dominios
                 $rootScope.source = data;
                 $rootScope.source.rutas = [0, 0, 0];
-                
+
                 // Llena megaprocesos
                 $megaprocesos.query({
                         iddominio: $rootScope.source.arquitectura[$routeParams.procesos].dominios[$routeParams.subprocesos].id
                     },
                     function (data) {
-                    
+
                         // Se guardan los megaprocesos del dominio actual
                         $rootScope.source
                             .arquitectura[$routeParams.procesos]
                             .dominios[$routeParams.subprocesos]
                             .megaprocesos = data;
-                    
+
                         // Si se proporcionan datos de Mega y macro procesos
                         if ($routeParams.mega && $routeParams.macro) {
-                            
+
                             $macroprocesos.query({
                                 idmegaproceso: data[$routeParams.mega].id
-                            }, function(data) {
-                                
+                            }, function (data) {
+
                                 // Se agregan los macroprocesos al megaproceso actual
                                 $scope
                                     .megaprocesos[$routeParams.mega]
                                     .macroprocesos = data;
-                                
+
                                 $scope.macros = data;
-                                
-                                
+
+
                                 $procesos.get({
                                     idmacroproceso: $scope.megaprocesos[$routeParams.mega].macroprocesos[$routeParams.macro].id
-                                }, function(data){
-                                    
+                                }, function (data) {
+
                                     // Se agrega el catalogo de Aplicaciones
                                     $scope
                                         .megaprocesos[$routeParams.mega]
                                         .macroprocesos[$routeParams.macro]
                                         .aplicaciones = data.aplicaciones;
-                                    
+
                                     // Se agrega el catalogo de Areas
                                     $scope
                                         .megaprocesos[$routeParams.mega]
                                         .macroprocesos[$routeParams.macro]
                                         .areas = data.areas;
-                                    
+
                                     // Se agrega el catalogo de Procesos
                                     $scope
                                         .megaprocesos[$routeParams.mega]
                                         .macroprocesos[$routeParams.macro]
                                         .procesos = data.procesos;
-                                    
+
                                     // Se crea el objeto $scope.procesos para generar el diagrama
                                     $scope.procesos = $scope
                                         .megaprocesos[$routeParams.mega]
                                         .macroprocesos[$routeParams.macro]
                                         .procesos;
-                                    
+
                                     // Se cierra el spin
                                     $rootScope.spin = false;
-                                    
+
                                 });
-                                
+
                             });
-                            
+
                         } else {
                             $rootScope.spin = false;
                         }
-                        
+
                         $scope.init();
                     });
             });
