@@ -402,8 +402,41 @@
                     capacidadGroup.append(node);
                 }
                 
+                if(type == 'capacidades'){
+                    rect = $shapes.factory.rect(
+                        capacidad.offsets[layout], 
+                        capacidadWidth, 
+                        capacidadHeight);
+                    
+                        rect = $paint.rectCapacidades(rect);
 
+                        textbox = $shapes.factory.textbox(
+                            capacidad.offsets[layout], 
+                            capacidadWidth, 
+                            capacidadHeight, 
+                            capacidad.name, 11);
+
+                        // Setting data
+                        rect
+                            .data('offsets', capacidad.offsets)
+                            .data('width', [capacidadWidth, capacidadWidth, capacidadWidth])
+                            .data('height', [capacidadHeight, capacidadHeight, capacidadHeight]);
+                        
+                        textbox
+                            .data('offsets', capacidad.offsets)
+                            .data('width', [capacidadWidth, capacidadWidth, capacidadWidth])
+                            .data('height', [capacidadHeight, capacidadHeight, capacidadHeight]);
+                        
+                        capacidadGroup
+                            .append(rect)
+                            .append(textbox);
+
+                        capacidadMainGroup
+                            .append(capacidadGroup);
+                }
+                else{
                 switch(capacidad.idfigura){
+
                     case 1: // Proceso
                         
 
@@ -543,6 +576,7 @@
 
                     default: break; 
                 }
+            }
                 // // Construye Rombos
                 // if(capacidad.type){
                 // } 

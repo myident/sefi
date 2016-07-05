@@ -19,7 +19,7 @@
 	<div class="pager">
 		<i class="left" ng-click="viewer.back()"></i>
     	<ul>
-    		<li ng-click="viewer.goTo($index)" ng-repeat="page in viewer.pages" ng-class="{active: ($index==viewer.indexPageNow)}">{{page.number}}</li>
+    		<li ng-click="viewer.goTo($index)" ng-repeat="page in viewer.pages" ng-class="{active: ($index==viewer.indexPageNow)  }">{{page.number}}</li>
     	</ul>
     	<i class="right" ng-click="viewer.forw()"></i>
     </div>
