@@ -1,12 +1,14 @@
 /*global angular*/
 
 (function () {
-    var Controller = function ($scope, $rootScope, $window, $cvs) {
+    var Controller = function ($scope, $rootScope, $window, $cvs, $routeParams) {
 
         $rootScope.spin = true;
+        
+        $scope.id_cv = $routeParams.id_area || 1;
 
         $cvs.query({
-            idpersonal: 1
+            idpersonal: $scope.id_cv
         }, function (data) {
             $scope.cv = data[0];
             console.log(data);
@@ -14,7 +16,8 @@
         });
 
         $scope.go = function () {
-            $window.location = '#/areas/arquitectura/';
+//            $window.location = '#/areas/arquitectura/';
+            $window.history.back();
         };
 
         $scope.content = {
@@ -49,6 +52,6 @@
 
 
     };
-    Controller.$inject = ['$scope', '$rootScope', '$window', '$cvs'];
+    Controller.$inject = ['$scope', '$rootScope', '$window', '$cvs', '$routeParams'];
     angular.module('mAreas').controller('TrayectoriaController', Controller);
 })();
