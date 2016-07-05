@@ -11,35 +11,108 @@
         <div class="trayectoria-title">
             <span>Trajectory | </span>
             <span>
-                <div>{{content.perfil.nombre}}</div>
-                <div>{{content.perfil.puesto}}</div>
+                <div>{{cv.nombre}} {{cv.apellidos}}</div>
+                <div>{{cv.puesto}}</div>
             </span>
         </div>
         <div class="container-trayectoria-overflow">
-           
+
             <div class="trayectoria-frase">
-                <i>{{content.frase.contenido}}</i>
+                <i>"{{cv.personal_quote}}"</i>
                 <i>- {{content.frase.autor}}</i>
             </div>
-            
+
             <div class="trayectoria-body">
-               
-                <div class="perfil-personal" ng-repeat="personal in content.personales">
+
+                <div class="perfil-personal">
                     <div class="subtitle">
                         <figure>
-                            <img ng-src="{{personal.imagen}}" alt="">
+                            <img ng-src="{{content.personales[0].imagen}}" alt="">
                         </figure>
                     </div>
                     <div class="content">
-                        <span>{{personal.titulo}}</span>
-                        <span>{{personal.contenido}}</span>
+                        <span>{{content.personales[0].titulo}}</span>
+                        <span>{{cv.personal_profile}}</span>
                     </div>
                 </div>
-                
-                <div class="perfil-lista">
-                    
+
+                <div class="perfil-personal">
+                    <div class="subtitle">
+                        <figure>
+                            <img ng-src="{{content.personales[1].imagen}}" alt="">
+                        </figure>
+                    </div>
+                    <div class="content">
+                        <span>{{content.personales[1].titulo}}</span>
+                        <span>{{cv.major_professional}}</span>
+                    </div>
                 </div>
-                
+
+                <div class="perfil-personal">
+                    <div class="subtitle">
+                        <figure>
+                            <img ng-src="{{content.personales[2].imagen}}" alt="">
+                        </figure>
+                    </div>
+                    <div class="content">
+                        <span>{{content.personales[2].titulo}}</span>
+                        <span>{{cv.major_personal}}</span>
+                    </div>
+                </div>
+
+                <div class="perfil-personal">
+                    <div class="subtitle">
+                        <figure style="width:31px;">
+                            <img src="/assets/img/notebook-2.png" alt="">
+                        </figure>
+                    </div>
+                    <div class="content">
+                        <span>Academic Profile</span>
+                        <table>
+                            <tr ng-repeat="academic in cv.academic_profile">
+                                <td style="display: list-item;">{{academic.grado}}</td>
+                                <td>{{academic.instituto}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="perfil-personal">
+                    <div class="subtitle">
+                        <figure style="width:38px;">
+                            <img src="/assets/img/briefcase.png" alt="">
+                        </figure>
+                    </div>
+                    <div class="content">
+                        <span>Professional experience</span>
+                        <table>
+                            <tr ng-repeat="professional in cv.professional_experience">
+                                <td style="display: list-item;">{{professional.puesto}}</td>
+                                <td>{{professional.empresa}}</td>
+                                <td>{{professional.tiempo}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+
+                <div class="perfil-personal">
+                    <div class="subtitle">
+                        <figure>
+                            <img ng-src="/assets/img/target.png" alt="">
+                        </figure>
+                    </div>
+                    <div class="content">
+                        <span>2016 Enterprise objectives</span>
+                        <table>
+                            <tr ng-repeat="objective in cv.enterprise_objectives">
+                                <td style="display: list-item;">{{objective.objetivo}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+
             </div>
         </div>
 

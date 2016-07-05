@@ -1,11 +1,19 @@
 /*global angular*/
 
 (function () {
-    var Controller = function($scope, $window) {
-        $scope.go = function() {
-            $window.location = '#/areas/arquitectura/';  
+    var Controller = function ($scope, $window, $cvs) {
+
+        $cvs.query({
+            idpersonal: 1
+        }, function (data) {
+            $scope.cv = data[0];
+            console.log(data);
+        });
+
+        $scope.go = function () {
+            $window.location = '#/areas/arquitectura/';
         };
-        
+
         $scope.content = {
             perfil: {
                 nombre: 'Luis Fernando Valdeón',
@@ -33,7 +41,11 @@
                 }
             ]
         };
+
+
+
+
     };
-    Controller.$inject = ['$scope', '$window'];
+    Controller.$inject = ['$scope', '$window', '$cvs'];
     angular.module('mAreas').controller('TrayectoriaController', Controller);
 })();
