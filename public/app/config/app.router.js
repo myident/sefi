@@ -73,6 +73,11 @@
             controller: 'EcosystemController'
         });
         
+        $routeProvider.when('/business-architecture', {
+            templateUrl: baseUrl + 'business-architecture/views/architectures.view.html',
+            controller: 'ArchitecturesController'
+        });
+        
     };
 
     router.$inject = ['$routeProvider'];
