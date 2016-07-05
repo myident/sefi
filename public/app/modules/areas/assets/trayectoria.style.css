@@ -82,7 +82,7 @@
 }
 
 .perfil-personal > .content > span {
-    font-size: 18px;
+    font-size: 16px;
     color: #4E4E4E;
 }
 
@@ -91,7 +91,25 @@
     display: block;
     margin-bottom: 20px;
 }
+
+.perfil-personal > .content > table tr td {
+    font-size: 16px;
+    color: #4E4E4E;
+    padding-right: 10px;
+}
+
 .container-trayectoria-overflow {
     overflow: auto;
     height: calc(100% - 130px);
+}
+
+@media (max-height: 860px) {
+    .arq-trayectoria {
+        width: 100%;
+        height: calc(100vh - 40px);
+        background-size: 100%;
+        background-attachment: fixed;
+        background-position: top;
+        background-repeat: no-repeat;
+    }
 }
