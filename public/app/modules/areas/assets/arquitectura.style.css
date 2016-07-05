@@ -1,28 +1,30 @@
 .arq {
     width: 100%;
     height: calc(100vh - 40px);
-    background-image: url(img/fernando_1.png);
+    /*background-image: url(img/fernando_1.png);*/
     background-size: cover;
     background-attachment: fixed;
     background-position: bottom;
     background-repeat: no-repeat;
 }
 
+
 .trayectoria-img{
-    margin-left: 10%;
     margin-top: 50px;
 }
 
 .arq-trayectoria {
     width: 100%;
     height: calc(100vh - 40px);
-    /*background-image: url(img/ferchu.png);*/
+    background-image: url(img/erika_zaragoza.png);
     background-size: cover;
-    background-attachment: fixed;
+    /*background-attachment: fixed;*/
     background-position: bottom left;
     background-repeat: no-repeat;
 }
-
+.img-1{
+    background-image: url(img/ferchu.png);
+}
 .arq-trayectoria > .regresar {
     cursor: pointer;
 }
