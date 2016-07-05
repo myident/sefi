@@ -300,7 +300,14 @@
             },
 
             getOffsetsTo: function(source,id){
-
+                for(var i in source){
+                    for(var j in source[i]['reglas']){
+                        var regla = source[i]['reglas'][j];
+                        if(regla.flowId === id){
+                            return regla.offsets;
+                        }
+                    }
+                }
             },
 
             /* capacidades(): - crea cada uno de las capacidades existentes */
@@ -474,6 +481,8 @@
                     break;
 
                     case 2: 
+
+
                         rect = $shapes.factory.rectLines(
                         capacidad.offsets[layout], 
                         capacidadWidth, 
@@ -507,8 +516,13 @@
                     break;
                     case 3: // Rombo
                         
+                    var intersection = this.getOffsetsTo(source,capacidad.nextTo);
+                    var intersectionTwo = this.getOffsetsTo(source,capacidad.nextToTwo);
 
-                    console.log(capacidad.type);
+                    console.log('transisiones');
+                    console.log(intersection);
+                    console.log(intersectionTwo);
+
                     var offset = capacidad.offsets[layout], lineElse, arrowElse;
                     
                     rect = $shapes.factory.rombo(

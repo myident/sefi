@@ -7,6 +7,9 @@
         
         $scope.id_cv = $routeParams.id_area || 1;
 
+
+        $scope.trayectoriaImg = $scope.id_cv == 1 ?  "img-1" : "";
+
         $cvs.query({
             idpersonal: $scope.id_cv
         }, function (data) {
