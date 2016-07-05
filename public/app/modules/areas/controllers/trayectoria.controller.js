@@ -1,13 +1,16 @@
 /*global angular*/
 
 (function () {
-    var Controller = function ($scope, $window, $cvs) {
+    var Controller = function ($scope, $rootScope, $window, $cvs) {
+
+        $rootScope.spin = true;
 
         $cvs.query({
             idpersonal: 1
         }, function (data) {
             $scope.cv = data[0];
             console.log(data);
+            $rootScope.spin = false;
         });
 
         $scope.go = function () {
@@ -46,6 +49,6 @@
 
 
     };
-    Controller.$inject = ['$scope', '$window', '$cvs'];
+    Controller.$inject = ['$scope', '$rootScope', '$window', '$cvs'];
     angular.module('mAreas').controller('TrayectoriaController', Controller);
 })();
