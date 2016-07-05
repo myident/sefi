@@ -3,8 +3,8 @@
 (function () {
     var Controller = function($scope, $window) {
         
-        $scope.go = function() {
-            $window.location = '#/areas/arquitectura/gobierno';  
+        $scope.go = function(index) {
+            $window.location = '#/areas/arquitectura/gobierno/'+index;  
         };
         
         $scope.areas = [
