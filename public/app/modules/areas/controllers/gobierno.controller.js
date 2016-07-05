@@ -2,6 +2,7 @@
 
 (function () {
     var Controller = function($scope, $routeParams, $window) {
+        
         $scope.go = function() {
             $window.location = '#/areas/arquitectura/areas';  
         };

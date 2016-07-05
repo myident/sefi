@@ -1,7 +1,7 @@
 <ng-background></ng-background>
 <ng-header set-elementos-menu="elementosMenu"></ng-header>
 <main class="arq-gobierno">
-    <div class="regresar" ng-click="go()">
+    <div class="regresar" ng-click="back()">
         <i></i>
         <span>Regresar</span>
     </div>
@@ -15,7 +15,7 @@
         <img src="app/modules/areas/assets/img/erika_zaragoza.png" alt="">
             <div><b>{{actual.director}}</b></div>
             <div>{{actual.puesto}}</div>
-            <div class="link-datos-personales" ng-click="go()">
+            <div class="link-datos-personales" ng-click="go(actual.id_trayectoria)">
                 <span>{{actual.puesto}}</span>
                 <i></i>
             </div>

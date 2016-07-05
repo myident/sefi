@@ -45,6 +45,14 @@
             templateUrl: baseUrl + 'areas/views/trayectoria.view.html',
             controller: 'TrayectoriaController'
         });
+        $routeProvider.when('/areas/arquitectura/trayectoria/:id_area', {
+            templateUrl: baseUrl + 'areas/views/trayectoria.view.html',
+            controller: 'TrayectoriaController'
+        });
+        
+        
+        
+        
         
         // Arquitectura Areas
         $routeProvider.when('/areas/arquitectura/areas', {
@@ -54,11 +62,6 @@
         
         // Arquitectura Gobierno IT
         $routeProvider.when('/areas/arquitectura/gobierno', {
-            templateUrl: baseUrl + 'areas/views/gobierno.view.html',
-            controller: 'GobiernoController'
-        });
-        
-        $routeProvider.when('/areas/arquitectura/gobierno/:id_area', {
             templateUrl: baseUrl + 'areas/views/gobierno.view.html',
             controller: 'GobiernoController'
         });
