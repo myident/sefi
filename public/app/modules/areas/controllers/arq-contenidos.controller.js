@@ -160,7 +160,12 @@
 				$scope.viewer.items.push($scope.contents[i]);
 				$scope.viewer.end = i;
 			}
+			$scope.viewer.indexPageNow = $scope.viewer.indexPage();
 		};
+
+		$scope.viewer.indexPage = function(){
+			return Math.floor($scope.viewer.start / $scope.viewer.itemsCount);
+		}
 
 		$scope.viewer.forw = function(){
 			if($scope.viewer.start + $scope.viewer.itemsCount < $scope.contents.length){

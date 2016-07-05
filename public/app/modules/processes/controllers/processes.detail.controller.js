@@ -99,6 +99,53 @@
                         idmacroproceso: id
                     }, function (data) {
                         
+
+                        // Config Martin //////////////////////////////////////
+                        var countFlowId = 1;
+                        var countLess = 0;
+                        for(var i in data.procesos){
+                            var reglasTemp = [];
+                            var idfiguraBool = false;
+                            var count = 0;
+                            for(var j in data.procesos[i]['reglas']){
+                                var regla = data.procesos[i]['reglas'][j];
+                                // console.log(regla);
+                                if(regla.idfigura !== 3){
+                                    reglasTemp[count] = regla;
+                                    reglasTemp[count].flowId = countFlowId;
+                                    reglasTemp[count].nextTo = (regla.psiguiente - countLess);
+                                    idfiguraBool = false;
+                                    count++;
+                                    countFlowId++;
+                                }else{
+                                    if(!idfiguraBool){
+
+                                        reglasTemp[count] = regla;
+                                        reglasTemp[count].flowId = countFlowId;
+                                        reglasTemp[count].nextTo = (regla.psiguiente - countLess);
+                                        idfiguraBool = true;
+                                        
+                                        countLess++;
+                                        console.log(regla.psiguiente);
+                                        console.log(countLess);
+                                    }else{
+                                        reglasTemp[count].intersectionTwo = [];
+                                        reglasTemp[count].flowId = countFlowId;
+                                        reglasTemp[count].nextToTwo = (regla.psiguiente - countLess);
+                                        count++;
+                                        idfiguraBool = false;
+                                        countFlowId++;
+                                    }
+                                }
+                            }
+                            data.procesos[i]['reglas'] = reglasTemp;
+                        }
+                        console.log(data.procesos);
+                        // Config Martin //////////////////////////////////////
+
+
+
+
                         $scope.megaprocesos[$scope.indexMega].macroprocesos[index].aplicaciones = data.aplicaciones;
                         $scope.megaprocesos[$scope.indexMega].macroprocesos[index].areas = data.areas;
                         $scope.megaprocesos[$scope.indexMega].macroprocesos[index].procesos = data.procesos;
@@ -110,6 +157,7 @@
                             if ($scope.macroprocesos[index].procesos.length) {
                                 // Si tiene procesos se guardan en $scope.procesos
                                 $scope.procesos = $scope.macroprocesos[index].procesos;
+
                                 $scope.config = {
                                     layouts: {
                                         horizontal: $scope.macroprocesos[index].aplicaciones,

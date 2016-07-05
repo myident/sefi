@@ -193,7 +193,6 @@
                 // Se verifica que existan procesos en $scope.source
                 if ($scope.source.length) {
 
-                    console.log($scope.source);
                     // Se preparan los procesos para dibujarlos
                     $settings.processes(
                         $scope.source, // array que contiene los procesos
@@ -202,7 +201,6 @@
                         $scope.layout, // el layout que debe cargar segun la directiva
                         $scope.type,
                         $scope.activar); // se refiere si muestra capacidades o reglas de negocio
-
 
                     // Se dibujan los procesos
                     $build.processes(

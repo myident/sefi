@@ -39,7 +39,8 @@
                             source[Number(i) + 1], 
                             true);
                         
-                        
+
+
                         var primeraCapacidadDelProcesoSiguiente = source[Number(i) + 1];
                         var ultimaCapacidadDelProcesoActual = proceso[type][(proceso[type].length - 1)];
                         
@@ -268,6 +269,7 @@
                     var objs = [];
                     
                     if(justProcess){
+
                         for (var j in source[i][type]) {
                             var obj = {};
                             var capacidad = source[i][type][j];
@@ -294,6 +296,10 @@
                     procesoGroup.append(procesoTituloGroup).append(procesoCapacidadesGroup);
                     procesosGroup.append(procesoGroup);
                 }
+
+            },
+
+            getOffsetsTo: function(source,id){
 
             },
 
@@ -396,75 +402,11 @@
                     capacidadGroup.append(node);
                 }
                 
-                // Construye Rombos
-                if(capacidad.type){
-                    console.log(capacidad);
-                    var offset = capacidad.offsets[layout], lineElse, arrowElse;
-                    
-                    rect = $shapes.factory.rombo(
-                        capacidad.offsets[layout], 
-                        capacidadWidth, 
-                        capacidadHeight);
-                    
-                    rect = $paint.rectCapacidades(rect);
 
-                    textbox = $shapes.factory.textbox(
-                        capacidad.offsets[layout], 
-                        capacidadWidth, 
-                        capacidadHeight, 
-                        capacidad.name, 
-                        11);
-                    
-                    // Setting data
-                    rect
-                        .data('offsets', capacidad.offsets)
-                        .data('width', [capacidadWidth, capacidadWidth, capacidadWidth])
-                        .data('height', [capacidadHeight, capacidadHeight, capacidadHeight]);
-                    textbox
-                        .data('offsets', capacidad.offsets)
-                        .data('width', [capacidadWidth, capacidadWidth, capacidadWidth])
-                        .data('height', [capacidadHeight, capacidadHeight, capacidadHeight]);
-                    
-                        var arr2 = [
-                            offset.x,
-                            offset.y, 
-                            offset.x+60,
-                            offset.y, 
-                            offset.x+60, 
-                            offset.y - 160, 
-                            offset.x+50, 
-                            offset.y - 160, 
-                            offset.x+60, 
-                            offset.y - 160, 
-                            offset.x+60,
-                            offset.y, 
-                            offset.x,
-                            offset.y];
+                switch(capacidad.idfigura){
+                    case 1: // Proceso
+                        
 
-                        lineElse = $shapes.factory.polyline(arr2);
-
-                        arrowElse = $shapes.factory.arrow({
-                            x:offset.x + 50, 
-                            y:offset.y - 166
-                        }, 12);
-
-                        arrowElse.attr({
-                            transform: "r90"
-                        });
-                        capacidadGroup
-                            .append(lineElse)
-                            .append(arrowElse).append(rect).append(textbox);
-
-                    
-                    capacidadGroup
-                        .append(rect).append(textbox);
-
-                    capacidadMainGroup
-                        .append(capacidadGroup);
-                } 
-                // Construye rectangulos
-                else {
-                    
                     rect = $shapes.factory.rect(
                         capacidad.offsets[layout], 
                         capacidadWidth, 
@@ -495,7 +437,119 @@
 
                     capacidadMainGroup
                         .append(capacidadGroup);
+
+                    break;
+
+                    case 2: 
+                        rect = $shapes.factory.rectLines(
+                        capacidad.offsets[layout], 
+                        capacidadWidth, 
+                        capacidadHeight);
+                    
+                    rect = $paint.rectCapacidades(rect);
+
+                    textbox = $shapes.factory.textbox(
+                        capacidad.offsets[layout], 
+                        capacidadWidth, 
+                        capacidadHeight, 
+                        capacidad.name, 11);
+
+                    // Setting data
+                    rect
+                        .data('offsets', capacidad.offsets)
+                        .data('width', [capacidadWidth, capacidadWidth, capacidadWidth])
+                        .data('height', [capacidadHeight, capacidadHeight, capacidadHeight]);
+                    
+                    textbox
+                        .data('offsets', capacidad.offsets)
+                        .data('width', [capacidadWidth, capacidadWidth, capacidadWidth])
+                        .data('height', [capacidadHeight, capacidadHeight, capacidadHeight]);
+                    
+                    capacidadGroup
+                        .append(rect)
+                        .append(textbox);
+
+                    capacidadMainGroup
+                        .append(capacidadGroup);
+                    break;
+                    case 3: // Rombo
+                        
+
+                    console.log(capacidad.type);
+                    var offset = capacidad.offsets[layout], lineElse, arrowElse;
+                    
+                    rect = $shapes.factory.rombo(
+                        capacidad.offsets[layout], 
+                        capacidadWidth, 
+                        capacidadHeight);
+                    
+                    rect = $paint.rectCapacidades(rect);
+
+                    textbox = $shapes.factory.textbox(
+                        capacidad.offsets[layout], 
+                        capacidadWidth, 
+                        capacidadHeight, 
+                        capacidad.name, 
+                        11);
+                    
+                    // Setting data
+                    rect
+                        .data('offsets', capacidad.offsets)
+                        .data('width', [capacidadWidth, capacidadWidth, capacidadWidth])
+                        .data('height', [capacidadHeight, capacidadHeight, capacidadHeight]);
+                    textbox
+                        .data('offsets', capacidad.offsets)
+                        .data('width', [capacidadWidth, capacidadWidth, capacidadWidth])
+                        .data('height', [capacidadHeight, capacidadHeight, capacidadHeight]);
+                    
+                        var arr2 = [
+                            offset.x,
+                            offset.y, 
+                            offset.x + 60,
+                            offset.y, 
+                            offset.x + 60, 
+                            offset.y - 240, 
+                            offset.x + 50, 
+                            offset.y - 240, 
+                            offset.x + 60, 
+                            offset.y - 240, 
+                            offset.x + 60,
+                            offset.y, 
+                            offset.x,
+                            offset.y];
+
+                        lineElse = $shapes.factory.polyline(arr2);
+
+                        arrowElse = $shapes.factory.arrow({
+                            x:offset.x + 50, 
+                            y:offset.y - 246
+                        }, 12);
+
+                        arrowElse.attr({
+                            transform: "r90"
+                        });
+                        capacidadGroup
+                            .append(lineElse)
+                            .append(arrowElse).append(rect).append(textbox);
+
+                    
+                    capacidadGroup
+                        .append(rect).append(textbox);
+
+                    capacidadMainGroup
+                        .append(capacidadGroup);
+
+                    break;
+
+                    default: break; 
                 }
+                // // Construye Rombos
+                // if(capacidad.type){
+                // } 
+                // // Construye rectangulos
+                // else {
+                    
+                // }
 
 
                 
