@@ -193,7 +193,7 @@
                 // Se verifica que existan procesos en $scope.source
                 if ($scope.source.length) {
 
-
+                    console.log($scope.source);
                     // Se preparan los procesos para dibujarlos
                     $settings.processes(
                         $scope.source, // array que contiene los procesos
