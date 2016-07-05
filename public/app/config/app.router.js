@@ -65,6 +65,10 @@
             templateUrl: baseUrl + 'areas/views/gobierno.view.html',
             controller: 'GobiernoController'
         });
+        $routeProvider.when('/areas/arquitectura/gobierno/:id_area', {
+            templateUrl: baseUrl + 'areas/views/gobierno.view.html',
+            controller: 'GobiernoController'
+        });
         
         // Arquitectura Contenidos
         $routeProvider.when('/areas/arquitectura/contenidos', {
