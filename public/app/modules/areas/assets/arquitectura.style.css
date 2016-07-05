@@ -8,10 +8,15 @@
     background-repeat: no-repeat;
 }
 
+.trayectoria-img{
+    margin-left: 10%;
+    margin-top: 50px;
+}
+
 .arq-trayectoria {
     width: 100%;
     height: calc(100vh - 40px);
-    background-image: url(img/ferchu.png);
+    /*background-image: url(img/ferchu.png);*/
     background-size: cover;
     background-attachment: fixed;
     background-position: bottom left;
