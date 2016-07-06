@@ -24,18 +24,18 @@
     background-image: url(img/FOTO%20FERNANDO%20CV%20FHD.png);
 }
 
-.arq-trayectoria > .regresar {
+.regresar {
     cursor: pointer;
 }
 
-.arq-trayectoria > .regresar > i {
+.regresar > i {
     width: 8px;
     height: 14px;
     background: url(img/regresar.svg);
     display: inline-block;
 }
 
-.arq-trayectoria > .regresar > span {
+.regresar > span {
     font-size: 18px;
     color: #626262;
     padding-left: 10px;

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="8px" height="14px" viewBox="0 0 8 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+    <title>icono avanzar</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ARQUITECTURA-INTRO-Copy" transform="translate(-32.000000, -181.000000)" fill="#4B4B4C">
+            <g id="REGRESAR" transform="translate(32.000000, 177.000000)">
+                <g id="icono-avanzar" transform="translate(4.000000, 11.000000) rotate(-180.000000) translate(-4.000000, -11.000000) translate(0.000000, 4.000000)">
+                    <path d="M1.6505,0.544528409 C1.32059375,0.215448864 0.7865,0.215448864 0.4574375,0.544528409 C0.12753125,0.874443182 0.12753125,1.40815341 0.4574375,1.73806818 L5.68446875,6.98747159 L0.45659375,12.236875 C0.1266875,12.5659545 0.1266875,13.1005 0.45659375,13.4304148 C0.7865,13.7594943 1.32059375,13.7594943 1.64965625,13.4304148 L7.47153125,7.58465909 C7.79215625,7.26309659 7.793,6.71268182 7.47153125,6.39111932 L1.6505,0.544528409 Z" id="Fill-3"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
