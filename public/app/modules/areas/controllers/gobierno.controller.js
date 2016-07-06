@@ -63,6 +63,14 @@
         ];
         console.log($routeParams.id_area)
         $scope.actual = $scope.descripciones[$routeParams.id_area] || $scope.descripciones[0];
+        
+        $scope.mujer = false;
+        
+        if ($scope.actual.director == 'Erika Zaragoza Bermeo'){
+            $scope.mujer = true;
+        } else {
+            $scope.mujer = false;
+        }
     };
     Controller.$inject = ['$scope', '$routeParams', '$window'];
     angular.module('mAreas').controller('GobiernoController', Controller);

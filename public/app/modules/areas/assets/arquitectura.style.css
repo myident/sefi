@@ -296,6 +296,7 @@
 
 .silueta-r.mujer {
     background: url(img/silueta%20mujer.png);
+    background-repeat: no-repeat;
 }
 
 .silueta-l {
@@ -310,6 +311,7 @@
 
 .silueta-l.mujer {
     background: url(img/silueta%20mujer.png);
+    background-repeat: no-repeat;
 }
 
 .new-container {
