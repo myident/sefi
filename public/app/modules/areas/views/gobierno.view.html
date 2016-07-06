@@ -12,7 +12,9 @@
             <span>{{actual.titulo}}</span>
         </div>
         <div class="new-body">
-            <div class="parrafo-contenidos">{{actual.descripcion}}</div>
+            <div class="parrafo-contenidos">
+                <ng-paragraph text="actual.descripcion"></ng-paragraph>
+            <!-- {{actual.descripcion}} --></div>
             <div class="datos-personales" style="display:inline-block;">
                 <div><b>{{actual.director}}</b></div>
                 <div>{{actual.puesto}}</div>

@@ -4,14 +4,14 @@
     var Directive = function () {
         var Link = function ($scope) {
             console.log($scope.text);
-            $scope.arr = [];
+            $scope.arr = [''];
             var count = 0;
             for(var i = 0; i < $scope.text.length; i++){
                 // console.log($scope.text[i]);
                 
                 if($scope.text[i] + $scope.text[i+1] === '\\n'){
                     count++;
-                    i += 1;
+                    i++;
                     console.log(count);
                     $scope.arr[count] = '';
                 }else{
