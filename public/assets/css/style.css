@@ -71,6 +71,7 @@ textarea {
 
 body {
     /*    padding-bottom: 20px;*/
+    background-color: #F2F2F3;
 }
 svg {
     font-family: 'SF';
@@ -90,7 +91,7 @@ circle {
 main.ng-scope {
     width: 100%;
     /*    max-width: 2200px;*/
-    margin: 150px auto 0 auto;
+    margin: 140px auto 0 auto;
     padding: 2em;
     height: calc(100vh - 150px);
 }
