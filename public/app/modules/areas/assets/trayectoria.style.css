@@ -102,14 +102,3 @@
     overflow: auto;
     height: calc(100% - 130px);
 }
-
-@media (max-height: 860px) {
-    .arq-trayectoria {
-        width: 100%;
-        height: calc(100vh - 40px);
-        background-size: 100%;
-        background-attachment: fixed;
-        background-position: top;
-        background-repeat: no-repeat;
-    }
-}
