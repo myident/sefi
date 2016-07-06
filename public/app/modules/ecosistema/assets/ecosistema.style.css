@@ -2,11 +2,11 @@
     position: relative;
     height: 45px;
 }
+
 .btn-vista-procesos {
     width: 57px;
     height: 45px;
     line-height: 45px;
-    background: #009FDB;
     color: white;
     font-size: 16px;
     border-radius: 0 8px 8px 0;
@@ -21,7 +21,8 @@
     display: block;
     height: 15px;
     width: 12px;
-    background: url(./img/triangle-close.svg);
+    background-image: url(./img/regresar.svg);
+    background-repeat: no-repeat;
     position: absolute;
     right: 24px;
     top: 15px;
@@ -30,7 +31,6 @@
 .ttl-vista-procesos {
     font-size: 18px;
     position: absolute;
-    top: 0;
     left: 80px;
     line-height: 45px;
     font-family: 'SF Regular';
@@ -40,7 +40,7 @@
 .lista-ecosistemas {
     width: 80%;
     margin: 0 auto;
-/*
+    /*
     background: url(img/Group.png);
     background-size: 90%;
     background-repeat: no-repeat;
@@ -48,41 +48,45 @@
 */
     height: 100%;
 }
+
 .lista-ecosistemas img {
     margin: 0 auto;
     width: 1200px;
     display: block;
 }
+
 .body-vista-ecosistemas {
     margin-top: 40px;
     height: calc(100% - 60px);
 }
 
-
-.header-bar{
+.header-bar {
     height: 50px;
     width: 100%;
-    background-color: rgb(200,200,200);
+    background-color: rgb(200, 200, 200);
     border-radius: 25px;
-    margin-top:10px;
-    margin-bottom:5px;
+    margin-top: 10px;
+    margin-bottom: 5px;
     text-align: center;
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
     box-sizing: in
 }
-.header-bar .title{
+
+.header-bar .title {
     font-size: 36px;
     line-height: 1.4;
 }
-.header-bar .name{
+
+.header-bar .name {
     /*line-height: 2;*/
     vertical-align: super;
 }
-.item-bar{
+
+.item-bar {
     height: 30px;
     width: 100%;
-    background-color: rgb(255,255,255);
-    border: 1px solid rgb(200,200,200);
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(200, 200, 200);
     border-radius: 25px;
     padding-left: 20px;
     padding-right: 20px;
@@ -93,8 +97,10 @@
 }
 
 .body-vista-ecosistemas [class*="col-"] {
-    padding:5px!important;
+    padding: 5px!important;
 }
+
+
 /*.body-vista-ecosistemas > .row > div > .row > div{
     padding:10px!important;
 }
@@ -102,27 +108,28 @@
     padding:10px!important;
 }*/
 
+#crm {}
 
-#crm{
+#crm > div > .item-bar:hover {
+    background-color: rgb(144, 99, 205);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
 
-}
-#crm > div > .item-bar:hover{
-    background-color:rgb(144, 99, 205);
-    color: rgb(255,255,255);
+#bss > div > .item-bar:hover {
+    background-color: #EC7400;
+    color: rgb(255, 255, 255);
     cursor: pointer;
 }
-#bss > div > .item-bar:hover{
-    background-color:#EC7400;
-    color: rgb(255,255,255);
+
+#em > div > .item-bar:hover {
+    background-color: #B5BF00;
+    color: rgb(255, 255, 255);
     cursor: pointer;
 }
-#em > div > .item-bar:hover{
-    background-color:#B5BF00;
-    color: rgb(255,255,255);
-    cursor: pointer;
-}
-#bi > div > div > div > .item-bar:hover{
-    background-color:#0066B0;
-    color: rgb(255,255,255);
+
+#bi > div > div > div > .item-bar:hover {
+    background-color: #0066B0;
+    color: rgb(255, 255, 255);
     cursor: pointer;
 }
