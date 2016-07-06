@@ -1,7 +1,7 @@
 .arq {
     width: 100%;
     height: calc(100vh - 40px);
-    /*background-image: url(img/fernando_1.png);*/
+    background-image: url(img/fernando_1.png);
     background-size: cover;
     background-attachment: fixed;
     background-position: bottom;
