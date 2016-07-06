@@ -15,7 +15,7 @@
 .arq-trayectoria {
     width: 100%;
     height: calc(100vh - 40px);
-    background-image: url(img/erika_zaragoza.png);
+    /*    background-image: url(img/erika_zaragoza.png);*/
     background-size: cover;
     /*background-attachment: fixed;*/
     background-position: bottom left;
@@ -296,6 +296,24 @@
     right: 0;
 }
 
+.silueta-r.mujer {
+    background: url(img/silueta%20mujer.png);
+}
+
+.silueta-l {
+    width: 423px;
+    height: 781px;
+    background-image: url(img/silueta%20r.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.silueta-l.mujer {
+    background: url(img/silueta%20mujer.png);
+}
+
 .new-container {
     width: 1280px;
     margin: 0 auto;
@@ -359,6 +377,9 @@
 
 @media (max-height: 960px) {
     .silueta-r {
+        top: 0;
+    }
+    .silueta-l {
         top: 0;
     }
 }
