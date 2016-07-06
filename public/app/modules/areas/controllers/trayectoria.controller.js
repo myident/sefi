@@ -19,7 +19,6 @@
         });
 
         $scope.go = function () {
-//            $window.location = '#/areas/arquitectura/';
             $window.history.back();
         };
 
