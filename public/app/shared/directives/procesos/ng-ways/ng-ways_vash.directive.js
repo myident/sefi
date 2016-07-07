@@ -111,7 +111,7 @@
                                     },
                                     function (uri) {
 
-                                        var pdf = new jsPDF('p', 'pt', 'letter');
+                                        var pdf = new jsPDF('p', 'pt', 'letter', true);
 
                                         pdf.addImage(uri, 'PNG', 0, 0, ancho, alto);
 
