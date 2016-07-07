@@ -92,7 +92,7 @@
         $scope.getIndex = function (type, index, id) {
             if (type == 'macro') {
                 if (!$scope.megaprocesos[$scope.indexMega].macroprocesos[index].procesos.length) {
-                    console.log('uno');
+                 
                     $rootScope.spin = true;
                     
                     $procesos.get({
@@ -126,8 +126,8 @@
                                         idfiguraBool = true;
                                         
                                         countLess++;
-                                        console.log(regla.psiguiente);
-                                        console.log(countLess);
+//                                        console.log(regla.psiguiente);
+//                                        console.log(countLess);
                                     }else{
                                         reglasTemp[count].intersectionTwo = [];
                                         reglasTemp[count].flowId = countFlowId;
@@ -140,7 +140,7 @@
                             }
                             data.procesos[i]['reglas'] = reglasTemp;
                         }
-                        console.log(data.procesos);
+//                        console.log(data.procesos);
                         // Config Martin //////////////////////////////////////
 
 
@@ -179,7 +179,7 @@
                         }
                     });
                 } else {
-                    console.log('dos');
+
                     
                     // Con el indexMega (índice de megaproceso elegido) se verifica si hay macroprocesos
                     if ($scope.megaprocesos[$scope.indexMega].macroprocesos.length) {
