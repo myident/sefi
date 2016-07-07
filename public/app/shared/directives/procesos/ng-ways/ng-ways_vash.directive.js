@@ -41,17 +41,34 @@
             // Función para imprimir el PDF
             $scope.imprimir = function (n) {
                 if (n == 'print') {
+                    
                     if ($scope.documentName !== '') {
                         $rootScope.spin = true;
 
                         var ancho, alto, nuevaAltura;
 
                         var nombre = $vash.camelize($scope.documentName);
-
-                        if ($scope.layout > 0) {
-                            
-
+                        
+                        if ($scope.layout === 0) {
                             ancho = $vash.sumOffsetsInX();
+                            alto = $vash.heightProcesosMax();
+                            nuevaAltura = ((780 * alto) / ancho);
+                            svgAsPngUri(element[0], {
+                                scale: 3.5
+                            }, function (uri) {
+                                console.log('originals');
+                                console.log([ancho, alto]);
+                                console.log('Edited');
+                                console.log([780, nuevaAltura]);
+                                var pdf = new jsPDF('l', 'pt', 'letter');
+                                pdf.addImage(uri, 'PNG', 0, 0, 780, nuevaAltura);
+                                $rootScope.spin = false;
+                                pdf.save(nombre + '_capacities.pdf');
+                            });
+                        }
+                        
+                        if ($scope.layout == 1) {
+                            ancho = $vash.sumMaxInX();
                             alto = $vash.sumOffsetsInY();
                             
                             if (alto > ancho) {
@@ -71,39 +88,66 @@
                                                  nuevaAltura, nuevaAnchura);
                                     
                                     $rootScope.spin = false;
-                                    pdf.save(nombre + '_areas.pdf');
+                                    pdf.save(nombre + '_areas_portrait.pdf');
                                 }); 
                             }
                             else {
-                                ancho = $vash.sumOffsetsInX();
-                                alto = $vash.heightProcesosMax();
-                                nuevaAltura = ((780 * alto) / ancho);
-                                svgAsPngUri(element[0], {
-                                    scale: 3.5
-                                }, function (uri) {
-                                    var pdf = new jsPDF('l', 'pt', 'letter');
-                                    pdf.addImage(uri, 'PNG', 0, 0, 780, nuevaAltura);
-                                    $rootScope.spin = false;
-                                    pdf.save(nombre + '_capacities.pdf');
-                                });
+
                             }
-
-
-                        } else {
-                            
-                            ancho = $vash.sumOffsetsInX();
-                            alto = $vash.heightProcesosMax();
-                            nuevaAltura = ((780 * alto) / ancho);
-                            svgAsPngUri(element[0], {
-                                scale: 3.5
-                            }, function (uri) {
-                                var pdf = new jsPDF('l', 'pt', 'letter');
-                                pdf.addImage(uri, 'PNG', 0, 0, 780, nuevaAltura);
-                                $rootScope.spin = false;
-                                pdf.save(nombre + '_capacities.pdf');
-                            });
-
                         }
+                        
+                        if ($scope.layout == 2){
+                            
+                            ancho = $vash.sumMaxInX() / 2;
+                            alto = $vash.sumOffsetsInY() / 2;
+                            console.log(ancho);
+                            console.log(alto);
+                            
+                            if (alto > ancho) {
+                                svgAsPngUri(
+                                    element[0], 
+                                    {
+                                        scale: 1
+                                    },
+                                    function (uri) {
+
+                                        var pdf = new jsPDF('p', 'pt', 'letter');
+
+                                        pdf.addImage(uri, 'PNG', 0, 0, ancho, alto);
+
+                                        pdf.addPage();
+                                        pdf.addImage(uri, 'PNG', 0, -792, ancho, alto);
+
+                                        pdf.addPage();
+                                        pdf.addImage(uri, 'PNG', 0, -1584, ancho, alto);
+
+                                        pdf.addPage();
+                                        pdf.addImage(uri, 'PNG', -612, 0, ancho, alto);
+
+                                        pdf.addPage();
+                                        pdf.addImage(uri, 'PNG', -612, -792, ancho, alto);
+
+                                        pdf.addPage();
+                                        pdf.addImage(uri, 'PNG', -612, -1584, ancho, alto);
+
+                                        pdf.addPage();
+                                        pdf.addImage(uri, 'PNG', -1224, 0, ancho, alto);
+
+                                        pdf.addPage();
+                                        pdf.addImage(uri, 'PNG', -1224, -792, ancho, alto);
+
+                                        pdf.addPage();
+                                        pdf.addImage(uri, 'PNG', -1224, -1584, ancho, alto);
+
+                                        $rootScope.spin = false;
+                                        pdf.save(nombre + '_applications_portrait.pdf');
+                                    }); 
+                            }
+                            else {
+
+                            }
+                        }
+                        
                     }
                 }
                 $scope.print = "";
