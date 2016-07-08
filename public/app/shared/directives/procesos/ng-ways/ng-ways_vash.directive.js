@@ -40,6 +40,13 @@
             
             // Función para imprimir el PDF
             $scope.imprimir = function (n) {
+
+                var layoutSvg1 = document.getElementById('layoutSvg1');
+                var layoutSvg2 = document.getElementById('layoutSvg2');
+
+                console.log(layoutSvg1);
+                console.log(layoutSvg2);
+
                 if (n == 'print') {
                     
                     if ($scope.documentName !== '') {
