@@ -80,22 +80,31 @@
                             
                             if (alto > ancho) {
                                 nuevaAltura = (((780 * ancho) / alto) * 2);
+                                
                                 var nuevaAnchura = (780 * 2);
+                                
                                 svgAsPngUri(element[0], {
                                     scale: 1.5
                                 }, function (uri) {
-
-                                    var pdf = new jsPDF('p', 'pt', 'letter');
-
-                                    pdf.addImage(uri, 'PNG', 0, 0, 
-                                                 nuevaAltura, nuevaAnchura);
                                     
-                                    pdf.addPage();
-                                    pdf.addImage(uri, 'PNG', 0, -780, 
-                                                 nuevaAltura, nuevaAnchura);
-                                    
-                                    $rootScope.spin = false;
-                                    pdf.save(nombre + '_areas_portrait.pdf');
+                                    svgAsPngUri(layoutSvg1, {
+                                        scale: 1.5
+                                    }, function(uriP){
+                                        var pdf = new jsPDF('p', 'pt', 'letter');
+                                        
+                                        pdf.addImage(uriP, 'PNG', 0, 0, nuevaAltura, 11);
+
+                                        pdf.addImage(uri, 'PNG', 0, 13, 
+                                                     nuevaAltura, nuevaAnchura);
+
+                                        pdf.addPage();
+                                        pdf.addImage(uri, 'PNG', 0, -778, 
+                                                     nuevaAltura, nuevaAnchura);
+
+                                        $rootScope.spin = false;
+                                        pdf.save(nombre + '_areas_portrait.pdf');
+                                    });
+
                                 }); 
                             }
                             else {
@@ -111,46 +120,66 @@
                             console.log(alto);
                             
                             if (alto > ancho) {
-                                svgAsPngUri(
-                                    element[0], 
-                                    {
+                                
+                                svgAsPngUri(element[0], {
+                                    scale: 1
+                                }, function(uri){
+                                    svgAsPngUri(layoutSvg2, {
                                         scale: 1
-                                    },
-                                    function (uri) {
-
+                                    }, function(uriHeader){
+                                        
                                         var pdf = new jsPDF('p', 'pt', 'letter', true);
-
-                                        pdf.addImage(uri, 'PNG', 0, 0, ancho, alto);
-
-                                        pdf.addPage();
-                                        pdf.addImage(uri, 'PNG', 0, -792, ancho, alto);
-
-                                        pdf.addPage();
-                                        pdf.addImage(uri, 'PNG', 0, -1584, ancho, alto);
+                                        pdf.setFontSize(10);
+                                        
+                                        
+                                        pdf.addImage(uriHeader, 'PNG', 0, 0, ancho, 15);
+                                        pdf.addImage(uri, 'PNG', 0, 23, ancho, alto);
+                                        pdf.text(590 , 30, '1');
 
                                         pdf.addPage();
-                                        pdf.addImage(uri, 'PNG', -612, 0, ancho, alto);
+                                        pdf.addImage(uri, 'PNG', 0, -792 + 23, ancho, alto);
+                                        pdf.text(590 , 20, '2');
 
                                         pdf.addPage();
-                                        pdf.addImage(uri, 'PNG', -612, -792, ancho, alto);
+                                        pdf.addImage(uri, 'PNG', 0, -1584 + 23, ancho, alto);
+                                        pdf.text(590 , 20, '3');
+                                        
+                                        
+                                        
+                                        pdf.addPage();
+                                        pdf.addImage(uriHeader, 'PNG', -612, 0, ancho, 15);
+                                        pdf.addImage(uri, 'PNG', -612, 23, ancho, alto);
+                                        pdf.text(590 , 30, '4');
 
                                         pdf.addPage();
-                                        pdf.addImage(uri, 'PNG', -612, -1584, ancho, alto);
+                                        pdf.addImage(uri, 'PNG', -612, -792 + 23, ancho, alto);
+                                        pdf.text(590 , 20, '5');
 
                                         pdf.addPage();
-                                        pdf.addImage(uri, 'PNG', -1224, 0, ancho, alto);
+                                        pdf.addImage(uri, 'PNG', -612, -1584 + 23, ancho, alto);
+                                        pdf.text(590 , 20, '6');
 
                                         pdf.addPage();
-                                        pdf.addImage(uri, 'PNG', -1224, -792, ancho, alto);
+                                        pdf.addImage(uriHeader, 'PNG', -1224, 0, ancho, 15);
+                                        pdf.addImage(uri, 'PNG', -1224, 23, ancho, alto);
+                                        pdf.text(590 , 30, '7');
 
                                         pdf.addPage();
-                                        pdf.addImage(uri, 'PNG', -1224, -1584, ancho, alto);
+                                        pdf.addImage(uri, 'PNG', -1224, -792 + 23, ancho, alto);
+                                        pdf.text(590 , 20, '8');
+
+                                        pdf.addPage();
+                                        pdf.addImage(uri, 'PNG', -1224, -1584 + 23, ancho, alto);
+                                        pdf.text(590 , 20, '9');
 
                                         $rootScope.spin = false;
                                         pdf.save(nombre + '_applications_portrait.pdf');
-                                    }); 
+                                    });
+                                    
+                                });
+
                             }
-                            else {
+                            else { // alto <= ancho
 
                             }
                         }

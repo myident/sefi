@@ -56,7 +56,7 @@
                 titulo: 'Digital Experience',
                 descripcion: 'In Digital Experience we build experiences purposefully crafted to fulfill human needs that both enhance and add to the AT&T eco-system.\\n Digital Experience transforms business needs into digital products specifically made for each user.\\n We create and improve existent processes and solutions in order to generate positive experiences and satisfy every user needs.',
                 director: 'Franz Carlos Uriel Martínez Morales',
-                id_trayectoria: 0,
+                id_trayectoria: 8,
                 puesto: 'Digital Experience Director',
                 foto: ''
             }
