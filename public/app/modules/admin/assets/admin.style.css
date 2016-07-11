@@ -1,0 +1,25 @@
+.admin .viewer{
+	max-width: 2000px;
+	background-color: rgb(255,255,255);
+	border-radius: 20px;
+	margin: auto;
+	padding-bottom:20px;
+	padding-top:1px;
+}
+
+.admin .viewer .row{
+	border-bottom: 1px solid rgb(150,150,150);
+	border-top: 1px solid rgb(150,150,150);
+	padding: 30px;
+}
+
+.admin ul.filter-abc{
+	width: 550px;
+	margin:20px auto;
+}
+
+.admin ul.filter-abc li{
+	display: inline-block;
+	margin: 5px;
+	cursor: pointer;
+}

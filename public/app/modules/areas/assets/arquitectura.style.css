@@ -138,14 +138,14 @@
     margin: 10px auto 10px auto;
 }
 
-.arq-contenidos .viewer .row div > span {}
+.viewer .row div > span {}
 
-.arq-contenidos .viewer .pager {
+.viewer .pager {
     text-align: center;
     margin-top: 30px;
 }
 
-.arq-contenidos .viewer .pager i {
+.viewer .pager i {
     display: inline-block;
     height: 16px;
     width: 8px;
@@ -155,23 +155,23 @@
     cursor: pointer;
 }
 
-.arq-contenidos .viewer .pager i.right {
+.viewer .pager i.right {
     background-image: url(img/ico.arrow.gray.right.png);
 }
 
-.arq-contenidos .viewer .pager ul {
+.viewer .pager ul {
     display: inline-block;
     vertical-align: super;
 }
 
-.arq-contenidos .viewer .pager li {
+.viewer .pager li {
     display: inline;
     cursor: pointer;
     padding: 5px;
     color: rgb(150, 150, 150);
 }
 
-.arq-contenidos .viewer .pager li.active {
+.viewer .pager li.active {
     color: rgb(0, 0, 0);
 }
 
