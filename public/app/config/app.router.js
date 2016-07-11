@@ -89,6 +89,13 @@
             templateUrl: baseUrl + 'business-architecture/views/architectures.view.html',
             controller: 'ArchitecturesController'
         });
+
+
+        // Admin
+        $routeProvider.when('/aplicaciones', {
+            templateUrl: baseUrl + 'admin/views/aplicaciones.view.html',
+            controller: 'AplicacionesController'
+        });
         
     };
 

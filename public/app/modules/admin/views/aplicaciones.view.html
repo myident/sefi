@@ -1,0 +1,27 @@
+<ng-background></ng-background>
+<ng-header set-elementos-menu="elementosMenu"></ng-header>
+<main class="admin">
+
+	<div class="viewer">
+		
+		<ul class="filter-abc">
+			<li>View all</li>
+			<li ng-repeat="letter in abc">{{letter}}</li>
+		</ul>
+
+		<div class="row">
+    		<div ng-repeat="item in viewer.items" class="lg-col-3 md-col-4 sm-col-6 ">
+    			<span>{{item.name}}</span>
+    		</div>
+    	</div>
+
+	<div class="pager">
+		<i class="left" ng-click="viewer.back()"></i>
+    	<ul>
+    		<li ng-click="viewer.goTo($index)" ng-repeat="page in viewer.pages" ng-class="{active: ($index==viewer.indexPageNow)  }">{{page.number}}</li>
+    	</ul>
+    	<i class="right" ng-click="viewer.forw()"></i>
+    </div>
+	</div>
+
+</main>
