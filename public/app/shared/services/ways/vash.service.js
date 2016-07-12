@@ -6,6 +6,169 @@
 
         var self = this;
         
+        self.fillArrayOfPoints = function(array, points, layouts){
+            
+            for (var i = 0; i < points; i++){
+                
+                array.push([]);
+                
+                for (var j = 0; j < layouts; j++){
+                    
+                    array[i][j] = {
+                        x: 0, 
+                        y: 0
+                    };
+                }
+            }
+            
+            return array;
+        };
+        
+        self.getLineToConexion = function(offsetStart, offsetEnd, margin) {
+            // Fill the array of lines to connect, with 4 points in 3 layouts
+            var linesToConexion = self.fillArrayOfPoints([], 4, 3);
+            
+            // Fill the array of Directions for the 3 layouts
+            var directions = [{}, {}, {}];
+            
+            
+            for (var layout = 0; layout < linesToConexion[0].length; layout++){
+                
+                var halfWay = offsetStart[layout].y + ((offsetEnd[layout].y - offsetStart[layout].y) / 2);
+                
+                // MARK: - Fill Directions
+                if (offsetStart[layout].y <= offsetEnd[layout].y){
+                    
+                    directions[layout].initial = 'down';
+                    
+                    if (offsetStart[layout].x < offsetEnd[layout].x){
+                        
+                        directions[layout].final = 'right';
+                        
+                        halfWay = offsetStart[layout].y + ((offsetEnd[layout].y - offsetStart[layout].y) / 2);
+
+                        linesToConexion[0][layout].x = offsetStart[layout].x;
+                        linesToConexion[0][layout].y = offsetStart[layout].y + margin.height;
+
+                        linesToConexion[1][layout].x = offsetStart[layout].x;
+                        linesToConexion[1][layout].y = halfWay;
+
+                        linesToConexion[2][layout].x = offsetEnd[layout].x;
+                        linesToConexion[2][layout].y = halfWay;
+                        
+                        linesToConexion[3][layout].x = offsetEnd[layout].x;
+                        linesToConexion[3][layout].y = offsetEnd[layout].y - margin.height;
+                    }
+                    
+                    if (offsetStart[layout].x > offsetEnd[layout].x){
+                        
+                        directions[layout].final = 'left';
+                        
+                        halfWay = offsetEnd[layout].y + ((offsetStart[layout].y - offsetEnd[layout].y) / 2);
+
+                        linesToConexion[0][layout].x = offsetStart[layout].x;
+                        linesToConexion[0][layout].y = offsetStart[layout].y + margin.height;
+
+                        linesToConexion[1][layout].x = offsetStart[layout].x;
+                        linesToConexion[1][layout].y = halfWay;
+
+                        linesToConexion[2][layout].x = offsetEnd[layout].x;
+                        linesToConexion[2][layout].y = halfWay;
+                        
+                        linesToConexion[3][layout].x = offsetEnd[layout].x;
+                        linesToConexion[3][layout].y = offsetEnd[layout].y - margin.height;
+                        
+                    }
+                    
+                    if (offsetStart[layout].x == offsetEnd[layout].x){
+                        
+                        directions[layout].final = 'down';
+                        
+                        halfWay = offsetEnd[layout].y + ((offsetStart[layout].y - offsetEnd[layout].y) / 2);
+                        
+                        linesToConexion[0][layout].x = offsetStart[layout].x;
+                        linesToConexion[0][layout].y = offsetStart[layout].y + margin.height;
+
+                        linesToConexion[1][layout].x = offsetStart[layout].x;
+                        linesToConexion[1][layout].y = halfWay;
+
+                        linesToConexion[2][layout].x = offsetEnd[layout].x;
+                        linesToConexion[2][layout].y = halfWay;
+                        
+                        linesToConexion[3][layout].x = offsetEnd[layout].x;
+                        linesToConexion[3][layout].y = offsetEnd[layout].y - margin.height;
+                    }
+                }
+
+                if (offsetStart[layout].y > offsetEnd[layout].y){
+                    
+                    directions[layout].initial = 'up';
+                    
+                    if (offsetStart[layout].x < offsetEnd[layout].x){
+                        
+                        directions[layout].final = 'right';
+                        
+                        halfWay = offsetStart[layout].x + ((offsetEnd[layout].x - offsetStart[layout].x) / 2);
+
+                        linesToConexion[0][layout].x = offsetStart[layout].x + margin.width;
+                        linesToConexion[0][layout].y = offsetStart[layout].y;
+
+                        linesToConexion[1][layout].x = halfWay;
+                        linesToConexion[1][layout].y = offsetStart[layout].y;
+
+                        linesToConexion[2][layout].x = halfWay;
+                        linesToConexion[2][layout].y = offsetEnd[layout].y;
+                        
+                        linesToConexion[3][layout].x = offsetEnd[layout].x - margin.width;
+                        linesToConexion[3][layout].y = offsetEnd[layout].y;
+                        
+                    }
+                    
+                    if (offsetStart[layout].x > offsetEnd[layout].x){
+                        
+                        directions[layout].final = 'left';
+                        
+                        halfWay = offsetEnd[layout].x + ((offsetStart[layout].x - offsetEnd[layout].x) / 2);
+
+                        linesToConexion[0][layout].x = offsetStart[layout].x - margin.width;
+                        linesToConexion[0][layout].y = offsetStart[layout].y;
+
+                        linesToConexion[1][layout].x = halfWay;
+                        linesToConexion[1][layout].y = offsetStart[layout].y;
+
+                        linesToConexion[2][layout].x = halfWay;
+                        linesToConexion[2][layout].y = offsetEnd[layout].y;
+                        
+                        linesToConexion[3][layout].x = offsetEnd[layout].x + margin.width;
+                        linesToConexion[3][layout].y = offsetEnd[layout].y;
+                    }
+                    
+                    if (offsetStart[layout].x == offsetEnd[layout].x){
+                        
+                        directions[layout].final = 'up';
+                        
+                        linesToConexion[0][layout].x = offsetStart[layout].x + margin.width;
+                        linesToConexion[0][layout].y = offsetStart[layout].y;
+
+                        linesToConexion[1][layout].x = offsetStart[layout].x + margin.width + 10;
+                        linesToConexion[1][layout].y = offsetStart[layout].y;
+
+                        linesToConexion[2][layout].x = offsetEnd[layout].x + margin.width + 10;
+                        linesToConexion[2][layout].y = offsetEnd[layout].y;
+                        
+                        linesToConexion[3][layout].x = offsetEnd[layout].x - margin.width;
+                        linesToConexion[3][layout].y = offsetEnd[layout].y - margin.height;
+                    }
+                }
+
+            }
+            
+            console.log(directions);
+            
+            return linesToConexion;
+        };
+        
+        
         self.ecosistema = false;
         
         self.heightProcesos = [];
