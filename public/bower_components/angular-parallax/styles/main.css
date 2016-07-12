@@ -1,0 +1,36 @@
+.parallax {
+  position:absolute;
+  left: 0;
+  top: 0;
+}
+.photo {
+  background-attachment: fixed;
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+  height: 450px;
+  position: relative;
+}
+.photo span {
+  bottom: 0;
+  color: white;
+  display: block;
+  left: 50%;
+  margin-left: -640px;
+  font-size: 38px;
+  padding: 10px;
+  position: absolute;
+  text-shadow: 0 2px 0 black, 0 0 10px black;
+  width: 1280px;
+}
+.food {
+  background-image: url(../images/food.jpg);
+}
+.cats {
+  background-image: url(../images/cats.jpg);
+}
+.animals {
+  background-image: url(../images/animals.jpg);
+}
+.nature {
+  background-image: url(../images/nature.jpg);
+}

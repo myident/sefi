@@ -1,6 +1,6 @@
 /* global angular, Snap, svgAsPngUri, jsPDF */
 (function () {
-    var Directive = function ($vash, $build, $layout, $settings, $rootScope) {
+    var Directive = function ($vash, $build, $layout, $settings, $rootScope, $print) {
 
         var Link = function ($scope, element) {
 
@@ -51,6 +51,8 @@
                         $rootScope.spin = true;
                         var ancho, alto, nuevaAltura;
                         var nombre = $vash.camelize($scope.documentName);
+                        var proporcion = 1;
+                        var escala = 1;
                         
                         
                         if ($scope.layout === 0) {
@@ -74,98 +76,20 @@
                         
                         
                         if ($scope.layout == 1) {
-                            ancho = $vash.sumMaxInX();
-                            alto = $vash.sumOffsetsInY();
+                            proporcion = 4;
+                            escala = 2;
+                            ancho = $vash.sumMaxInX() / proporcion;
+                            alto = $vash.sumOffsetsInY() / proporcion;
                             
-                            if (alto > ancho) {
-                                nuevaAltura = (((780 * ancho) / alto) * 2);
-                                
-                                var nuevaAnchura = (780 * 2);
-                                
-                                svgAsPngUri(element[0], {
-                                    scale: 1.5
-                                }, function (uri) {
-                                    
-                                    svgAsPngUri(layoutSvg1, {
-                                        scale: 1.5
-                                    }, function(uriP){
-                                        var pdf = new jsPDF('p', 'pt', 'letter');
-                                        
-                                        pdf.addImage(uriP, 'PNG', 0, 0, nuevaAltura, 11);
-
-                                        pdf.addImage(uri, 'PNG', 0, 13, 
-                                                     nuevaAltura, nuevaAnchura);
-
-                                        pdf.addPage();
-                                        pdf.addImage(uri, 'PNG', 0, -778, 
-                                                     nuevaAltura, nuevaAnchura);
-
-                                        $rootScope.spin = false;
-                                        pdf.save(nombre + '_areas_portrait.pdf');
-                                    });
-
-                                }); 
-                            }
-                            else {
-
-                            }
+                            $print.pdf(ancho, alto, layoutSvg1, element[0], nombre + '_areas', proporcion, escala);
                         }
                         
                         if ($scope.layout == 2){
-                            
-                            ancho = $vash.sumMaxInX() / 2;
-                            alto  = $vash.sumOffsetsInY() / 2;
-                            
-                            var coordinates    = [];
-                            var pagesForWidth  = parseInt(ancho / 612) + 1;
-                            var pagesForHeight = parseInt(alto / 792) + 1;
-                            var headerHeight   = 23;
-                            var pagesCounter   = 0;
-                            
-                            for (var i = 0; i < pagesForWidth; i++) {
-                                coordinates.push([]);
-                                for (var j = 0; j < pagesForHeight; j++) {
-                                    coordinates[i].push([{
-                                        x: 612 * i * (i > 0 ? -1 : 1),
-                                        y: 792 * j * (j > 0 ? -1 : 1)
-                                    }]);
-                                }
-                            }
-                            
-                            if (alto > ancho) {
-                                
-                                svgAsPngUri(element[0], {
-                                    scale: 1
-                                }, function(uri){
-                                    svgAsPngUri(layoutSvg2, {
-                                        scale: 1
-                                    }, function(uriHeader){
-                                        var pdf = new jsPDF('p', 'pt', 'letter', true);
-                                        pdf.setFontSize(10);
-                                        for (var i in coordinates) {
-                                            for (var j in coordinates[i]) {
-                                                if (pagesCounter > 0) {
-                                                    pdf.addPage();
-                                                }
-                                                if (j == 0){
-                                                    pdf.addImage(uriHeader, 'PNG', coordinates[i][j][0].x, coordinates[i][j][0].y, ancho, 15);
-                                                }
-                                                pagesCounter++;
-                                                pdf.addImage(uri, 'PNG', coordinates[i][j][0].x, coordinates[i][j][0].y + headerHeight, ancho, alto);
-                                                pdf.text(590 , 30, '' + pagesCounter);
-                                            }
-                                        }
-                                        
-                                        $rootScope.spin = false;
-                                        pdf.save(nombre + '_applications_portrait.pdf');
-                                    });
-                                    
-                                });
-
-                            }
-                            else { // alto <= ancho
-
-                            }
+                            proporcion = 2;
+                            escala = 1;
+                            ancho = $vash.sumMaxInX() / proporcion;
+                            alto  = $vash.sumOffsetsInY() / proporcion;
+                            $print.pdf(ancho, alto, layoutSvg2, element[0], nombre + '_applications', proporcion, escala);
                         }
                         
                     }
