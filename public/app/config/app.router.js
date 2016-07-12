@@ -97,6 +97,14 @@
             controller: 'AplicacionesController'
         });
         
+        
+        // Our Areas
+        $routeProvider.when('/our-areas/architecture', {
+            templateUrl: baseUrl + 'our-areas/views/architecture.view.html',
+            controller: 'ArchController'
+        });
+        
+        
     };
 
     router.$inject = ['$routeProvider'];
