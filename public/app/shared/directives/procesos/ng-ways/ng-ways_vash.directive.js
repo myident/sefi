@@ -44,35 +44,34 @@
                 var layoutSvg1 = document.getElementById('layoutSvg1');
                 var layoutSvg2 = document.getElementById('layoutSvg2');
 
-                console.log(layoutSvg1);
-                console.log(layoutSvg2);
-
                 if (n == 'print') {
                     
                     if ($scope.documentName !== '') {
+                        
                         $rootScope.spin = true;
-
                         var ancho, alto, nuevaAltura;
-
                         var nombre = $vash.camelize($scope.documentName);
+                        
                         
                         if ($scope.layout === 0) {
                             ancho = $vash.sumOffsetsInX();
                             alto = $vash.heightProcesosMax();
+                            
                             nuevaAltura = ((780 * alto) / ancho);
+                            
                             svgAsPngUri(element[0], {
                                 scale: 3.5
                             }, function (uri) {
-                                console.log('originals');
-                                console.log([ancho, alto]);
-                                console.log('Edited');
-                                console.log([780, nuevaAltura]);
+                                
                                 var pdf = new jsPDF('l', 'pt', 'letter');
-                                pdf.addImage(uri, 'PNG', 0, 0, 780, nuevaAltura);
+                                
+                                pdf.addImage(uri, 'PNG', 0, 0, 792, nuevaAltura);
+                                
                                 $rootScope.spin = false;
                                 pdf.save(nombre + '_capacities.pdf');
                             });
                         }
+                        
                         
                         if ($scope.layout == 1) {
                             ancho = $vash.sumMaxInX();
@@ -115,9 +114,23 @@
                         if ($scope.layout == 2){
                             
                             ancho = $vash.sumMaxInX() / 2;
-                            alto = $vash.sumOffsetsInY() / 2;
-                            console.log(ancho);
-                            console.log(alto);
+                            alto  = $vash.sumOffsetsInY() / 2;
+                            
+                            var coordinates    = [];
+                            var pagesForWidth  = parseInt(ancho / 612) + 1;
+                            var pagesForHeight = parseInt(alto / 792) + 1;
+                            var headerHeight   = 23;
+                            var pagesCounter   = 0;
+                            
+                            for (var i = 0; i < pagesForWidth; i++) {
+                                coordinates.push([]);
+                                for (var j = 0; j < pagesForHeight; j++) {
+                                    coordinates[i].push([{
+                                        x: 612 * i * (i > 0 ? -1 : 1),
+                                        y: 792 * j * (j > 0 ? -1 : 1)
+                                    }]);
+                                }
+                            }
                             
                             if (alto > ancho) {
                                 
@@ -127,51 +140,22 @@
                                     svgAsPngUri(layoutSvg2, {
                                         scale: 1
                                     }, function(uriHeader){
-                                        
                                         var pdf = new jsPDF('p', 'pt', 'letter', true);
                                         pdf.setFontSize(10);
+                                        for (var i in coordinates) {
+                                            for (var j in coordinates[i]) {
+                                                if (pagesCounter > 0) {
+                                                    pdf.addPage();
+                                                }
+                                                if (j == 0){
+                                                    pdf.addImage(uriHeader, 'PNG', coordinates[i][j][0].x, coordinates[i][j][0].y, ancho, 15);
+                                                }
+                                                pagesCounter++;
+                                                pdf.addImage(uri, 'PNG', coordinates[i][j][0].x, coordinates[i][j][0].y + headerHeight, ancho, alto);
+                                                pdf.text(590 , 30, '' + pagesCounter);
+                                            }
+                                        }
                                         
-                                        
-                                        pdf.addImage(uriHeader, 'PNG', 0, 0, ancho, 15);
-                                        pdf.addImage(uri, 'PNG', 0, 23, ancho, alto);
-                                        pdf.text(590 , 30, '1');
-
-                                        pdf.addPage();
-                                        pdf.addImage(uri, 'PNG', 0, -792 + 23, ancho, alto);
-                                        pdf.text(590 , 20, '2');
-
-                                        pdf.addPage();
-                                        pdf.addImage(uri, 'PNG', 0, -1584 + 23, ancho, alto);
-                                        pdf.text(590 , 20, '3');
-                                        
-                                        
-                                        
-                                        pdf.addPage();
-                                        pdf.addImage(uriHeader, 'PNG', -612, 0, ancho, 15);
-                                        pdf.addImage(uri, 'PNG', -612, 23, ancho, alto);
-                                        pdf.text(590 , 30, '4');
-
-                                        pdf.addPage();
-                                        pdf.addImage(uri, 'PNG', -612, -792 + 23, ancho, alto);
-                                        pdf.text(590 , 20, '5');
-
-                                        pdf.addPage();
-                                        pdf.addImage(uri, 'PNG', -612, -1584 + 23, ancho, alto);
-                                        pdf.text(590 , 20, '6');
-
-                                        pdf.addPage();
-                                        pdf.addImage(uriHeader, 'PNG', -1224, 0, ancho, 15);
-                                        pdf.addImage(uri, 'PNG', -1224, 23, ancho, alto);
-                                        pdf.text(590 , 30, '7');
-
-                                        pdf.addPage();
-                                        pdf.addImage(uri, 'PNG', -1224, -792 + 23, ancho, alto);
-                                        pdf.text(590 , 20, '8');
-
-                                        pdf.addPage();
-                                        pdf.addImage(uri, 'PNG', -1224, -1584 + 23, ancho, alto);
-                                        pdf.text(590 , 20, '9');
-
                                         $rootScope.spin = false;
                                         pdf.save(nombre + '_applications_portrait.pdf');
                                     });
