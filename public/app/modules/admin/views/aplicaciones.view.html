@@ -2,11 +2,12 @@
 <ng-header set-elementos-menu="elementosMenu"></ng-header>
 <main class="admin">
 
+	<input type="text" ng-model="filterModel" ng-keyup="find(filterModel)">
 	<div class="viewer">
 		
 		<ul class="filter-abc">
-			<li>View all</li>
-			<li ng-repeat="letter in abc">{{letter}}</li>
+			<li ng-click="viewer.setting(aplicaciones)">View all</li>
+			<li ng-repeat="letter in abc" ng-click="findByCapital(letter)">{{letter}}</li>
 		</ul>
 
 		<div class="row">
