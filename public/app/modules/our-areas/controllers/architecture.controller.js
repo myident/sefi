@@ -1,6 +1,6 @@
 /*global angular*/
 (function () {
-    var controller = function ($scope, $vash) {
+    var controller = function ($scope, $rootScope, $vash, $glass) {
         
         var offsetStart = [
             {
@@ -38,9 +38,17 @@
         
         var lineToConexion = $vash.getLineToConexion(offsetStart, offsetEnd, margin);
         
+        $scope.vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+        console.log($scope.vh);
         console.log(lineToConexion);
+        
+        $scope.areas = [1,2,3,4,5,6];
+        
+        $glass.get(function(data){
+            console.log(data);
+        });
     };
-    controller.$inject = ['$scope', '$vash'];
+    controller.$inject = ['$scope', '$rootScope', '$vash', '$glass'];
     angular
         .module('mArchitecture').controller('ArchController', controller);
 })();

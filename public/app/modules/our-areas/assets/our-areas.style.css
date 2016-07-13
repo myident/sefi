@@ -1,17 +1,104 @@
 .cara {
+    width: 100%;
+    height: calc(100vh - 140px);
+    background-image: url(../../../../app/modules/areas/assets/img/FOTO%20FERNANDO%20AREA%20FHD.png);
+    background-size: cover;
+}
+
+.cara-2 {
     width: 300px;
     height: 300px;
     background-image: url(http://www.ew.com/sites/default/files/styles/tout_image_612x380/public/i/2015/05/22/cara_612x380_0.jpg?itok=fczxjElV);
     background-size: cover;
 }
-.cara-2 {
-    width: 300px;
-    height: 300px;
-    background-image: url(http://www.radiozero.cl/static/2015/07/Cara-delevingne-actriz.jpg);
-    background-size: cover;
-}
+
 .container-cara {
     width: 100%;
     position: relative;
-    height: 2000px;
+    height: 12000px;
+}
+
+.container-parallax {
+    width: 100%;
+    max-width: 2200px;
+    margin: 150px auto 0 auto;
+    padding: 0!important;
+}
+
+.architecture-intro {
+    width: 780px;
+}
+
+.architecture-areas {
+    position: relative;
+}
+
+.architecture-intro .title {
+    margin-bottom: 60px;
+}
+
+.architecture-intro .title span,
+.architecture-areas .title span {
+    font-size: 40px;
+    color: #117899;
+}
+
+.architecture-intro .body {
+    font-size: 18px;
+}
+
+.architecture-intro .datos {
+    font-size: 18px;
+    text-align: right;
+    margin-top: 100px;
+}
+
+.architecture-intro .datos .nombre {
+    font-size: 20px;
+    font-family: 'SF Regular';
+}
+
+.architecture-intro .datos .trayectoria {
+    color: #117899;
+}
+.lista-areas {
+    margin-top: 60px;
+}
+.lista-areas li {
+    font-size: 18px;
+    padding-bottom: 60px;
+    margin-top: 60px;
+    border-bottom: 1px solid #CFCFCF;
+}
+
+.cuadro-area {
+    width: 330px;
+    height: 330px;
+    background: #0D3C55;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.info-area {
+    width: 730px;
+    display: inline-block;
+    margin-left: 30px;
+    height: 280px;
+    position: relative;
+    vertical-align: middle;
+}
+
+.info-area .datos {
+    font-size: 18px;
+    text-align: right;
+    margin-top: 20px;
+}
+
+.info-area .datos .nombre {
+    font-size: 20px;
+    font-family: 'SF Regular';
+}
+
+.info-area .datos .trayectoria {
+    color: #117899;
 }

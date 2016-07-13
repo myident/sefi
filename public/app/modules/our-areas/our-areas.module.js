@@ -1,5 +1,5 @@
 /*global angular*/
 (function () {
     angular
-        .module('mArchitecture', []);
+        .module('mArchitecture', ['Glass']);
 })();
