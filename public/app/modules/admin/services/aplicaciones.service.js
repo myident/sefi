@@ -3,6 +3,6 @@
 (function() {
     angular.module('mAdmin').factory('$aplicaciones', function($resource, $singleton) {
         var path = $singleton.path;
-        return $resource(path + '/ITBook/Aplicaciones');
+        return $resource(path + 'Aplicaciones');
     });
 })();
