@@ -41,7 +41,7 @@
                 // MARK: - Fill Directions
                 if (offsetStart[layout].y <= offsetEnd[layout].y){
                     
-                    directions[layout].initial = 'down';
+                    directions[layout].initial = 'up';
                     
                     if (offsetStart[layout].x < offsetEnd[layout].x){
                         
@@ -104,7 +104,7 @@
 
                 if (offsetStart[layout].y > offsetEnd[layout].y){
                     
-                    directions[layout].initial = 'up';
+                    directions[layout].initial = 'down';
                     
                     if (offsetStart[layout].x < offsetEnd[layout].x){
                         
@@ -152,10 +152,10 @@
                         linesToConexion[0][layout].x = offsetStart[layout].x + margin.width;
                         linesToConexion[0][layout].y = offsetStart[layout].y;
 
-                        linesToConexion[1][layout].x = offsetStart[layout].x + margin.width + 10;
+                        linesToConexion[1][layout].x = offsetStart[layout].x + margin.width + 15;
                         linesToConexion[1][layout].y = offsetStart[layout].y;
 
-                        linesToConexion[2][layout].x = offsetEnd[layout].x + margin.width + 10;
+                        linesToConexion[2][layout].x = offsetEnd[layout].x + margin.width + 15;
                         linesToConexion[2][layout].y = offsetEnd[layout].y;
                         
                         linesToConexion[3][layout].x = offsetEnd[layout].x + margin.width;
@@ -164,8 +164,6 @@
                 }
 
             }
-            
-            console.log(directions);
 
             return {linesToConexion: linesToConexion, directions: directions};
         };
@@ -782,7 +780,7 @@
                 $paint.rotateMinus90(arrow);
             }
             if (direction.final == 'up') {
-                $paint.moveUpRight(arrow);
+                $paint.rotateMinus90(arrow);
             }
             console.log(direction);
         };

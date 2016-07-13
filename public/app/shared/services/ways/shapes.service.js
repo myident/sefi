@@ -89,6 +89,59 @@
                     });
                     return path;
                 },
+                arrowDown: function (offset, b) {
+                    var x = offset.x;
+                    var y = offset.y - b;
+                    var pathStr = "M" + (x - (b / 2)) + " " + y + " L" + (x + (b / 2)) + " " + y + " L" + x + " " + (y + b) + " Z";
+                    var path = scope.svg.path(pathStr);
+
+                    path.attr({
+                        fill: "#757575",
+                        stroke: "#757575",
+                        strokeWidth: 0
+                    });
+                    return path;
+                },
+                arrowLeft: function (offset, b) {
+                    console.log('Hola');
+                    var x = offset.x + b;
+                    var y = offset.y;
+                    var pathStr = "M" + x + " " + (y  + (b / 2)) + " L" + (x - b) + " " + y + " L" + x + " " + (y - (b / 2)) + " Z";
+                    var path = scope.svg.path(pathStr);
+
+                    path.attr({
+                        fill: "#757575",
+                        stroke: "#757575",
+                        strokeWidth: 0
+                    });
+                    return path;
+                },
+                arrowUp: function (offset, b) {
+                    var x = offset.x;
+                    var y = offset.y;
+                    var pathStr = "M" + (x - (b / 2)) + " " + y + " L" + (x) + " " + (y - b) + " L" + (x + (b / 2)) + " " + y + " Z";
+                    var path = scope.svg.path(pathStr);
+
+                    path.attr({
+                        fill: "#757575",
+                        stroke: "#757575",
+                        strokeWidth: 0
+                    });
+                    return path;
+                },
+                arrowRight: function (offset, b) {
+                    var x = offset.x;
+                    var y = offset.y;
+                    var pathStr = "M" + (x) + " " + ( y - ( b / 2 )) + " L" + (x + b) + " " + y + " L" + x + " " + (y + ( b / 2 )) + " Z";
+                    var path = scope.svg.path(pathStr);
+
+                    path.attr({
+                        fill: "#757575",
+                        stroke: "#757575",
+                        strokeWidth: 0
+                    });
+                    return path;
+                },
                 corner: function (offset, b) {
                     var x = offset.x;
                     var y = offset.y;
