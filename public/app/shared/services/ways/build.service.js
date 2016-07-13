@@ -299,7 +299,7 @@
 
             },
 
-            getOffsetsTo: function(source,id){
+            getOffsetsTo: function(source,id, capacidad){
                 for(var i in source){
                     for(var j in source[i]['reglas']){
                         var regla = source[i]['reglas'][j];
@@ -308,6 +308,7 @@
                         }
                     }
                 }
+                return capacidad.offsets;
             },
             offsetToArr: function(arr, layout){
                 var arrTemp = [];
@@ -460,8 +461,28 @@
                 switch(capacidad.idfigura){
 
                     case 1: // Proceso
-                        
+                    
+                    console.log(capacidad);
 
+                    
+
+                    if ((Number(j) + 1) < source[i][type].length) {
+                        var offset = capacidad.offsets;
+                        var offsetTo = this.getOffsetsTo(source,capacidad.nextTo, capacidad);
+                        var margin = {width:capacidadWidth, height: capacidadHeight};
+                        var linesToConexion = $vash.getLineToConexion(offset, offsetTo,margin);
+                        capacidad.intersection = linesToConexion.linesToConexion;
+                        capacidad.direction = linesToConexion.directions;
+
+                        capacidad.offsetsArrow = [
+                                                    capacidad.intersection[3][0],
+                                                    capacidad.intersection[3][1],
+                                                    capacidad.intersection[3][2],
+                                                ];
+
+                        intersection = $shapes.factory.polyline(this.offsetToArr(capacidad.intersection,layout));
+                        arrow = $shapes.factory.arrowDown(capacidad.offsetsArrow[layout], baseArrow);
+                    }
                     rect = $shapes.factory.rect(
                         capacidad.offsets[layout], 
                         capacidadWidth, 
@@ -469,11 +490,21 @@
                     
                     rect = $paint.rectCapacidades(rect);
 
-                    textbox = $shapes.factory.textbox(
+                    
+                    if((capacidad.flowId+1) === capacidad.nextTo){
+                        textbox = $shapes.factory.textbox(
                         capacidad.offsets[layout], 
                         capacidadWidth, 
                         capacidadHeight, 
                         capacidad.name, 11);
+                    
+                    }else{
+                        textbox = $shapes.factory.textbox(
+                        capacidad.offsets[layout], 
+                        capacidadWidth, 
+                        capacidadHeight, 
+                        'X', 11);    
+                    }
 
                     // Setting data
                     rect
@@ -482,12 +513,16 @@
                         .data('height', [capacidadHeight, capacidadHeight, capacidadHeight]);
                     
                     textbox
-                        .data('offsets', capacidad.offsets)
-                        .data('width', [capacidadWidth, capacidadWidth, capacidadWidth])
-                        .data('height', [capacidadHeight, capacidadHeight, capacidadHeight]);
+                            .data('offsets', capacidad.offsets)
+                            .data('width', [capacidadWidth, capacidadWidth, capacidadWidth])
+                            .data('height', [capacidadHeight, capacidadHeight, capacidadHeight]);
+
                     
+
                     capacidadGroup
                         .append(rect)
+                        .append(intersection)
+                        .append(arrow)
                         .append(textbox);
 
                     capacidadMainGroup
@@ -497,7 +532,25 @@
 
                     case 2: 
 
+                        if ((Number(j) + 1) < source[i][type].length) {
 
+                            var offset = capacidad.offsets;
+                            var offsetTo = this.getOffsetsTo(source,capacidad.nextTo, capacidad);
+                            var margin = {width:capacidadWidth, height: capacidadHeight};
+
+                            var linesToConexion = $vash.getLineToConexion(offset, offsetTo,margin);
+                            capacidad.intersection = linesToConexion.linesToConexion;
+                            capacidad.direction = linesToConexion.directions;
+
+                            capacidad.offsetsArrow = [
+                                                        capacidad.intersection[3][0],
+                                                        capacidad.intersection[3][1],
+                                                        capacidad.intersection[3][2],
+                                                    ];
+
+                            intersection = $shapes.factory.polyline(this.offsetToArr(capacidad.intersection,layout));
+                            arrow = $shapes.factory.arrow(capacidad.offsetsArrow[layout], baseArrow);
+                        }
                         rect = $shapes.factory.rectLines(
                         capacidad.offsets[layout], 
                         capacidadWidth, 
@@ -505,11 +558,20 @@
                     
                     rect = $paint.rectCapacidades(rect);
 
-                    textbox = $shapes.factory.textbox(
+                    if((capacidad.flowId+1) === capacidad.nextTo){
+                        textbox = $shapes.factory.textbox(
                         capacidad.offsets[layout], 
                         capacidadWidth, 
                         capacidadHeight, 
                         capacidad.name, 11);
+                    
+                    }else{
+                        textbox = $shapes.factory.textbox(
+                        capacidad.offsets[layout], 
+                        capacidadWidth, 
+                        capacidadHeight, 
+                        'X', 11);    
+                    }
 
                     // Setting data
                     rect
@@ -524,6 +586,8 @@
                     
                     capacidadGroup
                         .append(rect)
+                        .append(intersection)
+                        .append(arrow)
                         .append(textbox);
 
                     capacidadMainGroup
@@ -531,39 +595,60 @@
                     break;
                     case 3: // Rombo
                     
-                    var offset = capacidad.offsets;
-                    var offsetTo = this.getOffsetsTo(source,capacidad.nextTo);
-                    var offsetToTwo = this.getOffsetsTo(source,capacidad.nextToTwo);
+                    var arrowTwo;
 
-                    var margin = {width:capacidadWidth, height: capacidadHeight};
-
-                    var linesToConexion = $vash.getLineToConexion(offset, offsetTo,margin);
-                    var linesToConexionTwo = $vash.getLineToConexion(offset, offsetToTwo,margin);
-
-                    capacidad.intersection = linesToConexion.linesToConexion;
-                    capacidad.intersectionTwo = linesToConexionTwo.linesToConexion;
-                    capacidad.direction = linesToConexion.directions
-                    capacidad.directionTwo = linesToConexionTwo.directions
-
-                    capacidad.offsetsArrow = [
-                                                capacidad.intersection[3][0],
-                                                capacidad.intersection[3][1],
-                                                capacidad.intersection[3][2],
-                                            ];
-                    capacidad.offsetsArrowTwo = [
-                                                capacidad.intersectionTwo[3][0],
-                                                capacidad.intersectionTwo[3][1],
-                                                capacidad.intersectionTwo[3][2],
-                                            ];
-                    console.log('capacidad');
-                    console.log(offset);
-                    console.log(offsetTo);
-                    console.log(offsetToTwo);
-                    console.log(capacidad);
-                    console.log(JSON.stringify(capacidad.intersection));
-
-                    var offset = capacidad.offsets[layout], lineElse, arrowElse;
                     
+
+                        var offset = capacidad.offsets;
+                        var offsetTo = this.getOffsetsTo(source,capacidad.nextTo, capacidad);
+                        var offsetToTwo = this.getOffsetsTo(source,capacidad.nextToTwo, capacidad);
+
+                        var margin = {width:capacidadWidth, height: capacidadHeight};
+
+                        var linesToConexion = $vash.getLineToConexion(offset, offsetTo,margin);
+                        var linesToConexionTwo = $vash.getLineToConexion(offset, offsetToTwo,margin);
+
+                        capacidad.intersection = linesToConexion.linesToConexion;
+                        capacidad.intersectionTwo = linesToConexionTwo.linesToConexion;
+                        capacidad.direction = linesToConexion.directions;
+                        capacidad.directionTwo = linesToConexionTwo.directions;
+
+                        capacidad.offsetsArrow = [
+                                                    capacidad.intersection[3][0],
+                                                    capacidad.intersection[3][1],
+                                                    capacidad.intersection[3][2],
+                                                ];
+                        capacidad.offsetsArrowTwo = [
+                                                    capacidad.intersectionTwo[3][0],
+                                                    capacidad.intersectionTwo[3][1],
+                                                    capacidad.intersectionTwo[3][2],
+                                                ];
+                        
+
+                        var offset = capacidad.offsets[layout], lineElse, arrowElse;
+                        
+
+                        switch(capacidad.direction[layout].final){
+                            case 'down': arrow = $shapes.factory.arrow(capacidad.offsetsArrow[layout], baseArrow); break;
+                            case 'right': arrow = $shapes.factory.arrowRight(capacidad.offsetsArrow[layout], baseArrow); break;
+                            case 'left': arrow = $shapes.factory.arrowLeft(capacidad.offsetsArrow[layout], baseArrow); break;
+                            case 'up': arrow = $shapes.factory.arrowLeft(capacidad.offsetsArrow[layout], baseArrow); break;
+                        }
+
+                        
+                        intersection = $shapes.factory.polyline(this.offsetToArr(capacidad.intersection,layout));
+                        
+                    
+                    if ((Number(j) + 1) < source[i][type].length) {
+                        switch(capacidad.directionTwo[layout].final){
+                            case 'down': arrowTwo = $shapes.factory.arrow(capacidad.offsetsArrowTwo[layout], baseArrow); break;
+                            case 'right': arrowTwo = $shapes.factory.arrowRight(capacidad.offsetsArrowTwo[layout], baseArrow); break;
+                            case 'left': arrowTwo = $shapes.factory.arrowLeft(capacidad.offsetsArrowTwo[layout], baseArrow); break;
+                            case 'up': arrowTwo = $shapes.factory.arrowLeft(capacidad.offsetsArrowTwo[layout], baseArrow); break;
+                        }
+                        lineElse = $shapes.factory.polyline(this.offsetToArr(capacidad.intersectionTwo,layout));
+                    }
+
                     rect = $shapes.factory.rombo(
                         capacidad.offsets[layout], 
                         capacidadWidth, 
@@ -588,16 +673,7 @@
                         .data('width', [capacidadWidth, capacidadWidth, capacidadWidth])
                         .data('height', [capacidadHeight, capacidadHeight, capacidadHeight]);
                     
-                        intersection = $shapes.factory.polyline(this.offsetToArr(capacidad.intersection,layout));
-                        lineElse = $shapes.factory.polyline(this.offsetToArr(capacidad.intersectionTwo,layout));
-
-                        arrow = $shapes.factory.arrow(capacidad.offsetsArrow[layout], baseArrow);
-                        $vash.rotateArrowFromDirectionMin(capacidad.direction[layout], arrow);
-
-                        var arrowTwo = $shapes.factory.arrow(capacidad.offsetsArrowTwo[layout], baseArrow);
-                        $vash.rotateArrowFromDirectionMin(capacidad.directionTwo[layout], arrowTwo);
-
-                        //node.append(intersection);
+                    
 
                         capacidadGroup
                             .append(intersection)
