@@ -3,20 +3,23 @@
 <main class="container-parallax">
    
     <div class="container-cara">
+       
+        <!-- Sección de fotografía de Fernando Valdeón -->
         <div
             class="cara parallax"
             parallax
             parallax-ratio="0.1"
             parallax-vertical-offset="0"
-            parallax-horizontal-offset="0"
-        ></div>
+            parallax-horizontal-offset="0"></div>
         
+        <!-- Sección de información Fernando Valdeón -->
         <div 
             class="architecture-intro parallax"
             parallax
             parallax-ratio="0.5"
             parallax-vertical-offset="80"
             parallax-horizontal-offset="200">
+
             <div class="title">
                 <span>Architecture | Intro</span>
             </div>
@@ -34,19 +37,22 @@
                     <i></i>
                 </div>
             </div>
+
         </div>
         
+        <!-- Sección de las áreas de arquitectura -->
         <div 
-           class="architecture-areas parallax"
+            class="architecture-areas parallax"
             parallax
             parallax-ratio="0.8"
             parallax-vertical-offset="vh"
             parallax-horizontal-offset="200">
-            <div class="title">
+            
+            <div class="title" ng-getdimensions>
                 <span>Architecture | Areas</span>
             </div>
             <ul class="lista-areas">
-                <li ng-repeat="area in areas">
+                <li ng-repeat="area in areas" ng-getdimensions>
                     <div class="cuadro-area"></div><div class="info-area">
                         <span>Business Architecture defines the strategy, structure and key processes of the organization based on the requirements of the Business areas. It defines the processes that are affected by these requirements, preparing the necessary documents to define the macro processes, their applications and their KPI`s . <br> <br>
                         BA also elaborates detailed processes with business rules and involved applications and areas in order to provide Applications Business area the necessary information to meet the needs of Business Requirements.</span>
@@ -61,7 +67,59 @@
                     </div>
                 </li>
             </ul>
+            
         </div>
+        
+        <!-- Sección de fotografía de los documentos de estrategias -->
+        <div
+            class="foto-estrategias parallax"
+            parallax
+            parallax-ratio="0.1"
+            parallax-vertical-offset="fotoEstrategiasOffsetY"
+            parallax-horizontal-offset="0"
+        ></div>
+        
+        
+        <!-- Sección de los documentos de estrategias -->
+        <div 
+            class="architecture-intro parallax"
+            parallax
+            parallax-ratio="0.5"
+            parallax-vertical-offset="infoEstrategiasOffsetY"
+            parallax-horizontal-offset="200">
+
+            <div class="title">
+                <span>Architecture | Contents</span>
+            </div>
+            <div class="admin">
+                <div class="viewer">
+                    <div class="row">
+                        <div ng-repeat="item in viewer.items" class="md-col-3 sm-col-12">
+                            <img ng-src="app/modules/areas/assets/img/{{item.img}}" alt="">
+                            <span>{{item.name}}</span>
+                        </div>
+                    </div>
+
+                    <div class="pager">
+                        <i class="left" ng-click="viewer.back()"></i>
+                        <ul>
+                            <li ng-click="viewer.goTo($index)" ng-repeat="page in viewer.pages" ng-class="{active: ($index==viewer.indexPageNow)  }">{{page.number}}</li>
+                        </ul>
+                        <i class="right" ng-click="viewer.forw()"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="datos">
+                <div class="nombre">Fernando Valdeón</div>
+                <div class="puesto">Architecture Executive Director</div>
+                <div class="trayectoria">
+                    <span>My trajectory</span>
+                    <i></i>
+                </div>
+            </div>
+
+        </div>
+        
         
 
         
