@@ -1,20 +1,72 @@
+<ng-header set-elementos-menu="elementosMenu"></ng-header>
 
-<div class="container-cara">
-    <div
-        class="cara parallax"
-        parallax
-        parallax-ratio="0.5"
-        parallax-vertical-offset="40"
-        parallax-horizontal-offset="40"
-    ></div>
+<main class="container-parallax">
+   
+    <div class="container-cara">
+        <div
+            class="cara parallax"
+            parallax
+            parallax-ratio="0.1"
+            parallax-vertical-offset="0"
+            parallax-horizontal-offset="0"
+        ></div>
+        
+        <div 
+            class="architecture-intro parallax"
+            parallax
+            parallax-ratio="0.5"
+            parallax-vertical-offset="80"
+            parallax-horizontal-offset="200">
+            <div class="title">
+                <span>Architecture | Intro</span>
+            </div>
+            <div class="body">
+                <span>Enterprise architecture framework is the enabler to optimize the legacy of processes to an integrated environment, respond to business changes, support delivery of business strategy and get the right balance between IT efficiency and business innovation.
+                <br><br>
+                This framework shows a clear view on how design meets the criteria defined in each one of the projects, ensuring business partners, architects and operations support use standard terminology for IT solutions.
+                </span>
+            </div>
+            <div class="datos">
+                <div class="nombre">Fernando Valdeón</div>
+                <div class="puesto">Architecture Executive Director</div>
+                <div class="trayectoria">
+                    <span>My trajectory</span>
+                    <i></i>
+                </div>
+            </div>
+        </div>
+        
+        <div 
+           class="architecture-areas parallax"
+            parallax
+            parallax-ratio="0.8"
+            parallax-vertical-offset="vh"
+            parallax-horizontal-offset="200">
+            <div class="title">
+                <span>Architecture | Areas</span>
+            </div>
+            <ul class="lista-areas">
+                <li ng-repeat="area in areas">
+                    <div class="cuadro-area"></div><div class="info-area">
+                        <span>Business Architecture defines the strategy, structure and key processes of the organization based on the requirements of the Business areas. It defines the processes that are affected by these requirements, preparing the necessary documents to define the macro processes, their applications and their KPI`s . <br> <br>
+                        BA also elaborates detailed processes with business rules and involved applications and areas in order to provide Applications Business area the necessary information to meet the needs of Business Requirements.</span>
+                        <div class="datos">
+                            <div class="nombre">Fernando Valdeón</div>
+                            <div class="puesto">Architecture Executive Director</div>
+                            <div class="trayectoria">
+                                <span>My trajectory</span>
+                                <i></i>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+
+        
+    </div> 
+</main>
 
 
-    <div
-        class="cara-2 parallax"
-        parallax
-        parallax-ratio="0.7"
-        parallax-vertical-offset="640"
-        parallax-horizontal-offset="40"
-    ></div>
-</div> 
 
