@@ -112,35 +112,30 @@
                                 // console.log(regla);
                                 if(regla.idfigura !== 3){
                                     reglasTemp[count] = regla;
-                                    reglasTemp[count].flowId = countFlowId;
+                                    reglasTemp[count].flowId = (regla.pactual - countLess);
                                     reglasTemp[count].nextTo = (regla.psiguiente - countLess);
                                     idfiguraBool = false;
                                     count++;
-                                    countFlowId++;
                                 }else{
                                     if(!idfiguraBool){
 
                                         reglasTemp[count] = regla;
-                                        reglasTemp[count].flowId = countFlowId;
+                                        reglasTemp[count].flowId = (regla.pactual - countLess);
                                         reglasTemp[count].nextTo = (regla.psiguiente - countLess);
                                         idfiguraBool = true;
                                         
                                         countLess++;
-//                                        console.log(regla.psiguiente);
-//                                        console.log(countLess);
                                     }else{
                                         reglasTemp[count].intersectionTwo = [];
-                                        reglasTemp[count].flowId = countFlowId;
                                         reglasTemp[count].nextToTwo = (regla.psiguiente - countLess);
                                         count++;
                                         idfiguraBool = false;
-                                        countFlowId++;
                                     }
                                 }
                             }
                             data.procesos[i]['reglas'] = reglasTemp;
                         }
-//                        console.log(data.procesos);
+                        console.log(data.procesos);
                         // Config Martin //////////////////////////////////////
 
 

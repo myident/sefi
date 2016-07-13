@@ -309,6 +309,14 @@
                     }
                 }
             },
+            offsetToArr: function(arr, layout){
+                var arrTemp = [];
+                for(var i in arr){
+                    arrTemp.push(arr[i][layout].x);
+                    arrTemp.push(arr[i][layout].y);
+                }
+                return arrTemp;
+            },
 
             /* capacidades(): - crea cada uno de las capacidades existentes */
             /* ************************************************************************************** */
@@ -324,7 +332,8 @@
                 
                 var capacidadWidth = 90;
                 var capacidadHeight = 50;
-                
+                var baseArrow = 12;
+
                 var rect, textbox, intersection, arrow, rectTrasparent;
                 
                 var capacidadMainGroup = paper.group();
@@ -337,7 +346,11 @@
                 
                 // Construye flechas
                 
-                if ((Number(j) + 1) < source[i][type].length) {
+                
+                
+                if(type == 'capacidades'){
+
+                    if ((Number(j) + 1) < source[i][type].length) {
                     
                     
                     capacidad = $vash.intersectionFill(
@@ -368,7 +381,7 @@
 
                     intersection = $shapes.factory.polyline(arr);
 
-                    var baseArrow = 12;
+                    
                     
                     var offsetsArrow = [
                         intersections[0][2],
@@ -408,8 +421,8 @@
                     // Agrupa la flecha y línea dentro de la capacidad
                     capacidadGroup.append(node);
                 }
-                
-                if(type == 'capacidades'){
+
+
                     rect = $shapes.factory.rect(
                         capacidad.offsets[layout], 
                         capacidadWidth, 
@@ -442,6 +455,8 @@
                             .append(capacidadGroup);
                 }
                 else{
+
+
                 switch(capacidad.idfigura){
 
                     case 1: // Proceso
@@ -515,13 +530,37 @@
                         .append(capacidadGroup);
                     break;
                     case 3: // Rombo
-                        
-                    var intersection = this.getOffsetsTo(source,capacidad.nextTo);
-                    var intersectionTwo = this.getOffsetsTo(source,capacidad.nextToTwo);
+                    
+                    var offset = capacidad.offsets;
+                    var offsetTo = this.getOffsetsTo(source,capacidad.nextTo);
+                    var offsetToTwo = this.getOffsetsTo(source,capacidad.nextToTwo);
 
-                    console.log('transisiones');
-                    console.log(intersection);
-                    console.log(intersectionTwo);
+                    var margin = {width:capacidadWidth, height: capacidadHeight};
+
+                    var linesToConexion = $vash.getLineToConexion(offset, offsetTo,margin);
+                    var linesToConexionTwo = $vash.getLineToConexion(offset, offsetToTwo,margin);
+
+                    capacidad.intersection = linesToConexion.linesToConexion;
+                    capacidad.intersectionTwo = linesToConexionTwo.linesToConexion;
+                    capacidad.direction = linesToConexion.directions
+                    capacidad.directionTwo = linesToConexionTwo.directions
+
+                    capacidad.offsetsArrow = [
+                                                capacidad.intersection[3][0],
+                                                capacidad.intersection[3][1],
+                                                capacidad.intersection[3][2],
+                                            ];
+                    capacidad.offsetsArrowTwo = [
+                                                capacidad.intersectionTwo[3][0],
+                                                capacidad.intersectionTwo[3][1],
+                                                capacidad.intersectionTwo[3][2],
+                                            ];
+                    console.log('capacidad');
+                    console.log(offset);
+                    console.log(offsetTo);
+                    console.log(offsetToTwo);
+                    console.log(capacidad);
+                    console.log(JSON.stringify(capacidad.intersection));
 
                     var offset = capacidad.offsets[layout], lineElse, arrowElse;
                     
@@ -549,35 +588,24 @@
                         .data('width', [capacidadWidth, capacidadWidth, capacidadWidth])
                         .data('height', [capacidadHeight, capacidadHeight, capacidadHeight]);
                     
-                        var arr2 = [
-                            offset.x,
-                            offset.y, 
-                            offset.x + 60,
-                            offset.y, 
-                            offset.x + 60, 
-                            offset.y - 240, 
-                            offset.x + 50, 
-                            offset.y - 240, 
-                            offset.x + 60, 
-                            offset.y - 240, 
-                            offset.x + 60,
-                            offset.y, 
-                            offset.x,
-                            offset.y];
+                        intersection = $shapes.factory.polyline(this.offsetToArr(capacidad.intersection,layout));
+                        lineElse = $shapes.factory.polyline(this.offsetToArr(capacidad.intersectionTwo,layout));
 
-                        lineElse = $shapes.factory.polyline(arr2);
+                        arrow = $shapes.factory.arrow(capacidad.offsetsArrow[layout], baseArrow);
+                        $vash.rotateArrowFromDirectionMin(capacidad.direction[layout], arrow);
 
-                        arrowElse = $shapes.factory.arrow({
-                            x:offset.x + 50, 
-                            y:offset.y - 246
-                        }, 12);
+                        var arrowTwo = $shapes.factory.arrow(capacidad.offsetsArrowTwo[layout], baseArrow);
+                        $vash.rotateArrowFromDirectionMin(capacidad.directionTwo[layout], arrowTwo);
 
-                        arrowElse.attr({
-                            transform: "r90"
-                        });
+                        //node.append(intersection);
+
                         capacidadGroup
+                            .append(intersection)
                             .append(lineElse)
-                            .append(arrowElse).append(rect).append(textbox);
+                            .append(arrow)
+                            .append(arrowTwo)
+                            .append(rect)
+                            .append(textbox);
 
                     
                     capacidadGroup

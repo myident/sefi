@@ -26,6 +26,8 @@
         
         self.getLineToConexion = function(offsetStart, offsetEnd, margin) {
             // Fill the array of lines to connect, with 4 points in 3 layouts
+            margin.width = margin.width / 2;
+            margin.height = margin.height / 2;
             var linesToConexion = self.fillArrayOfPoints([], 4, 3);
             
             // Fill the array of Directions for the 3 layouts
@@ -156,16 +158,16 @@
                         linesToConexion[2][layout].x = offsetEnd[layout].x + margin.width + 10;
                         linesToConexion[2][layout].y = offsetEnd[layout].y;
                         
-                        linesToConexion[3][layout].x = offsetEnd[layout].x - margin.width;
-                        linesToConexion[3][layout].y = offsetEnd[layout].y - margin.height;
+                        linesToConexion[3][layout].x = offsetEnd[layout].x + margin.width;
+                        linesToConexion[3][layout].y = offsetEnd[layout].y;
                     }
                 }
 
             }
             
             console.log(directions);
-            
-            return linesToConexion;
+
+            return {linesToConexion: linesToConexion, directions: directions};
         };
         
         
@@ -770,6 +772,19 @@
             if (capacidad.direction == 'up' && layout == 2) {
                 $paint.rotate180(arrow);
             }
+        };
+
+        self.rotateArrowFromDirectionMin = function(direction, arrow) {
+            if (direction.final == 'right') {
+                $paint.rotate90(arrow);
+            }
+            if (direction.final == 'left') {
+                $paint.rotateMinus90(arrow);
+            }
+            if (direction.final == 'up') {
+                $paint.moveUpRight(arrow);
+            }
+            console.log(direction);
         };
 
 
