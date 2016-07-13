@@ -146,6 +146,17 @@
                 });
                 return fig;
             },
+            moveUpRight: function(fig){
+
+                console.log(fig);
+                var t = new Snap.Matrix();
+                t.translate(5, -5);
+                fig.transform(t);
+                fig.attr({
+                    transform: "r-270"
+                });
+                return fig;
+            },
             hide: function(fig){
                 fig.attr({
                     visibility: "hidden"
