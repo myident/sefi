@@ -19,7 +19,7 @@
         });
 
         $scope.go = function () {
-            $window.history.back();
+            $window.location = '/#/our-areas/architecture';
         };
 
         $scope.content = {
