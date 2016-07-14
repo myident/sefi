@@ -481,7 +481,14 @@
                                                 ];
 
                         intersection = $shapes.factory.polyline(this.offsetToArr(capacidad.intersection,layout));
-                        arrow = $shapes.factory.arrowDown(capacidad.offsetsArrow[layout], baseArrow);
+                        //arrow = $shapes.factory.arrowDown(capacidad.offsetsArrow[layout], baseArrow);
+
+                        switch(capacidad.direction[layout].final){
+                            case 'down': arrow = $shapes.factory.arrowDown(capacidad.offsetsArrow[layout], baseArrow); break;
+                            case 'right': arrow = $shapes.factory.arrowRight(capacidad.offsetsArrow[layout], baseArrow); break;
+                            case 'left': arrow = $shapes.factory.arrowLeft(capacidad.offsetsArrow[layout], baseArrow); break;
+                            case 'up': arrow = $shapes.factory.arrowLeft(capacidad.offsetsArrow[layout], baseArrow); break;
+                        }
                     }
                     rect = $shapes.factory.rect(
                         capacidad.offsets[layout], 
@@ -629,7 +636,7 @@
                         
 
                         switch(capacidad.direction[layout].final){
-                            case 'down': arrow = $shapes.factory.arrow(capacidad.offsetsArrow[layout], baseArrow); break;
+                            case 'down': arrow = $shapes.factory.arrowDown(capacidad.offsetsArrow[layout], baseArrow); break;
                             case 'right': arrow = $shapes.factory.arrowRight(capacidad.offsetsArrow[layout], baseArrow); break;
                             case 'left': arrow = $shapes.factory.arrowLeft(capacidad.offsetsArrow[layout], baseArrow); break;
                             case 'up': arrow = $shapes.factory.arrowLeft(capacidad.offsetsArrow[layout], baseArrow); break;
@@ -641,7 +648,7 @@
                     
                     if ((Number(j) + 1) < source[i][type].length) {
                         switch(capacidad.directionTwo[layout].final){
-                            case 'down': arrowTwo = $shapes.factory.arrow(capacidad.offsetsArrowTwo[layout], baseArrow); break;
+                            case 'down': arrowTwo = $shapes.factory.arrowDown(capacidad.offsetsArrowTwo[layout], baseArrow); break;
                             case 'right': arrowTwo = $shapes.factory.arrowRight(capacidad.offsetsArrowTwo[layout], baseArrow); break;
                             case 'left': arrowTwo = $shapes.factory.arrowLeft(capacidad.offsetsArrowTwo[layout], baseArrow); break;
                             case 'up': arrowTwo = $shapes.factory.arrowLeft(capacidad.offsetsArrowTwo[layout], baseArrow); break;
