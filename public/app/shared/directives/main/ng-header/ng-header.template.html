@@ -1,19 +1,30 @@
 <header>
-    <div class="logo-it-book" ng-mouseenter="hidesubmenu()">
-        <i class="logo-att"></i>
-        <p class="it-book">
+    <div class="logo-it-book">
+        <a href="#/">
+            <i class="logo-att"></i>
+        </a>
+        <!-- <p class="it-book">
             <span>IT</span><span>BOOK</span>
-        </p>
+        </p> -->
+        
         <div class="input-search">
-            <input type="text" placeholder="Search">
+            <input type="text">
             <i class="search-icon"></i>
         </div>
+
+         <div class="header-menu-it-book">
+             <nav>
+                <a href="#/{{itemMenu.link}}" ng-repeat="itemMenu in menu" ng-mouseenter="showsubmenu($index)" ng-class="{'active': itemMenu.active}">{{itemMenu.title}}</a>
+            </nav>
+        </div>
+       
+        
     </div>
-    <div class="header-menu-it-book">
+    <!-- <div class="header-menu-it-book">
         <nav>
             <a href="#/{{itemMenu.link}}" ng-repeat="itemMenu in menu" ng-mouseenter="showsubmenu($index)" ng-class="{'active': itemMenu.active}">{{itemMenu.title}}</a>
         </nav>
-    </div>
+    </div> -->
     <div 
        class="header-submenu-it-book" 
        ng-class="{'hide':submenuHidden}" 
