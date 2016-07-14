@@ -19,13 +19,13 @@
     <span>{{source.titulo}} / {{source.subtitulo}} {{source.proceso}} {{source.capacidad}}</span>
     
     <span 
-        ng-click="imprimir()" 
         class="download-pdf"
+        ng-click="muestraDescarga()"
         ng-show="source.capacidad !== ''">
         <i></i> 
         <span>Download diagram</span>
-        <ul>
-            <li>PDF Document</li>
+        <ul ng-hide="selectBoxDescargaHidden">
+            <li ng-click="imprimir()">PDF Document</li>
             <li>PNG Image</li>
         </ul>
     </span>
