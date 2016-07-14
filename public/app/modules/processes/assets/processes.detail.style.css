@@ -498,7 +498,7 @@ ng-breadcrumb {
 .svg-container {
     /*    margin-top: 40px;*/
     overflow: auto;
-    height: calc(100vh - 246px);
+    height: calc(100vh - 176px);
     width: 100%;
     position: relative;
 }
