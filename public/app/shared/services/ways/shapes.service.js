@@ -103,7 +103,6 @@
                     return path;
                 },
                 arrowLeft: function (offset, b) {
-                    console.log('Hola');
                     var x = offset.x + b;
                     var y = offset.y;
                     var pathStr = "M" + x + " " + (y  + (b / 2)) + " L" + (x - b) + " " + y + " L" + x + " " + (y - (b / 2)) + " Z";
