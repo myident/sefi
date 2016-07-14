@@ -7,31 +7,39 @@ angular.module('angular-parallax', [
         scope: {
             parallaxRatio: '=',
             parallaxVerticalOffset: '=',
-            parallaxHorizontalOffset: '@',
+            parallaxHorizontalOffset: '=',
         },
         link: function ($scope, elem, attrs) {
-                
+
                 $scope.$watch('parallaxRatio', function () {
 
                 });
             
-                $scope.$watch('parallaxVerticalOffset', function () {
-                setPosition();
+                $scope.$watch('parallaxHorizontalOffset', function () {
 
-                angular.element($window).bind("scroll", setPosition);
-                angular.element($window).bind("touchmove", setPosition);
                 });
-                
+
+                $scope.$watch('parallaxVerticalOffset', function () {
+                    setPosition();
+
+                    angular.element($window).bind("scroll", setPosition);
+                    angular.element($window).bind("touchmove", setPosition);
+                });
+
                 var setPosition = function () {
                     var calcValY = $window.pageYOffset * ($scope.parallaxRatio ? $scope.parallaxRatio : 1.1);
-                    
+
                     if (calcValY <= $window.innerHeight) {
                         var topVal = (calcValY < $scope.parallaxVerticalOffset ? $scope.parallaxVerticalOffset : calcValY);
                         elem.css('transform', 'translate(' + $scope.parallaxHorizontalOffset + 'px, ' + topVal + 'px)');
                     }
-                    
-                };
 
+                };
+            
+                setPosition();
+
+                angular.element($window).bind("scroll", setPosition);
+                angular.element($window).bind("touchmove", setPosition);
 
             } // link function
     };

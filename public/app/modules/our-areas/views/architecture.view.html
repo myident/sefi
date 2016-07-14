@@ -1,8 +1,16 @@
 <ng-header set-elementos-menu="elementosMenu"></ng-header>
 
-<main class="container-parallax">
-   
+<main class="container-parallax" scroll get-scroll="getScroll">
+     
     <div class="container-cara">
+       
+        <div class="arch-blue"></div>
+        <div class="arch-green"></div>
+        <div class="arch-orange" ng-style="getOrangeIconStyle()"></div>
+        
+        <div class="timeline-intro"></div>
+        <div class="timeline-areas" ng-style="getTimeLineAreasStyle()"></div>
+        <div class="timeline-contents" ng-style="getTimeLineContentsStyle()"></div>
        
         <!-- Sección de fotografía de Fernando Valdeón -->
         <div
@@ -34,7 +42,7 @@
                 <div class="puesto">Architecture Executive Director</div>
                 <div class="trayectoria">
                     <span>My trajectory</span>
-                    <i></i>
+                    <i class="avanzar-trj"></i>
                 </div>
             </div>
 
@@ -49,20 +57,25 @@
             parallax-horizontal-offset="200">
             
             <div class="title" ng-getdimensions>
-                <span>Architecture | Areas</span>
+                <span style="color: #5CA793;">Architecture | Areas</span>
             </div>
             <ul class="lista-areas">
                 <li ng-repeat="area in areas" ng-getdimensions>
-                    <div class="cuadro-area"></div><div class="info-area">
-                        <span>Business Architecture defines the strategy, structure and key processes of the organization based on the requirements of the Business areas. It defines the processes that are affected by these requirements, preparing the necessary documents to define the macro processes, their applications and their KPI`s . <br> <br>
-                        BA also elaborates detailed processes with business rules and involved applications and areas in order to provide Applications Business area the necessary information to meet the needs of Business Requirements.</span>
+                    <div class="cuadro-area">
+                        <div class="cuadro-area-icono" ng-class="getIconStyle(area.titulo)"></div>
+                        <div class="cuadro-area-titulo">{{area.titulo}}</div>
+                    </div><div class="info-area">
+                        <ng-paragraph text="area.descripcion"></ng-paragraph>
                         <div class="datos">
-                            <div class="nombre">Fernando Valdeón</div>
-                            <div class="puesto">Architecture Executive Director</div>
+                            <div class="nombre">{{area.director}}</div>
+                            <div class="puesto">{{area.puesto}}</div>
                             <div class="trayectoria">
-                                <span>My trajectory</span>
-                                <i></i>
+                                <span ng-click="go(area.id_trayectoria)">My trajectory</span>
+                                <i class="avanzar-trj"></i>
                             </div>
+                        </div>
+                        <div class="foto">
+                            <img src="app/modules/our-areas/assets/img/desconocido.png" alt="">
                         </div>
                     </div>
                 </li>
@@ -89,13 +102,14 @@
             parallax-horizontal-offset="200">
 
             <div class="title">
-                <span>Architecture | Contents</span>
+                <span style="color: #EF8B2C;">Architecture | Contents</span>
             </div>
-            <div class="admin">
+            <div class="arch-contents">
                 <div class="viewer">
+                   
                     <div class="row">
-                        <div ng-repeat="item in viewer.items" class="md-col-3 sm-col-12">
-                            <img ng-src="app/modules/areas/assets/img/{{item.img}}" alt="">
+                        <div ng-repeat="item in viewer.items" class="viewer-element">
+                            <i></i>
                             <span>{{item.name}}</span>
                         </div>
                     </div>
@@ -109,19 +123,15 @@
                     </div>
                 </div>
             </div>
-            <div class="datos">
-                <div class="nombre">Fernando Valdeón</div>
-                <div class="puesto">Architecture Executive Director</div>
-                <div class="trayectoria">
-                    <span>My trajectory</span>
-                    <i></i>
-                </div>
-            </div>
 
         </div>
         
-        
-
+        <!-- Paginador de scrolling -->
+        <div class="pager-arch">
+            <div class="pager-intro" ng-class="{'active': introPager}">Intro</div>
+            <div class="pager-areas" ng-class="{'active': areasPager}">Areas</div>
+            <div class="pager-contents" ng-class="{'active': contentsPager}">Contents</div>
+        </div>
         
     </div> 
 </main>

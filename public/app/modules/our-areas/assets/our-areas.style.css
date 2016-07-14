@@ -3,7 +3,7 @@
     height: calc(100vh - 140px);
     background-image: url(./img/fernando.png);
     background-size: cover;
-   background-position: 0 -80px; 
+    background-position: 0 -80px;
 }
 
 .foto-estrategias {
@@ -69,9 +69,11 @@
 .architecture-intro .datos .trayectoria {
     color: #117899;
 }
+
 .lista-areas {
     margin-top: 60px;
 }
+
 .lista-areas li {
     font-size: 18px;
     padding-bottom: 60px;
@@ -87,6 +89,88 @@
     vertical-align: middle;
 }
 
+.cuadro-area-icono {
+    height: 80px;
+    width: 74px;
+    margin: 60px auto;
+}
+
+.cuadro-area-icono.default {
+    background-image: url(img/ANALISIS_ESTRATEGICO.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.cuadro-area-icono.business-arch {
+    background-image: url(img/ARQ_NEGOCIO.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.cuadro-area-icono.app-data {
+    background-image: url(img/ARQ_DE_APPS.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.cuadro-area-icono.tech-arch {
+    background-image: url(img/ARQ_TECNOLOGIA.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.cuadro-area-icono.big-data {
+    background-image: url(img/ANALISIS_ESTRATEGICO.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.cuadro-area-icono.it-gov {
+    background-image: url(img/GOVERNANCE.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.cuadro-area-icono.digital-exp {
+    background-image: url(img/DIGITAL_EXP.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.cuadro-area-titulo {
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.lista-areas li:nth-child(2) .cuadro-area {
+    background: #0F5B78!important;
+}
+
+.lista-areas li:nth-child(3) .cuadro-area {
+    background: #1395BA!important;
+}
+
+.lista-areas li:nth-child(4) .cuadro-area {
+    background: #5CA793!important;
+}
+
+.lista-areas li:nth-child(5) .cuadro-area {
+    background: #A2B86C!important;
+}
+
+.lista-areas li:nth-child(6) .cuadro-area {
+    background: #ECAA38!important;
+}
+
 .info-area {
     width: 730px;
     display: inline-block;
@@ -100,6 +184,9 @@
     font-size: 18px;
     text-align: right;
     margin-top: 20px;
+    display: inline-block;
+    width: calc(100% - 110px);
+    vertical-align: super;
 }
 
 .info-area .datos .nombre {
@@ -109,4 +196,167 @@
 
 .info-area .datos .trayectoria {
     color: #117899;
+    cursor: pointer;
+}
+
+.info-area .datos .trayectoria:hover span,
+.architecture-intro .datos .trayectoria:hover span{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.info-area .foto {
+    display: inline-block;
+    width: 100px;
+}
+
+.info-area .foto img{
+    margin: 0 auto;
+    display: block;
+}
+
+.arch-contents .viewer .row {
+    width: 1060px;
+}
+
+.arch-contents .viewer .viewer-element {
+    background-color: white;
+    width: 232px;
+    height: 163px;
+    margin: 15px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.arch-contents .viewer .viewer-element:hover {
+    background-color: #EF8B2C;
+}
+
+.arch-contents .viewer .viewer-element:active {
+    background-color: #eb8321;
+}
+
+.arch-contents .viewer .viewer-element i {
+    display: block;
+    margin: 30px auto;
+    width: 71px;
+    height: 69px;
+    background-image: url(./img/power_black.png);
+}
+
+.arch-contents .viewer .viewer-element:hover i {
+    display: block;
+    margin: 30px auto;
+    width: 71px;
+    height: 69px;
+    background-image: url(./img/power_white.png);
+}
+
+.arch-contents .viewer .viewer-element:hover span {
+    color: white;
+}
+
+.arch-contents .viewer .viewer-element span {
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+.arch-contents .viewer .pager {
+    width: 1060px;
+}
+
+.pager-arch {
+    position: fixed;
+    left: 0;
+    top: 360px;
+}
+
+.pager-arch div {
+    width: 80px;
+    height: 21px;
+    background-color: #D0D0D0;
+    color: white;
+    margin-bottom: 10px;
+    text-align: right;
+    line-height: 21px;
+    font-size: 14px;
+    padding-right: 5px;
+}
+
+.pager-arch div.pager-intro.active {
+    background-color: #117899;
+}
+
+.pager-arch div.pager-areas.active {
+    background-color: #5CA793;
+}
+
+.pager-arch div.pager-contents.active {
+    background-color: #EF8B2C;
+}
+
+.timeline-intro {
+    width: 1.5px;
+    height: calc(100vh - 170px);
+    position: absolute;
+    top: 150px;
+    left: 140px;
+    background: linear-gradient(to bottom, #27B0C9 0%, #5CA793 100%);
+    z-index: 2;
+}
+
+.timeline-areas {
+    width: 1.5px;
+    position: absolute;
+    top: calc(100vh + 70px);
+    left: 140px;
+    background: linear-gradient(to bottom, #5CA793 0%, #EF8B2C 100%);
+    z-index: 2;
+}
+
+.timeline-contents {
+    width: 1.5px;
+    position: absolute;
+    left: 140px;
+    background: linear-gradient(to bottom, #EF8B2C 0%, #EF8B2C 100%);
+    height: 740px;
+    z-index: 2;
+}
+
+.arch-blue,
+.arch-green,
+.arch-orange {
+    width: 47px;
+    height: 50px;
+    position: absolute;
+    left: 118px;
+    z-index: 2;
+}
+
+.arch-blue {
+    background-image: url(img/arch-blue.png);
+    background-repeat: no-repeat;
+    top: 80px;
+}
+
+.arch-green {
+    background-image: url(img/arch-green.png);
+    background-repeat: no-repeat;
+    top: calc(100vh);
+}
+
+.arch-orange {
+    background-image: url(img/arch-orange.png);
+    background-repeat: no-repeat;
+}
+
+i.avanzar-trj {
+    display: inline-block;
+    width: 8px;
+    height: 14px;
+    background-image: url(img/avanzar-trajectory.png);
+    background-repeat: no-repeat;
+    vertical-align: middle;
 }
