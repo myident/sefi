@@ -63,7 +63,7 @@
                 $scope.contentsPager = false;
             }
 
-            if (value > $scope.fotoEstrategiasOffsetY) {
+            if (value > ($scope.fotoEstrategiasOffsetY - 300)) {
                 $scope.introPager = false;
                 $scope.areasPager = false;
                 $scope.contentsPager = true;
