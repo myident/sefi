@@ -67,8 +67,8 @@ ng-header > header > div.logo-it-book > p.it-book > span:first-child {
 
 .input-search {
     float: right;
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     position: relative;
     transition: .3s;
 }
@@ -126,6 +126,10 @@ ng-header > header > div.logo-it-book > p.it-book > span:first-child {
     -webkit-transition: all ease 0.3s;
     width: 200px;
     height: 70px;
+}
+
+.header-menu-it-book > nav > a:hover{
+    color: #ccc;
 }
 
 /*.header-menu-it-book > nav > a.active {
