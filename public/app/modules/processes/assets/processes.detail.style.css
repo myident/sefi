@@ -589,14 +589,14 @@ ng-breadcrumb {
 }
 
 .select-box.ver {
-    right: 350px;
+    right: 290px;
     top: 0;
     width: 170px;
     position: absolute;
 }
 
 .select-box.ordenar {
-    right: 210px;
+    right: 150px;
     top: 0;
 }
 
@@ -695,7 +695,7 @@ ng-breadcrumb {
 .zoom-control {
     position: absolute;
     top: 0px;
-    right: 530px;
+    right: 470px;
     width: 100px;
 }
 
