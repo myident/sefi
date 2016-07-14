@@ -462,7 +462,6 @@
 
                     case 1: // Proceso
                     
-                    console.log(capacidad);
 
                     
 
