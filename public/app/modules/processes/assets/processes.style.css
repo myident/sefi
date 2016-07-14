@@ -135,8 +135,8 @@ section.container-card > div.card > article.backside a {
 section.container-index {
     background: #606060;
     width: 280px;
-    height: calc(100% - 325px);
-    min-height: 280px;
+    height: calc(100% - 350px);
+    min-height: 100px;
     overflow: auto;
 }
 
