@@ -130,7 +130,7 @@
                     return path;
                 },
                 arrowRight: function (offset, b) {
-                    var x = offset.x;
+                    var x = offset.x - b;
                     var y = offset.y;
                     var pathStr = "M" + (x) + " " + ( y - ( b / 2 )) + " L" + (x + b) + " " + y + " L" + x + " " + (y + ( b / 2 )) + " Z";
                     var path = scope.svg.path(pathStr);
