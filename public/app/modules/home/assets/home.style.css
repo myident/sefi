@@ -1,4 +1,103 @@
-main.home article{
+
+.cursor-pointer{
+	cursor: pointer;
+}
+.back-white{
+	background-color: rgb(255,255,255);
+}
+.font-17{
+	font-size: 17px;
+}
+.font-35{
+	font-size: 35px;
+}
+.img-middle{
+	width: 74px;
+	height: 74px;
+	margin: 20px;
+	margin-top: -20px;
+}
+.line-height-1-5{
+	line-height: 1.5;
+}
+.FOTO_MESA_EJECUTIVOS_png{
+	background-image: url(img/FOTO_MESA_EJECUTIVOS.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+.Path_53_png{
+	background-image: url(img/Path_53.png);
+	background-repeat: no-repeat;
+	height: 300px;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 0;
+}
+.MISSION_png{
+	background-image: url(img/MISSION.png);
+	height: 319px;
+	background-size: cover;
+	transition: .3s;
+}
+.MISSION_blur_png{
+	background-image: url(img/CUADRO_MISSION_HOVER.png);
+	height: 319px;
+	background-size: cover;
+	transition: .3s;
+}
+.VISION_png{
+	background-image: url(img/VISION.png);
+	height: 319px;
+	background-size: cover;
+	transition: .3s;
+}
+.VISION_blur_png{
+	background-image: url(img/CUADRO_VISION_HOVER.png);
+	height: 319px;
+	background-size: cover;
+	transition: .3s;
+}
+
+.VALUES_png{
+	background-image: url(img/VALUES.png);
+	height: 319px;
+	background-size: cover;
+	transition: .3s;
+}
+.VALUES_blur_png{
+	background-image: url(img/CUADRO_VALUES_HOVER.png);
+	height: 319px;
+	background-size: cover;
+	transition: .3s;
+}
+
+.QUOTE_png{
+	background-image: url(img/QUOTE.png);
+	height: 319px;
+	background-size: cover;
+	position: relative;
+}
+.QUOTE_png-text{
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+}
+.QUOTE_png-text p{
+	margin: 0;
+}
+.itbook-title{    z-index: 1;
+    position: relative;
+}
+.padding-top-120{
+	padding-top: 120px;
+}
+.height-440{
+	height: 440px;
+}
+/*main.home article{
 	height: 192px;
 }
 .author{
@@ -40,7 +139,6 @@ ul.list-body{
 
 }
 ul.list-body > li{
-	/*background-color: rgba(255,255,255,.7);*/
 	padding: 10px;
 	border-bottom: 1px solid rgb(255,255,255);
 	font-size: 16px;
@@ -52,7 +150,6 @@ article > p{
 
 .back-white-transparent {
 	background-color: rgb(255,255,255);
-	/*background-image: url(img/FOTO_ESCRITORIO.png);*/
     background-image: url(img/Fondo-IT-Book_blur_web_2.png);
     background-attachment: fixed;
     background-position: center center;
@@ -71,10 +168,6 @@ article > p{
 }
 
 @media (max-height: 800px) {
-	/*[class*="col-"]{
-		padding-top: 5px;
-		padding-bottom: 
-	}*/
 	.text-large {
 	     font-size: 14px; 
 	}
@@ -119,3 +212,4 @@ article > p{
     padding: 0;
 }
 }
+*/

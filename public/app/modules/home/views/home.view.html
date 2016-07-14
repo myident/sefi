@@ -3,8 +3,73 @@
 
 <main class="home">
 
-	<div style="max-width:1280px;margin: auto;">
-    <div class="row">
+		<div style="max-width:1280px;margin: auto; width:calc(100% - 30px);" class="row">
+	        <div class="md-col-5 sm-col-12 FOTO_MESA_EJECUTIVOS_png height-440">
+	        <div class="Path_53_png float-left"></div>
+	        	<h1 class="itbook-title">
+		  			<span class="text-white padding-15">WELCOME TO</span> <br class="title-br"/>
+					<span class="text-white padding-15 title-2">IT BOOK</span>
+		  		</h1>
+	        </div>
+	        <div class="md-col-7 sm-col-12 back-white height-440">
+	        	<h2>{{home.article.title}}</h2>
+	        	<p class="font-17 line-height-1-5"><ng-paragraph text="home.article.body"></ng-paragraph></p>
+	        	<div>
+	        		<img class="img-middle float-right" src="app/modules/home/assets/img/FOTO_PABLO_SALAZAR.png" alt="">
+	        		<div class="float-right" align="right">
+	        			<span class="text-blue font-17"><b>{{home.article.author}}</b></span><br>
+	        			<span>{{home.article.job}}</span>
+	        		</div>
+	        	</div>
+	        </div>
+	     </div>
+	
+	<div class="row" style="max-width:1310px;margin: auto;margin-top:15px">
+	     <div class="md-col-3 sm-col-6 cursor-pointer">
+	     	<div class="MISSION_png text-white text-center " ng-class="{MISSION_blur_png:missionToggle}" ng-click="missionToggle = !missionToggle;">
+	     		<h1 ng-hide="missionToggle" ng-init="missionToggle = false" class="itbook-title text-white text-center padding-top-120">
+		  			<span class="">MISSION</span>
+		  		</h1>
+		  		<div ng-show="missionToggle" class="font-17 padding-20">
+		  			<h2>MISSION</h2>
+		  			<p>{{home.mission}}</p>
+		  		</div>
+	     	</div>
+	     </div>
+	     <div class="md-col-3 sm-col-6 cursor-pointer">
+	     	<div class="VISION_png text-white text-center" ng-class="{VISION_blur_png:visionToggle}" ng-click="visionToggle = !visionToggle;">
+				<h1 ng-hide="visionToggle" ng-init="visionToggle = false" class="itbook-title padding-top-120">
+		  			<span class="">VISION</span>
+		  		</h1>
+		  		<div ng-show="visionToggle" class="font-17 padding-20">
+		  			<h2>VISION</h2>
+		  			<p>{{home.vision}}</p>
+		  		</div>
+	     	</div>
+	     </div>
+	     <div class="md-col-3 sm-col-6 cursor-pointer">
+	     	<div class="VALUES_png text-white" ng-class="{VALUES_blur_png:valuesToggle}" ng-click="valuesToggle = !valuesToggle;">
+	     		<h1 ng-hide="valuesToggle" ng-init="valuesToggle = false" class="itbook-title padding-top-120 text-center">
+		  			<span class="">VALUES</span>
+		  		</h1>
+		  		<div ng-show="valuesToggle" class="font-17 padding-20">
+		  			<h2 class="text-center">VALUES</h2>
+		  			<ul style="list-style-type:disc;padding-left:20px;line-height:1.5;">
+		  				<li ng-repeat="item in home.values">{{item}}</li>
+		  			</ul>
+		  		</div>
+	     	</div>
+	     </div>
+	     <div class="md-col-3 sm-col-6">
+	     	<div class="QUOTE_png">
+	     		<div class="QUOTE_png-text text-white font-35 text-right">
+	     			<b><ng-paragraph text="home.other"></ng-paragraph></b>
+	     		</div>
+	     	</div>
+	     </div>
+     </div>
+    
+    <!-- <div class="row">
         <div class="md-col-12 sm-col-12">
             <div class="back-white-transparent">
                 <h1 class="padding-top-15 opacity-80">
@@ -13,7 +78,6 @@
   		</h1>
   		<div class="padding-50">
 	  		<article>
-		  		<!-- <h3>TEXTO INTRODUCTORIO DE IT BOOK</h3> -->
 		  		<p>
 			  		I am proud to introduce to all IT Collaborators and Business Users areas this new tool, which has been redesigned to consult, save and update, in an easier way, the IT documentation that  is generated during planning, design and development of the requirements requested to IT from the Business Areas of AT&T Mexico. This tool will provide you an overview of our Enterprise Architecture, and its main objective is to keep the information allways available and updated. Everyone is invited to be part of its ongoing improvement.
 			  	</p>
@@ -27,7 +91,7 @@
 		  	</div>
   		</div>	
   	</div>
-  </div>
+  </div> -->
  <!--  <div class="md-col-3 sm-col-12 padding-0">
 	  <div class="row">
 		  <div class="md-col-12 sm-col-6 padding-bottom-30 ">
@@ -58,7 +122,7 @@
 	  </div>
 	</div> -->
 
-	<div class="row">
+	<!-- <div class="row">
 		<div class="md-col-3 sm-col-6">
 			<img style="margin-top: 36px;" class="img-compromiso" src="app/modules/home/assets/img/FOTO_QUOTE.png" alt="">
 			<p class="text-white text-large text-center text-shadow">
@@ -99,6 +163,5 @@
 			</div>
 			</div>
 		</div>
-	</div>
-	</div>
+	</div> -->
 </main>
