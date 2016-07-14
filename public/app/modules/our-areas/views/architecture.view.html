@@ -1,9 +1,9 @@
 <ng-header set-elementos-menu="elementosMenu"></ng-header>
 
-<main class="container-parallax">
-   
+<main class="container-parallax" scroll get-scroll="getScroll">
+     
     <div class="container-cara">
-       
+              
         <!-- Sección de fotografía de Fernando Valdeón -->
         <div
             class="cara parallax"
@@ -11,65 +11,7 @@
             parallax-ratio="0.1"
             parallax-vertical-offset="0"
             parallax-horizontal-offset="0"></div>
-        
-        <!-- Sección de información Fernando Valdeón -->
-        <div 
-            class="architecture-intro parallax"
-            parallax
-            parallax-ratio="0.5"
-            parallax-vertical-offset="80"
-            parallax-horizontal-offset="200">
-
-            <div class="title">
-                <span>Architecture | Intro</span>
-            </div>
-            <div class="body">
-                <span>Enterprise architecture framework is the enabler to optimize the legacy of processes to an integrated environment, respond to business changes, support delivery of business strategy and get the right balance between IT efficiency and business innovation.
-                <br><br>
-                This framework shows a clear view on how design meets the criteria defined in each one of the projects, ensuring business partners, architects and operations support use standard terminology for IT solutions.
-                </span>
-            </div>
-            <div class="datos">
-                <div class="nombre">Fernando Valdeón</div>
-                <div class="puesto">Architecture Executive Director</div>
-                <div class="trayectoria">
-                    <span>My trajectory</span>
-                    <i></i>
-                </div>
-            </div>
-
-        </div>
-        
-        <!-- Sección de las áreas de arquitectura -->
-        <div 
-            class="architecture-areas parallax"
-            parallax
-            parallax-ratio="0.8"
-            parallax-vertical-offset="vh"
-            parallax-horizontal-offset="200">
             
-            <div class="title" ng-getdimensions>
-                <span>Architecture | Areas</span>
-            </div>
-            <ul class="lista-areas">
-                <li ng-repeat="area in areas" ng-getdimensions>
-                    <div class="cuadro-area"></div><div class="info-area">
-                        <span>Business Architecture defines the strategy, structure and key processes of the organization based on the requirements of the Business areas. It defines the processes that are affected by these requirements, preparing the necessary documents to define the macro processes, their applications and their KPI`s . <br> <br>
-                        BA also elaborates detailed processes with business rules and involved applications and areas in order to provide Applications Business area the necessary information to meet the needs of Business Requirements.</span>
-                        <div class="datos">
-                            <div class="nombre">Fernando Valdeón</div>
-                            <div class="puesto">Architecture Executive Director</div>
-                            <div class="trayectoria">
-                                <span>My trajectory</span>
-                                <i></i>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            
-        </div>
-        
         <!-- Sección de fotografía de los documentos de estrategias -->
         <div
             class="foto-estrategias parallax"
@@ -78,50 +20,126 @@
             parallax-vertical-offset="fotoEstrategiasOffsetY"
             parallax-horizontal-offset="0"
         ></div>
-        
-        
-        <!-- Sección de los documentos de estrategias -->
-        <div 
-            class="architecture-intro parallax"
-            parallax
-            parallax-ratio="0.5"
-            parallax-vertical-offset="infoEstrategiasOffsetY"
-            parallax-horizontal-offset="200">
+           
+           
+        <div style="position:relative; width: 1100px; margin: 0 auto;">
+            <div class="arch-blue"></div>
+            <div class="arch-green"></div>
+            <div class="arch-orange" ng-style="getOrangeIconStyle()"></div>
 
-            <div class="title">
-                <span>Architecture | Contents</span>
+            <div class="timeline-intro"></div>
+            <div class="timeline-areas" ng-style="getTimeLineAreasStyle()"></div>
+            <div class="timeline-contents" ng-style="getTimeLineContentsStyle()"></div>
+            <!-- Sección de información Fernando Valdeón -->
+            <div 
+                class="architecture-intro parallax"
+                parallax
+                parallax-ratio="0.5"
+                parallax-vertical-offset="80"
+                parallax-horizontal-offset="0">
+
+                <div class="title">
+                    <span>Architecture | Intro</span>
+                </div>
+                <div class="body">
+                    <span>Enterprise architecture framework is the enabler to optimize the legacy of processes to an integrated environment, respond to business changes, support delivery of business strategy and get the right balance between IT efficiency and business innovation.
+                    <br><br>
+                    This framework shows a clear view on how design meets the criteria defined in each one of the projects, ensuring business partners, architects and operations support use standard terminology for IT solutions.
+                    </span>
+                </div>
+                <div class="datos">
+                    <div class="nombre">Fernando Valdeón</div>
+                    <div class="puesto">Architecture Executive Director</div>
+                    <div class="trayectoria" ng-click="go(1)">
+                        <span>My trajectory</span>
+                        <i class="avanzar-trj"></i>
+                    </div>
+                </div>
+
             </div>
-            <div class="admin">
-                <div class="viewer">
-                    <div class="row">
-                        <div ng-repeat="item in viewer.items" class="md-col-3 sm-col-12">
-                            <img ng-src="app/modules/areas/assets/img/{{item.img}}" alt="">
-                            <span>{{item.name}}</span>
+
+            <!-- Sección de las áreas de arquitectura -->
+            <div 
+                class="architecture-areas parallax"
+                parallax
+                parallax-ratio="0.8"
+                parallax-vertical-offset="vh"
+                parallax-horizontal-offset="0">
+
+                <div class="title" ng-getdimensions>
+                    <span style="color: #5CA793;">Architecture | Areas</span>
+                </div>
+                <ul class="lista-areas">
+                    <li ng-repeat="area in areas" ng-getdimensions>
+                        <div class="cuadro-area">
+                            <div class="cuadro-area-icono" ng-class="getIconStyle(area.titulo)"></div>
+                            <div class="cuadro-area-titulo">{{area.titulo}}</div>
+                        </div><div class="info-area">
+                            <ng-paragraph text="area.descripcion"></ng-paragraph>
+                            <div class="datos">
+                                <div class="nombre">{{area.director}}</div>
+                                <div class="puesto">{{area.puesto}}</div>
+                                <div class="trayectoria">
+                                    <span ng-click="go(area.id_trayectoria)">My trajectory</span>
+                                    <i class="avanzar-trj"></i>
+                                </div>
+                            </div>
+                            <div class="foto">
+                                <img src="app/modules/our-areas/assets/img/desconocido.png" alt="">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+
+
+
+
+            <!-- Sección de los documentos de estrategias -->
+            <div 
+                class="architecture-intro parallax"
+                parallax
+                parallax-ratio="0.5"
+                parallax-vertical-offset="infoEstrategiasOffsetY"
+                parallax-horizontal-offset="0">
+
+                <div class="title">
+                    <span style="color: #EF8B2C;">Architecture | Contents</span>
+                </div>
+                <div class="arch-contents">
+                    <div class="viewer">
+
+                        <div class="row">
+                            <div ng-repeat="item in viewer.items" class="viewer-element">
+                                <i></i>
+                                <span>{{item.name}}</span>
+                            </div>
+                        </div>
+
+                        <div class="pager">
+                            <i class="left" ng-click="viewer.back()"></i>
+                            <ul>
+                                <li ng-click="viewer.goTo($index)" ng-repeat="page in viewer.pages" ng-class="{active: ($index==viewer.indexPageNow)  }">{{page.number}}</li>
+                            </ul>
+                            <i class="right" ng-click="viewer.forw()"></i>
                         </div>
                     </div>
-
-                    <div class="pager">
-                        <i class="left" ng-click="viewer.back()"></i>
-                        <ul>
-                            <li ng-click="viewer.goTo($index)" ng-repeat="page in viewer.pages" ng-class="{active: ($index==viewer.indexPageNow)  }">{{page.number}}</li>
-                        </ul>
-                        <i class="right" ng-click="viewer.forw()"></i>
-                    </div>
                 </div>
-            </div>
-            <div class="datos">
-                <div class="nombre">Fernando Valdeón</div>
-                <div class="puesto">Architecture Executive Director</div>
-                <div class="trayectoria">
-                    <span>My trajectory</span>
-                    <i></i>
-                </div>
-            </div>
 
+            </div>
         </div>
-        
+            
+            
         
 
+        
+        <!-- Paginador de scrolling -->
+        <div class="pager-arch">
+            <div class="pager-intro" ng-class="{'active': introPager}">Intro</div>
+            <div class="pager-areas" ng-class="{'active': areasPager}">Areas</div>
+            <div class="pager-contents" ng-class="{'active': contentsPager}">Contents</div>
+        </div>
         
     </div> 
 </main>

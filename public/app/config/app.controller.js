@@ -23,7 +23,7 @@
                     },
                     {
                         title: 'Architecture',
-                        link: 'areas/arquitectura',
+                        link: 'our-areas/architecture',
                         imgClass: 'arquitectura',
                         active: false
                     },
