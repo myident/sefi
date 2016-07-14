@@ -84,21 +84,55 @@
                     
                     if (offsetStart[layout].x == offsetEnd[layout].x){
                         
-                        directions[layout].final = 'down';
-                        
-                        halfWay = offsetEnd[layout].y + ((offsetStart[layout].y - offsetEnd[layout].y) / 2);
-                        
-                        linesToConexion[0][layout].x = offsetStart[layout].x;
-                        linesToConexion[0][layout].y = offsetStart[layout].y + margin.height;
+                        if ((offsetEnd[layout].y - offsetStart[layout].y) > 150) {
+                            
+                            if ((offsetEnd[layout].y - offsetStart[layout].y) > 200) {
+                                directions[layout].final = 'left';
 
-                        linesToConexion[1][layout].x = offsetStart[layout].x;
-                        linesToConexion[1][layout].y = halfWay;
+                                linesToConexion[0][layout].x = offsetStart[layout].x - margin.width;
+                                linesToConexion[0][layout].y = offsetStart[layout].y;
 
-                        linesToConexion[2][layout].x = offsetEnd[layout].x;
-                        linesToConexion[2][layout].y = halfWay;
-                        
-                        linesToConexion[3][layout].x = offsetEnd[layout].x;
-                        linesToConexion[3][layout].y = offsetEnd[layout].y - margin.height;
+                                linesToConexion[1][layout].x = offsetStart[layout].x - margin.width - 35;
+                                linesToConexion[1][layout].y = offsetStart[layout].y;
+
+                                linesToConexion[2][layout].x = offsetEnd[layout].x - margin.width - 35;
+                                linesToConexion[2][layout].y = offsetEnd[layout].y;
+
+                                linesToConexion[3][layout].x = offsetEnd[layout].x - margin.width;
+                                linesToConexion[3][layout].y = offsetEnd[layout].y;
+                            } else {
+                                directions[layout].final = 'left';
+
+                                linesToConexion[0][layout].x = offsetStart[layout].x + margin.width;
+                                linesToConexion[0][layout].y = offsetStart[layout].y;
+
+                                linesToConexion[1][layout].x = offsetStart[layout].x + margin.width + 15;
+                                linesToConexion[1][layout].y = offsetStart[layout].y;
+
+                                linesToConexion[2][layout].x = offsetEnd[layout].x + margin.width + 15;
+                                linesToConexion[2][layout].y = offsetEnd[layout].y;
+
+                                linesToConexion[3][layout].x = offsetEnd[layout].x + margin.width;
+                                linesToConexion[3][layout].y = offsetEnd[layout].y;
+                            }
+
+                        } else {
+                            directions[layout].final = 'down';
+
+                            halfWay = offsetEnd[layout].y + ((offsetStart[layout].y - offsetEnd[layout].y) / 2);
+
+                            linesToConexion[0][layout].x = offsetStart[layout].x;
+                            linesToConexion[0][layout].y = offsetStart[layout].y + margin.height;
+
+                            linesToConexion[1][layout].x = offsetStart[layout].x;
+                            linesToConexion[1][layout].y = halfWay;
+
+                            linesToConexion[2][layout].x = offsetEnd[layout].x;
+                            linesToConexion[2][layout].y = halfWay;
+
+                            linesToConexion[3][layout].x = offsetEnd[layout].x;
+                            linesToConexion[3][layout].y = offsetEnd[layout].y - margin.height;
+                        }
                     }
                 }
 
