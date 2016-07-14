@@ -18,41 +18,51 @@
         
     <span>{{source.titulo}} / {{source.subtitulo}} {{source.proceso}} {{source.capacidad}}</span>
     
-    <span ng-click="imprimir()" style="position: absolute; right: 520px; cursor: pointer;" ng-show="source.capacidad !== ''">Imprimir</span>
+    <span 
+        ng-click="imprimir()" 
+        class="download-pdf"
+        ng-show="source.capacidad !== ''">
+        <i></i> 
+        <span>Download diagram</span>
+        <ul>
+            <li>PDF Document</li>
+            <li>PNG Image</li>
+        </ul>
+    </span>
     
     
-    <div class="zoom-control">
+    <div class="zoom-control" ng-show="source.capacidad !== ''">
         <div class="btn-zoom menos" ng-click="menos()"></div>
         <div class="zoom-value" ng-click="restablecer()">{{zoom}}</div>
         <div class="btn-zoom mas" ng-click="mas()"></div> 
     </div>
 
     
-    <div class="select-box ver" style="position: absolute;">
-        <div ng-click="muestraVer()">Ver por: <span style="text-decoration: underline; cursor:pointer;">{{ver == 0 ? 'Procesos' : ver == 1 ? 'Capacidades' : 'Reglas de negocio'}}</span></div>
+    <div class="select-box ver" ng-show="source.capacidad !== ''">
+        <div ng-click="muestraVer()">Show by: <span style="text-decoration: underline; cursor:pointer;">{{ver == 0 ? 'Processes' : ver == 1 ? 'Capacities' : 'Business rules'}}</span></div>
         <ul ng-hide="selectBoxVerHidden">
             <li class="level" ng-click="clickVer(0)" ng-class="{'active': ver == 0}">
-                <div>Procesos</div>
-                <div style="font-size: 12px;">Nivel 2</div>
+                <div>Processes</div>
+                <div style="font-size: 12px;">Level 2</div>
             </li>
             <li class="level" ng-click="clickVer(1)" ng-class="{'active': ver == 1}">
-                <div>Capacidades</div>
-                <div style="font-size: 12px;">Nivel 3</div>
+                <div>Capacities</div>
+                <div style="font-size: 12px;">Level 3</div>
             </li>
             <li class="level" ng-click="clickVer(2)" ng-class="{'active': ver == 2}">
-                <div>Reglas de Negocio</div>
-                <div style="font-size: 12px;">Nivel 4</div>
+                <div>Business rules</div>
+                <div style="font-size: 12px;">Level 4</div>
             </li>
         </ul>
     </div>
     
     
     <div class="select-box ordenar" style="position: absolute;" ng-show="ver != 0">
-        <div ng-click="muestraOrdenar()">Ordenar por: <span style="text-decoration: underline; cursor:pointer;">{{selected == 0 ? 'Sin ordenar' : selected == 1 ? 'Áreas' : 'Aplicaciones'}}</span></div>
+        <div ng-click="muestraOrdenar()">Sort by: <span style="text-decoration: underline; cursor:pointer;">{{selected == 0 ? 'Unsorted' : selected == 1 ? 'Areas' : 'Applications'}}</span></div>
         <ul ng-hide="selectBoxOrdenarHidden">
-            <li ng-click="clickOption(0)" ng-class="{'active': selected == 0}">Sin ordenar</li>
-            <li ng-click="clickOption(1)" ng-class="{'active': selected == 1}">Áreas</li>
-            <li ng-click="clickOption(2)" ng-class="{'active': selected == 2}">Aplicaciones</li>
+            <li ng-click="clickOption(0)" ng-class="{'active': selected == 0}">Unsorted</li>
+            <li ng-click="clickOption(1)" ng-class="{'active': selected == 1}">Areas</li>
+            <li ng-click="clickOption(2)" ng-class="{'active': selected == 2}">Applications</li>
         </ul>
     </div>
 </section>

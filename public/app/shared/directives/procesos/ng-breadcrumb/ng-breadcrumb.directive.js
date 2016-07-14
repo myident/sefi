@@ -19,13 +19,13 @@
             
             
             $scope.muestraVer = function() {
-                $scope.selectBoxVerHidden = false;
+                $scope.selectBoxVerHidden = !$scope.selectBoxVerHidden;
                 $scope.selectBoxOrdenarHidden = true;
             };
             
             $scope.muestraOrdenar = function() {
                 $scope.selectBoxVerHidden = true;
-                $scope.selectBoxOrdenarHidden = false;
+                $scope.selectBoxOrdenarHidden = !$scope.selectBoxOrdenarHidden;
             };
 
             $scope.clickOption = function(value) {
