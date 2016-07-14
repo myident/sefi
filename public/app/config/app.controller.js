@@ -5,12 +5,7 @@
         $rootScope.appName = 'IT Book';
 
         $rootScope.elementosMenu = [
-            {
-                title: 'General Vision',
-                link: '',
-                subElements: [],
-                active: false
-            },
+            
             {
                 title: 'Our Areas',
                 link: '',
