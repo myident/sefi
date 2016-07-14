@@ -172,7 +172,10 @@
 }
 
 .viewer .pager li.active {
-    color: rgb(0, 0, 0);
+    color: rgb(19,149,186);
+}
+.viewer .filter-abc li.active {
+    color: rgb(19,149,186);
 }
 
 .arq-contenidos .viewer .row div > img {

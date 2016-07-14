@@ -1,13 +1,23 @@
 <ng-background></ng-background>
 <ng-header set-elementos-menu="elementosMenu"></ng-header>
 <main class="admin">
-
-	<input type="text" ng-model="filterModel" ng-keyup="find(filterModel)">
+	
+	<div class="application-header">
+		<div><span class="title-blue">Applications Catalog</span>
+			<div class="filter">
+				<input placeholder="Filter by name" type="text" ng-model="filterModel" ng-keyup="find(filterModel)">
+				<i class=""></i>
+			</div>
+		</div>
+		<span>Total: {{aplicaciones.length}} applications</span>
+	</div>
+	
+	
 	<div class="viewer">
 		
 		<ul class="filter-abc">
-			<li ng-click="viewer.setting(aplicaciones)">View all</li>
-			<li ng-repeat="letter in abc" ng-click="findByCapital(letter)">{{letter}}</li>
+			<li ng-click="viewer.findAll()" ng-class="{active: (viewer.filterBy == 'all')}">View all</li>
+			<li ng-repeat="letter in abc" ng-click="findByCapital(letter)" ng-class="{active: (viewer.filterBy == letter)}">{{letter}}</li>
 		</ul>
 
 		<div class="row">
