@@ -7,11 +7,8 @@
 
             });
             
-            $scope.imprimir = function(){
-                $scope.selectBoxVerHidden = true;
-                $scope.selectBoxOrdenarHidden = true;
-                $scope.selectBoxDescargaHidden = true;
-                $scope.print();
+            $scope.imprimir = function(value){
+                $scope.print(value);
             };
             
             $scope.selected = 0;
