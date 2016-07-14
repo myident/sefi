@@ -8,8 +8,11 @@
 
 
         $scope.abc = ['A','B','C','D','F','G','H','I','J','K','L','M','N','Ñ','O','P','Q','R','S','T','V','W','X','Y','Z'];
+        
         $scope.viewer = {};
-	
+		
+		$scope.viewer.filterBy = 'all';
+
 		$scope.viewer.itemsCount = 45;
 		$scope.viewer.items = [];
 		$scope.viewer.change = function(index){
@@ -52,7 +55,14 @@
 			}
 			$scope.viewer.change(0);
 		};
+		$scope.viewer.findAll = function(str){
+			$scope.viewer.filterBy = 'all';
+			$scope.viewer.setting($scope.aplicaciones);
+		}
        $scope.find = function(str){
+
+
+       	$scope.viewer.filterBy = str === '' ? 'all' : '';
        		str = str.toUpperCase();
 			var regExp = new RegExp(str);
 			var arr = [];
@@ -64,6 +74,7 @@
 			$scope.viewer.setting(arr);
 		};
 		$scope.findByCapital = function(str){
+			$scope.viewer.filterBy = str;
 			$scope.filterModel = '';
 			str = str.toUpperCase();
 			var regExp = new RegExp('^['+str+']');
