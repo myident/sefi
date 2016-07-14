@@ -589,14 +589,14 @@ ng-breadcrumb {
 }
 
 .select-box.ver {
-    right: 140px;
+    right: 350px;
     top: 0;
     width: 170px;
     position: absolute;
 }
 
 .select-box.ordenar {
-    right: 0;
+    right: 210px;
     top: 0;
 }
 
@@ -695,7 +695,7 @@ ng-breadcrumb {
 .zoom-control {
     position: absolute;
     top: 0px;
-    right: 353px;
+    right: 530px;
     width: 100px;
 }
 
@@ -736,10 +736,11 @@ ng-breadcrumb {
 
 .download-pdf {
     position: absolute;
-    right: 520px;
+    right: 0;
     cursor: pointer;
     height: 300px;
     z-index: 10;
+    width: 150px;
 }
 .download-pdf span {
     display: inline-block;

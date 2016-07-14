@@ -8,6 +8,9 @@
             });
             
             $scope.imprimir = function(){
+                $scope.selectBoxVerHidden = true;
+                $scope.selectBoxOrdenarHidden = true;
+                $scope.selectBoxDescargaHidden = true;
                 $scope.print();
             };
             
@@ -16,16 +19,24 @@
             $scope.openBar = true;
             $scope.selectBoxVerHidden = true;
             $scope.selectBoxOrdenarHidden = true;
+            $scope.selectBoxDescargaHidden = true;
             
+            $scope.muestraDescarga = function() {
+                $scope.selectBoxDescargaHidden = !$scope.selectBoxDescargaHidden;
+                $scope.selectBoxOrdenarHidden = true;
+                $scope.selectBoxVerHidden = true;
+            };
             
             $scope.muestraVer = function() {
                 $scope.selectBoxVerHidden = !$scope.selectBoxVerHidden;
                 $scope.selectBoxOrdenarHidden = true;
+                $scope.selectBoxDescargaHidden = true;
             };
             
             $scope.muestraOrdenar = function() {
                 $scope.selectBoxVerHidden = true;
                 $scope.selectBoxOrdenarHidden = !$scope.selectBoxOrdenarHidden;
+                $scope.selectBoxDescargaHidden = true;
             };
 
             $scope.clickOption = function(value) {
