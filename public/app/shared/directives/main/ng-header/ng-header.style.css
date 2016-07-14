@@ -69,16 +69,22 @@ ng-header > header > div.logo-it-book > p.it-book > span:first-child {
     float: right;
     width: 50px;
     height: 50px;
-    margin-top: 10px;
     position: relative;
+    transition: .3s;
+}
+
+.input-search.active{
+    width: 400px;
+    height: 70px;
+    transition: .3s;
 }
 
 .input-search > input {
     background-color: rgba(0, 0, 0, 0);
     border: none;
     position: absolute;
-    top: 13px;
-    left: 20px;
+    top: 25px;
+    left: 50px;
     font-size: 16px;
     color: #868686;
     font-family: 'Omnes Regular';
@@ -91,8 +97,8 @@ ng-header > header > div.logo-it-book > p.it-book > span:first-child {
     height: 27px;
     display: inline-block;
     position: absolute;
-    right: 13px;
-    top: 8px;
+    left: 10px;
+    top: 20px;
     cursor: pointer;
 }
 
@@ -113,7 +119,7 @@ ng-header > header > div.logo-it-book > p.it-book > span:first-child {
     font-size: 16px;
 /*    font-family: 'Clearview';*/
     color: #fff;
-    line-height: 60px;
+    line-height: 65px;
     /*width: calc(100% / 7);*/
     display: inline-block;
     text-align: center;

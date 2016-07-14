@@ -7,12 +7,12 @@
             <span>IT</span><span>BOOK</span>
         </p> -->
         
-        <div class="input-search">
-            <input type="text">
-            <i class="search-icon"></i>
+        <div class="input-search" ng-class="{active:!overlayHiddenSearch}">
+            <input type="text" placeholder="Search" ng-hide="overlayHiddenSearch">
+            <i class="search-icon" ng-init="overlayHiddenSearch = true" ng-click="overlayHiddenSearch = !overlayHiddenSearch"></i>
         </div>
 
-         <div class="header-menu-it-book">
+         <div class="header-menu-it-book" ng-show="overlayHiddenSearch">
              <nav>
                 <a href="#/{{itemMenu.link}}" ng-repeat="itemMenu in menu" ng-mouseenter="showsubmenu($index)" ng-class="{'active': itemMenu.active}">{{itemMenu.title}}</a>
             </nav>
@@ -45,4 +45,5 @@
         </nav>
     </div>
     <div class="overlay" ng-mouseenter="hidesubmenu()" ng-hide="overlayHidden"></div>
+    <div class="overlay" ng-click="overlayHiddenSearch = true" ng-hide="overlayHiddenSearch"></div>
 </header>
