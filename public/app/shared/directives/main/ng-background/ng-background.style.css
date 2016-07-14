@@ -15,6 +15,9 @@
     background-image: url(img/FONDO%20GRIS.png);
 }
 
+.ng-background.ap{
+    background-image: url(img/COMPU_GRAFICAS.png);
+}
 .ng-background.home {
     /*background-image: url(img/Fondo-IT-Book_web.png);*/
 }
