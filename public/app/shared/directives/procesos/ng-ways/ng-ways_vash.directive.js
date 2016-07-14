@@ -35,62 +35,84 @@
                 $scope.imprimir(n);
             });
             
+            $scope.$watch('formato', function () {
+
+            });
+            
 
             //MARK: - Funciones
             
             // Función para imprimir el PDF
             $scope.imprimir = function (n) {
-
                 var layoutSvg1 = document.getElementById('layoutSvg1');
                 var layoutSvg2 = document.getElementById('layoutSvg2');
-
+                
+                var nombre = '';
+                
                 if (n == 'print') {
-                    
-                    if ($scope.documentName !== '') {
-                        
-                        $rootScope.spin = true;
-                        var ancho, alto, nuevaAltura;
-                        var nombre = $vash.camelize($scope.documentName);
-                        var proporcion = 1;
-                        var escala = 1;
-                        
-                        
-                        if ($scope.layout === 0) {
-                            ancho = $vash.sumOffsetsInX();
-                            alto = $vash.heightProcesosMax();
+                    if ($scope.formato == 'PDF') {
+                        if ($scope.documentName !== '') {
+
+                            $rootScope.spin = true;
                             
-                            nuevaAltura = ((780 * alto) / ancho);
+                            var ancho, alto, nuevaAltura;
+                            nombre = $vash.camelize($scope.documentName);
                             
-                            svgAsPngUri(element[0], {
-                                scale: 3.5
-                            }, function (uri) {
-                                
-                                var pdf = new jsPDF('l', 'pt', 'letter');
-                                
-                                pdf.addImage(uri, 'PNG', 0, 0, 792, nuevaAltura);
-                                
-                                $rootScope.spin = false;
-                                pdf.save(nombre + '_capacities.pdf');
-                            });
+                            var proporcion = 1;
+                            var escala = 1;
+
+
+                            if ($scope.layout === 0) {
+                                ancho = $vash.sumOffsetsInX();
+                                alto = $vash.heightProcesosMax();
+
+                                nuevaAltura = ((780 * alto) / ancho);
+
+                                svgAsPngUri(element[0], {
+                                    scale: 3.5
+                                }, function (uri) {
+
+                                    var pdf = new jsPDF('l', 'pt', 'letter');
+
+                                    pdf.addImage(uri, 'PNG', 0, 0, 792, nuevaAltura);
+
+                                    $rootScope.spin = false;
+                                    pdf.save(nombre + '_capacities.pdf');
+                                });
+                            }
+
+
+                            if ($scope.layout == 1) {
+                                proporcion = 4;
+                                escala = 2;
+                                ancho = $vash.sumMaxInX() / proporcion;
+                                alto = $vash.sumOffsetsInY() / proporcion;
+
+                                $print.pdf(ancho, alto, layoutSvg1, element[0], nombre + '_areas', proporcion, escala);
+                            }
+
+                            if ($scope.layout == 2){
+                                proporcion = 2;
+                                escala = 1;
+                                ancho = $vash.sumMaxInX() / proporcion;
+                                alto  = $vash.sumOffsetsInY() / proporcion;
+                                $print.pdf(ancho, alto, layoutSvg2, element[0], nombre + '_applications', proporcion, escala);
+                            }
+
                         }
+                    }
+                    if ($scope.formato == 'PNG'){
                         
-                        
+                        if ($scope.layout == 0) {
+                            nombre = $vash.camelize($scope.documentName) + '_processes';
+                        }
                         if ($scope.layout == 1) {
-                            proporcion = 4;
-                            escala = 2;
-                            ancho = $vash.sumMaxInX() / proporcion;
-                            alto = $vash.sumOffsetsInY() / proporcion;
-                            
-                            $print.pdf(ancho, alto, layoutSvg1, element[0], nombre + '_areas', proporcion, escala);
+                            nombre = $vash.camelize($scope.documentName) + '_areas';
                         }
-                        
-                        if ($scope.layout == 2){
-                            proporcion = 2;
-                            escala = 1;
-                            ancho = $vash.sumMaxInX() / proporcion;
-                            alto  = $vash.sumOffsetsInY() / proporcion;
-                            $print.pdf(ancho, alto, layoutSvg2, element[0], nombre + '_applications', proporcion, escala);
+                        if ($scope.layout == 2) {
+                            nombre = $vash.camelize($scope.documentName) + '_applications';
                         }
+                        saveSvgAsPng(element[0], nombre + '.png');
                         
                     }
                 }
@@ -239,7 +261,8 @@
                 type: '=ordenarPor',
                 activar: '=soloProcesos',
                 print: '=enviarImprimir',
-                documentName: '=nombrePdf'
+                documentName: '=nombrePdf',
+                formato: '= '
 
             }
         };

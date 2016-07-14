@@ -135,7 +135,7 @@
                             }
                             data.procesos[i]['reglas'] = reglasTemp;
                         }
-                        console.log(data.procesos);
+//                        console.log(data.procesos);
                         // Config Martin //////////////////////////////////////
 
 
@@ -292,8 +292,10 @@
         $scope.abrirCapacidades = false;
 
         $scope.imprimir = "";
+        $scope.formato = "";
 
-        $scope.imprimirDesdeBreadCrumb = function () {
+        $scope.imprimirDesdeBreadCrumb = function (value) {
+            $scope.formato = value;
             $scope.imprimir = "print";
         };
 
