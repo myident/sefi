@@ -28,7 +28,7 @@
 
 .container-parallax {
     width: 100%;
-/*    max-width: 2200px;*/
+    /*    max-width: 2200px;*/
     margin: 150px auto 0 auto;
     padding: 0!important;
 }
@@ -200,7 +200,7 @@
 }
 
 .info-area .datos .trayectoria:hover span,
-.architecture-intro .datos .trayectoria:hover span{
+.architecture-intro .datos .trayectoria:hover span {
     text-decoration: underline;
     cursor: pointer;
 }
@@ -210,7 +210,7 @@
     width: 100px;
 }
 
-.info-area .foto img{
+.info-area .foto img {
     margin: 0 auto;
     display: block;
 }
@@ -245,10 +245,6 @@
 }
 
 .arch-contents .viewer .viewer-element:hover i {
-    display: block;
-    margin: 30px auto;
-    width: 71px;
-    height: 69px;
     background-image: url(./img/power_white.png);
 }
 
@@ -362,28 +358,88 @@ i.avanzar-trj {
     vertical-align: middle;
 }
 
+.parallax-arch {
+    position: relative;
+    width: 1100px;
+    margin: 0 auto;
+}
+
 @media screen and (min-width: 2200px) {
-.cara {
-    width: 100%;
-    height: calc(100vh - 140px);
-    background-image: url(./img/fernando-superhd.png);
-    background-size: cover;
-    background-position: 0;
-}
- 
-}
-
-@media screen and (min-width: 1600px) and (max-width: 2199px){
-.cara {
-    width: 100%;
-    height: calc(100vh - 140px);
-    background-image: url(./img/fernando-hd.png);
-    background-size: cover;
-    background-position: 0;
-}
- 
+    .cara {
+        width: 100%;
+        height: calc(100vh - 140px);
+        background-image: url(./img/fernando-superhd.png);
+        background-size: cover;
+        background-position: 0;
+    }
 }
 
-@media screen and (max-width: 1100px){
-    
+@media screen and (min-width: 1600px) and (max-width: 2199px) {
+    .cara {
+        width: 100%;
+        height: calc(100vh - 140px);
+        background-image: url(./img/fernando-hd.png);
+        background-size: cover;
+        background-position: 0;
+    }
+}
+
+@media screen and (min-width: 1401px) and (max-width: 1599px) {
+    .parallax-arch {
+        position: relative;
+        width: 800px;
+        margin: 0 auto;
+    }
+    .architecture-intro {
+        width: 700px;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .parallax-arch {
+        position: relative;
+        width: 800px;
+        margin: 0 auto;
+    }
+    .architecture-intro {
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .pager-arch {
+        display: none;
+    }
+    .cuadro-area {
+        width: 180px;
+        height: 180px;
+        vertical-align: top;
+    }
+    .cuadro-area-icono {
+        height: 60px;
+        width: 44px;
+        margin: 20px auto;
+    }
+    .cuadro-area-titulo {
+        font-size: 18px;
+    }
+    .info-area {
+        width: 590px;
+    }
+    .info-area p {
+        font-size: 16px;
+    }
+    .arch-contents .viewer .row {
+        width: 850px;
+    }
+    .arch-contents .viewer .viewer-element {
+        width: 182px;
+        height: 123px;
+    }
+    .arch-contents .viewer .viewer-element i {
+        margin: 10px auto;
+    }
+    .arch-contents .viewer .pager {
+        width: 850px;
+    }
 }
