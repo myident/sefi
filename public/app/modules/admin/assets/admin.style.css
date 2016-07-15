@@ -53,3 +53,11 @@
 	background-image: url(img/Shape.png);
 	background-repeat: no-repeat;
 }
+
+.link{
+	cursor: pointer;
+	/*text-decoration: underline;*/
+}
+.link:hover{
+	color: rgb(19,149,186);
+}
