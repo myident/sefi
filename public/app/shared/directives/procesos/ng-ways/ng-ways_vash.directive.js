@@ -48,39 +48,31 @@
                 var layoutSvg2 = document.getElementById('layoutSvg2');
                 
                 var nombre = '';
-                
+
                 if (n == 'print') {
+
                     if ($scope.formato == 'PDF') {
                         if ($scope.documentName !== '') {
-
-                            $rootScope.spin = true;
                             
+                        
                             var ancho, alto, nuevaAltura;
                             nombre = $vash.camelize($scope.documentName);
                             
                             var proporcion = 1;
                             var escala = 1;
 
-
                             if ($scope.layout === 0) {
                                 ancho = $vash.sumOffsetsInX();
                                 alto = $vash.heightProcesosMax();
-
                                 nuevaAltura = ((780 * alto) / ancho);
-
                                 svgAsPngUri(element[0], {
                                     scale: 3.5
                                 }, function (uri) {
-
                                     var pdf = new jsPDF('l', 'pt', 'letter');
-
                                     pdf.addImage(uri, 'PNG', 0, 0, 792, nuevaAltura);
-
-                                    $rootScope.spin = false;
                                     pdf.save(nombre + '_capacities.pdf');
                                 });
                             }
-
 
                             if ($scope.layout == 1) {
                                 proporcion = 4;
@@ -103,7 +95,7 @@
                     }
                     if ($scope.formato == 'PNG'){
                         
-                        if ($scope.layout == 0) {
+                        if ($scope.layout === 0) {
                             nombre = $vash.camelize($scope.documentName) + '_processes';
                         }
                         if ($scope.layout == 1) {
