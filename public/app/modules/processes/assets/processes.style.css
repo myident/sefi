@@ -137,6 +137,7 @@ section.container-index {
     width: 280px;
     height: calc(100% - 350px);
     min-height: 100px;
+
     overflow: auto;
 }
 
