@@ -578,7 +578,7 @@
                         capacidad.offsets[layout], 
                         capacidadWidth, 
                         capacidadHeight, 
-                        'ERROR: SubProceso Inconsistente', 11);
+                        'ERROR: Apunta a sí mismo', 11);
                         textbox = $paint.textRed(textbox); 
                     }
 

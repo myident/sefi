@@ -84,7 +84,7 @@
 .cuadro-area {
     width: 330px;
     height: 330px;
-    background: #0D3C55;
+    background: #5C69B3;
     display: inline-block;
     vertical-align: middle;
 }
@@ -152,7 +152,7 @@
 }
 
 .lista-areas li:nth-child(2) .cuadro-area {
-    background: #0F5B78!important;
+    background: #3760A1!important;
 }
 
 .lista-areas li:nth-child(3) .cuadro-area {
