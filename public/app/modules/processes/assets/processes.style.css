@@ -135,8 +135,13 @@ section.container-card > div.card > article.backside a {
 section.container-index {
     background: #606060;
     width: 280px;
+<<<<<<< HEAD
     height: calc(100% - 325px);
     min-height: 240px;
+=======
+    height: calc(100% - 350px);
+    min-height: 100px;
+>>>>>>> marttin
     overflow: auto;
 }
 

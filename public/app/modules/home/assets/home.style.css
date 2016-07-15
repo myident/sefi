@@ -104,3 +104,32 @@
 .padding-30{
 	padding: 30px!important;
 }
+.content-flipped{
+	width: 100%;
+    position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    height: 319px;
+}
+.content-flipped.flipped {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+.content-flipped > div{
+	width: 100%;
+	margin: 0;
+    display: block;
+    position: absolute;
+    height: 319px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    
+}
+
+.content-flipped .back{
+	transform: rotateY( 180deg);
+}
+.position-relative{
+	position: relative;
+}

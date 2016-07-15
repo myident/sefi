@@ -103,6 +103,12 @@
                 });
                 return text;
             },
+            textRed: function (text) {
+                text.attr({
+                    fill: "rgb(255,0,0)"
+                });
+                return text;
+            },
             fontColorWhite: function (text) {
                 text.attr({
                     fill: "rgb(255,255,255)"
