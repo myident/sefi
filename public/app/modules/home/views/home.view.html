@@ -25,38 +25,52 @@
 	     </div>
 	
 	<div class="row" style="max-width:1310px;margin: auto;margin-top:15px">
-	     <div class="md-col-3 sm-col-6 cursor-pointer">
-	     	<div class="MISSION_png text-white text-center " ng-class="{MISSION_blur_png:missionToggle}" ng-click="missionToggle = !missionToggle;">
-	     		<h1 ng-hide="missionToggle" ng-init="missionToggle = false" class="itbook-title text-white text-center padding-top-120">
-		  			<span class="">MISSION</span>
-		  		</h1>
-		  		<div ng-show="missionToggle" class="font-17 padding-20">
-		  			<h2>MISSION</h2>
-		  			<p>{{home.mission}}</p>
+	     <div class="md-col-3 sm-col-6 cursor-pointer position-relative">
+	     	<div class="content-flipped text-center" ng-init="missionToggle = false" ng-class="{'flipped': missionToggle}" ng-mouseenter="missionToggle = !missionToggle;" ng-mouseleave="missionToggle = !missionToggle;">
+	     		
+	     		<div class="front MISSION_png text-white">
+		     		<h1  class=" text-white text-center padding-top-120">
+			  			<span class="">MISSION</span>
+			  		</h1>
+		  		</div>
+		  		<div class="back MISSION_blur_png text-white">
+			  		<div  class="font-17 padding-20">
+			  			<h2>MISSION</h2>
+			  			<p>{{home.mission}}</p>
+			  		</div>
 		  		</div>
 	     	</div>
 	     </div>
-	     <div class="md-col-3 sm-col-6 cursor-pointer">
-	     	<div class="VISION_png text-white text-center" ng-class="{VISION_blur_png:visionToggle}" ng-click="visionToggle = !visionToggle;">
-				<h1 ng-hide="visionToggle" ng-init="visionToggle = false" class="itbook-title padding-top-120">
-		  			<span class="">VISION</span>
-		  		</h1>
-		  		<div ng-show="visionToggle" class="font-17 padding-20">
-		  			<h2>VISION</h2>
-		  			<p>{{home.vision}}</p>
+	     <div class="md-col-3 sm-col-6 cursor-pointer position-relative">
+	     	<div ng-init="visionToggle = false" class="content-flipped text-white text-center" ng-class="{'flipped':visionToggle}" ng-mouseenter="visionToggle = !visionToggle;" ng-mouseleave="visionToggle = !visionToggle;">
+				
+				<div class="front VISION_png text-white">
+					<h1 class="padding-top-120">
+			  			<span class="">VISION</span>
+			  		</h1>
+			  	</div>
+		  		<div class="back VISION_blur_png text-white">
+			  		<div class="font-17 padding-20">
+			  			<h2>VISION</h2>
+			  			<p>{{home.vision}}</p>
+			  		</div>
 		  		</div>
 	     	</div>
 	     </div>
-	     <div class="md-col-3 sm-col-6 cursor-pointer">
-	     	<div class="VALUES_png text-white" ng-class="{VALUES_blur_png:valuesToggle}" ng-click="valuesToggle = !valuesToggle;">
-	     		<h1 ng-hide="valuesToggle" ng-init="valuesToggle = false" class="itbook-title padding-top-120 text-center">
-		  			<span class="">VALUES</span>
-		  		</h1>
-		  		<div ng-show="valuesToggle" class="font-17 padding-20">
-		  			<h2 class="text-center">VALUES</h2>
-		  			<ul style="list-style-type:disc;padding-left:20px;line-height:1.5;">
-		  				<li ng-repeat="item in home.values">{{item}}</li>
-		  			</ul>
+	     <div class="md-col-3 sm-col-6 cursor-pointer position-relative">
+	     	<div ng-init="valuesToggle = false" class="content-flipped text-white" ng-class="{'flipped':valuesToggle}" ng-mouseenter="valuesToggle = !valuesToggle;" ng-mouseleave="valuesToggle = !valuesToggle;">
+	     		<div class="front VALUES_png text-white">
+		     		<h1 class="padding-top-120 text-center">
+			  			<span class="">VALUES</span>
+			  		</h1>
+		  		</div>
+		  		<div class="back VALUES_blur_png text-white">
+			  		<div class="font-17 padding-20">
+			  			<h2 class="text-center">VALUES</h2>
+			  			<ul style="list-style-type:disc;padding-left:20px;line-height:1.5;">
+			  				<li ng-repeat="item in home.values">{{item}}</li>
+			  			</ul>
+			  		</div>
 		  		</div>
 	     	</div>
 	     </div>
@@ -68,100 +82,4 @@
 	     	</div>
 	     </div>
      </div>
-    
-    <!-- <div class="row">
-        <div class="md-col-12 sm-col-12">
-            <div class="back-white-transparent">
-                <h1 class="padding-top-15 opacity-80">
-  			<span class="back-yellow text-white padding-15">WELCOME TO</span> <br class="title-br"/>
-			<span style="line-height: 1.4;" class="back-yellow text-white padding-15 title-2">IT BOOK</span>
-  		</h1>
-  		<div class="padding-50">
-	  		<article>
-		  		<p>
-			  		I am proud to introduce to all IT Collaborators and Business Users areas this new tool, which has been redesigned to consult, save and update, in an easier way, the IT documentation that  is generated during planning, design and development of the requirements requested to IT from the Business Areas of AT&T Mexico. This tool will provide you an overview of our Enterprise Architecture, and its main objective is to keep the information allways available and updated. Everyone is invited to be part of its ongoing improvement.
-			  	</p>
-		  	</article>
-		  	<div class="author">
-		  		<img class="img-middle float-right" src="app/modules/home/assets/img/FOTO_PABLO_SALAZAR.png" alt="">
-		  		<div class="text-author float-right text-right">
-		  			<p class="text-blue"><b  style="font-size: 17px;">Pablo Salazar</b></p>
-		  			<p><b style="font-size: 17px;">VP Chief Information officer</b></p>
-		  		</div>
-		  	</div>
-  		</div>	
-  	</div>
-  </div> -->
- <!--  <div class="md-col-3 sm-col-12 padding-0">
-	  <div class="row">
-		  <div class="md-col-12 sm-col-6 padding-bottom-30 ">
-		  	<div class="back-white-transparent">
-		  	<div class="list-title">Recently added</div>
-		  	<ul class="list-body">
-		  		<li>Flujo de trabajo 2016</li>
-		  		<li>Estrategia 2016</li>
-		  		<li>Nuevo organigrama IT</li>
-		  		<li>Presupuesto para el me...</li>
-		  		<li>Nuevos procedimientos</li>
-		  	</ul>
-		  	</div>
-		  </div>
-		  <div class="md-col-12 sm-col-6 padding-bottom-30">
-		  <div class="back-white-transparent">
-		  	<div class="list-title">Most viewed</div>
-			  	<ul class="list-body">
-			  		<li>Flujo de trabajo 2016</li>
-			  		<li>Estrategia 2016</li>
-			  		<li>Nuevo organigrama IT</li>
-			  		<li>Presupuesto para el me...</li>
-			  		<li>Nuevos procedimientos</li>
-			  	</ul>
-			  </div>
-		  </div>
-		  </div>
-	  </div>
-	</div> -->
-
-	<!-- <div class="row">
-		<div class="md-col-3 sm-col-6">
-			<img style="margin-top: 36px;" class="img-compromiso" src="app/modules/home/assets/img/FOTO_QUOTE.png" alt="">
-			<p class="text-white text-large text-center text-shadow">
-				<b>
-					<i>
-						“Connecting <br/> people,<br/> processes<br/> and things.”
-					</i>
-				</b>
-			</p>
-		</div>
-		<div class="md-col-3 sm-col-6 text-large">
-			<div class="back-white-transparent" style="height: 350px;">
-				<div class="padding-20">
-				<img class="img-align-bottom" src="app/modules/home/assets/img/ico.mision.png" alt=""><h2 class="display-inline margin-0 margin-left-10">MISSION</h2>
-				<p align="left">Our mission is to exploit technical innovations for the benefit of AT&T and its customers by implementing next-generation technologies and network advancements in AT&T's services and operations.</p>
-				</div>
-			</div>
-		</div>
-		<div class="md-col-3 sm-col-6 text-large" >
-			<div class="back-white-transparent" style="height: 350px;">
-				<div class="padding-20">
-			<img class="img-align-bottom" src="app/modules/home/assets/img/ico.vision.png" alt=""><h2 class="display-inline margin-0 margin-left-10">VISION</h2>
-				<p align="left">To design and create in this decade the new global network, processes, and service platforms that maximize automation, allowing for a reallocation of human resources to more complex and productive work.</p>
-			</div>
-			</div>
-		</div>
-		<div class="md-col-3 sm-col-6 text-large">
-			<div class="back-white-transparent" style="height: 350px;">
-				<div class="padding-20">
-			<img class="img-align-bottom" src="app/modules/home/assets/img/ico.valores.png" alt=""><h2 class="display-inline margin-0 margin-left-10">VALUES</h2>
-				<p align="justify">
-				• 	Ethics <br/>
-				• 	Honor your Word <br/>
-				• 	Honesty <br/>
-				• 	Respect <br/>
-				• 	Family <br/>
-				• 	Discipline</p>
-			</div>
-			</div>
-		</div>
-	</div> -->
 </main>

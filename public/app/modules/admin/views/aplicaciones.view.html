@@ -20,8 +20,8 @@
 			<li ng-repeat="letter in abc" ng-click="findByCapital(letter)" ng-class="{active: (viewer.filterBy == letter)}">{{letter}}</li>
 		</ul>
 
-		<div class="row">
-    		<div ng-repeat="item in viewer.items" class="lg-col-3 md-col-4 sm-col-6 ">
+		<div class="row" style="height:730px;">
+    		<div ng-repeat="item in viewer.items" class="lg-col-2 md-col-4 sm-col-6 ">
     			<span>{{item.name}}</span>
     		</div>
     	</div>

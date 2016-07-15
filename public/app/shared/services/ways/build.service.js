@@ -308,6 +308,7 @@
                         }
                     }
                 }
+                capacidad.name = "ERROR: Paso siguiente inconsistente"
                 return capacidad.offsets;
             },
             offsetToArr: function(arr, layout){
@@ -509,7 +510,8 @@
                         capacidad.offsets[layout], 
                         capacidadWidth, 
                         capacidadHeight, 
-                        'X', 11);    
+                        'ERROR: Proceso Inconsistente', 11);
+                        textbox = $paint.textRed(textbox); 
                     }
 
                     // Setting data
@@ -576,7 +578,8 @@
                         capacidad.offsets[layout], 
                         capacidadWidth, 
                         capacidadHeight, 
-                        'X', 11);    
+                        'ERROR: SubProceso Inconsistente', 11);
+                        textbox = $paint.textRed(textbox); 
                     }
 
                     // Setting data
