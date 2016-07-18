@@ -4,7 +4,7 @@
 .admin .viewer{
 	max-width: 2000px;
 	background-color: rgb(255,255,255);
-	margin: auto;
+	margin: 60px auto;
 	padding-bottom:20px;
 	padding-top:1px;
 	border: 1px solid rgb(208,208,208);
