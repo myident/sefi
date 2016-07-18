@@ -102,6 +102,14 @@
                 foto: ''
             },
             {
+                titulo: 'Digital Experience',
+                descripcion: 'In Digital Experience we build experiences purposefully crafted to fulfill human needs that both enhance and add to the AT&T eco-system. Digital Experience transforms business needs into digital products specifically made for each user. \\n We create and improve existent processes and solutions in order to generate positive experiences and satisfy every user needs.',
+                id_trayectoria: 8,
+                director: 'Franz Carlos Uriel Martínez Morales',
+                puesto: 'Digital Experience Director',
+                foto: ''
+            },
+            {
                 titulo: 'Big Data and Data Science',
                 descripcion: 'Big Data and Data Science provide to the organization reliable information for decision making through mathematical and statistical models, with flexible data foundations and using a holistic and agnostic view.',
                 director: 'María Eugenia Ayala Porras',
@@ -115,14 +123,6 @@
                 director: 'Erika Zaragoza Bermeo',
                 id_trayectoria: 5,
                 puesto: 'Governance Assistant Director',
-                foto: ''
-            },
-            {
-                titulo: 'Digital Experience',
-                descripcion: 'In Digital Experience we build experiences purposefully crafted to fulfill human needs that both enhance and add to the AT&T eco-system. Digital Experience transforms business needs into digital products specifically made for each user. \\n We create and improve existent processes and solutions in order to generate positive experiences and satisfy every user needs.',
-                id_trayectoria: 8,
-                director: 'Franz Carlos Uriel Martínez Morales',
-                puesto: 'Digital Experience Director',
                 foto: ''
             }
         ];
