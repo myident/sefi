@@ -2,7 +2,7 @@
 (function () {
     var Directive = function ($vash, $build, $layout, $settings, $rootScope, $print) {
 
-        var Link = function ($scope, element) {
+        var Link = function ($scope, element, attr, ctrl) {
 
             $scope.svg = Snap(element[0]); // Creación del Paper
 
@@ -189,31 +189,102 @@
                 $vash.zoom = 1;
 
                 // Se reconstruyen los layouts
-                $scope.buildLayouts();
+                
 
+                $scope.validaciones = function(data){
+                    var success = true;
+                    var count = 0;
+                    var errorArr = [];
+                    for(var i  in data){
+                        var proceso = data[i];
+                        if(data[i]['reglas'].length){
+                               for( var j in  data[i]['reglas']){
+                                var regla = data[i]['reglas'][j];
+                                if(!regla.aplicaciones.length){
+                                    var errorStr = count +' -> '+regla.name + ' - ERROR de base de datos: [reglas] Faltan aplicaciones';
+                                    console.error(errorStr);
+                                    errorArr.push(errorStr);
+                                    success = false;
+                                    count++;
+                                }
+                                if(!regla.areas.length){
+                                    var errorStr =  count +' -> '+regla.name + ' - ERROR de base de datos: [reglas] Faltan reglas'
+                                    console.error(errorStr);
+                                    errorArr.push(errorStr);
+                                    success = false;
+                                    count++;
+                                }
+                            } 
+                        }else{
+                            console.error('ERROR de base de datos: Faltan Reglas');
+                            success = false;
+                                    count++;
+                        }
+                     if(data[i]['capacidades'].length){
+                            for( var j in  data[i]['capacidades']){
+                                var capacidad = data[i]['capacidades'][j];
+                                if(!capacidad.aplicaciones.length){
+                                    var errorStr =  count +' -> '+capacidad.name + ' - ERROR de base de datos: [capacidades] Faltan aplicaciones';
+                                    console.error(errorStr);
+                                    errorArr.push(errorStr);
+                                    success = false;
+                                    count++;
+                                }   
+                                if(!capacidad.areas.length){
+                                    var errorStr =  count +' -> '+capacidad.name + ' - ERROR de base de datos: [capacidades] Faltan reglas';
+                                    console.error(errorStr);
+                                    errorArr.push(errorStr);
+                                    success = false;
+                                    count++;
+                                }
+                            }
+                        }else{
+                            var errorStr =  count +' -> '+proceso.name + - 'ERROR de base de datos: Faltan capacidades'
+                            console.error(errorStr);
+                            errorArr.push(errorStr);
+                            success = false;
+                                    count++;
+                        }
+                    }
+
+                    ctrl.$setViewValue(errorArr);
+                    ctrl.$render();
+
+                    console.log('Número errores encontrados : '+count);
+                    return success;
+                };
 
                 // Se verifica que existan procesos en $scope.source
                 if ($scope.source.length) {
 
                     // Se preparan los procesos para dibujarlos
-                    $settings.processes(
-                        $scope.source, // array que contiene los procesos
-                        offsetsInit, // offsets por default para los procesos
-                        $scope.config, // el config que recibe la directiva
-                        $scope.layout, // el layout que debe cargar segun la directiva
-                        $scope.type,
-                        $scope.activar); // se refiere si muestra capacidades o reglas de negocio
+                    
 
-                    // Se dibujan los procesos
-                    $build.processes(
-                        $scope.source,
-                        $scope.svg,
-                        $scope.layout,
-                        $scope.objss,
-                        $scope.prccessArr,
-                        $scope.procesosGroup,
-                        $scope.type,
-                        $scope.activar);
+                    if($scope.validaciones($scope.source)){
+                        $scope.buildLayouts();
+
+                        $settings.processes(
+                            $scope.source, // array que contiene los procesos
+                            offsetsInit, // offsets por default para los procesos
+                            $scope.config, // el config que recibe la directiva
+                            $scope.layout, // el layout que debe cargar segun la directiva
+                            $scope.type,
+                            $scope.activar); // se refiere si muestra capacidades o reglas de negocio
+
+                        // Se dibujan los procesos
+                        $build.processes(
+                            $scope.source,
+                            $scope.svg,
+                            $scope.layout,
+                            $scope.objss,
+                            $scope.prccessArr,
+                            $scope.procesosGroup,
+                            $scope.type,
+                            $scope.activar);
+                    }else{
+                        
+                    }
+                    
 
 
                     // Se configura el tamaño del SVG para poder hacer el ZOOM
