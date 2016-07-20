@@ -14,14 +14,14 @@
 	</div>
 	
 	
-	<div class="viewer">
+	<div class="viewer" style="margin-top:10px;">
 		
 		<ul class="filter-abc">
 			<li ng-click="viewer.findAll()" ng-class="{active: (viewer.filterBy == 'all')}">View all</li>
 			<li ng-repeat="letter in abc" ng-click="findByCapital(letter)" ng-class="{active: (viewer.filterBy == letter)}">{{letter}}</li>
 		</ul>
 
-		<div class="row" style="height:730px;">
+		<div class="row" style="height:420px;">
     		<div ng-repeat="item in viewer.items" class="lg-col-2 md-col-4 sm-col-6 ">
     			<span class="link">{{item.name}}</span>
     		</div>
