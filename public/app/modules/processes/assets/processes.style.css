@@ -487,7 +487,7 @@ ng-mapside ul li.active:hover {
     width: 158px;
     height: 45px;
     right: 0;
-    bottom: 20px;
+    bottom: 0;
     line-height: 45px;
     color: #626262;
     font-size: 16px;
@@ -510,6 +510,9 @@ ng-mapside ul li.active:hover {
     right: 11px;
     top: 16px;
 }
+    .sidebar-left section.container-card > div.card > article.backside ng-mapside ul li:nth-child(5):after {
+        height: 40px;
+    }
 
 @media screen and (max-width: 1366px) {
     section.container-card {
@@ -542,7 +545,5 @@ ng-mapside ul li.active:hover {
     .ecosistema {
         bottom: 0px;
     }
-    .sidebar-left section.container-card > div.card > article.backside ng-mapside ul li:nth-child(5):after {
-        height: 40px;
-    }
+
 }
