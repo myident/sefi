@@ -2,6 +2,8 @@
 (function () {
 
     var Controller = function ($scope, $rootScope, $routeParams, $itbook, $arquitecturas) {
+        
+        $rootScope.spin = false;
 
         if (!$rootScope.source.rutas) {
             

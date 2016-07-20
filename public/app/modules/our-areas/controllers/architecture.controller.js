@@ -1,7 +1,9 @@
 /*global angular*/
 /*jslint browser:true*/
 (function () {
-    var controller = function ($scope, $window) {
+    var controller = function ($scope, $window, $rootScope) {
+        
+        $rootScope.spin = false;
 
         $scope.go = function(value) {
             $window.location = '#/areas/arquitectura/trayectoria/' + value;  
@@ -105,7 +107,7 @@
                 titulo: 'Digital Experience',
                 descripcion: 'In Digital Experience we build experiences purposefully crafted to fulfill human needs that both enhance and add to the AT&T eco-system. Digital Experience transforms business needs into digital products specifically made for each user. \\n We create and improve existent processes and solutions in order to generate positive experiences and satisfy every user needs.',
                 id_trayectoria: 8,
-                director: 'Franz Carlos Uriel Martínez Morales',
+                director: 'Franz Carlos Martínez Morales',
                 puesto: 'Digital Experience Director',
                 foto: ''
             },
@@ -321,7 +323,7 @@
         $scope.viewer.setting();
     };
     
-    controller.$inject = ['$scope', '$window'];
+    controller.$inject = ['$scope', '$window', '$rootScope'];
     
     angular
         .module('mArchitecture').controller('ArchController', controller);

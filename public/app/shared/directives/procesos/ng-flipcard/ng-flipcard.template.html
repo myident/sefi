@@ -1,11 +1,10 @@
 <section class="flipcard">
     <ul>
-        <li ng-repeat="arquitectura in source">
+        <li ng-repeat="arquitectura in source" ng-mouseenter="flipOne($index)" ng-mouseleave="closeOne($index)">
             <section class="container-card">
                 <div class="card" ng-class="{'flipped': arquitectura.flipped}">
                     <article 
                        class="frontside" 
-                       ng-click="flipOne($index)" 
                        ng-style="{'background-image':arquitectura.img}">
                         <div 
                            class="lienzo">

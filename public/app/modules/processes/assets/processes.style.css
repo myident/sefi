@@ -234,7 +234,7 @@ section.container-card > div.card > article.backside ng-mapside ul li:nth-child(
 
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(1):hover,
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(1).active {
-    background: #9063CD;
+    background: #1395BA;
     color: #ffffff;
 }
 
@@ -247,7 +247,7 @@ section.container-card > div.card > article.backside ng-mapside ul li:nth-child(
 
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(2):hover,
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(2).active {
-    background: #EC7400;
+    background: #80BF7B;
     color: #ffffff;
 }
 
@@ -264,7 +264,7 @@ section.container-card > div.card > article.backside ng-mapside ul li:nth-child(
 
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(3):hover,
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(3).active {
-    background: #B5BF00;
+    background: #EF8B2C;
     color: #ffffff;
 }
 
@@ -277,7 +277,7 @@ section.container-card > div.card > article.backside ng-mapside ul li:nth-child(
 
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(4):hover,
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(4).active {
-    background: #0066B0;
+    background: #D94E1F;
     color: #ffffff;
 }
 
@@ -302,6 +302,7 @@ section.container-card > div.card > article.backside ng-mapside ul li:nth-child(
     bottom: 0;
     z-index: -1;
 }
+
 
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(5) h2 {
     margin-top: 343px;

@@ -3,7 +3,8 @@
 (function () {
 
     var Controller = function ($scope, $rootScope, $routeParams, $itbook, $vash, $megaprocesos, $arquitecturas, $macroprocesos, $procesos) {
-
+        
+        $rootScope.spin = false;
 
         // Background está en $rootScope
         // Header está en $rootScope
