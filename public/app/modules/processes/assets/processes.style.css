@@ -542,4 +542,7 @@ ng-mapside ul li.active:hover {
     .ecosistema {
         bottom: 0px;
     }
+    .sidebar-left section.container-card > div.card > article.backside ng-mapside ul li:nth-child(5):after {
+        height: 40px;
+    }
 }
