@@ -405,7 +405,40 @@ i.avanzar-trj {
         width: 600px;
     }
 }
-
+@media screen and (max-width: 1366px) {
+    .cuadro-area {
+        width: 180px;
+        height: 180px;
+        vertical-align: top;
+    }
+    .cuadro-area-icono {
+        height: 60px;
+        width: 44px;
+        margin: 20px auto;
+    }
+    .cuadro-area-titulo {
+        font-size: 18px;
+    }
+    .info-area {
+        width: 590px;
+    }
+    .info-area p {
+        font-size: 16px;
+    }
+    .arch-contents .viewer .row {
+        width: 850px;
+    }
+    .arch-contents .viewer .viewer-element {
+        width: 182px;
+        height: 123px;
+    }
+    .arch-contents .viewer .viewer-element i {
+        margin: 10px auto;
+    }
+    .arch-contents .viewer .pager {
+        width: 850px;
+    }
+}
 @media screen and (max-width: 1024px) {
     .pager-arch {
         display: none;

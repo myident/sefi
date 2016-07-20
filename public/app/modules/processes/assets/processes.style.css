@@ -287,9 +287,10 @@ section.container-card > div.card > article.backside ng-mapside ul li:nth-child(
     top: 100px;
     height: calc(100% - 185px);
     z-index: -1;
-    background: rgba(255,255,255,0.5);
+    background: rgba(255, 255, 255, 0.5);
     border: 3px solid #fff;
 }
+
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(5):after {
     content: '';
     position: absolute;
@@ -508,4 +509,37 @@ ng-mapside ul li.active:hover {
     position: absolute;
     right: 11px;
     top: 16px;
+}
+
+@media screen and (max-width: 1366px) {
+    section.container-card {
+        width: 370px;
+    }
+    section.container-card > div.card > article.backside ng-mapside ul li:nth-child(4) {
+        height: 81px;
+        width: 298px;
+        left: 35px;
+        top: 340px;
+    }
+    section.container-card > div.card > article.backside ng-mapside ul li:nth-child(2) {
+        height: 90px;
+        width: 140px;
+        left: 35px;
+        top: 230px;
+    }
+    section.container-card > div.card > article.backside ng-mapside ul li:nth-child(1) {
+        height: 90px;
+        width: 140px;
+        left: 35px;
+        top: 120px;
+    }
+    section.container-card > div.card > article.backside ng-mapside ul li:nth-child(3) {
+        height: 200px;
+        width: 140px;
+        left: 195px;
+        top: 120px;
+    }
+    .ecosistema {
+        bottom: 0px;
+    }
 }

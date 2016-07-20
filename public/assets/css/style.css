@@ -374,3 +374,12 @@ b i {
 .display-inline {
     display: inline-block;
 }
+@media screen and (max-height: 770px) {
+    main.ng-scope.processes {
+        width: 100%;
+        /* max-width: 2200px; */
+        margin: 40px auto 0 auto;
+        padding: 2em;
+        height: calc(100vh - 80px);
+    }
+}
