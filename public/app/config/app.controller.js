@@ -50,7 +50,7 @@
                 active: false
             },
             {
-                title: 'Business Architecture',
+                title: 'Enterprise Architecture',
                 link: 'procesos',
                 subElements: [],
                 active: false
