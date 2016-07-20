@@ -506,12 +506,17 @@
                         capacidad.name, 11);
                     
                     }else{
+                        capacidad.offsets[layout].y = capacidad.offsets[layout].y + 12;
+
                         textbox = $shapes.factory.textbox(
                         capacidad.offsets[layout], 
                         capacidadWidth, 
                         capacidadHeight, 
-                        'ERROR: Proceso Inconsistente', 11);
-                        textbox = $paint.textRed(textbox); 
+                        'Error en Base de Datos', 11);
+                        textbox = $paint.textRed(textbox);
+                        
+                        var imgUrl  = 'assets/img/ICONO_TACHE.png';
+                        var imgError = $shapes.factory.imgError(capacidad.offsets[layout],imgUrl,20,20);
                     }
 
                     // Setting data
@@ -574,12 +579,17 @@
                         capacidad.name, 11);
                     
                     }else{
+                        capacidad.offsets[layout].y = capacidad.offsets[layout].y + 12;
+
                         textbox = $shapes.factory.textbox(
                         capacidad.offsets[layout], 
                         capacidadWidth, 
                         capacidadHeight, 
-                        'ERROR: Apunta a sí mismo', 11);
-                        textbox = $paint.textRed(textbox); 
+                        'Error en Base de Datos', 11);
+                        textbox = $paint.textRed(textbox);
+                        
+                        var imgUrl  = 'assets/img/ICONO_TACHE.png';
+                        var imgError = $shapes.factory.imgError(capacidad.offsets[layout],imgUrl,20,20);
                     }
 
                     // Setting data

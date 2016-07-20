@@ -195,6 +195,12 @@
                     var circle = scope.svg.image(img, x, y, w, h).attr({filter: shadow});
                     
                     return circle;
+                },
+                imgError: function(offset, img, w, h){
+                    var x = offset.x - (w / 2);
+                    var y = offset.y - 35;
+                    var img = scope.svg.image(img, x, y, w, h);
+                    return img;
                 }
             }
 

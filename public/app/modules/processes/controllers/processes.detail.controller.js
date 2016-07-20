@@ -107,9 +107,20 @@
                             var reglasTemp = [];
                             var idfiguraBool = false;
                             var count = 0;
+                            var proceso = data.procesos[i];
+                            // if(!proceso.reglas.length){
+                            //         console.error('Error en bases de Datos');
+                            //     }
                             for(var j in data.procesos[i]['reglas']){
                                 var regla = data.procesos[i]['reglas'][j];
-                                // console.log(regla);
+                                
+                                // if(!regla.aplicaciones.length && regla.aplicaciones['name'] == ''){
+                                //     console.error('Error en bases de Datos');
+                                // }
+                                // if(!regla.areas.length && regla.areas['name'] == ''){
+                                //     console.error('Error en bases de Datos');
+                                // }
+
                                 if(regla.idfigura !== 3){
                                     reglasTemp[count] = regla;
                                     reglasTemp[count].flowId = (regla.pactual - countLess);
@@ -134,6 +145,16 @@
                                 }
                             }
                             data.procesos[i]['reglas'] = reglasTemp;
+
+                              for(var j in data.procesos[i]['capacidades']){
+                                var regla = data.procesos[i]['capacidades'][j];
+                                // if(!regla.aplicaciones.length && regla.aplicaciones['name'] == ''){
+                                //     console.error('Error en bases de Datos');
+                                // }
+                                // if(!regla.areas.length && regla.areas['name'] == ''){
+                                //     console.error('Error en bases de Datos');
+                                // }
+                            }
                         }
 //                        console.log(data.procesos);
                         // Config Martin //////////////////////////////////////
