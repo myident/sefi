@@ -13,7 +13,7 @@
 		
 		$scope.viewer.filterBy = 'all';
 
-		$scope.viewer.itemsCount = 45;
+		$scope.viewer.itemsCount = 24;
 		$scope.viewer.items = [];
 		$scope.viewer.change = function(index){
 
