@@ -172,10 +172,11 @@
 }
 
 .viewer .pager li.active {
-    color: rgb(19,149,186);
+    color: rgb(19, 149, 186);
 }
+
 .viewer .filter-abc li.active {
-    color: rgb(19,149,186);
+    color: rgb(19, 149, 186);
 }
 
 .arq-contenidos .viewer .row div > img {
@@ -379,26 +380,24 @@
 }
 
 @media (max-height: 960px) {
-    .silueta-r {
-        top: 0;
-        height: 100%;
+    .silueta-l {
+        top: 120px;
+        height: calc(100% - 120px);
     }
     .silueta-l {
-        top: 0;
-        height: 100%;
+        top: 120px;
+        height: calc(100% - 120px);
     }
 }
 
-@media (max-width: 2230px){
+@media (max-width: 2230px) {
     .img-1 {
         background-image: url(img/FOTO%20FERNANDO%20CV%20FHD2.png);
     }
-    .arq {
-        
-    }
+    .arq {}
 }
 
-@media (max-width: 1630px){
+@media (max-width: 1630px) {
     .img-1 {
         background-image: url(img/FOTO%20FERNANDO%20CV%20FHD2.png);
     }
