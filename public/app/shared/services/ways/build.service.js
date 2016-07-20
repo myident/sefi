@@ -514,6 +514,9 @@
                         capacidadHeight, 
                         'Error en Base de Datos', 11);
                         textbox = $paint.textRed(textbox);
+                        $paint.textRed(arrow || textbox);
+                        $paint.lineRed(intersection || textbox);
+
                         
                         var imgUrl  = 'assets/img/ICONO_TACHE.png';
                         var imgError = $shapes.factory.imgError(capacidad.offsets[layout],imgUrl,20,20);
@@ -587,6 +590,8 @@
                         capacidadHeight, 
                         'Error en Base de Datos', 11);
                         textbox = $paint.textRed(textbox);
+                        $paint.textRed(arrow || textbox);
+                        $paint.lineRed(intersection || textbox);
                         
                         var imgUrl  = 'assets/img/ICONO_TACHE.png';
                         var imgError = $shapes.factory.imgError(capacidad.offsets[layout],imgUrl,20,20);

@@ -64,7 +64,7 @@
                 class="diagram-container" 
                 ng-class="{'top-zero': layout == 0}" 
                 ng-style="getStyle()">
-                <p ng-repeat="error in logError track by $index"> <img style="vertical-align: middle;" src="assets/img/ICONO_TACHE.png" alt="">  {{error}}</p>
+                <p style="margin-left: 20px;" ng-repeat="error in logError track by $index"> <img style="vertical-align: middle; width:16px; " src="assets/img/ICONO_TACHE.png" alt="">  {{error}}</p>
                 <svg ng-ways 
                     ng-model="logError"
                     source="procesos" 

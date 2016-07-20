@@ -185,6 +185,11 @@
                     stroke: "#9063CD",
                     strokeWidth: 1
                 });
+            },
+            lineRed: function(fig){
+                fig.attr({
+                    stroke: "rgb(255,0,0)"
+                });
             }
         };
     };
