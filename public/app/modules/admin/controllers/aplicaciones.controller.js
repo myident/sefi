@@ -1,11 +1,16 @@
 /*global angular*/
 
 (function () {
-    var Controller = function($rootScope, $scope, $aplicaciones) {
+    var Controller = function($rootScope, $scope, $aplicaciones, $window) {
        $scope.aplicaciones = $aplicaciones.query(function () {
 			$scope.viewer.setting($scope.aplicaciones);
         });
 
+
+       $scope.goProcesos = function () {
+//            $location.path('/procesos');
+            $window.history.back();
+        };
 
         $scope.abc = ['A','B','C','D','F','G','H','I','J','K','L','M','N','Ñ','O','P','Q','R','S','T','V','W','X','Y','Z'];
         
@@ -13,7 +18,9 @@
 		
 		$scope.viewer.filterBy = 'all';
 
-		$scope.viewer.itemsCount = 24;
+		var h = window.innerHeight;
+		var rows = (Math.floor((h - 400) / 46))*3;
+		$scope.viewer.itemsCount = rows;
 		$scope.viewer.items = [];
 		$scope.viewer.change = function(index){
 
@@ -88,6 +95,6 @@
 		};
 
     };
-    Controller.$inject = ['$rootScope', '$scope', '$aplicaciones'];
+    Controller.$inject = ['$rootScope', '$scope', '$aplicaciones','$window'];
     angular.module('mAdmin').controller('AplicacionesController', Controller);
 })();
