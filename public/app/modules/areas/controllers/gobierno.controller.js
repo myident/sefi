@@ -1,8 +1,8 @@
 /*global angular*/
 
 (function () {
-    var Controller = function($scope, $routeParams, $window) {
-        
+    var Controller = function($scope, $routeParams, $window, $rootScope) {
+        $rootScope.spin = false;
         $scope.go = function(value) {
             $window.location = '#/areas/arquitectura/trayectoria/' + value;  
         };
@@ -72,6 +72,6 @@
             $scope.mujer = false;
         }
     };
-    Controller.$inject = ['$scope', '$routeParams', '$window'];
+    Controller.$inject = ['$scope', '$routeParams', '$window', '$rootScope'];
     angular.module('mAreas').controller('GobiernoController', Controller);
 })();

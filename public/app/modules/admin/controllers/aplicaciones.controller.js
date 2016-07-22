@@ -1,100 +1,105 @@
 /*global angular*/
 
 (function () {
-    var Controller = function($rootScope, $scope, $aplicaciones, $window) {
-       $scope.aplicaciones = $aplicaciones.query(function () {
-			$scope.viewer.setting($scope.aplicaciones);
+    var Controller = function ($rootScope, $scope, $aplicaciones, $window) {
+
+        $rootScope.spin = false;
+        $scope.aplicaciones = $aplicaciones.query(function () {
+            $scope.viewer.setting($scope.aplicaciones);
         });
 
 
-       $scope.goProcesos = function () {
-//            $location.path('/procesos');
+        $scope.goProcesos = function () {
             $window.history.back();
         };
 
-        $scope.abc = ['A','B','C','D','F','G','H','I','J','K','L','M','N','Ñ','O','P','Q','R','S','T','V','W','X','Y','Z'];
-        
+        $scope.abc = ['A', 'B', 'C', 'D', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'];
+
         $scope.viewer = {};
-		
-		$scope.viewer.filterBy = 'all';
 
-		var h = window.innerHeight;
-		var rows = (Math.floor((h - 400) / 46))*3;
-		$scope.viewer.itemsCount = rows;
-		$scope.viewer.items = [];
-		$scope.viewer.change = function(index){
+        $scope.viewer.filterBy = 'all';
 
-			console.log(index);
-			$scope.viewer.start = index;
-			$scope.viewer.items = [];
-			var end = (index + $scope.viewer.itemsCount) < $scope.contents.length ? (index + $scope.viewer.itemsCount) : $scope.contents.length;
-			for(var i = index ; i < end ; i++){
-				$scope.viewer.items.push($scope.contents[i]);
-				$scope.viewer.end = i;
-			}
-			$scope.viewer.indexPageNow = $scope.viewer.indexPage();
-		};
+        var h = $window.innerHeight;
+        var rows = (Math.floor((h - 400) / 46)) * 3;
+        $scope.viewer.itemsCount = rows;
+        $scope.viewer.items = [];
+        $scope.viewer.change = function (index) {
 
-		$scope.viewer.indexPage = function(){
-			return Math.floor($scope.viewer.start / $scope.viewer.itemsCount);
-		}
+            console.log(index);
+            $scope.viewer.start = index;
+            $scope.viewer.items = [];
+            var end = (index + $scope.viewer.itemsCount) < $scope.contents.length ? (index + $scope.viewer.itemsCount) : $scope.contents.length;
+            for (var i = index; i < end; i++) {
+                $scope.viewer.items.push($scope.contents[i]);
+                $scope.viewer.end = i;
+            }
+            $scope.viewer.indexPageNow = $scope.viewer.indexPage();
+        };
 
-		$scope.viewer.forw = function(){
-			if($scope.viewer.start + $scope.viewer.itemsCount < $scope.contents.length){
-				$scope.viewer.change($scope.viewer.start + $scope.viewer.itemsCount);
-			}
-		};
-		$scope.viewer.back = function(){
-			if($scope.viewer.start - $scope.viewer.itemsCount >= 0){
-				$scope.viewer.change($scope.viewer.start - $scope.viewer.itemsCount);
-			}
-		};
-		$scope.viewer.goTo = function(index){
-			$scope.viewer.change(index * $scope.viewer.itemsCount);
-		};
+        $scope.viewer.indexPage = function () {
+            return Math.floor($scope.viewer.start / $scope.viewer.itemsCount);
+        }
 
-		$scope.viewer.setting = function(aplicaciones){
-			$scope.contents = aplicaciones;
-			$scope.viewer.pages = [];
-			$scope.viewer.pagesCount = Math.ceil($scope.contents.length / $scope.viewer.itemsCount);
-			for(var i = 0 ; i < $scope.viewer.pagesCount ; i++){
-				$scope.viewer.pages.push({ number:(i+1), active:false });
-			}
-			$scope.viewer.change(0);
-		};
-		$scope.viewer.findAll = function(str){
-			$scope.viewer.filterBy = 'all';
-			$scope.viewer.setting($scope.aplicaciones);
-		}
-       $scope.find = function(str){
+        $scope.viewer.forw = function () {
+            if ($scope.viewer.start + $scope.viewer.itemsCount < $scope.contents.length) {
+                $scope.viewer.change($scope.viewer.start + $scope.viewer.itemsCount);
+            }
+        };
+        $scope.viewer.back = function () {
+            if ($scope.viewer.start - $scope.viewer.itemsCount >= 0) {
+                $scope.viewer.change($scope.viewer.start - $scope.viewer.itemsCount);
+            }
+        };
+        $scope.viewer.goTo = function (index) {
+            $scope.viewer.change(index * $scope.viewer.itemsCount);
+        };
 
+        $scope.viewer.setting = function (aplicaciones) {
+            $scope.contents = aplicaciones;
+            $scope.viewer.pages = [];
+            $scope.viewer.pagesCount = Math.ceil($scope.contents.length / $scope.viewer.itemsCount);
+            for (var i = 0; i < $scope.viewer.pagesCount; i++) {
+                $scope.viewer.pages.push({
+                    number: (i + 1),
+                    active: false
+                });
+            }
+            $scope.viewer.change(0);
+        };
 
-       	$scope.viewer.filterBy = str === '' ? 'all' : '';
-       		str = str.toUpperCase();
-			var regExp = new RegExp(str);
-			var arr = [];
-			for(var i = 0 ; i < $scope.aplicaciones.length; i++){
-				if(regExp.test($scope.aplicaciones[i].name.toUpperCase())){
-					arr.push($scope.aplicaciones[i]);
-				}
-			}
-			$scope.viewer.setting(arr);
-		};
-		$scope.findByCapital = function(str){
-			$scope.viewer.filterBy = str;
-			$scope.filterModel = '';
-			str = str.toUpperCase();
-			var regExp = new RegExp('^['+str+']');
-			var arr = [];
-			for(var i = 0 ; i < $scope.aplicaciones.length; i++){
-				if(regExp.test($scope.aplicaciones[i].name.toUpperCase())){
-					arr.push($scope.aplicaciones[i]);
-				}
-			}
-			$scope.viewer.setting(arr);
-		};
+        $scope.viewer.findAll = function (str) {
+            $scope.viewer.filterBy = 'all';
+            $scope.viewer.setting($scope.aplicaciones);
+        };
+
+        $scope.find = function (str) {
+            $scope.viewer.filterBy = str === '' ? 'all' : '';
+            str = str.toUpperCase();
+            var regExp = new RegExp(str);
+            var arr = [];
+            for (var i = 0; i < $scope.aplicaciones.length; i++) {
+                if (regExp.test($scope.aplicaciones[i].name.toUpperCase())) {
+                    arr.push($scope.aplicaciones[i]);
+                }
+            }
+            $scope.viewer.setting(arr);
+        };
+
+        $scope.findByCapital = function (str) {
+            $scope.viewer.filterBy = str;
+            $scope.filterModel = '';
+            str = str.toUpperCase();
+            var regExp = new RegExp('^[' + str + ']');
+            var arr = [];
+            for (var i = 0; i < $scope.aplicaciones.length; i++) {
+                if (regExp.test($scope.aplicaciones[i].name.toUpperCase())) {
+                    arr.push($scope.aplicaciones[i]);
+                }
+            }
+            $scope.viewer.setting(arr);
+        };
 
     };
-    Controller.$inject = ['$rootScope', '$scope', '$aplicaciones','$window'];
+    Controller.$inject = ['$rootScope', '$scope', '$aplicaciones', '$window'];
     angular.module('mAdmin').controller('AplicacionesController', Controller);
 })();

@@ -1,19 +1,12 @@
 /*global angular*/
 (function () {
     var Controller = function ($rootScope, $scope, $location, $itbook, $vash, $arquitecturaseco, $window) {
+        
+        $rootScope.spin = false;
+        
         $scope.goProcesos = function () {
-//            $location.path('/procesos');
             $window.history.back();
         };
-
-        // $rootScope.source = $itbook.get(function (data) {
-        //     $rootScope.source = data;
-        //     $scope.dominios = $rootScope.source.arquitectura[0].dominios;
-        //     $vash.ecosistema = true;
-
-        // }, function (err) {
-        //     console.log(err.status);
-        // });
 
         $scope.ecosistema = $arquitecturaseco.get(function () {
             $scope.dominios = $scope.ecosistema.arquitectura[0].dominios;
