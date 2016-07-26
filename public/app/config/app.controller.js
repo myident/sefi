@@ -48,12 +48,6 @@
                     }
                 ],
                 active: false
-            },
-            {
-                title: 'Enterprise Architecture',
-                link: 'procesos',
-                subElements: [],
-                active: false
             }
         ];
         

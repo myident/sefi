@@ -4,6 +4,10 @@
     var controller = function ($scope, $window, $rootScope) {
         
         $rootScope.spin = false;
+        
+        $scope.goEnterprise = function(){
+            $window.location = '#/procesos';  
+        };
 
         $scope.go = function(value) {
             $window.location = '#/areas/arquitectura/trayectoria/' + value;  
