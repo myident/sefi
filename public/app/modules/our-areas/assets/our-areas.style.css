@@ -7,14 +7,16 @@
 }
 
 .btn-enterprise {
-    position: absolute;
+    position: fixed;
     right: 40px;
     z-index: 3;
-    top: 20px;
+    top: 90px;
     border: 2px solid #117899;
     padding: 10px;
     color: #117899;
     cursor: pointer;
+    background: rgba(244, 244, 244, 0.85);
+    box-shadow: 0 0 5px 2px rgba(0,0,0,0.1);
 }
 
 .btn-enterprise:hover {
