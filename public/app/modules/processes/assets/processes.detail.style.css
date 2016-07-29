@@ -45,7 +45,8 @@
 }
 
 .back-subheader > a > i {
-    background-image: url(img/back%20arrow.svg);
+    /*background-image: url(img/back%20arrow.svg);*/
+    background-image: url(img/back%20arrow.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 30%;
@@ -128,7 +129,8 @@
 */
 
 .proceso.active {
-    background-image: url(./img/proceso-shape-active.svg);
+    /*background-image: url(./img/proceso-shape-active.svg);*/
+    background-image: url(./img/proceso-shape-active.png);
     color: #ffffff;
 }
 
@@ -260,7 +262,8 @@
     display: inline-block;
     width: 42px;
     height: 40px;
-    background-image: url(img/open-process.svg);
+    /*background-image: url(img/open-process.svg);*/
+    background-image: url(img/open-process.png);
     background-size: 50%;
     background-position: center center;
     background-repeat: no-repeat;
@@ -334,7 +337,8 @@
     display: inline-block;
     width: 42px;
     height: 27px;
-    background-image: url(img/open-capacity.svg);
+    /*background-image: url(img/open-capacity.svg);*/
+    background-image: url(img/open-capacity.png);
     background-size: 70%;
     background-position: center center;
     background-repeat: no-repeat;
@@ -568,14 +572,16 @@ ng-breadcrumb {
     left: 10px;
     top: 0;
     cursor: pointer;
-    background-image: url(img/triangle-close.svg);
+    /*background-image: url(img/triangle-close.svg);*/
+    background-image: url(img/triangle-close.png);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 70%;
 }
 
 .activate-left-bar.activate {
-    background-image: url(img/triangle-open.svg);
+    /*background-image: url(img/triangle-open.svg);*/
+    background-image: url(img/triangle-open.png);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 70%;
@@ -668,7 +674,8 @@ ng-breadcrumb {
     display: block;
     height: 15px;
     width: 12px;
-    background: url(./img/triangle-close.svg);
+    /*background: url(./img/triangle-close.svg);*/
+    background: url(./img/triangle-close.png);
     position: absolute;
     left: 9px;
     top: 15px;
@@ -679,6 +686,7 @@ ng-breadcrumb {
     display: block;
     height: 15px;
     width: 12px;
+    /*background: url(./img/triangle-open.svg);*/
     background: url(./img/triangle-open.svg);
     position: absolute;
     left: 9px;
@@ -719,7 +727,8 @@ ng-breadcrumb {
 }
 
 .btn-zoom.menos {
-    background-image: url('img/btn-menos.svg');
+    /*background-image: url('img/btn-menos.svg');*/
+    background-image: url('img/btn-menos.png');
     background-size: 60%;
     background-position: center center;
     background-repeat: no-repeat;
@@ -727,7 +736,8 @@ ng-breadcrumb {
 }
 
 .btn-zoom.mas {
-    background-image: url('img/btn-mas.svg');
+    /*background-image: url('img/btn-mas.svg');*/
+    background-image: url('img/btn-mas.png');
     background-size: 60%;
     background-position: center center;
     background-repeat: no-repeat;

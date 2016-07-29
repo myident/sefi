@@ -181,12 +181,15 @@
                                 etiquetaReglas = $shapes.factory.img({
                                     x: -2,
                                     y: 121
-                                }, './assets/img/reglas.svg', 30, 480);
+                                }, './assets/img/reglas.png', 30, 480);
+                                //}, './assets/img/reglas.svg', 30, 480);
                             } else {
                                 etiquetaCapacidades = $shapes.factory.img({
                                     x: -2,
                                     y: 121
-                                }, './assets/img/capacidades.svg', 30, 378);
+                                }, './assets/img/capacidades.png', 30, 378);
+                                //}, './assets/img/capacidades.svg', 30, 378);
+                                
                             }
 
                         }
@@ -194,7 +197,8 @@
                         etiquetaProcesos = $shapes.factory.img({
                             x: -2,
                             y: 25
-                        }, './assets/img/proceso.svg', 30, 78);
+                        }, './assets/img/proceso.png', 30, 78);
+                        //}, './assets/img/proceso.svg', 30, 78);
                     }
                     
 
