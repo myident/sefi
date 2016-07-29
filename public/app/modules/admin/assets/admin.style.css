@@ -1,0 +1,63 @@
+.application-header{
+	margin-bottom: 30px;
+}
+.admin .viewer{
+	max-width: 2000px;
+	background-color: rgba(255,255,255,.9);
+	margin: 60px auto;
+	padding-bottom:20px;
+	padding-top:1px;
+	border: 1px solid rgb(208,208,208);
+}
+
+.admin .viewer .row{
+	border-bottom: 1px solid rgb(150,150,150);
+	border-top: 1px solid rgb(150,150,150);
+	padding: 30px;
+}
+
+.admin ul.filter-abc{
+	width: 550px;
+	margin:20px auto;
+}
+
+.admin ul.filter-abc li{
+	display: inline-block;
+	margin: 5px;
+	cursor: pointer;
+}
+
+.admin .filter{
+	float: right;
+	border: 1px solid rgb(150,150,150);
+	width: 200px;
+	height: 33px;
+	background-color: rgb(255,255,255);
+	position: relative;
+	margin-top: 10px;
+}
+.admin .filter input{
+	background-color: transparent;
+	border: 0;
+	height: 33px;
+	padding-left: 10px;
+	width: 200px;
+}
+
+.admin .filter i{
+	position: absolute;
+	right: 8px;
+	top: 7px;
+	height: 20px;
+	width: 20px;
+	background-image: url(img/Shape.png);
+	background-repeat: no-repeat;
+}
+
+.link{
+	cursor: pointer;
+	/*text-decoration: underline;*/
+}
+.link:hover{
+	color: rgb(19,149,186);
+}

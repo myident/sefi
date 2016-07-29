@@ -45,7 +45,8 @@
 }
 
 .back-subheader > a > i {
-    background-image: url(img/back%20arrow.svg);
+    /*background-image: url(img/back%20arrow.svg);*/
+    background-image: url(img/back%20arrow.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 30%;
@@ -128,7 +129,8 @@
 */
 
 .proceso.active {
-    background-image: url(./img/proceso-shape-active.svg);
+    /*background-image: url(./img/proceso-shape-active.svg);*/
+    background-image: url(./img/proceso-shape-active.png);
     color: #ffffff;
 }
 
@@ -260,7 +262,8 @@
     display: inline-block;
     width: 42px;
     height: 40px;
-    background-image: url(img/open-process.svg);
+    /*background-image: url(img/open-process.svg);*/
+    background-image: url(img/open-process.png);
     background-size: 50%;
     background-position: center center;
     background-repeat: no-repeat;
@@ -334,7 +337,8 @@
     display: inline-block;
     width: 42px;
     height: 27px;
-    background-image: url(img/open-capacity.svg);
+    /*background-image: url(img/open-capacity.svg);*/
+    background-image: url(img/open-capacity.png);
     background-size: 70%;
     background-position: center center;
     background-repeat: no-repeat;
@@ -498,7 +502,7 @@ ng-breadcrumb {
 .svg-container {
     /*    margin-top: 40px;*/
     overflow: auto;
-    height: calc(100vh - 246px);
+    height: calc(100vh - 176px);
     width: 100%;
     position: relative;
 }
@@ -568,14 +572,16 @@ ng-breadcrumb {
     left: 10px;
     top: 0;
     cursor: pointer;
-    background-image: url(img/triangle-close.svg);
+    /*background-image: url(img/triangle-close.svg);*/
+    background-image: url(img/triangle-close.png);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 70%;
 }
 
 .activate-left-bar.activate {
-    background-image: url(img/triangle-open.svg);
+    /*background-image: url(img/triangle-open.svg);*/
+    background-image: url(img/triangle-open.png);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 70%;
@@ -584,17 +590,19 @@ ng-breadcrumb {
 .select-box {
     position: absolute;
     height: 300px;
-    width: 180px;
+    width: 150px;
     z-index: 10;
 }
 
 .select-box.ver {
-    right: 180px;
+    right: 290px;
     top: 0;
+    width: 170px;
+    position: absolute;
 }
 
 .select-box.ordenar {
-    right: 0;
+    right: 150px;
     top: 0;
 }
 
@@ -603,7 +611,7 @@ ng-breadcrumb {
 }
 
 .select-box ul {
-    width: 180px;
+    width: 150px;
     background-color: white;
     color: #9063CD;
 }
@@ -666,7 +674,8 @@ ng-breadcrumb {
     display: block;
     height: 15px;
     width: 12px;
-    background: url(./img/triangle-close.svg);
+    /*background: url(./img/triangle-close.svg);*/
+    background: url(./img/triangle-close.png);
     position: absolute;
     left: 9px;
     top: 15px;
@@ -677,6 +686,7 @@ ng-breadcrumb {
     display: block;
     height: 15px;
     width: 12px;
+    /*background: url(./img/triangle-open.svg);*/
     background: url(./img/triangle-open.svg);
     position: absolute;
     left: 9px;
@@ -693,17 +703,17 @@ ng-breadcrumb {
 .zoom-control {
     position: absolute;
     top: 0px;
-    right: 383px;
+    right: 470px;
     width: 100px;
 }
 
 .zoom-value {
     width: 100%;
     text-align: center;
-    
 }
+
 .zoom-value:hover {
-/*    text-decoration: underline;*/
+    /*    text-decoration: underline;*/
 }
 
 .btn-zoom {
@@ -717,18 +727,80 @@ ng-breadcrumb {
 }
 
 .btn-zoom.menos {
-    background-image: url('img/btn-menos.svg');
+    /*background-image: url('img/btn-menos.svg');*/
+    background-image: url('img/btn-menos.png');
     background-size: 60%;
     background-position: center center;
     background-repeat: no-repeat;
     left: 0;
-    
 }
 
 .btn-zoom.mas {
-    background-image: url('img/btn-mas.svg');
+    /*background-image: url('img/btn-mas.svg');*/
+    background-image: url('img/btn-mas.png');
     background-size: 60%;
     background-position: center center;
     background-repeat: no-repeat;
     right: 0;
+}
+
+.download-pdf {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    height: 300px;
+    z-index: 10;
+    width: 150px;
+}
+
+.download-pdf span {
+    display: inline-block;
+    margin-left: 7px;
+}
+
+.download-pdf i {
+    width: 14px;
+    height: 19px;
+    background-image: url(img/download_L.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: sub;
+}
+
+.download-pdf ul {
+    width: 150px;
+    background-color: white;
+    color: #9063CD;
+}
+
+.download-pdf ul li {
+    padding: 0 10px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all ease 0.3s;
+}
+
+.download-pdf ul li:hover {
+    color: #6400ea;
+}
+
+.download-pdful li.active {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+@media screen and (max-width: 1024px) {
+    .download-pdf span {
+        display: none!important;
+    }
+    .select-box.ordenar {
+        right: 20px;
+    }
+    .select-box.ver {
+        right: 160px;
+    }
+    .zoom-control {
+        right: 330px;
+    }
 }

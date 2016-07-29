@@ -18,6 +18,7 @@
         zoom-in="mas"
         zoom-out="menos"
         zoom-reset="restablecerZoom"
+        print="imprimirDesdeBreadCrumb"
         ></ng-breadcrumb>
 
     <section class="sidebar-left" ng-class="{'close': !openBar}">
@@ -25,7 +26,7 @@
         <section class="container-card">
             <div class="card flipped">
                 <article class="backside" ng-if="!spin">
-                    <div class="dominios">Dominios</div>
+                    <div class="dominios">Domains</div>
                     <ng-mapside 
                         source="dominios" 
                         position="source.rutas[0]" 
@@ -38,41 +39,44 @@
         <!--ng Index-->
         <ng-index 
             source="megaprocesos"
+            macros="macros"
             get="getIndex"
+            mega="mega"
+            macro="macro"
+            indice-abierto="indiceAbierto"
             ></ng-index>
         
     </section><section class="sidebar-right" ng-class="{'open': !openBar}">
 
         <!--ng Ways-->
-        <div class="svg-container">
-    
-<!--
-            <div 
-                class="btn-close-side" 
-                ng-click="cerrarSideBar()" 
-                ng-class="{'open': !openBar}"></div>
--->
-               
+        <div class="svg-container" ng-print>
+            
             <div 
                 class="header-container" 
                 ng-layouts 
                 config="config" 
                 layout="layout"
                 ng-style="getHeaderStyle()"
-                ></div>
+                >
+                </div>
             
             <div 
                 class="diagram-container" 
                 ng-class="{'top-zero': layout == 0}" 
                 ng-style="getStyle()">
-                
+                <p style="margin-left: 20px;" ng-repeat="error in logError track by $index"> <img style="vertical-align: middle; width:16px; " src="assets/img/ICONO_TACHE.png" alt="">  {{error}}</p>
                 <svg ng-ways 
-                    style="font-family:'SF'" 
+                    ng-model="logError"
                     source="procesos" 
-                    config="config" 
-                    layout="layout"
-                    type="type"
-                    activar="abrirCapacidades"
+                    catalogos="config" 
+                    ver-por="layout"
+                    ordenar-por="type"
+                    solo-procesos="abrirCapacidades"
+                    enviar-imprimir="imprimir"
+                    nombre-pdf="breadcrumb.capacidad"
+                    formato="formato"
+                    
+                    
                     ></svg> 
             </div>
 

@@ -1,5 +1,5 @@
 <section class="container-index">
-    <div class="dominios">Megaprocesos y Macroprocesos</div>
+    <div class="dominios" style="font-size: 15px;">Processes</div>
     
     <ul class="accordion-procesos">
        
@@ -10,7 +10,7 @@
             <div 
                ng-click="open(megaprocesos, megaproceso, $index)" 
                class="accordion-title">
-                {{megaproceso.title}} <i></i>
+                {{megaproceso.title}}<i></i>
             </div>
             
             <div 
@@ -19,8 +19,8 @@
                
                 <ul>
                     <li 
-                    ng-repeat="proceso in megaproceso.macroprocesos" 
-                    ng-click="selected(megaproceso.macroprocesos, proceso, $index)" 
+                    ng-repeat="proceso in macros" 
+                    ng-click="selected(macros, proceso, $index)" 
                     ng-class="{selected:proceso.selected}">
                     {{proceso.title}}</li>
                 </ul>

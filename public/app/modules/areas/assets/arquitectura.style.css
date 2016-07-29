@@ -1,0 +1,411 @@
+.arq {
+    width: 100%;
+    height: calc(100vh - 40px);
+    background-image: url(img/FOTO%20FERNANDO%20AREA%20FHD.png);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: top right;
+    background-repeat: no-repeat;
+}
+
+.trayectoria-img {
+    margin-top: 50px;
+}
+
+.arq-trayectoria {
+    width: 100%;
+    height: calc(100vh - 40px);
+    background-size: cover;
+    background-position: top left;
+    background-repeat: no-repeat;
+}
+
+.img-1 {
+    background-image: url(img/FOTO%20FERNANDO%20CV%20FHD.png);
+}
+
+.regresar {
+    cursor: pointer;
+}
+
+.regresar > i {
+    width: 8px;
+    height: 14px;
+    /*background: url(img/regresar.svg);*/
+    background: url(img/regresar.png);
+    display: inline-block;
+}
+
+.regresar > span {
+    font-size: 18px;
+    color: #626262;
+    padding-left: 10px;
+}
+
+.arq-areas {
+    width: 100%;
+    height: calc(100vh - 40px);
+    background-image: url(img/ferchoblur.png);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.arq-gobierno {
+    width: 100%;
+    /*    height: calc(100vh)!important;*/
+    /*background-image: url(img/erika.png);*/
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.arq-gobierno > .regresar {
+    cursor: pointer;
+}
+
+.arq-gobierno > .regresar > i {
+    width: 8px;
+    height: 14px;
+    /*background: url(img/regresar.svg);*/
+    background: url(img/regresar.png);
+    display: inline-block;
+}
+
+.arq-gobierno > .regresar > span {
+    font-size: 18px;
+    color: #626262;
+    padding-left: 10px;
+}
+
+.arq-contenidos {
+    width: 100%;
+    height: calc(100vh - 40px);
+    background-color: #F2F2F3;
+}
+
+.arq-contenidos > .contenido {
+    width: 1160px;
+    height: 716px;
+    display: block;
+    margin: 0 auto;
+    background-image: url(img/parte5.png);
+    background-size: cover;
+}
+
+.arq-contenidos > .contenido.open {
+    width: 1160px;
+    height: 716px;
+    display: block;
+    margin: 0 auto;
+    background-image: url(img/parte6.png);
+    background-size: cover;
+}
+
+.arq-contenidos .viewer {
+    width: 1124px;
+    height: 650px;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    margin: auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .1);
+    padding: 20px 40px;
+}
+
+.arq-contenidos .viewer .row div {
+    height: 150px;
+    width: 230px;
+    background-color: rgb(245, 245, 245);
+    margin: 15px;
+    border: 1px solid rgb(235, 235, 235);
+    text-align: center;
+}
+
+.arq-contenidos .viewer .row div > img {
+    height: 880px;
+    width: 100px;
+    display: block;
+    margin: auto auto 20px auto;
+}
+
+.arq-contenidos .viewer .row div > span {}
+
+.arq-contenidos .viewer .row div > img {
+    height: 70px;
+    width: 70px;
+    display: block;
+    margin: 10px auto 10px auto;
+}
+
+.viewer .row div > span {}
+
+.viewer .pager {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.viewer .pager i {
+    display: inline-block;
+    height: 16px;
+    width: 8px;
+    margin: auto 20px;
+    background-image: url(img/ico.arrow.gray.left.png);
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.viewer .pager i.right {
+    background-image: url(img/ico.arrow.gray.right.png);
+}
+
+.viewer .pager ul {
+    display: inline-block;
+    vertical-align: super;
+}
+
+.viewer .pager li {
+    display: inline;
+    cursor: pointer;
+    padding: 5px;
+    color: rgb(150, 150, 150);
+}
+
+.viewer .pager li.active {
+    color: rgb(19, 149, 186);
+}
+
+.viewer .filter-abc li.active {
+    color: rgb(19, 149, 186);
+}
+
+.arq-contenidos .viewer .row div > img {
+    height: 71px;
+    width: 71px;
+    display: block;
+    margin: auto auto 20px auto;
+}
+
+.arq-contenidos .viewer .row div > span {
+    font-size: 18px;
+}
+
+.arq-areas .viewer {
+    width: 930px;
+    height: 800px;
+    overflow: hidden;
+    /*background-color: rgb(255,255,255);*/
+    /*border-radius: 20px;*/
+    margin: auto;
+}
+
+.arq-areas .viewer .row div {
+    height: 270px;
+    width: 270px;
+    background-color: rgba(0, 0, 0, .4);
+    margin: 20px;
+    text-align: center;
+    cursor: pointer;
+    -webkit-transition: all ease 0.3s;
+}
+
+.arq-areas .viewer .row div:hover {
+    background-color: rgba(22, 153, 202, 0.69);
+}
+
+.arq-areas .viewer .row div > img {
+    height: 90px;
+    width: auto;
+    display: block;
+    margin: 40px auto 20px auto;
+}
+
+.arq-areas .viewer .row div > span {
+    font-size: 28px;
+    color: rgb(255, 255, 255);
+}
+
+.title-contenidos {
+    display: block;
+    width: 1130px;
+    margin: 30px auto 30px auto;
+}
+
+.title-contenidos > i {
+    width: 31px;
+    height: 33px;
+    display: inline-block;
+    /*background-image: url(img/arq-contenidos-icon.svg);*/
+    background-image: url(img/arq-contenidos-icon.png);
+    vertical-align: middle;
+}
+
+.title-contenidos > span {
+    font-size: 35px;
+    color: #4E4E4E;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.body-contenidos {
+    font-size: 20px;
+    width: 1160px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.body-contenidos > .parrafo-contenidos {
+    width: 70%;
+}
+
+.body-contenidos > .datos-personales {
+    margin-top: 130px;
+    width: 70%;
+    color: #505050;
+    text-align: right;
+}
+
+.body-contenidos > .datos-personales > .link-datos-personales {
+    color: #009FDB;
+    cursor: pointer;
+}
+
+.body-contenidos > .datos-personales > .link-datos-personales > i {
+    display: inline-block;
+    width: 8px;
+    height: 14px;
+    background-image: url(img/avanzar.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    vertical-align: middle;
+}
+
+.image-container {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.silueta-r {
+    width: 423px;
+    height: 781px;
+    background-image: url(img/silueta%20r.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.silueta-r.mujer {
+    background: url(img/silueta%20mujer.png);
+    background-repeat: no-repeat;
+}
+
+.silueta-l {
+    width: 423px;
+    height: 781px;
+    background-image: url(img/silueta%20r.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.silueta-l.mujer {
+    background: url(img/silueta%20mujer.png);
+    background-repeat: no-repeat;
+}
+
+.new-container {
+    width: 1280px;
+    margin: 0 auto;
+    height: 101%;
+    position: relative;
+}
+
+.new-container > .new-body {
+    position: absolute;
+    width: 760px;
+    left: 0;
+    top: 150px;
+    font-size: 20px;
+}
+
+.new-container > .new-title {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    font-size: 35px;
+}
+
+.new-container > .new-title > i {
+    width: 31px;
+    height: 33px;
+    display: inline-block;
+    /*background-image: url(img/arq-contenidos-icon.svg);*/
+    background-image: url(img/arq-contenidos-icon.png);
+    vertical-align: middle;
+}
+
+.new-container > .new-title > span {
+    font-size: 35px;
+    color: #4E4E4E;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.new-body > .datos-personales {
+    margin-top: 130px;
+    width: 100%;
+    color: #505050;
+    text-align: right;
+}
+
+.new-body > .datos-personales > .link-datos-personales {
+    color: #009FDB;
+    cursor: pointer;
+}
+
+.new-body > .datos-personales > .link-datos-personales > i {
+    display: inline-block;
+    width: 8px;
+    height: 14px;
+    background-image: url(img/avanzar.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    vertical-align: middle;
+}
+
+@media (max-height: 960px) {
+    .silueta-l {
+        top: 120px;
+        height: calc(100% - 120px);
+    }
+    .silueta-l {
+        top: 120px;
+        height: calc(100% - 120px);
+    }
+}
+
+@media (max-width: 2230px) {
+    .img-1 {
+        background-image: url(img/FOTO%20FERNANDO%20CV%20FHD2.png);
+    }
+    .arq {}
+}
+
+@media (max-width: 1630px) {
+    .img-1 {
+        background-image: url(img/FOTO%20FERNANDO%20CV%20FHD2.png);
+    }
+    .arq {
+        background-image: url(img/FOTO%20FERNANDO%20AREA%20FHD2.png)
+    }
+}

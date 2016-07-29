@@ -1,32 +1,38 @@
 <section class="flipcard">
     <ul>
-        <li ng-repeat="arquitectura in source">
+        <li ng-repeat="arquitectura in source" ng-mouseenter="flipOne($index)" ng-mouseleave="closeOne($index)">
             <section class="container-card">
                 <div class="card" ng-class="{'flipped': arquitectura.flipped}">
                     <article 
                        class="frontside" 
-                       ng-click="flipOne($index)" 
                        ng-style="{'background-image':arquitectura.img}">
                         <div 
-                           class="lienzo" 
-                           ng-style="{'background-color':arquitectura.backColor}">
+                           class="lienzo">
                             <h1>{{arquitectura.title}}</h1>
                             <header>{{arquitectura.name}}</header>
                         </div>
                     </article>
                     <article class="backside">
-                        <div class="dominios">Dominios
+                        <div class="dominios">Domains
                             <img src="app/modules/processes/assets/img/ICONO_FLIP_CARD.png" class="reload-module" ng-click="closeOne($index)"/>
                         </div>
-                        <div class="lienzo" ng-style="{'background-color':arquitectura.backColor}">
+                        <div class="lienzo">
                             <header>{{arquitectura.name}}</header>
                         </div>
+                        <div class="pleca-back"></div>
                         <ng-mapside 
                             source="arquitectura.dominios" 
                             position="rutas[0]"
                             subposition="rutas[1]">
                         </ng-mapside>
-                        <div class="ecosistema"><a href="#/ecosistema" style="color: white">Vista de ecosistema</a></div>
+                        <a ng-hide="(arquitectura.title == 'AA') ? true : false" href="#/ecosistema" style="color: white;">
+                            <span class="ecosistema">View mental map</span>
+                            <i></i>
+                        </a>
+                        <a ng-show="(arquitectura.title == 'AA') ? true : false" href="#/aplicaciones" style="color: white;">
+                            <span class="ecosistema">Appliactions view</span>
+                            <i></i>
+                        </a>
                     </article>
                 </div>
             </section>

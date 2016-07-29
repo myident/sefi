@@ -5,8 +5,9 @@
 
 ng-header > header {
     width: 100%;
-    height: 80px;
-    background-image: url(../../../../modules/home/assets/img/Fondo-IT-Book_blur_web_2.png);
+    height: 70px;
+    background-color: rgb(38,38,38);
+    /*background-image: url(../../../../modules/home/assets/img/Fondo-IT-Book_blur_web_2.png);*/
     background-attachment: fixed;
     background-position: center center;
     background-size: cover;
@@ -15,7 +16,7 @@ ng-header > header {
     left: 0;
     z-index: 4;
 }
-ng-header > header:before {
+/*ng-header > header:before {
     width: 100%;
     height: 80px;
     content: '';
@@ -24,7 +25,7 @@ ng-header > header:before {
     position: fixed;
     top: 0;
     left: 0;
-}
+}*/
 ng-header > header > div.logo-it-book {
     max-width: 1440px;
     width: 100%;
@@ -33,24 +34,17 @@ ng-header > header > div.logo-it-book {
     z-index: 2;
 }
 
-ng-header > header > div.logo-it-book > i.logo-att {
+ng-header > header > div.logo-it-book > a i.logo-att {
     width: 85px;
     height: 35px;
-    background-image: url(img/Logo%20AT&T.svg);
+    /*background-image: url(img/Logo%20AT&T.svg);*/
+    background-image: url(img/Logo%20AT&T.png);
     display: inline-block;
-    margin: 20px 30px 0 20px;
+    margin: 15px 30px 0 20px;
     position: relative;
 }
 
-ng-header > header > div.logo-it-book > i.logo-att:after {
-    width: 1.5px;
-    height: 35px;
-    background-color: #fff;
-    display: inline-block;
-    position: absolute;
-    right: -17px;
-    content: '';
-}
+
 
 ng-header > header > div.logo-it-book > p.it-book {
     font-weight: 100;
@@ -59,7 +53,7 @@ ng-header > header > div.logo-it-book > p.it-book {
     line-height: 80px;
     margin: 0;
     vertical-align: top;
-    font-family: 'Clearview Light';
+/*    font-family: 'Clearview Light';*/
     font-weight: 100;
     font-size: 30px;
 }
@@ -73,24 +67,25 @@ ng-header > header > div.logo-it-book > p.it-book > span:first-child {
 /* INPUT */
 
 .input-search {
-    width: 350px;
-    display: inline-block;
     float: right;
-    margin-right: 20px;
-    margin-top: 20px;
-    background: #fff;
-    height: 40px;
-    border-radius: 20px;
-    box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
+    width: 70px;
+    height: 70px;
     position: relative;
+    transition: .3s;
+}
+
+.input-search.active{
+    width: 400px;
+    height: 70px;
+    transition: .3s;
 }
 
 .input-search > input {
     background-color: rgba(0, 0, 0, 0);
     border: none;
     position: absolute;
-    top: 13px;
-    left: 20px;
+    top: 25px;
+    left: 50px;
     font-size: 16px;
     color: #868686;
     font-family: 'Omnes Regular';
@@ -98,13 +93,14 @@ ng-header > header > div.logo-it-book > p.it-book > span:first-child {
 }
 
 .input-search > .search-icon {
-    background: url(img/Icono%20Lupa%20Copy.svg);
+    background: url(img/search-1.png);
     width: 27px;
     height: 27px;
     display: inline-block;
     position: absolute;
-    right: 13px;
-    top: 8px;
+    left: 10px;
+    top: 20px;
+    cursor: pointer;
 }
 
 
@@ -114,51 +110,32 @@ ng-header > header > div.logo-it-book > p.it-book > span:first-child {
 /* MENU */
 
 .header-menu-it-book {
-    width: 100%;
-    height: 60px;
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0px 4px 2px 0px rgba(0, 0, 0, 0.1);
-    position: relative;
-    background-image: url(../../../../modules/home/assets/img/Fondo-IT-Book_blur_web_2.png);
-    background-attachment: fixed;
-    background-position: center center;
-    background-size: cover;
-}
-
-.header-menu-it-book:before {
-    width: 100%;
-    height: 60px;
-    background-color: rgba(255, 255, 255, 0.7);
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
+    float: right;
 }
 
 .header-menu-it-book > nav {
-    width: 100%;
-    max-width: 1440px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
 }
 
 .header-menu-it-book > nav > a {
     font-size: 16px;
-    font-family: 'Clearview';
-    color: #4E4E4E;
-    line-height: 60px;
-    width: calc(100% / 7);
+/*    font-family: 'Clearview';*/
+    color: #fff;
+    line-height: 65px;
+    /*width: calc(100% / 7);*/
     display: inline-block;
     text-align: center;
     -webkit-transition: all ease 0.3s;
+    width: 200px;
+    height: 70px;
 }
 
-.header-menu-it-book > nav > a.active {
-    box-shadow: inset 0 -8px 0 0 #009FDB;
+.header-menu-it-book > nav > a:hover{
+    color: #ccc;
 }
+
+/*.header-menu-it-book > nav > a.active {
+    box-shadow: inset 0 -8px 0 0 #009FDB;
+}*/
 
 /* MENU */
 
@@ -173,6 +150,7 @@ ng-header > header > div.logo-it-book > p.it-book > span:first-child {
     position: relative;
     z-index: 2;
     -webkit-transition: all ease 0.3s;
+    margin-top: 15px;
 }
 
 .header-submenu-it-book.hide {
@@ -196,7 +174,7 @@ ng-header > header > div.logo-it-book > p.it-book > span:first-child {
     margin: 0;
     color: #4E4E4E;
     font-size: 16px;
-    font-family: 'Clearview';
+/*    font-family: 'Clearview';*/
     margin-top: 10px;
 }
 
@@ -218,64 +196,75 @@ ng-header > header > div.logo-it-book > p.it-book > span:first-child {
 }
 
 .header-submenu-it-book > nav > a > div > i.srm {
-    background-image: url(img/srm.svg);
+    /*background-image: url(img/srm.svg);*/
+    background-image: url(img/srm.png);
     width: 44px;
     height: 39px;
 }
 
 .header-submenu-it-book > nav > a > div.active > i.srm {
-    background-image: url(img/srm%20blue.svg);
+    background-image: url(img/srm%20blue.png);
+    /*background-image: url(img/srm%20blue.svg);*/
 }
 
 .header-submenu-it-book > nav > a > div > i.arquitectura {
-    background-image: url(img/arquitectura.svg);
+    /*background-image: url(img/arquitectura.svg);*/
+    background-image: url(img/arquitectura.png);
     width: 44px;
     height: 48px;
 }
 
 .header-submenu-it-book > nav > a > div.active > i.arquitectura {
-    background-image: url(img/aqrqui%20blue.svg);
+    /*background-image: url(img/aqrqui%20blue.svg);*/
+    background-image: url(img/aqrqui%20blue.png);
 }
 
 .header-submenu-it-book > nav > a > div > i.operaciones {
-    background-image: url(img/operaciones.svg);
+    /*background-image: url(img/operaciones.svg);*/
+    background-image: url(img/operaciones.png);
     width: 49px;
     height: 38px;
 }
 
 .header-submenu-it-book > nav > a > div.active > i.operaciones {
-    background-image: url(img/operaciones%20blue.svg);
-    ;
+    /*background-image: url(img/operaciones%20blue.svg);*/
+    background-image: url(img/operaciones%20blue.png);
 }
 
 .header-submenu-it-book > nav > a > div > i.seguridad {
-    background-image: url(img/seguridad.svg);
+    /*background-image: url(img/seguridad.svg);*/
+    background-image: url(img/seguridad.png);
     width: 44px;
     height: 51px;
 }
 
 .header-submenu-it-book > nav > a > div.active > i.seguridad {
-    background-image: url(img/seguridad%20blue.svg);
+    /*background-image: url(img/seguridad%20blue.svg);*/
+    background-image: url(img/seguridad%20blue.png);
 }
 
 .header-submenu-it-book > nav > a > div > i.desarrollo {
-    background-image: url(img/desarrollo.svg);
+    /*background-image: url(img/desarrollo.svg);*/
+    background-image: url(img/desarrollo.png);
     width: 45px;
     height: 44px;
 }
 
 .header-submenu-it-book > nav > a > div.active > i.desarrollo {
-    background-image: url(img/desarrollo%20blue.svg);
+    /*background-image: url(img/desarrollo%20blue.svg);*/
+    background-image: url(img/desarrollo%20blue.png);
 }
 
 .header-submenu-it-book > nav > a > div > i.procesos-it {
-    background-image: url(img/procesos%20it.svg);
+    /*background-image: url(img/procesos%20it.svg);*/
+    background-image: url(img/procesos%20it.png);
     width: 37px;
     height: 46px;
 }
 
 .header-submenu-it-book > nav > a > div.active > i.procesos-it {
-    background-image: url(img/procesos%20it%20blue.svg);
+    /*background-image: url(img/procesos%20it%20blue.svg);*/
+    background-image: url(img/procesos%20it%20blue.png);
 }
 
 .overlay {

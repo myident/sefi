@@ -5,19 +5,22 @@
     var Directive = function () {
         var Link = function ($scope) {
             $scope.$watch('subposition', function () {
-                if ($scope.source.length) {
+                if ($scope.source.length && $scope.source[$scope.subposition]) {
                     $scope.source[$scope.subposition].selected = true;
                 }
-
             });
-            if ($scope.source && $scope.source.length) {
-                for (var i in $scope.source) {
-                    $scope.source[i].selected = false;
+
+            $scope.$watch('source', function () {
+                if ($scope.source && $scope.source.length) {
+                    for (var i in $scope.source) {
+                        $scope.source[i].selected = false;
+                    }
+                    if ($scope.subposition) {
+                        $scope.source[$scope.subposition].selected = true;
+                    }
                 }
-                if ($scope.subposition) {
-                    $scope.source[$scope.subposition].selected = true;
-                }
-            }
+            });
+
 
             // Redireccionado de cada elemento
             $scope.href = function (position, index) {

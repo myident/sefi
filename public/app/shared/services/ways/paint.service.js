@@ -103,6 +103,12 @@
                 });
                 return text;
             },
+            textRed: function (text) {
+                text.attr({
+                    fill: "rgb(255,0,0)"
+                });
+                return text;
+            },
             fontColorWhite: function (text) {
                 text.attr({
                     fill: "rgb(255,255,255)"
@@ -146,6 +152,17 @@
                 });
                 return fig;
             },
+            moveUpRight: function(fig){
+
+                console.log(fig);
+                var t = new Snap.Matrix();
+                t.translate(5, -5);
+                fig.transform(t);
+                fig.attr({
+                    transform: "r-270"
+                });
+                return fig;
+            },
             hide: function(fig){
                 fig.attr({
                     visibility: "hidden"
@@ -167,6 +184,11 @@
                 fig.attr({
                     stroke: "#9063CD",
                     strokeWidth: 1
+                });
+            },
+            lineRed: function(fig){
+                fig.attr({
+                    stroke: "rgb(255,0,0)"
                 });
             }
         };

@@ -1,0 +1,47 @@
+ng-slideview > ul.items{
+	position: fixed;
+	top:50%;
+	left: 20px;
+	margin-top: -50px;
+	height: 135px;
+	width: 100px;
+}
+ng-slideview > .vertical-line{
+	position: fixed;
+	top:50%;
+	left: 26px;
+	margin-top: -45px;
+	height: 90px;
+	width: 1px;
+	background-color: #C4C4C4;
+}
+ng-slideview > ul.items li{
+	height: 45px;
+	position: relative;
+}
+
+ng-slideview > ul.items li i {
+	display: inline-block;
+	height: 13px;
+	width: 13px;
+	border-radius: 7px;
+	background-color: rgb(245,245,245);
+	border:1px solid rgb(100,100,100);
+	position: absolute;
+	top: 2px;
+	left: 0px;
+}
+
+ng-slideview > ul.items li span{
+	color: rgb(150,150,150);
+	margin-left: 20px;
+}
+
+ng-slideview > ul.items li.active i {
+	
+	background-color: rgb(81,81,81);
+}
+
+ng-slideview > ul.items li.active span{
+	color: rgb(150,150,150);
+}

@@ -56,14 +56,61 @@ section.container-card > div.card > article.frontside {
     cursor: pointer;
     border: 3px solid white;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, .3);
+    background-size: cover;
 }
 
 section.container-card > div.card > article.frontside > .lienzo {
-    margin-top: 30px;
-    height: 110px;
-    background-color: gray;
+    margin-top: 0;
+    height: 160px;
     padding-top: 10px;
     color: white;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.flipcard ul li:first-child .container-card > div.card > article.frontside > .lienzo {
+    background-image: url(img/ba-pleca.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.flipcard ul li:nth-child(2) .container-card > div.card > article.frontside > .lienzo {
+    background-image: url(img/aa-pleca.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.flipcard ul li:nth-child(3) .container-card > div.card > article.frontside > .lienzo {
+    background-image: url(img/ta-pleca.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.pleca-back {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: 530px;
+    z-index: -1;
+}
+
+.flipcard ul li:nth-child(1) .container-card > div.card > .backside .pleca-back {
+    background-image: url(img/ba-back-pleca.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.flipcard ul li:nth-child(2) .container-card > div.card > .backside .pleca-back {
+    background-image: url(img/aa-back-pleca.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.flipcard ul li:nth-child(3) .container-card > div.card > .backside .pleca-back {
+    background-image: url(img/ta-back-pleca.png);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 section.container-card > div.card > article.frontside h1 {
@@ -78,9 +125,11 @@ section.container-card > div.card > article.frontside header {
 section.container-card > div.card > article.backside {}
 
 section.container-card > div.card > article.backside header {
-    font-size: 25px;
+    font-size: 30px;
     color: white;
-    line-height: 2.3;
+    line-height: 1.8;
+    font-family: 'SF Regular';
+    -webkit-font-smoothing: antialiased;
 }
 
 .dominios {
@@ -136,7 +185,11 @@ section.container-index {
     background: #606060;
     width: 280px;
     height: calc(100% - 325px);
-    min-height: 280px;
+    min-height: 240px;
+    height: calc(100% - 350px);
+    min-height: 100px;
+    height: calc(100% - 350px);
+    min-height: 100px;
     overflow: auto;
 }
 
@@ -165,7 +218,7 @@ ng-mapside ul > li.active > a {
 }
 
 ng-mapside ul li {
-    background-color: rgba(255, 255, 255, .9);
+    background-color: rgba(255, 255, 255, 1);
     position: absolute;
     padding-left: 20px;
     padding-right: 20px;
@@ -173,36 +226,36 @@ ng-mapside ul li {
 }
 
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(1) {
-    height: 100px;
-    width: 160px;
-    left: 25px;
-    top: 150px;
+    height: 90px;
+    width: 150px;
+    left: 35px;
+    top: 120px;
 }
 
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(1):hover,
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(1).active {
-    background: #9063CD;
+    background: #1395BA;
     color: #ffffff;
 }
 
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(2) {
-    height: 100px;
-    width: 160px;
-    left: 25px;
-    top: 270px;
+    height: 90px;
+    width: 150px;
+    left: 35px;
+    top: 230px;
 }
 
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(2):hover,
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(2).active {
-    background: #EC7400;
+    background: #80BF7B;
     color: #ffffff;
 }
 
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(3) {
-    height: 220px;
-    width: 160px;
+    height: 200px;
+    width: 150px;
     left: 205px;
-    top: 150px;
+    top: 120px;
 }
 
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(3) h2 {
@@ -211,25 +264,66 @@ section.container-card > div.card > article.backside ng-mapside ul li:nth-child(
 
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(3):hover,
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(3).active {
-    background: #B5BF00;
+    background: #EF8B2C;
     color: #ffffff;
 }
 
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(4) {
     height: 81px;
-    width: 340px;
-    left: 25px;
-    top: 400px;
+    width: 320px;
+    left: 35px;
+    top: 340px;
 }
 
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(4):hover,
 section.container-card > div.card > article.backside ng-mapside ul li:nth-child(4).active {
-    background: #0066B0;
+    background: #D94E1F;
     color: #ffffff;
+}
+
+section.container-card > div.card > article.backside ng-mapside ul li:nth-child(5) {
+    width: 94%;
+    left: 3%;
+    top: 100px;
+    height: calc(100% - 185px);
+    z-index: -1;
+    background: rgba(255, 255, 255, 0.5);
+    border: 3px solid #fff;
+}
+
+section.container-card > div.card > article.backside ng-mapside ul li:nth-child(5):after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    background: white;
+    display: block;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+
+section.container-card > div.card > article.backside ng-mapside ul li:nth-child(5) h2 {
+    margin-top: 343px;
+}
+
+section.container-card > div.card > article.backside ng-mapside ul li:nth-child(5):hover a,
+section.container-card > div.card > article.backside ng-mapside ul li:nth-child(5).active a,
+section.container-card > div.card > article.backside ng-mapside ul li:nth-child(5).active h2 {
+    color: #747474;
 }
 
 section.container-card > div.card > article.backside ng-mapside ul li:hover a {
     color: #ffffff;
+}
+
+section.container-card > div.card > article.backside ng-mapside ul li h2 {
+    font-size: 20px;
+}
+
+section.container-card > div.card > article.backside ng-mapside ul li a {
+    font-size: 11px;
 }
 
 section.container-card > div.card > article.backside ng-mapside ul li h2 {
@@ -301,6 +395,17 @@ section.container-card > div.card > article.backside ng-mapside > ul > li > a {
     top: 230px;
 }
 
+.sidebar-left section.container-card > div.card > article.backside ng-mapside ul li:nth-child(5) {
+    width: 94%;
+    left: 3%;
+    top: 57px;
+    height: calc(100% - 75px);
+}
+
+.sidebar-left section.container-card > div.card > article.backside ng-mapside ul li:nth-child(5) h2 {
+    margin-top: 235px;
+}
+
 .sidebar-left section.container-card > div.card > article.backside ng-mapside ul li h2 {
     margin: 0px;
     margin-top: 10px;
@@ -338,12 +443,14 @@ section.container-card > div.card > article.backside ng-mapside > ul > li > a {
     right: 10px;
     top: 10px;
     display: block;
-    background-image: url(img/ico.arrow.down.white.svg);
+    /*background-image: url(img/ico.arrow.down.white.svg);*/
+    background-image: url(img/ico.arrow.down.white.png);
     background-repeat: no-repeat;
 }
 
 .accordion-procesos li.open .accordion-title i {
-    background-image: url(img/ico.arrow.up.white.svg);
+    /*background-image: url(img/ico.arrow.up.white.svg);*/
+    background-image: url(img/ico.arrow.up.white.png);
 }
 
 .accordion-procesos li.open .accordion-title {
@@ -380,27 +487,66 @@ ng-mapside ul li.active:hover {
 
 .ecosistema {
     position: absolute;
-    width: 188px;
+    width: 158px;
     height: 45px;
     right: 0;
-    bottom: 20px;
+    bottom: 0;
     line-height: 45px;
-    background: #009FDB;
-    color: white;
+    color: #626262;
     font-size: 16px;
     border-radius: 8px 0 0 8px;
     cursor: pointer;
 }
+
 .ecosistema:hover {
     text-decoration: underline;
 }
+
 .ecosistema:after {
     content: '';
     display: block;
-    height: 15px;
-    width: 12px;
-    background: url(./img/triangle-open.svg);
+    height: 14px;
+    width: 8px;
+    background: url(./img/avanzar.png);
+    background-size: contain;
     position: absolute;
-    right: 4px;
-    top: 15px;
+    right: 11px;
+    top: 16px;
+}
+    .sidebar-left section.container-card > div.card > article.backside ng-mapside ul li:nth-child(5):after {
+        height: 40px;
+    }
+
+@media screen and (max-width: 1366px) {
+    section.container-card {
+        width: 370px;
+    }
+    section.container-card > div.card > article.backside ng-mapside ul li:nth-child(4) {
+        height: 81px;
+        width: 298px;
+        left: 35px;
+        top: 340px;
+    }
+    section.container-card > div.card > article.backside ng-mapside ul li:nth-child(2) {
+        height: 90px;
+        width: 140px;
+        left: 35px;
+        top: 230px;
+    }
+    section.container-card > div.card > article.backside ng-mapside ul li:nth-child(1) {
+        height: 90px;
+        width: 140px;
+        left: 35px;
+        top: 120px;
+    }
+    section.container-card > div.card > article.backside ng-mapside ul li:nth-child(3) {
+        height: 200px;
+        width: 140px;
+        left: 195px;
+        top: 120px;
+    }
+    .ecosistema {
+        bottom: 0px;
+    }
+
 }

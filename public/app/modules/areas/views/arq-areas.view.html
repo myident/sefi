@@ -1,0 +1,22 @@
+<ng-background></ng-background>
+<ng-header set-elementos-menu="elementosMenu"></ng-header>
+<!-- <main class="arq-areas" ng-click="go()">
+	
+</main> -->
+
+<main class="arq-areas">
+    <ng-slideview active="1"></ng-slideview>
+    <div class="title-contenidos">
+        <i></i>
+        <span>Architecture | Areas</span>
+    </div>
+
+    <div class="viewer">
+        <div class="row">
+            <div class="md-col-3 sm-col-12" ng-repeat="area in areas" ng-click="go($index)">
+                <img ng-src="{{area.imagen}}" alt="">
+                <span>{{area.nombre}}</span>
+            </div>
+        </div>
+    </div>
+</main>

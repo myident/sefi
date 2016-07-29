@@ -6,6 +6,205 @@
 
         var self = this;
         
+        self.fillArrayOfPoints = function(array, points, layouts){
+            
+            for (var i = 0; i < points; i++){
+                
+                array.push([]);
+                
+                for (var j = 0; j < layouts; j++){
+                    
+                    array[i][j] = {
+                        x: 0, 
+                        y: 0
+                    };
+                }
+            }
+            
+            return array;
+        };
+        
+        self.getLineToConexion = function(offsetStart, offsetEnd, margin) {
+            // Fill the array of lines to connect, with 4 points in 3 layouts
+            margin.width = margin.width / 2;
+            margin.height = margin.height / 2;
+            var linesToConexion = self.fillArrayOfPoints([], 4, 3);
+            
+            // Fill the array of Directions for the 3 layouts
+            var directions = [{}, {}, {}];
+            
+            
+            for (var layout = 0; layout < linesToConexion[0].length; layout++){
+                
+                var halfWay = offsetStart[layout].y + ((offsetEnd[layout].y - offsetStart[layout].y) / 2);
+                
+                // MARK: - Fill Directions
+                if (offsetStart[layout].y <= offsetEnd[layout].y){
+                    
+                    directions[layout].initial = 'up';
+                    
+                    if (offsetStart[layout].x < offsetEnd[layout].x){
+                        
+                        directions[layout].final = 'right';
+                        
+                        halfWay = offsetStart[layout].y + ((offsetEnd[layout].y - offsetStart[layout].y) / 2);
+
+                        linesToConexion[0][layout].x = offsetStart[layout].x;
+                        linesToConexion[0][layout].y = offsetStart[layout].y + margin.height;
+
+                        linesToConexion[1][layout].x = offsetStart[layout].x;
+                        linesToConexion[1][layout].y = halfWay;
+
+                        linesToConexion[2][layout].x = offsetEnd[layout].x;
+                        linesToConexion[2][layout].y = halfWay;
+                        
+                        linesToConexion[3][layout].x = offsetEnd[layout].x;
+                        linesToConexion[3][layout].y = offsetEnd[layout].y - margin.height;
+                    }
+                    
+                    if (offsetStart[layout].x > offsetEnd[layout].x){
+                        
+                        directions[layout].final = 'left';
+                        
+                        halfWay = offsetEnd[layout].y + ((offsetStart[layout].y - offsetEnd[layout].y) / 2);
+
+                        linesToConexion[0][layout].x = offsetStart[layout].x;
+                        linesToConexion[0][layout].y = offsetStart[layout].y + margin.height;
+
+                        linesToConexion[1][layout].x = offsetStart[layout].x;
+                        linesToConexion[1][layout].y = halfWay;
+
+                        linesToConexion[2][layout].x = offsetEnd[layout].x;
+                        linesToConexion[2][layout].y = halfWay;
+                        
+                        linesToConexion[3][layout].x = offsetEnd[layout].x;
+                        linesToConexion[3][layout].y = offsetEnd[layout].y - margin.height;
+                        
+                    }
+                    
+                    if (offsetStart[layout].x == offsetEnd[layout].x){
+                        
+                        if ((offsetEnd[layout].y - offsetStart[layout].y) > 150) {
+                            
+                            if ((offsetEnd[layout].y - offsetStart[layout].y) > 200) {
+                                directions[layout].final = 'right';
+
+                                linesToConexion[0][layout].x = offsetStart[layout].x - (margin.width * 2);
+                                linesToConexion[0][layout].y = offsetStart[layout].y;
+
+                                linesToConexion[1][layout].x = offsetStart[layout].x - (margin.width * 2) - 15;
+                                linesToConexion[1][layout].y = offsetStart[layout].y;
+
+                                linesToConexion[2][layout].x = offsetEnd[layout].x - (margin.width * 2) - 15;
+                                linesToConexion[2][layout].y = offsetEnd[layout].y;
+
+                                linesToConexion[3][layout].x = offsetEnd[layout].x - (margin.width * 2);
+                                linesToConexion[3][layout].y = offsetEnd[layout].y;
+                            } else {
+                                directions[layout].final = 'left';
+
+                                linesToConexion[0][layout].x = offsetStart[layout].x + margin.width;
+                                linesToConexion[0][layout].y = offsetStart[layout].y;
+
+                                linesToConexion[1][layout].x = offsetStart[layout].x + margin.width + 15;
+                                linesToConexion[1][layout].y = offsetStart[layout].y;
+
+                                linesToConexion[2][layout].x = offsetEnd[layout].x + margin.width + 15;
+                                linesToConexion[2][layout].y = offsetEnd[layout].y;
+
+                                linesToConexion[3][layout].x = offsetEnd[layout].x + margin.width;
+                                linesToConexion[3][layout].y = offsetEnd[layout].y;
+                            }
+
+                        } else {
+                            directions[layout].final = 'down';
+
+                            halfWay = offsetEnd[layout].y + ((offsetStart[layout].y - offsetEnd[layout].y) / 2);
+
+                            linesToConexion[0][layout].x = offsetStart[layout].x;
+                            linesToConexion[0][layout].y = offsetStart[layout].y + margin.height;
+
+                            linesToConexion[1][layout].x = offsetStart[layout].x;
+                            linesToConexion[1][layout].y = halfWay;
+
+                            linesToConexion[2][layout].x = offsetEnd[layout].x;
+                            linesToConexion[2][layout].y = halfWay;
+
+                            linesToConexion[3][layout].x = offsetEnd[layout].x;
+                            linesToConexion[3][layout].y = offsetEnd[layout].y - margin.height;
+                        }
+                    }
+                }
+
+                if (offsetStart[layout].y > offsetEnd[layout].y){
+                    
+                    directions[layout].initial = 'down';
+                    
+                    if (offsetStart[layout].x < offsetEnd[layout].x){
+                        
+                        directions[layout].final = 'right';
+                        
+                        halfWay = offsetStart[layout].x + ((offsetEnd[layout].x - offsetStart[layout].x) / 2);
+
+                        linesToConexion[0][layout].x = offsetStart[layout].x + margin.width;
+                        linesToConexion[0][layout].y = offsetStart[layout].y;
+
+                        linesToConexion[1][layout].x = halfWay;
+                        linesToConexion[1][layout].y = offsetStart[layout].y;
+
+                        linesToConexion[2][layout].x = halfWay;
+                        linesToConexion[2][layout].y = offsetEnd[layout].y;
+                        
+                        linesToConexion[3][layout].x = offsetEnd[layout].x - margin.width;
+                        linesToConexion[3][layout].y = offsetEnd[layout].y;
+                        
+                    }
+                    
+                    if (offsetStart[layout].x > offsetEnd[layout].x){
+                        
+                        directions[layout].final = 'left';
+                        
+                        halfWay = offsetEnd[layout].x + ((offsetStart[layout].x - offsetEnd[layout].x) / 2);
+
+                        linesToConexion[0][layout].x = offsetStart[layout].x - margin.width;
+                        linesToConexion[0][layout].y = offsetStart[layout].y;
+
+                        linesToConexion[1][layout].x = halfWay;
+                        linesToConexion[1][layout].y = offsetStart[layout].y;
+
+                        linesToConexion[2][layout].x = halfWay;
+                        linesToConexion[2][layout].y = offsetEnd[layout].y;
+                        
+                        linesToConexion[3][layout].x = offsetEnd[layout].x + margin.width;
+                        linesToConexion[3][layout].y = offsetEnd[layout].y;
+                    }
+                    
+                    if (offsetStart[layout].x == offsetEnd[layout].x){
+                        
+                        directions[layout].final = 'up';
+                        
+                        linesToConexion[0][layout].x = offsetStart[layout].x + margin.width;
+                        linesToConexion[0][layout].y = offsetStart[layout].y;
+
+                        linesToConexion[1][layout].x = offsetStart[layout].x + margin.width + 15;
+                        linesToConexion[1][layout].y = offsetStart[layout].y;
+
+                        linesToConexion[2][layout].x = offsetEnd[layout].x + margin.width + 15;
+                        linesToConexion[2][layout].y = offsetEnd[layout].y;
+                        
+                        linesToConexion[3][layout].x = offsetEnd[layout].x + margin.width;
+                        linesToConexion[3][layout].y = offsetEnd[layout].y;
+                    }
+                }
+
+            }
+
+            return {linesToConexion: linesToConexion, directions: directions};
+        };
+        
+        
+        self.ecosistema = false;
+        
         self.heightProcesos = [];
         self.widthProcesos = [];
         self.offsetProcesos = {
@@ -32,24 +231,51 @@
         };
         
         self.sumOffsetsInX = function() {
+            
             var lastOffset = self.offsetProcesos.x[(self.offsetProcesos.x.length - 1)];
+            
             var lastWidth = (self.widthProcesos[(self.widthProcesos.length - 1)] / 2);
+            
             var totalWidth = lastWidth + lastOffset + 25;
+            
             return (totalWidth * self.zoom);
         };
-
         
-        //filter: scope.svg.filter(Snap.filter.shadow(0, 3, 3, '#000', 0.3))
+        self.sumMaxInX = function() {
+            
+            var arrayTodos = [], suma;
+            
+            for(var i in self.offsetProcesos.x) {
+                suma = self.offsetProcesos.x[i] + (self.widthProcesos[i] / 2);
+                arrayTodos.push(suma);
+            }
+                    
+            var maximoOffset = Math.max.apply(Math, arrayTodos) + 10;
+            
+            return (maximoOffset * self.zoom);
+        };
+        
+        /* camelize(): - convierte el string que recibe a camelCase */
+        /* ******************************************************** */
+        /* Recibes los siguientes parametros:                       */
+        /* - str: es el String que se convertirá                    */
+        /* ******************************************************** */
+        /* - return: regresa el String en formato CamelCase         */
+        self.camelize = function (str) {
+            return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (letter) {
+                return letter.toLowerCase();
+            }).replace(/\s+/g, '_');
+        };
 
-        /* findOffsetInArray(): - encuentra un arreglo de offsets basado en un arreglo */
-        /* ************************************************************************************** */
-        /* Recibes los siguientes parametros:  */
-        /* arr:       es el arreglo de coordenadas con nombre [{nombre, offset}] */
-        /* capacity:         es la capacidad que buscamos {nombre, aplicaciones, kpis, ...}*/
-        /* searchIn:        es la busqueda en determinado lugar (areas, aplicaciones, ...) */
-        /* searchBy:         es la busqueda por determinado atributo (name, title, text, ...) */
-        /* ************************************************************************************** */
-        /* return:  offset {x, y} */
+        /* findOffsetInArray(): - encuentra un arreglo de offsets basado en un arreglo          */
+        /* ************************************************************************************ */
+        /* Recibes los siguientes parametros:                                                   */
+        /* - arr:       es el arreglo de coordenadas con nombre [{nombre, offset}]              */
+        /* - capacity:         es la capacidad que buscamos {nombre, aplicaciones, kpis, ...}   */
+        /* - searchIn:        es la busqueda en determinado lugar (areas, aplicaciones, ...)    */
+        /* - searchBy:         es la busqueda por determinado atributo (name, title, text, ...) */
+        /* ************************************************************************************ */
+        /* - return:  offset {x, y}                                                             */
         self.findOffsetInArray = function (arr, capacity, searchIn, searchBy) {
 
             var offset = {};
@@ -61,16 +287,19 @@
             var textToMatch = '';
 
             if (searchIn !== '') {
+                
                 if (capacity[searchIn] !== undefined && capacity[searchIn].length) {
-
+//                    console.log(capacity.name)
                     // Search In: Array
                     for (var k in arr) {
                         textInTheArray = arr[k].text;
+                        
                         for (var l in capacity[searchIn]) {
                             textToMatch = capacity[searchIn][l][searchBy];
+                            
                             if (textToMatch !== undefined &&
                                 textToMatch.toUpperCase() == textInTheArray.toUpperCase()) {
-
+                                
                                 offset = arr[k].offset;
                             }
                         }
@@ -105,15 +334,15 @@
 
             return offset;
         };
-
-        /* intersectionFill(): - encuentra las intersecciones y la dirección de acuerdo a dos elementos */
-        /* ************************************************************************************** */
-        /* Recibes los siguientes parametros:  */
-        /* first:    es el primer elemento, contiene: {nombre, aplicaciones, kpis, ...} */
-        /* second:   es el segundo elemento, también contiene: {nombre, aplicaciones, kpis, ...}*/
-        /* matrix:   es una variable booleana, que se recibe para iterar*/
-        /* ************************************************************************************** */
-        /* return:  first ~ {nombre, aplicaciones, kpis, ...} + direction:Array[Int], intersection:Array[Array] */
+        
+        /* intersectionFill(): - encuentra las intersecciones y la dirección de acuerdo a dos elementos           */
+        /* ****************************************************************************************************** */
+        /* Recibes los siguientes parametros:                                                                     */
+        /* - first:    es el primer elemento, contiene: {nombre, aplicaciones, kpis, ...}                         */
+        /* - second:   es el segundo elemento, también contiene: {nombre, aplicaciones, kpis, ...}                */
+        /* - matrix:   es una variable booleana, que se recibe para iterar                                        */
+        /* ****************************************************************************************************** */
+        /* - return:  first ~ {nombre, aplicaciones, kpis, ...} + direction:Array[Int], intersection:Array[Array] */
         self.intersectionFill = function (first, second, matrix) {
             var intersectionArray = [[], [], []];
             var directionsArray = [];
@@ -205,7 +434,13 @@
             return first;
         };
         
-        
+        /* customIntersectionFill(): - encuentra las intersecciones personalizadas de acuerdo a dos elementos     */
+        /* ****************************************************************************************************** */
+        /* Recibes los siguientes parametros:                                                                     */
+        /* - first:    es el primer elemento, contiene: {nombre, aplicaciones, kpis, ...}                         */
+        /* - second:   es el segundo elemento, también contiene: {nombre, aplicaciones, kpis, ...}                */
+        /* ****************************************************************************************************** */
+        /* - return:  first ~ {nombre, aplicaciones, kpis, ...} + direction:Array[Int], intersection:Array[Array] */
         self.customIntersectionFill = function(first, second) { 
             var intersectionArray = [[], [], []];
             var directionsArray = [];
@@ -334,8 +569,15 @@
 
             return first;
         };
-
-        self.settingDimensionsToProcess = function (proceso, matrix, indice, switchCapacidades, main) {
+        
+        /* settingDimensionsToProcess(): - encuentra las intersecciones personalizadas de acuerdo a dos elementos */
+        /* ****************************************************************************************************** */
+        /* Recibes los siguientes parametros:                                                                     */
+        /* - first:    es el primer elemento, contiene: {nombre, aplicaciones, kpis, ...}                         */
+        /* - second:   es el segundo elemento, también contiene: {nombre, aplicaciones, kpis, ...}                */
+        /* ****************************************************************************************************** */
+        /* - return:  first ~ {nombre, aplicaciones, kpis, ...} + direction:Array[Int], intersection:Array[Array] */
+        self.settingDimensionsToProcess = function (proceso, matrix, indice, switchCapacidades) {
             if (matrix) {
                 if (proceso[switchCapacidades] !== undefined && proceso[switchCapacidades].length) {
 
@@ -391,8 +633,8 @@
 
                     // Alto y ancho
 
-                    var height0 = last0.y - first0.y + main.procesos.procesoMargen.y;
-                    var width0 = last0.x - first0.x + main.procesos.procesoMargen.x;
+                    var height0 = last0.y - first0.y + 165;
+                    var width0 = last0.x - first0.x + 132;
                     
                     var height = last.y - first.y + 180;
                     var width = last.x - first.x + 132;
@@ -524,49 +766,6 @@
 
         };
 
-        self.getElementsTransformY = function (arrayProcesos, capacidad, switchCapacidades) {
-
-            var indexProcesoComienzo = 0;
-            var indexCapacidadComienzo = 0;
-
-            //Buscamos el index en procesos y capacidades respecto a la capacidad elegida
-
-            for (var i in arrayProcesos) {
-                var proceso = arrayProcesos[i];
-                for (var j in proceso[switchCapacidades]) {
-
-                    var capacidadElegida = capacidad.name;
-                    var capacidadEncontrada = proceso[switchCapacidades][j].name;
-
-                    if (capacidadEncontrada == capacidadElegida) {
-                        indexProcesoComienzo = (Number(i));
-                        indexCapacidadComienzo = (Number(j));
-                    }
-                }
-            }
-
-
-            // Se crea el objeto a regresar, vacío por defecto
-
-            var arrayRetorno = {
-                procesos: [],
-                capacidades: [],
-                index: [indexProcesoComienzo, indexCapacidadComienzo],
-                indexProceso: indexProcesoComienzo,
-                indexCapacidad: indexCapacidadComienzo
-            };
-
-            for (var k = (indexProcesoComienzo + 1); k < arrayProcesos.length; k++) {
-                arrayRetorno.procesos.push(arrayProcesos[k]);
-            }
-
-            for (var l = (indexCapacidadComienzo + 1); l < arrayProcesos[(indexProcesoComienzo)][switchCapacidades].length; l++) {
-                arrayRetorno[switchCapacidades].push(arrayProcesos[(indexProcesoComienzo)][switchCapacidades][l]);
-            }
-
-            return arrayRetorno;
-        };
-
         self.setIntersectionsWithDirection = function(capacidad, intersections, width, height) {
             
             for (var i in capacidad.direction){
@@ -605,6 +804,19 @@
             if (capacidad.direction == 'up' && layout == 2) {
                 $paint.rotate180(arrow);
             }
+        };
+
+        self.rotateArrowFromDirectionMin = function(direction, arrow) {
+            if (direction.final == 'right') {
+                $paint.rotate90(arrow);
+            }
+            if (direction.final == 'left') {
+                $paint.rotateMinus90(arrow);
+            }
+            if (direction.final == 'up') {
+                $paint.rotateMinus90(arrow);
+            }
+            console.log(direction);
         };
 
 

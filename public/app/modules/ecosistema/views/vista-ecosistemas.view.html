@@ -1,13 +1,143 @@
-<ng-background></ng-background>
+<ng-background set="person"></ng-background>
 <ng-header set-elementos-menu="elementosMenu"></ng-header>
-<main style="padding-left: 0; padding-right: 0;">
+<main>
     <section class="header-vista-ecosistemas">
-        <div class="btn-vista-procesos" ng-click="goProcesos()"></div>
-        <div class="ttl-vista-procesos">Business Architecture E2E AT&T (67 Macroprocesos)</div>
+     
+        <div class="regresar" ng-click="goProcesos()">
+            <i></i>
+            <span>Back</span>
+        </div>
+        <div class="application-header" style="max-width:2000px;margin:auto auto 10px auto;">
+		<div>
+			<span class="title-gray">Business Architecture | Mental Map</span>
+		</div>
+		<span>Total: 67<!-- {{aplicaciones.length}} --> macroprocesses</span>
+	</div>
     </section>
     <section class="body-vista-ecosistemas">
-        <figure class="lista-ecosistemas">
+  <!--       <figure class="lista-ecosistemas">
             <img src="/app/modules/ecosistema/assets/img/Group.png" alt="">
-        </figure>
+        </figure> -->
+	<!-- <div style="max-width:1280px;margin: auto;"> -->
+		<div class="row">
+	        <div class="md-col-5 sm-col-12" >
+	        	<div class="header-bar" ng-style="{backgroundColor: '#1395BA'}"> 
+	        		<span class="title">{{dominios[0].title}} </span> 
+	        		<span class="name">{{dominios[0].name}}</span>
+	        	</div>
+				
+				<div class="row" id="crm">
+					<div class="md-col-6 sm-col-12" ng-repeat="macroproceso in dominios[0].megaprocesos[1].macroprocesos">
+						<div class="item-bar" ng-click="link(0,0,1,$index)" style="border:1px solid #1395BA" >{{macroproceso.title}}</div>
+					</div>
+					<div class="md-col-6 sm-col-12" ng-repeat="macroproceso in dominios[0].megaprocesos[0].macroprocesos">
+						<div class="item-bar" ng-click="link(0,0,0,$index)" style="border:1px solid #1395BA" >
+							{{macroproceso.title}}
+						</div>
+					</div>
+				</div>
+
+				<div class="header-bar" ng-style="{backgroundColor: '#80BF7B'}">
+					<span class="title">{{dominios[1].title}} </span> 
+	        		<span class="name">{{dominios[1].name}}</span>
+				</div>
+				
+				<div class="row" id="bss">
+					<div class="md-col-6 sm-col-12" ng-repeat="macroproceso in dominios[1].megaprocesos[0].macroprocesos">
+						<div class="item-bar" ng-click="link(0,1,0,$index)" style="border:1px solid #80BF7B" >{{macroproceso.title}}</div>
+					</div>
+					<div class="md-col-6 sm-col-12" ng-repeat="macroproceso in dominios[1].megaprocesos[1].macroprocesos">
+						<div class="item-bar" ng-click="link(0,1,1,$index)" style="border:1px solid #80BF7B" >
+							{{macroproceso.title}}
+						</div>
+					</div>
+				</div>
+
+	        </div>
+	        <div class="md-col-7 sm-col-12">
+	        	<div class="header-bar" ng-style="{backgroundColor: '#EF8B2C'}">
+	        		<span class="title">{{dominios[2].title}} </span> 
+	        		<span class="name">{{dominios[2].name}}</span>
+	        	</div>
+	        	<div class="row" id="em">
+					<div class="md-col-4 sm-col-12" ng-repeat="macroproceso in dominios[2].megaprocesos[0].macroprocesos">
+						<div class="item-bar" ng-click="link(0,2,0,$index)" style="border:1px solid #EF8B2C" >
+							{{macroproceso.title}}
+						</div>
+					</div>
+					<div class="md-col-4 sm-col-12" ng-repeat="macroproceso in dominios[2].megaprocesos[1].macroprocesos">
+						<div class="item-bar" ng-click="link(0,2,1,$index)" style="border:1px solid #EF8B2C" >
+							{{macroproceso.title}}
+						</div>
+					</div>
+					<div class="md-col-4 sm-col-12" ng-repeat="macroproceso in dominios[2].megaprocesos[2].macroprocesos">
+						<div class="item-bar" ng-click="link(0,2,2,$index)" style="border:1px solid #EF8B2C" >
+							{{macroproceso.title}}
+						</div>
+					</div>
+					<div class="md-col-4 sm-col-12" ng-repeat="macroproceso in dominios[2].megaprocesos[3].macroprocesos">
+						<div class="item-bar" ng-click="link(0,2,3,$index)" style="border:1px solid #EF8B2C" >
+							{{macroproceso.title}}
+						</div>
+					</div>
+				</div>
+				
+
+	        </div>
+			<div class="md-col-1 sm-col-12">
+	        </div>
+		</div>
+        <div class="row">
+	        <div class="md-col-12 sm-col-12">
+	        	<div class="header-bar" ng-style="{backgroundColor: '#D94E1F'}">
+	        		<span class="title">{{dominios[3].title}} </span> 
+	        		<span class="name">{{dominios[3].name}}</span>
+	        	</div>
+				<div class="row" id="bi">
+					<div class="md-col-2 sm-col-12"></div>
+					<div class="md-col-8 sm-col-12">
+						<div class="row">
+							<div class="md-col-4 sm-col-12" ng-repeat="macroproceso in dominios[3].megaprocesos[0].macroprocesos">
+							<div class="item-bar" ng-click="link(0,3,0,$index)" style="border:1px solid #D94E1F">{{macroproceso.title}}</div>
+							<!-- <div class="md-col-4 sm-col-12">
+								<div class="item-bar" ng-click="link(0,3,0,$index)" style="border:1px solid #0066B0" ng-repeat="macroproceso in dominios[3].megaprocesos[0].macroprocesos">
+								{{macroproceso.title}}
+								</div>
+							</div> -->
+						</div>
+						
+					</div>
+					<div class="md-col-2 sm-col-12"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+	        <div class="md-col-12 sm-col-12">
+	        	<div class="header-bar" ng-style="{backgroundColor: '#117899'}">
+	        		<span class="title"> S<!-- {{dominios[4].title}} --> </span> 
+	        		<span class="name">{{dominios[4].name}}</span>
+	        	</div>
+				<div class="row" id="S">
+					<div class="md-col-2 sm-col-12"></div>
+					<div class="md-col-8 sm-col-12">
+						<div class="row">
+							<div class="md-col-4 sm-col-12" ng-repeat="macroproceso in dominios[4].megaprocesos[0].macroprocesos">
+							<div class="item-bar" ng-click="link(0,3,0,$index)" style="border:1px solid #117899">{{macroproceso.title}}</div>
+							<!-- <div class="md-col-4 sm-col-12">
+								<div class="item-bar" ng-click="link(0,3,0,$index)" style="border:1px solid #0066B0" ng-repeat="macroproceso in dominios[3].megaprocesos[0].macroprocesos">
+								{{macroproceso.title}}
+								</div>
+							</div> -->
+						</div>
+						
+					</div>
+					<div class="md-col-2 sm-col-12"></div>
+				</div>
+			</div>
+		</div>
+
+	<!-- </div> -->
+
     </section>
 </main>
