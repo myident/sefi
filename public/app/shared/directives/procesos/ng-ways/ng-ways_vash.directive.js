@@ -250,6 +250,8 @@
                     ctrl.$setViewValue(errorArr);
                     ctrl.$render();
 
+                    console.log(data);
+
                     console.log('Número errores encontrados : '+count);
                     return success;
                 };
