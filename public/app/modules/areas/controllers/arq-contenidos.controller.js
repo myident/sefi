@@ -1,7 +1,8 @@
 /*global angular*/
 
 (function () {
-    var Controller = function($scope) {
+    var Controller = function($scope, $rootScope) {
+        $rootScope.spin = false;
         $scope.open = false;
         $scope.toggleOpen = function() {
             $scope.open = !$scope.open;
@@ -195,6 +196,6 @@
 		
 
     };
-    Controller.$inject = ['$scope'];
+    Controller.$inject = ['$scope', '$rootScope'];
     angular.module('mAreas').controller('ArqContenidosController', Controller);
 })();

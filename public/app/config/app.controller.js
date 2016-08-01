@@ -48,12 +48,6 @@
                     }
                 ],
                 active: false
-            },
-            {
-                title: 'Business Architecture',
-                link: 'procesos',
-                subElements: [],
-                active: false
             }
         ];
         

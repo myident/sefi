@@ -31,7 +31,8 @@
 .regresar > i {
     width: 8px;
     height: 14px;
-    background: url(img/regresar.svg);
+    /*background: url(img/regresar.svg);*/
+    background: url(img/regresar.png);
     display: inline-block;
 }
 
@@ -68,7 +69,8 @@
 .arq-gobierno > .regresar > i {
     width: 8px;
     height: 14px;
-    background: url(img/regresar.svg);
+    /*background: url(img/regresar.svg);*/
+    background: url(img/regresar.png);
     display: inline-block;
 }
 
@@ -235,7 +237,8 @@
     width: 31px;
     height: 33px;
     display: inline-block;
-    background-image: url(img/arq-contenidos-icon.svg);
+    /*background-image: url(img/arq-contenidos-icon.svg);*/
+    background-image: url(img/arq-contenidos-icon.png);
     vertical-align: middle;
 }
 
@@ -344,7 +347,8 @@
     width: 31px;
     height: 33px;
     display: inline-block;
-    background-image: url(img/arq-contenidos-icon.svg);
+    /*background-image: url(img/arq-contenidos-icon.svg);*/
+    background-image: url(img/arq-contenidos-icon.png);
     vertical-align: middle;
 }
 

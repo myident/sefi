@@ -2,14 +2,8 @@
 (function () {
 
     var controller = function ($scope, $rootScope, $routeParams, $home) {
-    	// $scope.user = new Entry();
-    	// $scope.user.name = 'Martin';
-    	// $scope.user.apellido = 'Mtz';
-    	// $scope.user.$save(function(data){
-    		
-    	// },function(err){
-
-    	// });
+        
+        $rootScope.spin = false;
 
         $scope.home = {
             "article":{

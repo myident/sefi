@@ -1,7 +1,13 @@
 /*global angular*/
 (function () {
 
-    var Controller = function ($scope, $rootScope, $routeParams, $itbook, $arquitecturas) {
+    var Controller = function ($scope, $rootScope, $routeParams, $itbook, $arquitecturas, $window) {
+        
+        $rootScope.spin = false;
+        
+        $scope.back = function(){
+            $window.history.back();
+        };
 
         if (!$rootScope.source.rutas) {
             
@@ -93,7 +99,7 @@
 
     };
 
-    Controller.$inject = ['$scope', '$rootScope', '$routeParams', '$itbook', '$arquitecturas'];
+    Controller.$inject = ['$scope', '$rootScope', '$routeParams', '$itbook', '$arquitecturas', '$window'];
 
     angular
         .module('mProcesses')

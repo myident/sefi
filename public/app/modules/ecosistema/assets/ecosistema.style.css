@@ -21,7 +21,8 @@
     display: block;
     height: 15px;
     width: 12px;
-    background-image: url(./img/regresar.svg);
+    /*background-image: url(./img/regresar.svg);*/
+    background-image: url(./img/regresar.png);
     background-repeat: no-repeat;
     position: absolute;
     right: 24px;

@@ -6,6 +6,24 @@
     background-position: 0;
 }
 
+.btn-enterprise {
+    position: fixed;
+    right: 40px;
+    z-index: 3;
+    top: 90px;
+    border: 2px solid #117899;
+    padding: 10px;
+    color: #117899;
+    cursor: pointer;
+    background: rgba(244, 244, 244, 0.85);
+    box-shadow: 0 0 5px 2px rgba(0,0,0,0.1);
+}
+
+.btn-enterprise:hover {
+    background: #117899;
+    color: white;
+}
+
 .foto-estrategias {
     width: 100%;
     height: 1115px;
@@ -405,6 +423,7 @@ i.avanzar-trj {
         width: 600px;
     }
 }
+
 @media screen and (max-width: 1366px) {
     .cuadro-area {
         width: 180px;
@@ -439,6 +458,7 @@ i.avanzar-trj {
         width: 850px;
     }
 }
+
 @media screen and (max-width: 1024px) {
     .pager-arch {
         display: none;
