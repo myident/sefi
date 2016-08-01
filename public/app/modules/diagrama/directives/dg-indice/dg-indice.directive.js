@@ -8,7 +8,7 @@
 
         return {
             restrict: 'E',
-            templateUrl: 'app/modules/diagrama/directives/diagramaIndice/dg-indice.template.html',
+            templateUrl: 'app/modules/diagrama/directives/dg-indice/dg-indice.template.html',
             link: Link,
             scope: {
             }
