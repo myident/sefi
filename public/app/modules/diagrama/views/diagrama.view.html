@@ -1,4 +1,15 @@
-<div>
-    Hola
-</div>
-<dg-indice></dg-indice>
+<ng-header set-elementos-menu="elementosMenu"></ng-header>
+<main>
+    <div class="regresar" ng-click="regresar()">
+        <i></i>
+        <span>Back</span>
+    </div>
+    <dg-indice
+        arquitectura="arquitectura"
+        dominios="dominios"
+        megaprocesos="megaprocesos"
+        get-indexmega="megaprocesoIndex"
+        get-indexmacro="macroprocesoIndex"
+        get-indexdominio="dominioIndex"
+    ></dg-indice>
+</main>

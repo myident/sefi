@@ -1,1 +1,43 @@
-<div>Directiva</div>
+<aside>
+    <div class="aside-header">{{arquitectura.name}}</div>
+    <div class="aside-subheader">Domains</div>
+    <div class="aside-domains">
+        <div class="aside-domains-markup"></div>
+        <ul>
+            <li 
+                ng-repeat="dominio in dominios" 
+                ng-class="{'open': dominio.open}" 
+                ng-click="sendDominio(dominio.id, $index)">{{dominio.title}}</li>
+        </ul>
+    </div>
+    <div class="aside-subheader">Processes</div>
+    <div class="aside-processes">
+        <ul>
+           
+            <li 
+               class="aside-mega" 
+               ng-repeat="megaproceso in megaprocesos" 
+               ng-class="{'open': megaproceso.open}">
+                <div 
+                    ng-click="sendMega(megaproceso.id, $index)">{{megaproceso.title}}</div>
+                    
+                <ul>
+                   
+                    <li 
+                       class="aside-macro" 
+                       ng-repeat="macroproceso in megaproceso.macroprocesos" 
+                       ng-class="{'open': macroproceso.open}">
+                       
+                        <div 
+                            ng-click="sendMacro(macroproceso.id, $index, $parent.$index)">{{macroproceso.title}}</div>
+                            
+                    </li>
+                    
+                    
+                </ul>
+                
+            </li>
+            
+        </ul>
+    </div>
+</aside>
