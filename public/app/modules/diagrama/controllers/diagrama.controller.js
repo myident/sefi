@@ -12,58 +12,70 @@
         $scope.macroprocesos = [];
         $scope.procesos = [];
 
-        $scope.arquitecturaElegida = 0;
-        $scope.dominioElegido = 0;
+        var $indexArquitectura = 0;
+        var $indexDominio = 0;
 
-        // webservice dominios
+        // webservice dominios //*** se activa desde el INICIO
         $scope.arquitecturas = $arquitecturas.get(function (data) {
-            $scope.arquitectura = data.arquitectura[$scope.arquitecturaElegida];
-            if (data.arquitectura[$scope.arquitecturaElegida].dominios.length) {
+            $rootScope.spin = true;
+            // Set arquitectura
+            $scope.arquitectura = data.arquitectura[$indexArquitectura];
+            if (data.arquitectura[$indexArquitectura].dominios.length) {
                 // Fill Dominios
-                $scope.dominios = data.arquitectura[$scope.arquitecturaElegida].dominios;
-                $scope.dominios[$scope.dominioElegido].open = true;
+                $scope.dominios = data.arquitectura[$indexArquitectura].dominios;
+                $scope.dominios[$indexDominio].open = true;
                 // Fill megaprocesos
                 $scope.megaprocesos = $megaprocesos.query({
-                    iddominio: $scope.dominios[$scope.dominioElegido].id
+                    iddominio: $scope.dominios[$indexDominio].id
                 }, function(){
-                    
+                    $rootScope.spin = false;
                 }, function(e){
+                    $rootScope.spin = false;
                    console.log(e); 
                 });
             }
         }, function (e) {
+            $rootScope.spin = false;
             console.log(e);
         });
 
-        // webservice dominios //*** se activa desde la directiva
+        // webservice dominios //*** se activa desde DG-INDICE
         $scope.dominioIndex = function (value) {
+            $rootScope.spin = true;
             $scope.megaprocesos = $megaprocesos.query({
                 iddominio: value
             }, function(){
-                
+                $rootScope.spin = false;
             }, function(e){
+                $rootScope.spin = false;
                 console.log(e);
             });
         };
 
-        // webservice macroprocesos //*** se activa desde la directiva
+        // webservice macroprocesos //*** se activa desde DG-INDICE
         $scope.megaprocesoIndex = function (value, index) {
+            $rootScope.spin = true;
             $scope.macroprocesos = $macroprocesos.query({
                 idmegaproceso: value
             }, function (data) {
+                $rootScope.spin = false;
                 $scope.megaprocesos[index].macroprocesos = data;
             }, function (e) {
+                $rootScope.spin = false;
                 console.log(e);
             });
         };
 
-        // webservice procesos //*** se activa desde la directiva
+        // webservice procesos //*** se activa desde DG-INDICE
         $scope.macroprocesoIndex = function (value) {
+            $rootScope.spin = true;
             $procesos.get({
                 idmacroproceso: value
             }, function (data) {
+                $rootScope.spin = false;
                 $scope.procesos = data.procesos;
             }, function (e) {
+                $rootScope.spin = false;
                 console.log(e);
             });
         };
