@@ -83,7 +83,37 @@
         $scope.regresar = function () {
             $window.history.back();
         };
-    };
+
+        $scope.source = {
+            "processes":[
+                    {
+                        "name":"processes - fracaso total",
+                        "capabilities":[
+                            {
+                                "name":"capabilities - fracaso total",
+                                "sortAreas":[
+                                    {
+                                        "areas":[
+                                            {"name":"Areas - fracaso total"}
+                                        ],
+                                        "Applications":[
+                                            {"name":"Applications - fracaso total"}
+                                        ],
+                                        "kpis":[
+                                            {"name":"kpis - fracaso total"}
+                                        ]
+                                    }
+                                ],
+                            }
+                        ]
+                    },
+                ],
+            "kpis":[
+                    {"name":"kpi - fracaso total"}
+                ]
+            };
+
+        };
 
     Controller.$inject = ['$scope', '$rootScope', '$window', '$arquitecturas', '$megaprocesos', '$macroprocesos', '$procesos'];
 

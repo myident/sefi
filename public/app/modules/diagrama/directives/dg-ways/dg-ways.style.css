@@ -1,0 +1,12 @@
+dg-ways{
+	width: calc( 100% - 300px);
+	height: auto;
+	background-color: rgb(200,200,200);
+	position: absolute;
+	top:65px;
+	left: 270px;
+}
+dg-ways > div{
+    height: calc(100vh - 176px);
+    width: 100%;
+}
