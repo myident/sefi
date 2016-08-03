@@ -1,6 +1,6 @@
 /* global angular, Snap, svgAsPngUri, jsPDF */
 (function () {
-    var Directive = function () {
+    var Directive = function ($setting) {
 
         var Link = function ($scope, element, attr, ctrl) {
             
@@ -9,19 +9,22 @@
             $scope.zoom = 1;
 
             $scope.init = function(){
-                $scope.$watch('source', function () {
-                    $scope.reset();
-                });
-                $scope.$watch('view', function () {
-                    $scope.reset();
-                });
-                $scope.$watch('organiceBy', function () {
-                    $scope.reset();
-                });
-                $scope.$watch('show', function () {
-                    $scope.reset();
-                });
-                $scope.$watch('layout', function () {
+                // $scope.$watch('source', function () {
+                //     $scope.reset();
+                // });
+                // $scope.$watch('view', function () {
+                //     $scope.reset();
+                // });
+                // $scope.$watch('organiceBy', function () {
+                //     $scope.reset();
+                // });
+                // $scope.$watch('show', function () {
+                //     $scope.reset();
+                // });
+                // $scope.$watch('layout', function () {
+                //     $scope.reset();
+                // });
+                $scope.$watchGroup(['source','view','organiceBy','show','layout'], function () {
                     $scope.reset();
                 });
                 $scope.$watch('zoom', function () {
@@ -31,6 +34,8 @@
             
 
             $scope.reset = function(){
+                console.log(".reset()");
+
                 $scope.svg.clear();
                 $scope.zoom = 1;
                 // var isValid = $validation.validate($scope.source,function(e){
@@ -40,8 +45,9 @@
                 // isValid && function(){
                 //     $setting.dimensions($scope.source,$scope.view);
                 //     $setting.relationship($scope.source),$scope.view;
-                //     $setting.offsets($scope.source,$scope.view);
 
+                $setting.dimensions($scope.source,$scope.view, $scope.organiceBy, $scope.show);
+                console.log($scope.source);
                 //     $build.processes(
                 //             $scope.source,
                 //             $scope.svg

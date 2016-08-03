@@ -103,40 +103,30 @@
         };
 
         $scope.source = {
-            "processes": [
-                {
-                    "name": "processes - fracaso total",
-                    "capabilities": [
-                        {
-                            "name": "capabilities - fracaso total",
-                            "sortAreas": [
-                                {
-                                    "areas": [
-                                        {
-                                            "name": "Areas - fracaso total"
-                                        }
-                                    ],
-                                    "Applications": [
-                                        {
-                                            "name": "Applications - fracaso total"
-                                        }
-                                    ],
-                                    "kpis": [
-                                        {
-                                            "name": "kpis - fracaso total"
-                                        }
-                                    ]
+            "processes":[
+                    {
+                        "name":"processes - fracaso total",
+                        "capabilities":[
+                            {
+                                "name":"capabilities - fracaso total",
+                                "sortAreas": {
+                                        "areas":[
+                                            {"name":"Areas - fracaso total"}
+                                        ],
+                                        "applications":[
+                                            {"name":"Applications - fracaso total"}
+                                        ],
+                                        "kpis":[
+                                            {"name":"kpis - fracaso total"}
+                                        ]
+                                    }
                                 }
-                            ],
+                            ]
                         }
-                    ]
-                },
-            ],
-            "kpis": [
-                {
-                    "name": "kpi - fracaso total"
-                }
-            ]
+                    ],
+            "kpis":[
+                    {"name":"kpi - fracaso total"}
+                ]
         };
 
     };
