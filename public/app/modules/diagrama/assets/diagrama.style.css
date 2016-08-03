@@ -1,4 +1,6 @@
-.page-wrap {}
+.page-wrap {
+	position: relative;
+}
 
 .column-indice {
     float: left;
