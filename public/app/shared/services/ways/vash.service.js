@@ -39,10 +39,14 @@
                 var halfWay = offsetStart[layout].y + ((offsetEnd[layout].y - offsetStart[layout].y) / 2);
                 
                 // MARK: - Fill Directions
+                
+                // inicio: arriba, final: abajo
                 if (offsetStart[layout].y <= offsetEnd[layout].y){
                     
                     directions[layout].initial = 'up';
                     
+                    // inicio: arriba, final: abajo
+                    // inicio: izquierda, final: derecha
                     if (offsetStart[layout].x < offsetEnd[layout].x){
                         
                         directions[layout].final = 'right';
@@ -62,6 +66,8 @@
                         linesToConexion[3][layout].y = offsetEnd[layout].y - margin.height;
                     }
                     
+                    // inicio: arriba, final: abajo
+                    // inicio: derecha, final: izquierda
                     if (offsetStart[layout].x > offsetEnd[layout].x){
                         
                         directions[layout].final = 'left';
@@ -82,6 +88,8 @@
                         
                     }
                     
+                    // inicio: arriba, final: abajo
+                    // inicio: igual, final: igual
                     if (offsetStart[layout].x == offsetEnd[layout].x){
                         
                         if ((offsetEnd[layout].y - offsetStart[layout].y) > 150) {
@@ -89,16 +97,16 @@
                             if ((offsetEnd[layout].y - offsetStart[layout].y) > 200) {
                                 directions[layout].final = 'right';
 
-                                linesToConexion[0][layout].x = offsetStart[layout].x - (margin.width * 2);
+                                linesToConexion[0][layout].x = offsetStart[layout].x - margin.width;
                                 linesToConexion[0][layout].y = offsetStart[layout].y;
 
-                                linesToConexion[1][layout].x = offsetStart[layout].x - (margin.width * 2) - 15;
+                                linesToConexion[1][layout].x = offsetStart[layout].x - margin.width - 15;
                                 linesToConexion[1][layout].y = offsetStart[layout].y;
 
-                                linesToConexion[2][layout].x = offsetEnd[layout].x - (margin.width * 2) - 15;
+                                linesToConexion[2][layout].x = offsetEnd[layout].x - margin.width - 15;
                                 linesToConexion[2][layout].y = offsetEnd[layout].y;
 
-                                linesToConexion[3][layout].x = offsetEnd[layout].x - (margin.width * 2);
+                                linesToConexion[3][layout].x = offsetEnd[layout].x - margin.width;
                                 linesToConexion[3][layout].y = offsetEnd[layout].y;
                             } else {
                                 directions[layout].final = 'left';
@@ -136,10 +144,13 @@
                     }
                 }
 
+                // inicio: abajo, final: arriba
                 if (offsetStart[layout].y > offsetEnd[layout].y){
                     
                     directions[layout].initial = 'down';
                     
+                    // inicio: abajo, final: arriba
+                    // inicio: izquierda, final: derecha
                     if (offsetStart[layout].x < offsetEnd[layout].x){
                         
                         directions[layout].final = 'right';
@@ -160,6 +171,8 @@
                         
                     }
                     
+                    // inicio: abajo, final: arriba
+                    // inicio: derecha, final: izquierda
                     if (offsetStart[layout].x > offsetEnd[layout].x){
                         
                         directions[layout].final = 'left';
@@ -179,6 +192,8 @@
                         linesToConexion[3][layout].y = offsetEnd[layout].y;
                     }
                     
+                    // inicio: abajo, final: arriba
+                    // inicio: igual, final: igual
                     if (offsetStart[layout].x == offsetEnd[layout].x){
                         
                         directions[layout].final = 'up';
