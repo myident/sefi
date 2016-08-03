@@ -137,23 +137,21 @@
                         "capabilities":[
                             {
                                 "name":"capabilities - fracaso total",
-                                "sortAreas":[
-                                    {
+                                "sortAreas": {
                                         "areas":[
                                             {"name":"Areas - fracaso total"}
                                         ],
-                                        "Applications":[
+                                        "applications":[
                                             {"name":"Applications - fracaso total"}
                                         ],
                                         "kpis":[
                                             {"name":"kpis - fracaso total"}
                                         ]
                                     }
-                                ],
-                            }
-                        ]
-                    },
-                ],
+                                }
+                            ]
+                        }
+                    ],
             "kpis":[
                     {"name":"kpi - fracaso total"}
                 ]

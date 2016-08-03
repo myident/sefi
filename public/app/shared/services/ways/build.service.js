@@ -632,6 +632,7 @@
                         var offsetToTwo = this.getOffsetsTo(source,capacidad.nextToTwo, capacidad);
 
                         var margin = {width:capacidadWidth, height: capacidadHeight};
+                        var margin = {width:capacidadWidth, height: capacidadHeight};
 
                         var linesToConexion = $vash.getLineToConexion(offset, offsetTo,margin);
                         var linesToConexionTwo = $vash.getLineToConexion(offset, offsetToTwo,margin);
