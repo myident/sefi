@@ -125,6 +125,21 @@
                 $scope.historial = [];
             }
         };
+        
+        
+        //getters Barra de Herramientas
+        
+        $scope.getView = function (value) {
+            console.log(value);
+        };
+        
+        $scope.getOrganize = function (value) {
+            console.log(value);
+        };
+        
+        $scope.getShow = function (value) {
+            console.log(value);
+        };
 
         $scope.regresar = function () {
             $window.history.back();
