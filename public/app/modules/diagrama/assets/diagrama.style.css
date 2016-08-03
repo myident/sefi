@@ -1,3 +1,17 @@
-main.diagrama{
-	position: relative;
+.page-wrap {}
+
+.column-indice {
+    float: left;
+    position: relative;
+    width: 235px;
+}
+
+.column-barra {
+    float: left;
+    position: relative;
+    width: calc(100% - 235px);
+}
+
+main.diagrama {
+    position: relative;
 }

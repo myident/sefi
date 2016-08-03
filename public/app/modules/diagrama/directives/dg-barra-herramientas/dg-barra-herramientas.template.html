@@ -1,0 +1,34 @@
+<div class="barra-wrap">
+    <div>
+        <div class="element-control view-control">View</div>
+        <div class="element-control select-view-control">
+            <div class="select-control">Capabilities (Level 2) <i></i></div>
+            <div class="select-options">
+                <ul>
+                    <li>Processes (Level 1)</li>
+                    <li>Capabilities (Level 2)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="element-control organize-control">Organize by</div>
+        <div class="element-control-switch switch-organize-control">
+            <ul>
+                <li ng-click="unorganize()"><i ng-class="{'active': organize.unorganized.active}"></i><span>Unorganized</span></li>
+                <li ng-click="organizeByAreas()"><i ng-class="{'active': organize.areas.active}"></i><span>Areas</span></li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <div class="element-control show-control">Show</div>
+        <div class="element-control-switch switch-show-control">
+            <ul>
+                <li ng-click="toggleShow('areas')"><i class="areas" ng-class="{'active': show.areas.active}"></i><span>Areas</span></li>
+                <li ng-click="toggleShow('applications')"><i class="apps" ng-class="{'active': show.applications.active}"></i><span>Applications</span></li>
+                <li ng-click="toggleShow('kpis')"><i class="kpis" ng-class="{'active': show.kpis.active}"></i><span>KPIs</span></li>
+            </ul>
+        </div>
+    </div>
+
+</div>

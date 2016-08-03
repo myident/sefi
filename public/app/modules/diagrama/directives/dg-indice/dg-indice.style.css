@@ -1,3 +1,13 @@
+.regresar.dg-indice {
+    display: inline-block;
+    width: 235px;
+    vertical-align: top;
+}
+
+dg-indice {
+    display: block;
+}
+
 dg-indice > aside {
     width: 235px;
     display: block;
@@ -99,7 +109,7 @@ dg-indice > aside .aside-domains ul > li:nth-child(4) {
     line-height: 38px;
 }
 
-dg-indice > aside .aside-domains ul > li:nth-child(4):hover ,
+dg-indice > aside .aside-domains ul > li:nth-child(4):hover,
 dg-indice > aside .aside-domains ul > li:nth-child(4).open {
     background: #D94E1F;
 }
