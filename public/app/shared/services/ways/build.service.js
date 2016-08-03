@@ -667,7 +667,7 @@
                         intersection = $shapes.factory.polyline(this.offsetToArr(capacidad.intersection,layout));
                         
                     
-                    if ((Number(j) + 1) < source[i][type].length) {
+                    // if ((Number(j) + 1) < source[i][type].length) {
                         switch(capacidad.directionTwo[layout].final){
                             case 'down': arrowTwo = $shapes.factory.arrowDown(capacidad.offsetsArrowTwo[layout], baseArrow); break;
                             case 'right': arrowTwo = $shapes.factory.arrowRight(capacidad.offsetsArrowTwo[layout], baseArrow); break;
@@ -675,7 +675,7 @@
                             case 'up': arrowTwo = $shapes.factory.arrowLeft(capacidad.offsetsArrowTwo[layout], baseArrow); break;
                         }
                         lineElse = $shapes.factory.polyline(this.offsetToArr(capacidad.intersectionTwo,layout));
-                    }
+                    // }
 
                     rect = $shapes.factory.rombo(
                         capacidad.offsets[layout], 

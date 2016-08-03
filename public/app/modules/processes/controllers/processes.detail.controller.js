@@ -122,24 +122,46 @@
                                 //     console.error('Error en bases de Datos');
                                 // }
 
+                                // if(regla.idfigura !== 3){
+                                //     reglasTemp[count] = regla;
+                                //     reglasTemp[count].flowId = (regla.pactual - countLess);
+                                //     reglasTemp[count].nextTo = (regla.psiguiente - countLess);
+                                //     idfiguraBool = false;
+                                //     count++;
+                                // }else{
+                                //     if(!idfiguraBool){
+
+                                //         reglasTemp[count] = regla;
+                                //         reglasTemp[count].flowId = (regla.pactual - countLess);
+                                //         reglasTemp[count].nextTo = (regla.psiguiente - countLess);
+                                //         idfiguraBool = true;
+                                        
+                                //         countLess++;
+                                //     }else{
+                                //         reglasTemp[count].intersectionTwo = [];
+                                //         reglasTemp[count].nextToTwo = (regla.psiguiente - countLess);
+                                //         count++;
+                                //         idfiguraBool = false;
+                                //     }
+                                // }
                                 if(regla.idfigura !== 3){
                                     reglasTemp[count] = regla;
-                                    reglasTemp[count].flowId = (regla.pactual - countLess);
-                                    reglasTemp[count].nextTo = (regla.psiguiente - countLess);
+                                    reglasTemp[count].flowId = (regla.pactual );
+                                    reglasTemp[count].nextTo = (regla.psiguiente );
                                     idfiguraBool = false;
                                     count++;
                                 }else{
                                     if(!idfiguraBool){
 
                                         reglasTemp[count] = regla;
-                                        reglasTemp[count].flowId = (regla.pactual - countLess);
-                                        reglasTemp[count].nextTo = (regla.psiguiente - countLess);
+                                        reglasTemp[count].flowId = (regla.pactual );
+                                        reglasTemp[count].nextTo = (regla.psiguiente );
                                         idfiguraBool = true;
                                         
                                         countLess++;
                                     }else{
                                         reglasTemp[count].intersectionTwo = [];
-                                        reglasTemp[count].nextToTwo = (regla.psiguiente - countLess);
+                                        reglasTemp[count].nextToTwo = (regla.psiguiente );
                                         count++;
                                         idfiguraBool = false;
                                     }

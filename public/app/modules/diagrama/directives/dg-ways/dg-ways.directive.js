@@ -1,11 +1,12 @@
 /* global angular, Snap, svgAsPngUri, jsPDF */
 (function () {
-    var Directive = function ($validation, $zoom) {
+    var Directive = function () {
 
         var Link = function ($scope, element, attr, ctrl) {
             
-            $scope.svg = Snap(element[0]);
-            $vash.zoom = 1;
+            var svgElement = document.getElementById('dgWaysSvg');
+            $scope.svg = Snap(svgElement);
+            $scope.zoom = 1;
 
             $scope.init = function(){
                 $scope.$watch('source', function () {
@@ -24,42 +25,43 @@
                     $scope.reset();
                 });
                 $scope.$watch('zoom', function () {
-                    $zoom.change($scope.layout);
+                    // $zoom.change($scope.layout);
                 });
             };
             
 
             $scope.reset = function(){
                 $scope.svg.clear();
-                $vash.zoom = 1;
-                var isValid = $validation.validate($scope.source,function(e){
-                    console.log(e);
-                });
+                $scope.zoom = 1;
+                // var isValid = $validation.validate($scope.source,function(e){
+                //     console.log(e);
+                // });
 
-                isValid && function(){
-                    $setting.dimensions($scope.source,$scope.view);
-                    $setting.relationship($scope.source),$scope.view;
-                    $setting.offsets($scope.source,$scope.view);
+                // isValid && function(){
+                //     $setting.dimensions($scope.source,$scope.view);
+                //     $setting.relationship($scope.source),$scope.view;
+                //     $setting.offsets($scope.source,$scope.view);
 
-                    $build.processes(
-                            $scope.source,
-                            $scope.svg
-                        );
-                    $build.capabilities(
-                            $scope.source,
-                            $scope.svg,  
-                            $scope.view,
-                            $scope.organiceBy,
-                            $scope.show
-                        );
-                };
+                //     $build.processes(
+                //             $scope.source,
+                //             $scope.svg
+                //         );
+                //     $build.capabilities(
+                //             $scope.source,
+                //             $scope.svg,  
+                //             $scope.view,
+                //             $scope.organiceBy,
+                //             $scope.show
+                //         );
+                // };
             };
 
             $scope.init();
         };
         return {
-            restrict    : 'A',
+            restrict    : 'E',
             link        : Link,
+            templateUrl: 'app/modules/diagrama/directives/dg-ways/dg-ways.template.html',
             require     : '?ngModel',
             scope       : {
                 source          : '=setSource',
@@ -73,6 +75,6 @@
         };
     };
     angular
-        .module('dgWays', [])
+        .module('dgDiagramaWays', [])
         .directive('dgWays', Directive);
 })();

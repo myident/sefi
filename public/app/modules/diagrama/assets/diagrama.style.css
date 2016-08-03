@@ -1,6 +1,5 @@
-.page-wrap {
-    
-}
+.page-wrap {}
+
 .column-indice {
     float: left;
     position: relative;
@@ -11,4 +10,8 @@
     float: left;
     position: relative;
     width: calc(100% - 235px);
+}
+
+main.diagrama {
+    position: relative;
 }
