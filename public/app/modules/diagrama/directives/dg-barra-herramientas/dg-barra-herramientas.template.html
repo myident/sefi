@@ -2,25 +2,19 @@
     <div>
         <div class="element-control view-control">View</div>
         <div class="element-control select-view-control">
-            <div class="select-control">Capabilities (Level 2) <i></i></div>
-            <div class="select-options">
+            <div class="select-control" ng-click="openOptions()">{{getView()}}<i></i></div>
+            <div class="select-options" ng-show="optionsShow">
                 <ul>
-                    <li>Processes (Level 1)</li>
-                    <li>Capabilities (Level 2)</li>
+                    <li ng-click="selectView($index)" ng-repeat="option in view">{{option.title}}</li>
                 </ul>
             </div>
         </div>
     </div>
     <div>
-        <div class="element-control organize-control">Organize by</div>
-        <div class="element-control-switch switch-organize-control">
-            <ul>
-                <li ng-click="unorganize()"><i ng-class="{'active': organize.unorganized.active}"></i><span>Unorganized</span></li>
-                <li ng-click="organizeByAreas()"><i ng-class="{'active': organize.areas.active}"></i><span>Areas</span></li>
-            </ul>
-        </div>
+        <div class="element-control organize-control">Organize by areas</div>
+        <div class="element-control-on" ng-class="{'active': organize.active}" ng-click="toggleOrganize()"></div>
     </div>
-    <div>
+    <div ng-show="organize.active">
         <div class="element-control show-control">Show</div>
         <div class="element-control-switch switch-show-control">
             <ul>

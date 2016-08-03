@@ -17,6 +17,7 @@ dg-barra-herramientas .barra-wrap .element-control.view-control {
     top: 0;
     height: 100%;
     left: 20px;
+    cursor: pointer;
 }
 
 dg-barra-herramientas .barra-wrap .element-control.select-view-control {
@@ -24,6 +25,7 @@ dg-barra-herramientas .barra-wrap .element-control.select-view-control {
     height: 100%;
     left: 60px;
     font-size: 11px;
+    cursor: pointer;
 }
 
 dg-barra-herramientas .barra-wrap .element-control.select-view-control .select-control {
@@ -34,7 +36,7 @@ dg-barra-herramientas .barra-wrap .element-control.select-view-control .select-c
     line-height: 28px;
     padding: 0 10px;
     margin: 7px 0;
-    width: 140px;
+    width: 150px;
 }
 
 dg-barra-herramientas .barra-wrap .element-control.select-view-control .select-control > i {
@@ -50,6 +52,9 @@ dg-barra-herramientas .barra-wrap .element-control.select-view-control .select-c
 dg-barra-herramientas .barra-wrap .element-control.select-view-control .select-options {
     background: #F2F2F2;
     border: 1px solid #979797;
+    z-index: 3;
+    position: relative;
+    margin-top: -5px;
 }
 
 dg-barra-herramientas .barra-wrap .element-control.select-view-control .select-options ul li {
@@ -57,6 +62,10 @@ dg-barra-herramientas .barra-wrap .element-control.select-view-control .select-o
     padding: 0 10px;
     height: 28px;
     line-height: 28px;
+}
+
+dg-barra-herramientas .barra-wrap .element-control.select-view-control .select-options ul li:hover {
+    background: #e5e5e5;
 }
 
 dg-barra-herramientas .barra-wrap .element-control.select-view-control .select-options ul li:last-child {
@@ -69,12 +78,26 @@ dg-barra-herramientas .barra-wrap .element-control.organize-control {
     left: 220px;
 }
 
-dg-barra-herramientas .barra-wrap .element-control-switch.switch-organize-control {
-    top: 0;
-    height: 100%;
-    left: 290px;
-    font-size: 11px;
+.element-control-on {
+    width: 45px;
+    height: 27px;
+    background: url(./img/switchareas-off.png);
+    position: absolute;
+    top: 8px;
+    left: 340px;
+    cursor: pointer;
 }
+
+.element-control-on.active {
+    width: 45px;
+    height: 27px;
+    background: url(./img/switchareas-on.png);
+    position: absolute;
+    top: 8px;
+    left: 340px; 
+}
+
+
 
 dg-barra-herramientas .barra-wrap .element-control-switch ul li {
     float: left;
@@ -106,7 +129,7 @@ dg-barra-herramientas .barra-wrap .element-control-switch ul li > i.apps.active 
     margin-right: 6px;
     width: 16px;
     height: 16px;
-    background-image: url(img/app-check-on.png); 
+    background-image: url(img/app-check-on.png);
 }
 
 dg-barra-herramientas .barra-wrap .element-control-switch ul li > i.kpis.active {
@@ -115,7 +138,7 @@ dg-barra-herramientas .barra-wrap .element-control-switch ul li > i.kpis.active 
     margin-right: 6px;
     width: 16px;
     height: 16px;
-    background-image: url(img/kpi-check-on.png); 
+    background-image: url(img/kpi-check-on.png);
 }
 
 dg-barra-herramientas .barra-wrap .element-control-switch ul li > i.areas.active {
@@ -124,18 +147,18 @@ dg-barra-herramientas .barra-wrap .element-control-switch ul li > i.areas.active
     margin-right: 6px;
     width: 16px;
     height: 16px;
-    background-image: url(img/areas-check-on.png); 
+    background-image: url(img/areas-check-on.png);
 }
 
 dg-barra-herramientas .barra-wrap .element-control.show-control {
     top: 0;
     height: 100%;
-    left: 490px;
+    left: 400px;
 }
 
 dg-barra-herramientas .barra-wrap .element-control-switch.switch-show-control {
     top: 0;
     height: 100%;
-    left: 530px;
+    left: 440px;
     font-size: 11px;
 }
