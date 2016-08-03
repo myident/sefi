@@ -1,7 +1,7 @@
 /*global angular*/
 
 (function () {
-    var Controller = function ($scope, $rootScope, $window, $indice, $historial) {
+    var Controller = function ($scope, $rootScope, $window, $indice, $historial, $barraHerramientas) {
 
         $rootScope.spin = false;
 
@@ -17,9 +17,9 @@
         $scope.historial = [];
         
         // barra herramientas
-        $scope.view = 0;
-        $scope.organize = false;
-        $scope.show = '';
+        $scope.view = $barraHerramientas.view;
+        $scope.organize = $barraHerramientas.organize;
+        $scope.show = $barraHerramientas.show;
 
         // $indexes
         var $indexArquitectura = 0;
@@ -85,17 +85,17 @@
         //MARK: - getters Barra de Herramientas
         $scope.getView = function (value) {
             // Update view
-            $scope.view = value;
+            $barraHerramientas.view = value;
         };
 
         $scope.getOrganize = function (value) {
             // Update organize
-            $scope.organize = value;
+            $barraHerramientas.organize = value;
         };
 
         $scope.getShow = function (value) {
             // Update show
-            $scope.show = value;
+            $barraHerramientas.show = value;
         };
 
         $scope.regresar = function () {
@@ -141,7 +141,7 @@
 
     };
 
-    Controller.$inject = ['$scope', '$rootScope', '$window', '$indice', '$historial'];
+    Controller.$inject = ['$scope', '$rootScope', '$window', '$indice', '$historial', '$barraHerramientas'];
 
     angular
         .module('mDiagrama').controller('DiagramaController', Controller);
