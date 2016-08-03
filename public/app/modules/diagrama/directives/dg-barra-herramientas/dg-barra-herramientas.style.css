@@ -1,0 +1,141 @@
+dg-barra-herramientas .barra-wrap {
+    margin: 15px 0 0 10px;
+    height: 42px;
+    background-color: #D7D7D7;
+    width: 100%;
+    position: relative;
+}
+
+dg-barra-herramientas .barra-wrap .element-control,
+dg-barra-herramientas .barra-wrap .element-control-switch {
+    position: absolute;
+    line-height: 42px;
+    font-family: 'SF Regular';
+}
+
+dg-barra-herramientas .barra-wrap .element-control.view-control {
+    top: 0;
+    height: 100%;
+    left: 20px;
+}
+
+dg-barra-herramientas .barra-wrap .element-control.select-view-control {
+    top: 0;
+    height: 100%;
+    left: 60px;
+    font-size: 11px;
+}
+
+dg-barra-herramientas .barra-wrap .element-control.select-view-control .select-control {
+    background: #F2F2F2;
+    border: 1px solid #979797;
+    border-radius: 4px;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 10px;
+    margin: 7px 0;
+    width: 140px;
+}
+
+dg-barra-herramientas .barra-wrap .element-control.select-view-control .select-control > i {
+    display: block;
+    position: absolute;
+    right: 13px;
+    top: 17px;
+    width: 8px;
+    height: 7px;
+    background-image: url(img/triangle.png);
+}
+
+dg-barra-herramientas .barra-wrap .element-control.select-view-control .select-options {
+    background: #F2F2F2;
+    border: 1px solid #979797;
+}
+
+dg-barra-herramientas .barra-wrap .element-control.select-view-control .select-options ul li {
+    border-bottom: 1px solid #979797;
+    padding: 0 10px;
+    height: 28px;
+    line-height: 28px;
+}
+
+dg-barra-herramientas .barra-wrap .element-control.select-view-control .select-options ul li:last-child {
+    border: none;
+}
+
+dg-barra-herramientas .barra-wrap .element-control.organize-control {
+    top: 0;
+    height: 100%;
+    left: 220px;
+}
+
+dg-barra-herramientas .barra-wrap .element-control-switch.switch-organize-control {
+    top: 0;
+    height: 100%;
+    left: 290px;
+    font-size: 11px;
+}
+
+dg-barra-herramientas .barra-wrap .element-control-switch ul li {
+    float: left;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+dg-barra-herramientas .barra-wrap .element-control-switch ul li > i {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 6px;
+    width: 16px;
+    height: 16px;
+    background-image: url(img/check%20off.png);
+}
+
+dg-barra-herramientas .barra-wrap .element-control-switch ul li > i.active {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 6px;
+    width: 16px;
+    height: 16px;
+    background-image: url(img/app-check-on.png);
+}
+
+dg-barra-herramientas .barra-wrap .element-control-switch ul li > i.apps.active {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 6px;
+    width: 16px;
+    height: 16px;
+    background-image: url(img/app-check-on.png); 
+}
+
+dg-barra-herramientas .barra-wrap .element-control-switch ul li > i.kpis.active {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 6px;
+    width: 16px;
+    height: 16px;
+    background-image: url(img/kpi-check-on.png); 
+}
+
+dg-barra-herramientas .barra-wrap .element-control-switch ul li > i.areas.active {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 6px;
+    width: 16px;
+    height: 16px;
+    background-image: url(img/areas-check-on.png); 
+}
+
+dg-barra-herramientas .barra-wrap .element-control.show-control {
+    top: 0;
+    height: 100%;
+    left: 490px;
+}
+
+dg-barra-herramientas .barra-wrap .element-control-switch.switch-show-control {
+    top: 0;
+    height: 100%;
+    left: 530px;
+    font-size: 11px;
+}

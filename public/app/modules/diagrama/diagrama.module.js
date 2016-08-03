@@ -1,5 +1,5 @@
 /*global angular*/
 (function () {
     angular
-        .module('mDiagrama', ['dgDiagramaIndice']);
+        .module('mDiagrama', ['dgDiagramaIndice', 'dgDiagramaHistorial', 'dgDiagramaBarraHerramientas']);
 })();

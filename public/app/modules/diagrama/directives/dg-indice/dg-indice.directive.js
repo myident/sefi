@@ -33,7 +33,7 @@
             $scope.sendMacro = function (value, index, parent) {
                 
                 // Controller
-                $scope.getIndexmacro(value);
+                $scope.getIndexmacro(value, index);
 
                 // Clean macroprocesos
                 for (var i = 0; i < $scope.megaprocesos[parent].macroprocesos.length; i++) {
@@ -47,7 +47,7 @@
             $scope.sendDominio = function (value, index) {
                 
                 // Controller
-                $scope.getIndexdominio(value);
+                $scope.getIndexdominio(value, index);
                 
                 // Clean dominios
                 for (var i = 0; i < $scope.dominios.length; i++) {
