@@ -8,7 +8,7 @@
             $scope.sendMega = function (value, index) {
 
                 // Controller
-                $scope.getIndexmega(value, index);
+                $scope.getMacroprocesos(value, index);
 
                 // Reset macroprocesos
                 for (var i = 0; i < $scope.megaprocesos[index].macroprocesos.length; i++) {
@@ -33,7 +33,7 @@
             $scope.sendMacro = function (value, index, parent) {
                 
                 // Controller
-                $scope.getIndexmacro(value, index);
+                $scope.getProcesos(value, index);
 
                 // Clean macroprocesos
                 for (var i = 0; i < $scope.megaprocesos[parent].macroprocesos.length; i++) {
@@ -47,7 +47,7 @@
             $scope.sendDominio = function (value, index) {
                 
                 // Controller
-                $scope.getIndexdominio(value, index);
+                $scope.getMegaprocesos(value, index);
                 
                 // Clean dominios
                 for (var i = 0; i < $scope.dominios.length; i++) {
@@ -69,9 +69,9 @@
                 arquitectura: '=',
                 dominios: '=',
                 megaprocesos: '=',
-                getIndexmega: '=',
-                getIndexmacro: '=',
-                getIndexdominio: '='
+                getMegaprocesos: '=',
+                getMacroprocesos: '=',
+                getProcesos: '='
             }
         };
     };

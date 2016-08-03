@@ -1,10 +1,11 @@
 /*global angular*/
 
 (function () {
-    var Controller = function ($scope, $rootScope, $window, $arquitecturas, $megaprocesos, $macroprocesos, $procesos) {
+    var Controller = function ($scope, $rootScope, $window, $indice, $historial) {
 
         $rootScope.spin = false;
 
+        // indice
         $scope.arquitecturas = {};
         $scope.arquitectura = {};
         $scope.dominios = [];
@@ -12,68 +13,51 @@
         $scope.macroprocesos = [];
         $scope.procesos = [];
 
+        // historial
         $scope.historial = [];
+        
+        // barra herramientas
+        $scope.view = 0;
+        $scope.organize = false;
+        $scope.show = '';
 
+        // $indexes
         var $indexArquitectura = 0;
         var $indexDominio = 0;
         var $indexMegaproceso = 0;
 
-        // webservice dominios //*** se activa desde el INICIO
-        $scope.arquitecturas = $arquitecturas.get(function (data) {
-            $rootScope.spin = true;
-            // Set arquitectura
+        // init arquitecturas, dominios, megaprocesos
+        $scope.arquitecturas = $indice.arquitecturas(function(data){
             $scope.arquitectura = data.arquitectura[$indexArquitectura];
             if (data.arquitectura[$indexArquitectura].dominios.length) {
                 // Update Dominios
                 $scope.dominios = data.arquitectura[$indexArquitectura].dominios;
                 $scope.dominios[$indexDominio].open = true;
                 // Update Historial
-                $scope.updateHistorial(
-                    $scope.arquitectura.name, 
+                $scope.historial = $historial.update(
+                    $scope.arquitectura.name,
                     $scope.dominios[$indexDominio].title);
                 // Update megaprocesos
-                $scope.megaprocesos = $megaprocesos.query({
-                    iddominio: $scope.dominios[$indexDominio].id
-                }, function () {
-                    $rootScope.spin = false;
-                }, function (e) {
-                    $rootScope.spin = false;
-                    console.log(e);
-                });
+                $scope.megaprocesos = $indice.megaprocesos($scope.dominios[$indexDominio].id, function(){});
             }
-        }, function (e) {
-            $rootScope.spin = false;
-            console.log(e);
         });
 
-        // webservice dominios //*** se activa desde DG-INDICE
-        $scope.dominioIndex = function (value, index) {
-            $rootScope.spin = true;
-            $scope.megaprocesos = $megaprocesos.query({
-                iddominio: value
-            }, function () {
+        //MARK: - getters indice
+        $scope.getMegaprocesos = function (value, index) {
+            $scope.megaprocesos = $indice.megaprocesos(value, function () {
                 // Update Historial
-                $scope.updateHistorial(
-                    $scope.arquitectura.name, 
+                $scope.historial = $historial.update(
+                    $scope.arquitectura.name,
                     $scope.dominios[index].title);
                 // Update indexDominio
                 $indexDominio = index;
-                // Close spin
-                $rootScope.spin = false;
-            }, function (e) {
-                $rootScope.spin = false;
-                console.log(e);
             });
         };
 
-        // webservice macroprocesos //*** se activa desde DG-INDICE
-        $scope.megaprocesoIndex = function (value, index) {
-            $rootScope.spin = true;
-            $scope.macroprocesos = $macroprocesos.query({
-                idmegaproceso: value
-            }, function (data) {
+        $scope.getMacroprocesos = function (value, index) {
+            $scope.macroprocesos = $indice.macroprocesos(value, index, function (data) {
                 // Update Historial
-                $scope.updateHistorial(
+                $scope.historial = $historial.update(
                     $scope.arquitectura.name,
                     $scope.dominios[$indexDominio].title,
                     $scope.megaprocesos[index].title);
@@ -81,64 +65,37 @@
                 $indexMegaproceso = index;
                 // Update Macroprocesos
                 $scope.megaprocesos[index].macroprocesos = data;
-                // Close spin
-                $rootScope.spin = false;
-            }, function (e) {
-                console.log(e);
-                $rootScope.spin = false;
             });
         };
-
-        // webservice procesos //*** se activa desde DG-INDICE
-        $scope.macroprocesoIndex = function (value, index) {
-            $rootScope.spin = true;
-            $procesos.get({
-                idmacroproceso: value
-            }, function (data) {
+        
+        $scope.getProcesos = function (value, index) {
+            $indice.procesos(value, index, function (data) {
                 // Update Historial
-                $scope.updateHistorial(
-                    $scope.arquitectura.name, 
-                    $scope.dominios[$indexDominio].title, 
-                    $scope.megaprocesos[$indexMegaproceso].title, 
+                $scope.historial = $historial.update(
+                    $scope.arquitectura.name,
+                    $scope.dominios[$indexDominio].title,
+                    $scope.megaprocesos[$indexMegaproceso].title,
                     $scope.macroprocesos[index].title);
                 // Update Procesos
                 $scope.procesos = data.procesos;
-                // Close spin
-                $rootScope.spin = false;
-            }, function (e) {
-                $rootScope.spin = false;
-                console.log(e);
             });
         };
+        
 
-        // update historial function
-        $scope.updateHistorial = function (arquitectura, dominio, megaproceso, macroproceso) {
-            if (arquitectura && dominio && megaproceso && macroproceso) {
-                $scope.historial = [arquitectura, dominio, megaproceso, macroproceso];
-            } else if (arquitectura && dominio && megaproceso) {
-                $scope.historial = [arquitectura, dominio, megaproceso];
-            } else if (arquitectura && dominio) {
-                $scope.historial = [arquitectura, dominio];
-            } else if (arquitectura) {
-                $scope.historial = [arquitectura];
-            } else {
-                $scope.historial = [];
-            }
-        };
-        
-        
-        //getters Barra de Herramientas
-        
+        //MARK: - getters Barra de Herramientas
         $scope.getView = function (value) {
-            console.log(value);
+            // Update view
+            $scope.view = value;
         };
-        
+
         $scope.getOrganize = function (value) {
-            console.log(value);
+            // Update organize
+            $scope.organize = value;
         };
-        
+
         $scope.getShow = function (value) {
-            console.log(value);
+            // Update show
+            $scope.show = value;
         };
 
         $scope.regresar = function () {
@@ -146,37 +103,45 @@
         };
 
         $scope.source = {
-            "processes":[
-                    {
-                        "name":"processes - fracaso total",
-                        "capabilities":[
-                            {
-                                "name":"capabilities - fracaso total",
-                                "sortAreas":[
-                                    {
-                                        "areas":[
-                                            {"name":"Areas - fracaso total"}
-                                        ],
-                                        "Applications":[
-                                            {"name":"Applications - fracaso total"}
-                                        ],
-                                        "kpis":[
-                                            {"name":"kpis - fracaso total"}
-                                        ]
-                                    }
-                                ],
-                            }
-                        ]
-                    },
-                ],
-            "kpis":[
-                    {"name":"kpi - fracaso total"}
-                ]
-            };
-
+            "processes": [
+                {
+                    "name": "processes - fracaso total",
+                    "capabilities": [
+                        {
+                            "name": "capabilities - fracaso total",
+                            "sortAreas": [
+                                {
+                                    "areas": [
+                                        {
+                                            "name": "Areas - fracaso total"
+                                        }
+                                    ],
+                                    "Applications": [
+                                        {
+                                            "name": "Applications - fracaso total"
+                                        }
+                                    ],
+                                    "kpis": [
+                                        {
+                                            "name": "kpis - fracaso total"
+                                        }
+                                    ]
+                                }
+                            ],
+                        }
+                    ]
+                },
+            ],
+            "kpis": [
+                {
+                    "name": "kpi - fracaso total"
+                }
+            ]
         };
 
-    Controller.$inject = ['$scope', '$rootScope', '$window', '$arquitecturas', '$megaprocesos', '$macroprocesos', '$procesos'];
+    };
+
+    Controller.$inject = ['$scope', '$rootScope', '$window', '$indice', '$historial'];
 
     angular
         .module('mDiagrama').controller('DiagramaController', Controller);
