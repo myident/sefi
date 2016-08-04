@@ -84,11 +84,11 @@
                     offset.y +=height;
                 };
 
-                cloneCapabilitie = function(source){
+                cloneCapabilities = function(source){
                     // cloneCapabilitie
                 };
 
-                (show === 2) && cloneCapabilitie(source.processes);
+                (show === 2) && cloneCapabilities(source.processes);
                 processes(source.processes,offset);
             }
     };
