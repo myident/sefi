@@ -10,7 +10,7 @@
         };
 
         $scope.go = function(value) {
-            $window.location = '#/areas/arquitectura/trayectoria/' + value;  
+            $window.location = '#/trayectoria/' + value;  
         };
         // MARK: - Dimensions
 

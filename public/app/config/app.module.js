@@ -3,7 +3,7 @@
 
     var angularModules      = ["ngRoute","ngTouch", "ngResource", "ngAnimate", "angular-parallax"];
     
-    var customModules       = ["mHome", "mProcesses", "mEcosistema", "mAreas","mAdmin", "mArchitecture"];
+    var customModules       = ["mHome", "mProcesses", "mEcosistema","mAdmin", "mArchitecture"];
     
     var componentsModules   = ["mHeaderDirective", "mBackground", "Spin","mSlideview","mParagraph", "mGetdimensions", "mDiagrama"];
     

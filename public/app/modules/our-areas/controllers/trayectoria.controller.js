@@ -55,5 +55,5 @@
 
     };
     Controller.$inject = ['$scope', '$rootScope', '$window', '$cvs', '$routeParams'];
-    angular.module('mAreas').controller('TrayectoriaController', Controller);
+    angular.module('mArchitecture').controller('TrayectoriaController', Controller);
 })();

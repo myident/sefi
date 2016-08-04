@@ -12,35 +12,27 @@
 
 	<!-- Style -->
 	<link rel="stylesheet" href="assets/css/style.css">
-	
-	<!-- Directives Style -->
-	<link rel="stylesheet" href="app/shared/directives/main/ng-header/ng-header.style.css">
-	<link rel="stylesheet" href="app/shared/directives/main/ng-background/ng-background.style.css">
-	<link rel="stylesheet" href="app/shared/directives/main/spin/assets/spin.style.css">
-	<link rel="stylesheet" href="app/shared/directives/main/ng-slideview/ng-slideview.style.css">
-
+	<!-- Libs -->
+	<link rel="stylesheet" href="./bower_components/angular-parallax/styles/main.css">
 	<!-- Modules Style -->
 	<link rel="stylesheet" href="app/modules/home/assets/home.style.css">
 	<link rel="stylesheet" href="app/modules/processes/assets/processes.style.css">
 	<link rel="stylesheet" href="app/modules/processes/assets/processes.detail.style.css">
 	<link rel="stylesheet" href="app/modules/ecosistema/assets/ecosistema.style.css">
-	<link rel="stylesheet" href="app/modules/areas/assets/arquitectura.style.css">
-	<link rel="stylesheet" href="app/modules/areas/assets/trayectoria.style.css">
 	<link rel="stylesheet" href="app/modules/admin/assets/admin.style.css">
+	<link rel="stylesheet" href="app/modules/our-areas/assets/trayectoria.style.css">
 	<link rel="stylesheet" href="app/modules/our-areas/assets/our-areas.style.css">
 	<link rel="stylesheet" href="app/modules/diagrama/assets/diagrama.style.css">
-
-	
-	
-	<link rel="stylesheet" href="./bower_components/angular-parallax/styles/main.css">
-	
-	<link rel="stylesheet" href="./app/modules/diagrama/assets/diagrama.style.css">
-	<link rel="stylesheet" href="./app/modules/diagrama/directives/dg-indice/dg-indice.style.css">
-
-	<link rel="stylesheet" href="./app/modules/diagrama/directives/dg-historial/dg-historial.style.css">
-	<link rel="stylesheet" href="./app/modules/diagrama/directives/dg-barra-herramientas/dg-barra-herramientas.style.css">
-
-	<link rel="stylesheet" href="./app/modules/diagrama/directives/dg-ways/dg-ways.style.css">
+	<!-- Directives Style -->
+	<link rel="stylesheet" href="app/shared/directives/main/ng-header/ng-header.style.css">
+	<link rel="stylesheet" href="app/shared/directives/main/ng-background/ng-background.style.css">
+	<link rel="stylesheet" href="app/shared/directives/main/spin/assets/spin.style.css">
+	<link rel="stylesheet" href="app/shared/directives/main/ng-slideview/ng-slideview.style.css">
+    <!-- Directives Diagrama -->
+	<link rel="stylesheet" href="app/modules/diagrama/directives/dg-indice/dg-indice.style.css">
+	<link rel="stylesheet" href="app/modules/diagrama/directives/dg-historial/dg-historial.style.css">
+	<link rel="stylesheet" href="app/modules/diagrama/directives/dg-barra-herramientas/dg-barra-herramientas.style.css">
+	<link rel="stylesheet" href="app/modules/diagrama/directives/dg-ways/dg-ways.style.css">
 
 
 </head>
@@ -57,7 +49,6 @@
 	<script src="./bower_components/savesvgaspng/saveSvgAsPng.js"></script>
 	<script src="./bower_components/jspdf/dist/jspdf.min.js"></script>
 	<script src="./bower_components/svgtopdf/svgToPdf.js"></script>
-
 	<!-- References angular.js -->
 	<script src="./bower_components/angular/angular.min.js"></script>
 	<script src="./bower_components/angular-route/angular-route.min.js"></script>
@@ -65,90 +56,65 @@
 	<script src="./bower_components/angular-resource/angular-resource.min.js"></script>
 	<script src="./bower_components/angular-animate/angular-animate.min.js"></script>
 	<script src="./bower_components/angular-parallax/scripts/angular-parallax.js"></script>
-	
 	<!-- app config -->
 	<script src="app/config/app.module.js"></script>
 	<script src="app/config/app.router.js"></script>
 	<script src="app/config/app.controller.js"></script>
 	<script src="app/config/app.service.js"></script>
 	<script src="app/config/app.singleton.js"></script>
-
-	<!-- Directives -->
+	<!-- Directives main -->
 	<script src="app/shared/directives/main/ng-header/ng-header.directive.js"></script>
 	<script src="app/shared/directives/main/ng-background/ng-background.directive.js"></script>
 	<script src="app/shared/directives/main/spin/spin.directive.js"></script>
 	<script src="app/shared/directives/main/ng-slideview/ng-slideview.directive.js"></script>
 	<script src="app/shared/directives/main/ng-paragraph/ng-paragraph.directive.js"></script>
-	
+	<script src="app/shared/directives/main/ng-getdimensions/ng-getdimensions.directive.js"></script>
+	<!-- Directives procesos -->
 	<script src="app/shared/directives/procesos/ng-flipcard/ng-flipcard.directive.js"></script>
 	<script src="app/shared/directives/procesos/ng-mapside/ng-mapside.directive.js"></script>
 	<script src="app/shared/directives/procesos/ng-breadcrumb/ng-breadcrumb.directive.js"></script>
 	<script src="app/shared/directives/procesos/ng-index/ng-index.directive.js"></script>
 	<script src="app/shared/directives/procesos/ng-ways/ng-ways_vash.directive.js"></script>
 	<script src="app/shared/directives/procesos/ng-layouts/ng-layouts.directive.js"></script>
-	
 	<script src="app/shared/directives/procesos/ng-print/ng-print.directive.js"></script>
-	<script src="app/shared/directives/main/ng-getdimensions/ng-getdimensions.directive.js"></script>
-	
 	<!-- Directives Diagram -->
 	<script src="app/modules/diagrama/directives/dg-indice/dg-indice.directive.js"></script>
 	<script src="app/modules/diagrama/directives/dg-historial/dg-historial.directive.js"></script>
 	<script src="app/modules/diagrama/directives/dg-barra-herramientas/dg-barra-herramientas.directive.js"></script>
-
 	<script src="app/modules/diagrama/directives/dg-ways/dg-ways.directive.js"></script>
-
-
-
 	<!-- Modules  -->
 	<script src="app/modules/home/home.module.js"></script>
 	<script src="app/modules/processes/processes.module.js"></script>
 	<script src="app/modules/ecosistema/ecosistema.module.js"></script>
-	<script src="app/modules/areas/areas.module.js"></script>
 	<script src="app/modules/admin/admin.module.js"></script>
     <script src="app/modules/our-areas/our-areas.module.js"></script>
     <script src="app/modules/diagrama/diagrama.module.js"></script>
-    
 	<!-- Controllers -->
 	<script src="app/modules/home/controllers/home.controller.js"></script>
 	<script src="app/modules/processes/controllers/processes.controller.js"></script>
 	<script src="app/modules/processes/controllers/processes.detail.controller.js"></script>
 	<script src="app/modules/ecosistema/controllers/vista-ecosistemas.controller.js"></script>
-	<script src="app/modules/areas/controllers/arquitectura.controller.js"></script>
 	<script src="app/modules/admin/controllers/aplicaciones.controller.js"></script>
-	
-
-	<script src="app/modules/areas/controllers/arq-areas.controller.js"></script>
-	<script src="app/modules/areas/controllers/arq-contenidos.controller.js"></script>
-	<script src="app/modules/areas/controllers/trayectoria.controller.js"></script>
-	<script src="app/modules/areas/controllers/gobierno.controller.js"></script>
-	
+	<script src="app/modules/our-areas/controllers/trayectoria.controller.js"></script>
 	<script src="app/modules/our-areas/controllers/architecture.controller.js"></script>
 	<script src="app/modules/diagrama/controllers/diagrama.controller.js"></script>
-	
-
 	<script src="app/modules/diagrama/services/settings.service.js"></script>
 	<script src="app/modules/diagrama/services/builder.service.js"></script>
 	<script src="app/modules/diagrama/services/paint.service.js"></script>
-	
 	<!-- Services -->
 	<script src="app/config/app.service.js"></script>
+	<script src="app/modules/home/services/home.service.js"></script>
 	<script src="app/modules/processes/services/arquitecuras.service.js"></script>
 	<script src="app/modules/processes/services/dominios.service.js"></script>
 	<script src="app/modules/processes/services/megaprocesos.service.js"></script>
 	<script src="app/modules/processes/services/macroprocesos.service.js"></script>
 	<script src="app/modules/processes/services/procesos.service.js"></script>
 	<script src="app/modules/ecosistema/services/ecosistema.service.js"></script>
-	<script src="app/modules/areas/services/cvnombres.service.js"></script>
-	<script src="app/modules/areas/services/cvs.service.js"></script>
 	<script src="app/modules/admin/services/aplicaciones.service.js"></script>
-	<script src="app/modules/home/services/home.service.js"></script>
-	
-	<script src="app/shared/services/ways/glassfish.service.js"></script>
-	
-	
+	<script src="app/modules/our-areas/services/cvnombres.service.js"></script>
+	<script src="app/modules/our-areas/services/cvs.service.js"></script>
 	<!-- Services for Ways-->
 	<script src="app/shared/services/ways/vash.service.js"></script>
-	
 	<script src="app/shared/services/ways/shapes.service.js"></script>
 	<script src="app/shared/services/ways/build.service.js"></script>
 	<script src="app/shared/services/ways/layouts.service.js"></script>

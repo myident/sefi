@@ -34,48 +34,15 @@
             controller: 'VistaEcosistemasController'
         });
 
-        // Arquitectura Intro
-        $routeProvider.when('/areas/arquitectura', {
-            templateUrl: baseUrl + 'areas/views/arquitectura.view.html',
-            controller: 'ArquitecturaController'
-        });
-
         // Arquitectura Trayectoria
-        $routeProvider.when('/areas/arquitectura/trayectoria', {
-            templateUrl: baseUrl + 'areas/views/trayectoria.view.html',
+        $routeProvider.when('/trayectoria', {
+            templateUrl: baseUrl + 'our-areas/views/trayectoria.view.html',
             controller: 'TrayectoriaController'
         });
-        $routeProvider.when('/areas/arquitectura/trayectoria/:id_area', {
-            templateUrl: baseUrl + 'areas/views/trayectoria.view.html',
+        $routeProvider.when('/trayectoria/:id_area', {
+            templateUrl: baseUrl + 'our-areas/views/trayectoria.view.html',
             controller: 'TrayectoriaController'
         });
-
-
-
-
-
-        // Arquitectura Areas
-        $routeProvider.when('/areas/arquitectura/areas', {
-            templateUrl: baseUrl + 'areas/views/arq-areas.view.html',
-            controller: 'ArqAreasController'
-        });
-
-        // Arquitectura Gobierno IT
-        $routeProvider.when('/areas/arquitectura/gobierno', {
-            templateUrl: baseUrl + 'areas/views/gobierno.view.html',
-            controller: 'GobiernoController'
-        });
-        $routeProvider.when('/areas/arquitectura/gobierno/:id_area', {
-            templateUrl: baseUrl + 'areas/views/gobierno.view.html',
-            controller: 'GobiernoController'
-        });
-
-        // Arquitectura Contenidos
-        $routeProvider.when('/areas/arquitectura/contenidos', {
-            templateUrl: baseUrl + 'areas/views/arq-contenidos.view.html',
-            controller: 'ArqContenidosController'
-        });
-
 
 
         // Admin
