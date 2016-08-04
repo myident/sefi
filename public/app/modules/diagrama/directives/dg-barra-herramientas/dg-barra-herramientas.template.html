@@ -2,7 +2,7 @@
     <div>
         <div class="element-control view-control">View</div>
         <div class="element-control select-view-control">
-            <div class="select-control" ng-click="openOptions()">{{getView()}}<i></i></div>
+            <div class="select-control" ng-click="openOptions()">{{getViewName()}}<i></i></div>
             <div class="select-options" ng-show="optionsShow">
                 <ul>
                     <li ng-click="selectView($index)" ng-repeat="option in view">{{option.title}}</li>
@@ -23,6 +23,12 @@
                 <li ng-click="toggleShow('kpis')"><i class="kpis" ng-class="{'active': show.kpis.active}"></i><span>KPIs</span></li>
             </ul>
         </div>
+        <div class="element-control zoom-control">
+            <div class="menos"></div>
+            <div class="total">100%</div>
+            <div class="mas"></div>
+        </div>
+        <div class="download-pdf"></div>
     </div>
 
 </div>
