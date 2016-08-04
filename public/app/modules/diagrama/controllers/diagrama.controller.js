@@ -15,11 +15,12 @@
 
         // historial
         $scope.historial = [];
-        
+
         // barra herramientas
         $scope.view = $barraHerramientas.view;
         $scope.organize = $barraHerramientas.organize;
         $scope.show = $barraHerramientas.show;
+        $scope.zoom = $barraHerramientas.zoom;
 
         // $indexes
         var $indexArquitectura = 0;
@@ -27,105 +28,130 @@
         var $indexMegaproceso = 0;
 
         // init arquitecturas, dominios, megaprocesos
-        $scope.arquitecturas = $indice.arquitecturas(function(data){
-            $scope.arquitectura = data.arquitectura[$indexArquitectura];
-            if (data.arquitectura[$indexArquitectura].dominios.length) {
-                // Update Dominios
-                $scope.dominios = data.arquitectura[$indexArquitectura].dominios;
-                $scope.dominios[$indexDominio].open = true;
-                // Update Historial
-                $scope.historial = $historial.update(
-                    $scope.arquitectura.name,
-                    $scope.dominios[$indexDominio].title);
-                // Update megaprocesos
-                $scope.megaprocesos = $indice.megaprocesos($scope.dominios[$indexDominio].id, function(){});
-            }
-        });
+        $scope.arquitecturas = $indice.arquitecturas(
+            function (data) {
+                $scope.arquitectura = data.arquitectura[$indexArquitectura];
+                if (data.arquitectura[$indexArquitectura].dominios.length) {
+                    // Update Dominios
+                    $scope.dominios = data.arquitectura[$indexArquitectura].dominios;
+                    $scope.dominios[$indexDominio].open = true;
+                    // Update Historial
+                    $scope.historial = $historial.update(
+                        $scope.arquitectura.name,
+                        $scope.dominios[$indexDominio].title);
+                    // Update megaprocesos
+                    $scope.megaprocesos = $indice.megaprocesos(
+                        $scope.dominios[$indexDominio].id,
+                        function () {});
+                }
+            });
 
-        //MARK: - getters indice
+        //MARK: - getter Megaprocesos
         $scope.getMegaprocesos = function (value, index) {
-            $scope.megaprocesos = $indice.megaprocesos(value, function () {
-                // Update Historial
-                $scope.historial = $historial.update(
-                    $scope.arquitectura.name,
-                    $scope.dominios[index].title);
-                // Update indexDominio
-                $indexDominio = index;
-            });
+            $scope.megaprocesos = $indice.megaprocesos(
+                value,
+                function () {
+                    // Update Historial
+                    $scope.historial = $historial.update(
+                        $scope.arquitectura.name,
+                        $scope.dominios[index].title);
+                    // Update indexDominio
+                    $indexDominio = index;
+                });
         };
-
+        //MARK: - getter Macroprocesos
         $scope.getMacroprocesos = function (value, index) {
-            $scope.macroprocesos = $indice.macroprocesos(value, index, function (data) {
-                // Update Historial
-                $scope.historial = $historial.update(
-                    $scope.arquitectura.name,
-                    $scope.dominios[$indexDominio].title,
-                    $scope.megaprocesos[index].title);
-                // Update indexMegaproceso
-                $indexMegaproceso = index;
-                // Update Macroprocesos
-                $scope.megaprocesos[index].macroprocesos = data;
-            });
+            $scope.macroprocesos = $indice.macroprocesos(
+                value,
+                index,
+                function (data) {
+                    // Update Historial
+                    $scope.historial = $historial.update(
+                        $scope.arquitectura.name,
+                        $scope.dominios[$indexDominio].title,
+                        $scope.megaprocesos[index].title);
+                    // Update indexMegaproceso
+                    $indexMegaproceso = index;
+                    // Update Macroprocesos
+                    $scope.megaprocesos[index].macroprocesos = data;
+                });
         };
-        
+        //MARK: - getter Procesos
         $scope.getProcesos = function (value, index) {
-            $indice.procesos(value, index, function (data) {
-                // Update Historial
-                $scope.historial = $historial.update(
-                    $scope.arquitectura.name,
-                    $scope.dominios[$indexDominio].title,
-                    $scope.megaprocesos[$indexMegaproceso].title,
-                    $scope.macroprocesos[index].title);
-                // Update Procesos
-                $scope.procesos = data.procesos;
-            });
+            $indice.procesos(
+                value,
+                index,
+                function (data) {
+                    // Update Historial
+                    $scope.historial = $historial.update(
+                        $scope.arquitectura.name,
+                        $scope.dominios[$indexDominio].title,
+                        $scope.megaprocesos[$indexMegaproceso].title,
+                        $scope.macroprocesos[index].title);
+                    // Update Procesos
+                    $scope.procesos = data.procesos;
+                });
         };
-        
 
-        //MARK: - getters Barra de Herramientas
+
+        //MARK: - getter View
         $scope.getView = function (value) {
             // Update view
             $barraHerramientas.view = value;
         };
-
+        //MARK: - getter Organize
         $scope.getOrganize = function (value) {
             // Update organize
             $barraHerramientas.organize = value;
         };
-
+        //MARK: - getter Show
         $scope.getShow = function (value) {
             // Update show
             $barraHerramientas.show = value;
         };
+        //MARK: - getter Zoom
+        $scope.getZoom = function(value) {
+            $barraHerramientas.zoom = value;
+        };
+        
 
+        //MARK: - Regresar
         $scope.regresar = function () {
             $window.history.back();
         };
 
         $scope.source = {
-            "processes":[
-                    {
-                        "name":"processes - fracaso total",
-                        "capabilities":[
-                            {
-                                "name":"capabilities - fracaso total",
-                                "sortAreas": {
-                                        "areas":[
-                                            {"name":"Areas - fracaso total"}
-                                        ],
-                                        "applications":[
-                                            {"name":"Applications - fracaso total"}
-                                        ],
-                                        "kpis":[
-                                            {"name":"kpis - fracaso total"}
-                                        ]
+            "processes": [
+                {
+                    "name": "processes - fracaso total",
+                    "capabilities": [
+                        {
+                            "name": "capabilities - fracaso total",
+                            "sortAreas": {
+                                "areas": [
+                                    {
+                                        "name": "Areas - fracaso total"
                                     }
+                                        ],
+                                "applications": [
+                                    {
+                                        "name": "Applications - fracaso total"
+                                    }
+                                        ],
+                                "kpis": [
+                                    {
+                                        "name": "kpis - fracaso total"
+                                    }
+                                        ]
+                            }
                                 }
                             ]
                         }
                     ],
-            "kpis":[
-                    {"name":"kpi - fracaso total"}
+            "kpis": [
+                {
+                    "name": "kpi - fracaso total"
+                }
                 ]
         };
 
