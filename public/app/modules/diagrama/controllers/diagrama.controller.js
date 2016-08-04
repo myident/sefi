@@ -90,6 +90,7 @@
                         $scope.macroprocesos[index].title);
                     // Update Procesos
                     $scope.procesos = data.procesos;
+                    console.log($scope.procesos);
                 });
         };
 
@@ -97,20 +98,24 @@
         //MARK: - getter View
         $scope.getView = function (value) {
             // Update view
+            $scope.view = value;
             $barraHerramientas.view = value;
         };
         //MARK: - getter Organize
         $scope.getOrganize = function (value) {
             // Update organize
+            $scope.organize = value;
             $barraHerramientas.organize = value;
         };
         //MARK: - getter Show
         $scope.getShow = function (value) {
             // Update show
+            $scope.show = value;
             $barraHerramientas.show = value;
         };
         //MARK: - getter Zoom
         $scope.getZoom = function(value) {
+            $scope.zoom = value;
             $barraHerramientas.zoom = value;
         };
         

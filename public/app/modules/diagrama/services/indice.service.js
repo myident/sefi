@@ -2,7 +2,7 @@
 
 (function () {
 
-    var service = function ($rootScope, $arquitecturas, $megaprocesos, $macroprocesos, $procesos) {
+    var service = function ($rootScope, $arquitecturas, $megaprocesos, $macroprocesos, $procesoskpi) {
         return {
             arquitecturas: function (callback) {
                 var arquitecturas = $arquitecturas.get(function (data) {
@@ -43,7 +43,7 @@
             },
             procesos: function (value, index, callback) {
                 $rootScope.spin = true;
-                var procesos = $procesos.get({
+                var procesos = $procesoskpi.get({
                     idmacroproceso: value
                 }, function (data) {
                     callback(data);
