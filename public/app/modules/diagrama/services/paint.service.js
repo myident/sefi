@@ -65,9 +65,11 @@
                 });
                 return rect;
             },
+
+            ////////////////// new
             rectProceso: function (rect) {
                 rect.attr({
-                    stroke: "rgb(144,99,205)",
+                    stroke: "rgb(151,151,151)",
                     fill: "rgb(255,255,255)",
                     strokeWidth: 1,
                     "shape-rendering": "crispEdges"
@@ -80,10 +82,54 @@
                     stroke: "rgb(151,151,151)",
                     fill: "rgb(244,244,244)",
                     strokeWidth: 1,
-                    filter: filter
+                    filter: filter,
+                    "shape-rendering": "crispEdges"
                 });
                 return rect;
             },
+            textLeft: function (text) {
+                text.attr({
+                    'text-anchor': "initial"
+                });
+                return text;
+            },
+            textRight: function (text) {
+                text.attr({
+                    'text-anchor': "end"
+                });
+                return text;
+            },
+            textCenter: function (text) {
+                text.attr({
+                    'text-anchor': "middle"
+                });
+                return text;
+            },
+            fillGray: function(fig){
+                fig.attr({
+                    fill: "rgb(126,126,126)"
+                });
+                return fig;
+            },
+            fillWhite: function(fig){
+                fig.attr({
+                    fill: "rgb(255,25,255)"
+                });
+                return fig;
+            },
+            fillView: function(fig,show){
+                switch(show){
+                    case 0: fig.attr({ fill: "rgb(144, 99, 205)" });break;
+                    case 1: fig.attr({ fill: "rgb(180,58,125)" });break;
+                    case 2: fig.attr({ fill: "rgb(101,83,186)" });break;
+                    case 3: fig.attr({ fill: "rgb(80,190,197)" });break;
+                }
+                return fig;
+            },
+
+
+
+
             lineApplication: function (line) {
                 line.attr({
                     stroke: "rgb(150,150,150)",
@@ -119,12 +165,6 @@
             fontColorGray: function(text){
                 text.attr({
                     fill: "rgb(50, 50, 50)"
-                });
-                return text;
-            },
-            textLeft: function (text) {
-                text.attr({
-                    'text-anchor': "initial"
                 });
                 return text;
             },
@@ -197,7 +237,7 @@
 
 
     angular
-        .module('mVash')
+        .module('mDiagrama')
         .service('$paint', service);
 
 })();
