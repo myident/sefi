@@ -6,7 +6,7 @@
         return {
             dimensions: function (source, view, organiceBy, show) {
 
-                var processes,capabilities,sortAreas, item;
+                var processes,capabilities,sortAreas,labels;
                 var offset = {x : 20, y: 20};
 
                 var htmlObject = function(w, h, offset){ 
@@ -16,9 +16,14 @@
                     };
 
                 processes = function(processesArr,offset){
+
+                    var width = 200;
+                    var height = 500;
+
+                    offset.x +=(width/2);
+
                     for(var i in processesArr){
-                        var width = 200;
-                        var height = 500;
+                        
                         var process = processesArr[i];
                         var html = {};
                         // rect
@@ -57,29 +62,30 @@
                         offset.y += height;
 
                         console.log(capability);
-                        (show === 1) && sortAreas(capabilitiesArr, i, capability.sortAreas.areas, offset);
-                        (show === 2) && sortAreas(capabilitiesArr, i, capability.sortAreas.applications, offset);
-                        (show === 3) && sortAreas(capabilitiesArr, i, capability.sortAreas.kpis, offset);
+                        (show === 1) && sortAreas(capability.sortAreas.areas, offset);
+                        (show === 2) && sortAreas(capability.sortAreas.applications, offset);
+                        (show === 3) && sortAreas(capability.sortAreas.kpis, offset);
 
                         offset.y +=marginBottom;
                     }    
                 };
-                sortAreas = function(capabilitiesArr, i, arr, offset){
-                    var width = 150;
-                    var height = 20;
+                sortAreas = function(arr, offset){
+                    
 
                     for(var i in arr){
                         var label = arr[i];
-                        labels(item);
+                        labels(label,offset);
                     }
                     
                 };
 
-                labels = function(item){
+                labels = function(item, offset){
+                    var width = 150;
+                    var height = 20;
+
                     var html = {};
                     html.rect = new htmlObject(width, height, { x:offset.x, y : offset.y + (height / 2) });
                     html.textBox = new htmlObject(width, height, { x:offset.x, y : offset.y + (height / 2) });
-
                     item.html = html;
                     offset.y +=height;
                 };

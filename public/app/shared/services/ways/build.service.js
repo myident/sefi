@@ -502,29 +502,29 @@
                     rect = $paint.rectCapacidades(rect);
 
                     
-                    if((capacidad.flowId+1) === capacidad.nextTo){
+                    // if((capacidad.flowId+1) === capacidad.nextTo){
                         textbox = $shapes.factory.textbox(
                         capacidad.offsets[layout], 
                         capacidadWidth, 
                         capacidadHeight, 
                         capacidad.name, 11);
                     
-                    }else{
-                        capacidad.offsets[layout].y = capacidad.offsets[layout].y + 12;
+                    // }else{
+                    //     capacidad.offsets[layout].y = capacidad.offsets[layout].y + 12;
 
-                        textbox = $shapes.factory.textbox(
-                        capacidad.offsets[layout], 
-                        capacidadWidth, 
-                        capacidadHeight, 
-                        'Error en Base de Datos', 11);
-                        textbox = $paint.textRed(textbox);
-                        $paint.textRed(arrow || textbox);
-                        $paint.lineRed(intersection || textbox);
+                    //     textbox = $shapes.factory.textbox(
+                    //     capacidad.offsets[layout], 
+                    //     capacidadWidth, 
+                    //     capacidadHeight, 
+                    //     'Error en Base de Datos', 11);
+                    //     textbox = $paint.textRed(textbox);
+                    //     $paint.textRed(arrow || textbox);
+                    //     $paint.lineRed(intersection || textbox);
 
                         
-                        var imgUrl  = 'assets/img/ICONO_TACHE.png';
-                        var imgError = $shapes.factory.imgError(capacidad.offsets[layout],imgUrl,20,20);
-                    }
+                    //     var imgUrl  = 'assets/img/ICONO_TACHE.png';
+                    //     var imgError = $shapes.factory.imgError(capacidad.offsets[layout],imgUrl,20,20);
+                    // }
 
                     // Setting data
                     rect
@@ -578,28 +578,28 @@
                     
                     rect = $paint.rectCapacidades(rect);
 
-                    if((capacidad.flowId+1) === capacidad.nextTo){
+                    // if((capacidad.flowId+1) === capacidad.nextTo){
                         textbox = $shapes.factory.textbox(
                         capacidad.offsets[layout], 
                         capacidadWidth, 
                         capacidadHeight, 
                         capacidad.name, 11);
                     
-                    }else{
-                        capacidad.offsets[layout].y = capacidad.offsets[layout].y + 12;
+                    // }else{
+                    //     capacidad.offsets[layout].y = capacidad.offsets[layout].y + 12;
 
-                        textbox = $shapes.factory.textbox(
-                        capacidad.offsets[layout], 
-                        capacidadWidth, 
-                        capacidadHeight, 
-                        'Error en Base de Datos', 11);
-                        textbox = $paint.textRed(textbox);
-                        $paint.textRed(arrow || textbox);
-                        $paint.lineRed(intersection || textbox);
+                    //     textbox = $shapes.factory.textbox(
+                    //     capacidad.offsets[layout], 
+                    //     capacidadWidth, 
+                    //     capacidadHeight, 
+                    //     'Error en Base de Datos', 11);
+                    //     textbox = $paint.textRed(textbox);
+                    //     $paint.textRed(arrow || textbox);
+                    //     $paint.lineRed(intersection || textbox);
                         
-                        var imgUrl  = 'assets/img/ICONO_TACHE.png';
-                        var imgError = $shapes.factory.imgError(capacidad.offsets[layout],imgUrl,20,20);
-                    }
+                    //     var imgUrl  = 'assets/img/ICONO_TACHE.png';
+                    //     var imgError = $shapes.factory.imgError(capacidad.offsets[layout],imgUrl,20,20);
+                    // }
 
                     // Setting data
                     rect

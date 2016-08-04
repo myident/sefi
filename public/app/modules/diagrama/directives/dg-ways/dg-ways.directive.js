@@ -1,12 +1,14 @@
 /* global angular, Snap, svgAsPngUri, jsPDF */
 (function () {
-    var Directive = function ($setting) {
+    var Directive = function ($setting, $builder) {
 
         var Link = function ($scope, element, attr, ctrl) {
             
             var svgElement = document.getElementById('dgWaysSvg');
             $scope.svg = Snap(svgElement);
             $scope.zoom = 1;
+            $scope.width = 0;
+            $scope.height = 0;
 
             $scope.init = function(){
                 // $scope.$watch('source', function () {
@@ -47,6 +49,9 @@
                 //     $setting.relationship($scope.source),$scope.view;
 
                 $setting.dimensions($scope.source,$scope.view, $scope.organiceBy, $scope.show);
+                $builder.build($scope.svg, $scope.source);
+
+                $scope.settingSvg($scope.source);
                 console.log($scope.source);
                 //     $build.processes(
                 //             $scope.source,
@@ -60,6 +65,24 @@
                 //             $scope.show
                 //         );
                 // };
+            };
+
+            $scope.settingSvg = function(source){
+                var maxHeight = 0;
+                var maxWidth = 0;
+                var marginBottom = 20;
+                var marginTop = 20;
+
+                for(var i in source.processes){
+                    var height = source.processes[i].html.rect.height;
+                    if(height > maxHeight){
+                        maxHeight = height;
+                    }
+                    maxWidth += 240;
+                }
+
+                $scope.width    = maxWidth + "px";
+                $scope.height   = (maxHeight+ marginBottom + marginTop) + "px";
             };
 
             $scope.init();
