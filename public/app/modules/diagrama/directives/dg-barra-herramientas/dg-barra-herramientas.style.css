@@ -202,3 +202,7 @@ dg-barra-herramientas .barra-wrap .element-control-switch.switch-show-control {
     right: 20px;
     top: 6px;
 }
+
+.disabled {
+    opacity: 0.3;
+}

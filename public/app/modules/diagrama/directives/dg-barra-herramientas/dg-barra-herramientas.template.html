@@ -14,19 +14,17 @@
         <div class="element-control organize-control">Organize by areas</div>
         <div class="element-control-on" ng-class="{'active': organize.active}" ng-click="toggleOrganize()"></div>
     </div>
-    <div ng-show="organize.active">
+    <div>
         <div class="element-control show-control">Show</div>
         <div class="element-control-switch switch-show-control">
             <ul>
-                <li ng-click="toggleShow('areas')"><i class="areas" ng-class="{'active': show.areas.active}"></i><span>Areas</span></li>
-                <li ng-click="toggleShow('applications')"><i class="apps" ng-class="{'active': show.applications.active}"></i><span>Applications</span></li>
-                <li ng-click="toggleShow('kpis')"><i class="kpis" ng-class="{'active': show.kpis.active}"></i><span>KPIs</span></li>
+                <li ng-class="{'disabled': toshow.disabled}" ng-click="toggleShow($index)" ng-repeat="toshow in show"><i class="{{toshow.class}}" ng-class="{'active': toshow.active}"></i><span>{{toshow.title}}</span></li>
             </ul>
         </div>
         <div class="element-control zoom-control">
-            <div class="menos"></div>
-            <div class="total">100%</div>
-            <div class="mas"></div>
+            <div class="menos" ng-click="changeZoom('menos')"></div>
+            <div class="total" ng-click="changeZoom('default')">{{displayZoom}}</div>
+            <div class="mas" ng-click="changeZoom('mas')"></div>
         </div>
         <div class="download-pdf"></div>
     </div>

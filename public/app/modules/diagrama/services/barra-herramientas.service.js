@@ -5,8 +5,8 @@
     var service = function () {
         return {
             view: 0,
-            organize: true,
-            show: 'areas',
+            organize: 0,
+            show: 0,
             zoom: 1
         };
     };
