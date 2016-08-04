@@ -12,6 +12,8 @@
         $scope.megaprocesos = [];
         $scope.macroprocesos = [];
         $scope.procesos = [];
+        
+        $scope.areasList = $indice.areasList();
 
         // historial
         $scope.historial = [];
@@ -21,6 +23,7 @@
         $scope.organize = $barraHerramientas.organize;
         $scope.show = $barraHerramientas.show;
         $scope.zoom = $barraHerramientas.zoom;
+        
 
         // $indexes
         var $indexArquitectura = 0;
