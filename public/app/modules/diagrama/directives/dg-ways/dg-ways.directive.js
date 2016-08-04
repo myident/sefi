@@ -49,7 +49,7 @@
                 //     $setting.relationship($scope.source),$scope.view;
 
                 $setting.dimensions($scope.source,$scope.view, $scope.organiceBy, $scope.show);
-                $builder.build($scope.svg, $scope.source);
+                $builder.build($scope.svg, $scope.source, $scope.show);
 
                 $scope.settingSvg($scope.source);
                 console.log($scope.source);
@@ -82,7 +82,7 @@
                 }
 
                 $scope.width    = maxWidth + "px";
-                $scope.height   = (maxHeight+ marginBottom + marginTop) + "px";
+                $scope.height   = (maxHeight+ marginBottom + marginTop + 100) + "px";
             };
 
             $scope.init();
