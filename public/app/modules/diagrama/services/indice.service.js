@@ -53,6 +53,16 @@
                     console.log(e);
                 });
                 return procesos;
+            },
+            areasList: function(){
+                return [
+                    {text: 'Customer'},
+                    {text: 'Store'},
+                    {text: 'Call center'},
+                    {text: 'Credit'},
+                    {text: 'IT'},
+                    {text: 'Fulfillment'},
+                ];
             }
         };
     };
