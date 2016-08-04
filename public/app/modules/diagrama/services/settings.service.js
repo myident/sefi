@@ -6,13 +6,13 @@
         return {
             dimensions: function (source, view, organiceBy, show) {
 
-                var processes,capabilities,sortAreas;
+                var processes,capabilities,sortAreas, item;
                 var offset = {x : 20, y: 20};
 
-                var htmlObject = function(){ 
-                        this.offset = { x : 0 , y : 0 };
-                        this.width = 0; 
-                        this.height = 0; 
+                var htmlObject = function(w, h, offset){ 
+                        this.offset = offset || { x : 0 , y : 0 };
+                        this.width = w || 0; 
+                        this.height = h || 0; 
                     };
 
                 processes = function(processesArr,offset){
@@ -22,12 +22,7 @@
                         var process = processesArr[i];
                         var html = {};
                         // rect
-                        html.rect = new htmlObject();
-                        html.rect.width = width;
-                        offset.x = offset.x + (width / 2);
-                        html.rect.height = height;
-                        html.rect.offset.x = offset.x;
-                        html.rect.offset.y = offset.y + (height / 2);
+                        html.rect = new htmlObject(width, height, { x:offset.x, y : offset.y + (height / 2) });
                         // rectHeader
                         html.rectHeader = new htmlObject();
                         // textBoxHeader
@@ -43,62 +38,57 @@
 
                         console.log(process);
                         (view !== 0) && capabilities(process.capabilities, offset);
+                        offset.y = 20;
                     }
                 };
                 capabilities = function(capabilitiesArr,offset){
                     var width = 150;
                     var height = 100;
+                    var marginBottom = 20;
+                    offset.y = offset.y + 120;
+
                     for(var i in capabilitiesArr){
                         var capability = capabilitiesArr[i];
                         var html = {};
-                        // rect
-                        html.rect = new htmlObject();
-                        html.rect.width = width;
-                        html.rect.height = height;
-                        // textBox
-                        html.textBox = new htmlObject();
-
+                        html.rect = new htmlObject(width, height, { x:offset.x, y : offset.y + (height / 2) });
+                        html.textBox = new htmlObject(width, height, { x:offset.x, y : offset.y + (height / 2) });
                         capability.html = html;
+
+                        offset.y += height;
 
                         console.log(capability);
                         (show === 1) && sortAreas(capabilitiesArr, i, capability.sortAreas.areas, offset);
                         (show === 2) && sortAreas(capabilitiesArr, i, capability.sortAreas.applications, offset);
                         (show === 3) && sortAreas(capabilitiesArr, i, capability.sortAreas.kpis, offset);
+
+                        offset.y +=marginBottom;
                     }    
                 };
                 sortAreas = function(capabilitiesArr, i, arr, offset){
                     var width = 150;
                     var height = 20;
 
-                    var switchView = [
-                        function(){// view 0
-
-                        },function(){// view 1 - Areas
-
-                        },function(){// view 2 - Applications
-                            
-                        },function(item){// view 3 -  KPI
-                            var html = {};
-                            // rect
-                            html.rect = new htmlObject();
-                            html.rect.width = width;
-                            html.rect.height = height;
-                            // textBox
-                            html.textBox = new htmlObject();
-                            html.textBox.height = height;
-                            html.textBox.height = height;
-
-                            item.html = html;
-                        }
-                    ];
-
                     for(var i in arr){
-                        var item = arr[i];
-                        switchView[show](item);
+                        var label = arr[i];
+                        labels(item);
                     }
                     
                 };
 
+                labels = function(item){
+                    var html = {};
+                    html.rect = new htmlObject(width, height, { x:offset.x, y : offset.y + (height / 2) });
+                    html.textBox = new htmlObject(width, height, { x:offset.x, y : offset.y + (height / 2) });
+
+                    item.html = html;
+                    offset.y +=height;
+                };
+
+                cloneCapabilitie = function(source){
+                    // cloneCapabilitie
+                };
+
+                (show === 2) && cloneCapabilitie(source.processes);
                 processes(source.processes,offset);
             }
     };
