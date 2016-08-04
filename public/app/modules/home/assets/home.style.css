@@ -44,24 +44,28 @@
 	background-image: url(img/MISSION.png);
 	height: 319px;
 	background-size: cover;
+    -webkit-transition: .3s;
 	transition: .3s;
 }
 .MISSION_blur_png{
 	background-image: url(img/CUADRO_MISSION_HOVER.png);
 	height: 319px;
 	background-size: cover;
+    -webkit-transition: .3s;
 	transition: .3s;
 }
 .VISION_png{
 	background-image: url(img/VISION.png);
 	height: 319px;
 	background-size: cover;
+    -webkit-transition: .3s;
 	transition: .3s;
 }
 .VISION_blur_png{
 	background-image: url(img/CUADRO_VISION_HOVER.png);
 	height: 319px;
 	background-size: cover;
+    -webkit-transition: .3s;
 	transition: .3s;
 }
 
@@ -69,12 +73,14 @@
 	background-image: url(img/VALUES.png);
 	height: 319px;
 	background-size: cover;
+    -webkit-transition: .3s;
 	transition: .3s;
 }
 .VALUES_blur_png{
 	background-image: url(img/CUADRO_VALUES_HOVER.png);
 	height: 319px;
 	background-size: cover;
+    -webkit-transition: .3s;
 	transition: .3s;
 }
 
@@ -108,6 +114,8 @@
 	width: 100%;
     position: relative;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: transform 1s;
     transform-style: preserve-3d;
     transition: transform 1s;
     height: 319px;
@@ -128,6 +136,7 @@
 }
 
 .content-flipped .back{
+    -webkit-transform: rotateY( 180deg);
 	transform: rotateY( 180deg);
 }
 .position-relative{

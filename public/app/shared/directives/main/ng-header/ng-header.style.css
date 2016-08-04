@@ -71,12 +71,14 @@ ng-header > header > div.logo-it-book > p.it-book > span:first-child {
     width: 70px;
     height: 70px;
     position: relative;
+    -webkit-transition: .3s;
     transition: .3s;
 }
 
 .input-search.active{
     width: 400px;
     height: 70px;
+    -webkit-transition: .3s;
     transition: .3s;
 }
 
@@ -125,6 +127,7 @@ ng-header > header > div.logo-it-book > p.it-book > span:first-child {
     display: inline-block;
     text-align: center;
     -webkit-transition: all ease 0.3s;
+    transition: all ease 0.3s;
     width: 200px;
     height: 70px;
 }
@@ -150,6 +153,7 @@ ng-header > header > div.logo-it-book > p.it-book > span:first-child {
     position: relative;
     z-index: 2;
     -webkit-transition: all ease 0.3s;
+    transition: all ease 0.3s;
     margin-top: 15px;
 }
 
@@ -193,6 +197,7 @@ ng-header > header > div.logo-it-book > p.it-book > span:first-child {
     display: inline-block;
     margin-top: 30px;
     -webkit-transition: all ease 0.2s;
+    transition: all ease 0.3s;
 }
 
 .header-submenu-it-book > nav > a > div > i.srm {
