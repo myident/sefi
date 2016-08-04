@@ -162,3 +162,43 @@ dg-barra-herramientas .barra-wrap .element-control-switch.switch-show-control {
     left: 440px;
     font-size: 11px;
 }
+
+.zoom-control {
+    position: absolute;
+    top: 0px;
+    right: 50px!important;
+    width: 120px!important;
+}
+
+.zoom-control > .total {
+    width: 50px;
+    float:left;
+    text-align: center;
+}
+
+.zoom-control > .menos {
+    width: 28px;
+    height: 28px;
+    background-image: url(img/zoom-menos.png);
+    float:left;
+    margin: 7px 0 0 0;
+    cursor: pointer;
+}
+
+.zoom-control > .mas {
+    width: 28px;
+    height: 28px;
+    background-image: url(img/zoom%20mas.png);
+    float:left;
+    margin: 7px 0 0 0;
+    cursor: pointer;
+}
+
+.download-pdf {
+    width: 25px;
+    height: 31px;
+    position: absolute;
+    background-image: url(img/download-pdf.png);
+    right: 20px;
+    top: 6px;
+}
