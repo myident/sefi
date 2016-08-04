@@ -144,9 +144,142 @@
                                     }
                                         ],
                                 "kpis": [
+                                            {
+                                                "name": "kpis - fracaso total"
+                                            },
+                                            {
+                                                "name": "kpis - fracaso total"
+                                            }
+                                        ]
+                            }
+                                }
+                            ]
+                        },
+                        {
+                    "name": "processes - fracaso total",
+                    "capabilities": [
+                        {
+                            "name": "capabilities - fracaso total",
+                            "sortAreas": {
+                                "areas": [
                                     {
-                                        "name": "kpis - fracaso total"
+                                        "name": "Areas - fracaso total"
                                     }
+                                        ],
+                                "applications": [
+                                    {
+                                        "name": "Applications - fracaso total"
+                                    }
+                                        ],
+                                "kpis": [
+                                            {
+                                                "name": "kpis - fracaso total"
+                                            },
+                                            {
+                                                "name": "kpis - fracaso total"
+                                            }
+                                        ]
+                            }
+                                }
+                            ]
+                        },
+                        {
+                    "name": "processes - fracaso total",
+                    "capabilities": [
+                        {
+                            "name": "capabilities - fracaso total",
+                            "sortAreas": {
+                                "areas": [
+                                    {
+                                        "name": "Areas - fracaso total"
+                                    }
+                                        ],
+                                "applications": [
+                                    {
+                                        "name": "Applications - fracaso total"
+                                    }
+                                        ],
+                                "kpis": [
+                                            {
+                                                "name": "kpis - fracaso total"
+                                            },
+                                            {
+                                                "name": "kpis - fracaso total"
+                                            }
+                                        ]
+                            }
+                                },
+                                {
+                            "name": "capabilities - fracaso total",
+                            "sortAreas": {
+                                "areas": [
+                                    {
+                                        "name": "Areas - fracaso total"
+                                    }
+                                        ],
+                                "applications": [
+                                    {
+                                        "name": "Applications - fracaso total"
+                                    }
+                                        ],
+                                "kpis": [
+                                            {
+                                                "name": "kpis - fracaso total"
+                                            },
+                                            {
+                                                "name": "kpis - fracaso total"
+                                            }
+                                        ]
+                            }
+                                },
+                                {
+                            "name": "capabilities - fracaso total",
+                            "sortAreas": {
+                                "areas": [
+                                    {
+                                        "name": "Areas - fracaso total"
+                                    }
+                                        ],
+                                "applications": [
+                                    {
+                                        "name": "Applications - fracaso total"
+                                    }
+                                        ],
+                                "kpis": [
+                                            {
+                                                "name": "kpis - fracaso total"
+                                            },
+                                            {
+                                                "name": "kpis - fracaso total"
+                                            }
+                                        ]
+                            }
+                                }
+                            ]
+                        },
+                        {
+                    "name": "processes - fracaso total",
+                    "capabilities": [
+                        {
+                            "name": "capabilities - fracaso total",
+                            "sortAreas": {
+                                "areas": [
+                                    {
+                                        "name": "Areas - fracaso total"
+                                    }
+                                        ],
+                                "applications": [
+                                    {
+                                        "name": "Applications - fracaso total"
+                                    }
+                                        ],
+                                "kpis": [
+                                            {
+                                                "name": "kpis - fracaso total"
+                                            },
+                                            {
+                                                "name": "kpis - fracaso total"
+                                            }
                                         ]
                             }
                                 }

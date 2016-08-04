@@ -15,6 +15,10 @@
                         this.height = h || 0;
                         this.radio = radio || 0;
                     };
+                var positionCapabilitiesDefault = function(i){
+                    var result = 120;
+                    return i === 0 ? result : (result + (220*(i)));
+                };
 
                 processes = function(processesArr,offset){
 
@@ -23,15 +27,15 @@
                     var heightHeader = 100;
                     var radio = 15;
 
-                    offset.x +=(width/2);
-
                     for(var i in processesArr){
                         
                         var process = processesArr[i];
                         var html = {};
                         var yTemp = offset.y;
+                        offset.x = positionCapabilitiesDefault(Number(i));
+                        console.log("offset.x");
+                        console.log(offset.x);
                         // rect
-                        html.rect = new htmlObject(width, height, { x:offset.x, y : offset.y + (height / 2) });
                         html.rectHeader = new htmlObject(width, heightHeader, { x:offset.x, y : offset.y + (heightHeader / 2) });
                         html.textBoxHeader = new htmlObject(width - 50, heightHeader, { x:offset.x - (width/2) + (radio*2)+20, y : offset.y + (heightHeader / 2) }); 
                         html.circleHeader = new htmlObject(0,0,{ x:offset.x - (width/2) + radio + 10, y : offset.y + (heightHeader / 2) }, radio);
@@ -39,13 +43,12 @@
                         html.textBoxLabelCount = new htmlObject(width, heightHeader, { x:(offset.x+(width/2)-5), y : offset.y + 10 });
                         html.relationshipArrow = new htmlObject();
                         html.relationship = [];
-
                         process.html = html;
 
-                        console.log(process);
                         (view !== 0) && capabilities(process.capabilities, offset);
                         
-                        html.rect.height = offset.y - yTemp;
+                        var rectHeight = offset.y - yTemp;
+                        html.rect = new htmlObject(width, rectHeight, { x:offset.x, y : yTemp + (rectHeight/2) });
                         offset.y = 20;
                     }
                 };
@@ -70,7 +73,9 @@
                         (show === 3) && sortAreas(capability.sortAreas.kpis, offset);
 
                         offset.y +=marginBottom;
-                    }    
+                    }
+                     console.log("Y");
+                     console.log(offset.y);
                 };
                 sortAreas = function(arr, offset){
                     
@@ -89,7 +94,7 @@
                     var html = {};
                     html.rect = new htmlObject(width, height, { x:offset.x, y : offset.y + (height / 2) });
                     html.textBox = new htmlObject(width, height, { x:offset.x, y : offset.y + (height / 2) });
-                    item.html = html;
+                    item.html = html; 
                     offset.y +=height;
                 };
 

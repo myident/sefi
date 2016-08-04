@@ -30,28 +30,83 @@
                             $paint.textLeft(textBoxHeader);
                             $paint.textRight(textBoxLabelCount)
                             $paint.fillGray(textBoxLabelCount);
-                            $paint.fillView(circleHeader, show);
+                            $paint.fillByShow(circleHeader, show);
                             $paint.fillWhite(textBoxCircleHeader);
 
-                            //(view !== 0) && capabilities(process);
-                            g.append(rect);
+                            var gCapabilities = (show !== 0) && capabilities(process.capabilities);
+                            g.append(rect)
+                                .append(rectHeader)
+                                .append(textBoxHeader)
+                                .append(circleHeader)
+                                .append(relationshipArrow)
+                                .append(relationship)
+                                .append(textBoxLabelCount)
+                                .append(textBoxCircleHeader)
+                                .append(gCapabilities);
                         })();
 
                         
                     }
                     
                 };
-                capabilities = function (source, view, organiceBy, show) {
+                capabilities = function (capabilitiesList) {
 
-                    
+                    var g = paper.group();
+                    var fontSizeCapability = 14;
+                    for(var i in capabilitiesList){
+
+                        var capability = capabilitiesList[i];
+                        var rect,textbox;
+
+                        console.log("Joder");
+                        console.log(capability.html);
+                        capability.html && (function(){
+
+                            var html = capability.html;
+                            rect                = $shapes.factory.rect(html.rect.offset, html.rect.width, html.rect.height);
+                            textBoxHeader       = $shapes.factory.textbox(html.textBox.offset, html.textBox.width,html.textBox.height, capability.name, fontSizeCapability);
+
+                            $paint.rectProceso(rect);
+
+                            (show === 1) && sortAreas(capability.sortAreas.areas,g);
+                            (show === 2) && sortAreas(capability.sortAreas.applications,g);
+                            (show === 3) && sortAreas(capability.sortAreas.kpis,g);
+
+                            g.append(rect)
+                                .append(textbox);
+                        })();
+                    }
+                    return g;
                 };
-                sortAreas = function (source, view, organiceBy, show) {
-
-                    
+                sortAreas = function (list, gParent) {
+                    var g = paper.group();
+                    for(var i in list){
+                        var label = list[i];
+                        var gLabel = labels(label);
+                        g.append(gLabel);
+                    }
+                    gParent.append(g);
                 };
-                labels = function (source, view, organiceBy, show) {
+                labels = function (label) {
+                    var rect,textbox;
+                    var fontSizeLabel = 12;
+                    var g = paper.group();
+                        label.html && (function(){
 
-                    
+                            console.log("Joder");
+                            var html = label.html;
+                            rect                = $shapes.factory.rect(html.rect.offset, html.rect.width, html.rect.height);
+                            textbox       = $shapes.factory.textbox(html.textBox.offset, html.textBox.width,html.textBox.height, label.name, fontSizeLabel);
+
+                            $paint.rectProceso(rect);
+                            $paint.fillByShow(rect, show);
+                            $paint.fillWhite(textbox);
+
+                            g.append(rect)
+                                .append(textbox);
+                        })();
+
+                        return g;
                 };
 
                 processes(source.processes);

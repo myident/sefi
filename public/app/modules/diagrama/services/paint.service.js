@@ -113,11 +113,11 @@
             },
             fillWhite: function(fig){
                 fig.attr({
-                    fill: "rgb(255,25,255)"
+                    fill: "rgb(255,255,255)"
                 });
                 return fig;
             },
-            fillView: function(fig,show){
+            fillByShow: function(fig,show){
                 switch(show){
                     case 0: fig.attr({ fill: "rgb(144, 99, 205)" });break;
                     case 1: fig.attr({ fill: "rgb(180,58,125)" });break;
