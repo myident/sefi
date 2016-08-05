@@ -9,6 +9,10 @@
             $scope.zoom = 1;
             $scope.width = 0;
             $scope.height = 0;
+            $scope.svgWidth = 0;
+            $scope.svgHeight = 0;
+            $scope.widthCanvas = 0;
+            $scope.heightCanvas = 0;
 
             $scope.init = function(){
                 // $scope.$watch('source', function () {
@@ -31,9 +35,14 @@
                 });
                 $scope.$watch('zoom', function () {
                     // $zoom.change($scope.layout);
+                    changeViewBox($scope.zoom);
                 });
             };
             
+            function changeViewBox(value) {
+                $scope.widthCanvas = ($scope.svgWidth * value) + 'px';
+                $scope.heightCanvas = ($scope.svgHeight * value) + 'px';
+            }
 
             $scope.reset = function(){
                 console.log(".reset()");
@@ -76,6 +85,13 @@
                 $scope.h = (maxHeight+ marginBottom + marginTop );
                 $scope.width    = $scope.w + "px";
                 $scope.height   = $scope.h + "px";
+                
+                $scope.svgWidth = maxWidth;
+                $scope.svgHeight = maxHeight + marginBottom + marginTop;
+                $scope.svg.attr({
+                    viewBox: "0 0 " + ($scope.svgWidth) + " " + ($scope.svgHeight)
+                });
+                changeViewBox($scope.zoom);
             };
 
             $scope.init();
