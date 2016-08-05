@@ -148,25 +148,23 @@
                             $scope.zoom -= 0.02;
                             $scope.displayZoom = parseInt($scope.zoom * 100) + '%';
                         }
-                        return $scope.zoom;
+                        return Math.round($scope.zoom * 100);
                     },
                     mas: function(){
                         if ($scope.zoom <= 2){
                             $scope.zoom += 0.02;
                             $scope.displayZoom = parseInt($scope.zoom * 100) + '%';
                         }
-                        return $scope.zoom;
+                        return Math.round($scope.zoom * 100);
                     },
                     default: function(){
                         $scope.zoom = 1;
                         $scope.displayZoom = parseInt($scope.zoom * 100) + '%';
-                        return $scope.zoom;
+                        return Math.round($scope.zoom * 100);
                     }
                 };
                 
-                
-                
-                $scope.sendZoom(parseFloat(options[direction]()));
+                $scope.sendZoom((options[direction]() / 100).toFixed(2));
             };
             
             
