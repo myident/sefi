@@ -1,7 +1,7 @@
 /* global Snap */
 
 Snap.plugin(function (Snap, Element, Paper) {
-    Paper.prototype.multitext = function (x, y, txt, max_width, attributes) {
+    Paper.prototype.multitext = function (x, y, txt, max_width, fontSize,attributes) {
 
         var svg = Snap();
         var abc = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -31,6 +31,8 @@ Snap.plugin(function (Snap, Element, Paper) {
             dy: "1.2em",
             x: x
         });
+
+        t.clientHeight = lines.length * fontSize;
         return t;
     };
 });
