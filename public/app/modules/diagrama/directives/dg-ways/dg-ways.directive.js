@@ -50,6 +50,8 @@
                 $builder.build($scope.svg, sourceTemp, $scope.show);
 
                 $scope.settingSvg(sourceTemp);
+                ($scope.organiceBy === 1) && $setting.dimensionsAreas($scope.areasList);
+                ($scope.organiceBy === 1) && $builder.buildAreas($scope.svg, $scope.areasList, $scope.h);
                 
                 // };
             };
@@ -58,7 +60,7 @@
                 var maxHeight = 0;
                 var maxWidth = 0;
                 var marginBottom = 20;
-                var marginTop = 20;
+                var marginTop = 40;
 
                 for(var i in source.procesos){
                     var height = source.procesos[i].html.rect.height;
@@ -70,8 +72,10 @@
                     maxWidth += width + 30;
                 }
 
-                $scope.width    = maxWidth + "px";
-                $scope.height   = (maxHeight+ marginBottom + marginTop ) + "px";
+                $scope.w = ($scope.organiceBy === 1) ? (220*$scope.areasList.length):maxWidth;
+                $scope.h = (maxHeight+ marginBottom + marginTop );
+                $scope.width    = $scope.w + "px";
+                $scope.height   = $scope.h + "px";
             };
 
             $scope.init();
@@ -88,7 +92,8 @@
                 show            : '=setShow',
                 zoom            : '=setZoom',
                 print           : '=setPrint',
-                macroprocessName: '=setMacroprocessName'
+                macroprocessName: '=setMacroprocessName',
+                areasList: '=setAreasList'
             }
         };
     };

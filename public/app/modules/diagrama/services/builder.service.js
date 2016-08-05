@@ -107,6 +107,18 @@
                 };
 
                 processes(source.procesos);
+        },
+        buildAreas:function(paper, source, height){
+            $shapes.svg(paper);
+            var fontSize = 16;
+
+            for(var i in source){
+                var area = source[i];
+                rect          = $shapes.factory.rect(area.html.offset,area.html.width,area.html.height);
+                textbox       = $shapes.factory.textbox(area.html.offset, area.html.width,area.html.height, area.text, fontSize);
+                $paint.fillAreas(rect);
+                $paint.fillWhite(textbox);
+            }
         }
     };
 

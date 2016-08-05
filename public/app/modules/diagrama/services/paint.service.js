@@ -126,7 +126,12 @@
                 }
                 return fig;
             },
-
+            fillAreas: function(fig){
+                fig.attr({
+                    fill: "rgb(180,58,124)"
+                });
+                return fig;
+            },
 
 
 

@@ -9,4 +9,5 @@ dg-ways{
 dg-ways > div{
     height: calc(100vh - 215px);
     width: 100%;
+    overflow: auto;
 }

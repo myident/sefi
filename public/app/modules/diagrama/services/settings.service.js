@@ -3,18 +3,18 @@
 (function () {
 
     var service = function ($vash) {
-        return {
-            dimensions: function (source, view, organiceBy, show) {
-
-                var processes,capabilities,sortAreas,labels;
-                var offset = {x : 20, y: 20};
-
-                var htmlObject = function(w, h, offset, radio){ 
+        var htmlObject = function(w, h, offset, radio){ 
                         this.offset = offset || { x : 0 , y : 0 };
                         this.width = w || 0; 
                         this.height = h || 0;
                         this.radio = radio || 0;
                     };
+        return {
+            dimensions: function (source, view, organiceBy, show) {
+
+                var processes,capabilities,sortAreas,labels;
+                var offset = {x : 20, y: 40};
+                
                 var positionCapabilitiesDefault = function(i){
                     var result = 120;
                     return i === 0 ? result : (result + (220*(i)));
@@ -50,7 +50,7 @@
                             capabilities(process.capacidades, offset);
                             rectHeight = offset.y - yTemp;
                             process.html.rect = new htmlObject(width, rectHeight, { x:offset.x, y : yTemp + (rectHeight/2) });
-                            offset.y = 20;
+                            offset.y = 40;
                         })();
                         
                         
@@ -122,7 +122,20 @@
 
                 (organiceBy === 1) && cloneCapabilities(source.procesos);
                 processes(source.procesos,offset);
+            },
+        dimensionsAreas: function (source) {
+            var width = 220;
+            var height = 30;
+            var offset = {x: ((width/2) - width), y: (height/2)};
+            var fontSize = 16;
+
+            for(var i in source){
+                offset.x +=width
+                var hrml = new htmlObject(width, height, { x: offset.x, y : offset.y });
+                
+                source[i].html = hrml;
             }
+        }
     };
 
 };
