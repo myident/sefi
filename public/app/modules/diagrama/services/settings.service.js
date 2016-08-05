@@ -33,8 +33,6 @@
                         var html = {};
                         var yTemp = offset.y;
                         offset.x = positionCapabilitiesDefault(Number(i));
-                        console.log("offset.x");
-                        console.log(offset.x);
                         // rect
                         html.rectHeader = new htmlObject(width, heightHeader, { x:offset.x, y : offset.y + (heightHeader / 2) });
                         html.textBoxHeader = new htmlObject(width - 50, heightHeader, { x:offset.x - (width/2) + (radio*2)+20, y : offset.y + (heightHeader / 2) }); 
@@ -45,7 +43,7 @@
                         html.relationship = [];
                         process.html = html;
 
-                        (view !== 0) && capabilities(process.capabilities, offset);
+                        (view !== 0) && capabilities(process.capacidades, offset);
                         
                         var rectHeight = offset.y - yTemp;
                         html.rect = new htmlObject(width, rectHeight, { x:offset.x, y : yTemp + (rectHeight/2) });
@@ -67,15 +65,12 @@
 
                         offset.y += height;
 
-                        console.log(capability);
                         (show === 1) && sortAreas(capability.sortAreas.areas, offset);
-                        (show === 2) && sortAreas(capability.sortAreas.applications, offset);
+                        (show === 2) && sortAreas(capability.sortAreas.aplicaciones, offset);
                         (show === 3) && sortAreas(capability.sortAreas.kpis, offset);
 
                         offset.y +=marginBottom;
                     }
-                     console.log("Y");
-                     console.log(offset.y);
                 };
                 sortAreas = function(arr, offset){
                     
@@ -98,12 +93,29 @@
                     offset.y +=height;
                 };
 
-                cloneCapabilities = function(source){
-                    // cloneCapabilitie
+                cloneCapabilities = function(processes){
+                   for(var i = 0 ; i < processes.length; i++){
+                        var process = processes[i];
+                        for(var j = 0 ; j < process.capacidades.length ; j++){
+                            var capability = process.capacidades[j];
+                            for(var k = 0; k < capability.sortAreas.areas.length; k++){
+                                var area = JSON.parse(JSON.stringify(capability.sortAreas.areas[k]));
+                                
+                                if(k === 0){
+                                    capability.sortAreas.aplicaciones = area.aplicaciones;
+                                    capability.sortAreas.kpis = area.kpis;
+                                }else{
+                                    var capabilityTemp = JSON.parse(JSON.stringify(capability));
+                                    capabilityTemp.sortAreas.aplicaciones = area.aplicaciones;
+                                    capabilityTemp.sortAreas.kpis = area.kpis;
+                                    process.capacidades.splice(++j,0,capabilityTemp);                                }
+                            }
+                       }
+                   }
                 };
 
-                (show === 2) && cloneCapabilities(source.processes);
-                processes(source.processes,offset);
+                (organiceBy === 1) && cloneCapabilities(source.procesos);
+                processes(source.procesos,offset);
             }
     };
 
