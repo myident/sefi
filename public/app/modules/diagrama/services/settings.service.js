@@ -43,11 +43,17 @@
                         html.relationship = [];
                         process.html = html;
 
-                        (view !== 0) && capabilities(process.capacidades, offset);
-                        
-                        var rectHeight = offset.y - yTemp;
+                        var rectHeight = 100;
                         html.rect = new htmlObject(width, rectHeight, { x:offset.x, y : yTemp + (rectHeight/2) });
-                        offset.y = 20;
+                        (show !== 0) && (function(){
+                            console.log("JODER");
+                            capabilities(process.capacidades, offset);
+                            rectHeight = offset.y - yTemp;
+                            process.html.rect = new htmlObject(width, rectHeight, { x:offset.x, y : yTemp + (rectHeight/2) });
+                            offset.y = 20;
+                        })();
+                        
+                        
                     }
                 };
                 capabilities = function(capabilitiesArr,offset){

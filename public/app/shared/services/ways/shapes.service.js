@@ -53,14 +53,12 @@
                     return multitext;
                 },
                 textbox: function (offset, w, h, text, fontSize) {
-                    var textbox = scope.svg.multitext(offset.x, offset.y, text, w, {
+                    var textbox = scope.svg.multitext(offset.x, offset.y, text, w, fontSize,{
                         "text-anchor": "middle",
                         "font-size": fontSize + 'px',
                         "font-family": "SF, sans-serif"
                     });
-                    // var yt = offset.y - (text.node.clientHeight / 2);
-                    // //var yt = (offset.y +(h / 2) - (text.node.clientHeight / 2))+10;
-                    var yt = offset.y - (textbox.node.clientHeight / 2) + fontSize - 2;
+                    var yt = offset.y - (textbox.clientHeight / 2) + fontSize - 2;
                     textbox.attr({
                         y: yt
                     });
