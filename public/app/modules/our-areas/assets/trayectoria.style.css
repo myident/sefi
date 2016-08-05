@@ -17,40 +17,47 @@ main.ng-scope.arq-trayectoria > .regresar {
     z-index: 2;
 }
 
+.imagen-fondo-trayectoria {
+    width: 100%;
+    height: 500px;
+    top: 70px;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    background-image: url(http://ubiquity.acm.org/blog/wp-content/uploads/2015/05/self-similarity-672x372.jpg);
+    position: absolute;
+    color: white;
+    font-family: 'SF Medium';
+}
+
 .fondo-trayectoria {
     width: 100%;
     height: 500px;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
     text-align: center;
     position: relative;
     color: white;
     font-family: 'SF Medium';
 }
 
-.fondo-trayectoria:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url(http://ubiquity.acm.org/blog/wp-content/uploads/2015/05/self-similarity-672x372.jpg);
-    background-size: cover;
-    z-index: -1;
-}
-
 .nombre-trayectoria {
     padding-top: 200px;
     font-size: 35px;
+    position: relative;
+    z-index: 1;
 }
 
 .puesto-trayectoria {
     font-size: 20px;
+    position: relative;
+    z-index: 1;
 }
 
 .frase-trayectoria {
     font-size: 16px;
     padding-top: 10px;
+    position: relative;
+    z-index: 1;
 }
 
 .foto-trayectoria {

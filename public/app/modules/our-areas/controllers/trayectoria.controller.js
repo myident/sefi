@@ -14,7 +14,6 @@
             idpersonal: $scope.id_cv
         }, function (data) {
             $scope.cv = data[0];
-            console.log(data);
             $rootScope.spin = false;
         });
 
@@ -23,12 +22,22 @@
         };
 
         $scope.profileImages = [
-            '/assets/img/fernandocircle.png'
+            '/assets/img/fernandocircle.png',
+            '/assets/img/malecircle.png',
+            '/assets/img/femalecircle.png'
         ];
 
         $scope.getPhoto = function () {
+            var image = 0;
+            if ($scope.id_cv != 1){
+                if ($scope.id_cv == 4 || $scope.id_cv == 5){
+                    image = 2;
+                } else {
+                    image = 1;
+                }
+            }
             return {
-                'background-image': 'url('+$scope.profileImages[0]+')'
+                'background-image': 'url('+$scope.profileImages[image]+')'
             };
         };
         $scope.content = {
