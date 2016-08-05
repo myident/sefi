@@ -5,9 +5,5 @@ dg-ways{
 	position: absolute;
 	top: 57px;
 	left: 245px;
-}
-dg-ways > div{
-    height: calc(100vh - 215px);
-    width: 100%;
     overflow: auto;
 }

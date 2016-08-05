@@ -56,12 +56,9 @@
             },
             areasList: function(){
                 return [
-                    {text: 'Customer'},
-                    {text: 'Store'},
-                    {text: 'Call center'},
+                    {text: 'Sales Rep'},
                     {text: 'Credit'},
-                    {text: 'IT'},
-                    {text: 'Fulfillment'},
+                    {text: 'IT'}
                 ];
             }
         };
