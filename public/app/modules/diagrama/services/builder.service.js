@@ -33,7 +33,7 @@
                             $paint.fillByShow(circleHeader, show);
                             $paint.fillWhite(textBoxCircleHeader);
 
-                            var gCapabilities = (show !== 0) && capabilities(process.capabilities);
+                            var gCapabilities = (show !== 0) && capabilities(process.capacidades);
                             g.append(rect)
                                 .append(rectHeader)
                                 .append(textBoxHeader)
@@ -58,8 +58,6 @@
                         var capability = capabilitiesList[i];
                         var rect,textbox;
 
-                        console.log("Joder");
-                        console.log(capability.html);
                         capability.html && (function(){
 
                             var html = capability.html;
@@ -69,7 +67,7 @@
                             $paint.rectProceso(rect);
 
                             (show === 1) && sortAreas(capability.sortAreas.areas,g);
-                            (show === 2) && sortAreas(capability.sortAreas.applications,g);
+                            (show === 2) && sortAreas(capability.sortAreas.aplicaciones,g);
                             (show === 3) && sortAreas(capability.sortAreas.kpis,g);
 
                             g.append(rect)
@@ -93,9 +91,8 @@
                     var g = paper.group();
                         label.html && (function(){
 
-                            console.log("Joder");
                             var html = label.html;
-                            rect                = $shapes.factory.rect(html.rect.offset, html.rect.width, html.rect.height);
+                            rect          = $shapes.factory.rect(html.rect.offset, html.rect.width, html.rect.height);
                             textbox       = $shapes.factory.textbox(html.textBox.offset, html.textBox.width,html.textBox.height, label.name, fontSizeLabel);
 
                             $paint.rectProceso(rect);
@@ -109,7 +106,7 @@
                         return g;
                 };
 
-                processes(source.processes);
+                processes(source.procesos);
         }
     };
 

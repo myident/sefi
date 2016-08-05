@@ -45,25 +45,12 @@
                 // });
 
                 // isValid && function(){
-                //     $setting.dimensions($scope.source,$scope.view);
-                //     $setting.relationship($scope.source),$scope.view;
+                var sourceTemp = JSON.parse(JSON.stringify($scope.source));
+                $setting.dimensions(sourceTemp,$scope.view, $scope.organiceBy, $scope.show);
+                $builder.build($scope.svg, sourceTemp, $scope.show);
 
-                $setting.dimensions($scope.source,$scope.view, $scope.organiceBy, $scope.show);
-                $builder.build($scope.svg, $scope.source, $scope.show);
-
-                $scope.settingSvg($scope.source);
-                console.log($scope.source);
-                //     $build.processes(
-                //             $scope.source,
-                //             $scope.svg
-                //         );
-                //     $build.capabilities(
-                //             $scope.source,
-                //             $scope.svg,  
-                //             $scope.view,
-                //             $scope.organiceBy,
-                //             $scope.show
-                //         );
+                $scope.settingSvg(sourceTemp);
+                
                 // };
             };
 
@@ -73,16 +60,18 @@
                 var marginBottom = 20;
                 var marginTop = 20;
 
-                for(var i in source.processes){
-                    var height = source.processes[i].html.rect.height;
+                for(var i in source.procesos){
+                    var height = source.procesos[i].html.rect.height;
+                    var width = source.procesos[i].html.rect.width;
+
                     if(height > maxHeight){
                         maxHeight = height;
                     }
-                    maxWidth += 240;
+                    maxWidth += width + 30;
                 }
 
                 $scope.width    = maxWidth + "px";
-                $scope.height   = (maxHeight+ marginBottom + marginTop + 100) + "px";
+                $scope.height   = (maxHeight+ marginBottom + marginTop ) + "px";
             };
 
             $scope.init();

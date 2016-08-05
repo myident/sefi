@@ -129,172 +129,77 @@
         };
 
         $scope.source = {
-            "processes": [
-                {
-                    "name": "processes - fracaso total",
-                    "capabilities": [
-                        {
-                            "name": "capabilities - fracaso total",
-                            "sortAreas": {
-                                "areas": [
+    "procesos":[
+            {
+                "name":"Customer Identification",
+                "capacidades":[
+                    {
+                        "name":"Account identification",
+                        "sortAreas":{
+                                "areas":[
                                     {
-                                        "name": "Areas - fracaso total"
-                                    }
-                                        ],
-                                "applications": [
+                                        "name":"CUSTOMER", 
+                                        "aplicaciones":[{"name":"MI AT&T"}, {"name":"IVR"}],
+                                        "kpis":[]
+                                    },
                                     {
-                                        "name": "Applications - fracaso total"
+                                        "name":"STORE", 
+                                        "aplicaciones":[{"name":"Opu"}],
+                                        "kpis":[]
+                                    },
+                                    {
+                                        "name":"CALL CENTER", 
+                                        "aplicaciones":[{"name":"CRM"}, {"name":"Admoc"}],
+                                        "kpis":[]
                                     }
-                                        ],
-                                "kpis": [
-                                            {
-                                                "name": "kpis - fracaso total"
-                                            },
-                                            {
-                                                "name": "kpis - fracaso total"
-                                            }
-                                        ]
+                                ],
+                                "aplicaciones":[
+                                    {"name":"MI AT&T"},
+                                    {"name":"IVR"},
+                                    {"name":"Opu"},
+                                    {"name":"CRM"},
+                                    {"name":"Admoc"}
+                                ],
+                                "kpis":[]
                             }
-                                }
-                            ]
                         },
                         {
-                    "name": "processes - fracaso total",
-                    "capabilities": [
-                        {
-                            "name": "capabilities - fracaso total",
-                            "sortAreas": {
-                                "areas": [
+                        "name":"Subscriber identification",
+                        "sortAreas":{
+                                "areas":[
                                     {
-                                        "name": "Areas - fracaso total"
-                                    }
-                                        ],
-                                "applications": [
+                                        "name":"CUSTOMER", 
+                                        "aplicaciones":[{"name":"MI AT&T"}, {"name":"IVR"}],
+                                        "kpis":[]
+                                    },
                                     {
-                                        "name": "Applications - fracaso total"
+                                        "name":"STORE", 
+                                        "aplicaciones":[{"name":"Opu"}],
+                                        "kpis":[]
+                                    },
+                                    {
+                                        "name":"CALL CENTER", 
+                                        "aplicaciones":[{"name":"CRM"}, {"name":"Admoc"}],
+                                        "kpis":[]
                                     }
-                                        ],
-                                "kpis": [
-                                            {
-                                                "name": "kpis - fracaso total"
-                                            },
-                                            {
-                                                "name": "kpis - fracaso total"
-                                            }
-                                        ]
+                                ],
+                                "aplicaciones":[
+                                    {"name":"MI AT&T"},
+                                    {"name":"IVR"},
+                                    {"name":"Opu"},
+                                    {"name":"CRM"},
+                                    {"name":"Admoc"}
+                                ],
+                                "kpis":[]
                             }
-                                }
-                            ]
-                        },
-                        {
-                    "name": "processes - fracaso total",
-                    "capabilities": [
-                        {
-                            "name": "capabilities - fracaso total",
-                            "sortAreas": {
-                                "areas": [
-                                    {
-                                        "name": "Areas - fracaso total"
-                                    }
-                                        ],
-                                "applications": [
-                                    {
-                                        "name": "Applications - fracaso total"
-                                    }
-                                        ],
-                                "kpis": [
-                                            {
-                                                "name": "kpis - fracaso total"
-                                            },
-                                            {
-                                                "name": "kpis - fracaso total"
-                                            }
-                                        ]
-                            }
-                                },
-                                {
-                            "name": "capabilities - fracaso total",
-                            "sortAreas": {
-                                "areas": [
-                                    {
-                                        "name": "Areas - fracaso total"
-                                    }
-                                        ],
-                                "applications": [
-                                    {
-                                        "name": "Applications - fracaso total"
-                                    }
-                                        ],
-                                "kpis": [
-                                            {
-                                                "name": "kpis - fracaso total"
-                                            },
-                                            {
-                                                "name": "kpis - fracaso total"
-                                            }
-                                        ]
-                            }
-                                },
-                                {
-                            "name": "capabilities - fracaso total",
-                            "sortAreas": {
-                                "areas": [
-                                    {
-                                        "name": "Areas - fracaso total"
-                                    }
-                                        ],
-                                "applications": [
-                                    {
-                                        "name": "Applications - fracaso total"
-                                    }
-                                        ],
-                                "kpis": [
-                                            {
-                                                "name": "kpis - fracaso total"
-                                            },
-                                            {
-                                                "name": "kpis - fracaso total"
-                                            }
-                                        ]
-                            }
-                                }
-                            ]
-                        },
-                        {
-                    "name": "processes - fracaso total",
-                    "capabilities": [
-                        {
-                            "name": "capabilities - fracaso total",
-                            "sortAreas": {
-                                "areas": [
-                                    {
-                                        "name": "Areas - fracaso total"
-                                    }
-                                        ],
-                                "applications": [
-                                    {
-                                        "name": "Applications - fracaso total"
-                                    }
-                                        ],
-                                "kpis": [
-                                            {
-                                                "name": "kpis - fracaso total"
-                                            },
-                                            {
-                                                "name": "kpis - fracaso total"
-                                            }
-                                        ]
-                            }
-                                }
-                            ]
                         }
-                    ],
-            "kpis": [
-                {
-                    "name": "kpi - fracaso total"
+                    ]
                 }
-                ]
-        };
+            ],
+    "kpis":[
+            {"name":"kpi - fracaso total"}
+        ]
+    };
 
     };
 
