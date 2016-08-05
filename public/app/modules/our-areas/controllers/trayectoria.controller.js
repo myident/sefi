@@ -4,11 +4,11 @@
     var Controller = function ($scope, $rootScope, $window, $cvs, $routeParams) {
 
         $rootScope.spin = true;
-        
+
         $scope.id_cv = $routeParams.id_area || 1;
 
 
-        $scope.trayectoriaImg = $scope.id_cv == 1 ?  "img-1" : "";
+        $scope.trayectoriaImg = $scope.id_cv == 1 ? "img-1" : "";
 
         $cvs.query({
             idpersonal: $scope.id_cv
@@ -22,6 +22,15 @@
             $window.history.back();
         };
 
+        $scope.profileImages = [
+            '/assets/img/fernandocircle.png'
+        ];
+
+        $scope.getPhoto = function () {
+            return {
+                'background-image': 'url('+$scope.profileImages[0]+')'
+            };
+        };
         $scope.content = {
             perfil: {
                 nombre: 'Luis Fernando Valdeón',
