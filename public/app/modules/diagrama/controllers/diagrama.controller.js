@@ -194,6 +194,71 @@
                             }
                         }
                     ]
+                },
+                {
+                "name":"Customer Identification",
+                "capacidades":[
+                    {
+                        "name":"Account identification",
+                        "sortAreas":{
+                                "areas":[
+                                    {
+                                        "name":"CUSTOMER", 
+                                        "aplicaciones":[{"name":"MI AT&T"}, {"name":"IVR"}],
+                                        "kpis":[]
+                                    },
+                                    {
+                                        "name":"STORE", 
+                                        "aplicaciones":[{"name":"Opu"}],
+                                        "kpis":[]
+                                    },
+                                    {
+                                        "name":"CALL CENTER", 
+                                        "aplicaciones":[{"name":"CRM"}, {"name":"Admoc"}],
+                                        "kpis":[]
+                                    }
+                                ],
+                                "aplicaciones":[
+                                    {"name":"MI AT&T"},
+                                    {"name":"IVR"},
+                                    {"name":"Opu"},
+                                    {"name":"CRM"},
+                                    {"name":"Admoc"}
+                                ],
+                                "kpis":[]
+                            }
+                        },
+                        {
+                        "name":"Subscriber identification",
+                        "sortAreas":{
+                                "areas":[
+                                    {
+                                        "name":"CUSTOMER", 
+                                        "aplicaciones":[{"name":"MI AT&T"}, {"name":"IVR"}],
+                                        "kpis":[]
+                                    },
+                                    {
+                                        "name":"STORE", 
+                                        "aplicaciones":[{"name":"Opu"}],
+                                        "kpis":[]
+                                    },
+                                    {
+                                        "name":"CALL CENTER", 
+                                        "aplicaciones":[{"name":"CRM"}, {"name":"Admoc"}],
+                                        "kpis":[]
+                                    }
+                                ],
+                                "aplicaciones":[
+                                    {"name":"MI AT&T"},
+                                    {"name":"IVR"},
+                                    {"name":"Opu"},
+                                    {"name":"CRM"},
+                                    {"name":"Admoc"}
+                                ],
+                                "kpis":[]
+                            }
+                        }
+                    ]
                 }
             ],
     "kpis":[
