@@ -38,7 +38,7 @@
                 $scope.sourceTemp = JSON.parse(JSON.stringify($scope.source));
                 ($scope.organiceBy === 1) && $setting.dimensionsAreas($scope.areasList);
                 $setting.dimensions($scope.sourceTemp,$scope.areasList, $scope.view, $scope.organiceBy, $scope.show);
-                $builder.build($scope.svg, $scope.sourceTemp, $scope.show);
+                $builder.build($scope.svg, $scope.sourceTemp, $scope.show, $scope.view);
 
                 $scope.settingSvg($scope.sourceTemp);
                 ($scope.organiceBy === 1) && $builder.buildAreas($scope.svg, $scope.areasList, $scope.h);
@@ -52,6 +52,7 @@
                 var marginBottom = 20;
                 var marginTop = 40;
 
+
                 for(var i in source.procesos){
                     var height = source.procesos[i].html.rect.height;
                     var width = source.procesos[i].html.rect.width;
@@ -63,8 +64,8 @@
                 }
 
                 var lengthProcess = $scope.sourceTemp.procesos.length - 1;
-                var lengthCapability = $scope.sourceTemp.procesos[lengthProcess].capacidades.length - 1;
-                var lastY = $scope.sourceTemp.procesos[lengthProcess].capacidades[lengthCapability].html.rect.offset.y;
+                var lengthCapability = ($scope.view !== 0) ? $scope.sourceTemp.procesos[lengthProcess].capacidades.length - 1 : 0;
+                var lastY = ($scope.view !== 0) ? $scope.sourceTemp.procesos[lengthProcess].capacidades[lengthCapability].html.rect.offset.y : 50;
 
                 console.log(lastY);
                 $scope.w = ($scope.organiceBy === 1) ? (220*$scope.areasList.length) : maxWidth;

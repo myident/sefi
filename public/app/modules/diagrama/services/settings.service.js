@@ -34,7 +34,7 @@
                 };
 
                 getDimensionsProcess = function(capabilitiesList){
-                    var obj = { offset:{} };
+                    var obj = { offset:{},width:0, };
                     var maxY=0, minY=100000, maxX=0, minX=1000000;
                     for(var i in capabilitiesList){
                         var offset = capabilitiesList[i].html.rect.offset;
@@ -55,45 +55,61 @@
                 processes = function(processesList,offset){
 
                     var width = 200;
-                    var height = 500;
+                    var height = 100;
                     var radio = 15;
                     var rectHeight = 100;
 
-                    for(var i in processesList){
-                        var process = processesList[i];                        
-                        (show !== 0) && (function(){
-                            offset.x = (organiceBy === 1) ? offset.x : positionCapabilitiesDefault(Number(i)) ;
-                            capabilities(process.capacidades, offset);
-                            offset.y = (organiceBy === 1) ? offset.y : 40;
-                        })();
-                    }
-                    for( var i in processesList){
-                        var process = processesList[i];
-                        var html = {};
+                    if(view !== 0){
+                        for(var i in processesList){
+                            var process = processesList[i];                        
+                            (view !== 0) && (function(){
+                                offset.x = (organiceBy === 1) ? offset.x : positionCapabilitiesDefault(Number(i)) ;
+                                capabilities(process,process.capacidades, offset);
+                                offset.y = (organiceBy === 1) ? offset.y : 40;
+                            })();
+                        }
+                        for( var i in processesList){
+                            var process = processesList[i];
+                            var html = {};
 
-                        var heightHard = process.capacidades[process.capacidades.length-1].html.rect.offset.y;
-                        var lastY = process.capacidades[process.capacidades.length-1].html.rect.offset.y / 2 + heightCapability - paddingProcess;
-                        var obj = getDimensionsProcess(process.capacidades);
-                        offset.x =  positionCapabilitiesDefault(Number(i));
-                        offset.y = lastY;
-                        offset  = (organiceBy === 1 ) ? obj.offset : offset;
-                        width   = (organiceBy === 1 ) ? obj.width : width;
-                        height  = (organiceBy === 1 ) ? obj.height : heightHard;
+                            var heightHard = process.height + paddingProcess;
+                            var obj = getDimensionsProcess(process.capacidades);
+                            offset.x =  positionCapabilitiesDefault(Number(i));
+                            offset.y = process.height / 2 + heightCapability - (paddingProcess*1.5);
+                            offset  = (organiceBy === 1 ) ? obj.offset : offset;
+                            width   = (organiceBy === 1 ) ? obj.width : width;
+                            height  = (organiceBy === 1 ) ? obj.height : heightHard;
 
-                        // rect
-                        html.rect = new htmlObject(width, height, { x:offset.x, y : offset.y });
-                        //html.rectHeader = new htmlObject(width, heightHeader, { x:offset.x, y : offset.y + (heightHeader / 2) });
-                        // html.textBoxHeader = new htmlObject(width - 50, heightHeader, { x:offset.x - (width/2) + (radio*2)+20, y : offset.y + (heightHeader / 2) }); 
-                        // html.circleHeader = new htmlObject(0,0,{ x:offset.x - (width/2) + radio + 10, y : offset.y + (heightHeader / 2) }, radio);
-                        // html.textBoxCircleHeader = new htmlObject(radio*2,radio*2,{ x:offset.x - (width/2) + radio + 10, y : offset.y + (heightHeader / 2) });
-                        // html.textBoxLabelCount = new htmlObject(width, heightHeader, { x:(offset.x+(width/2)-5), y : offset.y + 10 });
-                        // html.relationshipArrow = new htmlObject();
-                        // html.relationship = [];
-                        process.html = html;
-                        
+                            var offsetHeader = {x: offset.x, y:offset.y  - (height/2) + (heightHeader / 2) };
+                            // rect
+                            html.rect = new htmlObject(width, height, { x:offset.x, y : offset.y });
+                            html.rectHeader = new htmlObject(width, heightHeader, { x:offsetHeader.x, y : offsetHeader.y});
+                            html.textBoxHeader = new htmlObject(width - 50, heightHeader, { x:offsetHeader.x - (width/2) + (radio*2)+20, y : offsetHeader.y }); 
+                            html.circleHeader = new htmlObject(0,0,{ x:offsetHeader.x - (width/2) + radio + 10, y : offsetHeader.y }, radio);
+                            html.textBoxCircleHeader = new htmlObject(radio*2,radio*2,{ x:offsetHeader.x - (width/2) + radio + 10, y : offsetHeader.y });
+                            html.textBoxLabelCount = new htmlObject(width, heightHeader, { x:(offsetHeader.x+(width/2)-5), y : offsetHeader.y - (heightHeader/2) + 10 });
+                            // html.relationshipArrow = new htmlObject();
+                            // html.relationship = [];
+                            process.html = html;
+                        }
+                    }else{
+                        offset.x = (width / 2) + 20;
+                        offset.y = (height / 2) + 40;
+                        for( var i in processesList){
+                            var html = {};
+                            var process = processesList[i];
+                            html.rect = new htmlObject(width, height, { x:offset.x, y : offset.y });
+                            html.rectHeader = new htmlObject(width, height, { x:offset.x, y : offset.y});
+                            html.textBoxHeader = new htmlObject(width - 50, height, { x:offset.x - (width/2) + (radio*2)+20, y : offset.y }); 
+                            html.circleHeader = new htmlObject(0,0,{ x:offset.x - (width/2) + radio + 10, y : offset.y }, radio);
+                            html.textBoxCircleHeader = new htmlObject(radio*2,radio*2,{ x:offset.x - (width/2) + radio + 10, y : offset.y });
+                            html.textBoxLabelCount = new htmlObject(width, heightHeader, { x:(offset.x+(width/2)-5), y : offset.y - (height/2) + 10 });
+                            offset.x += width + 20;
+                            process.html = html;
+                        }
                     }
                 };
-                capabilities = function(capabilitiesArr,offset){
+                capabilities = function(process,capabilitiesArr,offset){
                     
                     var marginBottom = 20;
                     offset.y = offset.y + 140;
@@ -119,6 +135,7 @@
                         sortAreas(capability.labels, offset);
                         offset.y +=marginBottom;
                     }
+                    process.height = offset.y - heightCapability + marginBottom; 
                 };
                 sortAreas = function(arr, offset){
                     
