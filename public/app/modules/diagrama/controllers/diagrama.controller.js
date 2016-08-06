@@ -95,7 +95,6 @@
                     // Update Procesos
                     $scope.procesos = data.procesos;
                     $scope.source = {procesos: data.procesos, kpis:data.procesos};
-                    console.log(JSON.stringify($scope.source));
                 });
         };
 
