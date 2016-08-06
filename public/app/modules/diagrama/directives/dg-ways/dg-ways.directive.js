@@ -69,7 +69,9 @@
 
                 console.log(lastY);
                 $scope.w = ($scope.organiceBy === 1) ? (220*$scope.areasList.length) : maxWidth;
-                $scope.h = ($scope.organiceBy === 1) ? lastY + 150 : maxWidth;;
+                $scope.h = ($scope.organiceBy === 1) ? lastY + 150 : maxHeight + 100;
+
+                $scope.h = ($scope.view === 0) ? 150 : $scope.h;
                 $scope.width    = $scope.w + "px";
                 $scope.height   = $scope.h + "px";
                 
