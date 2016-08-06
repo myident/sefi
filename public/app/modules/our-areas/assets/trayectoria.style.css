@@ -1,13 +1,9 @@
 main.ng-scope.arq-trayectoria {
-    width: 100%;
-    height: calc(100vh - 40px);
-    background-size: cover;
-    background-position: top left;
-    background-repeat: no-repeat;
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
     margin-top: 70px;
+    height: 0;
 }
 
 main.ng-scope.arq-trayectoria > .regresar {

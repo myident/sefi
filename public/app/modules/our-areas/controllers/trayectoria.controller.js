@@ -2,7 +2,7 @@
 
 (function () {
     var Controller = function ($scope, $rootScope, $window, $cvs, $routeParams) {
-
+        
         $rootScope.spin = true;
 
         $scope.id_cv = $routeParams.id_area || 1;
@@ -29,15 +29,15 @@
 
         $scope.getPhoto = function () {
             var image = 0;
-            if ($scope.id_cv != 1){
-                if ($scope.id_cv == 4 || $scope.id_cv == 5){
+            if ($scope.id_cv != 1) {
+                if ($scope.id_cv == 4 || $scope.id_cv == 5) {
                     image = 2;
                 } else {
                     image = 1;
                 }
             }
             return {
-                'background-image': 'url('+$scope.profileImages[image]+')'
+                'background-image': 'url(' + $scope.profileImages[image] + ')'
             };
         };
         $scope.content = {
