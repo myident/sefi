@@ -15,21 +15,6 @@
             $scope.heightCanvas = 0;
 
             $scope.init = function(){
-                // $scope.$watch('source', function () {
-                //     $scope.reset();
-                // });
-                // $scope.$watch('view', function () {
-                //     $scope.reset();
-                // });
-                // $scope.$watch('organiceBy', function () {
-                //     $scope.reset();
-                // });
-                // $scope.$watch('show', function () {
-                //     $scope.reset();
-                // });
-                // $scope.$watch('layout', function () {
-                //     $scope.reset();
-                // });
                 $scope.$watchGroup(['source','view','organiceBy','show','layout'], function () {
                     $scope.reset();
                 });
@@ -49,17 +34,13 @@
 
                 $scope.svg.clear();
                 $scope.zoom = 1;
-                // var isValid = $validation.validate($scope.source,function(e){
-                //     console.log(e);
-                // });
 
-                // isValid && function(){
-                var sourceTemp = JSON.parse(JSON.stringify($scope.source));
-                $setting.dimensions(sourceTemp,$scope.view, $scope.organiceBy, $scope.show);
-                $builder.build($scope.svg, sourceTemp, $scope.show);
-
-                $scope.settingSvg(sourceTemp);
+                $scope.sourceTemp = JSON.parse(JSON.stringify($scope.source));
                 ($scope.organiceBy === 1) && $setting.dimensionsAreas($scope.areasList);
+                $setting.dimensions($scope.sourceTemp,$scope.areasList, $scope.view, $scope.organiceBy, $scope.show);
+                $builder.build($scope.svg, $scope.sourceTemp, $scope.show);
+
+                $scope.settingSvg($scope.sourceTemp);
                 ($scope.organiceBy === 1) && $builder.buildAreas($scope.svg, $scope.areasList, $scope.h);
                 
                 // };
@@ -81,13 +62,18 @@
                     maxWidth += width + 30;
                 }
 
-                $scope.w = ($scope.organiceBy === 1) ? (220*$scope.areasList.length):maxWidth;
-                $scope.h = (maxHeight+ marginBottom + marginTop );
+                var lengthProcess = $scope.sourceTemp.procesos.length - 1;
+                var lengthCapability = $scope.sourceTemp.procesos[lengthProcess].capacidades.length - 1;
+                var lastY = $scope.sourceTemp.procesos[lengthProcess].capacidades[lengthCapability].html.rect.offset.y;
+
+                console.log(lastY);
+                $scope.w = ($scope.organiceBy === 1) ? (220*$scope.areasList.length) : maxWidth;
+                $scope.h = ($scope.organiceBy === 1) ? lastY + 150 : maxWidth;;
                 $scope.width    = $scope.w + "px";
                 $scope.height   = $scope.h + "px";
                 
-                $scope.svgWidth = maxWidth;
-                $scope.svgHeight = maxHeight + marginBottom + marginTop;
+                $scope.svgWidth = $scope.w;
+                $scope.svgHeight = $scope.h;
                 $scope.svg.attr({
                     viewBox: "0 0 " + ($scope.svgWidth) + " " + ($scope.svgHeight)
                 });

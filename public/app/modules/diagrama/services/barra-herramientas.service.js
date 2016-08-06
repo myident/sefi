@@ -5,7 +5,7 @@
     var service = function () {
         return {
             view: 1,
-            organize: 0,
+            organize: 1,
             show: 3,
             zoom: 1
         };
