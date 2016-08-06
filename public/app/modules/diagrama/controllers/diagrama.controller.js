@@ -23,6 +23,7 @@
         $scope.organize = $barraHerramientas.organize;
         $scope.show = $barraHerramientas.show;
         $scope.zoom = $barraHerramientas.zoom;
+        $scope.print = false;
         
 
         // $indexes
@@ -121,6 +122,11 @@
         $scope.getZoom = function(value) {
             $scope.zoom = value;
             $barraHerramientas.zoom = value;
+        };
+        // MARK: - getter Print
+        $scope.getPrint = function() {
+            console.log('Print');
+            $scope.print = true;
         };
         
 

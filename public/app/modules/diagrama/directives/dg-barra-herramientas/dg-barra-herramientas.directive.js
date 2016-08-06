@@ -168,6 +168,12 @@
             };
             
             
+            // MARK: - print
+            $scope.print = function(){
+                $scope.sendPrint();
+            };
+            
+            
             // I N I T S
             $scope.setView($scope.configView);
             $scope.setOrganize($scope.configOrganize);
@@ -186,7 +192,8 @@
                 sendView: '=getView',
                 sendOrganize: '=getOrganize',
                 sendShow: '=getShow',
-                sendZoom: '=getZoom'
+                sendZoom: '=getZoom',
+                sendPrint: '=getPrint'
             }
         };
     };
