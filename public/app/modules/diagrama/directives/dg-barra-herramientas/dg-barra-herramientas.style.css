@@ -94,10 +94,8 @@ dg-barra-herramientas .barra-wrap .element-control.organize-control {
     background: url(./img/switchareas-on.png);
     position: absolute;
     top: 8px;
-    left: 340px; 
+    left: 340px;
 }
-
-
 
 dg-barra-herramientas .barra-wrap .element-control-switch ul li {
     float: left;
@@ -172,7 +170,7 @@ dg-barra-herramientas .barra-wrap .element-control-switch.switch-show-control {
 
 .zoom-control > .total {
     width: 50px;
-    float:left;
+    float: left;
     text-align: center;
 }
 
@@ -180,7 +178,10 @@ dg-barra-herramientas .barra-wrap .element-control-switch.switch-show-control {
     width: 28px;
     height: 28px;
     background-image: url(img/zoom-menos.png);
-    float:left;
+    background-size: 90%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    float: left;
     margin: 7px 0 0 0;
     cursor: pointer;
 }
@@ -189,7 +190,10 @@ dg-barra-herramientas .barra-wrap .element-control-switch.switch-show-control {
     width: 28px;
     height: 28px;
     background-image: url(img/zoom%20mas.png);
-    float:left;
+    background-size: 90%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    float: left;
     margin: 7px 0 0 0;
     cursor: pointer;
 }
@@ -199,10 +203,26 @@ dg-barra-herramientas .barra-wrap .element-control-switch.switch-show-control {
     height: 31px;
     position: absolute;
     background-image: url(img/download-pdf.png);
+    background-size: 90%;
+    background-position: center center;
+    background-repeat: no-repeat;
     right: 20px;
     top: 6px;
 }
 
 .disabled {
     opacity: 0.3;
+}
+
+@media (max-width: 1024px) {
+    .zoom-control {
+        position: absolute;
+        top: -50px;
+        right: 50px!important;
+        width: 120px!important;
+    }
+    .download-pdf {
+        top: -42px;
+        right: 0;
+    }
 }
