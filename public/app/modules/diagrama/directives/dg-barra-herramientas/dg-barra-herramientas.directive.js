@@ -3,6 +3,8 @@
     var Directive = function () {
 
         var Link = function ($scope) {
+            
+            $scope.levelOne = true;
 
             $scope.openOptions = function () {
                 $scope.optionsShow = !$scope.optionsShow;
@@ -28,6 +30,15 @@
                     if (value == i) {
                         $scope.view[i].active = true;
                     }
+                }
+                if (value === 0){
+                    $scope.levelOne = true;
+                    $scope.sendOrganize(0);
+                    $scope.sendShow(0);
+                    $scope.organize.active = false;
+                    $scope.show[0].disabled = false;
+                } else {
+                    $scope.levelOne = false;
                 }
             };
             $scope.getView = function(){
