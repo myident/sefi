@@ -177,7 +177,8 @@
                                     capabilityTemp.sortAreas.aplicaciones = area.aplicaciones;
                                     capabilityTemp.sortAreas.kpis = area.kpis;
 
-                                    process.capacidades.splice(++j,0,capabilityTemp);                                }
+                                    process.capacidades.splice(++j,0,capabilityTemp);
+                                }
                             }
                        }
                    }
