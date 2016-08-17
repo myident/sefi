@@ -52,7 +52,7 @@ dg-barra-herramientas .barra-wrap .element-control.select-view-control .select-c
 dg-barra-herramientas .barra-wrap .element-control.select-view-control .select-options {
     background: #F2F2F2;
     border: 1px solid #979797;
-    z-index: 3;
+    z-index: 11;
     position: relative;
     margin-top: -5px;
 }
