@@ -53,6 +53,52 @@
                 
             }
         };
+        this.pdfPage = function(ancho, alto, body, nombre, proporcion, escala){
+            var coordinates = [];
+            var pagesForWidth = parseInt(ancho / 612) + 1;
+            var pagesForHeight = parseInt(alto / 792) + 1;
+            var pagesCounter = 0;
+            for (var i = 0; i < pagesForWidth; i++) {
+                coordinates.push([]);
+                for (var j = 0; j < pagesForHeight; j++) {
+                    coordinates[i].push([{
+                        x: 612 * i * (i > 0 ? -1 : 1),
+                        y: 792 * j * (j > 0 ? -1 : 1)
+                                    }]);
+                }
+            }
+            if (alto > ancho) {
+
+                svgAsPngUri(body, {
+                    scale: escala
+                }, function (uri) {
+                    
+                        var pdf = new jsPDF('p', 'pt', 'letter', true);
+                        pdf.setFontSize(10);
+                        for (var i in coordinates) {
+                            for (var j in coordinates[i]) {
+                                if (pagesCounter > 0) {
+                                    pdf.addPage();
+                                }
+                                pagesCounter++;
+                                pdf.addImage(uri, 'PNG', coordinates[i][j][0].x, coordinates[i][j][0].y, ancho, alto);
+                                pdf.text(590, 0, '' + pagesCounter);
+                            }
+                        }
+
+                        $rootScope.spin = false;
+                        pdf.save(nombre + '_protrait.pdf');
+
+                });
+
+            } else { // alto <= ancho
+
+                
+            }
+        };
+        this.sendMessage = function(ancho, alto, body, nombre, proporcion, escala){
+            console.log({ancho:ancho, alto: alto, body:body, nombre: nombre, proporcion: proporcion, escala: escala});
+        };
         return self;
     };
 

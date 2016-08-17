@@ -1,0 +1,44 @@
+<ng-header set-elementos-menu="elementosMenu"></ng-header>
+<main>
+    <div class="regresar dg-indice" ng-click="regresar()">
+        <i></i>
+        <span>Back</span>
+    </div>
+    <dg-historial
+        historial="historial"
+    ></dg-historial>
+    <div class="page-wrap">
+        <div class="column-indice">
+            <dg-indice
+                arquitectura="arquitectura"
+                dominios="dominios"
+                megaprocesos="megaprocesos"
+                get-megaprocesos="getMegaprocesos"
+                get-macroprocesos="getMacroprocesos"
+                get-procesos="getProcesos"
+            ></dg-indice>
+        </div>
+        <div class="column-barra">
+            <dg-barra-herramientas
+                view="view"
+                organize="organize"
+                show="show"
+                zoom="zoom"
+                get-view="getView"
+                get-organize="getOrganize"
+                get-show="getShow"
+                get-zoom="getZoom"
+                get-print="getPrint"
+            ></dg-barra-herramientas>  
+        </div>
+        <dg-ways 
+            set-source="source"
+            set-print="print"
+            set-view="view"
+            set-organice-by="organize"
+            set-show="show"
+            set-zoom="zoom"
+            set-areas-list="areasList"
+            ></dg-ways>
+    </div>
+</main>

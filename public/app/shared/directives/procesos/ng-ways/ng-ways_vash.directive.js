@@ -216,7 +216,9 @@
                                 }
                             } 
                         }else{
-                            console.error('ERROR de base de datos: Faltan Reglas');
+                            var errorStr = 'ERROR de base de datos: Faltan Reglas';
+                            console.error(errorStr);
+                            errorArr.push(errorStr);
                             success = false;
                                     count++;
                         }
@@ -249,6 +251,8 @@
 
                     ctrl.$setViewValue(errorArr);
                     ctrl.$render();
+
+                    console.log(data);
 
                     console.log('Número errores encontrados : '+count);
                     return success;

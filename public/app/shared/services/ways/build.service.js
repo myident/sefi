@@ -181,12 +181,15 @@
                                 etiquetaReglas = $shapes.factory.img({
                                     x: -2,
                                     y: 121
-                                }, './assets/img/reglas.svg', 30, 480);
+                                }, './assets/img/reglas.png', 30, 480);
+                                //}, './assets/img/reglas.svg', 30, 480);
                             } else {
                                 etiquetaCapacidades = $shapes.factory.img({
                                     x: -2,
                                     y: 121
-                                }, './assets/img/capacidades.svg', 30, 378);
+                                }, './assets/img/capacidades.png', 30, 378);
+                                //}, './assets/img/capacidades.svg', 30, 378);
+                                
                             }
 
                         }
@@ -194,7 +197,8 @@
                         etiquetaProcesos = $shapes.factory.img({
                             x: -2,
                             y: 25
-                        }, './assets/img/proceso.svg', 30, 78);
+                        }, './assets/img/proceso.png', 30, 78);
+                        //}, './assets/img/proceso.svg', 30, 78);
                     }
                     
 
@@ -498,29 +502,29 @@
                     rect = $paint.rectCapacidades(rect);
 
                     
-                    if((capacidad.flowId+1) === capacidad.nextTo){
+                    // if((capacidad.flowId+1) === capacidad.nextTo){
                         textbox = $shapes.factory.textbox(
                         capacidad.offsets[layout], 
                         capacidadWidth, 
                         capacidadHeight, 
                         capacidad.name, 11);
                     
-                    }else{
-                        capacidad.offsets[layout].y = capacidad.offsets[layout].y + 12;
+                    // }else{
+                    //     capacidad.offsets[layout].y = capacidad.offsets[layout].y + 12;
 
-                        textbox = $shapes.factory.textbox(
-                        capacidad.offsets[layout], 
-                        capacidadWidth, 
-                        capacidadHeight, 
-                        'Error en Base de Datos', 11);
-                        textbox = $paint.textRed(textbox);
-                        $paint.textRed(arrow || textbox);
-                        $paint.lineRed(intersection || textbox);
+                    //     textbox = $shapes.factory.textbox(
+                    //     capacidad.offsets[layout], 
+                    //     capacidadWidth, 
+                    //     capacidadHeight, 
+                    //     'Error en Base de Datos', 11);
+                    //     textbox = $paint.textRed(textbox);
+                    //     $paint.textRed(arrow || textbox);
+                    //     $paint.lineRed(intersection || textbox);
 
                         
-                        var imgUrl  = 'assets/img/ICONO_TACHE.png';
-                        var imgError = $shapes.factory.imgError(capacidad.offsets[layout],imgUrl,20,20);
-                    }
+                    //     var imgUrl  = 'assets/img/ICONO_TACHE.png';
+                    //     var imgError = $shapes.factory.imgError(capacidad.offsets[layout],imgUrl,20,20);
+                    // }
 
                     // Setting data
                     rect
@@ -574,28 +578,28 @@
                     
                     rect = $paint.rectCapacidades(rect);
 
-                    if((capacidad.flowId+1) === capacidad.nextTo){
+                    // if((capacidad.flowId+1) === capacidad.nextTo){
                         textbox = $shapes.factory.textbox(
                         capacidad.offsets[layout], 
                         capacidadWidth, 
                         capacidadHeight, 
                         capacidad.name, 11);
                     
-                    }else{
-                        capacidad.offsets[layout].y = capacidad.offsets[layout].y + 12;
+                    // }else{
+                    //     capacidad.offsets[layout].y = capacidad.offsets[layout].y + 12;
 
-                        textbox = $shapes.factory.textbox(
-                        capacidad.offsets[layout], 
-                        capacidadWidth, 
-                        capacidadHeight, 
-                        'Error en Base de Datos', 11);
-                        textbox = $paint.textRed(textbox);
-                        $paint.textRed(arrow || textbox);
-                        $paint.lineRed(intersection || textbox);
+                    //     textbox = $shapes.factory.textbox(
+                    //     capacidad.offsets[layout], 
+                    //     capacidadWidth, 
+                    //     capacidadHeight, 
+                    //     'Error en Base de Datos', 11);
+                    //     textbox = $paint.textRed(textbox);
+                    //     $paint.textRed(arrow || textbox);
+                    //     $paint.lineRed(intersection || textbox);
                         
-                        var imgUrl  = 'assets/img/ICONO_TACHE.png';
-                        var imgError = $shapes.factory.imgError(capacidad.offsets[layout],imgUrl,20,20);
-                    }
+                    //     var imgUrl  = 'assets/img/ICONO_TACHE.png';
+                    //     var imgError = $shapes.factory.imgError(capacidad.offsets[layout],imgUrl,20,20);
+                    // }
 
                     // Setting data
                     rect
@@ -627,6 +631,7 @@
                         var offsetTo = this.getOffsetsTo(source,capacidad.nextTo, capacidad);
                         var offsetToTwo = this.getOffsetsTo(source,capacidad.nextToTwo, capacidad);
 
+                        var margin = {width:capacidadWidth, height: capacidadHeight};
                         var margin = {width:capacidadWidth, height: capacidadHeight};
 
                         var linesToConexion = $vash.getLineToConexion(offset, offsetTo,margin);
@@ -663,7 +668,7 @@
                         intersection = $shapes.factory.polyline(this.offsetToArr(capacidad.intersection,layout));
                         
                     
-                    if ((Number(j) + 1) < source[i][type].length) {
+                    // if ((Number(j) + 1) < source[i][type].length) {
                         switch(capacidad.directionTwo[layout].final){
                             case 'down': arrowTwo = $shapes.factory.arrowDown(capacidad.offsetsArrowTwo[layout], baseArrow); break;
                             case 'right': arrowTwo = $shapes.factory.arrowRight(capacidad.offsetsArrowTwo[layout], baseArrow); break;
@@ -671,7 +676,7 @@
                             case 'up': arrowTwo = $shapes.factory.arrowLeft(capacidad.offsetsArrowTwo[layout], baseArrow); break;
                         }
                         lineElse = $shapes.factory.polyline(this.offsetToArr(capacidad.intersectionTwo,layout));
-                    }
+                    // }
 
                     rect = $shapes.factory.rombo(
                         capacidad.offsets[layout], 

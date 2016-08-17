@@ -1,0 +1,32 @@
+<div class="barra-wrap">
+    <div>
+        <div class="element-control view-control">View</div>
+        <div class="element-control select-view-control">
+            <div class="select-control" ng-click="openOptions()">{{getViewName()}}<i></i></div>
+            <div class="select-options" ng-show="optionsShow">
+                <ul>
+                    <li ng-click="selectView($index)" ng-repeat="option in view">{{option.title}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="element-control organize-control">Organize by areas</div>
+        <div class="element-control-on" ng-class="{'active': organize.active}" ng-click="toggleOrganize()"></div>
+    </div>
+    <div>
+        <div class="element-control show-control">Show</div>
+        <div class="element-control-switch switch-show-control">
+            <ul>
+                <li ng-class="{'disabled': toshow.disabled}" ng-click="toggleShow($index)" ng-repeat="toshow in show"><i class="{{toshow.class}}" ng-class="{'active': toshow.active}"></i><span>{{toshow.title}}</span></li>
+            </ul>
+        </div>
+        <div class="element-control zoom-control">
+            <div class="menos" ng-click="changeZoom('menos')"></div>
+            <div class="total" ng-click="changeZoom('default')">{{displayZoom}}</div>
+            <div class="mas" ng-click="changeZoom('mas')"></div>
+        </div>
+        <div class="download-pdf" ng-click="print()"></div>
+    </div>
+
+</div>

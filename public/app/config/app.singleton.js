@@ -3,10 +3,7 @@
 (function() {
     angular.module('Singleton', []).factory('$singleton', function() {
         return {
-
-//            path: 'http://10.203.25.37:7001/ITBook/'
-            path: 'http://10.203.25.37:7001/ITBook/'
-           // path: 'http://localhost:8080'
+            path: 'http://10.103.12.40:9000/ITBook/'
         };
     });
 })();

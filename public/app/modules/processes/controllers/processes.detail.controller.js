@@ -122,24 +122,46 @@
                                 //     console.error('Error en bases de Datos');
                                 // }
 
+                                // if(regla.idfigura !== 3){
+                                //     reglasTemp[count] = regla;
+                                //     reglasTemp[count].flowId = (regla.pactual - countLess);
+                                //     reglasTemp[count].nextTo = (regla.psiguiente - countLess);
+                                //     idfiguraBool = false;
+                                //     count++;
+                                // }else{
+                                //     if(!idfiguraBool){
+
+                                //         reglasTemp[count] = regla;
+                                //         reglasTemp[count].flowId = (regla.pactual - countLess);
+                                //         reglasTemp[count].nextTo = (regla.psiguiente - countLess);
+                                //         idfiguraBool = true;
+                                        
+                                //         countLess++;
+                                //     }else{
+                                //         reglasTemp[count].intersectionTwo = [];
+                                //         reglasTemp[count].nextToTwo = (regla.psiguiente - countLess);
+                                //         count++;
+                                //         idfiguraBool = false;
+                                //     }
+                                // }
                                 if(regla.idfigura !== 3){
                                     reglasTemp[count] = regla;
-                                    reglasTemp[count].flowId = (regla.pactual - countLess);
-                                    reglasTemp[count].nextTo = (regla.psiguiente - countLess);
+                                    reglasTemp[count].flowId = (regla.pactual );
+                                    reglasTemp[count].nextTo = (regla.psiguiente );
                                     idfiguraBool = false;
                                     count++;
                                 }else{
                                     if(!idfiguraBool){
 
                                         reglasTemp[count] = regla;
-                                        reglasTemp[count].flowId = (regla.pactual - countLess);
-                                        reglasTemp[count].nextTo = (regla.psiguiente - countLess);
+                                        reglasTemp[count].flowId = (regla.pactual );
+                                        reglasTemp[count].nextTo = (regla.psiguiente );
                                         idfiguraBool = true;
                                         
                                         countLess++;
                                     }else{
                                         reglasTemp[count].intersectionTwo = [];
-                                        reglasTemp[count].nextToTwo = (regla.psiguiente - countLess);
+                                        reglasTemp[count].nextToTwo = (regla.psiguiente );
                                         count++;
                                         idfiguraBool = false;
                                     }
@@ -196,8 +218,6 @@
                         }
                     });
                 } else {
-
-                    
                     // Con el indexMega (índice de megaproceso elegido) se verifica si hay macroprocesos
                     if ($scope.megaprocesos[$scope.indexMega].macroprocesos.length) {
                         $scope.macroprocesos = $scope.megaprocesos[$scope.indexMega].macroprocesos;
@@ -226,20 +246,24 @@
                     }
                 }
             } else {
+                $scope.macros = $scope.megaprocesos[index].macroprocesos;     
                 if ($scope.megaprocesos[index].macroprocesos.length < 1) {
                     $rootScope.spin = true;
                     $macroprocesos.query({
                         idmegaproceso: id
                     }, function (data) {
                         $rootScope.spin = false;
+                        console.log(data);
                         $scope.megaprocesos[index].macroprocesos = data;
                         $scope.macros = data;
+                    
                     });
                 }
                 // Cuando se elige un megaproceso en el índice, se guarda el $index en indexMega
                 $scope.indexMega = index;
                 // Se guarda el megaproceso elegido en el breadcrumb
-                $scope.breadcrumb.proceso = '/ ' + $scope.megaprocesos[$scope.indexMega].title + '/ ';
+                $scope.breadcrumb.capacidad='';
+                $scope.breadcrumb.proceso = '/ ' + $scope.megaprocesos[$scope.indexMega].title + ' / ';
             }
         };
 
@@ -338,6 +362,7 @@
 
 
             // El objeto para inicializar el Breadcrumb
+            
             $scope.breadcrumb = {
                 dominio: $scope.dominioActual.name,
                 color: $scope.dominioActual.backColor,
@@ -355,7 +380,7 @@
                 $scope.dominios = $scope.dominioActual.dominios;
                 // Se verifica que el dominio elegido tenga megaprocesos
                 if ($scope.megaProcesoActual.megaprocesos && $scope.megaProcesoActual.megaprocesos.length) {
-                    $scope.megaprocesos = $scope.megaProcesoActual.megaprocesos;
+                    $scope.megaprocesos = $scope.megaProcesoActual.megaprocesos;                    
                 } else {
                     $scope.megaprocesos = [];
                 }

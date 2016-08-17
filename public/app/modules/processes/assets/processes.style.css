@@ -443,12 +443,14 @@ section.container-card > div.card > article.backside ng-mapside > ul > li > a {
     right: 10px;
     top: 10px;
     display: block;
-    background-image: url(img/ico.arrow.down.white.svg);
+    /*background-image: url(img/ico.arrow.down.white.svg);*/
+    background-image: url(img/ico.arrow.down.white.png);
     background-repeat: no-repeat;
 }
 
 .accordion-procesos li.open .accordion-title i {
-    background-image: url(img/ico.arrow.up.white.svg);
+    /*background-image: url(img/ico.arrow.up.white.svg);*/
+    background-image: url(img/ico.arrow.up.white.png);
 }
 
 .accordion-procesos li.open .accordion-title {
