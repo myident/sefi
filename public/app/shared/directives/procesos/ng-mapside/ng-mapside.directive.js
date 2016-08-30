@@ -2,7 +2,7 @@
 /* jslint browser:true */
 
 (function () {
-    var Directive = function () {
+    var Directive = function ($indice) {
         var Link = function ($scope) {
             $scope.$watch('subposition', function () {
                 if ($scope.source.length && $scope.source[$scope.subposition]) {
@@ -24,7 +24,9 @@
 
             // Redireccionado de cada elemento
             $scope.href = function (position, index) {
-                window.location = "#/procesos/" + position + "/detalle/" + index;
+                $indice.$indexArquitectura = position;
+                $indice.$indexDominio = index;
+                window.location = "#/diagrama";
             };
 
         };

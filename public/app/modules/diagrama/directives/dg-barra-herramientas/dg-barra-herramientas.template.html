@@ -10,17 +10,19 @@
             </div>
         </div>
     </div>
-    <div>
+    <div ng-hide="levelOne">
         <div class="element-control organize-control">Organize by areas</div>
         <div class="element-control-on" ng-class="{'active': organize.active}" ng-click="toggleOrganize()"></div>
     </div>
-    <div>
+    <div ng-hide="levelOne">
         <div class="element-control show-control">Show</div>
         <div class="element-control-switch switch-show-control">
             <ul>
                 <li ng-class="{'disabled': toshow.disabled}" ng-click="toggleShow($index)" ng-repeat="toshow in show"><i class="{{toshow.class}}" ng-class="{'active': toshow.active}"></i><span>{{toshow.title}}</span></li>
             </ul>
         </div>
+    </div>
+    <div>
         <div class="element-control zoom-control">
             <div class="menos" ng-click="changeZoom('menos')"></div>
             <div class="total" ng-click="changeZoom('default')">{{displayZoom}}</div>

@@ -4,6 +4,10 @@
 
     var service = function ($rootScope, $arquitecturas, $megaprocesos, $macroprocesos, $procesoskpi) {
         return {
+            $indexArquitectura: 0,
+            $indexDominio: 1,
+            $indexMegaproceso: 0,
+            $indexMacroproceso: 0,
             arquitecturas: function (callback) {
                 var arquitecturas = $arquitecturas.get(function (data) {
                     $rootScope.spin = true;
@@ -54,11 +58,17 @@
                 });
                 return procesos;
             },
-            areasList: function(){
+            areasList: function () {
                 return [
-                    {text: 'Sales Rep'},
-                    {text: 'Credit'},
-                    {text: 'IT'}
+                    {
+                        text: 'Sales Rep'
+                    },
+                    {
+                        text: 'Credit'
+                    },
+                    {
+                        text: 'IT'
+                    }
                 ];
             }
         };
