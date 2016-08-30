@@ -20,7 +20,7 @@
                         title: 'Architecture',
                         link: 'our-areas/architecture',
                         imgClass: 'arquitectura',
-                        active: false
+                        active: true
                     },
                     {
                         title: 'Operations',
