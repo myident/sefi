@@ -10,13 +10,14 @@
         };
 
         $scope.go = function(value) {
-            $window.location = '#/areas/arquitectura/trayectoria/' + value;  
+            $window.location = '#/trayectoria/' + value;  
         };
         // MARK: - Dimensions
 
         $scope.vh = Math.max(document.documentElement.clientHeight, $window.innerHeight || 0);
+        $scope.vw = Math.max(document.documentElement.clientWidth, $window.innerWidth || 0);
 
-        $scope.fotoEstrategiasOffsetY = 2754 + $scope.vh + 10;
+        $scope.fotoEstrategiasOffsetY = ($scope.vw > 1024 ? 2754 : 2446) + $scope.vh + 10;
         $scope.infoEstrategiasOffsetY = $scope.fotoEstrategiasOffsetY + 200;
         
         $scope.getTimeLineAreasStyle = function() {

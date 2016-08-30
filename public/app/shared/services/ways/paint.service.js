@@ -68,17 +68,18 @@
             rectProceso: function (rect) {
                 rect.attr({
                     stroke: "rgb(144,99,205)",
-                    fill: "rgba(255,255,255, 0.3)",
-                    strokeWidth: 1
+                    fill: "rgb(255,255,255)",
+                    strokeWidth: 1,
+                    "shape-rendering": "crispEdges"
                 });
                 return rect;
             },
             rectProcesoHeader: function (rect, filter) {
                 
                 rect.attr({
-                    stroke: "rgb(144,99,205)",
-                    fill: "#EAEAEA",
-                    strokeWidth: 0,
+                    stroke: "rgb(151,151,151)",
+                    fill: "rgb(244,244,244)",
+                    strokeWidth: 1,
                     filter: filter
                 });
                 return rect;
