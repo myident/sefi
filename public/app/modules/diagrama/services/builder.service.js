@@ -13,6 +13,8 @@
                     var g = paper.group();
                     var fontSizeTitle = 16;
                     var fontSizeLabelCount = 11;
+                    var gCapabilities;
+
                     for(var i in processesList){
                         var process = processesList[i];
                         var rect,rectHeader,textBoxHeader,circleHeader,relationshipArrow,relationship,textBoxLabelCount,textBoxCircleHeader;
@@ -34,7 +36,14 @@
                             $paint.fillByShow(circleHeader, show);
                             $paint.fillWhite(textBoxCircleHeader);
 
-                            var gCapabilities = (view !== 0) && capabilities(process.capacidades);
+
+                            switch(view){
+                                case 0: break;
+                                case 1: gCapabilities = capabilities(process.capacidades); break;
+                                case 2: gCapabilities = capabilities(process.reglas); break;
+                                default: break;
+                            }
+                            //var gCapabilities = (view !== 0) && capabilities(process.capacidades);
                             g.append(rect)
                                 .append(rectHeader)
                                 .append(textBoxHeader)

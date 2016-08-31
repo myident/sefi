@@ -64,7 +64,12 @@
                             var process = processesList[i];                        
                             (view !== 0) && (function(){
                                 offset.x = (organiceBy === 1) ? offset.x : positionCapabilitiesDefault(Number(i)) ;
-                                capabilities(process,process.capacidades, offset);
+                                switch(view){
+                                    case 1: capabilities(process,process.capacidades, offset); break;
+                                    case 2: capabilities(process,process.reglas, offset); break;
+                                    default: break;
+                                }
+                                
                                 offset.y = (organiceBy === 1) ? offset.y : 40;
                             })();
                         }
@@ -73,7 +78,12 @@
                             var html = {};
 
                             var heightHard = process.height + paddingProcess;
-                            var obj = getDimensionsProcess(process.capacidades);
+                            var obj;
+                            switch(view){
+                                    case 1: obj = getDimensionsProcess(process.capacidades); break;
+                                    case 2: obj = getDimensionsProcess(process.reglas); break;
+                                    default: break;
+                                }
                             offset.x =  positionCapabilitiesDefault(Number(i));
                             offset.y = process.height / 2 + heightCapability - (paddingProcess*1.5);
                             offset  = (organiceBy === 1 ) ? obj.offset : offset;

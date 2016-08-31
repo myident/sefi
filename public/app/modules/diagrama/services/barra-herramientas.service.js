@@ -4,9 +4,9 @@
 
     var service = function () {
         return {
-            view: 0,
-            organize: 0,
-            show: 0,
+            view: 2,
+            organize: 1,
+            show: 2,
             zoom: 1
         };
     };

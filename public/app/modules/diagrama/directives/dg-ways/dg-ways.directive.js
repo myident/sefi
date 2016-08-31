@@ -16,7 +16,7 @@
 
             $scope.init = function () {
                 $scope.$watchGroup(['source', 'view', 'organiceBy', 'show', 'layout'], function () {
-                    $scope.reset();
+                    $scope.source.procesos.length && $scope.reset();
                 });
                 $scope.$watch('zoom', function () {
                     // $zoom.change($scope.layout);
@@ -30,7 +30,6 @@
             }
 
             $scope.reset = function () {
-                console.log(".reset()");
 
                 $scope.svg.clear();
                 $scope.zoom = 1;
@@ -43,7 +42,7 @@
                 $scope.settingSvg($scope.sourceTemp);
                 ($scope.organiceBy === 1) && $builder.buildAreas($scope.svg, $scope.areasList, $scope.h);
 
-                // };
+                console.log($scope.sourceTemp);
             };
 
             $scope.settingSvg = function (source) {
@@ -64,10 +63,20 @@
                 }
 
                 var lengthProcess = $scope.sourceTemp.procesos.length - 1;
-                var lengthCapability = ($scope.view !== 0) ? $scope.sourceTemp.procesos[lengthProcess].capacidades.length - 1 : 0;
-                var lastY = ($scope.view !== 0) ? $scope.sourceTemp.procesos[lengthProcess].capacidades[lengthCapability].html.rect.offset.y : 50;
+                var lengthCapability = 0;
+                var lastY = 0;
+                switch($scope.view){
+                    case 0: break;
+                    case 1: lengthCapability = $scope.sourceTemp.procesos[lengthProcess].capacidades.length - 1; 
+                            lastY = $scope.sourceTemp.procesos[lengthProcess].capacidades[lengthCapability].html.rect.offset.y;
+                        break;
+                    case 2: lengthCapability = $scope.sourceTemp.procesos[lengthProcess].reglas.length - 1; 
+                            lastY = $scope.sourceTemp.procesos[lengthProcess].reglas[lengthCapability].html.rect.offset.y;
+                        break;
+                }
+                // var lengthCapability = ($scope.view !== 0) ? $scope.sourceTemp.procesos[lengthProcess].capacidades.length - 1 : 0;
+                // var lastY = ($scope.view !== 0) ? $scope.sourceTemp.procesos[lengthProcess].capacidades[lengthCapability].html.rect.offset.y : 50;
 
-                console.log(lastY);
                 $scope.w = ($scope.organiceBy === 1) ? (220 * $scope.areasList.length) : maxWidth;
                 $scope.h = ($scope.organiceBy === 1) ? lastY + 150 : maxHeight + 100;
 
