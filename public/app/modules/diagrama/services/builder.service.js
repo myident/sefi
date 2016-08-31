@@ -13,13 +13,14 @@
                     var g = paper.group();
                     var fontSizeTitle = 16;
                     var fontSizeLabelCount = 11;
-                    var gCapabilities;
 
                     for(var i in processesList){
+                        var gChild = paper.group();
                         var process = processesList[i];
                         var rect,rectHeader,textBoxHeader,circleHeader,relationshipArrow,relationship,textBoxLabelCount,textBoxCircleHeader;
                         process.html && (function(){
                             var html = process.html;
+                            var gCapabilities;
                             rect                = $shapes.factory.rect(html.rect.offset, html.rect.width, html.rect.height);
                             rectHeader          = $shapes.factory.rect(html.rectHeader.offset, html.rectHeader.width, html.rectHeader.height);
                             textBoxHeader       = $shapes.factory.textbox(html.textBoxHeader.offset, html.textBoxHeader.width,html.textBoxHeader.height, process.name, fontSizeTitle);
@@ -44,7 +45,7 @@
                                 default: break;
                             }
                             //var gCapabilities = (view !== 0) && capabilities(process.capacidades);
-                            g.append(rect)
+                            gChild.append(rect)
                                 .append(rectHeader)
                                 .append(textBoxHeader)
                                 .append(circleHeader)
@@ -53,10 +54,12 @@
                                 .append(textBoxLabelCount)
                                 .append(textBoxCircleHeader)
                                 .append(gCapabilities);
+                            g.append(gChild);
                         })();
 
                         //break;
                     }
+
                     
                 };
                 capabilities = function (capabilitiesList) {
@@ -65,6 +68,7 @@
                     var fontSizeCapability = 14;
                     for(var i in capabilitiesList){
 
+                        var gChild = paper.group();
                         var capability = capabilitiesList[i];
                         var rect,textbox;
 
@@ -72,14 +76,17 @@
 
                             var html = capability.html;
                             rect                = $shapes.factory.rect(html.rect.offset, html.rect.width, html.rect.height);
-                            textBoxHeader       = $shapes.factory.textbox(html.textBox.offset, html.textBox.width,html.textBox.height, capability.name, fontSizeCapability);
+                            textbox       = $shapes.factory.textbox(html.textBox.offset, html.textBox.width,html.textBox.height, capability.name, fontSizeCapability);
 
                             $paint.rectProceso(rect);
 
-                            sortAreas(capability.labels,g);
+                            gChild.append(rect)
+                            .append(textbox);
 
-                            g.append(rect)
-                                .append(textbox);
+                            sortAreas(capability.labels,gChild);
+                            
+                            g.append(gChild);
+                            
                         })();
                     }
                     return g;

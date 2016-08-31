@@ -253,7 +253,7 @@ var ddata = {
             ],
             "areas": [
               {
-                "name": "Sales Rep",
+                "name": "Credit",
                 "aplicaciones": [
                   {
                     "id": 410,
@@ -344,7 +344,7 @@ var ddata = {
             ],
             "areas": [
               {
-                "name": "Sales Rep",
+                "name": "IT",
                 "aplicaciones": [
                   {
                     "id": 410,

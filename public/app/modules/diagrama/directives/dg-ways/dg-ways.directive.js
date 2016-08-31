@@ -42,7 +42,7 @@
                 $scope.settingSvg($scope.sourceTemp);
                 ($scope.organiceBy === 1) && $builder.buildAreas($scope.svg, $scope.areasList, $scope.h);
 
-                console.log($scope.sourceTemp);
+                console.log($scope.sourceTemp.procesos);
             };
 
             $scope.settingSvg = function (source) {
