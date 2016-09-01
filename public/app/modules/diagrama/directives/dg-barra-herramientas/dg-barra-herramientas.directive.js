@@ -43,7 +43,7 @@
                 } else if (value == 2) {
                     $scope.levelOne = false;
                     $scope.sendOrganize(1);
-                    $scope.sendShow(0);
+                    $scope.sendShow(2);
                     $scope.organize.active = true;
                     $scope.organize.disabled = true;
                     $scope.show[0].disabled = true;
