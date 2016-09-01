@@ -182,7 +182,7 @@
             // MARK: - print
             $scope.print = function(){
 //                $scope.sendPrint();
-                $word.$print();
+                $word.$make();
             };
             
             

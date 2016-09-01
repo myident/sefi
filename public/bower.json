@@ -10,6 +10,7 @@
         "snap.svg":"latest",
         "jspdf": "latest",
         "jspdf-autotable": "latest",
-        "angular-parallax": "latest"
+        "angular-parallax": "latest",
+        "pdfmake": "latest"
     }
 }
