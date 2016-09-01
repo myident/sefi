@@ -1,6 +1,6 @@
 /* global angular */
 (function () {
-    var Directive = function () {
+    var Directive = function ($word) {
 
         var Link = function ($scope) {
             
@@ -181,7 +181,8 @@
             
             // MARK: - print
             $scope.print = function(){
-                $scope.sendPrint();
+//                $scope.sendPrint();
+                $word.$print();
             };
             
             

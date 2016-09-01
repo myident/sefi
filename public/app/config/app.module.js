@@ -7,7 +7,7 @@
     
     var componentsModules   = ["mHeaderDirective", "mBackground", "Spin","mSlideview","mParagraph", "mGetdimensions", "mDiagrama"];
     
-    var services            = ["mainService", "mVash", "Singleton", "Arquitecturas", "Dominios", "Megaprocesos", "Macroprocesos", "Procesos","Arquitecturaseco", "mPrint"];
+    var services            = ["mainService", "mVash", "Singleton", "Arquitecturas", "Dominios", "Megaprocesos", "Macroprocesos", "Procesos","Arquitecturaseco", "mPrint", "wordService"];
 
     var modules = angularModules.concat(customModules,componentsModules, services);
     
