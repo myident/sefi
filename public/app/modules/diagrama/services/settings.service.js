@@ -14,7 +14,7 @@
 
                 var type;
                 var offset;
-                var processes,capabilities,sortAreas,labels,getOffsetX, getOffsetProcess;
+                var processes,capabilities,sortAreas,labels,getOffsetX, getOffsetProcess, intersections, getOffsetsTo;
                 var offset = {x : 20, y: 40};
                 var widthCapability = 150;
                 var heightCapability = 100;
@@ -206,8 +206,37 @@
                    }
                 };
 
+                getOffsetsTo =  function(source,id, capacidad){
+                    for(var i in source){
+                        for(var j in source[i]['reglas']){
+                            var regla = source[i]['reglas'][j];
+                            if(regla.pactual === id){
+                                return regla.html.rect.offset;
+                            }
+                        }
+                    }
+                    capacidad.name = "ERROR: Paso siguiente inconsistente"
+                    return regla.html.rect.offset;
+                };
+
+                intersections = function(processesList){
+                    for(var i in  processesList){
+                        var process = processesList[i];
+                        for(var j in process.reglas){
+                            var regla = process.reglas[j];
+                            for(var k in regla.psiguiente){
+                                var offsetTo = getOffsetsTo(processesList, regla.psiguiente[k],regla);
+                                console.log(offsetTo);
+                            }
+                        }
+                    }
+                };
+
                 (organiceBy === 1) && cloneCapabilities(source.procesos);
                 processes(source.procesos,offset);
+                if(view === 2){
+                    intersections(source.procesos);
+                }
             },
         dimensionsAreas: function (source) {
             var width = 220;

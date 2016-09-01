@@ -324,7 +324,7 @@ var ddata = {
           },
           "type": "",
           "pactual": 1,
-          "psiguiente": 2,
+          "psiguiente": [2],
           "caminos": 0,
           "idfigura": 1,
           "desviacion": []
@@ -358,7 +358,7 @@ var ddata = {
           },
           "type": "",
           "pactual": 2,
-          "psiguiente": 3,
+          "psiguiente": [3],
           "caminos": 0,
           "idfigura": 1,
           "desviacion": []
@@ -392,7 +392,7 @@ var ddata = {
           },
           "type": "",
           "pactual": 3,
-          "psiguiente": 4,
+          "psiguiente": [4],
           "caminos": 0,
           "idfigura": 1,
           "desviacion": []
@@ -426,7 +426,7 @@ var ddata = {
           },
           "type": "",
           "pactual": 4,
-          "psiguiente": 5,
+          "psiguiente": [5],
           "caminos": 0,
           "idfigura": 1,
           "desviacion": []
@@ -460,7 +460,7 @@ var ddata = {
           },
           "type": "NO",
           "pactual": 5,
-          "psiguiente": 3,
+          "psiguiente": [3],
           "caminos": 0,
           "idfigura": 3,
           "desviacion": []
@@ -494,7 +494,7 @@ var ddata = {
           },
           "type": "YES",
           "pactual": 5,
-          "psiguiente": 6,
+          "psiguiente": [6],
           "caminos": 0,
           "idfigura": 3,
           "desviacion": []
@@ -573,7 +573,7 @@ var ddata = {
           },
           "type": "",
           "pactual": 6,
-          "psiguiente": 7,
+          "psiguiente": [7],
           "caminos": 0,
           "idfigura": 1,
           "desviacion": []
@@ -607,7 +607,7 @@ var ddata = {
           },
           "type": "",
           "pactual": 7,
-          "psiguiente": 8,
+          "psiguiente": [8],
           "caminos": 0,
           "idfigura": 1,
           "desviacion": []
@@ -641,7 +641,7 @@ var ddata = {
           },
           "type": "",
           "pactual": 8,
-          "psiguiente": 9,
+          "psiguiente": [9],
           "caminos": 0,
           "idfigura": 3,
           "desviacion": []
@@ -675,7 +675,7 @@ var ddata = {
           },
           "type": "",
           "pactual": 8,
-          "psiguiente": 10,
+          "psiguiente": [10],
           "caminos": 0,
           "idfigura": 3,
           "desviacion": []
