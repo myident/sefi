@@ -11,7 +11,7 @@
             </div>
         </div>
     </div>
-    <div ng-hide="levelOne">
+    <div ng-hide="levelOne" ng-class="{'disabled': organize.disabled}">
         <div class="element-control organize-control">Organize by areas</div>
         <div class="element-control-on" ng-class="{'active': organize.active}" ng-click="toggleOrganize()"></div>
     </div>
