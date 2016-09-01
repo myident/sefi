@@ -1,5 +1,6 @@
 <div class="barra-wrap">
     <div>
+        <i class="hide-toggle" ng-click="hideToggle = !hideToggle" ng-class="{'rotate-180':!hideToggle}"></i>
         <div class="element-control view-control">View</div>
         <div class="element-control select-view-control">
             <div class="select-control" ng-click="openOptions()">{{getViewName()}}<i></i></div>
@@ -10,7 +11,7 @@
             </div>
         </div>
     </div>
-    <div ng-hide="levelOne">
+    <div ng-hide="levelOne" ng-class="{'disabled': organize.disabled}">
         <div class="element-control organize-control">Organize by areas</div>
         <div class="element-control-on" ng-class="{'active': organize.active}" ng-click="toggleOrganize()"></div>
     </div>

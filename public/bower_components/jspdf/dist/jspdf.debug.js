@@ -7153,7 +7153,7 @@ AcroForm.internal.setBitPosition = function (variable, position, value) {
 		courier           : "courier"
 	};
 	FontWeightMap = {
-		100 : "normal",
+		100 : "light",
 		200 : "normal",
 		300 : "normal",
 		400 : "normal",

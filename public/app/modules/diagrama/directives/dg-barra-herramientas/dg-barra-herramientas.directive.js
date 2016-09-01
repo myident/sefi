@@ -1,9 +1,9 @@
 /* global angular */
 (function () {
-    var Directive = function () {
+    var Directive = function ($word) {
 
         var Link = function ($scope) {
-            
+
             $scope.levelOne = true;
 
             $scope.openOptions = function () {
@@ -31,17 +31,37 @@
                         $scope.view[i].active = true;
                     }
                 }
-                if (value === 0){
+                if (value === 0) {
                     $scope.levelOne = true;
                     $scope.sendOrganize(0);
                     $scope.sendShow(0);
                     $scope.organize.active = false;
+                    $scope.organize.disabled = false;
                     $scope.show[0].disabled = false;
+                    $scope.show[1].disabled = false;
+                    $scope.show[2].disabled = false;
+                } else if (value == 2) {
+                    $scope.levelOne = false;
+                    $scope.sendOrganize(1);
+                    $scope.sendShow(2);
+                    $scope.organize.active = true;
+                    $scope.organize.disabled = true;
+                    $scope.show[0].disabled = true;
+                    $scope.show[1].disabled = true;
+                    $scope.show[2].disabled = true;
+                    $scope.show[0].active = false;
+                    $scope.show[1].active = true;
+                    $scope.show[2].active = false;
                 } else {
                     $scope.levelOne = false;
+                    $scope.organize.active = true;
+                    $scope.organize.disabled = false;
+                    $scope.show[0].disabled = true;
+                    $scope.show[1].disabled = false;
+                    $scope.show[2].disabled = false;
                 }
             };
-            $scope.getView = function(){
+            $scope.getView = function () {
                 var number = 0;
                 for (var i = 0; i < $scope.view.length; i++) {
                     if ($scope.view[i].active) {
@@ -64,43 +84,45 @@
                 $scope.openOptions();
                 $scope.sendView(option);
             };
-            
-            
+
+
             // MARK: - organize
             $scope.organize = {
                 active: false
             };
-            $scope.setOrganize = function(value){
-                if (value === 0){
+            $scope.setOrganize = function (value) {
+
+                if (value === 0) {
                     $scope.organize.active = false;
                 } else {
                     $scope.organize.active = true;
-                    
                 }
+
             };
             $scope.toggleOrganize = function () {
                 var value = 0;
-                $scope.organize.active = !$scope.organize.active;
-                if ($scope.organize.active){
-                    value = 1;
-                    if ($scope.configShow == 1){
-                        $scope.setShow(0);
+                if (!$scope.organize.disabled) {
+                    $scope.organize.active = !$scope.organize.active;
+                    if ($scope.organize.active) {
+                        value = 1;
+                        if ($scope.configShow == 1) {
+                            $scope.setShow(0);
+                        }
                     }
+                    if (value == 1) {
+                        $scope.show[0].disabled = true;
+                    } else {
+                        $scope.show[0].disabled = false;
+                    }
+                    $scope.configOrganize = value;
+                    $scope.sendOrganize(value);
                 }
-                if (value == 1){
-                    $scope.show[0].disabled = true;
-                } else {
-                    $scope.show[0].disabled = false;
-                }
-                $scope.configOrganize = value;
-                $scope.sendOrganize(value);
-                
             };
-            $scope.getOrganize = function(){
+            $scope.getOrganize = function () {
                 return $scope.organize.active;
             };
-            
-            
+
+
             // MARK: - show
             $scope.show = [
                 {
@@ -116,25 +138,32 @@
                     class: 'kpis'
                 }
             ];
-            $scope.toggleShow = function(value){
+            $scope.toggleShow = function (value) {
+                
                 var realValue = value + 1;
                 var oldValue = 0;
-                if ($scope.configOrganize == 1 && realValue == 1){
-                    
-                } else {
-                    for (var i = 0; i < $scope.show.length; i ++){
-                        if ($scope.show[i].active){
-                            oldValue = i + 1;
+                if (!$scope.show[value].disabled) {
+                    if ($scope.configOrganize == 1 && realValue == 1) {
+
+                    } else {
+
+                        for (var i = 0; i < $scope.show.length; i++) {
+
+                            if ($scope.show[i].active) {
+                                oldValue = i + 1;
+                            }
+
+                        }
+                        if (oldValue == realValue) {
+                            $scope.setShow(0);
+                        } else {
+                            $scope.setShow(realValue);
                         }
                     }
-                    if (oldValue == realValue){
-                        $scope.setShow(0);
-                    } else {
-                        $scope.setShow(realValue);
-                    }
                 }
+
             };
-            $scope.setShow = function(value){
+            $scope.setShow = function (value) {
                 for (var i = 0; i < $scope.show.length; i++) {
                     $scope.show[i].active = false;
                     if (value == (i + 1)) {
@@ -144,47 +173,48 @@
                 $scope.configShow = value;
                 $scope.sendShow(value);
             };
-            
-            
+
+
             // MARK: - zoom
-            
+
             $scope.zoom = $scope.configZoom;
             $scope.displayZoom = parseInt($scope.zoom * 100) + '%';
-            
-            $scope.changeZoom = function(direction){
+
+            $scope.changeZoom = function (direction) {
 
                 var options = {
-                    menos: function(){
-                        if ($scope.zoom >= 0.5){
+                    menos: function () {
+                        if ($scope.zoom >= 0.5) {
                             $scope.zoom -= 0.02;
                             $scope.displayZoom = parseInt($scope.zoom * 100) + '%';
                         }
                         return Math.round($scope.zoom * 100);
                     },
-                    mas: function(){
-                        if ($scope.zoom <= 2){
+                    mas: function () {
+                        if ($scope.zoom <= 2) {
                             $scope.zoom += 0.02;
                             $scope.displayZoom = parseInt($scope.zoom * 100) + '%';
                         }
                         return Math.round($scope.zoom * 100);
                     },
-                    default: function(){
+                    default: function () {
                         $scope.zoom = 1;
                         $scope.displayZoom = parseInt($scope.zoom * 100) + '%';
                         return Math.round($scope.zoom * 100);
                     }
                 };
-                
+
                 $scope.sendZoom((options[direction]() / 100).toFixed(2));
             };
-            
-            
+
+
             // MARK: - print
-            $scope.print = function(){
-                $scope.sendPrint();
+            $scope.print = function () {
+                //                $scope.sendPrint();
+                $word.$make();
             };
-            
-            
+
+
             // I N I T S
             $scope.setView($scope.configView);
             $scope.setOrganize($scope.configOrganize);
@@ -204,7 +234,8 @@
                 sendOrganize: '=getOrganize',
                 sendShow: '=getShow',
                 sendZoom: '=getZoom',
-                sendPrint: '=getPrint'
+                sendPrint: '=getPrint',
+                hideToggle: '=hideToggle'
             }
         };
     };

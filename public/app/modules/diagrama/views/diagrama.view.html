@@ -8,7 +8,7 @@
         historial="historial"
     ></dg-historial>
     <div class="page-wrap">
-        <div class="column-indice">
+        <div class="column-indice" ng-class="{'animate-width-0':!hideToggle}">
             <dg-indice
                 arquitectura="arquitectura"
                 dominios="dominios"
@@ -18,7 +18,7 @@
                 get-procesos="getProcesos"
             ></dg-indice>
         </div>
-        <div class="column-barra">
+        <div class="column-barra" ng-class="{'animate-width-full':!hideToggle}">
             <dg-barra-herramientas
                 view="view"
                 organize="organize"
@@ -29,9 +29,10 @@
                 get-show="getShow"
                 get-zoom="getZoom"
                 get-print="getPrint"
+                hide-toggle="hideToggle"
             ></dg-barra-herramientas>  
         </div>
-        <dg-ways 
+        <dg-ways ng-class="{'animate-width-full-w':!hideToggle}"
             set-source="source"
             set-view="view"
             set-organice-by="organize"

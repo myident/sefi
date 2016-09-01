@@ -9,6 +9,8 @@
         "angular-animate": "latest",
         "snap.svg":"latest",
         "jspdf": "latest",
-        "angular-parallax": "latest"
+        "jspdf-autotable": "latest",
+        "angular-parallax": "latest",
+        "pdfmake": "latest"
     }
 }

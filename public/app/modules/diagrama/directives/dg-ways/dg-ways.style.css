@@ -6,6 +6,7 @@ dg-ways {
     top: 57px;
     left: 245px;
     overflow: auto;
+    transition: .2s;
 }
 
 dg-ways > div.svg-container {
