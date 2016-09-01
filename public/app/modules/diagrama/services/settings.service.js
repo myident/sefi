@@ -12,12 +12,22 @@
         return {
             dimensions: function (source, areasList, view, organiceBy, show) {
 
+                var type;
+                var offset;
                 var processes,capabilities,sortAreas,labels,getOffsetX, getOffsetProcess;
                 var offset = {x : 20, y: 40};
                 var widthCapability = 150;
                 var heightCapability = 100;
                 var paddingProcess = 20;
                 var heightHeader = 100;
+
+                if(view === 2){
+                    type = 'reglas';
+                    offset = {x : 20, y: 150};
+                }else{
+                    type = 'capacidades';
+                    offset = {x : 20, y: 40};
+                }
 
                 var positionCapabilitiesDefault = function(i){
                     var result = 120;
@@ -44,11 +54,12 @@
                         maxX = (maxX > offset.x) ? maxX : offset.x;
                     }
                     var heightLabels = capabilitiesList[capabilitiesList.length-1].labels.length*20;
-                    obj.width = (maxX === minX) ? ( (paddingProcess*2 ) + widthCapability) : ( (paddingProcess* 2 ) + maxX - minX);
+                    obj.width = (maxX === minX) ? ( (paddingProcess*2 ) + widthCapability) : ( (paddingProcess* 2 ) + maxX - minX) + widthCapability;
                     obj.height = (maxY === minY) ? ( (paddingProcess*2) + heightCapability + heightHeader) + heightLabels: (maxY - minY)+heightHeader+heightCapability + (paddingProcess*2) + heightLabels;
                     obj.offset.y = (maxY === minY) ? minY - (heightHeader/2) + (heightLabels/2) :  maxY - (obj.height/2) + (heightCapability/2)+20+heightLabels;
-                    obj.offset.x = (maxX === minX) ? minX : (maxX - minX);
-                    console.log( minY+" - "+ maxY);
+                    obj.offset.x = (maxX === minX) ? minX : ((maxX - minX)/2) + minX;
+                    console.log( "x:"+minX+" - "+"x"+ maxX);
+                    console.log( "y:"+minY+" - "+"y"+ maxY);
                     return obj;
                 }
 
@@ -64,7 +75,12 @@
                             var process = processesList[i];                        
                             (view !== 0) && (function(){
                                 offset.x = (organiceBy === 1) ? offset.x : positionCapabilitiesDefault(Number(i)) ;
-                                capabilities(process,process.capacidades, offset);
+                                switch(view){
+                                    case 1: capabilities(process,process.capacidades, offset); break;
+                                    case 2: capabilities(process,process.reglas, offset); break;
+                                    default: break;
+                                }
+                                
                                 offset.y = (organiceBy === 1) ? offset.y : 40;
                             })();
                         }
@@ -73,7 +89,12 @@
                             var html = {};
 
                             var heightHard = process.height + paddingProcess;
-                            var obj = getDimensionsProcess(process.capacidades);
+                            var obj;
+                            switch(view){
+                                    case 1: obj = getDimensionsProcess(process.capacidades); break;
+                                    case 2: obj = getDimensionsProcess(process.reglas); break;
+                                    default: break;
+                                }
                             offset.x =  positionCapabilitiesDefault(Number(i));
                             offset.y = process.height / 2 + heightCapability - (paddingProcess*1.5);
                             offset  = (organiceBy === 1 ) ? obj.offset : offset;
@@ -159,10 +180,11 @@
                 };
 
                 cloneCapabilities = function(processes){
+
                    for(var i = 0 ; i < processes.length; i++){
                         var process = processes[i];
-                        for(var j = 0 ; j < process.capacidades.length ; j++){
-                            var capability = process.capacidades[j];
+                        for(var j = 0 ; j < process[type].length ; j++){
+                            var capability = process[type][j];
                             for(var k = 0; k < capability.sortAreas.areas.length; k++){
                                 var area = JSON.parse(JSON.stringify(capability.sortAreas.areas[k]));
                                 
@@ -177,7 +199,7 @@
                                     capabilityTemp.sortAreas.aplicaciones = area.aplicaciones;
                                     capabilityTemp.sortAreas.kpis = area.kpis;
 
-                                    process.capacidades.splice(++j,0,capabilityTemp);
+                                    process[type].splice(++j,0,capabilityTemp);
                                 }
                             }
                        }
