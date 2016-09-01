@@ -21,6 +21,17 @@
                     var y = offset.y - (h / 2);
                     return scope.svg.rect(x, y, w, h);
                 },
+                ellipse: function(offset, w, h, r1, r2){
+                    var x = offset.x;
+                    var y = offset.y;
+                    var  ellipse = scope.svg.ellipse(x, y, r1, r2);
+                    ellipse.attr({
+                    fill: "rgba(245,245,245,1)",
+                    stroke: "rgb(150,150,150)",
+                    strokeWidth: 1
+                });
+                    return ellipse;
+                },
                 rectLines: function (offset, w, h) {
                     var x = offset.x - (w / 2);
                     var y = offset.y - (h / 2);
@@ -43,7 +54,11 @@
                     return g;
                 },
                 line: function (start, end) {
-                    return scope.svg.line(start.x, start.y, end.x, end.y);
+                    var line =  scope.svg.line(start.x, start.y, end.x, end.y);
+                    line.attr({
+                        stroke: "#ccc"
+                    });
+                    return line;
                 },
                 text: function (offset, w, text) {
                     var multitext = scope.svg.multitext(offset.x, offset.y, text, w, {
@@ -74,7 +89,17 @@
                     // factotyArrow();
                     return polyline;
                 },
-                arrow: function (offset, b) {
+                arrow: function (offset, b, direction) {
+                    var path;
+                    switch(direction){
+                        case 'left': path = this.arrowRight(offset, b); break;
+                        case 'right': path = this.arrowLeft(offset, b);break;
+                        case 'top': path = this.arrowDown(offset, b);break;
+                        case 'down': path = this.arrowUp(offset, b);break;
+                    }
+                    return path;
+                },
+                arrowDown: function (offset, b) {
                     var x = offset.x;
                     var y = offset.y;
                     var pathStr = "M" + (x - (b / 2)) + " " + y + " L" + (x + (b / 2)) + " " + y + " L" + x + " " + (y + b) + " Z";
@@ -87,21 +112,8 @@
                     });
                     return path;
                 },
-                arrowDown: function (offset, b) {
-                    var x = offset.x;
-                    var y = offset.y - b;
-                    var pathStr = "M" + (x - (b / 2)) + " " + y + " L" + (x + (b / 2)) + " " + y + " L" + x + " " + (y + b) + " Z";
-                    var path = scope.svg.path(pathStr);
-
-                    path.attr({
-                        fill: "#757575",
-                        stroke: "#757575",
-                        strokeWidth: 0
-                    });
-                    return path;
-                },
                 arrowLeft: function (offset, b) {
-                    var x = offset.x + b;
+                    var x = offset.x;
                     var y = offset.y;
                     var pathStr = "M" + x + " " + (y  + (b / 2)) + " L" + (x - b) + " " + y + " L" + x + " " + (y - (b / 2)) + " Z";
                     var path = scope.svg.path(pathStr);
@@ -127,7 +139,7 @@
                     return path;
                 },
                 arrowRight: function (offset, b) {
-                    var x = offset.x - b;   
+                    var x = offset.x;   
                     var y = offset.y;
                     var pathStr = "M" + (x) + " " + ( y - ( b / 2 )) + " L" + (x + b) + " " + y + " L" + x + " " + (y + ( b / 2 )) + " Z";
                     var path = scope.svg.path(pathStr);

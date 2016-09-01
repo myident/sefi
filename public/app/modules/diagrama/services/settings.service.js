@@ -14,7 +14,7 @@
 
                 var type;
                 var offset;
-                var processes,capabilities,sortAreas,labels,getOffsetX, getOffsetProcess;
+                var processes,capabilities,sortAreas,labels,getOffsetX, getOffsetProcess, intersections, getOffsetsTo, getDirection;
                 var offset = {x : 20, y: 40};
                 var widthCapability = 150;
                 var heightCapability = 100;
@@ -38,7 +38,7 @@
                     for(var i in areasList){
                         var area = areasList[i];
                         if(areasList[i].text === areaText){
-                            return area.html.offset.x;
+                            return area.html.rect.offset.x;
                         }
                     }
                 };
@@ -58,8 +58,7 @@
                     obj.height = (maxY === minY) ? ( (paddingProcess*2) + heightCapability + heightHeader) + heightLabels: (maxY - minY)+heightHeader+heightCapability + (paddingProcess*2) + heightLabels;
                     obj.offset.y = (maxY === minY) ? minY - (heightHeader/2) + (heightLabels/2) :  maxY - (obj.height/2) + (heightCapability/2)+20+heightLabels;
                     obj.offset.x = (maxX === minX) ? minX : ((maxX - minX)/2) + minX;
-                    console.log( "x:"+minX+" - "+"x"+ maxX);
-                    console.log( "y:"+minY+" - "+"y"+ maxY);
+
                     return obj;
                 }
 
@@ -206,9 +205,142 @@
                    }
                 };
 
-                (organiceBy === 1) && cloneCapabilities(source.procesos);
-                processes(source.procesos,offset);
-            },
+                getOffsetsTo =  function(source,id, capacidad){
+                    for(var i in source){
+                        for(var j in source[i]['reglas']){
+                            var regla = source[i]['reglas'][j];
+                            if(regla.pactual === id){
+                                return regla.html.rect.offset;
+                            }
+                        }
+                    }
+                    capacidad.name = "ERROR: Paso siguiente inconsistente"
+                    return null;
+                };
+
+                getDirection = function(offset1, offset2){
+                    return offset1.x < offset2.x ? 'left' : (offset1.x > offset2.x ? 'right': (offset1.y > offset2.y ? 'bottom' : 'top')); 
+                };
+
+
+                var settingArraw = function(offset, direction, html){
+                    var offsetTemp = JSON.parse(JSON.stringify(offset));
+
+                    switch(direction){
+                        case 'left': offsetTemp.x = (offset.x - (widthCapability/2) - 10); break;
+                        case 'right': offsetTemp.x = (offset.x + (widthCapability/2) + 10); break;
+                        case 'top': offsetTemp.y = (offset.y - (heightCapability/2) - 10); break;
+                        case 'bottom':
+                            offsetTemp.x = (offset.x - (widthCapability/2) - 10);
+                            direction = 'left';
+                            break;
+                        default: break;
+                    }
+                    var arrow = new htmlObject(20, 20, offsetTemp, 10);
+                    arrow.direction = direction;
+                    html.arrow.push(arrow);
+                };
+                var settingLine = function(offset1, offset2, direction, html, labels){
+                    var offsetStart = JSON.parse(JSON.stringify(offset1));
+                    var offsetMiddle1 = JSON.parse(JSON.stringify(offset1));
+                    var offsetMiddle2;
+
+                    switch(direction){
+                        case 'left': 
+                                    offsetStart.x = (offsetStart.x + (widthCapability/2)); 
+                                    offsetMiddle1.x = offset2.x-15;
+                                    offsetMiddle2 = JSON.parse(JSON.stringify(offsetMiddle1));
+                                    offsetMiddle2.y = offset2.y;
+                                    break;
+                        case 'right': 
+                                    offsetStart.y = (offsetStart.y + (heightCapability/2)) + (labels * 20);
+                                    offsetMiddle1.x = offset1.x;
+                                    offsetMiddle1.y = offset2.y;
+                                    offsetMiddle2 = JSON.parse(JSON.stringify(offsetMiddle1));
+                                    offsetMiddle2.y = offset2.y;
+                                    break;
+                        case 'top': 
+                                    offsetStart.y = (offsetStart.y + (heightCapability/2)) + (labels * 20);
+                                    offsetMiddle1 = JSON.parse(JSON.stringify(offsetStart));
+                                    offsetMiddle2 = JSON.parse(JSON.stringify(offsetStart));
+                                    break;
+                        case 'bottom':
+                            offsetStart.x = (offsetStart.x - (widthCapability/2));
+                            direction = 'left';
+                            offsetMiddle1.x = offsetStart.x-15;
+                            offsetMiddle2 = JSON.parse(JSON.stringify(offsetMiddle1));
+                            offsetMiddle2.y = offset2.y;
+                            break;
+                        default: break;
+                    }
+                    var line = {offsets : [offsetStart.x,offsetStart.y, offsetMiddle1.x, offsetMiddle1.y, offsetMiddle2.x, offsetMiddle2.y, offset2.x, offset2.y]};
+                    line.direction = direction;
+                    html.line.push(line);
+                };
+
+                intersections = function(processesList){
+                    for(var i in  processesList){
+                        var process = processesList[i];
+                        for(var j in process.reglas){
+                            var regla = process.reglas[j];
+                            regla.html.arrow = [];
+                            regla.html.line = [];
+                            for(var k in regla.psiguiente){
+                                var psiguiente = regla.psiguiente[k];
+                                var offsetTo = getOffsetsTo(processesList, psiguiente,regla);
+                                if(offsetTo!==null){
+                                    var direction = getDirection(regla.html.rect.offset,offsetTo);
+                                    settingArraw(offsetTo,direction,regla.html);
+                                    settingLine(regla.html.rect.offset, regla.html.arrow[k].offset, direction,regla.html, regla.labels.length);
+                                }else{
+                                    regla.html.arrow[k] = null;
+                                    regla.html.line[k] = null;
+                                }
+                            }
+                        }
+                    }
+                };
+
+            var settingStartEnd = function(source){
+                var offsetStartTemp = JSON.parse(JSON.stringify(source.procesos[0].reglas[0].html.rect.offset));
+                var offsetStart = JSON.parse(JSON.stringify(source.procesos[0].reglas[0].html.rect.offset));
+                var offsetEnd   = JSON.parse(JSON.stringify(source.procesos[source.procesos.length-1].reglas[source.procesos[source.procesos.length-1].reglas.length-1].html.rect.offset));
+                var offsetEndLast   = JSON.parse(JSON.stringify(source.procesos[source.procesos.length-1].reglas[source.procesos[source.procesos.length-1].reglas.length-1].html.rect.offset));
+                var labels = source.procesos[source.procesos.length-1].reglas[source.procesos[source.procesos.length-1].reglas.length-1].labels.length;
+                var start = {};
+                offsetStart.y = offsetStart.y - 230;
+                start.ellipse = {offset: offsetStart, width:100, height: 50, r1:50, r2:25};
+                start.textBox = {offset: offsetStart, text:'Start Cases'};
+                start.arrow = [];
+                start.line = [];
+                settingArraw(offsetStartTemp, 'top',start);
+                var offsetStartFirst = JSON.parse(JSON.stringify(offsetStart));
+                offsetStartFirst.y = offsetStartFirst.y - 25;
+                settingLine(offsetStartFirst, start.arrow[0].offset, 'top',start,0);
+
+                var end = {};
+                offsetEnd.y = offsetEnd.y + 150;
+                end.ellipse = {offset: offsetEnd};
+                end.textBox = {offset: offsetEnd, text:'Close Cases'};
+                end.arrow = [];
+                end.line = [];
+
+                var offsetEndTemp = JSON.parse(JSON.stringify(offsetEnd));
+                offsetEndTemp.y = offsetEndTemp.y +  25;
+                settingArraw(offsetEndTemp, 'top',end);
+                settingLine(offsetEndLast, end.arrow[0].offset, 'top',end,labels);
+
+                source.start = start;
+                source.end = end;
+            };
+
+            (organiceBy === 1) && cloneCapabilities(source.procesos);
+            processes(source.procesos,offset);
+            if(view === 2){
+                intersections(source.procesos);
+                settingStartEnd(source);
+            }
+        },
         dimensionsAreas: function (source) {
             var width = 220;
             var height = 30;
@@ -217,9 +349,10 @@
 
             for(var i in source){
                 offset.x +=width
-                var hrml = new htmlObject(width, height, { x: offset.x, y : offset.y });
-                
-                source[i].html = hrml;
+                var html = {};
+                html.rect = new htmlObject(width, height, { x: offset.x, y : offset.y });
+                html.line = [{ x: offset.x + (width/2) - 1, y : offset.y - (height/2) },{ x: offset.x + (width/2) - 1, y : 10000}];
+                source[i].html = html;
             }
         }
     };

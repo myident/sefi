@@ -41,8 +41,6 @@
 
                 $scope.settingSvg($scope.sourceTemp);
                 ($scope.organiceBy === 1) && $builder.buildAreas($scope.svg, $scope.areasList, $scope.h);
-
-                console.log($scope.sourceTemp.procesos);
             };
 
             $scope.settingSvg = function (source) {
@@ -71,7 +69,7 @@
                             lastY = $scope.sourceTemp.procesos[lengthProcess].capacidades[lengthCapability].html.rect.offset.y;
                         break;
                     case 2: lengthCapability = $scope.sourceTemp.procesos[lengthProcess].reglas.length - 1; 
-                            lastY = $scope.sourceTemp.procesos[lengthProcess].reglas[lengthCapability].html.rect.offset.y;
+                            lastY = $scope.sourceTemp.procesos[lengthProcess].reglas[lengthCapability].html.rect.offset.y + 70;
                         break;
                 }
                 // var lengthCapability = ($scope.view !== 0) ? $scope.sourceTemp.procesos[lengthProcess].capacidades.length - 1 : 0;

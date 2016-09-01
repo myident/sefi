@@ -6,14 +6,35 @@
     float: left;
     position: relative;
     width: 235px;
+    overflow: auto;
+    transition: .2s;
 }
 
 .column-barra {
     float: left;
     position: relative;
     width: calc(100% - 235px);
+	transition: .2s;
 }
 
 main.diagrama {
     position: relative;
+}
+
+
+.animate-width-0{
+	width: 0;
+	height: calc(100vh - 300px);
+	transition: .2s;
+}
+
+.animate-width-full{
+	width: 100%;
+	transition: .2s;
+}
+
+dg-ways.animate-width-full-w{
+	width: 100%;
+	left: 10px;
+	transition: .2s;
 }
