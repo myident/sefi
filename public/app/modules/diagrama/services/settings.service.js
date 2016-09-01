@@ -14,7 +14,7 @@
 
                 var type;
                 var offset;
-                var processes,capabilities,sortAreas,labels,getOffsetX, getOffsetProcess, intersections, getOffsetsTo;
+                var processes,capabilities,sortAreas,labels,getOffsetX, getOffsetProcess, intersections, getOffsetsTo, getDirection;
                 var offset = {x : 20, y: 40};
                 var widthCapability = 150;
                 var heightCapability = 100;
@@ -219,6 +219,10 @@
                     return regla.html.rect.offset;
                 };
 
+                getDirection = function(offset1, offset2){
+                    return offset1.x < offset2.x ? 'left' : (offset1.x > offset2.x ? 'right': 'top'); 
+                };
+
                 intersections = function(processesList){
                     for(var i in  processesList){
                         var process = processesList[i];
@@ -226,7 +230,9 @@
                             var regla = process.reglas[j];
                             for(var k in regla.psiguiente){
                                 var offsetTo = getOffsetsTo(processesList, regla.psiguiente[k],regla);
+                                var direction = getDirection(regla.html.rect.offset,offsetTo);
                                 console.log(offsetTo);
+                                console.log(direction);
                             }
                         }
                     }
