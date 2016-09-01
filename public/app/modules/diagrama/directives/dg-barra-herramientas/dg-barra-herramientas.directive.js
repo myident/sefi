@@ -205,7 +205,8 @@
                 sendOrganize: '=getOrganize',
                 sendShow: '=getShow',
                 sendZoom: '=getZoom',
-                sendPrint: '=getPrint'
+                sendPrint: '=getPrint',
+                hideToggle: '=hideToggle'
             }
         };
     };

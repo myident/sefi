@@ -16,7 +16,7 @@ dg-barra-herramientas .barra-wrap .element-control-switch {
 dg-barra-herramientas .barra-wrap .element-control.view-control {
     top: 0;
     height: 100%;
-    left: 20px;
+    left: 25px;
     cursor: pointer;
 }
 
@@ -225,4 +225,18 @@ dg-barra-herramientas .barra-wrap .element-control-switch.switch-show-control {
         top: -42px;
         right: 0;
     }
+}
+
+.hide-toggle{
+    width: 8px;
+    height: 14px;
+    background: url(img/regresar.png);
+    display: inline-block;
+    margin-top: 13px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.rotate-180{
+    transform: rotate(180deg);
 }

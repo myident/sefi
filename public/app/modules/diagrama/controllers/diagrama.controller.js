@@ -5,6 +5,7 @@
 
         $rootScope.spin = false;
 
+        $scope.hideToggle = true;
         // indice
         $scope.arquitecturas = {};
         $scope.arquitectura = {};
@@ -324,7 +325,7 @@ var ddata = {
           },
           "type": "",
           "pactual": 1,
-          "psiguiente": [2],
+          "psiguiente": 2,
           "caminos": 0,
           "idfigura": 1,
           "desviacion": []
@@ -358,7 +359,7 @@ var ddata = {
           },
           "type": "",
           "pactual": 2,
-          "psiguiente": [3],
+          "psiguiente": 3,
           "caminos": 0,
           "idfigura": 1,
           "desviacion": []
@@ -392,7 +393,7 @@ var ddata = {
           },
           "type": "",
           "pactual": 3,
-          "psiguiente": [4],
+          "psiguiente": 4,
           "caminos": 0,
           "idfigura": 1,
           "desviacion": []
@@ -426,7 +427,7 @@ var ddata = {
           },
           "type": "",
           "pactual": 4,
-          "psiguiente": [5],
+          "psiguiente": 5,
           "caminos": 0,
           "idfigura": 1,
           "desviacion": []
@@ -460,7 +461,7 @@ var ddata = {
           },
           "type": "NO",
           "pactual": 5,
-          "psiguiente": [3],
+          "psiguiente": 3,
           "caminos": 0,
           "idfigura": 3,
           "desviacion": []
@@ -494,7 +495,7 @@ var ddata = {
           },
           "type": "YES",
           "pactual": 5,
-          "psiguiente": [6],
+          "psiguiente": 6,
           "caminos": 0,
           "idfigura": 3,
           "desviacion": []
@@ -573,7 +574,7 @@ var ddata = {
           },
           "type": "",
           "pactual": 6,
-          "psiguiente": [7],
+          "psiguiente": 7,
           "caminos": 0,
           "idfigura": 1,
           "desviacion": []
@@ -607,7 +608,7 @@ var ddata = {
           },
           "type": "",
           "pactual": 7,
-          "psiguiente": [8],
+          "psiguiente": 8,
           "caminos": 0,
           "idfigura": 1,
           "desviacion": []
@@ -641,7 +642,7 @@ var ddata = {
           },
           "type": "",
           "pactual": 8,
-          "psiguiente": [9],
+          "psiguiente": 9,
           "caminos": 0,
           "idfigura": 3,
           "desviacion": []
@@ -675,7 +676,7 @@ var ddata = {
           },
           "type": "",
           "pactual": 8,
-          "psiguiente": [10],
+          "psiguiente": 10,
           "caminos": 0,
           "idfigura": 3,
           "desviacion": []
@@ -769,3 +770,32 @@ var ddata = {
     }
   ]
 };
+
+for(var i in ddata.procesos){
+    var reglasTemp = [];
+    var idfiguraBool = false;
+    var count = 0;
+    var proceso = ddata.procesos[i];
+    for(var j in ddata.procesos[i]['reglas']){
+        var regla = ddata.procesos[i]['reglas'][j];
+        if(regla.idfigura !== 3){
+            reglasTemp[count] = regla;
+            reglasTemp[count].psiguiente = [regla.psiguiente];
+            idfiguraBool = false;
+            count++;
+        }else{
+            if(!idfiguraBool){
+              var psiguiente = regla.psiguiente;
+                reglasTemp[count] = regla;
+                reglasTemp[count].psiguiente = [];
+                reglasTemp[count].psiguiente.push(psiguiente);
+                idfiguraBool = true;
+            }else{
+                reglasTemp[count].psiguiente.push(regla.psiguiente);
+                count++;
+                idfiguraBool = false;
+            }
+        }
+    }
+    ddata.procesos[i]['reglas'] = reglasTemp;
+}
