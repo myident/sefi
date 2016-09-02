@@ -16,6 +16,7 @@
 
             $scope.init = function () {
                 $scope.$watchGroup(['source', 'view', 'organiceBy', 'show', 'layout'], function () {
+                    console.log($scope.source.procesos);
                     $scope.source.procesos.length && $scope.reset();
                 });
                 $scope.$watch('zoom', function () {
@@ -35,6 +36,7 @@
                 $scope.zoom = 1;
 
                 $scope.sourceTemp = JSON.parse(JSON.stringify($scope.source));
+                console.log($scope.sourceTemp);
                 ($scope.organiceBy === 1) && $setting.dimensionsAreas($scope.areasList);
                 $setting.dimensions($scope.sourceTemp, $scope.areasList, $scope.view, $scope.organiceBy, $scope.show);
                 $builder.build($scope.svg, $scope.sourceTemp, $scope.show, $scope.view);

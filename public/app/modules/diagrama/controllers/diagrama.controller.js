@@ -36,23 +36,28 @@
         // init arquitecturas, dominios, megaprocesos
         $scope.arquitecturas = $indice.arquitecturas(
             function (data) {
+                console.log(data);
+                $rootScope.spin = false;
                 $scope.arquitectura = data.arquitectura[$indexArquitectura];
-                if (data.arquitectura[$indexArquitectura].dominios.length) {
-                    // Update Dominios
-                    $scope.dominios = data.arquitectura[$indexArquitectura].dominios;
-                    $scope.dominios[$indexDominio].open = true;
-                    // Update Historial
-                    $scope.historial = $historial.update(
-                        $scope.arquitectura.name,
-                        $scope.dominios[$indexDominio].title);
-                    // Update megaprocesos
-                    $scope.megaprocesos = $indice.megaprocesos(
-                        $scope.dominios[$indexDominio].id,
-                        function () {
+                if (data.arquitectura.length){
+                    if (data.arquitectura[$indexArquitectura].dominios.length) {
+                        // Update Dominios
+                        $scope.dominios = data.arquitectura[$indexArquitectura].dominios;
+                        $scope.dominios[$indexDominio].open = true;
+                        // Update Historial
+                        $scope.historial = $historial.update(
+                            $scope.arquitectura.name,
+                            $scope.dominios[$indexDominio].title);
+                        // Update megaprocesos
+                        $scope.megaprocesos = $indice.megaprocesos(
+                            $scope.dominios[$indexDominio].id,
+                            function () {
 
-                            
-                        });
+
+                            });
+                    }
                 }
+
             });
 
         //MARK: - getter Megaprocesos
@@ -104,7 +109,6 @@
                         $scope.megaprocesos[$indexMegaproceso].title,
                         $scope.macroprocesos[index].title);
                     // Update Procesos
-                    $scope.procesos = data.procesos;
                     
                     for(var i in data.procesos){
                         var reglasTemp = [];
@@ -135,14 +139,16 @@
                         data.procesos[i]['reglas'] = reglasTemp;
                     }
 
-                    $scope.source = {procesos: data.procesos, kpis:data.procesos, areas: data.areas};
+                    var process = JSON.parse(JSON.stringify(data.procesos));
+                    console.log(process);
+                    $scope.source = {procesos: process, kpis:data.procesos, areas: data.areas};
                 });
         };
 
-        //$scope.source = {procesos: ddata.procesos, kpis:ddata.procesos, areas: ddata.areas};
-        $scope.source = {
-            procesos: []
-        };
+      $scope.source = {procesos: ddata.procesos, kpis:ddata.procesos, areas: ddata.areas};
+       // $scope.source = {
+       //     procesos: []
+       // };
 
         //MARK: - getter View
         $scope.getView = function (value) {
@@ -800,31 +806,31 @@ var ddata = {
   ]
 };
 
-// for(var i in ddata.procesos){
-//     var reglasTemp = [];
-//     var idfiguraBool = false;
-//     var count = 0;
-//     var proceso = ddata.procesos[i];
-//     for(var j in ddata.procesos[i]['reglas']){
-//         var regla = ddata.procesos[i]['reglas'][j];
-//         if(regla.idfigura !== 3){
-//             reglasTemp[count] = regla;
-//             reglasTemp[count].psiguiente = [regla.psiguiente];
-//             idfiguraBool = false;
-//             count++;
-//         }else{
-//             if(!idfiguraBool){
-//               var psiguiente = regla.psiguiente;
-//                 reglasTemp[count] = regla;
-//                 reglasTemp[count].psiguiente = [];
-//                 reglasTemp[count].psiguiente.push(psiguiente);
-//                 idfiguraBool = true;
-//             }else{
-//                 reglasTemp[count].psiguiente.push(regla.psiguiente);
-//                 count++;
-//                 idfiguraBool = false;
-//             }
-//         }
-//     }
-//     ddata.procesos[i]['reglas'] = reglasTemp;
-// }
+ for(var i in ddata.procesos){
+     var reglasTemp = [];
+     var idfiguraBool = false;
+     var count = 0;
+     var proceso = ddata.procesos[i];
+     for(var j in ddata.procesos[i]['reglas']){
+         var regla = ddata.procesos[i]['reglas'][j];
+         if(regla.idfigura !== 3){
+             reglasTemp[count] = regla;
+             reglasTemp[count].psiguiente = [regla.psiguiente];
+             idfiguraBool = false;
+             count++;
+         }else{
+             if(!idfiguraBool){
+               var psiguiente = regla.psiguiente;
+                 reglasTemp[count] = regla;
+                 reglasTemp[count].psiguiente = [];
+                 reglasTemp[count].psiguiente.push(psiguiente);
+                 idfiguraBool = true;
+             }else{
+                 reglasTemp[count].psiguiente.push(regla.psiguiente);
+                 count++;
+                 idfiguraBool = false;
+             }
+         }
+     }
+     ddata.procesos[i]['reglas'] = reglasTemp;
+ }

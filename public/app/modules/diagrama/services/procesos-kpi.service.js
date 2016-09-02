@@ -3,7 +3,7 @@
 (function() {
     angular.module('serviceProcesos', []).factory('$procesoskpi', function($resource, $singleton) {
         var path = $singleton.path;
-        return $resource(path + 'Procesokpi/:idmacroproceso', {
+        return $resource(path + 'ProcesoNew/:idmacroproceso', {
             idmacroproceso: '@idmacroproceso'
         });
     });

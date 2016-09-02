@@ -66,8 +66,8 @@
                         $shapes.factory.arrow(source.start.arrow[0].offset, source.start.arrow[0].radio, source.start.arrow[0].direction);
                         $shapes.factory.polyline(source.start.line[0].offsets)
 
-                        var ellipse = $shapes.factory.ellipse(source.end.ellipse.offset, source.end.ellipse.width, source.end.ellipse.height, source.start.ellipse.r1, source.start.ellipse.r2);
-                        var textbox = $shapes.factory.textbox(source.end.textBox.offset, source.end.textBox.width,source.end.textBox.height, source.start.textBox.text, 14);
+                        var ellipse = $shapes.factory.ellipse(source.end.ellipse.offset, source.end.ellipse.width, source.end.ellipse.height, source.end.ellipse.r1, source.end.ellipse.r2);
+                        var textbox = $shapes.factory.textbox(source.end.textBox.offset, source.end.textBox.width,source.end.textBox.height, source.end.textBox.text, 14);
                         $shapes.factory.arrow(source.end.arrow[0].offset, source.end.arrow[0].radio, source.end.arrow[0].direction);
                         $shapes.factory.polyline(source.end.line[0].offsets)
                     }

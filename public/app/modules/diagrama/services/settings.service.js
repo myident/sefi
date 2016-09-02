@@ -192,13 +192,15 @@
                                     capability.sortAreas.kpis = area.kpis;
                                     capability.area = area.name;
                                 }else{
-                                    var capabilityTemp = JSON.parse(JSON.stringify(capability));
-                                    capabilityTemp.clone = true;
-                                    capabilityTemp.area = area.name;
-                                    capabilityTemp.sortAreas.aplicaciones = area.aplicaciones;
-                                    capabilityTemp.sortAreas.kpis = area.kpis;
+                                    if(view === 1){
+                                        var capabilityTemp = JSON.parse(JSON.stringify(capability));
+                                        capabilityTemp.clone = true;
+                                        capabilityTemp.area = area.name;
+                                        capabilityTemp.sortAreas.aplicaciones = area.aplicaciones;
+                                        capabilityTemp.sortAreas.kpis = area.kpis;
 
-                                    process[type].splice(++j,0,capabilityTemp);
+                                        process[type].splice(++j,0,capabilityTemp);
+                                    }
                                 }
                             }
                        }
@@ -320,7 +322,7 @@
 
                 var end = {};
                 offsetEnd.y = offsetEnd.y + 150;
-                end.ellipse = {offset: offsetEnd};
+                end.ellipse = {offset: offsetEnd, width:100, height: 50, r1:50, r2:25};
                 end.textBox = {offset: offsetEnd, text:'Close Cases'};
                 end.arrow = [];
                 end.line = [];
