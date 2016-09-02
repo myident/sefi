@@ -210,7 +210,7 @@
 
             // MARK: - print
             $scope.print = function () {
-                //                $scope.sendPrint();
+                $scope.sendPrint();
                 $word.$make();
             };
 

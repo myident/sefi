@@ -93,8 +93,8 @@
             $scope.print = function (value) {
                 console.log(value);
                 var ancho, alto, nuevaAltura;
-                ancho = $scope.svgWidth;
-                alto = $scope.svgHeight;
+                ancho = $scope.svgWidth / 3;
+                alto = $scope.svgHeight / 3;
                 var coordinates = [];
                 var pagesForWidth = parseInt(ancho / 612) + 1;
                 var pagesForHeight = parseInt(alto / 792) + 1;
@@ -129,7 +129,7 @@
                 } else { // alto <= ancho
                     nuevaAltura = ((780 * alto) / ancho);
                     svgAsPngUri(svgElement, {
-                        scale: 3.5
+                        scale: 1.5
                     }, function (uri) {
                         var pdf = new jsPDF('l', 'pt', 'letter');
                         pdf.addImage(uri, 'PNG', 0, 0, 792, nuevaAltura);
