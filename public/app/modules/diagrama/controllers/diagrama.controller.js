@@ -36,23 +36,28 @@
         // init arquitecturas, dominios, megaprocesos
         $scope.arquitecturas = $indice.arquitecturas(
             function (data) {
+                console.log(data);
+                $rootScope.spin = false;
                 $scope.arquitectura = data.arquitectura[$indexArquitectura];
-                if (data.arquitectura[$indexArquitectura].dominios.length) {
-                    // Update Dominios
-                    $scope.dominios = data.arquitectura[$indexArquitectura].dominios;
-                    $scope.dominios[$indexDominio].open = true;
-                    // Update Historial
-                    $scope.historial = $historial.update(
-                        $scope.arquitectura.name,
-                        $scope.dominios[$indexDominio].title);
-                    // Update megaprocesos
-                    $scope.megaprocesos = $indice.megaprocesos(
-                        $scope.dominios[$indexDominio].id,
-                        function () {
+                if (data.arquitectura.length){
+                    if (data.arquitectura[$indexArquitectura].dominios.length) {
+                        // Update Dominios
+                        $scope.dominios = data.arquitectura[$indexArquitectura].dominios;
+                        $scope.dominios[$indexDominio].open = true;
+                        // Update Historial
+                        $scope.historial = $historial.update(
+                            $scope.arquitectura.name,
+                            $scope.dominios[$indexDominio].title);
+                        // Update megaprocesos
+                        $scope.megaprocesos = $indice.megaprocesos(
+                            $scope.dominios[$indexDominio].id,
+                            function () {
 
-                            
-                        });
+
+                            });
+                    }
                 }
+
             });
 
         //MARK: - getter Megaprocesos
@@ -139,10 +144,10 @@
                 });
         };
 
-        //$scope.source = {procesos: ddata.procesos, kpis:ddata.procesos, areas: ddata.areas};
-        $scope.source = {
-            procesos: []
-        };
+        $scope.source = {procesos: ddata.procesos, kpis:ddata.procesos, areas: ddata.areas};
+//        $scope.source = {
+//            procesos: []
+//        };
 
         //MARK: - getter View
         $scope.getView = function (value) {
