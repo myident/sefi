@@ -805,31 +805,31 @@ var ddata = {
   ]
 };
 
-// for(var i in ddata.procesos){
-//     var reglasTemp = [];
-//     var idfiguraBool = false;
-//     var count = 0;
-//     var proceso = ddata.procesos[i];
-//     for(var j in ddata.procesos[i]['reglas']){
-//         var regla = ddata.procesos[i]['reglas'][j];
-//         if(regla.idfigura !== 3){
-//             reglasTemp[count] = regla;
-//             reglasTemp[count].psiguiente = [regla.psiguiente];
-//             idfiguraBool = false;
-//             count++;
-//         }else{
-//             if(!idfiguraBool){
-//               var psiguiente = regla.psiguiente;
-//                 reglasTemp[count] = regla;
-//                 reglasTemp[count].psiguiente = [];
-//                 reglasTemp[count].psiguiente.push(psiguiente);
-//                 idfiguraBool = true;
-//             }else{
-//                 reglasTemp[count].psiguiente.push(regla.psiguiente);
-//                 count++;
-//                 idfiguraBool = false;
-//             }
-//         }
-//     }
-//     ddata.procesos[i]['reglas'] = reglasTemp;
-// }
+ for(var i in ddata.procesos){
+     var reglasTemp = [];
+     var idfiguraBool = false;
+     var count = 0;
+     var proceso = ddata.procesos[i];
+     for(var j in ddata.procesos[i]['reglas']){
+         var regla = ddata.procesos[i]['reglas'][j];
+         if(regla.idfigura !== 3){
+             reglasTemp[count] = regla;
+             reglasTemp[count].psiguiente = [regla.psiguiente];
+             idfiguraBool = false;
+             count++;
+         }else{
+             if(!idfiguraBool){
+               var psiguiente = regla.psiguiente;
+                 reglasTemp[count] = regla;
+                 reglasTemp[count].psiguiente = [];
+                 reglasTemp[count].psiguiente.push(psiguiente);
+                 idfiguraBool = true;
+             }else{
+                 reglasTemp[count].psiguiente.push(regla.psiguiente);
+                 count++;
+                 idfiguraBool = false;
+             }
+         }
+     }
+     ddata.procesos[i]['reglas'] = reglasTemp;
+ }
