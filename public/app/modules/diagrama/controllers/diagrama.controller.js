@@ -109,7 +109,6 @@
                         $scope.megaprocesos[$indexMegaproceso].title,
                         $scope.macroprocesos[index].title);
                     // Update Procesos
-                    $scope.procesos = data.procesos;
                     
                     for(var i in data.procesos){
                         var reglasTemp = [];
@@ -140,14 +139,16 @@
                         data.procesos[i]['reglas'] = reglasTemp;
                     }
 
-                    $scope.source = {procesos: data.procesos, kpis:data.procesos, areas: data.areas};
+                    var process = JSON.parse(JSON.stringify(data.procesos));
+                    console.log(process);
+                    $scope.source = {procesos: process, kpis:data.procesos, areas: data.areas};
                 });
         };
 
-        $scope.source = {procesos: ddata.procesos, kpis:ddata.procesos, areas: ddata.areas};
-//        $scope.source = {
-//            procesos: []
-//        };
+      $scope.source = {procesos: ddata.procesos, kpis:ddata.procesos, areas: ddata.areas};
+       // $scope.source = {
+       //     procesos: []
+       // };
 
         //MARK: - getter View
         $scope.getView = function (value) {
