@@ -1,6 +1,6 @@
 /* global angular, Snap, svgAsPngUri, jsPDF */
 (function () {
-    var Directive = function ($setting, $builder) {
+    var Directive = function ($setting, $builder, $barraHerramientas) {
 
         var Link = function ($scope, element, attr, ctrl) {
 
@@ -19,10 +19,16 @@
                     console.log($scope.source.procesos);
                     $scope.source.procesos.length && $scope.reset();
                 });
-                $scope.$watch('zoom', function () {
-                    // $zoom.change($scope.layout);
-                    changeViewBox($scope.zoom);
-                });
+
+                $scope.$watch(
+                    function () {
+                        return $barraHerramientas.zoom;
+                    },
+                    function (newVal) {
+                        if (typeof newVal !== 'undefined') {
+                            changeViewBox($scope.zoom);
+                        }
+                    });
             };
 
             function changeViewBox(value) {
@@ -65,14 +71,17 @@
                 var lengthProcess = $scope.sourceTemp.procesos.length - 1;
                 var lengthCapability = 0;
                 var lastY = 0;
-                switch($scope.view){
-                    case 0: break;
-                    case 1: lengthCapability = $scope.sourceTemp.procesos[lengthProcess].capacidades.length - 1; 
-                            lastY = $scope.sourceTemp.procesos[lengthProcess].capacidades[lengthCapability].html.rect.offset.y;
-                        break;
-                    case 2: lengthCapability = $scope.sourceTemp.procesos[lengthProcess].reglas.length - 1; 
-                            lastY = $scope.sourceTemp.procesos[lengthProcess].reglas[lengthCapability].html.rect.offset.y + 70;
-                        break;
+                switch ($scope.view) {
+                case 0:
+                    break;
+                case 1:
+                    lengthCapability = $scope.sourceTemp.procesos[lengthProcess].capacidades.length - 1;
+                    lastY = $scope.sourceTemp.procesos[lengthProcess].capacidades[lengthCapability].html.rect.offset.y;
+                    break;
+                case 2:
+                    lengthCapability = $scope.sourceTemp.procesos[lengthProcess].reglas.length - 1;
+                    lastY = $scope.sourceTemp.procesos[lengthProcess].reglas[lengthCapability].html.rect.offset.y + 70;
+                    break;
                 }
                 // var lengthCapability = ($scope.view !== 0) ? $scope.sourceTemp.procesos[lengthProcess].capacidades.length - 1 : 0;
                 // var lastY = ($scope.view !== 0) ? $scope.sourceTemp.procesos[lengthProcess].capacidades[lengthCapability].html.rect.offset.y : 50;
@@ -85,7 +94,9 @@
                 $scope.height = $scope.h + "px";
 
                 $scope.svgWidth = $scope.w;
+                $barraHerramientas.svgSize.width = $scope.w;
                 $scope.svgHeight = $scope.h;
+                $barraHerramientas.svgSize.height = $scope.h;
                 $scope.svg.attr({
                     viewBox: "0 0 " + ($scope.svgWidth) + " " + ($scope.svgHeight)
                 });
