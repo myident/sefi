@@ -103,7 +103,7 @@
 
                 pdf.save('word_capacities.pdf');
             },
-            $make: function () {
+            $make: function (obj) {
                 var docDefinition = {
 
                     content: [
@@ -850,6 +850,16 @@
                                                          paddingTop: function(i, node) { return 5; },
                                                          paddingBottom: function(i, node) { return 5; }
                             }
+                        },
+                        {
+                            text: '12. Diagram',
+                            style: 'title'
+                        },
+                        {
+                            image: obj.contenido,
+                            width: obj.ancho,
+                            height: obj.alto,
+                            margin: [20, 0, 0, 5]
                         }
 
                     ],
