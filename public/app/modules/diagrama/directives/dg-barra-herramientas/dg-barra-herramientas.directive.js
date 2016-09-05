@@ -1,6 +1,6 @@
-/* global angular */
+/* global angular, svgAsPngUri */
 (function () {
-    var Directive = function ($word) {
+    var Directive = function ($word, $barraHerramientas) {
 
         var Link = function ($scope) {
 
@@ -139,7 +139,7 @@
                 }
             ];
             $scope.toggleShow = function (value) {
-                
+
                 var realValue = value + 1;
                 var oldValue = 0;
                 if (!$scope.show[value].disabled) {
@@ -177,7 +177,7 @@
 
             // MARK: - zoom
 
-            $scope.zoom = $scope.configZoom;
+            $scope.zoom = $barraHerramientas.zoom;
             $scope.displayZoom = parseInt($scope.zoom * 100) + '%';
 
             $scope.changeZoom = function (direction) {
@@ -187,6 +187,7 @@
                         if ($scope.zoom >= 0.5) {
                             $scope.zoom -= 0.02;
                             $scope.displayZoom = parseInt($scope.zoom * 100) + '%';
+                            $barraHerramientas.zoom = $scope.zoom;
                         }
                         return Math.round($scope.zoom * 100);
                     },
@@ -194,12 +195,14 @@
                         if ($scope.zoom <= 2) {
                             $scope.zoom += 0.02;
                             $scope.displayZoom = parseInt($scope.zoom * 100) + '%';
+                            $barraHerramientas.zoom = $scope.zoom;
                         }
                         return Math.round($scope.zoom * 100);
                     },
                     default: function () {
                         $scope.zoom = 1;
                         $scope.displayZoom = parseInt($scope.zoom * 100) + '%';
+                        $barraHerramientas.zoom = $scope.zoom;
                         return Math.round($scope.zoom * 100);
                     }
                 };
@@ -210,8 +213,21 @@
 
             // MARK: - print
             $scope.print = function () {
-                $scope.sendPrint();
-                $word.$make();
+
+                var svgElement = document.getElementById('dgWaysSvg'),
+                    ancho = $barraHerramientas.svgSize.width / 3,
+                    alto = $barraHerramientas.svgSize.height / 3,
+                    diagrama = {};
+
+                svgAsPngUri(svgElement, {
+                    scale: 1.5
+                }, function (uri) {
+                    diagrama.ancho = ancho;
+                    diagrama.alto = alto;
+                    diagrama.contenido = uri;
+                    $word.$make(diagrama);
+                });
+
             };
 
 
