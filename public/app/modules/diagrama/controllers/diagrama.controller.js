@@ -168,21 +168,9 @@
             $scope.show = value;
             $barraHerramientas.show = value;
         };
-        //MARK: - getter Zoom
-        $scope.getZoom = function(value) {
-            $scope.zoom = value;
-            $barraHerramientas.zoom = value;
-        };
-        // MARK: - getter Print
-        $scope.getPrint = function() {
-            $scope.printPDF('pdf');
-        };
-        
         $scope.getSVG = function(value){
             console.log(value);
         };
-        
-
         //MARK: - Regresar
         $scope.regresar = function () {
             $window.history.back();
@@ -717,7 +705,8 @@ var ddata = {
           "desviacion": []
         }
       ]
-    }
+    },
+
   ],
   "areas": [
     {
