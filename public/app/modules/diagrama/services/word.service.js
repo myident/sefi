@@ -125,17 +125,17 @@
                                 ]
                             },
                             layout: {
-                                hLineWidth: function(i, node) {
-                                        return (i === 0 || i === node.table.body.length) ? 0: 0;
+                                hLineWidth: function (i, node) {
+                                    return (i === 0 || i === node.table.body.length) ? 0 : 0;
                                 },
-                                vLineWidth: function(i, node) {
-                                        return (i === 0 || i === node.table.widths.length) ? 0: 0;
+                                vLineWidth: function (i, node) {
+                                    return (i === 0 || i === node.table.widths.length) ? 0 : 0;
                                 },
-                                hLineColor: function(i, node) {
-                                        return (i === 0 || i === node.table.body.length) ? '#979797' : '#979797';
+                                hLineColor: function (i, node) {
+                                    return (i === 0 || i === node.table.body.length) ? '#979797' : '#979797';
                                 },
-                                vLineColor: function(i, node) {
-                                        return (i === 0 || i === node.table.widths.length) ? '#979797' : '#979797';
+                                vLineColor: function (i, node) {
+                                    return (i === 0 || i === node.table.widths.length) ? '#979797' : '#979797';
                                 }
                             }
                         },
@@ -143,8 +143,10 @@
                             canvas: [
                                 {
                                     type: 'line',
-                                    x1: 0, y1: 30,
-                                    x2: 520, y2: 30,
+                                    x1: 0,
+                                    y1: 30,
+                                    x2: 520,
+                                    y2: 30,
                                     lineWidth: 1,
                                     lineColor: '#2493C5'
                                 }
@@ -236,17 +238,17 @@
                                 ]
                             },
                             layout: {
-                                hLineWidth: function(i, node) {
-                                        return (i === 0 || i === node.table.body.length) ? 0: 0;
+                                hLineWidth: function (i, node) {
+                                    return (i === 0 || i === node.table.body.length) ? 0 : 0;
                                 },
-                                vLineWidth: function(i, node) {
-                                        return (i === 0 || i === node.table.widths.length) ? 0: 0;
+                                vLineWidth: function (i, node) {
+                                    return (i === 0 || i === node.table.widths.length) ? 0 : 0;
                                 },
-                                hLineColor: function(i, node) {
-                                        return (i === 0 || i === node.table.body.length) ? '#979797' : '#979797';
+                                hLineColor: function (i, node) {
+                                    return (i === 0 || i === node.table.body.length) ? '#979797' : '#979797';
                                 },
-                                vLineColor: function(i, node) {
-                                        return (i === 0 || i === node.table.widths.length) ? '#979797' : '#979797';
+                                vLineColor: function (i, node) {
+                                    return (i === 0 || i === node.table.widths.length) ? '#979797' : '#979797';
                                 }
                             },
                             style: 'tablePortada'
@@ -301,22 +303,30 @@
                             },
                             style: 'tableTitle',
                             layout: {
-                                hLineWidth: function(i, node) {
-                                        return (i === 0 || i === node.table.body.length) ? 1: 1;
+                                hLineWidth: function (i, node) {
+                                    return (i === 0 || i === node.table.body.length) ? 1 : 1;
                                 },
-                                vLineWidth: function(i, node) {
-                                        return (i === 0 || i === node.table.widths.length) ? 1 : 1;
+                                vLineWidth: function (i, node) {
+                                    return (i === 0 || i === node.table.widths.length) ? 1 : 1;
                                 },
-                                hLineColor: function(i, node) {
-                                        return (i === 0 || i === node.table.body.length) ? '#979797' : '#979797';
+                                hLineColor: function (i, node) {
+                                    return (i === 0 || i === node.table.body.length) ? '#979797' : '#979797';
                                 },
-                                vLineColor: function(i, node) {
-                                        return (i === 0 || i === node.table.widths.length) ? '#979797' : '#979797';
+                                vLineColor: function (i, node) {
+                                    return (i === 0 || i === node.table.widths.length) ? '#979797' : '#979797';
                                 },
-                                 paddingLeft: function(i, node) { return 10; },
-                                                         paddingRight: function(i, node) { return 10; },
-                                                         paddingTop: function(i, node) { return 5; },
-                                                         paddingBottom: function(i, node) { return 5; }
+                                paddingLeft: function (i, node) {
+                                    return 10;
+                                },
+                                paddingRight: function (i, node) {
+                                    return 10;
+                                },
+                                paddingTop: function (i, node) {
+                                    return 5;
+                                },
+                                paddingBottom: function (i, node) {
+                                    return 5;
+                                }
                             }
                         },
                         {
@@ -376,22 +386,30 @@
                             },
                             style: 'tableSubtitle',
                             layout: {
-                                hLineWidth: function(i, node) {
-                                        return (i === 0 || i === node.table.body.length) ? 1: 1;
+                                hLineWidth: function (i, node) {
+                                    return (i === 0 || i === node.table.body.length) ? 1 : 1;
                                 },
-                                vLineWidth: function(i, node) {
-                                        return (i === 0 || i === node.table.widths.length) ? 1 : 1;
+                                vLineWidth: function (i, node) {
+                                    return (i === 0 || i === node.table.widths.length) ? 1 : 1;
                                 },
-                                hLineColor: function(i, node) {
-                                        return (i === 0 || i === node.table.body.length) ? '#979797' : '#979797';
+                                hLineColor: function (i, node) {
+                                    return (i === 0 || i === node.table.body.length) ? '#979797' : '#979797';
                                 },
-                                vLineColor: function(i, node) {
-                                        return (i === 0 || i === node.table.widths.length) ? '#979797' : '#979797';
+                                vLineColor: function (i, node) {
+                                    return (i === 0 || i === node.table.widths.length) ? '#979797' : '#979797';
                                 },
-                                 paddingLeft: function(i, node) { return 10; },
-                                                         paddingRight: function(i, node) { return 10; },
-                                                         paddingTop: function(i, node) { return 5; },
-                                                         paddingBottom: function(i, node) { return 5; }
+                                paddingLeft: function (i, node) {
+                                    return 10;
+                                },
+                                paddingRight: function (i, node) {
+                                    return 10;
+                                },
+                                paddingTop: function (i, node) {
+                                    return 5;
+                                },
+                                paddingBottom: function (i, node) {
+                                    return 5;
+                                }
                             }
                         },
                         {
@@ -431,32 +449,58 @@
                                             bold: true
                                         }
                                     ],
-                                    ['Opus', {text:'Customer Experience', alignment: 'left'}],
-                                    ['CRM', {text:'Customer Relationship Management', alignment: 'left'}],
-                                    ['CIM', {text:'Customer Interaction Management', alignment: 'left'}],
-                                    ['ICAS', {text:'Credit Policy', alignment: 'left'}],
-                                    ['CAPM', {text:'Payment', alignment: 'left'}],
-                                    ['SRM', {text:'Subscriber Resource Management', alignment: 'left'}]
+                                    ['Opus', {
+                                        text: 'Customer Experience',
+                                        alignment: 'left'
+                                    }],
+                                    ['CRM', {
+                                        text: 'Customer Relationship Management',
+                                        alignment: 'left'
+                                    }],
+                                    ['CIM', {
+                                        text: 'Customer Interaction Management',
+                                        alignment: 'left'
+                                    }],
+                                    ['ICAS', {
+                                        text: 'Credit Policy',
+                                        alignment: 'left'
+                                    }],
+                                    ['CAPM', {
+                                        text: 'Payment',
+                                        alignment: 'left'
+                                    }],
+                                    ['SRM', {
+                                        text: 'Subscriber Resource Management',
+                                        alignment: 'left'
+                                    }]
                                 ]
                             },
                             style: 'tableTitle',
                             layout: {
-                                hLineWidth: function(i, node) {
-                                        return (i === 0 || i === node.table.body.length) ? 1: 1;
+                                hLineWidth: function (i, node) {
+                                    return (i === 0 || i === node.table.body.length) ? 1 : 1;
                                 },
-                                vLineWidth: function(i, node) {
-                                        return (i === 0 || i === node.table.widths.length) ? 1 : 1;
+                                vLineWidth: function (i, node) {
+                                    return (i === 0 || i === node.table.widths.length) ? 1 : 1;
                                 },
-                                hLineColor: function(i, node) {
-                                        return (i === 0 || i === node.table.body.length) ? '#979797' : '#979797';
+                                hLineColor: function (i, node) {
+                                    return (i === 0 || i === node.table.body.length) ? '#979797' : '#979797';
                                 },
-                                vLineColor: function(i, node) {
-                                        return (i === 0 || i === node.table.widths.length) ? '#979797' : '#979797';
+                                vLineColor: function (i, node) {
+                                    return (i === 0 || i === node.table.widths.length) ? '#979797' : '#979797';
                                 },
-                                 paddingLeft: function(i, node) { return 10; },
-                                                         paddingRight: function(i, node) { return 10; },
-                                                         paddingTop: function(i, node) { return 5; },
-                                                         paddingBottom: function(i, node) { return 5; }
+                                paddingLeft: function (i, node) {
+                                    return 10;
+                                },
+                                paddingRight: function (i, node) {
+                                    return 10;
+                                },
+                                paddingTop: function (i, node) {
+                                    return 5;
+                                },
+                                paddingBottom: function (i, node) {
+                                    return 5;
+                                }
                             }
                         },
                         {
@@ -490,54 +534,95 @@
                                         }
                                     ],
                                     ['1', 'Customer', [
-                                            {text:'- Solicitud de Reemplazo', alignment: 'left'}
+                                            {
+                                                text: '- Solicitud de Reemplazo',
+                                                alignment: 'left'
+                                            }
                                         ]
                                     ],
                                     ['2', 'Mi AT&T / IVR', [
-                                            {text:'- Account Identification', alignment: 'left'},
-                                            {text:'- Registration: Manages user registration to the platform My AT&T Mobile and Web', alignment: 'left'}
+                                            {
+                                                text: '- Account Identification',
+                                                alignment: 'left'
+                                            },
+                                            {
+                                                text: '- Registration: Manages user registration to the platform My AT&T Mobile and Web',
+                                                alignment: 'left'
+                                            }
                                         ]
                                     ],
                                     ['3', 'Mi AT&T / IVR', [
-                                            {text:'- Account Identification', alignment: 'left'},
-                                            {text:'- Registration: Manages user registration to the platform My AT&T Mobile and Web', alignment: 'left'}
+                                            {
+                                                text: '- Account Identification',
+                                                alignment: 'left'
+                                            },
+                                            {
+                                                text: '- Registration: Manages user registration to the platform My AT&T Mobile and Web',
+                                                alignment: 'left'
+                                            }
                                         ]
                                     ],
                                     ['4', 'Opus', [
-                                            {text:'- Subscriber identification', alignment: 'left'},
-                                            {text:'- Official identification', alignment: 'left'}
+                                            {
+                                                text: '- Subscriber identification',
+                                                alignment: 'left'
+                                            },
+                                            {
+                                                text: '- Official identification',
+                                                alignment: 'left'
+                                            }
                                         ]
                                     ],
                                     ['5', 'Opus', [
-                                            {text:'- Subscriber identification', alignment: 'left'},
-                                            {text:'- Official identification', alignment: 'left'}
+                                            {
+                                                text: '- Subscriber identification',
+                                                alignment: 'left'
+                                            },
+                                            {
+                                                text: '- Official identification',
+                                                alignment: 'left'
+                                            }
                                         ]
                                     ],
-                                    ['6', 'Amdocs CRM',[
-                                            {text:'- Subscriber identification', alignment: 'left'},
-                                            {text:'- Passcode', alignment: 'left'}
+                                    ['6', 'Amdocs CRM', [
+                                            {
+                                                text: '- Subscriber identification',
+                                                alignment: 'left'
+                                            },
+                                            {
+                                                text: '- Passcode',
+                                                alignment: 'left'
+                                            }
                                         ]
                                     ]
                                 ]
                             },
                             style: 'tableSubtitleLast',
                             layout: {
-                                hLineWidth: function(i, node) {
-                                        return (i === 0 || i === node.table.body.length) ? 1: 1;
+                                hLineWidth: function (i, node) {
+                                    return (i === 0 || i === node.table.body.length) ? 1 : 1;
                                 },
-                                vLineWidth: function(i, node) {
-                                        return (i === 0 || i === node.table.widths.length) ? 1 : 1;
+                                vLineWidth: function (i, node) {
+                                    return (i === 0 || i === node.table.widths.length) ? 1 : 1;
                                 },
-                                hLineColor: function(i, node) {
-                                        return (i === 0 || i === node.table.body.length) ? '#979797' : '#979797';
+                                hLineColor: function (i, node) {
+                                    return (i === 0 || i === node.table.body.length) ? '#979797' : '#979797';
                                 },
-                                vLineColor: function(i, node) {
-                                        return (i === 0 || i === node.table.widths.length) ? '#979797' : '#979797';
+                                vLineColor: function (i, node) {
+                                    return (i === 0 || i === node.table.widths.length) ? '#979797' : '#979797';
                                 },
-                                 paddingLeft: function(i, node) { return 10; },
-                                                         paddingRight: function(i, node) { return 10; },
-                                                         paddingTop: function(i, node) { return 5; },
-                                                         paddingBottom: function(i, node) { return 5; }
+                                paddingLeft: function (i, node) {
+                                    return 10;
+                                },
+                                paddingRight: function (i, node) {
+                                    return 10;
+                                },
+                                paddingTop: function (i, node) {
+                                    return 5;
+                                },
+                                paddingBottom: function (i, node) {
+                                    return 5;
+                                }
                             }
                         },
                         {
@@ -580,27 +665,41 @@
                                             bold: true
                                         }
                                     ],
-                                    ['1', {text:'text', alignment: 'left'}, {text:'text', alignment: 'left'}]
+                                    ['1', {
+                                        text: 'text',
+                                        alignment: 'left'
+                                    }, {
+                                        text: 'text',
+                                        alignment: 'left'
+                                    }]
                                 ]
                             },
                             style: 'tableSubtitleLast',
                             layout: {
-                                hLineWidth: function(i, node) {
-                                        return (i === 0 || i === node.table.body.length) ? 1: 1;
+                                hLineWidth: function (i, node) {
+                                    return (i === 0 || i === node.table.body.length) ? 1 : 1;
                                 },
-                                vLineWidth: function(i, node) {
-                                        return (i === 0 || i === node.table.widths.length) ? 1 : 1;
+                                vLineWidth: function (i, node) {
+                                    return (i === 0 || i === node.table.widths.length) ? 1 : 1;
                                 },
-                                hLineColor: function(i, node) {
-                                        return (i === 0 || i === node.table.body.length) ? '#979797' : '#979797';
+                                hLineColor: function (i, node) {
+                                    return (i === 0 || i === node.table.body.length) ? '#979797' : '#979797';
                                 },
-                                vLineColor: function(i, node) {
-                                        return (i === 0 || i === node.table.widths.length) ? '#979797' : '#979797';
+                                vLineColor: function (i, node) {
+                                    return (i === 0 || i === node.table.widths.length) ? '#979797' : '#979797';
                                 },
-                                 paddingLeft: function(i, node) { return 10; },
-                                                         paddingRight: function(i, node) { return 10; },
-                                                         paddingTop: function(i, node) { return 5; },
-                                                         paddingBottom: function(i, node) { return 5; }
+                                paddingLeft: function (i, node) {
+                                    return 10;
+                                },
+                                paddingRight: function (i, node) {
+                                    return 10;
+                                },
+                                paddingTop: function (i, node) {
+                                    return 5;
+                                },
+                                paddingBottom: function (i, node) {
+                                    return 5;
+                                }
                             }
                         },
                         {
@@ -636,22 +735,22 @@
                                         {
                                             text: 'Process',
                                             alignment: 'center',
-                                            bold:true
+                                            bold: true
                                         },
                                         {
                                             text: 'Capacity',
                                             alignment: 'center',
-                                            bold:true
+                                            bold: true
                                         },
                                         {
                                             text: 'KPI Name',
                                             alignment: 'center',
-                                            bold:true
+                                            bold: true
                                         },
                                         {
                                             text: 'KPI Description',
                                             alignment: 'center',
-                                            bold:true
+                                            bold: true
                                         }
                                     ],
                                     ['Process name', 'Capacity name', 'KPI name', {
@@ -662,22 +761,30 @@
                             },
                             style: 'tableSubtitleLast',
                             layout: {
-                                hLineWidth: function(i, node) {
-                                        return (i === 0 || i === node.table.body.length) ? 1: 1;
+                                hLineWidth: function (i, node) {
+                                    return (i === 0 || i === node.table.body.length) ? 1 : 1;
                                 },
-                                vLineWidth: function(i, node) {
-                                        return (i === 0 || i === node.table.widths.length) ? 1 : 1;
+                                vLineWidth: function (i, node) {
+                                    return (i === 0 || i === node.table.widths.length) ? 1 : 1;
                                 },
-                                hLineColor: function(i, node) {
-                                        return (i === 0 || i === node.table.body.length) ? '#979797' : '#979797';
+                                hLineColor: function (i, node) {
+                                    return (i === 0 || i === node.table.body.length) ? '#979797' : '#979797';
                                 },
-                                vLineColor: function(i, node) {
-                                        return (i === 0 || i === node.table.widths.length) ? '#979797' : '#979797';
+                                vLineColor: function (i, node) {
+                                    return (i === 0 || i === node.table.widths.length) ? '#979797' : '#979797';
                                 },
-                                 paddingLeft: function(i, node) { return 10; },
-                                                         paddingRight: function(i, node) { return 10; },
-                                                         paddingTop: function(i, node) { return 5; },
-                                                         paddingBottom: function(i, node) { return 5; }
+                                paddingLeft: function (i, node) {
+                                    return 10;
+                                },
+                                paddingRight: function (i, node) {
+                                    return 10;
+                                },
+                                paddingTop: function (i, node) {
+                                    return 5;
+                                },
+                                paddingBottom: function (i, node) {
+                                    return 5;
+                                }
                             }
                         },
                         {
@@ -693,45 +800,59 @@
                                         {
                                             text: 'Number',
                                             alignment: 'center',
-                                            bold:true
+                                            bold: true
                                         },
                                         {
                                             text: 'Name',
                                             alignment: 'center',
-                                            bold:true
+                                            bold: true
                                         },
                                         {
                                             text: 'Description',
                                             alignment: 'center',
-                                            bold:true
+                                            bold: true
                                         },
                                         {
                                             text: 'Attached File',
                                             alignment: 'center',
-                                            bold:true
+                                            bold: true
                                         }
                                     ],
-                                    ['1', 'File name', {alignment: 'left',text:'File description'}, {alignment: 'left',text:'Opreport123.doc '}]
+                                    ['1', 'File name', {
+                                        alignment: 'left',
+                                        text: 'File description'
+                                    }, {
+                                        alignment: 'left',
+                                        text: 'Opreport123.doc '
+                                    }]
                                 ]
                             },
                             style: 'tableSubtitleLast',
                             layout: {
-                                hLineWidth: function(i, node) {
-                                        return (i === 0 || i === node.table.body.length) ? 1: 1;
+                                hLineWidth: function (i, node) {
+                                    return (i === 0 || i === node.table.body.length) ? 1 : 1;
                                 },
-                                vLineWidth: function(i, node) {
-                                        return (i === 0 || i === node.table.widths.length) ? 1 : 1;
+                                vLineWidth: function (i, node) {
+                                    return (i === 0 || i === node.table.widths.length) ? 1 : 1;
                                 },
-                                hLineColor: function(i, node) {
-                                        return (i === 0 || i === node.table.body.length) ? '#979797' : '#979797';
+                                hLineColor: function (i, node) {
+                                    return (i === 0 || i === node.table.body.length) ? '#979797' : '#979797';
                                 },
-                                vLineColor: function(i, node) {
-                                        return (i === 0 || i === node.table.widths.length) ? '#979797' : '#979797';
+                                vLineColor: function (i, node) {
+                                    return (i === 0 || i === node.table.widths.length) ? '#979797' : '#979797';
                                 },
-                                 paddingLeft: function(i, node) { return 10; },
-                                                         paddingRight: function(i, node) { return 10; },
-                                                         paddingTop: function(i, node) { return 5; },
-                                                         paddingBottom: function(i, node) { return 5; }
+                                paddingLeft: function (i, node) {
+                                    return 10;
+                                },
+                                paddingRight: function (i, node) {
+                                    return 10;
+                                },
+                                paddingTop: function (i, node) {
+                                    return 5;
+                                },
+                                paddingBottom: function (i, node) {
+                                    return 5;
+                                }
                             }
                         },
                         {
@@ -755,45 +876,59 @@
                                         {
                                             text: 'Id change',
                                             alignment: 'center',
-                                            bold:true
+                                            bold: true
                                         },
                                         {
                                             text: 'Id act',
                                             alignment: 'center',
-                                            bold:true
+                                            bold: true
                                         },
                                         {
                                             text: 'Project / Initiative / Business requeriment',
                                             alignment: 'center',
-                                            bold:true
+                                            bold: true
                                         },
                                         {
                                             text: 'Function / Responsability',
                                             alignment: 'center',
-                                            bold:true
+                                            bold: true
                                         }
                                     ],
-                                    ['123', '456', {text:'Description', alignment: 'left'}, {text:'Description', alignment: 'left'}]
+                                    ['123', '456', {
+                                        text: 'Description',
+                                        alignment: 'left'
+                                    }, {
+                                        text: 'Description',
+                                        alignment: 'left'
+                                    }]
                                 ]
                             },
                             style: 'tableTitleLastz',
                             layout: {
-                                hLineWidth: function(i, node) {
-                                        return (i === 0 || i === node.table.body.length) ? 1: 1;
+                                hLineWidth: function (i, node) {
+                                    return (i === 0 || i === node.table.body.length) ? 1 : 1;
                                 },
-                                vLineWidth: function(i, node) {
-                                        return (i === 0 || i === node.table.widths.length) ? 1 : 1;
+                                vLineWidth: function (i, node) {
+                                    return (i === 0 || i === node.table.widths.length) ? 1 : 1;
                                 },
-                                hLineColor: function(i, node) {
-                                        return (i === 0 || i === node.table.body.length) ? '#979797' : '#979797';
+                                hLineColor: function (i, node) {
+                                    return (i === 0 || i === node.table.body.length) ? '#979797' : '#979797';
                                 },
-                                vLineColor: function(i, node) {
-                                        return (i === 0 || i === node.table.widths.length) ? '#979797' : '#979797';
+                                vLineColor: function (i, node) {
+                                    return (i === 0 || i === node.table.widths.length) ? '#979797' : '#979797';
                                 },
-                                 paddingLeft: function(i, node) { return 10; },
-                                                         paddingRight: function(i, node) { return 10; },
-                                                         paddingTop: function(i, node) { return 5; },
-                                                         paddingBottom: function(i, node) { return 5; }
+                                paddingLeft: function (i, node) {
+                                    return 10;
+                                },
+                                paddingRight: function (i, node) {
+                                    return 10;
+                                },
+                                paddingTop: function (i, node) {
+                                    return 5;
+                                },
+                                paddingBottom: function (i, node) {
+                                    return 5;
+                                }
                             }
                         },
                         {
@@ -809,46 +944,66 @@
                                         {
                                             text: 'Number',
                                             alignment: 'center',
-                                            bold:true
+                                            bold: true
                                         },
                                         {
                                             text: 'Name',
                                             alignment: 'center',
-                                            bold:true
+                                            bold: true
                                         },
                                         {
                                             text: 'Description',
                                             alignment: 'center',
-                                            bold:true
+                                            bold: true
                                         },
                                         {
                                             text: 'Attached File',
                                             alignment: 'center',
-                                            bold:true
+                                            bold: true
                                         }
                                     ],
-                                    ['1', 'File name', {alignment: 'left',text:'File description'}, {alignment: 'left',text:'Opreport123.doc'}],
-                                    ['2', 'File name', {alignment: 'left',text:'File description'}, {alignment: 'left',text:'Opreport123.doc'}]
+                                    ['1', 'File name', {
+                                        alignment: 'left',
+                                        text: 'File description'
+                                    }, {
+                                        alignment: 'left',
+                                        text: 'Opreport123.doc'
+                                    }],
+                                    ['2', 'File name', {
+                                        alignment: 'left',
+                                        text: 'File description'
+                                    }, {
+                                        alignment: 'left',
+                                        text: 'Opreport123.doc'
+                                    }]
                                 ]
                             },
                             style: 'tableTitleLastz',
                             layout: {
-                                hLineWidth: function(i, node) {
-                                        return (i === 0 || i === node.table.body.length) ? 1: 1;
+                                hLineWidth: function (i, node) {
+                                    return (i === 0 || i === node.table.body.length) ? 1 : 1;
                                 },
-                                vLineWidth: function(i, node) {
-                                        return (i === 0 || i === node.table.widths.length) ? 1 : 1;
+                                vLineWidth: function (i, node) {
+                                    return (i === 0 || i === node.table.widths.length) ? 1 : 1;
                                 },
-                                hLineColor: function(i, node) {
-                                        return (i === 0 || i === node.table.body.length) ? '#979797' : '#979797';
+                                hLineColor: function (i, node) {
+                                    return (i === 0 || i === node.table.body.length) ? '#979797' : '#979797';
                                 },
-                                vLineColor: function(i, node) {
-                                        return (i === 0 || i === node.table.widths.length) ? '#979797' : '#979797';
+                                vLineColor: function (i, node) {
+                                    return (i === 0 || i === node.table.widths.length) ? '#979797' : '#979797';
                                 },
-                                 paddingLeft: function(i, node) { return 10; },
-                                                         paddingRight: function(i, node) { return 10; },
-                                                         paddingTop: function(i, node) { return 5; },
-                                                         paddingBottom: function(i, node) { return 5; }
+                                paddingLeft: function (i, node) {
+                                    return 10;
+                                },
+                                paddingRight: function (i, node) {
+                                    return 10;
+                                },
+                                paddingTop: function (i, node) {
+                                    return 5;
+                                },
+                                paddingBottom: function (i, node) {
+                                    return 5;
+                                }
                             }
                         },
                         {
@@ -857,9 +1012,10 @@
                         },
                         {
                             image: obj.contenido,
-                            width: obj.ancho,
-                            height: obj.alto,
-                            margin: [20, 0, 0, 5]
+                            width: 400,
+                            //height: 760,
+                            margin: [20, 0, 0, 5],
+                            fit: [500, 760]
                         }
 
                     ],

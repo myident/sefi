@@ -1,6 +1,6 @@
 /* global angular, svgAsPngUri */
 (function () {
-    var Directive = function ($word, $barraHerramientas) {
+    var Directive = function ($word, $barraHerramientas, $window) {
 
         var Link = function ($scope) {
 
@@ -31,6 +31,9 @@
                         $scope.view[i].active = true;
                     }
                 }
+                $barraHerramientas.zoom = 1;
+                $scope.zoom = $barraHerramientas.zoom;
+                $scope.displayZoom = parseInt($scope.zoom * 100) + '%';
                 if (value === 0) {
                     $scope.levelOne = true;
                     $scope.sendOrganize(0);
@@ -181,7 +184,6 @@
             $scope.displayZoom = parseInt($scope.zoom * 100) + '%';
 
             $scope.changeZoom = function (direction) {
-
                 var options = {
                     menos: function () {
                         if ($scope.zoom >= 0.5) {
@@ -206,18 +208,19 @@
                         return Math.round($scope.zoom * 100);
                     }
                 };
-
-                $scope.sendZoom((options[direction]() / 100).toFixed(2));
+                options[direction]();
             };
 
 
             // MARK: - print
             $scope.print = function () {
 
-                var svgElement = document.getElementById('dgWaysSvg'),
-                    ancho = $barraHerramientas.svgSize.width / 3,
-                    alto = $barraHerramientas.svgSize.height / 3,
+                var svgElement = $window.document.getElementById('dgWaysSvg'),
+                    ancho = $barraHerramientas.svgSize.width / 2.25,
+                    alto = $barraHerramientas.svgSize.height / 2.25,
                     diagrama = {};
+                
+                console.log(alto);
 
                 svgAsPngUri(svgElement, {
                     scale: 1.5
@@ -249,8 +252,6 @@
                 sendView: '=getView',
                 sendOrganize: '=getOrganize',
                 sendShow: '=getShow',
-                sendZoom: '=getZoom',
-                sendPrint: '=getPrint',
                 hideToggle: '=hideToggle'
             }
         };
