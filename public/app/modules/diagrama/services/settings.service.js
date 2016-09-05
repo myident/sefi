@@ -353,7 +353,7 @@
                 offset.x +=width
                 var html = {};
                 html.rect = new htmlObject(width, height, { x: offset.x, y : offset.y });
-                html.line = [{ x: offset.x + (width/2) - 1, y : offset.y - (height/2) },{ x: offset.x + (width/2) - 1, y : 10000}];
+                html.line = [{ x: offset.x + (width/2) - 1, y : offset.y - (height/2) },{ x: offset.x + (width/2) - 1, y : 11000}];
                 source[i].html = html;
             }
         }
