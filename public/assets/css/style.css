@@ -92,7 +92,7 @@ circle {
 main.ng-scope {
     width: 100%;
     /*    max-width: 2200px;*/
-    margin: 80px auto 0 auto;
+    margin: 79px auto 0 auto;
     padding: 2em;
     height: calc(100vh - 80px);
 }
