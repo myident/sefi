@@ -216,7 +216,7 @@
                             }
                         }
                     }
-                    capacidad.name = "ERROR: Paso siguiente inconsistente"
+                    //capacidad.name = "ERROR: Paso siguiente inconsistente"
                     return null;
                 };
 

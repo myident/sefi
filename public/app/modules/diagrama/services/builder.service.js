@@ -13,6 +13,8 @@
                     var g = paper.group();
                     var fontSizeTitle = 16;
                     var fontSizeLabelCount = 11;
+                    var gHeader = paper.group();
+                    var gIntersections = paper.group();
 
                     for(var i in processesList){
                         var gChild = paper.group();
@@ -20,7 +22,7 @@
                         var rect,rectHeader,textBoxHeader,circleHeader,relationshipArrow,relationship,textBoxLabelCount,textBoxCircleHeader;
                         process.html && (function(){
                             var html = process.html;
-                            var gCapabilities;
+                            var gCapabilities={g:null,gIntersections:null};
                             rect                = $shapes.factory.rect(html.rect.offset, html.rect.width, html.rect.height);
                             rectHeader          = $shapes.factory.rect(html.rectHeader.offset, html.rectHeader.width, html.rectHeader.height);
                             textBoxHeader       = $shapes.factory.textbox(html.textBoxHeader.offset, html.textBoxHeader.width,html.textBoxHeader.height, process.name, fontSizeTitle);
@@ -46,35 +48,43 @@
                             }
                             //var gCapabilities = (view !== 0) && capabilities(process.capacidades);
                             gChild.append(rect)
-                                .append(rectHeader)
-                                .append(textBoxHeader)
-                                .append(circleHeader)
                                 .append(relationshipArrow)
                                 .append(relationship)
+                                .append(gCapabilities.g);
+                            gHeader.append(rectHeader)
+                                .append(textBoxHeader)
+                                .append(circleHeader)
                                 .append(textBoxLabelCount)
-                                .append(textBoxCircleHeader)
-                                .append(gCapabilities);
+                                .append(textBoxCircleHeader);
                             g.append(gChild);
+                            gIntersections.append(gCapabilities.gIntersections);
                         })();
-
+                        
                         //break;
                     }
 
                     if(view === 2){
                         var ellipse = $shapes.factory.ellipse(source.start.ellipse.offset, source.start.ellipse.width, source.start.ellipse.height, source.start.ellipse.r1, source.start.ellipse.r2);
                         var textbox = $shapes.factory.textbox(source.start.textBox.offset, source.start.textBox.width,source.start.textBox.height, source.start.textBox.text, 14);
-                        $shapes.factory.arrow(source.start.arrow[0].offset, source.start.arrow[0].radio, source.start.arrow[0].direction);
-                        $shapes.factory.polyline(source.start.line[0].offsets)
+                        var arrow = $shapes.factory.arrow(source.start.arrow[0].offset, source.start.arrow[0].radio, source.start.arrow[0].direction);
+                        var line = $shapes.factory.polyline(source.start.line[0].offsets)
+                        gIntersections.append(arrow)
+                            .append(line);
 
                         var ellipse = $shapes.factory.ellipse(source.end.ellipse.offset, source.end.ellipse.width, source.end.ellipse.height, source.end.ellipse.r1, source.end.ellipse.r2);
                         var textbox = $shapes.factory.textbox(source.end.textBox.offset, source.end.textBox.width,source.end.textBox.height, source.end.textBox.text, 14);
                         $shapes.factory.arrow(source.end.arrow[0].offset, source.end.arrow[0].radio, source.end.arrow[0].direction);
-                        $shapes.factory.polyline(source.end.line[0].offsets)
+                        $shapes.factory.polyline(source.end.line[0].offsets);
+
                     }
+
+                    g.append(gIntersections);
+                    g.append(gHeader);
                 };
                 capabilities = function (capabilitiesList) {
 
                     var g = paper.group();
+                    var gIntersections = paper.group();
                     var fontSizeCapability = 14;
                     for(var i in capabilitiesList){
 
@@ -94,7 +104,7 @@
                                 for(var j in capability.psiguiente){
                                     if(html.arrow[j] !== null){
                                         arrow[j] = $shapes.factory.arrow(html.arrow[j].offset, html.arrow[j].radio, html.arrow[j].direction);
-                                        $shapes.factory.polyline(html.line[j].offsets)
+                                        line[j] = $shapes.factory.polyline(html.line[j].offsets)
                                     }
                                 }
                                 switch(capability.idfigura){
@@ -109,20 +119,22 @@
                             
                             textbox       = $shapes.factory.textbox(html.textBox.offset, html.textBox.width,html.textBox.height, capability.name, fontSizeCapability);
 
-                            console.log(capability);
                             $paint.rectProceso(rect);
 
                             gChild.append(rect)
                             .append(textbox);
 
+                            for(var j in capability.psiguiente){
+                                gIntersections.append(arrow[j]);
+                                gIntersections.append(line[j]);
+                            }
 
                             sortAreas(capability.labels,gChild);
-                            
                             g.append(gChild);
                             
                         })();
                     }
-                    return g;
+                    return { g:g, gIntersections:gIntersections};
                 };
                 sortAreas = function (list, gParent) {
                     var g = paper.group();
