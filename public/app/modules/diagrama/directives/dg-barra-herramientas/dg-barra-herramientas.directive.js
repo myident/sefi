@@ -233,6 +233,15 @@
                 });
 
             };
+            
+            $scope.appart = function(){
+                var svgElement = $window.document.getElementById('dgWaysSvg'),
+                ancho = $barraHerramientas.svgSize.width / 2.25,
+                alto = $barraHerramientas.svgSize.height / 2.25;
+                $word.$noDiagram();
+                $word.$appart(ancho, alto, svgElement);
+                
+            };
 
 
             // I N I T S
