@@ -57,9 +57,10 @@
                     $scope.show[2].active = false;
                 } else {
                     $scope.levelOne = false;
-                    $scope.organize.active = true;
+                    $scope.sendOrganize(0);
+                    $scope.organize.active = false;
                     $scope.organize.disabled = false;
-                    $scope.show[0].disabled = true;
+                    $scope.show[0].disabled = false;
                     $scope.show[1].disabled = false;
                     $scope.show[2].disabled = false;
                 }
