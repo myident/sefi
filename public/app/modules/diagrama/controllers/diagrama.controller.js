@@ -118,11 +118,15 @@
                         for(var j in data.procesos[i]['reglas']){
                             var regla = data.procesos[i]['reglas'][j];
                             if(regla.idfigura !== 3){
-                                reglasTemp[count] = regla;
-                                reglasTemp[count].psiguiente = [regla.psiguiente];
-                                idfiguraBool = false;
-                                count++;
+                                if(regla.idfigura !== 5){
+                                  reglasTemp[count] = regla;
+                                  reglasTemp[count].psiguiente = [regla.psiguiente];
+                                  idfiguraBool = false;
+                                  count++;
+                                }
                             }else{
+
+                              
                                 if(!idfiguraBool){
                                   var psiguiente = regla.psiguiente;
                                     reglasTemp[count] = regla;
@@ -134,7 +138,8 @@
                                     count++;
                                     idfiguraBool = false;
                                 }
-                            }
+                            
+                          }
                         }
                         data.procesos[i]['reglas'] = reglasTemp;
                     }
