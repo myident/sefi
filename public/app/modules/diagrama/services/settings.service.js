@@ -344,7 +344,8 @@
             }
         },
         dimensionsAreas: function (source) {
-            var width = 220;
+            var widthTemp = (window.innerWidth - 235 - 28 - 28) / source.length;
+            var width = widthTemp < 220 ? 220 : widthTemp;
             var height = 30;
             var offset = {x: ((width/2) - width), y: (height/2)};
             var fontSize = 16;
@@ -356,6 +357,11 @@
                 html.line = [{ x: offset.x + (width/2) - 1, y : offset.y - (height/2) },{ x: offset.x + (width/2) - 1, y : 11000}];
                 source[i].html = html;
             }
+        },
+        getSVGWidth: function(source){
+            var widthTemp = (window.innerWidth - 235 - 28 - 28) / source.length;
+            var width = widthTemp < 220 ? 220 : widthTemp;
+            return (width*source.length)
         }
     };
 

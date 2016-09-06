@@ -170,10 +170,12 @@ dg-indice > aside .aside-processes ul > li.aside-macro.open {
 
 dg-indice > aside .aside-processes ul > li > div {
     padding: 0 20px;
-    white-space: nowrap;
     height: 30px;
     line-height: 30px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.52);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 dg-indice > aside .aside-processes ul > li.aside-mega:after {
