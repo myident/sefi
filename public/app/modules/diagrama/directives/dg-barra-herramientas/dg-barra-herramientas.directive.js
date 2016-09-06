@@ -57,9 +57,10 @@
                     $scope.show[2].active = false;
                 } else {
                     $scope.levelOne = false;
-                    $scope.organize.active = true;
+                    $scope.sendOrganize(0);
+                    $scope.organize.active = false;
                     $scope.organize.disabled = false;
-                    $scope.show[0].disabled = true;
+                    $scope.show[0].disabled = false;
                     $scope.show[1].disabled = false;
                     $scope.show[2].disabled = false;
                 }
@@ -231,6 +232,15 @@
                     $word.$make(diagrama);
                 });
 
+            };
+            
+            $scope.appart = function(){
+                var svgElement = $window.document.getElementById('dgWaysSvg'),
+                ancho = $barraHerramientas.svgSize.width / 2.25,
+                alto = $barraHerramientas.svgSize.height / 2.25;
+                $word.$noDiagram();
+                $word.$appart(ancho, alto, svgElement);
+                
             };
 
 
