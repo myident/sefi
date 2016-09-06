@@ -101,11 +101,15 @@
                                     case 1: rect = $shapes.factory.rect(html.rect.offset, html.rect.width, html.rect.height); break;
                                     case 2: rect = $shapes.factory.rectLines(html.rect.offset, html.rect.width, html.rect.height); break;
                                     case 3: rect = $shapes.factory.rombo(html.rect.offset, html.rect.width, html.rect.height); break;
+                                    case 4: rect = $shapes.factory.rect(html.rect.offset, html.rect.width, html.rect.height); break;//START
+                                    case 5: rect = $shapes.factory.rect(html.rect.offset, html.rect.width, html.rect.height); break;//END
+                                    case 6: rect = $shapes.factory.rect(html.rect.offset, html.rect.width, html.rect.height); break;//
                                 }
                             }
                             
                             textbox       = $shapes.factory.textbox(html.textBox.offset, html.textBox.width,html.textBox.height, capability.name, fontSizeCapability);
 
+                            console.log(capability);
                             $paint.rectProceso(rect);
 
                             gChild.append(rect)

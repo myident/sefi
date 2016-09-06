@@ -14,10 +14,90 @@
             $scope.widthCanvas = 0;
             $scope.heightCanvas = 0;
 
+            $scope.valid = function(){
+                var success = true;
+                $scope.svg.clear();
+                switch($scope.view){
+                    case 0: 
+                        if($scope.source && $scope.source.procesos && $scope.source.procesos.length){
+
+                        }else{
+                            success = false;
+                        }
+                    break;
+                    case 1: if($scope.source && $scope.source.procesos && $scope.source.procesos.length){
+                            
+                            var errorArr = [];
+                            var data = $scope.source.procesos;
+                            for(var i  in data){
+                                var proceso = data[i];
+                                 if(proceso.capacidades.length){
+                                        for( var j in  proceso.capacidades){
+                                            var capacidad = proceso.capacidades[j];
+
+                                            if($scope.organiceBy === 1){ 
+                                                if(!capacidad.sortAreas.areas.length){
+                                                    var errorStr =  'WARN '+count +' -> ('+proceso.name+' > '+capacidad.name + ') - Falta información de base de datos: [capacidades] Faltan areas';
+                                                    console.warn(errorStr);
+                                                    errorArr.push(errorStr);
+                                                    success = false;
+                                                    count++;
+                                                }else{
+
+                                                }
+                                            }
+                                        }
+                                    }else{
+                                        var errorStr =  'WARN '+count +' -> (PROCESO<'+proceso.name +'>) Falta información de base de datos: Faltan capacidades'
+                                        console.warn(errorStr);
+                                        errorArr.push(errorStr);
+                                        success = false;
+                                                count++;
+                                    }
+                                }
+
+                        }
+
+                        break;
+                    case 2: 
+                    if($scope.source && $scope.source.procesos && $scope.source.procesos.length){
+                            
+                            var errorArr = [];
+                            var data = $scope.source.procesos;
+                            for(var i  in data){
+                                var proceso = data[i];
+                                 if(proceso.reglas.length){
+                                        for( var j in  proceso.reglas){
+                                            var capacidad = proceso.reglas[j];
+                                            if(!capacidad.sortAreas.areas.length){
+                                                var errorStr =  'WARN '+count +' -> ('+proceso.name+' > '+capacidad.name + ') - Falta información de base de datos: [reglas] Faltan areas';
+                                                console.warn(errorStr);
+                                                errorArr.push(errorStr);
+                                                success = false;
+                                                count++;
+                                            }else{
+
+                                            }
+                                        }
+                                    }else{
+                                        var errorStr =  'WARN '+count +' -> (PROCESO<'+proceso.name + '>) Falta información de base de datos: Faltan reglas'
+                                        console.warn(errorStr);
+                                        errorArr.push(errorStr);
+                                        success = false;
+                                                count++;
+                                    }
+                                }
+
+                        }
+
+                        break;
+                }
+                return success;
+            };
+
             $scope.init = function () {
                 $scope.$watchGroup(['source', 'view', 'organiceBy', 'show', 'layout'], function () {
-                    console.log($scope.source.procesos);
-                    $scope.source.procesos.length && $scope.reset();
+                    $scope.valid() && $scope.reset();
                 });
 
                 $scope.$watch(
@@ -38,11 +118,9 @@
 
             $scope.reset = function () {
 
-                $scope.svg.clear();
                 $scope.zoom = 1;
 
                 $scope.sourceTemp = JSON.parse(JSON.stringify($scope.source));
-                console.log($scope.sourceTemp);
                 ($scope.organiceBy === 1) && $setting.dimensionsAreas($scope.areasList);
                 $setting.dimensions($scope.sourceTemp, $scope.areasList, $scope.view, $scope.organiceBy, $scope.show);
                 $builder.build($scope.svg, $scope.sourceTemp, $scope.show, $scope.view);
