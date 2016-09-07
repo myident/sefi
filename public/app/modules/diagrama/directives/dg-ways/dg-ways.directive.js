@@ -121,7 +121,7 @@
                 $scope.zoom = 1;
 
                 $scope.sourceTemp = JSON.parse(JSON.stringify($scope.source));
-                ($scope.organiceBy === 1) && $setting.dimensionsAreas($scope.areasList);
+                ($scope.organiceBy === 1) && $setting.dimensionsAreas($scope.areasList,$scope.hideToggle);
                 $setting.dimensions($scope.sourceTemp, $scope.areasList, $scope.view, $scope.organiceBy, $scope.show);
                 $builder.build($scope.svg, $scope.sourceTemp, $scope.show, $scope.view);
 
@@ -164,7 +164,7 @@
                 // var lengthCapability = ($scope.view !== 0) ? $scope.sourceTemp.procesos[lengthProcess].capacidades.length - 1 : 0;
                 // var lastY = ($scope.view !== 0) ? $scope.sourceTemp.procesos[lengthProcess].capacidades[lengthCapability].html.rect.offset.y : 50;
 
-                $scope.w = ($scope.organiceBy === 1) ? $setting.getSVGWidth($scope.areasList) : maxWidth;
+                $scope.w = ($scope.organiceBy === 1) ? $setting.getSVGWidth($scope.areasList,$scope.hideToggle) : maxWidth;
                 $scope.h = ($scope.organiceBy === 1) ? lastY + 150 : maxHeight + 100;
 
                 $scope.h = ($scope.view === 0) ? 150 : $scope.h;
@@ -199,7 +199,8 @@
                 zoom: '=setZoom',
                 macroprocessName: '=setMacroprocessName',
                 areasList: '=setAreasList',
-                print: '='
+                print: '=',
+                hideToggle:"=setHideToggle"
             }
         };
     };
