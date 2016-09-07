@@ -359,8 +359,9 @@
                 settingStartEnd(source);
             }
         },
-        dimensionsAreas: function (source) {
-            var widthTemp = (window.innerWidth - 235 - 28 - 28) / source.length;
+        dimensionsAreas: function (source, hideToggle) {
+            var extra = hideToggle ? 0 : 235;
+            var widthTemp = (window.innerWidth - extra - 28 - 28) / source.length;
             var width = widthTemp < 300 ? 300 : widthTemp;
             var height = 30;
             var offset = {x: ((width/2) - width), y: (height/2)};
@@ -374,8 +375,9 @@
                 source[i].html = html;
             }
         },
-        getSVGWidth: function(source){
-            var widthTemp = (window.innerWidth - 235 - 28 - 28) / source.length;
+        getSVGWidth: function(source, hideToggle){
+            var extra = hideToggle ? 0 : 235;
+            var widthTemp = (window.innerWidth - extra - 28 - 28) / source.length;
             var width = widthTemp < 300 ? 300 : widthTemp;
             return (width*source.length)
         }
