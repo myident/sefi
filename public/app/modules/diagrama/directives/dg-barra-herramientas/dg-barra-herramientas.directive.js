@@ -3,6 +3,19 @@
     var Directive = function ($word, $barraHerramientas, $window) {
 
         var Link = function ($scope) {
+            
+        $scope.$watch(
+            function () {
+                return $barraHerramientas.zoom;
+            },
+            function (newVal) {
+                if (typeof newVal !== 'undefined') {
+                    console.log(newVal);
+                    $scope.zoom = newVal;
+                    $scope.displayZoom = parseInt($scope.zoom * 100) + '%';
+//                    changeViewBox($barraHerramientas.zoom);
+                }
+            });
 
             $scope.levelOne = true;
 
