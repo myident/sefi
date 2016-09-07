@@ -20,6 +20,9 @@
                 var heightCapability = 100;
                 var paddingProcess = 20;
                 var heightHeader = 100;
+                var marginBottom = 20;
+                var lineLeft = 3;
+                var lineRight = 3;
 
                 if(view === 2){
                     type = 'reglas';
@@ -131,7 +134,7 @@
                 };
                 capabilities = function(process,capabilitiesArr,offset){
                     
-                    var marginBottom = 20;
+                    
                     offset.y = offset.y + 140;
 
                     for(var i in capabilitiesArr){
@@ -212,7 +215,7 @@
                         for(var j in source[i]['reglas']){
                             var regla = source[i]['reglas'][j];
                             if(regla.pactual === id){
-                                return regla.html.rect.offset;
+                                return regla;
                             }
                         }
                     }
@@ -220,8 +223,18 @@
                     return null;
                 };
 
-                getDirection = function(offset1, offset2){
-                    return offset1.x < offset2.x ? 'left' : (offset1.x > offset2.x ? 'right': (offset1.y > offset2.y ? 'bottom' : 'top')); 
+                getDirection = function(offset1, offset2,last, first){
+                    var result = 'top';
+                    if((offset1.x === offset2.x) && (offset1.y < (offset2.y - heightCapability - (marginBottom*2)) && !last && !first) ){
+                        result = 'right';
+                    }else{
+                        if((offset1.x === offset2.x) && (offset1.y > offset2.y )){
+                            result = 'left';
+                        }
+                    }
+                    
+                    return result;
+                   // return offset1.x < offset2.x ? 'left' : (offset1.x > offset2.x ? 'right': (offset1.y > offset2.y ? 'bottom' : 'top')); 
                 };
 
 
@@ -234,7 +247,6 @@
                         case 'top': offsetTemp.y = (offset.y - (heightCapability/2) - 10); break;
                         case 'bottom':
                             offsetTemp.x = (offset.x - (widthCapability/2) - 10);
-                            direction = 'left';
                             break;
                         default: break;
                     }
@@ -249,26 +261,29 @@
 
                     switch(direction){
                         case 'left': 
-                                    offsetStart.x = (offsetStart.x + (widthCapability/2)); 
-                                    offsetMiddle1.x = offset2.x-15;
+                                    lineLeft +=2;
+                                    offsetStart.x = (offsetStart.x - (widthCapability/2)); 
+                                    offsetMiddle1.x = offset2.x- lineLeft;
                                     offsetMiddle2 = JSON.parse(JSON.stringify(offsetMiddle1));
                                     offsetMiddle2.y = offset2.y;
                                     break;
-                        case 'right': 
-                                    offsetStart.y = (offsetStart.y + (heightCapability/2)) + (labels * 20);
-                                    offsetMiddle1.x = offset1.x;
-                                    offsetMiddle1.y = offset2.y;
+                        case 'right':
+                                    lineRight +=2;
+                                    offsetStart.x = (offsetStart.x + (widthCapability/2));
+                                    offsetMiddle1 = JSON.parse(JSON.stringify(offsetStart));
+                                    offsetMiddle1.x +=lineRight;
                                     offsetMiddle2 = JSON.parse(JSON.stringify(offsetMiddle1));
                                     offsetMiddle2.y = offset2.y;
                                     break;
-                        case 'top': 
+                        case 'top':
                                     offsetStart.y = (offsetStart.y + (heightCapability/2)) + (labels * 20);
                                     offsetMiddle1 = JSON.parse(JSON.stringify(offsetStart));
-                                    offsetMiddle2 = JSON.parse(JSON.stringify(offsetStart));
+                                    offsetMiddle1.y += 10;
+                                    offsetMiddle2 = JSON.parse(JSON.stringify(offsetMiddle1));
+                                    offsetMiddle2.x = offset2.x; 
                                     break;
                         case 'bottom':
                             offsetStart.x = (offsetStart.x - (widthCapability/2));
-                            direction = 'left';
                             offsetMiddle1.x = offsetStart.x-15;
                             offsetMiddle2 = JSON.parse(JSON.stringify(offsetMiddle1));
                             offsetMiddle2.y = offset2.y;
@@ -289,9 +304,10 @@
                             regla.html.line = [];
                             for(var k in regla.psiguiente){
                                 var psiguiente = regla.psiguiente[k];
-                                var offsetTo = getOffsetsTo(processesList, psiguiente,regla);
+                                var reglaTo = getOffsetsTo(processesList, psiguiente,regla);
+                                var offsetTo = reglaTo !== null ? reglaTo.html.rect.offset :  null;
                                 if(offsetTo!==null){
-                                    var direction = getDirection(regla.html.rect.offset,offsetTo);
+                                    var direction = getDirection(regla.html.rect.offset,offsetTo,regla.last,reglaTo.first);
                                     settingArraw(offsetTo,direction,regla.html);
                                     settingLine(regla.html.rect.offset, regla.html.arrow[k].offset, direction,regla.html, regla.labels.length);
                                 }else{
@@ -345,7 +361,7 @@
         },
         dimensionsAreas: function (source) {
             var widthTemp = (window.innerWidth - 235 - 28 - 28) / source.length;
-            var width = widthTemp < 220 ? 220 : widthTemp;
+            var width = widthTemp < 300 ? 300 : widthTemp;
             var height = 30;
             var offset = {x: ((width/2) - width), y: (height/2)};
             var fontSize = 16;
@@ -354,13 +370,13 @@
                 offset.x +=width
                 var html = {};
                 html.rect = new htmlObject(width, height, { x: offset.x, y : offset.y });
-                html.line = [{ x: offset.x + (width/2) - 1, y : offset.y - (height/2) },{ x: offset.x + (width/2) - 1, y : 11000}];
+                html.line = [{ x: offset.x + (width/2) - 1, y : offset.y - (height/2) },{ x: offset.x + (width/2) - 1, y : 20000}];
                 source[i].html = html;
             }
         },
         getSVGWidth: function(source){
             var widthTemp = (window.innerWidth - 235 - 28 - 28) / source.length;
-            var width = widthTemp < 220 ? 220 : widthTemp;
+            var width = widthTemp < 300 ? 300 : widthTemp;
             return (width*source.length)
         }
     };
