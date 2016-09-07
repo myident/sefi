@@ -172,6 +172,9 @@
                 $scope.height = $scope.h + "px";
 
                 $scope.svgWidth = $scope.w;
+                console.log($scope.w);
+                console.log(element[0].offsetWidth);
+                $scope.zoom = element[0].offsetWidth / $scope.w;
                 $barraHerramientas.svgSize.width = $scope.w;
                 $scope.svgHeight = $scope.h;
                 $barraHerramientas.svgSize.height = $scope.h;

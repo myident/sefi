@@ -1,0 +1,9 @@
+<div class="abc-create-form-group">
+    <div class="abc-create-label">
+        <span>{{label}}</span>
+    </div>
+    <div class="abc-create-input-text">
+        <input type="text" placeholder="{{title}}" ng-model="model" ng-keyup="triggerEvent()">
+        <span ng-show="warning">No puedes dejar este campo vacío</span>
+    </div>
+</div>

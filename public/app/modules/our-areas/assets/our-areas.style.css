@@ -323,11 +323,11 @@
     margin: 30px auto;
     width: 71px;
     height: 69px;
-    background-image: url(./img/power_black.png);
+/*    background-image: url(./img/power_black.png);*/
 }
 
 .arch-contents .viewer .viewer-element:hover i {
-    background-image: url(./img/power_white.png);
+/*    background-image: url(./img/power_white.png);*/
 }
 
 .arch-contents .viewer .viewer-element:hover span {
@@ -484,7 +484,10 @@ i.avanzar-trj {
         margin: 0 auto;
     }
     .architecture-intro {
-        width: 600px;
+        width: 560px;
+    }
+    .architecture-intro .datos {
+        margin-top: 30px;
     }
 }
 

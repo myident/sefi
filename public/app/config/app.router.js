@@ -63,6 +63,12 @@
             templateUrl: baseUrl + 'diagrama/views/diagrama.view.html',
             controller: 'DiagramaController'
         });
+        
+        // Diagrama
+        $routeProvider.when('/abc-create', {
+            templateUrl: baseUrl + 'abc/views/abc.create.view.html',
+            controller: 'AbcCreateController'
+        });
 
 
     };

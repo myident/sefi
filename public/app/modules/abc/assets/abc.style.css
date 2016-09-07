@@ -1,0 +1,249 @@
+.module-title > div {
+    margin: 15px 30px;
+}
+
+.module-title > div > span {
+    font-size: 28px;
+    color: #4E4E4E;
+}
+
+.module-title > div > span.active {
+    color: #1294BA;
+}
+
+.module-body > span {
+    margin: 5px 60px;
+}
+
+.abc-cuadros {
+    margin: 20px 60px;
+}
+
+.abc-cuadros > section {
+    margin-bottom: 30px;
+}
+
+.abc-cuadros > section > span {
+    margin-bottom: 30px;
+    display: inline-block;
+}
+
+.abc-cuadros .cuadro {
+    width: 100px;
+    height: 100px;
+    background: white;
+    border: 1px solid #C3C3C3;
+    display: inline-block;
+    margin-left: 35px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.abc-cuadros .cuadro.domain.active {
+    background: #0F5B79;
+    color: white;
+    border: none;
+}
+
+.abc-cuadros .cuadro.macro.active {
+    background: #127899;
+    color: white;
+    border: none;
+}
+
+.abc-cuadros .cuadro.mega.active {
+    background: #EDAA37;
+    color: white;
+    border: none;
+}
+
+.abc-cuadros .cuadro.process.active {
+    background: #2CA2CF;
+    border: none;
+    color: white;
+}
+
+.abc-cuadros .cuadro.capability.active {
+    background: #5DA794;
+    border: none;
+    color: white;
+}
+
+.abc-cuadros .cuadro.business-rule.active {
+    background: #A2B96D;
+    border: none;
+    color: white;
+}
+
+.abc-cuadros .cuadro.area.active {
+    background: #F08C2C;
+    border: none;
+    color: white;
+}
+
+.abc-cuadros .cuadro.kpi.active {
+    background: #F26C1F;
+    border: none;
+    color: white;
+}
+
+.abc-cuadros .cuadro.application.active {
+    background: #C12E1D;
+    border: none;
+    color: white;
+}
+
+.abc-cuadros .cuadro > img {
+    display: block;
+    margin: 15px auto;
+    height: 35px;
+}
+
+.abc-cuadros .cuadro > span {
+    width: 100%;
+    display: block;
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    height: 23px;
+}
+
+.abc-create-form-group {
+    margin-bottom: 23px;
+}
+
+.abc-create-textarea,
+.abc-create-label,
+.abc-create-input-text,
+.abc-create-select {
+    width: 100px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.abc-create-label > span {
+    height: 40px;
+    line-height: 40px;
+}
+
+.abc-create-select > div {
+    width: 350px;
+    height: 40px;
+    line-height: 40px;
+    background: white;
+    border: 1px solid #CED1D2;
+    position: relative;
+}
+
+.abc-create-select > div > input {
+    padding: 0 20px;
+    width: 100%;
+    border: none;
+}
+
+.abc-create-select > div > i {
+    display: inline-block;
+    position: absolute;
+    background: url(../../../../assets/img/abc-create/drop-down.png);
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.abc-create-select > div > .abc-create-select-elements {
+    position: relative;
+    height: 40px;
+}
+
+.abc-create-select > div > .abc-create-select-elements ul {
+    display: none;
+    position: absolute;
+    left: -1px;
+    bottom: -38px;
+    height: auto;
+    max-height: 80px;
+    width: 350px;
+    background: white;
+    border: 1px solid #CED1D2;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.abc-create-select > div > .abc-create-select-elements ul li {
+    padding: 0 20px;
+    border-bottom: 1px solid #CED1D2;
+}
+
+.abc-create-select > div > .abc-create-select-elements ul li:last-child {
+    border: none;
+}
+
+.abc-create-textarea > textarea {
+    height: 119px;
+    width: 350px;
+    resize: none;
+    border: 1px solid #CED1D2;
+    padding: 12px;
+}
+
+.abc-create-textarea > textarea:focus {
+    outline: none;
+}
+
+.abc-create-input-text > input {
+    height: 40px;
+    width: 350px;
+    border: 1px solid #CED1D2;
+    line-height: 40px;
+    padding: 0 12px;
+}
+
+.abc-create-input-text > span {
+    color: red;
+    font-size: 14px;
+    width: 350px;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    font-family: 'SF Medium';
+}
+
+.abc-create-button {
+    width: 145px;
+    height: 45px;
+    line-height: 45px;
+    border: 2px solid #117899;
+    color: #117899;
+    text-align: center;
+    font-size: 14px;
+    font-family: 'SF Medium';
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 10px 20px 0;
+    -webkit-transition: all ease 0.2s;
+    transition: all ease 0.2s;
+}
+
+.abc-create-button:hover {
+    background: #117899;
+    color: white;
+}
+
+.abc-create-button:active {
+    background: #1596bf;
+    color: white;
+}
+
+.abc-create-button.disabled {
+    color: white;
+    border-color: #DBDBDB;
+    background: #DBDBDB;
+}
+
+.container-buttons-right {
+    float: right;
+}
