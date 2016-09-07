@@ -150,7 +150,7 @@
                 });
         };
 
-      //$scope.source = {procesos: ddata.procesos, kpis:ddata.procesos, areas: ddata.areas};
+      $scope.source = {procesos: ddata.procesos, kpis:ddata.procesos, areas: ddata.areas};
        // $scope.source = {
        //     procesos: []
        // };

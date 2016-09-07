@@ -16,14 +16,14 @@ dg-barra-herramientas .barra-wrap .element-control-switch {
 dg-barra-herramientas .barra-wrap .element-control.view-control {
     top: 0;
     height: 100%;
-    left: 25px;
+    left: 45px;
     cursor: pointer;
 }
 
 dg-barra-herramientas .barra-wrap .element-control.select-view-control {
     top: 0;
     height: 100%;
-    left: 60px;
+    left: 80px;
     font-size: 11px;
     cursor: pointer;
 }
@@ -75,7 +75,7 @@ dg-barra-herramientas .barra-wrap .element-control.select-view-control .select-o
 dg-barra-herramientas .barra-wrap .element-control.organize-control {
     top: 0;
     height: 100%;
-    left: 220px;
+    left: 240px;
 }
 
 .element-control-on {
@@ -84,7 +84,7 @@ dg-barra-herramientas .barra-wrap .element-control.organize-control {
     background: url(./img/switchareas-off.png);
     position: absolute;
     top: 8px;
-    left: 340px;
+    left: 360px;
     cursor: pointer;
 }
 
@@ -94,7 +94,7 @@ dg-barra-herramientas .barra-wrap .element-control.organize-control {
     background: url(./img/switchareas-on.png);
     position: absolute;
     top: 8px;
-    left: 340px;
+    left: 360px;
 }
 
 dg-barra-herramientas .barra-wrap .element-control-switch ul li {
@@ -151,13 +151,13 @@ dg-barra-herramientas .barra-wrap .element-control-switch ul li > i.areas.active
 dg-barra-herramientas .barra-wrap .element-control.show-control {
     top: 0;
     height: 100%;
-    left: 400px;
+    left: 420px;
 }
 
 dg-barra-herramientas .barra-wrap .element-control-switch.switch-show-control {
     top: 0;
     height: 100%;
-    left: 440px;
+    left: 460px;
     font-size: 11px;
 }
 
@@ -228,8 +228,8 @@ dg-barra-herramientas .barra-wrap .element-control-switch.switch-show-control {
 }
 
 .hide-toggle{
-    width: 8px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     background: url(img/regresar.png);
     display: inline-block;
     margin-top: 13px;

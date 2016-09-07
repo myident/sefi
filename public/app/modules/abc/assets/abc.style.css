@@ -77,16 +77,19 @@
 
 .abc-cuadros .cuadro.area.active {
     background: #F08C2C;
+    border: none;
     color: white;
 }
 
 .abc-cuadros .cuadro.kpi.active {
     background: #F26C1F;
+    border: none;
     color: white;
 }
 
 .abc-cuadros .cuadro.application.active {
     background: #C12E1D;
+    border: none;
     color: white;
 }
 
@@ -196,4 +199,51 @@
     border: 1px solid #CED1D2;
     line-height: 40px;
     padding: 0 12px;
+}
+
+.abc-create-input-text > span {
+    color: red;
+    font-size: 14px;
+    width: 350px;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    font-family: 'SF Medium';
+}
+
+.abc-create-button {
+    width: 145px;
+    height: 45px;
+    line-height: 45px;
+    border: 2px solid #117899;
+    color: #117899;
+    text-align: center;
+    font-size: 14px;
+    font-family: 'SF Medium';
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 10px 20px 0;
+    -webkit-transition: all ease 0.2s;
+    transition: all ease 0.2s;
+}
+
+.abc-create-button:hover {
+    background: #117899;
+    color: white;
+}
+
+.abc-create-button:active {
+    background: #1596bf;
+    color: white;
+}
+
+.abc-create-button.disabled {
+    color: white;
+    border-color: #DBDBDB;
+    background: #DBDBDB;
+}
+
+.container-buttons-right {
+    float: right;
 }

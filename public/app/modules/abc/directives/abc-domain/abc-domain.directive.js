@@ -2,22 +2,41 @@
 (function () {
     var Directive = function () {
         var Link = function ($scope) {
+
+            $scope.canSave = false;
+
+            // Data structure
             $scope.name = '';
             $scope.shortname = '';
-            // Save the object Domain
-            $scope.save = function () {
+
+            // Active the save button
+            $scope.toggleActiveButton = function () {
                 if ($scope.name !== undefined && $scope.name !== '') {
                     if ($scope.shortname !== undefined && $scope.shortname !== '') {
-                        console.log($scope.name);
-                        console.log($scope.shortname);
+                        $scope.canSave = true;
+                    } else {
+                        $scope.canSave = false;
                     }
+                } else {
+                    $scope.canSave = false;
                 }
             };
-            // Clear
+
+            // Save the object Domain
+            $scope.save = function () {
+                if ($scope.canSave) {
+                    console.log($scope.name);
+                    console.log($scope.shortname);
+                }
+            };
+
+            // Clear the data structure
             $scope.clear = function () {
                 $scope.name = '';
                 $scope.shortname = '';
+                $scope.canSave = false;
             };
+
         };
         return {
             restrict: 'A',

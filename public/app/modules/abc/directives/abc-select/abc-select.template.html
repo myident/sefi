@@ -1,10 +1,10 @@
 <div class="abc-create-form-group">
     <div class="abc-create-label">
-        <span>Domain</span>
+        <span>{{label}}</span>
     </div>
     <div class="abc-create-select">
         <div class="abc-create-select-content">
-            <input type="text" placeholder="Select a Domain">
+            <input type="text" placeholder="{{holder}}" ng-model="model" ng-keyup="triggerEvent()">
             <i></i>
             <div class="abc-create-select-elements">
                 <ul>
