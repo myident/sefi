@@ -15,7 +15,7 @@
                     var fontSizeLabelCount = 11;
                     var gHeader = paper.group();
                     var gIntersections = paper.group();
-
+                    console.log(processesList);
                     for(var i in processesList){
                         var gChild = paper.group();
                         var process = processesList[i];

@@ -119,16 +119,18 @@
                             var regla = data.procesos[i]['reglas'][j];
                             if(regla.idfigura !== 3){
                                 if(regla.idfigura !== 5){
+                                  regla.first = 0 === Number(j) ? true: false;
+                                  regla.last = (proceso.reglas.length - 1) === Number(j) ? true: false;
                                   reglasTemp[count] = regla;
                                   reglasTemp[count].psiguiente = [regla.psiguiente];
                                   idfiguraBool = false;
                                   count++;
                                 }
                             }else{
-
-                              
                                 if(!idfiguraBool){
                                   var psiguiente = regla.psiguiente;
+                                    regla.first = 0 === Number(j) ? true: false;
+                                    regla.last = (proceso.reglas.length - 1) === Number(j) ? true: false;
                                     reglasTemp[count] = regla;
                                     reglasTemp[count].psiguiente = [];
                                     reglasTemp[count].psiguiente.push(psiguiente);
