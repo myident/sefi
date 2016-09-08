@@ -65,6 +65,9 @@
             $scope.megaprocesos = $indice.megaprocesos(
                 value,
                 function () {
+                    $scope.source = {
+                        procesos: []
+                    };
                     // Update Historial
                     $scope.historial = $historial.update(
                         $scope.arquitectura.name,
