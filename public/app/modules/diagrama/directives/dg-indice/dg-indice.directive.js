@@ -48,6 +48,7 @@
                 
                 // Controller
                 $scope.getMegaprocesos(value, index);
+                console.log(value);
                 
                 // Clean dominios
                 for (var i = 0; i < $scope.dominios.length; i++) {
