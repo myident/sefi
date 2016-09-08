@@ -146,7 +146,7 @@
                     if (height > maxHeight) {
                         maxHeight = height;
                     }
-                    maxWidth += width + 30;
+                    maxWidth += width + 22;
                 }
 
                 var lengthProcess = $scope.sourceTemp.procesos.length - 1;
