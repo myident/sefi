@@ -10,10 +10,8 @@
             },
             function (newVal) {
                 if (typeof newVal !== 'undefined') {
-                    console.log(newVal);
                     $scope.zoom = newVal;
                     $scope.displayZoom = parseInt($scope.zoom * 100) + '%';
-//                    changeViewBox($barraHerramientas.zoom);
                 }
             });
 
@@ -76,6 +74,10 @@
                     $scope.show[0].disabled = false;
                     $scope.show[1].disabled = false;
                     $scope.show[2].disabled = false;
+                    $scope.show[0].active = false;
+                    $scope.show[1].active = false;
+                    $scope.show[2].active = false;
+                    $scope.sendShow(0);
                 }
             };
             $scope.getView = function () {
@@ -233,8 +235,6 @@
                     ancho = $barraHerramientas.svgSize.width / 2.25,
                     alto = $barraHerramientas.svgSize.height / 2.25,
                     diagrama = {};
-                
-                console.log(alto);
 
                 svgAsPngUri(svgElement, {
                     scale: 1.5
@@ -254,6 +254,16 @@
                 $word.$noDiagram();
                 $word.$appart(ancho, alto, svgElement);
                 
+            };
+            
+            $scope.imprimirSeparados = function(){
+                var svgElement = $window.document.getElementById('dgWaysSvg');
+                svgAsPngUri(svgElement, {
+                    scale: 1.5
+                }, function (uri) {
+                    $word.$documentMake();
+                    $word.$diagramMake(uri);
+                });
             };
 
 
