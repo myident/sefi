@@ -248,7 +248,9 @@
 
 
             // MARK: - print
-            $scope.print = function () {
+            
+            // Download docukmento con diagrama dentro PDF
+            $scope.downloadDocumentWithDiagram = function () {
 
                 var svgElement = $window.document.getElementById('dgWaysSvg'),
                     ancho = $barraHerramientas.svgSize.width / 2.25,
@@ -266,29 +268,43 @@
 
             };
 
-            $scope.appart = function () {
-                var svgElement = $window.document.getElementById('dgWaysSvg'),
-                    ancho = $barraHerramientas.svgSize.width / 2.25,
+            // Download diagrama y abre documento PDF
+            $scope.downloadDiagramOpenDocument = function () {
+                var ancho = $barraHerramientas.svgSize.width / 2.25,
                     alto = $barraHerramientas.svgSize.height / 2.25;
                 $word.$noDiagram();
-                $word.$appart(ancho, alto, svgElement);
-
+                $word.$appart(ancho, alto, $window.document.getElementById('dgWaysSvg'));
             };
+            
+            // Download diagrama PDF
             $scope.downloadDiagram = function () {
-                var svgElement = $window.document.getElementById('dgWaysSvg');
-                svgAsPngUri(svgElement, {
-                    scale: 1.5
-                }, function (uri) {
-                    $word.$diagramMake(uri);
-                });
                 $scope.showDownloadMenu = false;
+                $word.$diagramMake($window.document.getElementById('dgWaysSvg'));
             };
+            
+        
+            // Download documento PDF
             $scope.downloadDocument = function () {
                 $word.$documentMake();
                 $scope.showDownloadMenu = false;
             };
-
-
+            
+            // Exporta diagrama PNG
+            $scope.exportDiagram = function(){
+                $scope.showDownloadMenu = false;
+                $word.$exportDiagram($window.document.getElementById('dgWaysSvg'));
+            };
+            
+            // Download diagrama en piezas
+            $scope.downloadDiagramPieces = function(){
+                $scope.showDownloadMenu = false;
+                
+                var ancho = $barraHerramientas.svgSize.width / 7,
+                    alto = $barraHerramientas.svgSize.height / 7;
+                                
+                $word.$appart(ancho, alto, $window.document.getElementById('dgWaysSvg'));
+            };
+            
             // I N I T S
             $scope.setView($barraHerramientas.view);
             $scope.setOrganize($scope.configOrganize);
