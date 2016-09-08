@@ -22,7 +22,7 @@
                 var heightHeader = 100;
                 var marginBottom = 20;
                 var lineLeft = 3;
-                var lineRight = 3;
+                var lineRight = 4;
 
                 if(view === 2){
                     type = 'reglas';
@@ -261,14 +261,14 @@
 
                     switch(direction){
                         case 'left': 
-                                    lineLeft +=2;
+                                    lineLeft +=3;
                                     offsetStart.x = (offsetStart.x - (widthCapability/2)); 
                                     offsetMiddle1.x = offset2.x- lineLeft;
                                     offsetMiddle2 = JSON.parse(JSON.stringify(offsetMiddle1));
                                     offsetMiddle2.y = offset2.y;
                                     break;
                         case 'right':
-                                    lineRight +=2;
+                                    lineRight +=3;
                                     offsetStart.x = (offsetStart.x + (widthCapability/2));
                                     offsetMiddle1 = JSON.parse(JSON.stringify(offsetStart));
                                     offsetMiddle1.x +=lineRight;
