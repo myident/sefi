@@ -62,6 +62,7 @@
 
         //MARK: - getter Megaprocesos
         $scope.getMegaprocesos = function (value, index) {
+            $barraHerramientas.showBar = false;
             $scope.megaprocesos = $indice.megaprocesos(
                 value,
                 function () {
@@ -99,6 +100,7 @@
         // MARK: - getter Procesos
         $scope.getProcesos = function (value, index) {
             $barraHerramientas.nombreMacroproceso = $scope.macroprocesos[index].title;
+            $barraHerramientas.showBar = true;
             $indice.procesos(
                 value,
                 index,

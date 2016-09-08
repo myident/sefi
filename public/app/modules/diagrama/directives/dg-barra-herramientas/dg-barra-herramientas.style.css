@@ -164,7 +164,7 @@ dg-barra-herramientas .barra-wrap .element-control-switch.switch-show-control {
 .zoom-control {
     position: absolute;
     top: 0px;
-    right: 50px!important;
+    right: 100px!important;
     width: 120px!important;
 }
 
@@ -199,15 +199,13 @@ dg-barra-herramientas .barra-wrap .element-control-switch.switch-show-control {
 }
 
 .download-pdf {
-    width: 25px;
-    height: 31px;
+    width: 82px;
+    height: 40px;
+    line-height: 40px;
     position: absolute;
-    background-image: url(img/download-pdf.png);
-    background-size: 90%;
-    background-position: center center;
-    background-repeat: no-repeat;
-    right: 20px;
-    top: 6px;
+    right: 0;
+    top: 0;
+    text-decoration: underline;
 }
 
 .disabled {
