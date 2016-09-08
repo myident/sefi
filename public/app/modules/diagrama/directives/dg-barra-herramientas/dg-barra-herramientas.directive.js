@@ -23,6 +23,16 @@
                 function (newVal) {
                     $scope.showBar = newVal;
                 });
+            
+            $scope.$watch(
+                function () {
+                    return $barraHerramientas.view;
+                },
+                function () {
+                    $scope.sendView($barraHerramientas.view);
+                    $scope.setView($barraHerramientas.view);
+                });
+
 
             $scope.levelOne = true;
 
@@ -280,7 +290,7 @@
 
 
             // I N I T S
-            $scope.setView($scope.configView);
+            $scope.setView($barraHerramientas.view);
             $scope.setOrganize($scope.configOrganize);
             $scope.setShow($scope.configShow);
         };
