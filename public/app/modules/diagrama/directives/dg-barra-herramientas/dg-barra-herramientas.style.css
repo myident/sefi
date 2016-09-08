@@ -227,7 +227,7 @@ dg-barra-herramientas .barra-wrap .element-control-switch.switch-show-control {
     }
 }
 
-.hide-toggle{
+.hide-toggle {
     width: 16px;
     height: 16px;
     background: url(img/regresar.png);
@@ -237,6 +237,27 @@ dg-barra-herramientas .barra-wrap .element-control-switch.switch-show-control {
     cursor: pointer;
 }
 
-.rotate-180{
+.rotate-180 {
     transform: rotate(180deg);
+}
+
+.download-menu {
+    position: absolute;
+    right: 0;
+    bottom: -70px;
+    z-index: 100;
+    height: 70px;
+    width: 90px;
+    background: white;
+    border: 1px solid #D7D7D7;
+    padding-left: 10px;
+}
+
+.download-menu > div {
+    height: 35px;
+    line-height: 35px;
+    cursor: pointer;
+}
+.download-menu > div:hover {
+    color: #aaa;
 }

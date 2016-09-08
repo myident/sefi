@@ -1,7 +1,12 @@
 /* global angular, jsPDF, pdfMake */
 (function () {
-    var Service = function () {
+    var Service = function ($barraHerramientas, $vash) {
         return {
+            $camelize: function (str) {
+                return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (letter) {
+                    return letter.toLowerCase();
+                }).replace(/\s+/g, '_');
+            },
             $make: function (obj) {
                 var docDefinition = {
 
@@ -1021,7 +1026,7 @@
                 var docDefinition = {
                     content: [
                         {
-                            text: 'Macroprocess: Subscription Management',
+                            text: 'Macroprocess: ' + $barraHerramientas.nombreMacroproceso,
                             style: 'header'
                         },
                         {
@@ -1057,7 +1062,7 @@
                     }
                 };
 
-                pdfMake.createPdf(docDefinition).open("diagram.pdf");
+                pdfMake.createPdf(docDefinition).download(this.$camelize($barraHerramientas.nombreMacroproceso) + "_diagram.pdf");
             },
             $documentMake: function(){
                 var docDefinition = {
@@ -1116,7 +1121,7 @@
                             columns: [
                                 {
                                     width: 100,
-                                    text: 'Subscription Managment',
+                                    text: $barraHerramientas.nombreMacroproceso,
                                     style: 'macroprocess'
                                 }
                             ]
@@ -2061,7 +2066,8 @@
                     }
                 };
 
-                pdfMake.createPdf(docDefinition).open("document.pdf");
+                pdfMake.createPdf(docDefinition).download(this.$camelize($barraHerramientas.nombreMacroproceso) + "_document.pdf");
+                
             },
             $appart: function(ancho, alto, svgElement){
                 var nuevaAltura;
@@ -2109,6 +2115,7 @@
             }
         };
     };
+    Service.$inject = ['$barraHerramientas'];
     angular
         .module('wordService', [])
         .service('$word', Service);

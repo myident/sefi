@@ -36,7 +36,7 @@
         // init arquitecturas, dominios, megaprocesos
         $scope.arquitecturas = $indice.arquitecturas(
             function (data) {
-                console.log(data);
+//                console.log(data);
                 $rootScope.spin = false;
                 $scope.arquitectura = data.arquitectura[$indexArquitectura];
                 if (data.arquitectura.length){
@@ -78,9 +78,9 @@
         };
         //MARK: - getter Macroprocesos
         $scope.getMacroprocesos = function (value, index) {
-            console.log('Macros');
-            console.log(value);
-            console.log(index);
+//            console.log('Macros');
+//            console.log(value);
+//            console.log(index);
             $scope.macroprocesos = $indice.macroprocesos(
                 value,
                 index,
@@ -98,9 +98,7 @@
         };
         // MARK: - getter Procesos
         $scope.getProcesos = function (value, index) {
-            console.log('Procesos');
-            console.log(value);
-            console.log(index);
+            $barraHerramientas.nombreMacroproceso = $scope.macroprocesos[index].title;
             $indice.procesos(
                 value,
                 index,
@@ -139,7 +137,7 @@
                     }
 
                     var process = JSON.parse(JSON.stringify(data.procesos));
-                    console.log(process);
+//                    console.log(process);
                     $scope.source = {procesos: process, kpis:data.procesos, areas: data.areas};
                 });
         };
