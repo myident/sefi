@@ -15,6 +15,14 @@
                         $scope.displayZoom = parseInt($scope.zoom * 100) + '%';
                     }
                 });
+            
+            $scope.$watch(
+                function () {
+                    return $barraHerramientas.showBar;
+                },
+                function (newVal) {
+                    $scope.showBar = newVal;
+                });
 
             $scope.levelOne = true;
 
@@ -262,8 +270,8 @@
                     scale: 1.5
                 }, function (uri) {
                     $word.$diagramMake(uri);
-                    $scope.showDownloadMenu = false;
                 });
+                $scope.showDownloadMenu = false;
             };
             $scope.downloadDocument = function () {
                 $word.$documentMake();
