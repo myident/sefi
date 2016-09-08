@@ -29,7 +29,13 @@
             <div class="total" ng-click="changeZoom('default')">{{displayZoom}}</div>
             <div class="mas" ng-click="changeZoom('mas')"></div>
         </div>
-        <div class="download-pdf" ng-click="imprimirSeparados()"></div>
+        <div class="download-pdf" ng-click="showDownloadMenu = !showDownloadMenu"></div>
+        <div class="download-menu" ng-show="showDownloadMenu">
+            <div ng-click="downloadDocument()">Document</div>
+            <div style="width: 100%; height: 1px; background: #d7d7d7; position: absolute; left: 0; top: 35px;"></div>
+            <div ng-click="downloadDiagram()">Diagram</div>
+        </div>
+
     </div>
 
 </div>

@@ -3,17 +3,18 @@
     var Directive = function ($word, $barraHerramientas, $window) {
 
         var Link = function ($scope) {
-            
-        $scope.$watch(
-            function () {
-                return $barraHerramientas.zoom;
-            },
-            function (newVal) {
-                if (typeof newVal !== 'undefined') {
-                    $scope.zoom = newVal;
-                    $scope.displayZoom = parseInt($scope.zoom * 100) + '%';
-                }
-            });
+            $scope.showDownloadMenu = false;
+
+            $scope.$watch(
+                function () {
+                    return $barraHerramientas.zoom;
+                },
+                function (newVal) {
+                    if (typeof newVal !== 'undefined') {
+                        $scope.zoom = newVal;
+                        $scope.displayZoom = parseInt($scope.zoom * 100) + '%';
+                    }
+                });
 
             $scope.levelOne = true;
 
@@ -246,24 +247,27 @@
                 });
 
             };
-            
-            $scope.appart = function(){
+
+            $scope.appart = function () {
                 var svgElement = $window.document.getElementById('dgWaysSvg'),
-                ancho = $barraHerramientas.svgSize.width / 2.25,
-                alto = $barraHerramientas.svgSize.height / 2.25;
+                    ancho = $barraHerramientas.svgSize.width / 2.25,
+                    alto = $barraHerramientas.svgSize.height / 2.25;
                 $word.$noDiagram();
                 $word.$appart(ancho, alto, svgElement);
-                
+
             };
-            
-            $scope.imprimirSeparados = function(){
+            $scope.downloadDiagram = function () {
                 var svgElement = $window.document.getElementById('dgWaysSvg');
                 svgAsPngUri(svgElement, {
                     scale: 1.5
                 }, function (uri) {
-                    $word.$documentMake();
                     $word.$diagramMake(uri);
+                    $scope.showDownloadMenu = false;
                 });
+            };
+            $scope.downloadDocument = function () {
+                $word.$documentMake();
+                $scope.showDownloadMenu = false;
             };
 
 
