@@ -100,6 +100,7 @@
         // MARK: - getter Procesos
         $scope.getProcesos = function (value, index) {
             $barraHerramientas.nombreMacroproceso = $scope.macroprocesos[index].title;
+            $barraHerramientas.view = 0;
             $barraHerramientas.showBar = true;
             $indice.procesos(
                 value,
