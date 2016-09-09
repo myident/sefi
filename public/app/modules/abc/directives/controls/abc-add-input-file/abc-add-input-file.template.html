@@ -1,0 +1,15 @@
+<div class="abc-create-form-group">
+    <div class="abc-create-label-multiline">
+        <span>{{label}}</span>
+    </div>
+    <div class="abc-create-input-xl">
+       <span ng-repeat="term in source" style="height: 100px;">
+           <span class="numeration">{{$index + 1}}</span><input class="short" type="text" placeholder="{{holders[0]}}" ng-model="term.name"><input class="medium" type="text" placeholder="{{holders[1]}}" ng-model="term.definition"><div class="abc-add-button" ng-click="addElementToSource()"><i></i></div>
+           <div class="abc-delete-button" ng-show="canDelete" ng-click="deleteElementFromSource($index)"></div>
+           <div class="abc-create-upload">
+               <div class="abc-create-upload-button">Upload file</div><div class="abc-create-file-extension">Archivo</div><div class="abc-create-edit-button"><i></i></div><div class="abc-create-delete-button"><i></i></div>
+           </div>
+       </span>
+    </div>
+    
+</div>

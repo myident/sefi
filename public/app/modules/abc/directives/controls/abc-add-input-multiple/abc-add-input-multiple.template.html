@@ -1,0 +1,12 @@
+<div class="abc-create-form-group">
+    <div class="abc-create-label-multiline">
+        <span>{{label}}</span>
+    </div>
+    <div class="abc-create-input-xl">
+       <span ng-repeat="term in source">
+           <input class="multi" type="text" placeholder="{{holder.placeholder}}" ng-model="term.name" ng-repeat="holder in holders" style="width: {{holder.width}}"><div class="abc-add-button" ng-click="addElementToSource()"><i></i></div>
+           <div class="abc-delete-button" ng-show="canDelete" ng-click="deleteElementFromSource($index)"></div>
+       </span>
+    </div>
+    
+</div>
