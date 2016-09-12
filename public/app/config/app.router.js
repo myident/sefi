@@ -71,7 +71,7 @@
         });
         $routeProvider.when('/abc-diagrama', {
             templateUrl: baseUrl + 'abc/views/abc.diagrama.view.html',
-            controller: 'AbcCreateController'
+            controller: 'AbcDiagramaController'
         });
 
 

@@ -1,5 +1,5 @@
 (function(){
-	angular.module().factory('Area',function($source, $singleton){
+	angular.module('mAbc').factory('Area',function($resource, $singleton){
 		return $resource($singleton.path+'Dominio/:id');
 	});
 })();

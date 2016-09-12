@@ -1,5 +1,5 @@
 (function(){
-	angular.module().factory('Kpi',function($source, $singleton){
+	angular.module('mAbc').factory('Kpi',function($resource, $singleton){
 		return $resource($singleton.path+'Dominio/:id');
 	});
 })();

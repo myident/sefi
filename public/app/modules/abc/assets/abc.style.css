@@ -497,3 +497,156 @@
 .abc-create-multi-select > span:last-child > .abc-create-select > .abc-add-button {
     display: inline-block;
 }
+
+.diagrama-section {
+    width: 100%;
+    height: calc(100vh - 160px);
+    background: white;
+    overflow: auto;
+}
+
+.diagrama-section-data {
+    display: inline-block;
+    width: 100%;
+    font-size: 16px;
+}
+
+.diagrama-section-data-label {
+    width: 140px;
+    display: inline-block;
+    padding: 20px;
+    padding-bottom: 0;
+}
+
+.diagrama-section-data-content {
+    display: inline-block;
+}
+
+.diagrama-section-macroprocess {
+    padding: 20px;
+    font-size: 30px;
+}
+
+.diagrama-creation > .dc-procesos:first-child {
+    margin-left: 20px;
+}
+
+.dc-procesos {
+    display: inline-block;
+    width: 176px;
+    vertical-align: top;
+    position: relative;
+}
+
+.dc-procesos-flecha {
+    position: absolute;
+    width: 32px;
+    height: 16px;
+    right: 0;
+    top: 30px;
+    background: url(../../../../assets/img/flecha-diagram.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.dc-process,
+.dc-capacidad {
+    height: 80px;
+    width: 145px;
+    display: inline-block;
+    border: 1px solid #979797;
+    margin-right: 10px;
+    vertical-align: top;
+}
+
+.dc-process.active,
+.dc-capacidad.active {
+    border: 2px solid #30A3CF;
+}
+
+.dc-process.off,
+.dc-capacidad.off {
+    background: #fafafa;
+}
+
+.dc-process.off > .dc-process-number,
+.dc-process.off > .dc-process-name,
+.dc-capacidad.off > .dc-capacidad-number,
+.dc-capacidad.off > .dc-capacidad-name {
+    display: none;
+}
+
+.dc-process.off:after,
+.dc-capacidad.off:after {
+    content: 'Add';
+    color: #30A3CF;
+    font-size: 14px;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    line-height: 80px;
+}
+
+.dc-capacidad {
+    margin-top: 37px;
+}
+
+.dc-process-name,
+.dc-capacidad-name {
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    padding-top: 10px;
+}
+
+.dc-capacidad-attributes {
+    margin-bottom: 10px;
+}
+
+.dc-capacidad-attributes:last-child {
+    margin: 0;
+}
+
+.dc-capacidad-attributes > span {
+    display: block;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    color: white;
+    width: 145px;
+    font-size: 13px;
+}
+
+.dc-capacidad-attributes > span.dc-area {
+    background: #B43A7D;
+}
+
+.dc-capacidad-attributes > span.dc-app {
+    background: #6553BA;
+}
+
+.dc-capacidad-attributes > span.dc-kpi {
+    background: #50BEC5;
+}
+
+.abc-create-form-title {
+    font-size: 16px;
+    color: #30A3CF;
+    margin-bottom: 20px;
+    font-family: 'SF Medium';
+}
+
+.dc-capacidades {
+    position: relative;
+    display: inline-block;
+}
+
+.dc-capacidad-connection {
+    position: absolute;
+    width: 2px;
+    height: 37px;
+    background: #9c9c9c;
+    top: 0;
+    left: 70px;
+}
