@@ -4,6 +4,9 @@
         <abc-textarea title="Area name (max. 80 characters)" model="area.name" label="Name"></abc-textarea>
     </li>
     <li>
+        <abc-radio model="area.type" label="Area type" options="[{name:'Operative', active: true}, {name:'Executive', active: false}]"></abc-radio>
+    </li>
+    <li>
         <div class="container-buttons-right">
             <div class="abc-create-button" ng-click="clear()">Clear</div>
             <div class="abc-create-button disabled" ng-click="save()">Save</div>

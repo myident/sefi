@@ -5,45 +5,43 @@
             <i></i>
             <span>Back</span>
         </div>
-        <article style="width: 40%; display: inline-block;">
+        <article class="abc-diagrama-sidebar">
             <div class="module-title">
                 <div>
                     <span>Business Architecture | </span> <span class="active">Diagram</span>
                 </div>
             </div>
-            <div>
-                <div style="margin: 30px 0 30px 30px; font-size: 16px;">Select the Macroprocess you want to diagram:</div>
-            </div>
-            <div style="margin-left: 30px;">
+            <div class="abc-diagrama-instructions">Select the Macroprocess you want to diagram:</div>
+            <div class="abc-diagrama-options">
                 <ul class="abc-create-form">
                     <li>
-                        <abc-select label="Macroprocess" holder="Select a Macroprocess" model="macroprocess"></abc-select>
+                        <abc-select label="Macroprocess" holder="Select a Macroprocess" model="macroprocess" options="macroprocesos"></abc-select>
+                        <div class="abc-separator-line"></div>
                     </li>
-                    <div class="abc-separator-line"></div>
-                    <div class="abc-create-form-title" ng-show="processEditing">P1 Process Details</div>
-                    <div class="abc-create-form-title" ng-hide="processEditing">C1 Capability Details</div>
                     <li ng-show="processEditing">
+                        <div class="abc-create-form-title">P{{currentProcess + 1}} Process Details</div>
                         <abc-input title="Process name" model="procesos[currentProcess].name" label="Process name" event="toggleActiveButton">
                         </abc-input>
                     </li>
                     <li ng-hide="processEditing">
+                        <div class="abc-create-form-title">C{{currentCapability + 1}} Capability Details</div>
                         <abc-input title="Capability name" model="procesos[currentProcess].capacidades[currentCapability].name" label="Capability name" event="toggleActiveButton">
                         </abc-input>
                         <div ng-repeat="attribute in procesos[currentProcess].capacidades[currentCapability].attributes">
-                            <div class="abc-create-form-title" ng-hide="processEditing">C1 Capability Attributes</div>
-                            <abc-select label="Area" holder="Select area" model="attribute.area"></abc-select>
-                            <abc-select label="Application" holder="Select application" model="attribute.application"></abc-select>
-                            <abc-select label="KPI" holder="Select KPI" model="attribute.kpi"></abc-select>
+                            <div class="abc-create-form-title" ng-hide="processEditing">C{{currentCapability + 1}} Capability Attributes</div>
+                            <abc-select label="Area" holder="Select area" model="attribute.area" options="areas"></abc-select>
+                            <abc-select label="Application" holder="Select application" model="attribute.application" options="aplicaciones"></abc-select>
+                            <abc-select label="KPI" holder="Select KPI" model="attribute.kpi" options="kpis"></abc-select>
                         </div>
                         <div ng-click="addMoreAttributes()" style="text-decoration: underline; color: #30A3CF; cursor: pointer;">Repeat capability with different attributes</div>
                     </li>
                 </ul>
             </div>
         </article>
-        <aside style="width: 58%; display: inline-block; vertical-align: top; float: right;">
+        <aside class="abc-diagrama-canvas">
             <header>
-                <ul>
-                    <li>Capabilities</li>
+                <ul class="header-diagrama">
+                    <li class="active">Capabilities</li>
                     <li>Business Rules</li>
                 </ul>
             </header>
@@ -57,7 +55,7 @@
                         <div class="diagrama-section-data-label">Megaprocess:</div>
                         <div class="diagrama-section-data-content">Sales</div>
                     </div>
-                    <div class="diagrama-section-macroprocess">Suscription Management</div>
+                    <div class="diagrama-section-macroprocess">{{macroprocess}}</div>
                     <div class="diagrama-creation" style="width: {{procesos.length * 200}}px">
                         <div class="dc-procesos" ng-repeat="proceso in procesos">
                             <div class="dc-procesos-flecha" ng-show="proceso.mode == 'on' ? true : false"></div>

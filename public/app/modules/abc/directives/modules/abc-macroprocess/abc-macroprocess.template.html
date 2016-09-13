@@ -1,7 +1,7 @@
 <span>2. Macroprocess information</span>
 <ul class="abc-create-form">
     <li>
-        <abc-select label="Megaprocess" holder="Select a Megaprocess" model="mega" event="toggleActiveButton"></abc-select>
+        <abc-select label="Megaprocess" holder="Select a Megaprocess" model="mega" event="toggleActiveButton" options="megaprocesos"></abc-select>
     </li>
     <li>
         <abc-textarea title="Name (max. 100 characters)" model="name" label="Name" event="toggleActiveButton"></abc-textarea>
@@ -30,7 +30,11 @@
 
 <div class="abc-separator-line"></div>
 <span>4. Select an area and add it with the + button:</span>
-<abc-add-select label="Associated Business Objectives" holder="'Select Area'" model="termGlossary" event="toggleActiveButton"></abc-add-select>
+<ul class="abc-create-form">
+    <li>
+        <abc-add-select label="Process owner" holder="'Select Area'" model="termGlossary" event="toggleActiveButton" options="areas"></abc-add-select>
+    </li>
+</ul>
 
 
 
@@ -38,6 +42,9 @@
 <ul class="abc-create-form">
     <li>
         <abc-textarea-xl label="Macroprocess Objective" title="Macroprocess Objective (max. 2000 characters)" model="megaprocessObjective" event="toggleActiveButton"></abc-textarea-xl>
+    </li>
+    <li>
+        <abc-add-select-obj label="Associated Business Objectives" holders="['Select Area', 'Objective']" model="termGlossary" event="toggleActiveButton" options="areas"></abc-add-select-obj>
     </li>
 </ul>
 

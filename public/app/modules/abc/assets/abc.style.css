@@ -258,13 +258,13 @@
 .abc-create-select > div > .abc-create-select-elements {
     position: relative;
     height: 40px;
+    z-index: 10;
 }
 
 .abc-create-select > div > .abc-create-select-elements ul {
-    display: none;
-    position: absolute;
-    left: -1px;
-    bottom: -38px;
+    position: relative;
+    margin-left: -1px;
+    margin-top: -2px;
     height: auto;
     max-height: 80px;
     width: 350px;
@@ -272,11 +272,23 @@
     border: 1px solid #CED1D2;
     overflow: auto;
     overflow-x: hidden;
+    box-shadow: inset 0 -6px 9px -2px rgba(0, 0, 0, 0.1);
 }
 
 .abc-create-select > div > .abc-create-select-elements ul li {
     padding: 0 20px;
     border-bottom: 1px solid #CED1D2;
+    height: 32px;
+    line-height: 32px;
+    color: #9B9B9B;
+    cursor: pointer;
+    transition: all ease 0.3s;
+    -webkit-transition: all ease 0.3s;
+    -moz-transition: all ease 0.3s;
+}
+
+.abc-create-select > div > .abc-create-select-elements ul li:hover {
+    color: #4E4E4E;
 }
 
 .abc-create-select > div > .abc-create-select-elements ul li:last-child {
@@ -484,8 +496,29 @@
 
 .multi-select {
     display: inline-block;
-    margin: 10px 0;
+    margin: 0 0 10px 0;
     width: 400px;
+}
+
+.multi-select > .abc-create-select {
+    position: relative;
+    width: 100%;
+}
+
+.multi-select > .abc-create-select > .abc-create-select-content {
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.abc-create-select-content-title {
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.abc-create-select-content-title.active {
+    padding-left: 10px;
+    cursor: pointer;
+    color: #9B9B9B;
 }
 
 .abc-create-multi-select {
@@ -494,13 +527,21 @@
     vertical-align: top;
 }
 
+.abc-create-multi-select.large {
+    width: 80%;
+}
+
+.abc-create-multi-select.large .multi-select {
+    width: 100%;
+}
+
 .abc-create-multi-select > span:last-child > .abc-create-select > .abc-add-button {
     display: inline-block;
 }
 
 .diagrama-section {
     width: 100%;
-    height: calc(100vh - 160px);
+    height: calc(100vh - 300px);
     background: white;
     overflow: auto;
 }
@@ -649,4 +690,93 @@
     background: #9c9c9c;
     top: 0;
     left: 70px;
+}
+
+ul.header-diagrama {}
+
+ul.header-diagrama > li {
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    display: inline-block;
+    background: #EBEBEB;
+    color: #525252;
+    border-radius: 8px 8px 0 0;
+    font-size: 16px;
+    font-family: 'SF Medium';
+    position: relative;
+    cursor: pointer;
+    box-shadow: 1px 0px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+ul.header-diagrama > li:last-child {
+    margin-left: -30px;
+}
+
+ul.header-diagrama > li.active {
+    background: #2CA2CF;
+    color: white;
+    z-index: 1;
+}
+
+.abc-diagrama-instructions {
+    margin: 30px 0 30px 30px;
+    font-size: 16px;
+}
+
+.abc-diagrama-options {
+    margin-left: 30px;
+}
+
+.abc-diagrama-sidebar {
+    width: 40%;
+    display: inline-block;
+}
+
+.abc-diagrama-canvas {
+    width: 58%;
+    display: inline-block;
+    vertical-align: top;
+    float: right;
+}
+
+ul.abc-radio-elements {
+    display: inline-block;
+    width: 350px;
+    line-height: 40px;
+}
+
+ul.abc-radio-elements > li.abc-radio-element {
+    display: inline-block;
+    width: 50%;
+    cursor: pointer;
+}
+
+.abc-radio-element > i {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    background: url(../../../../assets/img/radio-off.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.abc-radio-element.active > i {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    background: url(../../../../assets/img/radio-on.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.abc-create-select > input {
+width: calc(100% - 350px);
+    height: 40px;
+    resize: none;
+    border: 1px solid #CED1D2;
+    padding: 12px;
 }

@@ -1,8 +1,9 @@
 /* global angular */
 (function(){
     var Directive = function(){
-        var Link = function(){
-            
+        var Link = function($scope){
+            $scope.megaprocesos = ['CRM', 'Custom Manager'];
+            $scope.areas = ['IT', 'OCM', 'OSS', 'ROSE'];
         };
         return {
             restrict: 'A',

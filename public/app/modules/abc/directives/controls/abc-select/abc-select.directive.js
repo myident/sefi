@@ -1,21 +1,41 @@
 /* global angular */
-(function(){
-    var Directive = function(){
-        
-        var Link = function($scope){
+(function () {
+    var Directive = function () {
+
+        var Link = function ($scope) {
+
+            $scope.showOptions = false;
             
+            $scope.modelSelected = false;
+
             // Execute the event configured
             $scope.triggerEvent = function () {
-                if ($scope.event){
-                    $scope.event();
+                if ($scope.event) {
+                    $scope.event($scope.model);
                 } else {
-                    console.log('WARNING: El evento de la directiva Textarea, no está definido');
+                    console.log('WARNING: El evento de la directiva Select ' + $scope.label + ', no está definido');
                 }
-                
+
             };
-            
+
+            $scope.toggleShowOptions = function () {
+
+                if ($scope.options) {
+                    $scope.showOptions = !$scope.showOptions;
+                } else {
+                    console.log('WARNING: Las opciones de la directiva Select ' + $scope.label + ', no están definidas');
+                }
+            };
+
+            $scope.selectOption = function (index) {
+                $scope.modelSelected = true;
+                $scope.showOptions = false;
+                $scope.model = $scope.options[index];
+                $scope.holder = $scope.model;
+                $scope.triggerEvent();
+            };
         };
-        
+
         return {
             restrict: 'E',
             templateUrl: 'app/modules/abc/directives/controls/abc-select/abc-select.template.html',
@@ -23,6 +43,7 @@
                 holder: '@',
                 model: '=',
                 label: '@',
+                options: '=',
                 event: '='
             },
             link: Link

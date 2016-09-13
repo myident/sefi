@@ -4,12 +4,10 @@
 
     var Controller = function ($scope) {
 
-        $scope.currentProcess = 0;
-
-        $scope.currentCapability = 0;
-
-        $scope.processEditing = true;
-
+        $scope.macroprocesos = ['CRM', 'Customer Management', 'CRM', 'Customer Management', 'CRM', 'Customer Management'];
+        $scope.areas = ['IT', 'CRM', 'SRM'];
+        $scope.aplicaciones = ['Aplicacion 1', 'Aplicacion 2', 'Aplicacion 3'];
+        $scope.kpis = ['KPI 1', 'KPI 2', 'KPI 3'];
         $scope.procesos = [
             {
                 mode: 'off',
@@ -18,6 +16,12 @@
                 capacidades: []
             }
         ];
+
+        $scope.currentProcess = 0;
+
+        $scope.currentCapability = 0;
+
+        $scope.processEditing = true;
 
         // MARK: - activa un proceso
         $scope.activateProcess = function (index) {
@@ -95,7 +99,7 @@
                 kpi: ''
             };
             $scope.procesos[$scope.currentProcess].capacidades[$scope.currentCapability].attributes.push(newAttributes);
-            
+
         };
 
 
