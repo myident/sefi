@@ -24,6 +24,8 @@
                         </abc-input>
                     </li>
                     <li ng-hide="processEditing">
+                       
+                        <!--Procesos y capacidades-->
                         <div  ng-show="hideBRule">
                             <div class="abc-create-form-title">C{{currentCapability + 1}} Capability Details</div>
                             <abc-input title="Capability name" model="procesos[currentProcess].capacidades[currentCapability].name" label="Capability name" event="toggleActiveButton">
@@ -36,17 +38,19 @@
                             </div>
                             <div ng-click="addMoreAttributes()" style="text-decoration: underline; color: #30A3CF; cursor: pointer;">Repeat capability with different attributes</div>
                         </div>
+                        
+                        <!--Procesos y reglas de negocio-->
                         <div  ng-hide="hideBRule">
-                            <div class="abc-create-form-title">BR{{currentCapability + 1}} Capability Details</div>
-                            <abc-input title="Capability name" model="procesos[currentProcess].capacidades[currentCapability].name" label="Capability name" event="toggleActiveButton">
+                            <div class="abc-create-form-title">BR{{currentCapability + 1}} Business Rule Details</div>
+                            <abc-input title="Business rule name" model="procesos[currentProcess].reglas[currentCapability].name" label="Business rule name" event="toggleActiveButton">
                             </abc-input>
-                            <div ng-repeat="attribute in procesos[currentProcess].capacidades[currentCapability].attributes">
-                                <div class="abc-create-form-title" ng-hide="processEditing">C{{currentCapability + 1}} Capability Attributes</div>
+                            <div ng-repeat="attribute in procesos[currentProcess].reglas[currentCapability].attributes">
+                                <div class="abc-create-form-title" ng-hide="processEditing">BR{{currentCapability + 1}} Business rule Attributes</div>
                                 <abc-select label="Area" holder="Select area" model="attribute.area" options="areas"></abc-select>
                                 <abc-select label="Application" holder="Select application" model="attribute.application" options="aplicaciones"></abc-select>
                                 <abc-select label="KPI" holder="Select KPI" model="attribute.kpi" options="kpis"></abc-select>
                             </div>
-                            <div ng-click="addMoreAttributes()" style="text-decoration: underline; color: #30A3CF; cursor: pointer;">Repeat capability with different attributes</div>
+                            <div ng-click="addMoreAttributesToBrule()" style="text-decoration: underline; color: #30A3CF; cursor: pointer;">Repeat Business Rule with different attributes</div>
                         </div>
                     </li>
                 </ul>
@@ -59,8 +63,6 @@
                     <li ng-class="{'active': !hideBRule}" ng-click="hideBRule = false">Business Rules</li>
                 </ul>
             </header>
-            
-            
             <div class="diagrama-section">
                 <div class="diagrama-section-container">
                     <div class="diagrama-section-data">
@@ -73,6 +75,7 @@
                     </div>
                     <div class="diagrama-section-macroprocess">{{macroprocess}}</div>
                     
+                    <!--Procesos y capacidades-->
                     <div class="diagrama-creation" style="width: {{procesos.length * 200}}px" ng-show="hideBRule">
                         <div class="dc-procesos" ng-repeat="proceso in procesos">
                             <div class="dc-procesos-flecha" ng-show="proceso.mode == 'on' ? true : false"></div>
@@ -95,6 +98,7 @@
                         </div>
                     </div>
                     
+                    <!--Procesos y reglas del negocio-->
                     <div class="diagrama-creation" style="width: {{procesos.length * 200}}px" ng-hide="hideBRule">
                         <div class="dc-procesos" ng-repeat="proceso in procesos">
                             <div class="dc-procesos-flecha" ng-show="proceso.mode == 'on' ? true : false"></div>
@@ -102,13 +106,13 @@
                                 <span class="dc-process-number">P{{$index + 1}}</span>
                                 <span class="dc-process-name">{{proceso.name}}</span>
                             </div>
-                            <div class="dc-capacidades" ng-repeat="capacidad in proceso.capacidades">
+                            <div class="dc-capacidades" ng-repeat="regla in proceso.reglas">
                                 <div class="dc-capacidad-connection"></div>
-                                <div class="dc-capacidad {{capacidad.mode}}" ng-click="activateCapability($parent.$index, $index)" ng-class="{'active': capacidad.active}">
-                                    <span class="dc-capacidad-number">C{{$index + 1}}</span>
-                                    <span class="dc-capacidad-name">{{capacidad.name}}</span>
+                                <div class="dc-capacidad {{regla.mode}}" ng-click="activateBrule($parent.$index, $index)" ng-class="{'active': regla.active}">
+                                    <span class="dc-capacidad-number">BR{{$index + 1}}</span>
+                                    <span class="dc-capacidad-name">{{regla.name}}</span>
                                 </div>
-                                <div class="dc-capacidad-attributes" ng-repeat="attribute in capacidad.attributes">
+                                <div class="dc-capacidad-attributes" ng-repeat="attribute in regla.attributes">
                                     <span class="dc-area" ng-show="attribute.area != '' ? true : false">{{attribute.area}}</span>
                                     <span class="dc-app" ng-show="attribute.application != '' ? true : false">{{attribute.application}}</span>
                                     <span class="dc-kpi" ng-show="attribute.kpi != '' ? true : false">{{attribute.kpi}}</span>

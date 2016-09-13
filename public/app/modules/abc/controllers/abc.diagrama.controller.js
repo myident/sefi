@@ -13,7 +13,8 @@
                 mode: 'off',
                 active: false,
                 name: '',
-                capacidades: []
+                capacidades: [],
+                reglas: []
             }
         ];
         
@@ -22,6 +23,8 @@
         $scope.currentProcess = 0;
 
         $scope.currentCapability = 0;
+        
+        $scope.currentBrule = 0;
 
         $scope.processEditing = true;
 
@@ -41,9 +44,22 @@
                     mode: 'off',
                     active: false,
                     name: '',
-                    capacidades: []
+                    capacidades: [],
+                    reglas: []
                 };
                 var newCapacidad = {
+                    mode: 'off',
+                    active: false,
+                    name: '',
+                    attributes: [
+                        {
+                            area: '',
+                            application: '',
+                            kpi: ''
+                        }
+                    ]
+                };
+                var newReglas = {
                     mode: 'off',
                     active: false,
                     name: '',
@@ -58,6 +74,7 @@
                 $scope.procesos.push(newProcess);
                 $scope.procesos[index].mode = 'on';
                 $scope.procesos[index].capacidades.push(newCapacidad);
+                $scope.procesos[index].reglas.push(newReglas);
             }
         };
 
@@ -102,6 +119,48 @@
             };
             $scope.procesos[$scope.currentProcess].capacidades[$scope.currentCapability].attributes.push(newAttributes);
 
+        };
+        
+        
+        // MARK: - activa una regla de negocio
+        $scope.activateBrule = function (parentIndex, index) {
+            $scope.processEditing = false;
+            $scope.currentProcess = parentIndex;
+            $scope.currentBrule = index;
+            for (var i in $scope.procesos) {
+                $scope.procesos[i].active = false;
+                for (var j in $scope.procesos[i].reglas) {
+                    $scope.procesos[i].reglas[j].active = false;
+                }
+            }
+            $scope.procesos[$scope.currentProcess].reglas[$scope.currentBrule].active = true;
+            if ($scope.procesos[$scope.currentProcess].reglas[$scope.currentBrule].mode == 'off') {
+                var newRegla = {
+                    mode: 'off',
+                    active: false,
+                    name: '',
+                    attributes: [
+                        {
+                            area: '',
+                            application: '',
+                            kpi: ''
+                        }
+                    ]
+                };
+                $scope.procesos[$scope.currentProcess].reglas[$scope.currentBrule].mode = 'on';
+                $scope.procesos[$scope.currentProcess].reglas.push(newRegla);
+            }
+        };
+
+
+        // MARK: - Agrega nuevos atributos a la regla de negocio
+        $scope.addMoreAttributesToBrule = function () {
+            var newAttributes = {
+                area: '',
+                application: '',
+                kpi: ''
+            };
+            $scope.procesos[$scope.currentProcess].reglas[$scope.currentBrule].attributes.push(newAttributes);
         };
 
 
