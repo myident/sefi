@@ -16,6 +16,8 @@
                 capacidades: []
             }
         ];
+        
+        $scope.hideBRule = true;
 
         $scope.currentProcess = 0;
 

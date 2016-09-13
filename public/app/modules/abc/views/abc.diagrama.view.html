@@ -24,16 +24,30 @@
                         </abc-input>
                     </li>
                     <li ng-hide="processEditing">
-                        <div class="abc-create-form-title">C{{currentCapability + 1}} Capability Details</div>
-                        <abc-input title="Capability name" model="procesos[currentProcess].capacidades[currentCapability].name" label="Capability name" event="toggleActiveButton">
-                        </abc-input>
-                        <div ng-repeat="attribute in procesos[currentProcess].capacidades[currentCapability].attributes">
-                            <div class="abc-create-form-title" ng-hide="processEditing">C{{currentCapability + 1}} Capability Attributes</div>
-                            <abc-select label="Area" holder="Select area" model="attribute.area" options="areas"></abc-select>
-                            <abc-select label="Application" holder="Select application" model="attribute.application" options="aplicaciones"></abc-select>
-                            <abc-select label="KPI" holder="Select KPI" model="attribute.kpi" options="kpis"></abc-select>
+                        <div  ng-show="hideBRule">
+                            <div class="abc-create-form-title">C{{currentCapability + 1}} Capability Details</div>
+                            <abc-input title="Capability name" model="procesos[currentProcess].capacidades[currentCapability].name" label="Capability name" event="toggleActiveButton">
+                            </abc-input>
+                            <div ng-repeat="attribute in procesos[currentProcess].capacidades[currentCapability].attributes">
+                                <div class="abc-create-form-title" ng-hide="processEditing">C{{currentCapability + 1}} Capability Attributes</div>
+                                <abc-select label="Area" holder="Select area" model="attribute.area" options="areas"></abc-select>
+                                <abc-select label="Application" holder="Select application" model="attribute.application" options="aplicaciones"></abc-select>
+                                <abc-select label="KPI" holder="Select KPI" model="attribute.kpi" options="kpis"></abc-select>
+                            </div>
+                            <div ng-click="addMoreAttributes()" style="text-decoration: underline; color: #30A3CF; cursor: pointer;">Repeat capability with different attributes</div>
                         </div>
-                        <div ng-click="addMoreAttributes()" style="text-decoration: underline; color: #30A3CF; cursor: pointer;">Repeat capability with different attributes</div>
+                        <div  ng-hide="hideBRule">
+                            <div class="abc-create-form-title">BR{{currentCapability + 1}} Capability Details</div>
+                            <abc-input title="Capability name" model="procesos[currentProcess].capacidades[currentCapability].name" label="Capability name" event="toggleActiveButton">
+                            </abc-input>
+                            <div ng-repeat="attribute in procesos[currentProcess].capacidades[currentCapability].attributes">
+                                <div class="abc-create-form-title" ng-hide="processEditing">C{{currentCapability + 1}} Capability Attributes</div>
+                                <abc-select label="Area" holder="Select area" model="attribute.area" options="areas"></abc-select>
+                                <abc-select label="Application" holder="Select application" model="attribute.application" options="aplicaciones"></abc-select>
+                                <abc-select label="KPI" holder="Select KPI" model="attribute.kpi" options="kpis"></abc-select>
+                            </div>
+                            <div ng-click="addMoreAttributes()" style="text-decoration: underline; color: #30A3CF; cursor: pointer;">Repeat capability with different attributes</div>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -41,10 +55,12 @@
         <aside class="abc-diagrama-canvas">
             <header>
                 <ul class="header-diagrama">
-                    <li class="active">Capabilities</li>
-                    <li>Business Rules</li>
+                    <li ng-class="{'active': hideBRule}" ng-click="hideBRule = true">Capabilities</li>
+                    <li ng-class="{'active': !hideBRule}" ng-click="hideBRule = false">Business Rules</li>
                 </ul>
             </header>
+            
+            
             <div class="diagrama-section">
                 <div class="diagrama-section-container">
                     <div class="diagrama-section-data">
@@ -56,7 +72,8 @@
                         <div class="diagrama-section-data-content">Sales</div>
                     </div>
                     <div class="diagrama-section-macroprocess">{{macroprocess}}</div>
-                    <div class="diagrama-creation" style="width: {{procesos.length * 200}}px">
+                    
+                    <div class="diagrama-creation" style="width: {{procesos.length * 200}}px" ng-show="hideBRule">
                         <div class="dc-procesos" ng-repeat="proceso in procesos">
                             <div class="dc-procesos-flecha" ng-show="proceso.mode == 'on' ? true : false"></div>
                             <div class="dc-process {{proceso.mode}}" ng-click="activateProcess($index)" ng-class="{'active': proceso.active}">
@@ -77,8 +94,32 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="diagrama-creation" style="width: {{procesos.length * 200}}px" ng-hide="hideBRule">
+                        <div class="dc-procesos" ng-repeat="proceso in procesos">
+                            <div class="dc-procesos-flecha" ng-show="proceso.mode == 'on' ? true : false"></div>
+                            <div class="dc-process {{proceso.mode}}" ng-click="activateProcess($index)" ng-class="{'active': proceso.active}">
+                                <span class="dc-process-number">P{{$index + 1}}</span>
+                                <span class="dc-process-name">{{proceso.name}}</span>
+                            </div>
+                            <div class="dc-capacidades" ng-repeat="capacidad in proceso.capacidades">
+                                <div class="dc-capacidad-connection"></div>
+                                <div class="dc-capacidad {{capacidad.mode}}" ng-click="activateCapability($parent.$index, $index)" ng-class="{'active': capacidad.active}">
+                                    <span class="dc-capacidad-number">C{{$index + 1}}</span>
+                                    <span class="dc-capacidad-name">{{capacidad.name}}</span>
+                                </div>
+                                <div class="dc-capacidad-attributes" ng-repeat="attribute in capacidad.attributes">
+                                    <span class="dc-area" ng-show="attribute.area != '' ? true : false">{{attribute.area}}</span>
+                                    <span class="dc-app" ng-show="attribute.application != '' ? true : false">{{attribute.application}}</span>
+                                    <span class="dc-kpi" ng-show="attribute.kpi != '' ? true : false">{{attribute.kpi}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </aside>
+        
     </section>
 </main>
