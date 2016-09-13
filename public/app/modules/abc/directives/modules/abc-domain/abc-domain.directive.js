@@ -6,8 +6,8 @@
             $scope.canSave = false;
 
             // Data structure
-            $scope.name = '';
-            $scope.shortname = '';
+            $scope.name = $scope.source.name || '';
+            $scope.shortname = $scope.source.shortname || '';
 
             // Active the save button
             $scope.toggleActiveButton = function () {
@@ -42,7 +42,8 @@
             restrict: 'A',
             templateUrl: 'app/modules/abc/directives/modules/abc-domain/abc-domain.template.html',
             scope: {
-                title: '@'
+                title: '@',
+                source: '='
             },
             link: Link
         };

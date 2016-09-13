@@ -9,7 +9,7 @@
                     'assets/img/abc-create/create-domain.png',
                     'assets/img/abc-create/create-domain-active.png'
                 ],
-                active: false
+                active: true
             },
             {
                 name: 'Megaprocess',

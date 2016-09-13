@@ -15,8 +15,10 @@
 
         };
         
-        $scope.domain = {};
-        $scope.domain.name = 'R';
+        $scope.dominio = {
+            name: 'Un dominio',
+            shortname: 'UND'
+        };
         
         $scope.print = function(){
             console.log($scope.domain.name);
