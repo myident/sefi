@@ -25,8 +25,7 @@
             // Save the object Domain
             $scope.save = function () {
                 if ($scope.canSave) {
-                    console.log($scope.name);
-                    console.log($scope.shortname);
+                    $scope.event();
                 }
             };
 
@@ -43,7 +42,8 @@
             templateUrl: 'app/modules/abc/directives/modules/abc-domain/abc-domain.template.html',
             scope: {
                 title: '@',
-                source: '='
+                source: '=',
+                event: '='
             },
             link: Link
         };

@@ -1,6 +1,6 @@
 /* global angular */
 (function () {
-    var Controller = function ($scope, $rootScope, $abcCreate) {
+    var Controller = function ($scope, $rootScope, $abcCreate, Dominio) {
         
         $scope.types = $abcCreate.types;
         
@@ -19,12 +19,19 @@
             name: 'Un dominio',
             shortname: 'UND'
         };
-        
+        var dominio = new Dominio();
         $scope.print = function(){
-            console.log($scope.domain.name);
+            dominio.LNAME = $scope.dominio.name;
+            dominio.SNAME = $scope.dominio.shortname;
+            
+            dominio.$save(function(data){
+                console.log(data);
+            }, function(e){
+                console.log(e);
+            });
         };
     };
-    Controller.$inject = ['$scope', '$rootScope', '$abcCreate'];
+    Controller.$inject = ['$scope', '$rootScope', '$abcCreate', '$apidominio'];
     angular
         .module('mAbc')
         .controller('AbcCreateController', Controller);
