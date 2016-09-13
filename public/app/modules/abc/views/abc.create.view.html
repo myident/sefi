@@ -15,27 +15,21 @@
                 <section>
                     <span>1. Select the type of content you want to create:</span>
                     <ul>
-                        <li 
-                           class="cuadro {{type.class}}" 
-                           ng-repeat="type in types" 
-                           ng-click="toggleType($index)"
-                           ng-class="{'active': type.active}">
-                            <img 
-                                ng-src="{{type.image[(type.active ? 1 : 0)]}}" 
-                                alt="{{type.name}}">
+                        <li class="cuadro {{type.class}}" ng-repeat="type in types" ng-click="toggleType($index)" ng-class="{'active': type.active}">
+                            <img ng-src="{{type.image[(type.active ? 1 : 0)]}}" alt="{{type.name}}">
                             <span>{{type.name}}</span>
                         </li>
                     </ul>
                 </section>
-                <section abc-domain ng-show="types[0].active" source="dominio" event="print"></section>
-                <section abc-megaprocess ng-show="types[1].active"></section>
-                <section abc-macroprocess ng-show="types[2].active"></section>
-                <section abc-process ng-show="types[3].active"></section>
-                <section abc-capability ng-show="types[4].active"></section>
-                <section abc-brule ng-show="types[5].active"></section>
-                <section abc-area ng-show="types[6].active"></section>
-                <section abc-kpi ng-show="types[7].active"></section>
-                <section abc-application ng-show="types[8].active"></section>
+                <section abc-domain event="saveDomain" ng-show="types[0].active"></section>
+                <section abc-megaprocess event="saveMega" dominios="listaDominios" ng-show="types[1].active"></section>
+                <section abc-macroprocess event="saveMacro" ng-show="types[2].active"></section>
+                <section abc-process event="saveProceso" ng-show="types[3].active"></section>
+                <section abc-capability event="saveCapacidad" dominios="listaDominios" ng-show="types[4].active"></section>
+                <section abc-brule event="saveBrule" ng-show="types[5].active"></section>
+                <section abc-area event="saveArea" ng-show="types[6].active"></section>
+                <section abc-kpi event="saveKpi" ng-show="types[7].active"></section>
+                <section abc-application event="saveAplicacion" ng-show="types[8].active"></section>
             </div>
         </div>
     </section>

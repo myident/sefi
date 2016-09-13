@@ -21,7 +21,7 @@
             // Save the object Domain
             $scope.save = function () {
                 if ($scope.canSave) {
-                    console.log($scope.name);
+                    $scope.event($scope.name);
                 }
             };
 
@@ -36,7 +36,8 @@
             restrict: 'A',
             templateUrl: 'app/modules/abc/directives/modules/abc-process/abc-process.template.html',
             scope: {
-                title: '@'
+                title: '@',
+                event: '='
             },
             link: Link
         };

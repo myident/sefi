@@ -2,7 +2,7 @@
 (function () {
     var Directive = function () {
         var Link = function ($scope) {
-            
+
             $scope.canSave = false;
 
             // Data structure
@@ -20,7 +20,7 @@
             // Save the object Domain
             $scope.save = function () {
                 if ($scope.canSave) {
-                    console.log($scope.name);
+                    $scope.event($scope.name);
                 }
             };
 
@@ -34,7 +34,8 @@
             restrict: 'A',
             templateUrl: 'app/modules/abc/directives/modules/abc-application/abc-application.template.html',
             scope: {
-                title: '@'
+                title: '@',
+                event: '='
             },
             link: Link
         };

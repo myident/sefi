@@ -15,7 +15,6 @@
                 } else {
                     console.log('WARNING: El evento de la directiva Select ' + $scope.label + ', no está definido');
                 }
-
             };
 
             $scope.toggleShowOptions = function () {
@@ -25,13 +24,14 @@
                 } else {
                     console.log('WARNING: Las opciones de la directiva Select ' + $scope.label + ', no están definidas');
                 }
+                
             };
 
             $scope.selectOption = function (index) {
                 $scope.modelSelected = true;
                 $scope.showOptions = false;
-                $scope.model = $scope.options[index];
-                $scope.holder = $scope.model;
+                $scope.model = $scope.options[index].id;
+                $scope.holder = $scope.options[index].name;
                 $scope.triggerEvent();
             };
         };

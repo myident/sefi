@@ -4,10 +4,16 @@
         var Link = function ($scope) {
 
             $scope.canSave = false;
+            
 
             // Data structure
-            $scope.name = $scope.source.name || '';
-            $scope.shortname = $scope.source.shortname || '';
+            $scope.name      = '';
+            $scope.shortname = '';
+
+            if ($scope.source) {
+                $scope.name = $scope.source.name;
+                $scope.shortname = $scope.source.shortname;
+            }
 
             // Active the save button
             $scope.toggleActiveButton = function () {
@@ -25,7 +31,7 @@
             // Save the object Domain
             $scope.save = function () {
                 if ($scope.canSave) {
-                    $scope.event();
+                    $scope.event($scope.name, $scope.shortname);
                 }
             };
 

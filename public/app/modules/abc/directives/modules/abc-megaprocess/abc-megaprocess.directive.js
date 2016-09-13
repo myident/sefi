@@ -2,6 +2,7 @@
 (function () {
     var Directive = function () {
         var Link = function ($scope) {
+            
             $scope.canSave = false;
 
             // Data structure
@@ -24,8 +25,7 @@
             // Save the object Domain
             $scope.save = function () {
                 if ($scope.canSave) {
-                    console.log($scope.name);
-                    console.log($scope.domain);
+                    $scope.event($scope.name, $scope.domain);
                 }
             };
 
@@ -40,7 +40,9 @@
             restrict: 'A',
             templateUrl: 'app/modules/abc/directives/modules/abc-megaprocess/abc-megaprocess.template.html',
             scope: {
-                title: '@'
+                title: '@',
+                dominios: '=',
+                event: '='
             },
             link: Link
         };

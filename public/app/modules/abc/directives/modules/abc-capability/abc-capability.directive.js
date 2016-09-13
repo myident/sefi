@@ -25,8 +25,7 @@
             // Save the object Domain
             $scope.save = function () {
                 if ($scope.canSave) {
-                    console.log($scope.name);
-                    console.log($scope.domain);
+                    $scope.event($scope.name, $scope.domain);
                 }
             };
 
@@ -42,7 +41,9 @@
             restrict: 'A',
             templateUrl: 'app/modules/abc/directives/modules/abc-capability/abc-capability.template.html',
             scope: {
-                title: '@'
+                title: '@',
+                dominios: '=',
+                event: '='
             },
             link: Link
         };
