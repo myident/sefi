@@ -4,16 +4,14 @@
         
         var Link = function ($scope) {
             
-            
-            
             $scope.source = [
                 {
-                    name: '',
-                    definition: ''
+                    description: '',
+                    sla: ''
                 },
                 {
-                    name: '',
-                    definition: ''
+                    description: '',
+                    sla: ''
                 }
             ];
             
@@ -21,8 +19,8 @@
             
             $scope.addElementToSource = function(){
                 var element = {
-                    name: '',
-                    definition: ''
+                    description: '',
+                    sla: ''
                 };
                 $scope.source.push(element);
                 $scope.canDelete = true;
@@ -36,6 +34,7 @@
                     } else {
                         $scope.canDelete = false;
                     }
+                    $scope.saveModel();
                 } else {
                     $scope.canDelete = false;
                 }
@@ -48,7 +47,20 @@
                 } else {
                     console.log('WARNING: El evento de la directiva Textarea, no está definido');
                 }
-                
+            };
+            
+            $scope.saveModel = function(){
+                $scope.model = [];
+                for (var i in $scope.source) {
+                    if ($scope.source[i].description !== '' && $scope.source[i].sla !== '') {
+                        var obj = {
+                            description: $scope.source[i].description,
+                            sla: $scope.source[i].sla
+                        };
+                        $scope.model.push(obj);
+                    }
+                }
+                console.log($scope.model);
             };
             
         };

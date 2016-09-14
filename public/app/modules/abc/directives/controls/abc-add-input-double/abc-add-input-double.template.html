@@ -4,7 +4,7 @@
     </div>
     <div class="abc-create-input-xl">
        <span ng-repeat="term in source">
-           <input class="short" type="text" placeholder="{{holders[0]}}" ng-model="term.name"><input class="large" type="text" placeholder="{{holders[1]}}" ng-model="term.definition"><div class="abc-add-button" ng-click="addElementToSource()"><i></i></div>
+           <input class="short" type="text" placeholder="{{holders[0]}}" ng-keyup="saveModel()" ng-model="term.name"><input class="large" type="text" ng-keyup="saveModel()" placeholder="{{holders[1]}}" ng-model="term.definition"><div class="abc-add-button" ng-click="addElementToSource()"><i></i></div>
            <div class="abc-delete-button" ng-show="canDelete" ng-click="deleteElementFromSource($index)"></div>
        </span>
     </div>

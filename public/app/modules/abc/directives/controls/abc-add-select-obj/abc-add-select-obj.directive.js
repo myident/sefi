@@ -17,7 +17,6 @@
             ];
 
             $scope.toggleShowOptions = function (index) {
-
                 if ($scope.options) {
                     $scope.source[index].showOptions = !$scope.source[index].showOptions;
                 } else {
@@ -29,6 +28,15 @@
                 $scope.source[parentIndex].modelSelected = true;
                 $scope.source[parentIndex].showOptions = false;
                 $scope.source[parentIndex].model = $scope.options[index].area_desc;
+                $scope.model = [];
+                for (var i in $scope.source) {
+                    if ($scope.source[i].model !== '') {
+                        var obj = {
+                            area: $scope.source[i].model
+                        };
+                        $scope.model.push(obj);
+                    }
+                }
             };
 
             $scope.canDelete = true;

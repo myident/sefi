@@ -1,7 +1,7 @@
 /*global angular*/
 (function () {
 
-    var angularModules = ["ngRoute", "ngTouch", "ngResource", "ngAnimate", "angular-parallax"];
+    var angularModules = ["ngRoute", "ngTouch", "ngResource", "ngAnimate", "angular-parallax", "ngFileUpload"];
 
     var customModules = ["mHome", "mProcesses", "mEcosistema", "mAdmin", "mArchitecture", "mAbc"];
 
