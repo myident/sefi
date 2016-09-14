@@ -7,6 +7,11 @@
 
             // Data structure
             $scope.name = '';
+            
+            
+            if ($scope.source) {
+                $scope.name = $scope.source.name;
+            }
 
             // Active the save button
             $scope.toggleActiveButton = function () {

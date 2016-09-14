@@ -31,7 +31,7 @@
                 $scope.modelSelected = true;
                 $scope.showOptions = false;
                 $scope.model = $scope.options[index].id;
-                $scope.holder = $scope.options[index].name;
+                $scope.holder = $scope.options[index].name ? $scope.options[index].name : $scope.options[index].title;
                 $scope.triggerEvent();
             };
         };

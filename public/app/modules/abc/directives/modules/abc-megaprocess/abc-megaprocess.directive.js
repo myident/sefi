@@ -2,12 +2,17 @@
 (function () {
     var Directive = function () {
         var Link = function ($scope) {
-            
+
             $scope.canSave = false;
 
             // Data structure
             $scope.name = '';
             $scope.domain = '';
+
+            if ($scope.source) {
+                $scope.name = $scope.source.name;
+                $scope.domain = $scope.source.domain;
+            }
 
             // Active the save button
             $scope.toggleActiveButton = function () {

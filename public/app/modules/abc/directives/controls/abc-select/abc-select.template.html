@@ -9,7 +9,7 @@
             <i></i>
             <div class="abc-create-select-elements" ng-show="showOptions">
                 <ul>
-                    <li ng-click="selectOption($index)" ng-repeat="option in options track by $index">{{option.name}}</li>
+                    <li ng-click="selectOption($index)" ng-repeat="option in options track by $index">{{option.name}}{{option.title}}</li>
                 </ul>
             </div>
         </div>

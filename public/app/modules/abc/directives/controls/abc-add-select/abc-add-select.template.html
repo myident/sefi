@@ -11,7 +11,7 @@
                     <i></i>
                     <div class="abc-create-select-elements" ng-show="term.showOptions">
                         <ul>
-                            <li ng-click="selectOption($parent.$index, $index)" ng-repeat="option in options track by $index">{{option}}</li>
+                            <li ng-click="selectOption($parent.$index, $index)" ng-repeat="option in options track by $index">{{option.area_desc}}</li>
                         </ul>
                     </div>
                 </div><span class="abc-create-delete-button" ng-show="canDelete" ng-click="deleteElementFromSource($index)"><i></i></span>

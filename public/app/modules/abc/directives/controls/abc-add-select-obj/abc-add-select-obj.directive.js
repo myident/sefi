@@ -28,7 +28,7 @@
             $scope.selectOption = function (parentIndex, index) {
                 $scope.source[parentIndex].modelSelected = true;
                 $scope.source[parentIndex].showOptions = false;
-                $scope.source[parentIndex].model = $scope.options[index];
+                $scope.source[parentIndex].model = $scope.options[index].area_desc;
             };
 
             $scope.canDelete = true;

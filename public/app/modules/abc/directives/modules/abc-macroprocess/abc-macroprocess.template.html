@@ -32,7 +32,7 @@
 <span>4. Select an area and add it with the + button:</span>
 <ul class="abc-create-form">
     <li>
-        <abc-add-select label="Process owner" holder="'Select Area'" model="termGlossary" event="toggleActiveButton" options="areas"></abc-add-select>
+        <abc-add-select label="Process owner" holder="'Select Area'" model="processOwner" event="toggleActiveButton" options="areas"></abc-add-select>
     </li>
 </ul>
 
@@ -41,10 +41,10 @@
 <div class="abc-separator-line"></div>
 <ul class="abc-create-form">
     <li>
-        <abc-textarea-xl label="Macroprocess Objective" title="Macroprocess Objective (max. 2000 characters)" model="megaprocessObjective" event="toggleActiveButton"></abc-textarea-xl>
+        <abc-textarea-xl label="Macroprocess Objective" title="Macroprocess Objective (max. 2000 characters)" model="macroProcessObjective" event="toggleActiveButton"></abc-textarea-xl>
     </li>
     <li>
-        <abc-add-select-obj label="Associated Business Objectives" holders="['Select Area', 'Objective']" model="termGlossary" event="toggleActiveButton" options="areas"></abc-add-select-obj>
+        <abc-add-select-obj label="Associated Business Objectives" holders="['Select Area', 'Objective']" model="associatedBusinessObjectives" event="toggleActiveButton" options="areas"></abc-add-select-obj>
     </li>
 </ul>
 
@@ -53,14 +53,14 @@
 <div class="abc-separator-line"></div>
 <ul class="abc-create-form">
     <li>
-        <abc-textarea-xl label="Scope" title="Scope (max. 2000 characters)" model="scope" event="toggleActiveButton"></abc-textarea-xl>
+        <abc-textarea-xl label="Scope" title="Scope (max. 2000 characters)" model="macroprocessScope" event="toggleActiveButton"></abc-textarea-xl>
     </li>
 </ul>
 
 
 
 <div class="abc-separator-line"></div>
-<abc-add-input-xl label="Assumptions" holder="'Add an assumption'" model="termGlossary" event="toggleActiveButton"></abc-add-input-xl>
+<abc-add-input-xl label="Assumptions" holder="'Add an assumption'" model="assumptions" event="toggleActiveButton"></abc-add-input-xl>
 
 
 
@@ -72,13 +72,13 @@
 <div class="abc-separator-line"></div>
 <ul class="abc-create-form">
     <li>
-        <abc-textarea-xl label="Non Functional Requeriments" title="Operation system report (max. 1000 characters)" model="operationSystemReport" event="toggleActiveButton"></abc-textarea-xl>
+        <abc-textarea-xl label="Non Functional Requeriments" title="Operation system report (max. 1000 characters)" model="nonFunctionalRequeriments" event="toggleActiveButton"></abc-textarea-xl>
     </li>
 </ul>
 
 
 <div class="abc-separator-line"></div>
-<abc-add-numeric-input label="SLA Service Level Agreement" holders="['Description', 'SLA']" model="termGlossary" event="toggleActiveButton"></abc-add-numeric-input>
+<abc-add-numeric-input label="SLA Service Level Agreement" holders="['Description', 'SLA']" model="sla" event="toggleActiveButton"></abc-add-numeric-input>
 
 
 <div class="abc-separator-line"></div>
@@ -91,7 +91,7 @@
 
 
 <div class="abc-separator-line"></div>
-<abc-add-input-file label="Operative reports" holders="['Name', 'Description']" model="termGlossary" event="toggleActiveButton"></abc-add-input-file>
+<abc-add-input-file label="Operative reports" holders="['Name', 'Description']" model="operativeReports" event="toggleActiveButton"></abc-add-input-file>
 
 
 
@@ -103,10 +103,20 @@
 </ul>
 
 <div class="abc-separator-line"></div>
-<abc-add-input-multiple label="Process Changes" holders="[{placeholder:'ID', width: '54px'}, {placeholder:'Activity', width: '85px'}, {placeholder: 'Project / Initiative / Business', width: 'calc(100% - 419px)'}, {placeholder: 'Business Rule', width: '280px'}]" model="termGlossary" event="toggleActiveButton"></abc-add-input-multiple>
+<abc-add-input-multiple label="Process Changes" holders="[{placeholder:'ID', width: '54px'}, {placeholder:'Activity', width: '85px'}, {placeholder: 'Project / Initiative / Business', width: 'calc(100% - 419px)'}, {placeholder: 'Business Rule', width: '280px'}]" model="processChanges" event="toggleActiveButton"></abc-add-input-multiple>
 
 
 
 
 <div class="abc-separator-line"></div>
-<abc-add-input-file label="Attachments" holders="['Name', 'Description']" model="termGlossary" event="toggleActiveButton"></abc-add-input-file>
+<abc-add-input-file label="Attachments" holders="['Name', 'Description']" model="attachments" event="toggleActiveButton"></abc-add-input-file>
+
+
+<ul class="abc-create-form">
+    <li>
+        <div class="container-buttons-right">
+            <div class="abc-create-button" ng-click="clear()">Clear</div>
+            <div class="abc-create-button" ng-class="{'disabled': !canSave}" ng-click="save()">Save</div>
+        </div>
+    </li>
+</ul>

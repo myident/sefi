@@ -19,6 +19,20 @@
             console.log(e);
         });
         
+        // MARK: - GET Lista de los Megaprocesos
+        $scope.listaMegaprocesos = $apimegaproceso.query(function(data){
+            console.log(data);
+        }, function(e){
+            console.log(e);
+        });
+        
+        // MARK: - GET Lista de los Megaprocesos
+        $scope.listaAreas = $apiarea.query(function(data){
+            console.log(data);
+        }, function(e){
+            console.log(e);
+        });
+        
 
         // MARK: - POST Guarda un Dominio
         $scope.saveDomain = function (name, shortname) {
@@ -74,7 +88,7 @@
 
         //MARK: - POST Guarda una Regla de negocio
         $scope.saveBrule = function (name) {
-
+            console.log(name);
         };
 
         // MARK: - POST Guarda un Area 
@@ -88,12 +102,7 @@
                 console.log(e);
             });
         };
-
-        // MARK: - POST Guarda una Aplicación
-        $scope.saveAplicacion = function (name) {
-            
-        };
-
+        
         // MARK: - POST Guarda un KPI
         $scope.saveKpi = function (name, shortname, level) {
             var kpi = new $apikpi();
@@ -105,6 +114,11 @@
             }, function(e){
                 console.log(e);
             });
+        };
+
+        // MARK: - POST Guarda una Aplicación
+        $scope.saveAplicacion = function (name) {
+            console.log(name);
         };
 
     };
