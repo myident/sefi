@@ -64,7 +64,6 @@
                     }
                 }
                 console.log($scope.model);
-                console.log($scope.file);
             };
             
         };
