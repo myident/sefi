@@ -27,7 +27,8 @@
             $scope.selectOption = function (parentIndex, index) {
                 $scope.source[parentIndex].modelSelected = true;
                 $scope.source[parentIndex].showOptions = false;
-                $scope.source[parentIndex].model = $scope.options[index].area_desc;
+                $scope.source[parentIndex].model = $scope.options[index].area_id;
+                $scope.source[parentIndex].area_desc = $scope.options[index].area_desc;
                 $scope.saveModel();
             };
 
@@ -70,7 +71,9 @@
                 for (var i in $scope.source) {
                     if ($scope.source[i].model !== '') {
                         var obj = {
-                            area: $scope.source[i].model
+                            area_ID: $scope.source[i].model,
+                            mcro: 0,
+                            status: 0
                         };
                         $scope.model.push(obj);
                     }

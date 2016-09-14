@@ -51,7 +51,10 @@
                 for (var i in $scope.source) {
                     if ($scope.source[i].name !== '') {
                         var obj = {
-                            name: $scope.source[i].name
+                            assu_ID: 0,
+                            mcro: 0,
+                            assu_DES: $scope.source[i].name,
+                            status: 0
                         };
                         $scope.model.push(obj);
                     }

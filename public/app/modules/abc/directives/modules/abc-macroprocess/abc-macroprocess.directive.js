@@ -1,36 +1,44 @@
 /* global angular */
-(function(){
-    var Directive = function(){
-        var Link = function($scope){
-            
+(function () {
+    var Directive = function () {
+        var Link = function ($scope) {
+
             $scope.canSave = true;
-            
+
             $scope.date = new Date();
-            
-            $scope.save = function(){
+
+            $scope.save = function () {
                 var macroproceso = {
-                    mega: $scope.mega,
-                    name: $scope.name,
-                    date: $scope.date,
-                    author: $scope.author,
-                    version: $scope.version,
-                    processOwner: $scope.processOwner,
-                    macroProcessObjective: $scope.macroProcessObjective,
-                    associatedBusinessObjectives: $scope.associatedBusinessObjectives,
-                    macroprocessScope: $scope.macroprocessScope,
-                    assumptions: $scope.assumptions,
-                    termGlossary: $scope.termGlossary,
-                    nonFunctionalRequeriments: $scope.nonFunctionalRequeriments,
-                    sla: $scope.sla,
-                    security: $scope.security,
-                    operativeReports: $scope.operativeReports,
-                    operationSystemReport: $scope.operationSystemReport,
-                    processChanges: $scope.processChanges,
-                    attachments: $scope.attachments
+                    
+                        mega_id: $scope.mega || 0,
+                        macro_id: $scope.macro || 0,
+                        nombre_Macro: $scope.name || '',
+                        version_fecha: $scope.date,
+                        version_autor: $scope.author || '',
+                        version_vers: $scope.version || '',
+                        version_desc: $scope.version_desc || '',
+                        objetivo_Macro: $scope.macroProcessObjective || '',
+                        scope_Macro: $scope.macroprocessScope || '',
+                        security_Macro: $scope.security || '',
+                        operation_system_Macro: $scope.operationSystemReport || '',
+                        
+                        
+                        attach: $scope.attachments || [],
+                        operative: $scope.operativeReports || [],
+                        process_change: $scope.processChanges || [],
+                        SLA_service: $scope.sla || [],
+                        glosary: $scope.termGlossary || [],
+                        assumtion: $scope.assumptions || [],
+                        non_funtionals: [{mcro: 0, req_ID: 0, des_REQ: $scope.nonFunctionalRequeriments || '', status: 0}],
+                        asosiate_buss: $scope.associatedBusinessObjectives || [],
+                        process_owner: $scope.processOwner || []
+  
+                    
                 };
-                console.log(macroproceso);
+                $scope.event(macroproceso);
+                //console.log(macroproceso);
             };
-            
+
         };
         return {
             restrict: 'A',

@@ -48,15 +48,6 @@
                 active: false
             },
             {
-                name: 'Business Rule',
-                class: 'business-rule',
-                image: [
-                    'assets/img/abc-create/create-business-rule.png',
-                    'assets/img/abc-create/create-business-rule-active.png'
-                ],
-                active: false
-            },
-            {
                 name: 'Area',
                 class: 'area',
                 image: [

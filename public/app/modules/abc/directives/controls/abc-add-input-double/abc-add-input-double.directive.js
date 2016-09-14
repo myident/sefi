@@ -54,8 +54,11 @@
                 for (var i in $scope.source) {
                     if ($scope.source[i].name !== '' && $scope.source[i].definition !== '') {
                         var obj = {
-                            name: $scope.source[i].name,
-                            definition: $scope.source[i].definition
+                            ter: $scope.source[i].name,
+                            ter_DEF: $scope.source[i].definition,
+                            mcro: 0,
+                            ter_ID: 0,
+                            status: 0
                         };
                         $scope.model.push(obj);
                     }

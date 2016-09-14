@@ -3,18 +3,18 @@
         <span>{{label}}</span>
     </div>
     <div class="abc-create-multi-select large">
-        <span ng-repeat="term in source" class="multi-select">
+        <span ng-repeat="campo in source" class="multi-select">
             <div class="abc-create-select">
                 <div class="abc-create-select-content">
-                    <div class="abc-create-select-content-title" ng-click="toggleShowOptions($index)" ng-show="term.modelSelected">{{term.model}}</div>
-                    <div class="abc-create-select-content-title active" ng-click="toggleShowOptions($index)" ng-show="!term.modelSelected">{{holders[0]}}</div>
+                    <div class="abc-create-select-content-title" ng-click="toggleShowOptions($index)" ng-show="campo.modelSelected">{{campo.area_desc}}</div>
+                    <div class="abc-create-select-content-title active" ng-click="toggleShowOptions($index)" ng-show="!campo.modelSelected">{{holders[0]}}</div>
                     <i></i>
-                    <div class="abc-create-select-elements" ng-show="term.showOptions">
+                    <div class="abc-create-select-elements" ng-show="campo.showOptions">
                         <ul>
                             <li ng-click="selectOption($parent.$index, $index)" ng-repeat="option in options track by $index">{{option.area_desc}}</li>
                         </ul>
                     </div>
-                </div><input style="border-left: none;" class="large" type="text" placeholder="{{holders[1]}}" ng-model="term.definition">
+                </div><input style="border-left: none;" class="large" type="text" placeholder="{{holders[1]}}" ng-model="campo.objective" ng-keyup="saveModel()">
                 <span class="abc-add-button" ng-click="addElementToSource()"><i></i></span>
                 <span class="abc-delete-button" ng-show="canDelete" ng-click="deleteElementFromSource($index)"></span>
             </div>

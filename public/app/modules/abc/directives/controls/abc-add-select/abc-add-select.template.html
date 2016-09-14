@@ -6,7 +6,7 @@
         <span ng-repeat="term in source" class="multi-select">
             <div class="abc-create-select">
                 <div class="abc-create-select-content">
-                    <div class="abc-create-select-content-title" ng-click="toggleShowOptions($index)" ng-show="term.modelSelected">{{term.model}}</div>
+                    <div class="abc-create-select-content-title" ng-click="toggleShowOptions($index)" ng-show="term.modelSelected">{{term.area_desc}}</div>
                     <div class="abc-create-select-content-title active" ng-click="toggleShowOptions($index)" ng-show="!term.modelSelected">{{holder}}</div>
                     <i></i>
                     <div class="abc-create-select-elements" ng-show="term.showOptions">

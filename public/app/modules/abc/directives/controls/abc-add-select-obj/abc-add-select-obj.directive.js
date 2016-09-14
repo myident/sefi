@@ -7,12 +7,14 @@
                 {
                     modelSelected: false,
                     showOptions: false,
-                    model: ''
+                    model: '',
+                    objective: ''
                 },
                 {
                     modelSelected: false,
                     showOptions: false,
-                    model: ''
+                    model: '',
+                    objective: ''
                 }
             ];
 
@@ -27,16 +29,9 @@
             $scope.selectOption = function (parentIndex, index) {
                 $scope.source[parentIndex].modelSelected = true;
                 $scope.source[parentIndex].showOptions = false;
-                $scope.source[parentIndex].model = $scope.options[index].area_desc;
-                $scope.model = [];
-                for (var i in $scope.source) {
-                    if ($scope.source[i].model !== '') {
-                        var obj = {
-                            area: $scope.source[i].model
-                        };
-                        $scope.model.push(obj);
-                    }
-                }
+                $scope.source[parentIndex].model = $scope.options[index].area_id;
+                $scope.source[parentIndex].area_desc = $scope.options[index].area_desc;
+                $scope.saveModel();
             };
 
             $scope.canDelete = true;
@@ -59,6 +54,7 @@
                     } else {
                         $scope.canDelete = false;
                     }
+                    $scope.saveModel();
                 } else {
                     $scope.canDelete = false;
                 }
@@ -70,6 +66,21 @@
                     $scope.event();
                 } else {
                     console.log('WARNING: El evento de la directiva Textarea, no está definido');
+                }
+            };
+            
+            $scope.saveModel = function(){
+                $scope.model = [];
+                for (var i in $scope.source) {
+                    if ($scope.source[i].model !== '' && $scope.source[i].objective !== '') {
+                        var obj = {
+                            area_ID: $scope.source[i].model,
+                            mcro: 0,
+                            obj: $scope.source[i].objective,
+                            status: 0
+                        };
+                        $scope.model.push(obj);
+                    }
                 }
             };
 

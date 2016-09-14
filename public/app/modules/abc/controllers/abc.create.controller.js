@@ -1,6 +1,6 @@
 /* global angular */
 (function () {
-    var Controller = function ($scope, $rootScope, $abcCreate, $apidominio, $apimegaproceso, $apiproceso, $apicapacidad, $apiarea, $apikpi) {
+    var Controller = function ($scope, $rootScope, $abcCreate, $apidominio, $apimegaproceso, $apimacroproceso, $apiproceso, $apicapacidad, $apiarea, $apikpi, Upload, $http) {
         $scope.types = $abcCreate.types;
         $scope.toggleType = function (index) {
             for (var i in $scope.types) {
@@ -18,21 +18,21 @@
         }, function (e) {
             console.log(e);
         });
-        
+
         // MARK: - GET Lista de los Megaprocesos
-        $scope.listaMegaprocesos = $apimegaproceso.query(function(data){
+        $scope.listaMegaprocesos = $apimegaproceso.query(function (data) {
             console.log(data);
-        }, function(e){
+        }, function (e) {
             console.log(e);
         });
-        
+
         // MARK: - GET Lista de los Megaprocesos
-        $scope.listaAreas = $apiarea.query(function(data){
+        $scope.listaAreas = $apiarea.query(function (data) {
             console.log(data);
-        }, function(e){
+        }, function (e) {
             console.log(e);
         });
-        
+
 
         // MARK: - POST Guarda un Dominio
         $scope.saveDomain = function (name, shortname) {
@@ -59,8 +59,49 @@
         };
 
         // MARK: - POST Guarda un Macroproceso
-        $scope.saveMacro = function () {
+        $scope.saveMacro = function (obj) {
+            var macroproceso = new $apimacroproceso(obj);
+            macroproceso.$save(function(data){
+                console.log(JSON.stringify(data));
+            }, function(e){
+                console.log(e);
+            });
+        };
 
+        $scope.saveMacroMultipart = function (obj) {
+            Upload.upload({
+                url: 'http://14.128.82.183:14501/ITBook/Macroprocesos',
+                data: obj
+            }).then(function (data) {
+                console.log(data);
+            }, function (resp) {
+                console.log('Error status: ' + resp.status);
+            });
+        };
+
+        $scope.saveMacroFromFormData = function (obj) {
+            var uploadUrl = 'http://14.128.82.183:14501/ITBook/Macroprocesos';
+            var fd = new FormData();
+            fd.append('attach', obj.attach);
+            fd.append('operative', obj.operative);
+            fd.append('objmacro', obj.objmacro);
+            $http
+                .post(uploadUrl, fd, {
+                    transformRequest: function (data, headersGetterFunction) {
+                        console.log(data);
+                        console.log(headersGetterFunction());
+                        return data;
+                    },
+                    headers: {
+                        'Content-Type': undefined
+                    }
+                })
+                .success(function (data) {
+                    console.log(data);
+                })
+                .error(function (e) {
+                    console.log(e);
+                });
         };
 
         // MARK: - POST Guarda un Proceso
@@ -102,16 +143,16 @@
                 console.log(e);
             });
         };
-        
+
         // MARK: - POST Guarda un KPI
         $scope.saveKpi = function (name, shortname, level) {
             var kpi = new $apikpi();
             kpi.LDESC = name;
             kpi.SDESC = shortname;
             kpi.TIPO = level;
-            kpi.$save(function(data){
+            kpi.$save(function (data) {
                 console.log(data);
-            }, function(e){
+            }, function (e) {
                 console.log(e);
             });
         };
@@ -122,7 +163,7 @@
         };
 
     };
-    Controller.$inject = ['$scope', '$rootScope', '$abcCreate', '$apidominio', '$apimegaproceso', '$apiproceso', '$apicapacidad', '$apiarea', '$apikpi'];
+    Controller.$inject = ['$scope', '$rootScope', '$abcCreate', '$apidominio', '$apimegaproceso', '$apimacroproceso', '$apiproceso', '$apicapacidad', '$apiarea', '$apikpi', 'Upload', '$http'];
     angular
         .module('mAbc')
         .controller('AbcCreateController', Controller);

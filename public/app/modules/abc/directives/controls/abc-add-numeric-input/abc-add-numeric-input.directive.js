@@ -54,8 +54,11 @@
                 for (var i in $scope.source) {
                     if ($scope.source[i].description !== '' && $scope.source[i].sla !== '') {
                         var obj = {
-                            description: $scope.source[i].description,
-                            sla: $scope.source[i].sla
+                            sl_DES: $scope.source[i].description,
+                            mcro: 0,
+                            sl_NAME: $scope.source[i].sla,
+                            sl_ID: 0,
+                            status: 0
                         };
                         $scope.model.push(obj);
                     }

@@ -64,7 +64,7 @@
             controller: 'DiagramaController'
         });
         
-        // Diagrama
+        // ABC
         $routeProvider.when('/abc-create', {
             templateUrl: baseUrl + 'abc/views/abc.create.view.html',
             controller: 'AbcCreateController'
@@ -72,6 +72,10 @@
         $routeProvider.when('/abc-diagrama', {
             templateUrl: baseUrl + 'abc/views/abc.diagrama.view.html',
             controller: 'AbcDiagramaController'
+        });
+        $routeProvider.when('/abc-consulta', {
+            templateUrl: baseUrl + 'abc/views/abc.consult.view.html',
+            controller: 'abcConsultController'
         });
 
 

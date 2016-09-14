@@ -60,10 +60,13 @@
                 for (var i in $scope.source) {
                     if ($scope.source[i].id !== '' && $scope.source[i].activity !== '' && $scope.source[i].project !== '' && $scope.source[i].brule !== '') {
                         var obj = {
-                            id: $scope.source[i].id,
-                            activity: $scope.source[i].activity,
-                            project: $scope.source[i].project,
-                            brule: $scope.source[i].brule
+                            act_ID: $scope.source[i].id,
+                            pro_BUS: $scope.source[i].project,
+                            mcro: 0,
+                            func_RES: $scope.source[i].activity,
+                            //brule: $scope.source[i].brule,
+                            chn_ID: 0,
+                            status: 0
                         };
                         $scope.model.push(obj);
                     }
