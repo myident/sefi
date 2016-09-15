@@ -632,6 +632,22 @@
 .dc-capacidad {
     margin-top: 37px;
 }
+.dc-capacidad.redondeado {
+    border-radius: 50px;
+}
+
+.dc-capacidad.rombo,
+.dc-capacidad.rombo-tache {
+    transform: rotate(135deg) skew(15deg, 15deg) translate(-17px, -17px);
+    width: 80px;
+}
+
+.dc-capacidad.rombo span,
+.dc-capacidad.rombo-tache span {
+    display: inline-block;
+    transform: translate(-4px, 14px) skew(-15deg, -15deg) rotate(-135deg);
+    font-size: 11px;
+}
 
 .dc-process-name,
 .dc-capacidad-name {

@@ -36,7 +36,7 @@
                     
                 };
                 $scope.event(macroproceso);
-                //console.log(macroproceso);
+                console.log(macroproceso);
             };
 
         };

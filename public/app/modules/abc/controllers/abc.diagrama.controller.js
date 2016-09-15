@@ -2,12 +2,62 @@
 
 (function () {
 
-    var Controller = function ($scope) {
+    var Controller = function ($scope, $apiarea, $apikpi, $apimacroproceso, $apiaplicaciones, $apidiagrama) {
 
-        $scope.macroprocesos = ['CRM', 'Customer Management', 'CRM', 'Customer Management', 'CRM', 'Customer Management'];
-        $scope.areas = ['IT', 'CRM', 'SRM'];
-        $scope.aplicaciones = ['Aplicacion 1', 'Aplicacion 2', 'Aplicacion 3'];
-        $scope.kpis = ['KPI 1', 'KPI 2', 'KPI 3'];
+        $scope.macroprocesos = $apimacroproceso.query(function (data) {
+            console.log(data);
+        }, function (e) {
+            console.log(e);
+        });
+        $scope.areas = $apiarea.query(function (data) {
+            console.log(data);
+        }, function (e) {
+            console.log(e);
+        });
+        $scope.aplicaciones = $apiaplicaciones.query(function (data) {
+            console.log(data);
+        }, function (e) {
+            console.log(e);
+        });
+        $scope.kpis = $apikpi.query(function (data) {
+            console.log(data);
+        }, function (e) {
+            console.log(e);
+        });
+        
+        $scope.canSave = false;
+
+        $scope.hideBRule = true;
+        
+        $scope.currentMacro = 0;
+
+        $scope.currentProcess = 0;
+
+        $scope.currentCapability = 0;
+
+        $scope.currentBrule = 0;
+
+        $scope.processEditing = true;
+
+        $scope.optionsFiguras = [
+            {
+                name: 'Redondeado',
+                id: 'redondeado'
+            },
+            {
+                name: 'Rectangulo',
+                id: 'rectangulo'
+            },
+            {
+                name: 'Rombo',
+                id: 'rombo'
+            },
+            {
+                name: 'Rombo con tache',
+                id: 'rombo-tache'
+            }
+        ];
+        
         $scope.procesos = [
             {
                 mode: 'off',
@@ -17,16 +67,6 @@
                 reglas: []
             }
         ];
-        
-        $scope.hideBRule = true;
-
-        $scope.currentProcess = 0;
-
-        $scope.currentCapability = 0;
-        
-        $scope.currentBrule = 0;
-
-        $scope.processEditing = true;
 
         // MARK: - activa un proceso
         $scope.activateProcess = function (index) {
@@ -36,6 +76,7 @@
                 $scope.procesos[i].active = false;
                 for (var j in $scope.procesos[i].capacidades) {
                     $scope.procesos[i].capacidades[j].active = false;
+                    $scope.procesos[i].reglas[j].active = false;
                 }
             }
             $scope.procesos[$scope.currentProcess].active = true;
@@ -63,6 +104,7 @@
                     mode: 'off',
                     active: false,
                     name: '',
+                    forma: 0,
                     attributes: [
                         {
                             area: '',
@@ -120,10 +162,11 @@
             $scope.procesos[$scope.currentProcess].capacidades[$scope.currentCapability].attributes.push(newAttributes);
 
         };
-        
-        
+
+
         // MARK: - activa una regla de negocio
         $scope.activateBrule = function (parentIndex, index) {
+            
             $scope.processEditing = false;
             $scope.currentProcess = parentIndex;
             $scope.currentBrule = index;
@@ -139,6 +182,7 @@
                     mode: 'off',
                     active: false,
                     name: '',
+                    forma: 0,
                     attributes: [
                         {
                             area: '',
@@ -151,21 +195,155 @@
                 $scope.procesos[$scope.currentProcess].reglas.push(newRegla);
             }
         };
+        
+        $scope.selectMacroprocess = function(model, index){
+            $scope.canSave = true;
+            $scope.currentMacro = index;
+        };
+        
+        $scope.clear = function(){
+            
+        };
+        
+        $scope.save = function(){
+            var procesos = $scope.procesos;
+            var procRulesCapArray = [];
+            
+            for (var i in procesos){
+                var proceso = procesos[i];
+                if (proceso.mode == 'on'){
+                    
+                    var capacidadArray = [];
+                    var reglasArray = [];
+                    if (proceso.capacidades.length > 1){
+                        for(var j in proceso.capacidades){
+                            var capacidad = proceso.capacidades[j];
+                            if (capacidad.mode == 'on'){
 
+                                var attrArray = [];
 
-        // MARK: - Agrega nuevos atributos a la regla de negocio
-        $scope.addMoreAttributesToBrule = function () {
-            var newAttributes = {
-                area: '',
-                application: '',
-                kpi: ''
+                                for (var k in capacidad.attributes){
+                                    var atributo = capacidad.attributes[k];
+                                    var atributoCap = {
+                                        "ar_ID": Number(atributo.area.id) || 0,
+                                        "app_ID": Number(atributo.application.id) || 0,
+                                        "kpi": Number(atributo.kpi.id) || 0
+                                    };
+                                    attrArray.push(atributoCap);
+                                }
+
+                                var capacidadJson = {
+                                    capid: Number(j),
+                                    capaldesc: capacidad.name,
+                                    atributosCap: attrArray
+
+                                };
+                                capacidadArray.push(capacidadJson);
+                            }
+                        }
+                    } else {
+                        alert('Error, no puedes guardar un proceso sin capacidades');
+                        return;
+                    }
+                    
+
+                    
+                    for (var l in proceso.reglas){
+                        var regla = proceso.reglas[l];
+                        if (regla.mode == 'on'){
+                            var reglaJson = {
+                                id_paso: Number(l),
+                                nombre_regla: regla.name,
+                                flow: [{
+                                    area_ID: regla.attributes[0].area.id || 0,
+                                    next_STEP: Number(l) + 1,
+                                    desc_TYPE: regla.attributes[0].forma.name,
+                                    pros_ID: 0,
+                                    flow_ID: 0,
+                                    shape_ID: regla.attributes[0].forma.id == 'rectangulo' ? 0 : (regla.attributes[0].forma.id == 'redondeado' ? 1 : 2),
+                                    dia_STEP_ID: Number(l),
+                                    diagram_ID: 0,
+                                    app_ID: Number(regla.attributes[0].application.id) || 0
+                                }]
+                            };
+                            reglasArray.push(reglaJson);
+                        }
+                        
+                    }
+                    
+                    var procRulesCap = {
+                        ldescproc: procesos[i].name,
+                        domid: 3,
+                        cat_PRO: 0,
+                        pro_ID: 0,
+                        macr_ID: Number($scope.macroprocess.id),
+                        mega_ID: Number($scope.macroprocesos[$scope.currentMacro].mega_id),
+                        desc_diagram: $scope.macroprocess.name,
+                        diagram_id: 0,
+                        capacidad: capacidadArray,
+                        reglas: [{rules:reglasArray}]
+                    };
+                    procRulesCapArray.push(procRulesCap);
+                }
+
+            }
+            
+            var datosDiagrama = {
+                
+                "procRulesCap": procRulesCapArray || [{
+                    "ldescproc": "",
+                    "domid": 0,
+                    "mega_ID": 0,
+                    "cat_PRO": 0,
+                    "pro_ID": 0,
+                    "macr_ID": 0,
+                    "desc_diagram": "",
+                    "diagram_id": 0,
+                    "capacidad": [{
+                        "atributosCap": [{
+                            "ar_ID": 0,
+                            "app_ID": 0,
+                            "kpi": 0
+                        }],
+                        "capid": 0,
+                        "capaldesc": ""
+                    }],
+                    "reglas": [{
+                        "rules": [{
+                            "id_paso": 0,
+                            "nombre_regla": null,
+                            "flow": [{
+                                "area_ID": 0,
+                                "next_STEP": 0,
+                                "desc_TYPE": "",
+                                "pros_ID": 0,
+                                "flow_ID": 0,
+                                "shape_ID": 0,
+                                "dia_STEP_ID": 0,
+                                "diagram_ID": 0,
+                                "app_ID": 0
+                            }]
+                        }]
+                    }]
+                }]
+                
             };
-            $scope.procesos[$scope.currentProcess].reglas[$scope.currentBrule].attributes.push(newAttributes);
+            
+            
+            var macroprocesoDiagrama = new $apidiagrama(datosDiagrama);
+            macroprocesoDiagrama.$save(function(data){
+                console.log(data);
+            }, function(e){
+                console.log(e);
+            });
+            console.log($scope.procesos);
+            console.log(macroprocesoDiagrama);
+            console.log(procRulesCapArray);
         };
 
 
     };
-    Controller.$inject = ['$scope'];
+    Controller.$inject = ['$scope', '$apiarea', '$apikpi', '$apimacroproceso', '$apiaplicaciones', '$apidiagrama'];
     angular
         .module('mAbc')
         .controller('AbcDiagramaController', Controller);
