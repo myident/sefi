@@ -4,35 +4,24 @@
 
         var Link = function ($scope) {
 
-
+            // MARK: - Configuración inicial
             $scope.showOptions = false;
-            if ($scope.model){
+            if ($scope.model) {
                 $scope.modelSelected = true;
             } else {
-               $scope.modelSelected = false;
+                $scope.modelSelected = false;
             }
-            
-            
 
-            // Execute the event configured
-            $scope.triggerEvent = function (index) {
-                if ($scope.event) {
-                    $scope.event($scope.model, index);
-                } else {
-                    console.log('WARNING: El evento de la directiva Select ' + $scope.label + ', no está definido');
-                }
-            };
-
+            // MARK: - Muestra las posibles opciones del SELECT
             $scope.toggleShowOptions = function () {
-
                 if ($scope.options) {
                     $scope.showOptions = !$scope.showOptions;
                 } else {
                     console.log('WARNING: Las opciones de la directiva Select ' + $scope.label + ', no están definidas');
                 }
-                
             };
 
+            // MARK: - Se ejecuta cuando elegimos una opción
             $scope.selectOption = function (index) {
                 $scope.modelSelected = true;
                 $scope.showOptions = false;
@@ -40,14 +29,28 @@
                     id: $scope.options[index].id,
                     name: $scope.options[index].name ? $scope.options[index].name : $scope.options[index].title
                 };
-                if ($scope.isArea){
+                if ($scope.isArea) {
                     $scope.model = {
                         id: $scope.options[index].area_id,
                         name: $scope.options[index].area_desc
                     };
                 }
-                $scope.triggerEvent(index);
+                // Ejecutamos el evento que deseemos cuando se elige una opción
+                if ($scope.event) {
+                    $scope.event($scope.model, index);
+                } else {
+                    console.log('WARNING: El evento de la directiva Select ' + $scope.label + ', no está definido');
+                }
+
+
             };
+
+            $scope.$watch('model', function (newVal) {
+                if (newVal.name === undefined) {
+                    $scope.modelSelected = false;
+                    $scope.showOptions = false;
+                }
+            });
         };
 
         return {

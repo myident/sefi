@@ -4,15 +4,8 @@
         var Link = function ($scope) {
 
             $scope.canSave = false;
-
-            // Data structure
             $scope.name = '';
             
-            
-            if ($scope.source) {
-                $scope.name = $scope.source.name;
-            }
-
             // Active the save button
             $scope.toggleActiveButton = function () {
                 if ($scope.name !== undefined && $scope.name !== '') {
@@ -34,13 +27,20 @@
                 $scope.name = '';
                 $scope.canSave = false;
             };
+            
+            // MARK: - Update
+            if ($scope.source) {
+                $scope.name = $scope.source.name;
+                $scope.toggleActiveButton();
+            }
         };
         return {
             restrict: 'A',
             templateUrl: 'app/modules/abc/directives/modules/abc-application/abc-application.template.html',
             scope: {
                 title: '@',
-                event: '='
+                event: '=',
+                source: '='
             },
             link: Link
         };

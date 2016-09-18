@@ -69,6 +69,10 @@
             templateUrl: baseUrl + 'abc/views/abc.create.view.html',
             controller: 'AbcCreateController'
         });
+        $routeProvider.when('/abc-create/:type', {
+            templateUrl: baseUrl + 'abc/views/abc.create.view.html',
+            controller: 'AbcCreateController'
+        });
         $routeProvider.when('/abc-diagrama', {
             templateUrl: baseUrl + 'abc/views/abc.diagrama.view.html',
             controller: 'AbcDiagramaController'

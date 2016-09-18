@@ -21,14 +21,12 @@
                         </li>
                     </ul>
                 </section>
-                <section abc-domain event="saveDomain" ng-show="types[0].active" source=""></section>
-                <section abc-megaprocess event="saveMega" dominios="listaDominios" ng-show="types[1].active"></section>
-                <section abc-macroprocess event="saveMacro" megaprocesos="listaMegaprocesos" areas="listaAreas" ng-show="types[2].active"></section>
-                <section abc-process event="saveProceso" ng-show="types[3].active"></section>
-                <section abc-capability event="saveCapacidad" dominios="listaDominios" ng-show="types[4].active"></section>
-                <section abc-area event="saveArea" ng-show="types[6].active"></section>
-                <section abc-kpi event="saveKpi" ng-show="types[7].active"></section>
-                <section abc-application event="saveAplicacion" ng-show="types[8].active"></section>
+                <section abc-domain event="saveDomain" source="types[0].source" ng-show="types[0].active"></section>
+                <section abc-megaprocess event="saveMega" source="types[1].source" dominios="listaDominios" ng-show="types[1].active"></section>
+                <section abc-macroprocess event="saveMacro" source="types[2].source" megaprocesos="listaMegaprocesos" areas="listaAreas" ng-show="types[2].active"></section>
+                <section abc-area event="saveArea" source="types[3].source" ng-show="types[3].active"></section>
+                <section abc-kpi event="saveKpi" source="types[4].source" ng-show="types[4].active"></section>
+                <section abc-application event="saveAplicacion" source="types[5].source" ng-show="types[5].active"></section>
             </div>
         </div>
     </section>

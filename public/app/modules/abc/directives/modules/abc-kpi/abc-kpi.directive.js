@@ -3,12 +3,10 @@
     var Directive = function(){
         var Link = function($scope){
             
-            $scope.canSave = false;
-
-            // Data structure
-            $scope.name      = '';
-            $scope.shortname = '';
-            
+            $scope.canSave     = false;
+            $scope.name        = '';
+            $scope.type        = 0;
+            $scope.shortname   = '';
             $scope.typeOptions = [
                 {
                     name:'Capability KPI', 
@@ -19,11 +17,6 @@
                     active: false
                 }
             ];
-
-            if ($scope.source) {
-                $scope.name = $scope.source.name;
-                $scope.shortname = $scope.source.shortname;
-            }
 
             // Active the save button
             $scope.toggleActiveButton = function () {
@@ -53,15 +46,25 @@
             $scope.clear = function () {
                 $scope.name = '';
                 $scope.shortname = '';
+                $scope.type = 0;
                 $scope.canSave = false;
             };
+            
+            // MARK: - Update
+            if ($scope.source) {
+                $scope.name      = $scope.source.name;
+                $scope.shortname = $scope.source.shortname;
+                $scope.type      = $scope.source.type;
+                $scope.toggleActiveButton();
+            }
         };
         return {
             restrict: 'A',
             templateUrl: 'app/modules/abc/directives/modules/abc-kpi/abc-kpi.template.html',
             scope: {
                 title: '@',
-                event: '='
+                event: '=',
+                source: '='
             },
             link: Link
         };

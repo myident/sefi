@@ -3,17 +3,10 @@
     var Directive = function () {
         var Link = function ($scope) {
 
+            // MARK: - Create
             $scope.canSave = false;
-            
-
-            // Data structure
             $scope.name      = '';
             $scope.shortname = '';
-
-            if ($scope.source) {
-                $scope.name = $scope.source.name;
-                $scope.shortname = $scope.source.shortname;
-            }
 
             // Active the save button
             $scope.toggleActiveButton = function () {
@@ -27,7 +20,7 @@
                     $scope.canSave = false;
                 }
             };
-
+            
             // Save the object Domain
             $scope.save = function () {
                 if ($scope.canSave) {
@@ -41,13 +34,19 @@
                 $scope.shortname = '';
                 $scope.canSave = false;
             };
+            
+            // MARK: - Update
+            if ($scope.source) {
+                $scope.name = $scope.source.name;
+                $scope.shortname = $scope.source.shortname;
+                $scope.toggleActiveButton();
+            }
 
         };
         return {
             restrict: 'A',
             templateUrl: 'app/modules/abc/directives/modules/abc-domain/abc-domain.template.html',
             scope: {
-                title: '@',
                 source: '=',
                 event: '='
             },

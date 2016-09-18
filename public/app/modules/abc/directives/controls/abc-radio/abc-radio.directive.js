@@ -15,13 +15,23 @@
             
             $scope.selectOption = function(index){
                 $scope.model = index;
-                for(var i in $scope.options){
-                    $scope.options[i].active = false;
+                if ($scope.options.length){
+                    for(var i in $scope.options){
+                        $scope.options[i].active = false;
+                    }
+                    if ($scope.options[index]){
+                        $scope.options[index].active = true;
+                    }
+                } else {
+                    console.log('WARNING: Las opciones no están definidas');
                 }
-                $scope.options[index].active = true;
             };
             
+            $scope.$watch('model', function(newVal){
+                $scope.selectOption(newVal);
+            });
             
+            $scope.selectOption($scope.model);
 
         };
 

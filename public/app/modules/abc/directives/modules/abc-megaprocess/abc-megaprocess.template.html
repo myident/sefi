@@ -1,7 +1,13 @@
 <span>2. Megaprocess information</span>
 <ul class="abc-create-form">
     <li>
-        <abc-select label="Domain" holder="Select a Domain" model="domain" event="toggleActiveButton" options="dominios"></abc-select>
+        <abc-special-select 
+            label="Domain" 
+            holder="Select a Domain" 
+            model="domain" 
+            options="dominios"
+            event="toggleActiveButton"
+            ></abc-special-select>
     </li>
     <li>
         <abc-textarea title="Megaprocess name (max. 100 characters)" model="name" label="Name" event="toggleActiveButton"></abc-textarea>

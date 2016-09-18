@@ -1,6 +1,8 @@
 /* global angular */
 (function () {
-    var Controller = function ($scope, $rootScope, $abcCreate, $apidominio, $apimegaproceso, $apimacroproceso, $apiproceso, $apicapacidad, $apiarea, $apikpi, Upload, $http) {
+    var Controller = function ($scope, $rootScope, $abcCreate, $apidominio, $apimegaproceso, $apimacroproceso, $apiarea, $apikpi, Upload, $http) {
+
+        // MARK: - Configuración de los elementos que se muestran
         $scope.types = $abcCreate.types;
         $scope.toggleType = function (index) {
             for (var i in $scope.types) {
@@ -13,11 +15,22 @@
         };
 
         // MARK: - GET Lista de los Dominios
-        $scope.listaDominios = $apidominio.query(function (data) {
-            console.log(data);
-        }, function (e) {
-            console.log(e);
-        });
+//        $scope.listaDominios = $apidominio.query(function (data) {
+//            console.log(data);
+//        }, function (e) {
+//            console.log(e);
+//        });
+        
+        $scope.listaDominios = [
+            {
+                name: 'IT',
+                id: 1
+            },
+            {
+                name: 'CSM',
+                id: 2
+            }
+        ];
 
         // MARK: - GET Lista de los Megaprocesos
         $scope.listaMegaprocesos = $apimegaproceso.query(function (data) {
@@ -61,13 +74,51 @@
         // MARK: - POST Guarda un Macroproceso
         $scope.saveMacro = function (obj) {
             var macroproceso = new $apimacroproceso(obj);
-            macroproceso.$save(function(data){
-                console.log(JSON.stringify(data));
-            }, function(e){
-                console.log(e);
-            });
+            macroproceso.$save(
+                function () {
+                    console.log('Save succesfull');
+                },
+                function (e) {
+                    console.log(e);
+                });
         };
 
+        // MARK: - POST Guarda un Area 
+        $scope.saveArea = function (name, type) {
+            var area = new $apiarea();
+            area.LDESC = name;
+            area.TIPO = type;
+            area.$save(
+                function (data) {
+                    console.log(data);
+                },
+                function (e) {
+                    console.log(e);
+                });
+        };
+
+        // MARK: - POST Guarda un KPI
+        $scope.saveKpi = function (name, shortname, level) {
+            var kpi = new $apikpi();
+            kpi.LDESC = name;
+            kpi.SDESC = shortname;
+            kpi.TIPO = level;
+            kpi.$save(
+                function (data) {
+                    console.log(data);
+                },
+                function (e) {
+                    console.log(e);
+                });
+        };
+
+        // MARK: - POST Guarda una Aplicación
+        $scope.saveAplicacion = function (name) {
+            console.log(name);
+        };
+
+
+        // MARK: - POST Guarda un Macroproceso Multipart
         $scope.saveMacroMultipart = function (obj) {
             Upload.upload({
                 url: 'http://14.128.82.183:14501/ITBook/Macroprocesos',
@@ -79,6 +130,7 @@
             });
         };
 
+        // MARK: - POST Guarda un Macroproceso FormData
         $scope.saveMacroFromFormData = function (obj) {
             var uploadUrl = 'http://14.128.82.183:14501/ITBook/Macroprocesos';
             var fd = new FormData();
@@ -104,66 +156,8 @@
                 });
         };
 
-        // MARK: - POST Guarda un Proceso
-        $scope.saveProceso = function (name) {
-            var proceso = new $apiproceso();
-            proceso.LDESC = name;
-            proceso.$save(function (data) {
-                console.log(data);
-            }, function (e) {
-                console.log(e);
-            });
-        };
-
-        // MARK: - POST Guarda una Capacidad
-        $scope.saveCapacidad = function (name, domain) {
-            var capacidad = new $apicapacidad();
-            capacidad.DOM = domain;
-            capacidad.LDESC = name;
-            capacidad.$save(function (data) {
-                console.log(data);
-            }, function (e) {
-                console.log(e);
-            });
-        };
-
-        //MARK: - POST Guarda una Regla de negocio
-        $scope.saveBrule = function (name) {
-            console.log(name);
-        };
-
-        // MARK: - POST Guarda un Area 
-        $scope.saveArea = function (name, type) {
-            var area = new $apiarea();
-            area.LDESC = name;
-            area.TIPO = type;
-            area.$save(function (data) {
-                console.log(data);
-            }, function (e) {
-                console.log(e);
-            });
-        };
-
-        // MARK: - POST Guarda un KPI
-        $scope.saveKpi = function (name, shortname, level) {
-            var kpi = new $apikpi();
-            kpi.LDESC = name;
-            kpi.SDESC = shortname;
-            kpi.TIPO = level;
-            kpi.$save(function (data) {
-                console.log(data);
-            }, function (e) {
-                console.log(e);
-            });
-        };
-
-        // MARK: - POST Guarda una Aplicación
-        $scope.saveAplicacion = function (name) {
-            console.log(name);
-        };
-
     };
-    Controller.$inject = ['$scope', '$rootScope', '$abcCreate', '$apidominio', '$apimegaproceso', '$apimacroproceso', '$apiproceso', '$apicapacidad', '$apiarea', '$apikpi', 'Upload', '$http'];
+    Controller.$inject = ['$scope', '$rootScope', '$abcCreate', '$apidominio', '$apimegaproceso', '$apimacroproceso', '$apiarea', '$apikpi', 'Upload', '$http'];
     angular
         .module('mAbc')
         .controller('AbcCreateController', Controller);

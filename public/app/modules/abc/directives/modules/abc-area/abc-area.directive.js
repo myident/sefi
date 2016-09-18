@@ -4,10 +4,8 @@
         var Link = function ($scope) {
 
             $scope.canSave = false;
-
-            // Data structure
             $scope.name = '';
-
+            $scope.type = 0;
             $scope.typeOptions = [
                 {
                     name: 'Operative',
@@ -18,10 +16,6 @@
                     active: false
                 }
             ];
-
-            if ($scope.source) {
-                $scope.name = $scope.source.name;
-            }
 
             // Active the save button
             $scope.toggleActiveButton = function () {
@@ -46,14 +40,24 @@
             // Clear the data structure
             $scope.clear = function () {
                 $scope.name = '';
+                $scope.type = 0;
                 $scope.canSave = false;
             };
+            
+            // MARK: - Update
+            if ($scope.source) {
+                $scope.name = $scope.source.name;
+                $scope.type = $scope.source.type;
+                $scope.toggleActiveButton();
+            }
         };
         return {
             restrict: 'A',
             templateUrl: 'app/modules/abc/directives/modules/abc-area/abc-area.template.html',
             scope: {
-                title: '@'
+                title: '@',
+                source: '=',
+                event: '='
             },
             link: Link
         };
