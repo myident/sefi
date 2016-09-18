@@ -81,6 +81,10 @@
             templateUrl: baseUrl + 'abc/views/abc.consult.view.html',
             controller: 'abcConsultController'
         });
+        $routeProvider.when('/abc-edit', {
+            templateUrl: baseUrl + 'abc/views/abc.edit.view.html',
+            controller: 'AbcEditController'
+        });
 
 
     };

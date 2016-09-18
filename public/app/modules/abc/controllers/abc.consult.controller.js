@@ -3,6 +3,10 @@
 (function () {
 
     var Controller = function ($scope, $rootScope, $aplicaciones, $window) {
+        $scope.regresar = function(){
+            $window.history.back();
+        };
+        
         $rootScope.spin = false;
         $scope.aplicaciones = $aplicaciones.query(function () {
             $scope.viewer.setting($scope.aplicaciones);

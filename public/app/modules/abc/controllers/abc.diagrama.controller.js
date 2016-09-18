@@ -2,13 +2,28 @@
 
 (function () {
 
-    var Controller = function ($scope, $apiarea, $apikpi, $apimacroproceso, $apiaplicaciones, $apidiagrama) {
+    var Controller = function ($scope, $apiarea, $apikpi, $apimacroproceso, $apiaplicaciones, $apidiagrama, $window) {
+        
+        $scope.regresar = function(){
+            $window.history.back();
+        };
 
-        $scope.macroprocesos = $apimacroproceso.query(function (data) {
-            console.log(data);
-        }, function (e) {
-            console.log(e);
-        });
+        // MARK: - Lista de macroprocesos, areas, aplicaciones y kpis
+//        $scope.macroprocesos = $apimacroproceso.query(function (data) {
+//            console.log(data);
+//        }, function (e) {
+//            console.log(e);
+//        });
+        $scope.macroprocesos = [
+            {
+                name: 'IT',
+                id: 1
+            },
+            {
+                name: 'Guns and Roses',
+                id: 2
+            }
+        ];
         $scope.areas = $apiarea.query(function (data) {
             console.log(data);
         }, function (e) {
@@ -25,6 +40,7 @@
             console.log(e);
         });
         
+        // MARK: Configuraciones iniciales
         $scope.canSave = false;
 
         $scope.hideBRule = true;
@@ -76,7 +92,9 @@
                 $scope.procesos[i].active = false;
                 for (var j in $scope.procesos[i].capacidades) {
                     $scope.procesos[i].capacidades[j].active = false;
-                    $scope.procesos[i].reglas[j].active = false;
+                }
+                for (var k in $scope.procesos[i].reglas){
+                    $scope.procesos[i].reglas[k].active = false;
                 }
             }
             $scope.procesos[$scope.currentProcess].active = true;
@@ -343,7 +361,7 @@
 
 
     };
-    Controller.$inject = ['$scope', '$apiarea', '$apikpi', '$apimacroproceso', '$apiaplicaciones', '$apidiagrama'];
+    Controller.$inject = ['$scope', '$apiarea', '$apikpi', '$apimacroproceso', '$apiaplicaciones', '$apidiagrama', '$window'];
     angular
         .module('mAbc')
         .controller('AbcDiagramaController', Controller);

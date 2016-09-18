@@ -1,7 +1,9 @@
 /* global angular */
 (function () {
-    var Controller = function ($scope, $rootScope, $abcCreate, $apidominio, $apimegaproceso, $apimacroproceso, $apiarea, $apikpi, Upload, $http) {
-
+    var Controller = function ($scope, $rootScope, $abcCreate, $apidominio, $apimegaproceso, $apimacroproceso, $apiarea, $apikpi, Upload, $http, $window) {
+        $scope.regresar = function(){
+            $window.history.back();
+        };
         // MARK: - Configuración de los elementos que se muestran
         $scope.types = $abcCreate.types;
         $scope.toggleType = function (index) {
@@ -157,7 +159,7 @@
         };
 
     };
-    Controller.$inject = ['$scope', '$rootScope', '$abcCreate', '$apidominio', '$apimegaproceso', '$apimacroproceso', '$apiarea', '$apikpi', 'Upload', '$http'];
+    Controller.$inject = ['$scope', '$rootScope', '$abcCreate', '$apidominio', '$apimegaproceso', '$apimacroproceso', '$apiarea', '$apikpi', 'Upload', '$http', '$window'];
     angular
         .module('mAbc')
         .controller('AbcCreateController', Controller);

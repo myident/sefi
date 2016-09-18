@@ -632,6 +632,7 @@
 .dc-capacidad {
     margin-top: 37px;
 }
+
 .dc-capacidad.redondeado {
     border-radius: 50px;
 }
@@ -647,6 +648,7 @@
     display: inline-block;
     transform: translate(-4px, 14px) skew(-15deg, -15deg) rotate(-135deg);
     font-size: 11px;
+    height: 60px;
 }
 
 .dc-process-name,
@@ -795,4 +797,76 @@ ul.abc-radio-elements > li.abc-radio-element {
     resize: none;
     border: 1px solid #CED1D2;
     padding: 12px;
+}
+
+section.container-card > div.card > article.frontside.abc-edit-ba {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../../../../assets/img/imagen_T_b.png);
+}
+section.container-card > div.card > article.frontside.abc-edit-aa {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../../../../assets/img/imagen_BA_b.png);
+}
+section.container-card > div.card > article.frontside.abc-edit-ta {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../../../../assets/img/imagen_IS_b.png);
+}
+
+.abc-edit-buttons {
+    margin: 80px auto 30px auto;
+    width: 310px;
+}
+
+.abc-edit-buttons > div {
+    width: 290px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    color: white;
+    font-size: 23px;
+    text-transform: uppercase;
+    font-family: 'SF Medium';
+    border: 2px solid white;
+    margin: 10px;
+    background-color: rgba(236, 201, 67, 0);
+    transition: all ease 0.3s;
+}
+
+.abc-edit-buttons > div:hover {
+    color: #323232;
+    border: 2px solid rgba(236, 201, 67, 1);
+    background-color: rgba(236, 201, 67, 1);
+}
+
+.abc-activate-edition {
+    position: fixed;
+    width: 215px;
+    height: 45px;
+    display: inline-block;
+    right: 50px;
+    top: 150px;
+    overflow: hidden;
+    border: 2px solid #1294BA;
+}
+
+.abc-activate-edition nav a {
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    line-height: 45px;
+    font-family: 'SF Medium';
+    color: #1294BA;
+    text-transform: uppercase;
+}
+
+.abc-activate-edition nav a.active {
+    color: white;
+    background-color: #1294BA;
+}
+
+.abc-activate-edition nav a:last-child {
+    border-left: 2px solid #1294BA;
 }

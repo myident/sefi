@@ -46,10 +46,13 @@
             };
 
             $scope.$watch('model', function (newVal) {
-                if (newVal.name === undefined) {
-                    $scope.modelSelected = false;
-                    $scope.showOptions = false;
+                if (newVal) {
+                    if (newVal.name === undefined) {
+                        $scope.modelSelected = false;
+                        $scope.showOptions = false;
+                    }
                 }
+
             });
         };
 
