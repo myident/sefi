@@ -36,17 +36,6 @@
             console.log(e);
         });
 
-        $scope.listaDominios = [
-            {
-                name: 'IT',
-                id: 1
-            },
-            {
-                name: 'CSM',
-                id: 2
-            }
-        ];
-
         // MARK: - GET Lista de los Megaprocesos
         $scope.listaMegaprocesos = $apimegaproceso.query(function (data) {
             console.log(data);
@@ -69,6 +58,12 @@
             dominio.LNAME = name;
             dominio.SNAME = shortname;
             dominio.$save(function (data) {
+                // MARK: - GET Lista de los Dominios
+                $scope.listaDominios = $apidominio.query(function (data) {
+                    console.log(data);
+                }, function (e) {
+                    console.log(e);
+                });
                 console.log(data);
                 $rootScope.showAlert = true;
                 $scope.contentAlert = {
@@ -88,11 +83,18 @@
         // MARK: - POST Guarda un Megaproceso
         $scope.megaControl = {};
         $scope.saveMega = function (name, domain) {
+
             var megaproceso = new $apimegaproceso();
-            megaproceso.DOMID = domain;
+            megaproceso.DOMID = domain.id;
             megaproceso.LDESC = name;
             megaproceso.$save(function (data) {
                 console.log(data);
+                // MARK: - GET Lista de los Megaprocesos
+                $scope.listaMegaprocesos = $apimegaproceso.query(function (data) {
+                    console.log(data);
+                }, function (e) {
+                    console.log(e);
+                });
                 $rootScope.showAlert = true;
                 $scope.contentAlert = {
                     title: 'DONE',
@@ -134,11 +136,20 @@
         // MARK: - POST Guarda un Area
         $scope.areaControl = {};
         $scope.saveArea = function (name, type) {
+            console.log(name)
+            console.log(type)
             var area = new $apiarea();
             area.LDESC = name;
             area.TIPO = type;
+            area.POS = 1;
             area.$save(
                 function (data) {
+                    // MARK: - GET Lista de los Megaprocesos
+                    $scope.listaAreas = $apiarea.query(function (data) {
+                        console.log(data);
+                    }, function (e) {
+                        console.log(e);
+                    });
                     console.log(data);
                     $rootScope.showAlert = true;
                     $scope.contentAlert = {

@@ -3,6 +3,19 @@
     var Directive = function () {
         var Link = function ($scope) {
 
+            if ($scope.source) {
+                console.log($scope.source);
+                $scope.mega = {
+                    name: 'Accounting',
+                    id: 1
+                };
+                $scope.macro = $scope.source.nombre_Macro;
+                $scope.author = $scope.source.version_autor;
+                
+            }
+
+
+
             $scope.canSave = true;
 
             $scope.date = new Date();
@@ -11,63 +24,71 @@
 
             $scope.hideMega = function () {
                 $scope.hideWarningMega = true;
-
             };
-            
-            $scope.hideMacro = function(){
-                if ($scope.name !== '' && $scope.name !== undefined){
+
+            $scope.hideMacro = function () {
+                if ($scope.name !== '' && $scope.name !== undefined) {
                     $scope.hideWarningMacro = true;
-                }   else {
+                } else {
                     $scope.hideWarningMacro = false;
                 }
             };
-            
-            
-            $scope.hideAuthor = function(){
-                if ($scope.author !== '' && $scope.author !== undefined){
+
+
+            $scope.hideAuthor = function () {
+                if ($scope.author !== '' && $scope.author !== undefined) {
                     $scope.hideWarningAuthor = true;
-                }   else {
+                } else {
                     $scope.hideWarningAuthor = false;
                 }
             };
-            
-            
-            $scope.hideVersion = function(){
-                if ($scope.version !== '' && $scope.version !== undefined){
+
+
+            $scope.hideVersion = function () {
+                if ($scope.version !== '' && $scope.version !== undefined) {
                     $scope.hideWarningVersion = true;
-                }   else {
+                } else {
                     $scope.hideWarningVersion = false;
                 }
             };
-            
-            $scope.hideVersionDesc = function(){
-                if ($scope.version_desc !== '' && $scope.version_desc !== undefined){
+
+            $scope.hideVersionDesc = function () {
+                if ($scope.version_desc !== '' && $scope.version_desc !== undefined) {
                     $scope.hideWarningVersionDesc = true;
-                }   else {
+                } else {
                     $scope.hideWarningVersionDesc = false;
                 }
             };
-            
-            $scope.hideMacroObj = function(){
-                if ($scope.macroProcessObjective !== '' && $scope.macroProcessObjective !== undefined){
+
+            $scope.hideMacroObj = function () {
+                if ($scope.macroProcessObjective !== '' && $scope.macroProcessObjective !== undefined) {
                     $scope.hideWarningMacroObj = true;
-                }   else {
+                } else {
                     $scope.hideWarningMacroObj = false;
                 }
             };
-            
-            
-            
-            $scope.hideAreaObj = function(){
-                console.log($scope.associatedBusinessObjectives)
-                if ($scope.associatedBusinessObjectives !== '' && $scope.associatedBusinessObjectives !== undefined){
+
+
+
+            $scope.hideAreaObj = function () {
+                if ($scope.associatedBusinessObjectives !== '' && $scope.associatedBusinessObjectives !== undefined) {
                     $scope.hideWarningAreaObj = true;
-                }   else {
+                } else {
                     $scope.hideWarningAreaObj = false;
                 }
             };
-            
-            
+
+            $scope.hideTerm = function () {
+                if ($scope.termGlossary) {
+                    if ($scope.termGlossary.length) {
+                        $scope.hideWarningTerm = true;
+                    } else {
+                        $scope.hideWarningTerm = false;
+                    }
+                }
+
+            };
+
 
             $scope.save = function () {
 
@@ -89,7 +110,7 @@
 
                 var macroproceso = {
 
-                    mega_id: $scope.mega || 0,
+                    mega_id: $scope.mega.id || 0,
                     macro_id: $scope.macro || 0,
                     nombre_Macro: $scope.name || '',
                     version_fecha: $scope.date,
@@ -158,7 +179,8 @@
                 megaprocesos: '=',
                 areas: '=',
                 event: '=',
-                control: '='
+                control: '=',
+                source: '='
             },
             link: Link
         };
