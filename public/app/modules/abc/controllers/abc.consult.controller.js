@@ -2,15 +2,86 @@
 
 (function () {
 
-    var Controller = function ($scope, $rootScope, $aplicaciones, $window) {
+    var Controller = function ($scope, $rootScope, $aplicaciones, $window, $apidominio, $apimegaproceso, $apimacroproceso, $apiarea, $apikpi, $apiaplicaciones) {
         $scope.regresar = function(){
             $window.history.back();
         };
         
         $rootScope.spin = false;
-        $scope.aplicaciones = $aplicaciones.query(function () {
-            $scope.viewer.setting($scope.aplicaciones);
-        });
+        // $scope.aplicaciones = $aplicaciones.query(function () {
+        //     $scope.viewer.setting($scope.aplicaciones);
+        // });
+
+        $scope.typeContentList = [
+            {
+                name: 'All contents',
+                id: 0
+            },
+            {
+                name: 'Dominio',
+                id: 1
+            },
+            {
+                name: 'Megaproceso',
+                id: 2
+            },
+            {
+                name: 'Macroproceso',
+                id: 1
+            },
+            {
+                name: 'Areas',
+                id: 2
+            },
+             {
+                name: 'KPI',
+                id: 1
+            },
+            {
+                name: 'Aplicaciones',
+                id: 2
+            }
+        ];
+
+        $scope.list = [];
+        $scope.init = function(){
+            $scope.apidominio = $apidominio.query(function () {
+                $scope.join($scope.list, $scope.apidominio, 'Dominio', 'name');
+                $scope.apimegaproceso = $apimegaproceso.query(function () {
+                    console.log($scope.apimegaproceso);
+                    $scope.join($scope.list, $scope.apimegaproceso, 'Megaproceso', 'title');
+                    $scope.apimacroproceso = $apimacroproceso.query(function () {
+                        $scope.join($scope.list, $scope.apimacroproceso, 'Macroproceso', 'title');
+                        $scope.apiarea = $apiarea.query(function () {
+                            $scope.join($scope.list, $scope.apiarea, 'Areas', 'area_desc');
+                            $scope.apikpi = $apikpi.query(function () {
+                            $scope.join($scope.list, $scope.apikpi, 'KPI', 'name');
+                                $scope.apiaplicaciones = $apiaplicaciones.query(function () {
+                                    $scope.join($scope.list, $scope.apiaplicaciones, 'Aplicaciones', 'name');
+                                    $scope.aplicaciones = $scope.list;
+                                    $scope.viewer.setting($scope.list);
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+            
+       };
+
+        $scope.join = function(list,listTemp, type, name){
+            for(var i in listTemp){
+                var item = {
+                    name: listTemp[i][name] || '',
+                    type: type,
+                    obj: listTemp[i]
+                };
+                list.push(item);
+            }
+            console.log(type);
+            console.log(list.length);
+            console.log(list);
+        };
 
 
         $scope.goProcesos = function () {
@@ -73,11 +144,13 @@
 
         $scope.viewer.findAll = function (str) {
             $scope.viewer.filterBy = 'all';
+            $scope.typeContent = {};
             $scope.viewer.setting($scope.aplicaciones);
         };
 
         $scope.find = function (str) {
             $scope.viewer.filterBy = str === '' ? 'all' : '';
+            $scope.typeContent = {};
             str = str.toUpperCase();
             var regExp = new RegExp(str);
             var arr = [];
@@ -92,6 +165,7 @@
         $scope.findByCapital = function (str) {
             $scope.viewer.filterBy = str;
             $scope.filterModel = '';
+            $scope.typeContent = {};
             str = str.toUpperCase();
             var regExp = new RegExp('^[' + str + ']');
             var arr = [];
@@ -102,9 +176,29 @@
             }
             $scope.viewer.setting(arr);
         };
+
+        $scope.toggleActiveButton = function(obj){
+            obj.name === 'All contents' ? $scope.viewer.findAll() : (function(){
+                $scope.viewer.filterBy = obj.name;
+                var arr = [];
+                for (var i = 0; i < $scope.aplicaciones.length; i++) {
+                    if ($scope.aplicaciones[i].type === obj.name) {
+                        arr.push($scope.aplicaciones[i]);
+                    }
+                }
+                $scope.viewer.setting(arr);
+            })();
+            
+        };
+
+        $scope.click = function(item){
+            console.log(item);
+        };
+
+        $scope.init();
     };
 
-    Controller.$inject = ['$scope', '$rootScope', '$aplicaciones', '$window'];
+    Controller.$inject = ['$scope', '$rootScope', '$aplicaciones', '$window', '$apidominio','$apimegaproceso', '$apimacroproceso', '$apiarea', '$apikpi', '$apiaplicaciones'];
 
     angular
         .module('mAbc')
