@@ -9,67 +9,29 @@
         };
 
         // MARK: - Lista de macroprocesos, areas, aplicaciones y kpis
-        //        $scope.macroprocesos = $apimacroproceso.query(function (data) {
-        //            console.log(data);
-        //        }, function (e) {
-        //            console.log(e);
-        //        });
-        $scope.macroprocesos = [
-            {
-                name: 'IT',
-                id: 1
-            },
-            {
-                name: 'Guns and Roses',
-                id: 2
-            }
-        ];
-        //        $scope.areas = $apiarea.query(function (data) {
-        //            console.log(data);
-        //        }, function (e) {
-        //            console.log(e);
-        //        });
-        $scope.areas = [
-            {
-                area_desc: 'IT',
-                area_id: 1
-            },
-            {
-                area_desc: 'Guns and Roses',
-                area_id: 2
-            }
-        ];
-        //        $scope.aplicaciones = $apiaplicaciones.query(function (data) {
-        //            console.log(data);
-        //        }, function (e) {
-        //            console.log(e);
-        //        });
-        $scope.aplicaciones = [
-            {
-                name: 'IT',
-                id: 1
-            },
-            {
-                name: 'Guns and Roses',
-                id: 2
-            }
-        ];
-        //        $scope.kpis = $apikpi.query(function (data) {
-        //            console.log(data);
-        //        }, function (e) {
-        //            console.log(e);
-        //        });
+        $scope.macroprocesos = $apimacroproceso.query(function (data) {
+            console.log(data);
+        }, function (e) {
+            console.log(e);
+        });
 
-        $scope.kpis = [
-            {
-                name: 'IT',
-                id: 1
-            },
-            {
-                name: 'Guns and Roses',
-                id: 2
-            }
-        ];
+        $scope.areas = $apiarea.query(function (data) {
+            console.log(data);
+        }, function (e) {
+            console.log(e);
+        });
+        $scope.aplicaciones = $apiaplicaciones.query(function (data) {
+            console.log(data);
+        }, function (e) {
+            console.log(e);
+        });
+
+        $scope.kpis = $apikpi.query(function (data) {
+            console.log(data);
+        }, function (e) {
+            console.log(e);
+        });
+
 
         // MARK: Configuraciones iniciales
         $scope.canSave = false;
@@ -78,7 +40,7 @@
 
         $scope.showBruleDetails = false;
         $scope.showCapaDetails = false;
-        
+
         $scope.showDecisions = false;
 
         $scope.currentMacro = 0;
@@ -119,17 +81,17 @@
                 reglas: []
             }
         ];
-        
+
         $scope.brules = [];
-        
+
         // MARK: - regresa todas las reglas de negocio
-        $scope.getBrules = function(){
+        $scope.getBrules = function () {
             var arreglo = [];
-            for (var i in $scope.procesos){
+            for (var i in $scope.procesos) {
                 var proceso = $scope.procesos[i];
-                for (var j in proceso.reglas){
+                for (var j in proceso.reglas) {
                     var regla = proceso.reglas[j];
-                    if (regla.mode == 'on' && regla.name !== ''){
+                    if (regla.mode == 'on' && regla.name !== '') {
                         var obj = {
                             name: 'BR' + (Number(j) + 1) + ' ' + regla.name,
                             id: j
@@ -181,7 +143,6 @@
                     mode: 'off',
                     active: false,
                     name: '',
-                    forma: 0,
                     attributes: [
                         {
                             area: '',
@@ -258,13 +219,10 @@
                 }
             }
             $scope.procesos[$scope.currentProcess].reglas[$scope.currentBrule].active = true;
-            
+
             if ($scope.procesos[$scope.currentProcess].reglas[$scope.currentBrule].attributes) {
-
                 if ($scope.procesos[$scope.currentProcess].reglas[$scope.currentBrule].attributes[0].forma) {
-
                     if ($scope.procesos[$scope.currentProcess].reglas[$scope.currentBrule].attributes[0].forma.id == 'rombo') {
-                        
                         $scope.showDecisions = true;
                     } else {
                         $scope.showDecisions = false;
@@ -279,7 +237,6 @@
                     mode: 'off',
                     active: false,
                     name: '',
-                    forma: 0,
                     attributes: [
                         {
                             area: '',
@@ -292,24 +249,21 @@
                 $scope.procesos[$scope.currentProcess].reglas.push(newRegla);
             }
         };
-        
-        $scope.getForma = function(a){
+
+        // MARK: - Obtiene la forma
+        $scope.getForma = function (a) {
             if (a.id == 'rombo') {
                 $scope.showDecisions = true;
-                $scope.procesos[$scope.currentProcess].reglas[$scope.currentBrule].attributes[0].yes = {
-                    id: 1,
-                    name: 'Pick up'
-                };
             } else {
                 $scope.showDecisions = false;
             }
         };
-        
-        $scope.getYes = function(a){
+
+        $scope.getYes = function (a) {
             console.log(a);
         };
-        
-        $scope.getNo = function(a){
+
+        $scope.getNo = function (a) {
             console.log(a);
         };
 
@@ -348,6 +302,7 @@
         // MARK: - Guarda el diagrama
         $scope.save = function () {
             var procesos = $scope.procesos;
+            console.log(procesos);
             var procRulesCapArray = [];
 
             for (var i in procesos) {
@@ -398,7 +353,7 @@
                                 flow: [{
                                     area_ID: regla.attributes[0].area.id || 0,
                                     next_STEP: Number(l) + 1,
-                                    desc_TYPE: regla.attributes[0].forma.name,
+                                    desc_TYPE: regla.attributes[0].forma.id == 'rombo' ? 'YES': '',
                                     pros_ID: 0,
                                     flow_ID: 0,
                                     shape_ID: regla.attributes[0].forma.id == 'rectangulo' ? 0 : (regla.attributes[0].forma.id == 'redondeado' ? 1 : 2),

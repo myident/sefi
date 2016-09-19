@@ -544,7 +544,7 @@
     height: calc(100vh - 300px);
     background: white;
     overflow: auto;
-    min-height: 530px;
+    min-height: 430px;
 }
 
 .diagrama-section-data {
@@ -786,6 +786,9 @@ ul.header-diagrama > li.active {
 .abc-diagrama-sidebar {
     width: 40%;
     display: inline-block;
+    overflow: auto;
+    padding-bottom: 100px;
+    height: 550px;
 }
 
 .abc-diagrama-canvas {
@@ -994,14 +997,15 @@ section.container-card > div.card > article.frontside.abc-edit-ta {
 }
 
 .wrapper-formas {
-    width: 630px;
-    height: 120px;
+    width: 510px;
+    height: 95px;
     background: white;
 }
 
 .container-formas {
     width: 450px;
     overflow: auto;
+    border: 1px solid #CED1D2;
     margin-bottom: 30px;
 }
 
@@ -1011,4 +1015,36 @@ section.container-card > div.card > article.frontside.abc-edit-ta {
     margin-top: -15px;
     margin-bottom: 15px;
     margin-left: 103px;
+}
+
+.wrapper-formas > div {
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.wrapper-formas > div.redondeado {
+    width: 100px;
+    height: 54px;
+    margin-left: 20px;
+}
+
+.wrapper-formas > div.rombo {
+    width: 54px;
+    height: 54px;
+}
+
+.wrapper-formas > div.rombo-tache {
+    margin-left: 60px;
+    width: 54px;
+    height: 54px;
+}
+
+.wrapper-formas > div.rectangulo {
+    margin-left: 60px;
+    width: 100px;
+    height: 54px;
+}
+
+.wrapper-formas > div.active {
+    background: rgba(245, 245, 245, 0.5);
 }

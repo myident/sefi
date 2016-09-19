@@ -22,10 +22,10 @@
     <div class="to-left"></div>
     <div class="container-formas">
         <div class="wrapper-formas">
-            <div class="dc-capacidad redondeado" style="margin-top: 20px;"></div>
-            <div class="dc-capacidad rombo" style="margin-top: 20px;"></div>
-            <div class="dc-capacidad rombo-tache" style="margin-left:60px; margin-top: 20px;"></div>
-            <div class="dc-capacidad" style="margin-left: 60px; margin-top: 20px;"></div>
+            <div class="dc-capacidad redondeado" ng-class="{'active':redon}" ng-click="activateForma(0)"></div>
+            <div class="dc-capacidad rombo" ng-class="{'active':rombo}" ng-click="activateForma(2)"></div>
+            <div class="dc-capacidad rombo-tache" ng-class="{'active':romboTache}" ng-click="activateForma(3)"></div>
+            <div class="dc-capacidad rectangulo" ng-class="{'active':rectan}" ng-click="activateForma(1)"></div>
         </div>
     </div>
     <div class="to-right"></div>

@@ -85,7 +85,7 @@
                             <abc-input 
                                 title="Business rule name" 
                                 model="procesos[currentProcess].reglas[currentBrule].name" 
-                                label="Business rule name" 
+                                label="Business rule" 
                                 event="toggleActiveButton">
                             </abc-input>
                             
@@ -119,7 +119,7 @@
                                     <abc-special-select 
                                         label="Yes" 
                                         holder="Select a Business rule" 
-                                        model="attribute.connection.yes" 
+                                        model="attribute.yes" 
                                         options="brules"
                                         event="getYes"
                                         ></abc-special-select>
@@ -127,7 +127,7 @@
                                     <abc-special-select 
                                         label="No" 
                                         holder="Select a Business rule" 
-                                        model="attribute.connection.no" 
+                                        model="attribute.no" 
                                         options="brules"
                                         event="getNo"
                                         ></abc-special-select>

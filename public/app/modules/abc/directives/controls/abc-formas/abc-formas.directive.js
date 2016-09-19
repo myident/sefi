@@ -6,10 +6,19 @@
 
             // MARK: - Configuración inicial
             $scope.showOptions = false;
+            $scope.rectan = true;
+            
+            console.log($scope.model);
+
+
             if ($scope.model) {
                 $scope.modelSelected = true;
             } else {
                 $scope.modelSelected = false;
+                $scope.model = {
+                    id: $scope.options[1].id,
+                    name: $scope.options[1].name ? $scope.options[1].name : $scope.options[1].title
+                };
             }
 
             // MARK: - Muestra las posibles opciones del SELECT
@@ -54,6 +63,53 @@
                 }
 
             });
+
+
+            $scope.activateForma = function (index) {
+                $scope.modelSelected = true;
+                $scope.showOptions = false;
+                $scope.model = {
+                    id: $scope.options[index].id,
+                    name: $scope.options[index].name ? $scope.options[index].name : $scope.options[index].title
+                };
+                if ($scope.isArea) {
+                    $scope.model = {
+                        id: $scope.options[index].area_id,
+                        name: $scope.options[index].area_desc
+                    };
+                }
+                // Ejecutamos el evento que deseemos cuando se elige una opción
+                if ($scope.event) {
+                    $scope.event($scope.model, index);
+                } else {
+                    console.log('WARNING: El evento de la directiva Select ' + $scope.label + ', no está definido');
+                }
+
+                if (index === 0) {
+                    $scope.redon = true;
+                    $scope.rombo = false;
+                    $scope.romboTache = false;
+                    $scope.rectan = false;
+                }
+                if (index == 1) {
+                    $scope.redon = false;
+                    $scope.rombo = false;
+                    $scope.romboTache = false;
+                    $scope.rectan = true;
+                }
+                if (index == 2) {
+                    $scope.redon = false;
+                    $scope.rombo = true;
+                    $scope.romboTache = false;
+                    $scope.rectan = false;
+                }
+                if (index == 3) {
+                    $scope.redon = false;
+                    $scope.rombo = false;
+                    $scope.romboTache = true;
+                    $scope.rectan = false;
+                }
+            };
         };
 
         return {
