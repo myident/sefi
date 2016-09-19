@@ -10,10 +10,10 @@
                     'assets/img/abc-create/create-domain-active.png'
                 ],
                 active: true,
-                source: {
-                    name: 'Dominio',
-                    shortname: 'Large Dominio'
-                }
+//                source: {
+//                    name: 'Dominio',
+//                    shortname: 'Large Dominio'
+//                }
             },
             {
                 name: 'Megaprocess',
@@ -23,13 +23,13 @@
                     'assets/img/abc-create/create-megaprocess-active.png'
                 ],
                 active: false,
-                source: {
-                    domain: {
-                        name: 'IT',
-                        id: 1
-                    },
-                    name: 'Megaproceso'
-                }
+//                source: {
+//                    domain: {
+//                        name: 'IT',
+//                        id: 1
+//                    },
+//                    name: 'Megaproceso'
+//                }
             },
             {
                 name: 'Macroprocess',
@@ -39,34 +39,34 @@
                     'assets/img/abc-create/create-macroprocess-active.png'
                 ],
                 active: false,
-                source: {
-                    mega_id: 0,
-                    macro_id: 0,
-                    nombre_Macro: '',
-                    version_autor: '',
-                    version_vers: '',
-                    version_desc: '',
-                    objetivo_Macro: '',
-                    scope_Macro: '',
-                    security_Macro: '',
-                    operation_system_Macro: '',
-
-
-                    attach: [],
-                    operative: [],
-                    process_change: [],
-                    SLA_service: [],
-                    glosary: [],
-                    assumtion: [],
-                    non_funtionals: [{
-                        mcro: 0,
-                        req_ID: 0,
-                        des_REQ: '',
-                        status: 0
-                    }],
-                    asosiate_buss: [],
-                    process_owner: []
-                }
+//                source: {
+//                    mega_id: 0,
+//                    macro_id: 0,
+//                    nombre_Macro: 'Shi',
+//                    version_autor: 'Alan Olvera',
+//                    version_vers: '',
+//                    version_desc: '',
+//                    objetivo_Macro: '',
+//                    scope_Macro: '',
+//                    security_Macro: '',
+//                    operation_system_Macro: '',
+//
+//
+//                    attach: [],
+//                    operative: [],
+//                    process_change: [],
+//                    SLA_service: [],
+//                    glosary: [],
+//                    assumtion: [],
+//                    non_funtionals: [{
+//                        mcro: 0,
+//                        req_ID: 0,
+//                        des_REQ: '',
+//                        status: 0
+//                    }],
+//                    asosiate_buss: [],
+//                    process_owner: []
+//                }
             },
             {
                 name: 'Area',
@@ -76,10 +76,10 @@
                     'assets/img/abc-create/create-area-active.png'
                 ],
                 active: false,
-                source: {
-                    name: 'Area',
-                    type: 1
-                }
+//                source: {
+//                    name: 'Area',
+//                    type: 1
+//                }
             },
             {
                 name: 'KPI',
@@ -89,12 +89,12 @@
                     'assets/img/abc-create/create-kpi-active.png'
                 ],
                 active: false,
-                source: {
-                    name: 'KPI',
-                    shortname: 'K P I',
-                    type: 1
-
-                }
+//                source: {
+//                    name: 'KPI',
+//                    shortname: 'K P I',
+//                    type: 1
+//
+//                }
             },
             {
                 name: 'Application',
@@ -104,9 +104,9 @@
                     'assets/img/abc-create/create-application-active.png'
                 ],
                 active: false,
-                source: {
-                    name: 'App'
-                }
+//                source: {
+//                    name: 'App'
+//                }
             }
         ];
     };

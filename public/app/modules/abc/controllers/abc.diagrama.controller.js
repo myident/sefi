@@ -2,11 +2,23 @@
 
 (function () {
 
-    var Controller = function ($scope, $apiarea, $apikpi, $apimacroproceso, $apiaplicaciones, $apidiagrama, $window) {
+    var Controller = function ($scope, $apiarea, $apikpi, $apimacroproceso, $apiaplicaciones, $apidiagrama, $window, $rootScope) {
 
         $scope.regresar = function () {
             $window.history.back();
         };
+        
+        $rootScope.showAlert = false;
+        $scope.contentAlert = {
+            title: 'DONE',
+            text: 'The element Account Information (Capability) can not be deleted because it is being used by other elements.',
+            button: 'OK',
+            type: 'blue',
+            event: function () {
+                console.log('Cerraste alerta');
+            }
+        };
+
 
         // MARK: - Lista de macroprocesos, areas, aplicaciones y kpis
         $scope.macroprocesos = $apimacroproceso.query(function (data) {
@@ -463,6 +475,16 @@
             var macroprocesoDiagrama = new $apidiagrama(datosDiagrama);
             macroprocesoDiagrama.$save(function (data) {
                 console.log(data);
+                $rootScope.showAlert = true;
+                $scope.contentAlert = {
+                    title: 'DONE',
+                    text: 'The diagram was created.',
+                    button: 'OK',
+                    type: 'blue',
+                    event: function () {
+                        $scope.domainControl.clear();
+                    }
+                };
             }, function (e) {
                 console.log(e);
             });
@@ -473,7 +495,7 @@
 
 
     };
-    Controller.$inject = ['$scope', '$apiarea', '$apikpi', '$apimacroproceso', '$apiaplicaciones', '$apidiagrama', '$window'];
+    Controller.$inject = ['$scope', '$apiarea', '$apikpi', '$apimacroproceso', '$apiaplicaciones', '$apidiagrama', '$window', '$rootScope'];
     angular
         .module('mAbc')
         .controller('AbcDiagramaController', Controller);

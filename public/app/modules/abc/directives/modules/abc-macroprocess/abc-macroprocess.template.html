@@ -1,7 +1,7 @@
 <span>2. Macroprocess information</span>
 <ul class="abc-create-form">
     <li>
-        <abc-select label="Megaprocess" holder="Select a Megaprocess" model="mega" event="hideMega" options="megaprocesos"></abc-select>
+        <abc-special-select label="Megaprocess" holder="Select a Megaprocess" model="mega" event="hideMega" options="megaprocesos"></abc-special-select>
         <div class="warning-text" ng-hide="hideWarningMega">* Megaprocess is needed</div>
     </li>
     <li>
@@ -76,8 +76,8 @@
 
 
 <div class="abc-separator-line"></div>
-<abc-add-input-double label="Term Glossary" holders="['Term (max. 20 characters)', 'Definition (max. 200 characters)']" model="termGlossary" event="toggleActiveButton"></abc-add-input-double>
-<div class="warning-text">* You need to add at least one term with definition</div>
+<abc-add-input-double label="Term Glossary" holders="['Term (max. 20 characters)', 'Definition (max. 200 characters)']" model="termGlossary" event="hideTerm"></abc-add-input-double>
+<div class="warning-text" ng-hide="hideWarningTerm">* You need to add at least one term with definition</div>
 
 
 

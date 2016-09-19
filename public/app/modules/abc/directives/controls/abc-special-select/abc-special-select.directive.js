@@ -3,11 +3,13 @@
     var Directive = function () {
 
         var Link = function ($scope) {
+            console.log($scope.model)
 
             // MARK: - Configuración inicial
             $scope.showOptions = false;
             if ($scope.model) {
                 $scope.modelSelected = true;
+                
             } else {
                 $scope.modelSelected = false;
             }
