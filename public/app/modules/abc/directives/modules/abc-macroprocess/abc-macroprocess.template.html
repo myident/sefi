@@ -1,10 +1,12 @@
 <span>2. Macroprocess information</span>
 <ul class="abc-create-form">
     <li>
-        <abc-select label="Megaprocess" holder="Select a Megaprocess" model="mega" event="toggleActiveButton" options="megaprocesos"></abc-select>
+        <abc-select label="Megaprocess" holder="Select a Megaprocess" model="mega" event="hideMega" options="megaprocesos"></abc-select>
+        <div class="warning-text" ng-hide="hideWarningMega">* Megaprocess is needed</div>
     </li>
     <li>
-        <abc-textarea title="Name (max. 100 characters)" model="name" label="Name" event="toggleActiveButton"></abc-textarea>
+        <abc-textarea title="Name (max. 100 characters)" model="name" label="Name" event="hideMacro"></abc-textarea>
+        <div class="warning-text" ng-hide="hideWarningMacro">* Macroprocess name is needed</div>
     </li>
 </ul>
 
@@ -18,19 +20,19 @@
         </abc-input>
     </li>
     <li>
-        <abc-input title="Author's name" model="author" label="Author" event="toggleActiveButton">
+        <abc-input title="Author's name" model="author" label="Author" event="hideAuthor">
         </abc-input>
-        <div class="warning-text" ng-show="warningAuthor">* Author is needed</div>
+        <div class="warning-text" ng-hide="hideWarningAuthor">* Author is needed</div>
     </li>
     <li>
-        <abc-input title="Version" model="version" label="Version" event="toggleActiveButton">
+        <abc-input title="Version" model="version" label="Version" event="hideVersion">
         </abc-input>
-        <div class="warning-text" ng-show="warningVersion">* Version is needed</div>
+        <div class="warning-text" ng-hide="hideWarningVersion">* Version is needed</div>
     </li>
     <li>
-        <abc-input title="Descripción" model="version_desc" label="Descripción" event="toggleActiveButton">
+        <abc-input title="Descripción" model="version_desc" label="Descripción" event="hideVersionDesc">
         </abc-input>
-        <div class="warning-text" ng-show="warningDescription">* Description is needed</div>
+        <div class="warning-text" ng-hide="hideWarningVersionDesc">* Description is needed</div>
     </li>
 </ul>
 
@@ -48,11 +50,12 @@
 <div class="abc-separator-line"></div>
 <ul class="abc-create-form">
     <li>
-        <abc-textarea-xl label="Macroprocess Objective" title="Macroprocess Objective (max. 2000 characters)" model="macroProcessObjective" event="toggleActiveButton"></abc-textarea-xl>
-        <div class="warning-text">* Macroproces's Objective is needed</div>
+        <abc-textarea-xl label="Macroprocess Objective" title="Macroprocess Objective (max. 2000 characters)" model="macroProcessObjective" event="hideMacroObj"></abc-textarea-xl>
+        <div class="warning-text" ng-hide="hideWarningMacroObj">* Macroprocess Objective is needed</div>
     </li>
     <li>
-        <abc-add-select-obj label="Associated Business Objectives" holders="['Select Area', 'Objective']" model="associatedBusinessObjectives" event="toggleActiveButton" options="areas"></abc-add-select-obj>
+        <abc-add-select-obj label="Associated Business Objectives" holders="['Select Area', 'Objective']" model="associatedBusinessObjectives" event="hideAreaObj" options="areas"></abc-add-select-obj>
+        <div class="warning-text" ng-hide="hideWarningAreaObj">* The Area is optional but the objective is needed</div>
     </li>
 </ul>
 
@@ -74,6 +77,7 @@
 
 <div class="abc-separator-line"></div>
 <abc-add-input-double label="Term Glossary" holders="['Term (max. 20 characters)', 'Definition (max. 200 characters)']" model="termGlossary" event="toggleActiveButton"></abc-add-input-double>
+<div class="warning-text">* You need to add at least one term with definition</div>
 
 
 
