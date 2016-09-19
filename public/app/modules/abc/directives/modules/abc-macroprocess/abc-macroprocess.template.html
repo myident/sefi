@@ -20,14 +20,17 @@
     <li>
         <abc-input title="Author's name" model="author" label="Author" event="toggleActiveButton">
         </abc-input>
+        <div class="warning-text" ng-show="warningAuthor">* Author is needed</div>
     </li>
     <li>
         <abc-input title="Version" model="version" label="Version" event="toggleActiveButton">
         </abc-input>
+        <div class="warning-text" ng-show="warningVersion">* Version is needed</div>
     </li>
     <li>
         <abc-input title="Descripción" model="version_desc" label="Descripción" event="toggleActiveButton">
         </abc-input>
+        <div class="warning-text" ng-show="warningDescription">* Description is needed</div>
     </li>
 </ul>
 

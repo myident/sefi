@@ -10,6 +10,23 @@
             $scope.clear = function(){};
 
             $scope.save = function () {
+                
+                if ($scope.author === '' || $scope.author === undefined){
+                    $scope.warningAuthor = true;
+                } else {
+                    $scope.warningAuthor = false;
+                }
+                if ($scope.version === '' || $scope.version === undefined){
+                    $scope.warningVersion = true;
+                } else {
+                    $scope.warningVersion = false;
+                }
+                if ($scope.version_desc === '' || $scope.version_desc === undefined){
+                    $scope.warningDescription = true;
+                } else {
+                    $scope.warningDescription = false;
+                }
+                
                 var macroproceso = {
                     
                         mega_id: $scope.mega || 0,
