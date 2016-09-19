@@ -9,7 +9,11 @@
                     'assets/img/abc-create/create-domain.png',
                     'assets/img/abc-create/create-domain-active.png'
                 ],
-                active: false
+                active: true,
+                source: {
+                    name: 'Dominio',
+                    shortname: 'Large Dominio'
+                }
             },
             {
                 name: 'Megaprocess',
@@ -18,7 +22,14 @@
                     'assets/img/abc-create/create-megaprocess.png',
                     'assets/img/abc-create/create-megaprocess-active.png'
                 ],
-                active: false
+                active: false,
+                source: {
+                    domain: {
+                        name: 'IT',
+                        id: 1
+                    },
+                    name: 'Megaproceso'
+                }
             },
             {
                 name: 'Macroprocess',
@@ -27,34 +38,35 @@
                     'assets/img/abc-create/create-macroprocess.png',
                     'assets/img/abc-create/create-macroprocess-active.png'
                 ],
-                active: false
-            },
-            {
-                name: 'Process',
-                class: 'process',
-                image: [
-                    'assets/img/abc-create/create-process.png',
-                    'assets/img/abc-create/create-process-active.png'
-                ],
-                active: false
-            },
-            {
-                name: 'Capability',
-                class: 'capability',
-                image: [
-                    'assets/img/abc-create/create-capability.png',
-                    'assets/img/abc-create/create-capability-active.png'
-                ],
-                active: false
-            },
-            {
-                name: 'Business Rule',
-                class: 'business-rule',
-                image: [
-                    'assets/img/abc-create/create-business-rule.png',
-                    'assets/img/abc-create/create-business-rule-active.png'
-                ],
-                active: false
+                active: false,
+                source: {
+                    mega_id: 0,
+                    macro_id: 0,
+                    nombre_Macro: '',
+                    version_autor: '',
+                    version_vers: '',
+                    version_desc: '',
+                    objetivo_Macro: '',
+                    scope_Macro: '',
+                    security_Macro: '',
+                    operation_system_Macro: '',
+
+
+                    attach: [],
+                    operative: [],
+                    process_change: [],
+                    SLA_service: [],
+                    glosary: [],
+                    assumtion: [],
+                    non_funtionals: [{
+                        mcro: 0,
+                        req_ID: 0,
+                        des_REQ: '',
+                        status: 0
+                    }],
+                    asosiate_buss: [],
+                    process_owner: []
+                }
             },
             {
                 name: 'Area',
@@ -63,7 +75,11 @@
                     'assets/img/abc-create/create-area.png',
                     'assets/img/abc-create/create-area-active.png'
                 ],
-                active: false
+                active: false,
+                source: {
+                    name: 'Area',
+                    type: 1
+                }
             },
             {
                 name: 'KPI',
@@ -72,7 +88,13 @@
                     'assets/img/abc-create/create-kpi.png',
                     'assets/img/abc-create/create-kpi-active.png'
                 ],
-                active: false
+                active: false,
+                source: {
+                    name: 'KPI',
+                    shortname: 'K P I',
+                    type: 1
+
+                }
             },
             {
                 name: 'Application',
@@ -81,7 +103,10 @@
                     'assets/img/abc-create/create-application.png',
                     'assets/img/abc-create/create-application-active.png'
                 ],
-                active: false
+                active: false,
+                source: {
+                    name: 'App'
+                }
             }
         ];
     };

@@ -1,0 +1,38 @@
+<ng-header set-elementos-menu="elementosMenu"></ng-header>
+<main class="admin">
+    <section>
+        <div class="regresar" ng-click="regresar()">
+            <i></i>
+            <span>Back</span>
+        </div>
+        <div class="module-title">
+            <div>
+                <span>Business Architecture | </span> <span class="active">Consult & Edit</span>
+            </div>
+            <span>Total: {{aplicaciones.length}} applications</span>
+        </div>
+        <div class="module-body">
+            <div class="viewer" style="margin-top:10px;">
+
+                <ul class="filter-abc">
+                    <li ng-click="viewer.findAll()" ng-class="{active: (viewer.filterBy == 'all')}">View all</li>
+                    <li ng-repeat="letter in abc" ng-click="findByCapital(letter)" ng-class="{active: (viewer.filterBy == letter)}">{{letter}}</li>
+                </ul>
+
+                <div class="row" style="min-height:420px;">
+                    <div ng-repeat="item in viewer.items" class="md-col-4 sm-col-6 ">
+                        <span class="link">{{item.name}}</span>
+                    </div>
+                </div>
+
+                <div class="pager">
+                    <i class="left" ng-click="viewer.back()"></i>
+                    <ul>
+                        <li ng-click="viewer.goTo($index)" ng-repeat="page in viewer.pages" ng-class="{active: ($index==viewer.indexPageNow)  }">{{page.number}}</li>
+                    </ul>
+                    <i class="right" ng-click="viewer.forw()"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

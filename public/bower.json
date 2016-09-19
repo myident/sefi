@@ -11,6 +11,8 @@
         "jspdf": "latest",
         "jspdf-autotable": "latest",
         "angular-parallax": "latest",
-        "pdfmake": "latest"
+        "pdfmake": "latest",
+        "ng-file-upload-shim": "latest",
+        "ng-file-upload": "latest"
     }
 }

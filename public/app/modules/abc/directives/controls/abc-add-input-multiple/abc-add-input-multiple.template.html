@@ -1,0 +1,12 @@
+<div class="abc-create-form-group">
+    <div class="abc-create-label-multiline">
+        <span>{{label}}</span>
+    </div>
+    <div class="abc-create-input-xl">
+       <span ng-repeat="campo in source">
+           <input ng-keyup="saveModel()" style="width: 54px;" class="multi" type="text" placeholder="{{holders[0].placeholder}}" ng-model="campo.id"><input ng-keyup="saveModel()" type="text" style="width: 85px;" class="multi" placeholder="{{holders[1].placeholder}}" ng-model="campo.activity"><input ng-keyup="saveModel()" type="text" style="width: calc(100% - 419px);" class="multi" placeholder="{{holders[2].placeholder}}" ng-model="campo.project"><input ng-keyup="saveModel()" type="text" style="width:280px;" class="multi" placeholder="{{holders[3].placeholder}}" ng-model="campo.brule"><div class="abc-add-button" ng-click="addElementToSource()"><i></i></div>
+           <div class="abc-delete-button" ng-show="canDelete" ng-click="deleteElementFromSource($index)"></div>
+       </span>
+    </div>
+    
+</div>

@@ -50,10 +50,9 @@
 	<script src="./app/shared/extensions/multitext.extension.js"></script>
 	<script src="./bower_components/savesvgaspng/saveSvgAsPng.js"></script>
 	<script src="./bower_components/jspdf/dist/jspdf.debug.js"></script>
-	<script src="bower_components/jspdf-autotable/dist/jspdf.plugin.autotable.js"></script>
-	<script src="bower_components/pdfmake/build/pdfmake.js"></script>
-	<script src="bower_components/pdfmake/build/vfs_fonts.js"></script>
-	<script src="./bower_components/svgtopdf/svgToPdf.js"></script>
+	<script src="./bower_components/jspdf-autotable/dist/jspdf.plugin.autotable.js"></script>
+	<script src="./bower_components/pdfmake/build/pdfmake.js"></script>
+	<script src="./bower_components/pdfmake/build/vfs_fonts.js"></script>
 	<!-- References angular.js -->
 	<script src="./bower_components/angular/angular.min.js"></script>
 	<script src="./bower_components/angular-route/angular-route.min.js"></script>
@@ -61,6 +60,8 @@
 	<script src="./bower_components/angular-resource/angular-resource.min.js"></script>
 	<script src="./bower_components/angular-animate/angular-animate.min.js"></script>
 	<script src="./bower_components/angular-parallax/scripts/angular-parallax.js"></script>
+	<script src="./bower_components/ng-file-upload-shim/ng-file-upload-shim.min.js"></script>
+	<script src="./bower_components/ng-file-upload/ng-file-upload.min.js"></script>
 	<!-- app config -->
 	<script src="app/config/app.module.js"></script>
 	<script src="app/config/app.router.js"></script>
@@ -83,24 +84,40 @@
 	<script src="app/shared/directives/procesos/ng-ways/ng-ways_vash.directive.js"></script>
 	<script src="app/shared/directives/procesos/ng-layouts/ng-layouts.directive.js"></script>
 	<script src="app/shared/directives/procesos/ng-print/ng-print.directive.js"></script>
-	<!-- Directives Diagram -->
+	<!-- Directives Diagrama -->
 	<script src="app/modules/diagrama/directives/dg-indice/dg-indice.directive.js"></script>
 	<script src="app/modules/diagrama/directives/dg-historial/dg-historial.directive.js"></script>
 	<script src="app/modules/diagrama/directives/dg-barra-herramientas/dg-barra-herramientas.directive.js"></script>
 	<script src="app/modules/diagrama/directives/dg-ways/dg-ways.directive.js"></script>
+	<!-- Directives Control ABC -->
+	<script src="app/modules/abc/directives/controls/abc-input/abc-input.directive.js"></script>
+	<script src="app/modules/abc/directives/controls/abc-text-area/abc-textarea.directive.js"></script>
+	<script src="app/modules/abc/directives/controls/abc-select/abc-select.directive.js"></script>
+	<script src="app/modules/abc/directives/controls/abc-textarea-xl/abc-textarea-xl.directive.js"></script>
+	<script src="app/modules/abc/directives/controls/abc-add-input-double/abc-add-input-double.directive.js"></script>
+	<script src="app/modules/abc/directives/controls/abc-add-input-xl/abc-add-input-xl.directive.js"></script>
+	<script src="app/modules/abc/directives/controls/abc-add-input-multiple/abc-add-input-multiple.directive.js"></script>
+	<script src="app/modules/abc/directives/controls/abc-add-numeric-input/abc-add-numeric-input.directive.js"></script>
+	<script src="app/modules/abc/directives/controls/abc-add-input-file/abc-add-input-file.directive.js"></script>
+	<script src="app/modules/abc/directives/controls/abc-add-select/abc-add-select.directive.js"></script>
+	<script src="app/modules/abc/directives/controls/abc-radio/abc-radio.directive.js"></script>
+	<script src="app/modules/abc/directives/controls/abc-add-select-obj/abc-add-select-obj.directive.js"></script>
+	<script src="app/modules/abc/directives/controls/abc-special-select/abc-special-select.directive.js"></script>
+	<script src="app/modules/abc/directives/controls/abc-alert/abc-alert.directive.js"></script>
+	<script src="app/modules/abc/directives/controls/abc-formas/abc-formas.directive.js"></script>
+	<script src="app/shared/extensions/brules.filter.js"></script>
+	<!-- Directives Modules ABC -->
+	<script src="app/modules/abc/directives/modules/abc-domain/abc-domain.directive.js"></script>
+	<script src="app/modules/abc/directives/modules/abc-application/abc-application.directive.js"></script>
+	<script src="app/modules/abc/directives/modules/abc-area/abc-area.directive.js"></script>
+	<script src="app/modules/abc/directives/modules/abc-brule/abc-brule.directive.js"></script>
+	<script src="app/modules/abc/directives/modules/abc-capability/abc-capability.directive.js"></script>
+	<script src="app/modules/abc/directives/modules/abc-kpi/abc-kpi.directive.js"></script>
+	<script src="app/modules/abc/directives/modules/abc-macroprocess/abc-macroprocess.directive.js"></script>
+	<script src="app/modules/abc/directives/modules/abc-megaprocess/abc-megaprocess.directive.js"></script>
+	<script src="app/modules/abc/directives/modules/abc-process/abc-process.directive.js"></script>
+	<script src="app/modules/abc/directives/modules/abc-flipcard/abc-flipcard.directive.js"></script>
 	
-	<script src="app/modules/abc/directives/abc-input/abc-input.directive.js"></script>
-	<script src="app/modules/abc/directives/abc-text-area/abc-textarea.directive.js"></script>
-	<script src="app/modules/abc/directives/abc-select/abc-select.directive.js"></script>
-	<script src="app/modules/abc/directives/abc-domain/abc-domain.directive.js"></script>
-	<script src="app/modules/abc/directives/abc-application/abc-application.directive.js"></script>
-	<script src="app/modules/abc/directives/abc-area/abc-area.directive.js"></script>
-	<script src="app/modules/abc/directives/abc-brule/abc-brule.directive.js"></script>
-	<script src="app/modules/abc/directives/abc-capability/abc-capability.directive.js"></script>
-	<script src="app/modules/abc/directives/abc-kpi/abc-kpi.directive.js"></script>
-	<script src="app/modules/abc/directives/abc-macroprocess/abc-macroprocess.directive.js"></script>
-	<script src="app/modules/abc/directives/abc-megaprocess/abc-megaprocess.directive.js"></script>
-	<script src="app/modules/abc/directives/abc-process/abc-process.directive.js"></script>
 	
 	<!-- Modules  -->
 	<script src="app/modules/home/home.module.js"></script>
@@ -146,16 +163,22 @@
     <script src="app/modules/diagrama/services/barra-herramientas.service.js"></script>
     <script src="app/modules/diagrama/services/procesos-kpi.service.js"></script>
     <script src="app/modules/diagrama/services/word.service.js"></script>
-    
+    <!-- Modulo ABC -->
     <script src="app/modules/abc/abc.module.js"></script>
     <script src="app/modules/abc/controllers/abc.create.controller.js"></script>
     <script src="app/modules/abc/controllers/abc.diagrama.controller.js"></script>
+    <script src="app/modules/abc/controllers/abc.consult.controller.js"></script>
+    <script src="app/modules/abc/controllers/abc.edit.controller.js"></script>
     <script src="app/modules/abc/services/abc.create.service.js"></script>
     <script src="app/modules/abc/services/api/dominio.service.js"></script>
     <script src="app/modules/abc/services/api/megaproceso.service.js"></script>
+    <script src="app/modules/abc/services/api/macroprocesos.service.js"></script>
+    <script src="app/modules/abc/services/api/proceso.service.js"></script>
+    <script src="app/modules/abc/services/api/capacidad.service.js"></script>
     <script src="app/modules/abc/services/api/area.service.js"></script>
     <script src="app/modules/abc/services/api/aplicacion.service.js"></script>
     <script src="app/modules/abc/services/api/kpi.service.js"></script>
+    <script src="app/modules/abc/services/api/diagrama.service.js"></script>
 
 </body>
 

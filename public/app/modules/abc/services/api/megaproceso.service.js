@@ -1,5 +1,5 @@
 (function(){
-	angular.module().factory('Megaproceso',function($source, $singleton){
-		return $resource($singleton.path+'Dominio/:id');
+	angular.module('mAbc').factory('$apimegaproceso',function($resource, $singleton){
+		return $resource($singleton.path+'Megaprocesos/:id');
 	});
 })();
