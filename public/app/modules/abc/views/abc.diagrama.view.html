@@ -33,7 +33,7 @@
                     <li ng-hide="processEditing">
                        
                         <!--Procesos y capacidades-->
-                        <div  ng-show="hideBRule">
+                        <div ng-show="showCapaDetails">
                             <div 
                                 class="abc-create-form-title">C{{currentCapability + 1}} Capability Details</div>
                                 
@@ -77,7 +77,7 @@
                         </div>
                         
                         <!--Procesos y reglas de negocio-->
-                        <div  ng-hide="hideBRule">
+                        <div ng-show="showBruleDetails">
                             <div 
                                 class="abc-create-form-title">BR{{currentBrule + 1}} Business Rule Details
                             </div>
@@ -92,16 +92,15 @@
                             <div 
                                ng-repeat="attribute in procesos[currentProcess].reglas[currentBrule].attributes">
                                
-                                <div 
-                                    class="abc-create-form-title" 
-                                    ng-hide="processEditing">BR{{currentBrule + 1}} Business rule Attributes</div>
+                                <div class="abc-create-form-title">BR{{currentBrule + 1}} Business Rule Attributes</div>
                                     
-                                <abc-special-select
+                                <abc-formas
                                     label="Forma"
                                     holder="Elige una forma"
                                     model="attribute.forma"
-                                    options="optionsFiguras">
-                                </abc-special-select>
+                                    options="optionsFiguras"
+                                    event="getForma">
+                                </abc-formas>
                                     
                                 <abc-special-select 
                                     label="Area" 
@@ -115,11 +114,26 @@
                                     model="attribute.application" 
                                     options="aplicaciones"></abc-special-select>
                                     
-                                <abc-special-select 
-                                    label="KPI" 
-                                    holder="Select KPI" 
-                                    model="attribute.kpi" 
-                                    options="kpis"></abc-special-select>
+                                <div ng-show="showDecisions">
+                                    <div class="abc-create-form-title">BR{{currentBrule + 1}} Business Rule Connection</div>
+                                    <abc-special-select 
+                                        label="Yes" 
+                                        holder="Select a Business rule" 
+                                        model="attribute.connection.yes" 
+                                        options="brules"
+                                        event="getYes"
+                                        ></abc-special-select>
+
+                                    <abc-special-select 
+                                        label="No" 
+                                        holder="Select a Business rule" 
+                                        model="attribute.connection.no" 
+                                        options="brules"
+                                        event="getNo"
+                                        ></abc-special-select>
+                                </div>
+                                    
+
                             </div>
                                 
                         </div>
@@ -130,8 +144,8 @@
         <aside class="abc-diagrama-canvas">
             <header>
                 <ul class="header-diagrama">
-                    <li ng-class="{'active': hideBRule}" ng-click="hideBRule = true">Capabilities</li>
-                    <li ng-class="{'active': !hideBRule}" ng-click="hideBRule = false">Business Rules</li>
+                    <li ng-class="{'active': hideBRule}" ng-click="switchViews(0)">Capabilities</li>
+                    <li ng-class="{'active': !hideBRule}" ng-click="switchViews(1)">Business Rules</li>
                 </ul>
             </header>
             <div class="diagrama-section">
@@ -183,13 +197,19 @@
                                    class="dc-capacidad {{regla.mode}} {{regla.attributes[0].forma.id}}" 
                                    ng-click="activateBrule($parent.$index, $index)" 
                                    ng-class="{'active': regla.active}">
-<!--                                    <span class="dc-capacidad-number">BR{{$index + 1}}</span>-->
+                                     <span class="dc-capacidad-number">BR{{$index + 1}}</span>
                                     <span class="dc-capacidad-name">{{regla.name}}</span>
+                                </div>
+                                <div class="dc-capacidad-conector-no" ng-show="regla.attributes[0].forma.id == 'rombo' ? true : false">
+                                    No {{regla.attributes[0].connection.no.name | brules}}
+                                </div>
+                                <div class="dc-capacidad-conector-yes" ng-show="regla.attributes[0].forma.id == 'rombo' ? true : false">
+                                    Yes
                                 </div>
                                 <div class="dc-capacidad-attributes" ng-repeat="attribute in regla.attributes">
                                     <span class="dc-area" ng-show="attribute.area != '' ? true : false">{{attribute.area.name}}</span>
                                     <span class="dc-app" ng-show="attribute.application != '' ? true : false">{{attribute.application.name}}</span>
-                                    <span class="dc-kpi" ng-show="attribute.kpi != '' ? true : false">{{attribute.kpi.name}}</span>
+                                    <!-- <span class="dc-kpi" ng-show="attribute.kpi != '' ? true : false">{{attribute.kpi.name}}</span>-->
                                 </div>
                             </div>
                         </div>

@@ -1,9 +1,22 @@
 /* global angular */
 (function () {
     var Controller = function ($scope, $rootScope, $abcCreate, $apidominio, $apimegaproceso, $apimacroproceso, $apiarea, $apikpi, Upload, $http, $window) {
-        $scope.regresar = function(){
+        $scope.regresar = function () {
             $window.history.back();
         };
+
+        $rootScope.showAlert = false;
+        $scope.contentAlert = {
+            title: 'DONE',
+            text: 'The element Account Information (Capability) can not be deleted because it is being used by other elements.',
+            button: 'OK',
+            type: 'blue',
+            event: function () {
+                console.log('Cerraste alerta');
+            }
+        };
+
+
         // MARK: - Configuración de los elementos que se muestran
         $scope.types = $abcCreate.types;
         $scope.toggleType = function (index) {
@@ -17,12 +30,12 @@
         };
 
         // MARK: - GET Lista de los Dominios
-//        $scope.listaDominios = $apidominio.query(function (data) {
-//            console.log(data);
-//        }, function (e) {
-//            console.log(e);
-//        });
-        
+        $scope.listaDominios = $apidominio.query(function (data) {
+            console.log(data);
+        }, function (e) {
+            console.log(e);
+        });
+
         $scope.listaDominios = [
             {
                 name: 'IT',
@@ -50,42 +63,76 @@
 
 
         // MARK: - POST Guarda un Dominio
+        $scope.domainControl = {};
         $scope.saveDomain = function (name, shortname) {
             var dominio = new $apidominio();
             dominio.LNAME = name;
             dominio.SNAME = shortname;
             dominio.$save(function (data) {
                 console.log(data);
+                $rootScope.showAlert = true;
+                $scope.contentAlert = {
+                    title: 'DONE',
+                    text: 'The element ' + name + ' was created.',
+                    button: 'OK',
+                    type: 'blue',
+                    event: function () {
+                        $scope.domainControl.clear();
+                    }
+                };
             }, function (e) {
                 console.log(e);
             });
         };
 
         // MARK: - POST Guarda un Megaproceso
+        $scope.megaControl = {};
         $scope.saveMega = function (name, domain) {
             var megaproceso = new $apimegaproceso();
             megaproceso.DOMID = domain;
             megaproceso.LDESC = name;
             megaproceso.$save(function (data) {
                 console.log(data);
+                $rootScope.showAlert = true;
+                $scope.contentAlert = {
+                    title: 'DONE',
+                    text: 'The element ' + name + ' was created.',
+                    button: 'OK',
+                    type: 'blue',
+                    event: function () {
+                        $scope.megaControl.clear();
+                    }
+                };
             }, function (e) {
                 console.log(e);
             });
         };
 
         // MARK: - POST Guarda un Macroproceso
+        $scope.macroControl = {};
         $scope.saveMacro = function (obj) {
             var macroproceso = new $apimacroproceso(obj);
             macroproceso.$save(
                 function () {
                     console.log('Save succesfull');
+                    $rootScope.showAlert = true;
+                    $scope.contentAlert = {
+                        title: 'DONE',
+                        text: 'The element ' + obj.name + ' was created.',
+                        button: 'OK',
+                        type: 'blue',
+                        event: function () {
+                            $scope.macroControl.clear();
+                        }
+                    };
                 },
                 function (e) {
                     console.log(e);
                 });
         };
 
-        // MARK: - POST Guarda un Area 
+        // MARK: - POST Guarda un Area
+        $scope.areaControl = {};
         $scope.saveArea = function (name, type) {
             var area = new $apiarea();
             area.LDESC = name;
@@ -93,6 +140,16 @@
             area.$save(
                 function (data) {
                     console.log(data);
+                    $rootScope.showAlert = true;
+                    $scope.contentAlert = {
+                        title: 'DONE',
+                        text: 'The element ' + name + ' was created.',
+                        button: 'OK',
+                        type: 'blue',
+                        event: function () {
+                            $scope.areaControl.clear();
+                        }
+                    };
                 },
                 function (e) {
                     console.log(e);
@@ -100,6 +157,7 @@
         };
 
         // MARK: - POST Guarda un KPI
+        $scope.kpiControl = {};
         $scope.saveKpi = function (name, shortname, level) {
             var kpi = new $apikpi();
             kpi.LDESC = name;
@@ -108,16 +166,47 @@
             kpi.$save(
                 function (data) {
                     console.log(data);
+                    $rootScope.showAlert = true;
+                    $scope.contentAlert = {
+                        title: 'DONE',
+                        text: 'The element ' + name + ' was created.',
+                        button: 'OK',
+                        type: 'blue',
+                        event: function () {
+                            $scope.kpiControl.clear();
+                        }
+                    };
                 },
                 function (e) {
                     console.log(e);
                 });
         };
 
+
+
+
         // MARK: - POST Guarda una Aplicación
+        $scope.aplicacionControl = {};
         $scope.saveAplicacion = function (name) {
             console.log(name);
+            $rootScope.showAlert = true;
+            $scope.contentAlert = {
+                title: 'DONE',
+                text: 'The element ' + name + ' was created.',
+                button: 'OK',
+                type: 'blue',
+                event: function () {
+                    $scope.aplicacionControl.clear();
+                }
+            };
         };
+
+
+
+
+
+
+
 
 
         // MARK: - POST Guarda un Macroproceso Multipart

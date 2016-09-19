@@ -1,0 +1,32 @@
+<div class="abc-create-form-group">
+    <div class="abc-create-label">
+        <span>{{label}}</span>
+    </div>
+    <div class="abc-create-select">
+        <div class="abc-create-select-content">
+            <div class="abc-create-select-content-title" ng-click="toggleShowOptions()" ng-show="modelSelected">{{model.name}}</div>
+            <div class="abc-create-select-content-title active" ng-click="toggleShowOptions()" ng-show="!modelSelected">{{holder}}</div>
+            <i></i>
+            <div class="abc-create-select-elements" ng-show="showOptions">
+                <ul>
+                    <li ng-hide="isArea" ng-click="selectOption($index)" ng-repeat="option in options track by $index">{{option.name}}{{option.title}}</li>
+                    <li ng-show="isArea" ng-click="selectOption($index)" ng-repeat="option in options track by $index">{{option.area_desc}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <div class="to-left"></div>
+    <div class="container-formas">
+        <div class="wrapper-formas">
+            <div class="dc-capacidad redondeado"></div>
+            <div class="dc-capacidad rombo"></div>
+            <div class="dc-capacidad rombo-tache" style="margin-left:60px;"></div>
+            <div class="dc-capacidad"></div>
+        </div>
+    </div>
+    <div class="to-right"></div>
+</div>

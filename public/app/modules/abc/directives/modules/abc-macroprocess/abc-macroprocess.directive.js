@@ -6,6 +6,8 @@
             $scope.canSave = true;
 
             $scope.date = new Date();
+            
+            $scope.clear = function(){};
 
             $scope.save = function () {
                 var macroproceso = {
@@ -59,6 +61,11 @@
                 $scope.assumptions = $scope.source.assumtion;
                 
             }
+            
+            $scope.internalControl = $scope.control || {};
+            $scope.internalControl.clear = function(){
+                $scope.clear();  
+            };
 
         };
         return {
@@ -68,7 +75,8 @@
                 title: '@',
                 megaprocesos: '=',
                 areas: '=',
-                event: '='
+                event: '=',
+                control: '='
             },
             link: Link
         };

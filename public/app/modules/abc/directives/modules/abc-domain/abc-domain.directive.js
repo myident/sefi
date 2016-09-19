@@ -42,13 +42,19 @@
                 $scope.toggleActiveButton();
             }
 
+            $scope.internalControl = $scope.control || {};
+            $scope.internalControl.clear = function(){
+                $scope.clear();  
+            };
+            
         };
         return {
             restrict: 'A',
             templateUrl: 'app/modules/abc/directives/modules/abc-domain/abc-domain.template.html',
             scope: {
                 source: '=',
-                event: '='
+                event: '=',
+                control: '='
             },
             link: Link
         };

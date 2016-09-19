@@ -1,5 +1,6 @@
 .regresar {
     cursor: pointer;
+    width: 300px;
 }
 
 .regresar > i {

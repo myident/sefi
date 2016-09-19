@@ -50,6 +50,11 @@
                 $scope.type = $scope.source.type;
                 $scope.toggleActiveButton();
             }
+            
+            $scope.internalControl = $scope.control || {};
+            $scope.internalControl.clear = function(){
+                $scope.clear();  
+            };
         };
         return {
             restrict: 'A',
@@ -57,7 +62,8 @@
             scope: {
                 title: '@',
                 source: '=',
-                event: '='
+                event: '=',
+                control: '='
             },
             link: Link
         };

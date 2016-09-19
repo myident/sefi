@@ -41,6 +41,11 @@
                 $scope.toggleActiveButton();
             }
             
+            $scope.internalControl = $scope.control || {};
+            $scope.internalControl.clear = function(){
+                $scope.clear();  
+            };
+            
         };
         return {
             restrict: 'A',
@@ -48,7 +53,8 @@
             scope: {
                 dominios: '=',
                 event: '=',
-                source: '='
+                source: '=',
+                control: '='
             },
             link: Link
         };
