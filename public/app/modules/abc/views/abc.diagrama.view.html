@@ -161,7 +161,15 @@
                     <div class="diagrama-section-macroprocess">{{macroprocess.name}}</div>
                     
                     <!--Procesos y capacidades-->
-                    <div class="diagrama-creation" style="width: {{procesos.length * 200}}px" ng-show="hideBRule">
+                    <div class="diagrama-creation" style="width: {{(procesos.length * 200) + 50}}px; position: relative; padding-left: 50px; padding-bottom: 30px;" ng-show="hideBRule">
+                        <span style="position: absolute; width: 30px; height:  100%; top: 0; left: 0; display: inline-block;">
+                            <div style="width: 100%; position: absolute; height: 80px; background: #868686;; color: white; top: 0; left: 0">
+                                <span class="texto-barra-procesos">Procesos</span>
+                            </div>
+                            <div style="width: 100%; position: absolute; height: calc(100% - 115px); background: #868686; color: white; top: 115px; left: 0;">
+                                <span class="texto-barra-capacidades">Capacidades</span>
+                            </div>
+                        </span>
                         <div class="dc-procesos" ng-repeat="proceso in procesos">
                             <div class="dc-procesos-flecha" ng-show="proceso.mode == 'on' ? true : false"></div>
                             <div class="dc-process {{proceso.mode}}" ng-click="activateProcess($index)" ng-class="{'active': proceso.active}">
@@ -184,7 +192,15 @@
                     </div>
                     
                     <!--Procesos y reglas del negocio-->
-                    <div class="diagrama-creation" style="width: {{procesos.length * 200}}px" ng-hide="hideBRule">
+                    <div class="diagrama-creation" style="width: {{(procesos.length * 200) + 50}}px; position: relative; padding-left: 50px; padding-bottom: 30px;" ng-hide="hideBRule">
+                        <span style="position: absolute; width: 30px; height:  100%; top: 0; left: 0; display: inline-block;">
+                            <div style="width: 100%; position: absolute; height: 80px; background: #868686;; color: white; top: 0; left: 0">
+                                <span class="texto-barra-procesos">Procesos</span>
+                            </div>
+                            <div style="width: 100%; position: absolute; height: calc(100% - 115px); background: #868686; color: white; top: 115px; left: 0;">
+                                <span class="texto-barra-reglas">Reglas de negocio</span>
+                            </div>
+                        </span>
                         <div class="dc-procesos" ng-repeat="proceso in procesos">
                             <div class="dc-procesos-flecha" ng-show="proceso.mode == 'on' ? true : false"></div>
                             <div class="dc-process {{proceso.mode}}" ng-click="activateProcess($index)" ng-class="{'active': proceso.active}">
@@ -201,7 +217,7 @@
                                     <span class="dc-capacidad-name">{{regla.name}}</span>
                                 </div>
                                 <div class="dc-capacidad-conector-no" ng-show="regla.attributes[0].forma.id == 'rombo' ? true : false">
-                                    No {{regla.attributes[0].connection.no.name | brules}}
+                                    No {{regla.attributes[0].no.name | brules}}
                                 </div>
                                 <div class="dc-capacidad-conector-yes" ng-show="regla.attributes[0].forma.id == 'rombo' ? true : false">
                                     Yes

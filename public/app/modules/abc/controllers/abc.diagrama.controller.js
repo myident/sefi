@@ -347,21 +347,53 @@
                     for (var l in proceso.reglas) {
                         var regla = proceso.reglas[l];
                         if (regla.mode == 'on') {
-                            var reglaJson = {
-                                id_paso: Number(l),
-                                nombre_regla: regla.name,
-                                flow: [{
-                                    area_ID: regla.attributes[0].area.id || 0,
-                                    next_STEP: Number(l) + 1,
-                                    desc_TYPE: regla.attributes[0].forma.id == 'rombo' ? 'YES': '',
-                                    pros_ID: 0,
-                                    flow_ID: 0,
-                                    shape_ID: regla.attributes[0].forma.id == 'rectangulo' ? 0 : (regla.attributes[0].forma.id == 'redondeado' ? 1 : 2),
-                                    dia_STEP_ID: Number(l),
-                                    diagram_ID: 0,
-                                    app_ID: Number(regla.attributes[0].application.id) || 0
-                                }]
-                            };
+                            var reglaJson = {};
+                            if (regla.attributes[0].id == 'rombo') {
+                                reglaJson = {
+                                    id_paso: Number(l),
+                                    nombre_regla: regla.name,
+                                    flow: [
+                                        {
+                                            area_ID: regla.attributes[0].area.id || 0,
+                                            next_STEP: Number(l) + 1,
+                                            desc_TYPE: 'YES',
+                                            pros_ID: 0,
+                                            flow_ID: 0,
+                                            shape_ID: 3,
+                                            dia_STEP_ID: Number(l),
+                                            diagram_ID: 0,
+                                            app_ID: Number(regla.attributes[0].application.id) || 0
+                                        },
+                                        {
+                                            area_ID: regla.attributes[0].area.id || 0,
+                                            next_STEP: Number(regla.attributes[0].no.id),
+                                            desc_TYPE: 'NO',
+                                            pros_ID: 0,
+                                            flow_ID: 0,
+                                            shape_ID: 3,
+                                            dia_STEP_ID: Number(l),
+                                            diagram_ID: 0,
+                                            app_ID: Number(regla.attributes[0].application.id) || 0
+                                        }
+                                    ]
+                                };
+                            } else {
+                                reglaJson = {
+                                    id_paso: Number(l),
+                                    nombre_regla: regla.name,
+                                    flow: [{
+                                        area_ID: regla.attributes[0].area.id || 0,
+                                        next_STEP: Number(l) + 1,
+                                        desc_TYPE: ' ',
+                                        pros_ID: 0,
+                                        flow_ID: 0,
+                                        shape_ID: regla.attributes[0].forma.id == 'rectangulo' ? 1 : (regla.attributes[0].forma.id == 'redondeado' ? 2 : 3),
+                                        dia_STEP_ID: Number(l),
+                                        diagram_ID: 0,
+                                        app_ID: Number(regla.attributes[0].application.id) || 0
+                                    }]
+                                };
+                            }
                             reglasArray.push(reglaJson);
                         }
 

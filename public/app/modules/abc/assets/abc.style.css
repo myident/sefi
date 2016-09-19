@@ -653,12 +653,17 @@
     transform: translate(-4px, 14px) skew(-15deg, -15deg) rotate(-135deg);
     font-size: 11px;
     height: 60px;
+    position: absolute;
+    left: 10px;
+    top: -10px;
 }
 
 .dc-capacidad.rombo span.dc-capacidad-number,
 .dc-capacidad.rombo-tache span.dc-capacidad-number {
     position: absolute;
-    right: 30px;
+    right: 50px;
+    height: 10px;
+    top: 45px;
 }
 
 .dc-capacidad-conector-no,
@@ -685,7 +690,7 @@
     width: 100%;
     text-align: center;
     display: inline-block;
-    padding-top: 10px;
+    padding-top: 5px;
 }
 
 .dc-process-number,
@@ -1047,4 +1052,29 @@ section.container-card > div.card > article.frontside.abc-edit-ta {
 
 .wrapper-formas > div.active {
     background: rgba(245, 245, 245, 0.5);
+}
+
+.texto-barra-procesos {
+    transform: rotate(90deg);
+    display: block;
+    left: -12px;
+    position: absolute;
+    top: 30px;
+}
+
+.texto-barra-capacidades {
+    transform: rotate(90deg);
+    display: block;
+    position: absolute;
+    left: -24px;
+    top: 40px;
+}
+
+.texto-barra-reglas {
+    transform: rotate(90deg);
+    display: block;
+    position: absolute;
+    left: -45px;
+    width: 120px;
+    top: 60px;
 }
