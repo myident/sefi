@@ -17,14 +17,9 @@
         $scope.init = function () {
             console.log($abcUpdate);
             $scope.update = $abcUpdate.update || false;
-<<<<<<< HEAD
             $scope.showItems = $abcUpdate.show;
             if($abcUpdate.update){
                 for(var i in $scope.types){
-=======
-            if ($abcUpdate.update) {
-                for (var i in $scope.types) {
->>>>>>> origin/vash
                     $scope.types[i].active = false;
                 }
                 switch ($abcUpdate.obj.id) {
