@@ -416,7 +416,8 @@
                                     var capacidadJson = {
                                         capid: Number(j),
                                         capaldesc: capacidad.name,
-                                        atributosCap: attrArray
+                                        atributosCap: attrArray,
+                                        cap_DOM_id: capacidad.attributes[0].domain.id || 0
                                     };
                                     capacidadArray.push(capacidadJson);
                                 } else {
@@ -552,6 +553,7 @@
                             "kpi": 0
                         }],
                         "capid": 0,
+                        "cap_DOM_id": 0,
                         "capaldesc": ""
                     }],
                     "reglas": [{
