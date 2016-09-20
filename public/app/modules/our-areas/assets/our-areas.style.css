@@ -1,5 +1,6 @@
 .regresar {
     cursor: pointer;
+    width: 300px;
 }
 
 .regresar > i {
@@ -473,7 +474,7 @@ i.avanzar-trj {
         margin: 0 auto;
     }
     .architecture-intro {
-        width: 700px;
+        width: 660px;
     }
 }
 

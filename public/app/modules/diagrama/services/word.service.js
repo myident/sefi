@@ -1,7 +1,12 @@
 /* global angular, jsPDF, pdfMake */
 (function () {
-    var Service = function () {
+    var Service = function ($barraHerramientas, $rootScope) {
         return {
+            $camelize: function (str) {
+                return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (letter) {
+                    return letter.toLowerCase();
+                }).replace(/\s+/g, '_');
+            },
             $make: function (obj) {
                 var docDefinition = {
 
@@ -1018,46 +1023,51 @@
                 pdfMake.createPdf(docDefinition).open();
             },
             $diagramMake: function (obj) {
-                var docDefinition = {
-                    content: [
-                        {
-                            text: 'Macroprocess: Subscription Management',
-                            style: 'header'
-                        },
-                        {
-                            text: '1. Diagram',
-                            style: 'title'
-                        },
-                        {
-                            image: obj,
-                            fit: [500, 700],
-                            margin: [20, 0, 0, 0]
+                svgAsPngUri(obj, {
+                    scale: 1.5
+                }, function (uri) {
+                    var docDefinition = {
+                        content: [
+                            {
+                                text: 'Macroprocess: ' + $barraHerramientas.nombreMacroproceso,
+                                style: 'header'
+                            },
+                            {
+                                text: '1. Diagram',
+                                style: 'title'
+                            },
+                            {
+                                image: uri,
+                                fit: [500, 700],
+                                margin: [20, 0, 0, 0]
+                            }
+                        ],
+                        styles: {
+                            header: {
+                                fontSize: 12,
+                                bold: true,
+                                margin: [5, 0, 0, 5],
+                                color: '#4E4E4E',
+                                font: 'Roboto'
+                            },
+                            title: {
+                                fontSize: 10,
+                                margin: [20, 20, 0, 5],
+                                color: '#4E4E4E',
+                                bold: true
+                            }
                         }
-                    ],
-                    styles: {
-                        header: {
-                            fontSize: 12,
-                            bold: true,
-                            margin: [5, 0, 0, 5],
-                            color: '#4E4E4E',
-                            font: 'Roboto'
-                        },
-                        title: {
-                            fontSize: 10,
-                            margin: [20, 20, 0, 5],
-                            color: '#4E4E4E',
-                            bold: true
+                    };
+                    pdfMake.fonts = {
+                        Roboto: {
+                            normal: 'Roboto-Light.ttf',
+                            bold: 'Roboto-Regular.ttf'
                         }
-                    }
-                };
-                pdfMake.fonts = {
-                    Roboto: {
-                        normal: 'Roboto-Light.ttf',
-                        bold: 'Roboto-Regular.ttf'
-                    }
-                };
+                    };
 
-                pdfMake.createPdf(docDefinition).open("diagram.pdf");
+                    pdfMake.createPdf(docDefinition).download(this.$camelize($barraHerramientas.nombreMacroproceso) + "_diagram.pdf");
+                });
+
             },
             $documentMake: function(){
                 var docDefinition = {
@@ -1116,7 +1126,7 @@
                             columns: [
                                 {
                                     width: 100,
-                                    text: 'Subscription Managment',
+                                    text: $barraHerramientas.nombreMacroproceso,
                                     style: 'macroprocess'
                                 }
                             ]
@@ -2061,7 +2071,11 @@
                     }
                 };
 
-                pdfMake.createPdf(docDefinition).open("document.pdf");
+                pdfMake.createPdf(docDefinition).download(this.$camelize($barraHerramientas.nombreMacroproceso) + "_document.pdf");
+                
+            },
+            $exportDiagram: function(obj){
+                saveSvg(obj,this.$camelize($barraHerramientas.nombreMacroproceso) + "_diagram.svg", {scale: 1});
             },
             $appart: function(ancho, alto, svgElement){
                 var nuevaAltura;
@@ -2109,6 +2123,7 @@
             }
         };
     };
+    Service.$inject = ['$barraHerramientas', '$rootScope'];
     angular
         .module('wordService', [])
         .service('$word', Service);

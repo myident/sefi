@@ -3,17 +3,36 @@
     var Directive = function ($word, $barraHerramientas, $window) {
 
         var Link = function ($scope) {
+            $scope.showDownloadMenu = false;
+
+            $scope.$watch(
+                function () {
+                    return $barraHerramientas.zoom;
+                },
+                function (newVal) {
+                    if (typeof newVal !== 'undefined') {
+                        $scope.zoom = newVal;
+                        $scope.displayZoom = parseInt($scope.zoom * 100) + '%';
+                    }
+                });
             
-        $scope.$watch(
-            function () {
-                return $barraHerramientas.zoom;
-            },
-            function (newVal) {
-                if (typeof newVal !== 'undefined') {
-                    $scope.zoom = newVal;
-                    $scope.displayZoom = parseInt($scope.zoom * 100) + '%';
-                }
-            });
+            $scope.$watch(
+                function () {
+                    return $barraHerramientas.showBar;
+                },
+                function (newVal) {
+                    $scope.showBar = newVal;
+                });
+            
+            $scope.$watch(
+                function () {
+                    return $barraHerramientas.view;
+                },
+                function () {
+                    $scope.sendView($barraHerramientas.view);
+                    $scope.setView($barraHerramientas.view);
+                });
+
 
             $scope.levelOne = true;
 
@@ -229,7 +248,9 @@
 
 
             // MARK: - print
-            $scope.print = function () {
+            
+            // Download docukmento con diagrama dentro PDF
+            $scope.downloadDocumentWithDiagram = function () {
 
                 var svgElement = $window.document.getElementById('dgWaysSvg'),
                     ancho = $barraHerramientas.svgSize.width / 2.25,
@@ -246,29 +267,46 @@
                 });
 
             };
-            
-            $scope.appart = function(){
-                var svgElement = $window.document.getElementById('dgWaysSvg'),
-                ancho = $barraHerramientas.svgSize.width / 2.25,
-                alto = $barraHerramientas.svgSize.height / 2.25;
+
+            // Download diagrama y abre documento PDF
+            $scope.downloadDiagramOpenDocument = function () {
+                var ancho = $barraHerramientas.svgSize.width / 2.25,
+                    alto = $barraHerramientas.svgSize.height / 2.25;
                 $word.$noDiagram();
-                $word.$appart(ancho, alto, svgElement);
-                
+                $word.$appart(ancho, alto, $window.document.getElementById('dgWaysSvg'));
             };
             
-            $scope.imprimirSeparados = function(){
-                var svgElement = $window.document.getElementById('dgWaysSvg');
-                svgAsPngUri(svgElement, {
-                    scale: 1.5
-                }, function (uri) {
-                    $word.$documentMake();
-                    $word.$diagramMake(uri);
-                });
+            // Download diagrama PDF
+            $scope.downloadDiagram = function () {
+                $scope.showDownloadMenu = false;
+                $word.$diagramMake($window.document.getElementById('dgWaysSvg'));
             };
-
-
+            
+        
+            // Download documento PDF
+            $scope.downloadDocument = function () {
+                $word.$documentMake();
+                $scope.showDownloadMenu = false;
+            };
+            
+            // Exporta diagrama PNG
+            $scope.exportDiagram = function(){
+                $scope.showDownloadMenu = false;
+                $word.$exportDiagram($window.document.getElementById('dgWaysSvg'));
+            };
+            
+            // Download diagrama en piezas
+            $scope.downloadDiagramPieces = function(){
+                $scope.showDownloadMenu = false;
+                
+                var ancho = $barraHerramientas.svgSize.width / 7,
+                    alto = $barraHerramientas.svgSize.height / 7;
+                                
+                $word.$appart(ancho, alto, $window.document.getElementById('dgWaysSvg'));
+            };
+            
             // I N I T S
-            $scope.setView($scope.configView);
+            $scope.setView($barraHerramientas.view);
             $scope.setOrganize($scope.configOrganize);
             $scope.setShow($scope.configShow);
         };

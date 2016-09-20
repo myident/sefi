@@ -1,0 +1,25 @@
+<span>2. Megaprocess information</span>
+<ul class="abc-create-form">
+    <li>
+        <abc-special-select 
+            label="Domain" 
+            holder="Select a Domain" 
+            model="domain" 
+            options="dominios"
+            event="toggleActiveButton"
+            ></abc-special-select>
+    </li>
+    <li>
+        <abc-textarea title="Megaprocess name (max. 100 characters)" model="name" label="Name" event="toggleActiveButton"></abc-textarea>
+    </li>
+    <li>
+        <div class="container-buttons-right" ng-hide="update">
+            <div class="abc-create-button" ng-click="clear()">Clear</div>
+            <div class="abc-create-button" ng-class="{'disabled': !canSave}" ng-click="save()">Save</div>
+        </div>
+        <div class="container-buttons-right" ng-show="update">
+            <div class="abc-create-button" ng-click="delete()">Delete</div>
+            <div class="abc-create-button" ng-click="edit()">Update</div>
+        </div>
+    </li>
+</ul>

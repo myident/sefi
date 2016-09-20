@@ -64,6 +64,8 @@
         $rootScope.n = {
             rutas: [0, 0, 0],
         };
+        
+        $rootScope.showAlert = false;
     };
     Controller.$inject = ['$scope', '$rootScope', '$itbook'];
     angular.module('app').controller('AppController', Controller);

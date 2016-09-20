@@ -1,0 +1,258 @@
+<ng-header set-elementos-menu="elementosMenu"></ng-header>
+<main>
+    <section>
+        <div class="regresar" ng-click="regresar()">
+            <i></i>
+            <span>Back</span>
+        </div>
+        <article class="abc-diagrama-sidebar">
+            <div class="module-title">
+                <div>
+                    <span>Business Architecture | </span> <span class="active">Diagram</span>
+                </div>
+            </div>
+            <div class="abc-diagrama-instructions">Select the Macroprocess you want to diagram:</div>
+            
+            <div class="abc-diagrama-options">
+                <ul class="abc-create-form">
+                    <li>
+                        <abc-special-select label="Macroprocess" holder="Select a Macroprocess" model="macroprocess" options="macroprocesos" event="selectMacroprocess"></abc-special-select>
+                    </li>
+                </ul>
+            </div>
+            <div class="abc-diagrama-options" ng-show="procesos.length > 1 ? true : false">
+                <ul class="abc-create-form">
+                    <li>
+                        <div class="abc-separator-line"></div>  
+                    </li>
+                    <li ng-show="processEditing">
+                        <div class="abc-create-form-title">P{{currentProcess + 1}} Process Details</div>
+                        <abc-input title="Process name" model="procesos[currentProcess].name" label="Process name" event="toggleActiveButton">
+                        </abc-input>
+                        <div style="color: red; font-family: 'SF Medium'; cursor: pointer;" ng-click="deleteProcess()">Delete Process</div>
+                    </li>
+                    <li ng-hide="processEditing">
+                       
+                        <!--Procesos y capacidades-->
+                        <div ng-show="showCapaDetails">
+                            <div 
+                                class="abc-create-form-title">C{{currentCapability + 1}} Capability Details</div>
+                                
+                            <abc-input 
+                                title="Capability name" 
+                                model="procesos[currentProcess].capacidades[currentCapability].name" 
+                                label="Capability name" 
+                                event="toggleActiveButton">
+                            </abc-input>
+                        
+                            <div style="color: red; font-family: 'SF Medium'; cursor: pointer; margin-bottom: 30px;" ng-click="deleteCapabiliy()">Delete Capability</div>
+                            
+                            <div 
+                               ng-repeat="attribute in procesos[currentProcess].capacidades[currentCapability].attributes">
+                               
+                                <div 
+                                    class="abc-create-form-title" 
+                                    ng-hide="processEditing">C{{currentCapability + 1}} Capability Attributes</div>
+                                    
+                                <abc-special-select 
+                                    label="Area" 
+                                    holder="Select area" 
+                                    model="attribute.area" 
+                                    options="areas" is-area="true"></abc-special-select>
+                                    
+                                <abc-special-select 
+                                    label="Application" 
+                                    holder="Select application" 
+                                    model="attribute.application" 
+                                    options="aplicaciones"></abc-special-select>
+                                    
+                                <abc-special-select 
+                                    label="KPI" 
+                                    holder="Select KPI" 
+                                    model="attribute.kpi" 
+                                    options="kpis"></abc-special-select>
+                                    
+                                <abc-special-select 
+                                    label="Domain" 
+                                    holder="Select Domain" 
+                                    model="attribute.domain" 
+                                    options="dominios"></abc-special-select>
+                                    
+                                
+                            </div>
+                            
+<!--
+                            <div 
+                                ng-click="addMoreAttributes()" 
+                                style="text-decoration: underline; color: #30A3CF; cursor: pointer;">
+                                Repeat capability with different attributes</div>
+-->
+                        </div>
+                        
+                        <!--Procesos y reglas de negocio-->
+                        <div ng-show="showBruleDetails">
+                            <div 
+                                class="abc-create-form-title">BR{{currentBrule + 1}} Business Rule Details
+                            </div>
+                            
+                            <abc-input 
+                                title="Business rule name" 
+                                model="procesos[currentProcess].reglas[currentBrule].name" 
+                                label="Business rule" 
+                                event="toggleActiveButton">
+                            </abc-input>
+                            <div style="color: red; font-family: 'SF Medium'; cursor: pointer; margin-bottom: 30px;" ng-click="deleteBrule()">Delete Business Rule</div>
+                            
+                            <div 
+                               ng-repeat="attribute in procesos[currentProcess].reglas[currentBrule].attributes">
+                               
+                                <div class="abc-create-form-title">BR{{currentBrule + 1}} Business Rule Attributes</div>
+                                    
+                                <abc-formas
+                                    label="Container type"
+                                    holder="Elige una forma"
+                                    model="attribute.forma"
+                                    options="optionsFiguras"
+                                    event="getForma">
+                                </abc-formas>
+                                    
+                                <abc-special-select 
+                                    label="Area" 
+                                    holder="Select area" 
+                                    model="attribute.area" 
+                                    options="areas" is-area="true"></abc-special-select>
+                                    
+                                <abc-special-select 
+                                    label="Application" 
+                                    holder="Select application" 
+                                    model="attribute.application" 
+                                    options="aplicaciones"></abc-special-select>
+                                    
+                                <div ng-show="showDecisions">
+                                    <div class="abc-create-form-title">BR{{currentBrule + 1}} Business Rule Connection</div>
+                                    <abc-nice-label 
+                                        label="Yes" 
+                                        model="currentYes"  
+                                        ></abc-nice-label>
+
+                                    <abc-special-select 
+                                        label="No" 
+                                        holder="Select a Business rule" 
+                                        model="attribute.no" 
+                                        options="brules"
+                                        event="getNo"
+                                        ></abc-special-select>
+                                </div>
+                                    
+
+                            </div>
+                                
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </article>
+        <aside class="abc-diagrama-canvas">
+            <header>
+                <ul class="header-diagrama">
+                    <li ng-class="{'active': hideBRule}" ng-click="switchViews(0)">Capabilities</li>
+                    <li ng-class="{'active': !hideBRule}" ng-click="switchViews(1)">Business Rules</li>
+                </ul>
+            </header>
+            <div class="diagrama-section">
+                <div class="diagrama-section-container" ng-show="macroprocess">
+                    <div class="diagrama-section-data">
+                        <div class="diagrama-section-data-label">Domain:</div>
+                        <div class="diagrama-section-data-content">Customer Relationship Management (CRM)</div>
+                    </div>
+                    <div class="diagrama-section-data">
+                        <div class="diagrama-section-data-label">Megaprocess:</div>
+                        <div class="diagrama-section-data-content">{{macroprocesos[currentMacro].mega_desc}}</div>
+                    </div>
+                    <div class="diagrama-section-macroprocess">{{macroprocess.name}}</div>
+                    
+                    <!--Procesos y capacidades-->
+                    <div class="diagrama-creation" style="width: {{(procesos.length * 200) + 50}}px; position: relative; padding-left: 50px; padding-bottom: 30px;" ng-show="hideBRule">
+                        <span style="position: absolute; width: 30px; height:  100%; top: 0; left: 0; display: inline-block;">
+                            <div style="width: 100%; position: absolute; height: 80px; background: #868686;; color: white; top: 0; left: 0">
+                                <span class="texto-barra-procesos">Procesos</span>
+                            </div>
+                            <div style="width: 100%; position: absolute; height: calc(100% - 115px); background: #868686; color: white; top: 115px; left: 0;">
+                                <span class="texto-barra-capacidades">Capacidades</span>
+                            </div>
+                        </span>
+                        <div class="dc-procesos" ng-repeat="proceso in procesos">
+                            <div class="dc-procesos-flecha" ng-show="proceso.mode == 'on' ? true : false"></div>
+                            <div class="dc-process {{proceso.mode}}" ng-click="activateProcess($index)" ng-class="{'active': proceso.active}">
+                                <span class="dc-process-number">P{{$index + 1}}</span>
+                                <span class="dc-process-name">{{proceso.name}}</span>
+                            </div>
+                            <div class="dc-capacidades" ng-repeat="capacidad in proceso.capacidades">
+                                <div class="dc-capacidad-connection"></div>
+                                <div class="dc-capacidad {{capacidad.mode}}" ng-click="activateCapability($parent.$index, $index)" ng-class="{'active': capacidad.active}">
+                                    <span class="dc-capacidad-number">C{{$index + 1}}</span>
+                                    <span class="dc-capacidad-name">{{capacidad.name}}</span>
+                                </div>
+                                <div class="dc-capacidad-attributes" ng-repeat="attribute in capacidad.attributes">
+                                    <span class="dc-area" ng-show="attribute.area != '' ? true : false">{{attribute.area.name}}</span>
+                                    <span class="dc-app" ng-show="attribute.application != '' ? true : false">{{attribute.application.name}}</span>
+                                    <span class="dc-kpi" ng-show="attribute.kpi != '' ? true : false">{{attribute.kpi.name}}</span>
+                                    <span class="dc-area" ng-show="attribute.domain != '' ? true : false">{{attribute.domain.name}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!--Procesos y reglas del negocio-->
+                    <div class="diagrama-creation" style="width: {{(procesos.length * 200) + 50}}px; position: relative; padding-left: 50px; padding-bottom: 30px;" ng-hide="hideBRule">
+                        <span style="position: absolute; width: 30px; height:  100%; top: 0; left: 0; display: inline-block;">
+                            <div style="width: 100%; position: absolute; height: 80px; background: #868686;; color: white; top: 0; left: 0">
+                                <span class="texto-barra-procesos">Procesos</span>
+                            </div>
+                            <div style="width: 100%; position: absolute; height: calc(100% - 115px); background: #868686; color: white; top: 115px; left: 0;">
+                                <span class="texto-barra-reglas">Reglas de negocio</span>
+                            </div>
+                        </span>
+                        <div class="dc-procesos" ng-repeat="proceso in procesos">
+                            <div class="dc-procesos-flecha" ng-show="proceso.mode == 'on' ? true : false"></div>
+                            <div class="dc-process {{proceso.mode}}" ng-click="activateProcess($index)" ng-class="{'active': proceso.active}">
+                                <span class="dc-process-number">P{{$index + 1}}</span>
+                                <span class="dc-process-name">{{proceso.name}}</span>
+                            </div>
+                            <div class="dc-capacidades" ng-repeat="regla in proceso.reglas">
+                                <div class="dc-capacidad-connection"></div>
+                                <div 
+                                   class="dc-capacidad {{regla.mode}} {{regla.attributes[0].forma.id}}" 
+                                   ng-click="activateBrule($parent.$index, $index)" 
+                                   ng-class="{'active': regla.active}">
+                                     <span class="dc-capacidad-number">BR{{$index + 1}}</span>
+                                    <span class="dc-capacidad-name">{{regla.name}}</span>
+                                </div>
+                                <div class="dc-capacidad-conector-no" ng-show="regla.attributes[0].forma.id == 'rombo' ? true : false">
+                                    No {{regla.attributes[0].no.name | brules}}
+                                </div>
+                                <div class="dc-capacidad-conector-yes" ng-show="regla.attributes[0].forma.id == 'rombo' ? true : false">
+                                    Yes
+                                </div>
+                                <div class="dc-capacidad-attributes" ng-repeat="attribute in regla.attributes">
+                                    <span class="dc-area" ng-show="attribute.area != '' ? true : false">{{attribute.area.name}}</span>
+                                    <span class="dc-app" ng-show="attribute.application != '' ? true : false">{{attribute.application.name}}</span>
+                                    <!-- <span class="dc-kpi" ng-show="attribute.kpi != '' ? true : false">{{attribute.kpi.name}}</span>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="container-buttons-right" style="margin-top: 30px;">
+                <div class="abc-create-button" ng-click="clear()">Clear</div>
+                <div class="abc-create-button" ng-class="{'disabled': !canSave}" ng-click="save()">Save</div>
+            </div>
+        </aside>
+        
+    </section>
+</main>
+
+
+<abc-alert content="contentAlert" ng-show="showAlert"></abc-alert>

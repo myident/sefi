@@ -15,28 +15,20 @@
                 <section>
                     <span>1. Select the type of content you want to create:</span>
                     <ul>
-                        <li 
-                           class="cuadro {{type.class}}" 
-                           ng-repeat="type in types" 
-                           ng-click="toggleType($index)"
-                           ng-class="{'active': type.active}">
-                            <img 
-                                ng-src="{{type.image[(type.active ? 1 : 0)]}}" 
-                                alt="{{type.name}}">
+                        <li class="cuadro {{type.class}}" ng-repeat="type in types" ng-click="toggleType($index)" ng-class="{'active': type.active}">
+                            <img ng-src="{{type.image[(type.active ? 1 : 0)]}}" alt="{{type.name}}">
                             <span>{{type.name}}</span>
                         </li>
                     </ul>
                 </section>
-                <section abc-domain ng-show="types[0].active"></section>
-                <section abc-megaprocess ng-show="types[1].active"></section>
-                <section abc-macroprocess ng-show="types[2].active"></section>
-                <section abc-process ng-show="types[3].active"></section>
-                <section abc-capability ng-show="types[4].active"></section>
-                <section abc-brule ng-show="types[5].active"></section>
-                <section abc-area ng-show="types[6].active"></section>
-                <section abc-kpi ng-show="types[7].active"></section>
-                <section abc-application ng-show="types[8].active"></section>
+                <section abc-domain event="saveDomain" event-update="updateDomain" event-delete="deleteDomain" control="domainControl" source="types[0].source" ng-show="types[0].active" update="update"></section>
+                <section abc-megaprocess event="saveMega" event-update="updateMega" event-delete="deleteMega" control="megaControl" source="types[1].source" dominios="listaDominios" ng-show="types[1].active" update="update"></section>
+                <section abc-macroprocess event="saveMacro" event-update="updateMacro" event-delete="deleteMacro" control="macroControl" source="types[2].source" megaprocesos="listaMegaprocesos" areas="listaAreas" ng-show="types[2].active" update="update"></section>
+                <section abc-area event="saveArea" event-update="updateArea" event-delete="deleteArea" control="areaControl" source="types[3].source" ng-show="types[3].active" update="update"></section>
+                <section abc-kpi event="saveKpi" event-update="updateKpi" event-delete="deleteKpi" control="kpiControl" source="types[4].source" ng-show="types[4].active" update="update"></section>
+                <section abc-application event="saveAplicacion" event-update="updateAplicacion" event-delete="deleteAplicacion" source="types[5].source" control="aplicacionControl" ng-show="types[5].active" update="update"></section>
             </div>
         </div>
     </section>
 </main>
+<abc-alert content="contentAlert" ng-show="showAlert"></abc-alert>

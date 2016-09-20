@@ -306,6 +306,9 @@ b i {
 .text-white {
     color: rgb(255, 255, 255);
 }
+.text-gray {
+    color: rgb(120,120,120);
+}
 
 .text-blue {
     color: rgb(2, 104, 174);

@@ -71,8 +71,9 @@
                 rect.attr({
                     stroke: "rgb(151,151,151)",
                     fill: "rgb(255,255,255)",
-                    strokeWidth: 1,
-                    "shape-rendering": "crispEdges"
+                    strokeWidth: 1
+                    // ,
+                    // "shape-rendering": "crispEdges"
                 });
                 return rect;
             },
@@ -82,8 +83,9 @@
                     stroke: "rgb(151,151,151)",
                     fill: "rgb(244,244,244)",
                     strokeWidth: 1,
-                    filter: filter,
-                    "shape-rendering": "crispEdges"
+                    filter: filter
+                    // ,
+                    // "shape-rendering": "crispEdges"
                 });
                 return rect;
             },

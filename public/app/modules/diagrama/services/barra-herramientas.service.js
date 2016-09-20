@@ -4,6 +4,7 @@
 
     var service = function () {
         return {
+            showBar: false,
             view: 0,
             organize: 0,
             show: 0,

@@ -36,7 +36,7 @@
         // init arquitecturas, dominios, megaprocesos
         $scope.arquitecturas = $indice.arquitecturas(
             function (data) {
-                console.log(data);
+//                console.log(data);
                 $rootScope.spin = false;
                 $scope.arquitectura = data.arquitectura[$indexArquitectura];
                 if (data.arquitectura.length){
@@ -62,6 +62,7 @@
 
         //MARK: - getter Megaprocesos
         $scope.getMegaprocesos = function (value, index) {
+            $barraHerramientas.showBar = false;
             $scope.megaprocesos = $indice.megaprocesos(
                 value,
                 function () {
@@ -78,9 +79,9 @@
         };
         //MARK: - getter Macroprocesos
         $scope.getMacroprocesos = function (value, index) {
-            console.log('Macros');
-            console.log(value);
-            console.log(index);
+//            console.log('Macros');
+//            console.log(value);
+//            console.log(index);
             $scope.macroprocesos = $indice.macroprocesos(
                 value,
                 index,
@@ -98,9 +99,9 @@
         };
         // MARK: - getter Procesos
         $scope.getProcesos = function (value, index) {
-            console.log('Procesos');
-            console.log(value);
-            console.log(index);
+            $barraHerramientas.nombreMacroproceso = $scope.macroprocesos[index].title;
+            $barraHerramientas.view = 0;
+            $barraHerramientas.showBar = true;
             $indice.procesos(
                 value,
                 index,
@@ -115,42 +116,31 @@
                     
                     for(var i in data.procesos){
                         var reglasTemp = [];
-                        var idfiguraBool = false;
+                        var pactualLast = '';
                         var count = 0;
                         var proceso = data.procesos[i];
                         for(var j in data.procesos[i]['reglas']){
                             var regla = data.procesos[i]['reglas'][j];
-                            if(regla.idfigura !== 3){
-                                if(regla.idfigura !== 5){
+                            
+                                if(pactualLast !== regla.pactual){
                                   regla.first = 0 === Number(j) ? true: false;
                                   regla.last = (proceso.reglas.length - 1) === Number(j) ? true: false;
                                   reglasTemp[count] = regla;
                                   reglasTemp[count].psiguiente = [regla.psiguiente];
-                                  idfiguraBool = false;
-                                  count++;
-                                }
-                            }else{
-                                if(!idfiguraBool){
-                                  var psiguiente = regla.psiguiente;
-                                    regla.first = 0 === Number(j) ? true: false;
-                                    regla.last = (proceso.reglas.length - 1) === Number(j) ? true: false;
-                                    reglasTemp[count] = regla;
-                                    reglasTemp[count].psiguiente = [];
-                                    reglasTemp[count].psiguiente.push(psiguiente);
-                                    idfiguraBool = true;
+                                  pactualLast = regla.pactual;
+                                  
                                 }else{
-                                    reglasTemp[count].psiguiente.push(regla.psiguiente);
-                                    count++;
-                                    idfiguraBool = false;
+                                  count--;
+                                  reglasTemp[count].psiguiente.push(regla.psiguiente);
+                                  idfiguraBool = regla.pactual;
                                 }
-                            
-                          }
+                                count++;
                         }
                         data.procesos[i]['reglas'] = reglasTemp;
                     }
 
                     var process = JSON.parse(JSON.stringify(data.procesos));
-                    console.log(process);
+//                    console.log(process);
                     $scope.source = {procesos: process, kpis:data.procesos, areas: data.areas};
                 });
         };
