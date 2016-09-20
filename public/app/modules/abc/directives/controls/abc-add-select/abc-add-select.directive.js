@@ -15,6 +15,7 @@
                     model: ''
                 }
             ];
+            
 
             $scope.toggleShowOptions = function (index) {
                 if ($scope.options) {
@@ -67,18 +68,50 @@
             };
 
             $scope.saveModel = function(){
-                $scope.model = [];
-                for (var i in $scope.source) {
-                    if ($scope.source[i].model !== '') {
-                        var obj = {
-                            area_ID: $scope.source[i].model,
-                            mcro: 0,
-                            status: 0
-                        };
-                        $scope.model.push(obj);
+                var obj = {};
+                if ($scope.model){
+                    for (var j in $scope.source) {
+                        if ($scope.source[j].model !== '') {
+                            obj = {
+                                area_ID: $scope.source[j].model,
+                                mcro: $scope.model[j].mcro,
+                                status: 2
+                            };
+                            $scope.model.push(obj);
+                        }
+                    }
+                } else {
+                    $scope.model = [];
+                    for (var i in $scope.source) {
+                        if ($scope.source[i].model !== '') {
+                            obj = {
+                                area_ID: $scope.source[i].model,
+                                mcro: 0,
+                                status: 0
+                            };
+                            $scope.model.push(obj);
+                        }
                     }
                 }
+                console.log($scope.model)
+
             };
+            
+            
+            if ($scope.model){
+                if ($scope.model.length){
+                    $scope.source = [];
+                    for (var i in $scope.model){
+                        var obj = {
+                            modelSelected: false,
+                            showOptions: false,
+                            model: $scope.model[i].area_ID
+                        };
+                        $scope.source.push(obj);
+                    }
+                }
+
+            }
         };
 
         return {
