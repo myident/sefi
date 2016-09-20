@@ -6,6 +6,8 @@
             $window.history.back();
         };
 
+
+
         $scope.init = function(){
             console.log($abcUpdate);
             $scope.update = $abcUpdate.update || false;
@@ -172,10 +174,12 @@
         // MARK: - POST Guarda un Dominio
         $scope.domainControl = {};
         $scope.saveDomain = function (name, shortname) {
+            $rootScope.spin = true;
             var dominio = new $apidominio();
             dominio.LNAME = name;
             dominio.SNAME = shortname;
             dominio.$save(function (data) {
+                $rootScope.spin = false;
                 // MARK: - GET Lista de los Dominios
                 $scope.listaDominios = $apidominio.query(function (data) {
                     console.log(data);
@@ -217,11 +221,13 @@
         };
 
         $scope.updateDomain = function (id, name, shortname) {
+            $rootScope.spin = true;
             var dominio = new $apidominio();
             dominio.DOMID = id;
             dominio.LNAME = name;
             dominio.SNAME = shortname;
             dominio.$update(function (data) {
+                $rootScope.spin = false;
                 // MARK: - GET Lista de los Dominios
                 $scope.listaDominios = $apidominio.query(function (data) {
                     console.log(data);
@@ -253,8 +259,10 @@
             });
         };
         $scope.deleteDomain = function (id) {
+            $rootScope.spin = true;
             var dominio = new $apidominio();
             dominio.$delete({id:id}, function (data) {
+                $rootScope.spin = false;
                 // MARK: - GET Lista de los Dominios
                 // $scope.listaDominios = $apidominio.query(function (data) {
                 //     console.log(data);
@@ -289,11 +297,13 @@
         // MARK: - POST Guarda un Megaproceso
         $scope.megaControl = {};
         $scope.saveMega = function (name, domain) {
+            $rootScope.spin = true;
 
             var megaproceso = new $apimegaproceso();
             megaproceso.DOMID = domain.id;
             megaproceso.LDESC = name;
             megaproceso.$save(function (data) {
+                $rootScope.spin = false;
                 console.log(data);
                 // MARK: - GET Lista de los Megaprocesos
                 $scope.listaMegaprocesos = $apimegaproceso.query(function (data) {
@@ -326,12 +336,14 @@
         };
 
         $scope.updateMega = function (id, name, domain) {
+            $rootScope.spin = true;
 
             var megaproceso = new $apimegaproceso();
             megaproceso.MEGA = id;
             megaproceso.DOMID = domain.id;
             megaproceso.LDESC = name;
             megaproceso.$update(function (data) {
+                $rootScope.spin = false;
                 console.log(data);
                 // MARK: - GET Lista de los Megaprocesos
                 $scope.listaMegaprocesos = $apimegaproceso.query(function (data) {
@@ -355,8 +367,10 @@
         };
 
         $scope.deleteMega = function (id) {
+            $rootScope.spin = true;
             var megaproceso = new $apimegaproceso();
             megaproceso.$delete({id:id}, function (data) {
+                $rootScope.spin = false;
                 // MARK: - GET Lista de los Dominios
                 // $scope.listaDominios = $apidominio.query(function (data) {
                 //     console.log(data);
@@ -391,9 +405,11 @@
         // MARK: - POST Guarda un Macroproceso
         $scope.macroControl = {};
         $scope.saveMacro = function (obj) {
+            $rootScope.spin = true;
             var macroproceso = new $apimacroproceso(obj);
             macroproceso.$save(
                 function () {
+                    $rootScope.spin = false;
                     console.log('Save succesfull');
                     $rootScope.showAlert = true;
                     $scope.contentAlert = {
@@ -421,9 +437,11 @@
         };
 
         $scope.updateMacro = function (obj) {
+            $rootScope.spin = true;
             var macroproceso = new $apimacroproceso(obj);
             macroproceso.$update(
                 function () {
+                    $rootScope.spin = false;
                     console.log('Save succesfull');
                     $rootScope.showAlert = true;
                     $scope.contentAlert = {
@@ -442,8 +460,10 @@
         };
 
         $scope.deleteMacro = function (id) {
+            $rootScope.spin = true;
             var macroproceso = new $apimacroproceso();
             macroproceso.$delete({id:id}, function (data) {
+                $rootScope.spin = false;
                 // MARK: - GET Lista de los Dominios
                 // $scope.listaDominios = $apidominio.query(function (data) {
                 //     console.log(data);
@@ -469,12 +489,14 @@
         // MARK: - POST Guarda un Area
         $scope.areaControl = {};
         $scope.saveArea = function (name, type) {
+            $rootScope.spin = true;
             var area = new $apiarea();
             area.LDESC = name;
             area.TIPO = type;
             area.POS = 1;
             area.$save(
                 function (data) {
+                    $rootScope.spin = false;
                     // MARK: - GET Lista de los Megaprocesos
                     $scope.listaAreas = $apiarea.query(function (data) {
                         console.log(data);
@@ -508,6 +530,7 @@
         };
 
         $scope.updateArea = function (id, name, type) {
+            $rootScope.spin = true;
             var area = new $apiarea();
             area.ARID = id;
             area.LDESC = name;
@@ -515,6 +538,7 @@
             area.POS = 1;
             area.$update(
                 function (data) {
+                    $rootScope.spin = false;
                     // MARK: - GET Lista de los Megaprocesos
                     $scope.listaAreas = $apiarea.query(function (data) {
                         console.log(data);
@@ -548,8 +572,10 @@
         };
 
         $scope.deleteArea = function (id) {
+            $rootScope.spin = true;
             var area = new $apiarea();
             area.$delete({id:id}, function (data) {
+                $rootScope.spin = false;
                 // MARK: - GET Lista de los Dominios
                 // $scope.listaDominios = $apidominio.query(function (data) {
                 //     console.log(data);
@@ -584,12 +610,14 @@
         // MARK: - POST Guarda un KPI
         $scope.kpiControl = {};
         $scope.saveKpi = function (name, shortname, level) {
+            $rootScope.spin = true;
             var kpi = new $apikpi();
             kpi.LDESC = name;
             kpi.SDESC = shortname;
             kpi.TIPO = level;
             kpi.$save(
                 function (data) {
+                    $rootScope.spin = false;
                     console.log(data);
                     $rootScope.showAlert = true;
                     $scope.contentAlert = {
@@ -608,6 +636,7 @@
         };
 
         $scope.updateKpi= function (id, name, shortname, level) {
+            $rootScope.spin = true;
             var kpi = new $apikpi();
             kpi.KPID = id;
             kpi.LDESC = name;
@@ -615,6 +644,7 @@
             kpi.TIPO = level;
             kpi.$update(
                 function (data) {
+                    $rootScope.spin = false;
                     // MARK: - GET Lista de los Megaprocesos
                     $scope.listaAreas = $apiarea.query(function (data) {
                         console.log(data);
@@ -639,8 +669,10 @@
         };
 
         $scope.deleteKpi = function (id) {
+            $rootScope.spin = true;
             var kpi = new $apikpi();
             kpi.$delete({id:id}, function (data) {
+                $rootScope.spin = false;
                 // MARK: - GET Lista de los Dominios
                 // $scope.listaDominios = $apidominio.query(function (data) {
                 //     console.log(data);
@@ -678,6 +710,7 @@
         // MARK: - POST Guarda una Aplicación
         $scope.aplicacionControl = {};
         $scope.saveAplicacion = function (name) {
+            $rootScope.spin = true;
 
 //            var aplicacion = new $apiaplicaciones();
 //            aplicacion.LDESC = name;
@@ -699,11 +732,13 @@
 
         };
         $scope.updateAplicacion = function (id, name) {
+            $rootScope.spin = true;
 
            var aplicacion = new $apiaplicaciones();
            aplicacion.id = id;
            aplicacion.LDESC = name;
            aplicacion.$update(function (data) {
+                $rootScope.spin = false;
                console.log(data);
                 $rootScope.showAlert = true;
                 $scope.contentAlert = {
@@ -722,9 +757,10 @@
         };
 
         $scope.deleteKpi = function (id) {
+            $rootScope.spin = true;
             var aplicacion = new $apiaplicaciones();
             aplicacion.$delete({id:id}, function (data) {
-                
+                $rootScope.spin = false;
                 console.log(data);
                 $rootScope.showAlert = true;
                 $scope.contentAlert = {
@@ -749,10 +785,12 @@
 
         // MARK: - POST Guarda un Macroproceso Multipart
         $scope.saveMacroMultipart = function (obj) {
+            $rootScope.spin = true;
             Upload.upload({
                 url: 'http://14.128.82.183:14501/ITBook/Macroprocesos',
                 data: obj
             }).then(function (data) {
+                $rootScope.spin = false;
                 console.log(data);
             }, function (resp) {
                 console.log('Error status: ' + resp.status);
@@ -761,6 +799,7 @@
 
         // MARK: - POST Guarda un Macroproceso FormData
         $scope.saveMacroFromFormData = function (obj) {
+            $rootScope.spin = true;
             var uploadUrl = 'http://14.128.82.183:14501/ITBook/Macroprocesos';
             var fd = new FormData();
             fd.append('attach', obj.attach);
@@ -768,7 +807,9 @@
             fd.append('objmacro', obj.objmacro);
             $http
                 .post(uploadUrl, fd, {
+                    
                     transformRequest: function (data, headersGetterFunction) {
+                        $rootScope.spin = false;
                         console.log(data);
                         console.log(headersGetterFunction());
                         return data;
