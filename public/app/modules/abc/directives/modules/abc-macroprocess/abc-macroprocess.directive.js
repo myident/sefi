@@ -11,14 +11,14 @@
                 };
                 $scope.macro = $scope.source.nombre_Macro;
                 $scope.author = $scope.source.version_autor;
-                
+
             }
 
             $scope.processOwner = [{
-        "status": 0,
-        "mcro": 83,
-        "area_ID": 19
-    }];
+                "status": 0,
+                "mcro": 83,
+                "area_ID": 19
+            }];
 
 
             $scope.canSave = true;
@@ -43,7 +43,7 @@
                 $scope.sla = [];
                 $scope.termGlossary = [];
                 $scope.assumptions = [];
-                
+
                 $scope.hideWarningMacro = false;
                 $scope.hideWarningAuthor = false;
                 $scope.hideWarningVersion = false;
@@ -176,9 +176,9 @@
                 console.log(macroproceso);
             };
 
-                $scope.edit = function () {
+            $scope.edit = function () {
 
-                    if ($scope.author === '' || $scope.author === undefined) {
+                if ($scope.author === '' || $scope.author === undefined) {
                     $scope.warningAuthor = true;
                 } else {
                     $scope.warningAuthor = false;
@@ -195,7 +195,7 @@
                 }
 
                 var macroproceso = {
-                    MACRO:$scope.id,
+                    MACRO: $scope.id,
                     mega_id: $scope.mega.id || 0,
                     macro_id: $scope.macro || 0,
                     nombre_Macro: $scope.name || '',
@@ -231,10 +231,10 @@
             };
 
             $scope.delete = function () {
-                    $scope.eventDelete($scope.id);
+                $scope.eventDelete($scope.id);
             };
 
-            $scope.reset = function(){
+            $scope.reset = function () {
                 if ($scope.source) {
                     $scope.id = $scope.source.id;
                     $scope.mega = $scope.source.mega_id;
@@ -258,7 +258,7 @@
                 }
             };
 
-            $scope.$watch('source',function(){
+            $scope.$watch('source', function () {
                 $scope.reset();
             });
 
@@ -280,7 +280,7 @@
                 eventDelete: '=',
                 control: '=',
                 source: '=',
-                update:'='
+                update: '='
             },
             link: Link
         };

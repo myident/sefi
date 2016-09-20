@@ -8,6 +8,7 @@
             $window.history.back();
         };
 
+        $rootScope.spin = true;
         $rootScope.showAlert = false;
         $scope.contentAlert = {
             title: 'DONE',
@@ -23,8 +24,21 @@
         // MARK: - Lista de macroprocesos, areas, aplicaciones y kpis
         $scope.macroprocesos = $apimacroproceso.query(function (data) {
             console.log(data);
+            $rootScope.spin = false;
         }, function (e) {
             console.log(e);
+            $rootScope.spin = false;
+            $rootScope.showAlert = false;
+            $scope.contentAlert = {
+                title: 'ERROR',
+                text: 'An error ocurred with the connection.',
+                button: 'OK',
+                type: 'red',
+                event: function () {
+                    console.log('Cerraste alerta');
+                }
+            };
+            return;
         });
 
         $scope.areas = $apiarea.query(function (data) {
