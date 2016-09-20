@@ -45,7 +45,7 @@
 .viewer .pager li {
     display: inline;
     cursor: pointer;
-    padding: 5px;
+    padding: 4px;
     color: rgb(150, 150, 150);
 }
 

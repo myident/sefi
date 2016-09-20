@@ -17,8 +17,14 @@
         $scope.init = function () {
             console.log($abcUpdate);
             $scope.update = $abcUpdate.update || false;
+<<<<<<< HEAD
             if ($abcUpdate.update) {
                 for (var i in $scope.types) {
+=======
+            $scope.showItems = $abcUpdate.show;
+            if($abcUpdate.update){
+                for(var i in $scope.types){
+>>>>>>> origin/marttin
                     $scope.types[i].active = false;
                 }
                 switch ($abcUpdate.obj.id) {
