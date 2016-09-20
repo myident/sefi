@@ -1,8 +1,26 @@
 /* global angular */
 (function () {
-    var Controller = function ($scope, $rootScope, $abcCreate, $apidominio, $apimegaproceso, $apimacroproceso, $apiarea, $apikpi, Upload, $http, $window) {
+    var Controller = function ($scope, $rootScope, $abcCreate, $apidominio, $apimegaproceso, $apimacroproceso, $apiarea, $apikpi, Upload, $http, $window, $abcUpdate) {
         $scope.regresar = function () {
             $window.history.back();
+        };
+
+        $scope.init = function(){
+            console.log($abcUpdate);
+            if($abcUpdate.update){
+                for(var i in $scope.types){
+                    $scope.types[i].active = false;
+                }
+                switch($abcUpdate.obj.id){
+                    case 0: $scope.types[0].active = true; break;
+                    case 1: $scope.types[1].active = true; break;
+                    case 2: $scope.types[2].active = true; break;
+                    case 3: $scope.types[3].active = true; break;
+                    case 4: $scope.types[4].active = true; break;
+                    case 5: $scope.types[5].active = true; break;
+                    default: $scope.types[0].active = true; break; 
+                }
+            }
         };
 
         $rootScope.showAlert = false;
@@ -258,8 +276,10 @@
                 });
         };
 
+        $scope.init();
+
     };
-    Controller.$inject = ['$scope', '$rootScope', '$abcCreate', '$apidominio', '$apimegaproceso', '$apimacroproceso', '$apiarea', '$apikpi', 'Upload', '$http', '$window'];
+    Controller.$inject = ['$scope', '$rootScope', '$abcCreate', '$apidominio', '$apimegaproceso', '$apimacroproceso', '$apiarea', '$apikpi', 'Upload', '$http', '$window', '$abcUpdate'];
     angular
         .module('mAbc')
         .controller('AbcCreateController', Controller);

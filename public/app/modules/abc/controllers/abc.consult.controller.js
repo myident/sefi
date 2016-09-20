@@ -2,7 +2,7 @@
 
 (function () {
 
-    var Controller = function ($scope, $rootScope, $aplicaciones, $window, $apidominio, $apimegaproceso, $apimacroproceso, $apiarea, $apikpi, $apiaplicaciones) {
+    var Controller = function ($scope, $rootScope, $aplicaciones, $window, $apidominio, $apimegaproceso, $apimacroproceso, $apiarea, $apikpi, $apiaplicaciones, $abcUpdate) {
         $scope.regresar = function(){
             $window.history.back();
         };
@@ -15,49 +15,49 @@
         $scope.typeContentList = [
             {
                 name: 'All contents',
-                id: 0
+                id: -1
             },
             {
                 name: 'Dominio',
-                id: 1
+                id: 0
             },
             {
                 name: 'Megaproceso',
-                id: 2
+                id: 1
             },
             {
                 name: 'Macroproceso',
-                id: 1
+                id: 2
             },
             {
                 name: 'Areas',
-                id: 2
+                id: 3
             },
              {
                 name: 'KPI',
-                id: 1
+                id: 4
             },
             {
                 name: 'Aplicaciones',
-                id: 2
+                id: 5
             }
         ];
 
         $scope.list = [];
         $scope.init = function(){
             $scope.apidominio = $apidominio.query(function () {
-                $scope.join($scope.list, $scope.apidominio, 'Dominio', 'name');
+                $scope.join($scope.list, $scope.apidominio, 'Dominio',0, 'name');
                 $scope.apimegaproceso = $apimegaproceso.query(function () {
                     console.log($scope.apimegaproceso);
-                    $scope.join($scope.list, $scope.apimegaproceso, 'Megaproceso', 'title');
+                    $scope.join($scope.list, $scope.apimegaproceso, 'Megaproceso',1, 'title');
                     $scope.apimacroproceso = $apimacroproceso.query(function () {
-                        $scope.join($scope.list, $scope.apimacroproceso, 'Macroproceso', 'title');
+                        $scope.join($scope.list, $scope.apimacroproceso, 'Macroproceso',2, 'title');
                         $scope.apiarea = $apiarea.query(function () {
-                            $scope.join($scope.list, $scope.apiarea, 'Areas', 'area_desc');
+                            $scope.join($scope.list, $scope.apiarea, 'Areas',3, 'area_desc');
                             $scope.apikpi = $apikpi.query(function () {
-                            $scope.join($scope.list, $scope.apikpi, 'KPI', 'name');
+                            $scope.join($scope.list, $scope.apikpi, 'KPI',4, 'name');
                                 $scope.apiaplicaciones = $apiaplicaciones.query(function () {
-                                    $scope.join($scope.list, $scope.apiaplicaciones, 'Aplicaciones', 'name');
+                                    $scope.join($scope.list, $scope.apiaplicaciones, 'Aplicaciones',5, 'name');
                                     $scope.aplicaciones = $scope.list;
                                     $scope.viewer.setting($scope.list);
                                 });
@@ -69,12 +69,13 @@
             
        };
 
-        $scope.join = function(list,listTemp, type, name){
+        $scope.join = function(list,listTemp, type, id, name){
             for(var i in listTemp){
                 var item = {
                     name: listTemp[i][name] || '',
                     type: type,
-                    obj: listTemp[i]
+                    obj: listTemp[i],
+                    id: id
                 };
                 list.push(item);
             }
@@ -192,13 +193,17 @@
         };
 
         $scope.click = function(item){
-            console.log(item);
+            //console.log(item);
+            $abcUpdate.update = true;
+            $abcUpdate.obj = item;
+            $window.location = '#/abc-create';
+
         };
 
         $scope.init();
     };
 
-    Controller.$inject = ['$scope', '$rootScope', '$aplicaciones', '$window', '$apidominio','$apimegaproceso', '$apimacroproceso', '$apiarea', '$apikpi', '$apiaplicaciones'];
+    Controller.$inject = ['$scope', '$rootScope', '$aplicaciones', '$window', '$apidominio','$apimegaproceso', '$apimacroproceso', '$apiarea', '$apikpi', '$apiaplicaciones', '$abcUpdate'];
 
     angular
         .module('mAbc')
