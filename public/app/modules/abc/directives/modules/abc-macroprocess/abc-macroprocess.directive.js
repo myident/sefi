@@ -20,7 +20,33 @@
 
             $scope.date = new Date();
 
-            $scope.clear = function () {};
+            $scope.clear = function () {
+
+                $scope.macro = '';
+                $scope.name = '';
+                $scope.author = '';
+                $scope.version = '';
+                $scope.version_desc = '';
+                $scope.macroProcessObjective = '';
+                $scope.macroprocessScope = '';
+                $scope.security = '';
+                $scope.operationSystemReport = '';
+
+                $scope.attachments = [];
+                $scope.operativeReports = [];
+                $scope.processChanges = [];
+                $scope.sla = [];
+                $scope.termGlossary = [];
+                $scope.assumptions = [];
+                
+                $scope.hideWarningMacro = false;
+                $scope.hideWarningAuthor = false;
+                $scope.hideWarningVersion = false;
+                $scope.hideWarningVersionDesc = false;
+                $scope.hideWarningMacroObj = false;
+                $scope.hideWarningAreaObj = false;
+                $scope.hideWarningTerm = false;
+            };
 
             $scope.hideMega = function () {
                 $scope.hideWarningMega = true;

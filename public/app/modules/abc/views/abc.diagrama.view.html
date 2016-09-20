@@ -29,6 +29,7 @@
                         <div class="abc-create-form-title">P{{currentProcess + 1}} Process Details</div>
                         <abc-input title="Process name" model="procesos[currentProcess].name" label="Process name" event="toggleActiveButton">
                         </abc-input>
+                        <div style="color: red; font-family: 'SF Medium'; cursor: pointer;" ng-click="deleteProcess()">Delete Process</div>
                     </li>
                     <li ng-hide="processEditing">
                        
@@ -43,6 +44,8 @@
                                 label="Capability name" 
                                 event="toggleActiveButton">
                             </abc-input>
+                        
+                            <div style="color: red; font-family: 'SF Medium'; cursor: pointer; margin-bottom: 30px;" ng-click="deleteCapabiliy()">Delete Capability</div>
                             
                             <div 
                                ng-repeat="attribute in procesos[currentProcess].capacidades[currentCapability].attributes">
@@ -70,10 +73,12 @@
                                     options="kpis"></abc-special-select>
                             </div>
                             
+<!--
                             <div 
                                 ng-click="addMoreAttributes()" 
                                 style="text-decoration: underline; color: #30A3CF; cursor: pointer;">
                                 Repeat capability with different attributes</div>
+-->
                         </div>
                         
                         <!--Procesos y reglas de negocio-->
@@ -88,6 +93,7 @@
                                 label="Business rule" 
                                 event="toggleActiveButton">
                             </abc-input>
+                            <div style="color: red; font-family: 'SF Medium'; cursor: pointer; margin-bottom: 30px;" ng-click="deleteBrule()">Delete Business Rule</div>
                             
                             <div 
                                ng-repeat="attribute in procesos[currentProcess].reglas[currentBrule].attributes">

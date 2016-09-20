@@ -7,7 +7,7 @@
         $scope.regresar = function () {
             $window.history.back();
         };
-        
+
         $rootScope.showAlert = false;
         $scope.contentAlert = {
             title: 'DONE',
@@ -173,6 +173,60 @@
                 $scope.procesos[index].reglas.push(newReglas);
             }
         };
+        
+        
+        // MARK: - Borra la capacidad actual
+        $scope.deleteCapabiliy = function(){
+            $scope.processEditing = false;
+            $scope.showBruleDetails = false;
+            $scope.showCapaDetails = false;
+            for (var i in $scope.procesos) {
+                $scope.procesos[i].active = false;
+                for (var j in $scope.procesos[i].capacidades) {
+                    $scope.procesos[i].capacidades[j].active = false;
+                }
+                for (var k in $scope.procesos[i].reglas) {
+                    $scope.procesos[i].reglas[k].active = false;
+                }
+            }
+            $scope.procesos[$scope.currentProcess].capacidades.splice($scope.currentCapability, 1);
+        };
+        
+        // MARK: - Borra la regla del negocio actual
+        $scope.deleteBrule = function(){
+            $scope.processEditing = false;
+            $scope.showBruleDetails = false;
+            $scope.showCapaDetails = false;
+            for (var i in $scope.procesos) {
+                $scope.procesos[i].active = false;
+                for (var j in $scope.procesos[i].capacidades) {
+                    $scope.procesos[i].capacidades[j].active = false;
+                }
+                for (var k in $scope.procesos[i].reglas) {
+                    $scope.procesos[i].reglas[k].active = false;
+                }
+            }
+            $scope.procesos[$scope.currentProcess].reglas.splice($scope.currentBrule, 1);
+        };
+        
+
+        // MARK: - Borra el proceso actual
+        $scope.deleteProcess = function () {
+            $scope.processEditing = false;
+            $scope.showBruleDetails = false;
+            $scope.showCapaDetails = false;
+            for (var i in $scope.procesos) {
+                $scope.procesos[i].active = false;
+                for (var j in $scope.procesos[i].capacidades) {
+                    $scope.procesos[i].capacidades[j].active = false;
+                }
+                for (var k in $scope.procesos[i].reglas) {
+                    $scope.procesos[i].reglas[k].active = false;
+                }
+            }
+            $scope.procesos.splice($scope.currentProcess, 1);
+            console.log($scope.currentProcess);
+        };
 
         // MARK: - activa una capacidad
         $scope.activateCapability = function (parentIndex, index) {
@@ -287,7 +341,15 @@
 
         // MARK: - Limpia los campos actuales
         $scope.clear = function () {
-
+            $scope.procesos = [
+                {
+                    mode: 'off',
+                    active: false,
+                    name: '',
+                    capacidades: [],
+                    reglas: []
+            }
+        ];
         };
 
         // MARK: Cambia las vistas y resetea el elemento seleccionado
@@ -314,7 +376,7 @@
         // MARK: - Guarda el diagrama
         $scope.save = function () {
             var procesos = $scope.procesos;
-            console.log(procesos);
+//            console.log(procesos);
             var procRulesCapArray = [];
 
             for (var i in procesos) {
@@ -350,7 +412,7 @@
                             }
                         }
                     } else {
-                        alert('Error, no puedes guardar un proceso sin capacidades');
+                        alert('The process can not be blank');
                         return;
                     }
 
@@ -473,24 +535,27 @@
 
 
             var macroprocesoDiagrama = new $apidiagrama(datosDiagrama);
-            macroprocesoDiagrama.$save(function (data) {
-                console.log(data);
-                $rootScope.showAlert = true;
-                $scope.contentAlert = {
-                    title: 'DONE',
-                    text: 'The diagram was created.',
-                    button: 'OK',
-                    type: 'blue',
-                    event: function () {
-                        $scope.domainControl.clear();
-                    }
-                };
-            }, function (e) {
-                console.log(e);
-            });
-            console.log($scope.procesos);
-            console.log(macroprocesoDiagrama);
-            console.log(procRulesCapArray);
+            if (datosDiagrama.procRulesCap.length){
+                
+            } else {
+                alert('Diagram can not be empty');
+            }
+            console.log(datosDiagrama.procRulesCap);
+//            macroprocesoDiagrama.$save(function (data) {
+//                console.log(data);
+//                $rootScope.showAlert = true;
+//                $scope.contentAlert = {
+//                    title: 'DONE',
+//                    text: 'The diagram was created.',
+//                    button: 'OK',
+//                    type: 'blue',
+//                    event: function () {
+//                        $scope.domainControl.clear();
+//                    }
+//                };
+//            }, function (e) {
+//                console.log(e);
+//            });
         };
 
 
