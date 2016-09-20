@@ -15,7 +15,7 @@
                 <section>
                     <span>1. Select the type of content you want to create:</span>
                     <ul>
-                        <li class="cuadro {{type.class}}" ng-repeat="type in types" ng-click="toggleType($index)" ng-class="{'active': type.active}">
+                        <li ng-show="showItems[$index]" class="cuadro {{type.class}}" ng-repeat="type in types" ng-click="toggleType($index)" ng-class="{'active': type.active}">
                             <img ng-src="{{type.image[(type.active ? 1 : 0)]}}" alt="{{type.name}}">
                             <span>{{type.name}}</span>
                         </li>

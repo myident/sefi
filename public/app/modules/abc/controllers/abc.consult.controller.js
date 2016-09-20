@@ -36,11 +36,12 @@
              {
                 name: 'KPI',
                 id: 4
-            },
-            {
-                name: 'Aplicaciones',
-                id: 5
             }
+            // ,
+            // {
+            //     name: 'Aplicaciones',
+            //     id: 5
+            // }
         ];
 
         $scope.list = [];
@@ -56,11 +57,13 @@
                             $scope.join($scope.list, $scope.apiarea, 'Areas',3, 'area_desc');
                             $scope.apikpi = $apikpi.query(function () {
                             $scope.join($scope.list, $scope.apikpi, 'KPI',4, 'name');
-                                $scope.apiaplicaciones = $apiaplicaciones.query(function () {
-                                    $scope.join($scope.list, $scope.apiaplicaciones, 'Aplicaciones',5, 'name');
-                                    $scope.aplicaciones = $scope.list;
-                                    $scope.viewer.setting($scope.list);
-                                });
+                            $scope.aplicaciones = $scope.list;
+                            $scope.viewer.setting($scope.list);
+                                // $scope.apiaplicaciones = $apiaplicaciones.query(function () {
+                                //     $scope.join($scope.list, $scope.apiaplicaciones, 'Aplicaciones',5, 'name');
+                                //     $scope.aplicaciones = $scope.list;
+                                //     $scope.viewer.setting($scope.list);
+                                // });
                             });
                         });
                     });
@@ -194,7 +197,10 @@
 
         $scope.click = function(item){
             //console.log(item);
+            console.log(item.id);
             $abcUpdate.update = true;
+            for(var i in $abcUpdate.show){$abcUpdate.show[i] = false};
+            $abcUpdate.show[item.id] = true;
             $abcUpdate.obj = item;
             $window.location = '#/abc-create';
 

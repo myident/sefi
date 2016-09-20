@@ -11,6 +11,7 @@
         $scope.init = function(){
             console.log($abcUpdate);
             $scope.update = $abcUpdate.update || false;
+            $scope.showItems = $abcUpdate.show;
             if($abcUpdate.update){
                 for(var i in $scope.types){
                     $scope.types[i].active = false;
