@@ -214,7 +214,9 @@
                             text: $scope.isValid().message,
                             button: 'OK',
                             type: 'red',
-                            event: function () {}
+                            event: function () {
+                                $scope.currentProcess = Number(index) - 1;
+                            }
                         };
                         return;
                     }
@@ -281,7 +283,7 @@
         $scope.activateCapability = function (parentIndex, index) {
 
             
-                $scope.processEditing = false;
+               
                 $scope.showBruleDetails = false;
                 $scope.showCapaDetails = true;
                 $scope.currentProcess = parentIndex;
@@ -293,8 +295,12 @@
                     }
                 }
                 $scope.procesos[$scope.currentProcess].capacidades[$scope.currentCapability].active = true;
+            
                 if ($scope.procesos[$scope.currentProcess].capacidades[$scope.currentCapability].mode == 'off') {
+                    
                     if ($scope.isValid().status) {
+                         $scope.processEditing = false;
+                        $scope.currentCapability = index;
                         var newCapacidad = {
                             mode: 'off',
                             active: false,
@@ -317,7 +323,10 @@
                             text: $scope.isValid().message,
                             button: 'OK',
                             type: 'red',
-                            event: function () {}
+                            event: function () {
+                
+                                $scope.currentCapability = (Number(index) - 1);
+                            }
                         };
                         return;
                     }
