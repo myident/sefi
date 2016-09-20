@@ -109,7 +109,7 @@
                                 <div class="abc-create-form-title">BR{{currentBrule + 1}} Business Rule Attributes</div>
                                     
                                 <abc-formas
-                                    label="Forma"
+                                    label="Container type"
                                     holder="Elige una forma"
                                     model="attribute.forma"
                                     options="optionsFiguras"
@@ -130,13 +130,10 @@
                                     
                                 <div ng-show="showDecisions">
                                     <div class="abc-create-form-title">BR{{currentBrule + 1}} Business Rule Connection</div>
-                                    <abc-special-select 
+                                    <abc-nice-label 
                                         label="Yes" 
-                                        holder="Select a Business rule" 
-                                        model="attribute.yes" 
-                                        options="brules"
-                                        event="getYes"
-                                        ></abc-special-select>
+                                        model="currentYes"  
+                                        ></abc-nice-label>
 
                                     <abc-special-select 
                                         label="No" 

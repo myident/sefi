@@ -9,7 +9,7 @@
 
     var services = ["mainService", "mVash", "Singleton", "Arquitecturas", "Dominios", "Megaprocesos", "Macroprocesos", "Procesos", "Arquitecturaseco", "mPrint", "wordService"];
 
-    var directives = ["abcInput", "abcTextarea", "abcSelect", "abcDomain", "abcApplication", "abcArea", "abcBrule", "abcCapability", "abcKpi", "abcMacroprocess", "abcProcess", "abcMegaprocess", "abcTextareaXl", "abcAddInputDouble", "abcAddInputXl", "abcAddInputMultiple", "abcAddNumericInput", "abcAddInputFile", "abcAddSelect", "abcRadio", "abcAddSelectObj", "abcSpecialSelect", "abcFlipcard", "abcAlert", "brulesFilter", "abcFormas"];
+    var directives = ["abcInput", "abcTextarea", "abcSelect", "abcDomain", "abcApplication", "abcArea", "abcBrule", "abcCapability", "abcKpi", "abcMacroprocess", "abcProcess", "abcMegaprocess", "abcTextareaXl", "abcAddInputDouble", "abcAddInputXl", "abcAddInputMultiple", "abcAddNumericInput", "abcAddInputFile", "abcAddSelect", "abcRadio", "abcAddSelectObj", "abcSpecialSelect", "abcFlipcard", "abcAlert", "brulesFilter", "abcFormas", "abcNiceLabel"];
 
     var modules = angularModules.concat(customModules, componentsModules, services, directives);
 

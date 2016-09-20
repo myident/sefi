@@ -36,7 +36,8 @@
                 $scope.showOptions = false;
                 $scope.model = {
                     id: $scope.options[index].id,
-                    name: $scope.options[index].name ? $scope.options[index].name : $scope.options[index].title
+                    name: $scope.options[index].name ? $scope.options[index].name : $scope.options[index].title,
+                    shape: $scope.options[index].shape
                 };
                 if ($scope.isArea) {
                     $scope.model = {
@@ -70,14 +71,9 @@
                 $scope.showOptions = false;
                 $scope.model = {
                     id: $scope.options[index].id,
-                    name: $scope.options[index].name ? $scope.options[index].name : $scope.options[index].title
+                    name: $scope.options[index].name,
+                    shape: $scope.options[index].shape
                 };
-                if ($scope.isArea) {
-                    $scope.model = {
-                        id: $scope.options[index].area_id,
-                        name: $scope.options[index].area_desc
-                    };
-                }
                 // Ejecutamos el evento que deseemos cuando se elige una opción
                 if ($scope.event) {
                     $scope.event($scope.model, index);
@@ -90,24 +86,35 @@
                     $scope.rombo = false;
                     $scope.romboTache = false;
                     $scope.rectan = false;
+                    $scope.redondo = false;
                 }
                 if (index == 1) {
                     $scope.redon = false;
                     $scope.rombo = false;
                     $scope.romboTache = false;
                     $scope.rectan = true;
+                    $scope.redondo = false;
                 }
                 if (index == 2) {
                     $scope.redon = false;
                     $scope.rombo = true;
                     $scope.romboTache = false;
                     $scope.rectan = false;
+                    $scope.redondo = false;
                 }
                 if (index == 3) {
                     $scope.redon = false;
                     $scope.rombo = false;
-                    $scope.romboTache = true;
                     $scope.rectan = false;
+                    $scope.paralelo = false;
+                    $scope.redondo = true;
+                }
+                if (index == 4) {
+                    $scope.redon = false;
+                    $scope.rombo = false;
+                    $scope.paralelo = true;
+                    $scope.rectan = false;
+                    $scope.redondo = false;
                 }
             };
         };
