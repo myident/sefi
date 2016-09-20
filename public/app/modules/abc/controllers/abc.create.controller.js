@@ -1,10 +1,7 @@
 /* global angular */
 (function () {
-<<<<<<< HEAD
-    var Controller = function ($scope, $rootScope, $abcCreate, $apidominio, $apimegaproceso, $apimacroproceso, $apiarea, $apikpi, Upload, $http, $window, $abcUpdate) {
-=======
-    var Controller = function ($scope, $rootScope, $abcCreate, $apidominio, $apimegaproceso, $apimacroproceso, $apiarea, $apikpi, Upload, $http, $window, $apiaplicaciones) {
->>>>>>> vash
+    var Controller = function ($scope, $rootScope, $abcCreate, $apidominio, $apimegaproceso, $apimacroproceso, $apiarea, $apikpi, Upload, $http, $window, $abcUpdate, apiaplicaciones) {
+
         $scope.regresar = function () {
             $window.history.back();
         };
@@ -289,11 +286,7 @@
         $scope.init();
 
     };
-<<<<<<< HEAD
-    Controller.$inject = ['$scope', '$rootScope', '$abcCreate', '$apidominio', '$apimegaproceso', '$apimacroproceso', '$apiarea', '$apikpi', 'Upload', '$http', '$window', '$abcUpdate'];
-=======
-    Controller.$inject = ['$scope', '$rootScope', '$abcCreate', '$apidominio', '$apimegaproceso', '$apimacroproceso', '$apiarea', '$apikpi', 'Upload', '$http', '$window', '$apiaplicaciones'];
->>>>>>> vash
+    Controller.$inject = ['$scope', '$rootScope', '$abcCreate', '$apidominio', '$apimegaproceso', '$apimacroproceso', '$apiarea', '$apikpi', 'Upload', '$http', '$window', '$abcUpdate', '$apiaplicaciones'];
     angular
         .module('mAbc')
         .controller('AbcCreateController', Controller);
