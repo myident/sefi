@@ -2,7 +2,7 @@
 
 (function () {
 
-    var Controller = function ($scope, $apiarea, $apikpi, $apimacroproceso, $apiaplicaciones, $apidiagrama, $window, $rootScope) {
+    var Controller = function ($scope, $apiarea, $apikpi, $apimacroproceso, $apiaplicaciones, $apidiagrama, $window, $rootScope, $apidominio) {
 
         $scope.regresar = function () {
             $window.history.back();
@@ -41,6 +41,12 @@
         $scope.kpis = $apikpi.query(function (data) {
             console.log(data);
         }, function (e) {
+            console.log(e);
+        });
+        
+        $scope.dominios = $apidominio.query(function(data){
+            console.log(data);
+        }, function(e){
             console.log(e);
         });
 
@@ -147,7 +153,8 @@
                         {
                             area: '',
                             application: '',
-                            kpi: ''
+                            kpi: '',
+                            domain: ''
                         }
                     ]
                 };
@@ -173,10 +180,10 @@
                 $scope.procesos[index].reglas.push(newReglas);
             }
         };
-        
-        
+
+
         // MARK: - Borra la capacidad actual
-        $scope.deleteCapabiliy = function(){
+        $scope.deleteCapabiliy = function () {
             $scope.processEditing = false;
             $scope.showBruleDetails = false;
             $scope.showCapaDetails = false;
@@ -191,9 +198,9 @@
             }
             $scope.procesos[$scope.currentProcess].capacidades.splice($scope.currentCapability, 1);
         };
-        
+
         // MARK: - Borra la regla del negocio actual
-        $scope.deleteBrule = function(){
+        $scope.deleteBrule = function () {
             $scope.processEditing = false;
             $scope.showBruleDetails = false;
             $scope.showCapaDetails = false;
@@ -208,7 +215,7 @@
             }
             $scope.procesos[$scope.currentProcess].reglas.splice($scope.currentBrule, 1);
         };
-        
+
 
         // MARK: - Borra el proceso actual
         $scope.deleteProcess = function () {
@@ -251,7 +258,8 @@
                         {
                             area: '',
                             application: '',
-                            kpi: ''
+                            kpi: '',
+                            domain: ''
                         }
                     ]
                 };
@@ -376,48 +384,67 @@
         // MARK: - Guarda el diagrama
         $scope.save = function () {
             var procesos = $scope.procesos;
-//            console.log(procesos);
+            // ARREGLO PARA LLENAR CON LOS PROCESOS
             var procRulesCapArray = [];
 
             for (var i in procesos) {
                 var proceso = procesos[i];
                 if (proceso.mode == 'on') {
 
+                    // ARREGLO PARA LLENAR CON REGLAS Y CAPACIDADES
                     var capacidadArray = [];
                     var reglasArray = [];
+
+                    // MARK: - Se llenan las capacidades de cada proceso
                     if (proceso.capacidades.length > 1) {
                         for (var j in proceso.capacidades) {
                             var capacidad = proceso.capacidades[j];
                             if (capacidad.mode == 'on') {
+                                if (capacidad.name !== '') {
 
-                                var attrArray = [];
-
-                                for (var k in capacidad.attributes) {
-                                    var atributo = capacidad.attributes[k];
-                                    var atributoCap = {
-                                        "ar_ID": Number(atributo.area.id) || 0,
-                                        "app_ID": Number(atributo.application.id) || 0,
-                                        "kpi": Number(atributo.kpi.id) || 0
+                                    // ARREGLO PARA LLENAR CON ATRIBUTOS DE CADA CAPACIDAD
+                                    var attrArray = [];
+                                    for (var k in capacidad.attributes) {
+                                        var atributo = capacidad.attributes[k];
+                                        var atributoCap = {
+                                            "ar_ID": Number(atributo.area.id) || 0,
+                                            "app_ID": Number(atributo.application.id) || 0,
+                                            "kpi": Number(atributo.kpi.id) || 0
+                                        };
+                                        attrArray.push(atributoCap);
+                                    }
+                                    var capacidadJson = {
+                                        capid: Number(j),
+                                        capaldesc: capacidad.name,
+                                        atributosCap: attrArray
                                     };
-                                    attrArray.push(atributoCap);
+                                    capacidadArray.push(capacidadJson);
+                                } else {
+                                    $rootScope.showAlert = true;
+                                    $scope.contentAlert = {
+                                        title: 'WARNING',
+                                        text: 'Capability can not be blank',
+                                        button: 'OK',
+                                        type: 'red',
+                                        event: function () {}
+                                    };
+                                    return;
                                 }
-
-                                var capacidadJson = {
-                                    capid: Number(j),
-                                    capaldesc: capacidad.name,
-                                    atributosCap: attrArray
-
-                                };
-                                capacidadArray.push(capacidadJson);
                             }
                         }
                     } else {
-                        alert('The process can not be blank');
+                        $rootScope.showAlert = true;
+                        $scope.contentAlert = {
+                            title: 'WARNING',
+                            text: 'The diagram must have at least one capability',
+                            button: 'OK',
+                            type: 'red',
+                            event: function () {}
+                        };
                         return;
                     }
 
-
-
+                    // MARK: - Se llenan las reglas de cada proceso
                     for (var l in proceso.reglas) {
                         var regla = proceso.reglas[l];
                         if (regla.mode == 'on') {
@@ -473,21 +500,36 @@
 
                     }
 
-                    var procRulesCap = {
-                        ldescproc: procesos[i].name,
-                        domid: 3,
-                        cat_PRO: 0,
-                        pro_ID: 0,
-                        macr_ID: Number($scope.macroprocess.id),
-                        mega_ID: Number($scope.macroprocesos[$scope.currentMacro].mega_id),
-                        desc_diagram: $scope.macroprocess.name,
-                        diagram_id: 0,
-                        capacidad: capacidadArray,
-                        reglas: [{
-                            rules: reglasArray
-                        }]
-                    };
-                    procRulesCapArray.push(procRulesCap);
+                    // MARK: - Se llena el proceso
+                    if (procesos[i].name !== '') {
+                        var procRulesCap = {
+                            ldescproc: procesos[i].name,
+                            domid: 3,
+                            cat_PRO: 0,
+                            pro_ID: 0,
+                            macr_ID: Number($scope.macroprocess.id),
+                            mega_ID: Number($scope.macroprocesos[$scope.currentMacro].mega_id),
+                            desc_diagram: $scope.macroprocess.name,
+                            diagram_id: 0,
+                            capacidad: capacidadArray,
+                            reglas: [{
+                                rules: reglasArray
+                            }]
+                        };
+                        procRulesCapArray.push(procRulesCap);
+                    } else {
+                        $rootScope.showAlert = true;
+                        $scope.contentAlert = {
+                            title: 'WARNING',
+                            text: 'Process can not be blank',
+                            button: 'OK',
+                            type: 'red',
+                            event: function () {}
+                        };
+                        return;
+                    }
+
+
                 }
 
             }
@@ -535,32 +577,48 @@
 
 
             var macroprocesoDiagrama = new $apidiagrama(datosDiagrama);
-            if (datosDiagrama.procRulesCap.length){
-                
+            if (datosDiagrama.procRulesCap.length) {
+                macroprocesoDiagrama.$save(function (data) {
+                    console.log(data);
+                    $rootScope.showAlert = true;
+                    $scope.contentAlert = {
+                        title: 'DONE',
+                        text: 'The diagram was created.',
+                        button: 'OK',
+                        type: 'blue',
+                        event: function () {
+                            $scope.clear();
+                        }
+                    };
+                    return;
+                }, function (e) {
+                    $rootScope.showAlert = true;
+                    $scope.contentAlert = {
+                        title: 'ERROR',
+                        text: 'Error in DATABASE',
+                        button: 'OK',
+                        type: 'red',
+                        event: function () {}
+                    };
+                    console.log(e);
+                    return;
+                });
             } else {
-                alert('Diagram can not be empty');
+                $rootScope.showAlert = true;
+                $scope.contentAlert = {
+                    title: 'WARNING',
+                    text: 'Diagram can not be empty',
+                    button: 'OK',
+                    type: 'red',
+                    event: function () {}
+                };
+                return;
             }
-            console.log(datosDiagrama.procRulesCap);
-//            macroprocesoDiagrama.$save(function (data) {
-//                console.log(data);
-//                $rootScope.showAlert = true;
-//                $scope.contentAlert = {
-//                    title: 'DONE',
-//                    text: 'The diagram was created.',
-//                    button: 'OK',
-//                    type: 'blue',
-//                    event: function () {
-//                        $scope.domainControl.clear();
-//                    }
-//                };
-//            }, function (e) {
-//                console.log(e);
-//            });
         };
 
 
     };
-    Controller.$inject = ['$scope', '$apiarea', '$apikpi', '$apimacroproceso', '$apiaplicaciones', '$apidiagrama', '$window', '$rootScope'];
+    Controller.$inject = ['$scope', '$apiarea', '$apikpi', '$apimacroproceso', '$apiaplicaciones', '$apidiagrama', '$window', '$rootScope', '$apidominio'];
     angular
         .module('mAbc')
         .controller('AbcDiagramaController', Controller);
