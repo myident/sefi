@@ -54,7 +54,8 @@
                 dominios: '=',
                 event: '=',
                 source: '=',
-                control: '='
+                control: '=',
+                update:'='
             },
             link: Link
         };

@@ -37,6 +37,21 @@
                 }
             };
 
+            $scope.update = function () {
+                var type = 'O';
+                if ($scope.canSave) {
+                    if ($scope.type == 1) {
+                        type = 'E';
+                    }
+                    console.log('bdfubgurbs');
+                    $scope.eventUpdate($scope.id, $scope.name, type);
+                }
+            };
+
+            $scope.delete = function () {
+                $scope.eventDelete($scope.id);
+            };
+
             // Clear the data structure
             $scope.clear = function () {
                 $scope.name = '';
@@ -46,6 +61,7 @@
             
             // MARK: - Update
             if ($scope.source) {
+                $scope.id = $scope.source.id;
                 $scope.name = $scope.source.name;
                 $scope.type = $scope.source.type;
                 $scope.toggleActiveButton();
@@ -63,7 +79,10 @@
                 title: '@',
                 source: '=',
                 event: '=',
-                control: '='
+                eventUpdate: '=',
+                eventDelete: '=',
+                control: '=',
+                update:'='
             },
             link: Link
         };
