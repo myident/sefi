@@ -413,13 +413,26 @@
                                         };
                                         attrArray.push(atributoCap);
                                     }
-                                    var capacidadJson = {
-                                        capid: Number(j),
-                                        capaldesc: capacidad.name,
-                                        atributosCap: attrArray,
-                                        cap_DOM_id: capacidad.attributes[0].domain.id || 0
-                                    };
-                                    capacidadArray.push(capacidadJson);
+                                    if(capacidad.attributes[0].domain){
+                                        var capacidadJson = {
+                                            capid: Number(j),
+                                            capaldesc: capacidad.name,
+                                            atributosCap: attrArray,
+                                            cap_DOM_ID: capacidad.attributes[0].domain.id || 0
+                                        };
+                                        capacidadArray.push(capacidadJson);
+                                    } else {
+                                        $rootScope.showAlert = true;
+                                        $scope.contentAlert = {
+                                            title: 'WARNING',
+                                            text: 'The capability must be asigned to a Domain.',
+                                            button: 'OK',
+                                            type: 'red',
+                                            event: function () {}
+                                        };
+                                        return;
+                                    }
+
                                 } else {
                                     $rootScope.showAlert = true;
                                     $scope.contentAlert = {
