@@ -41,7 +41,7 @@
 <span>4. Select an area and add it with the + button:</span>
 <ul class="abc-create-form">
     <li>
-        <abc-add-select label="Process owner" holder="'Select Area'" model="processOwner" event="toggleActiveButton" options="areas"></abc-add-select>
+        <abc-add-select label="Process owner (Area)" holder="'Select Area'" model="processOwner" event="toggleActiveButton" options="areas"></abc-add-select>
     </li>
 </ul>
 
@@ -54,7 +54,7 @@
         <div class="warning-text" ng-hide="hideWarningMacroObj">* Macroprocess Objective is needed</div>
     </li>
     <li>
-        <abc-add-select-obj label="Associated Business Objectives" holders="['Select Area', 'Objective']" model="associatedBusinessObjectives" event="hideAreaObj" options="areas"></abc-add-select-obj>
+        <abc-add-select-obj label="Associated Business Objectives (Area)" holders="['Select Area', 'Objective']" model="associatedBusinessObjectives" event="hideAreaObj" options="areas"></abc-add-select-obj>
         <div class="warning-text" ng-hide="hideWarningAreaObj">* The Area is optional but the objective is needed</div>
     </li>
 </ul>
@@ -115,7 +115,7 @@
 </ul>
 
 <div class="abc-separator-line"></div>
-<abc-add-input-multiple label="Process Changes" holders="[{placeholder:'ID', width: '54px'}, {placeholder:'Activity', width: '85px'}, {placeholder: 'Project / Initiative / Business', width: 'calc(100% - 419px)'}, {placeholder: 'Business Rule', width: '280px'}]" model="processChanges" event="toggleActiveButton"></abc-add-input-multiple>
+<abc-add-input-multiple label="Process Changes" holders="[{placeholder:'ID', width: '54px'}, {placeholder:'Activity', width: '85px'}, {placeholder: 'Project / Initiative / Business', width: 'calc(100% - 419px)'}, {placeholder: 'Business Rule', width: '280px'}]" model="processChanges" event="toggleActiveButton" ng-hide="true"></abc-add-input-multiple>
 
 
 

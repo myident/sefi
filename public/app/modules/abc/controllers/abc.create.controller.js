@@ -1,6 +1,6 @@
 /* global angular */
 (function () {
-    var Controller = function ($scope, $rootScope, $abcCreate, $apidominio, $apimegaproceso, $apimacroproceso, $apiarea, $apikpi, Upload, $http, $window) {
+    var Controller = function ($scope, $rootScope, $abcCreate, $apidominio, $apimegaproceso, $apimacroproceso, $apiarea, $apikpi, Upload, $http, $window, $apiaplicaciones) {
         $scope.regresar = function () {
             $window.history.back();
         };
@@ -120,7 +120,7 @@
                     $rootScope.showAlert = true;
                     $scope.contentAlert = {
                         title: 'DONE',
-                        text: 'The element ' + obj.name + ' was created.',
+                        text: 'The element ' + obj.nombre_Macro + ' was created.',
                         button: 'OK',
                         type: 'blue',
                         event: function () {
@@ -136,8 +136,6 @@
         // MARK: - POST Guarda un Area
         $scope.areaControl = {};
         $scope.saveArea = function (name, type) {
-            console.log(name)
-            console.log(type)
             var area = new $apiarea();
             area.LDESC = name;
             area.TIPO = type;
@@ -199,17 +197,25 @@
         // MARK: - POST Guarda una Aplicación
         $scope.aplicacionControl = {};
         $scope.saveAplicacion = function (name) {
-            console.log(name);
-            $rootScope.showAlert = true;
-            $scope.contentAlert = {
-                title: 'DONE',
-                text: 'The element ' + name + ' was created.',
-                button: 'OK',
-                type: 'blue',
-                event: function () {
-                    $scope.aplicacionControl.clear();
-                }
-            };
+
+//            var aplicacion = new $apiaplicaciones();
+//            aplicacion.LDESC = name;
+//            aplicacion.$save(function (data) {
+//                console.log(data);
+                $rootScope.showAlert = true;
+                $scope.contentAlert = {
+                    title: 'DONE',
+                    text: 'The element ' + name + ' was created.',
+                    button: 'OK',
+                    type: 'blue',
+                    event: function () {
+                        $scope.aplicacionControl.clear();
+                    }
+                };
+//            }, function (e) {
+//                console.log(e);
+//            });
+
         };
 
 
@@ -259,7 +265,7 @@
         };
 
     };
-    Controller.$inject = ['$scope', '$rootScope', '$abcCreate', '$apidominio', '$apimegaproceso', '$apimacroproceso', '$apiarea', '$apikpi', 'Upload', '$http', '$window'];
+    Controller.$inject = ['$scope', '$rootScope', '$abcCreate', '$apidominio', '$apimegaproceso', '$apimacroproceso', '$apiarea', '$apikpi', 'Upload', '$http', '$window', '$apiaplicaciones'];
     angular
         .module('mAbc')
         .controller('AbcCreateController', Controller);
