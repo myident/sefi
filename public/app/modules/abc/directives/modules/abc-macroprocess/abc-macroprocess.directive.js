@@ -14,6 +14,11 @@
                 
             }
 
+            $scope.processOwner = [{
+        "status": 0,
+        "mcro": 83,
+        "area_ID": 19
+    }];
 
 
             $scope.canSave = true;
