@@ -21,6 +21,15 @@
                     $scope.event($scope.name);
                 }
             };
+            $scope.edit = function () {
+                if ($scope.canSave) {
+                    $scope.eventUpdate($scope.id, $scope.name);
+                }
+            };
+
+            $scope.delete = function () {
+                    $scope.eventDelete($scope.id);
+            };
 
             // Clear the data structure
             $scope.clear = function () {
@@ -30,6 +39,7 @@
             
             // MARK: - Update
             if ($scope.source) {
+                $scope.id = $scope.source.id;
                 $scope.name = $scope.source.name;
                 $scope.toggleActiveButton();
             }
