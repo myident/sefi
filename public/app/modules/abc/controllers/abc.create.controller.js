@@ -1,8 +1,42 @@
 /* global angular */
 (function () {
-    var Controller = function ($scope, $rootScope, $abcCreate, $apidominio, $apimegaproceso, $apimacroproceso, $apiarea, $apikpi, Upload, $http, $window, $apiaplicaciones) {
+    var Controller = function ($scope, $rootScope, $abcCreate, $apidominio, $apimegaproceso, $apimacroproceso, $apiarea, $apikpi, Upload, $http, $window, $abcUpdate, apiaplicaciones) {
+
         $scope.regresar = function () {
             $window.history.back();
+        };
+
+        $scope.init = function(){
+            console.log($abcUpdate);
+            $scope.update = $abcUpdate.update;
+            if($abcUpdate.update){
+                for(var i in $scope.types){
+                    $scope.types[i].active = false;
+                }
+                switch($abcUpdate.obj.id){
+                    case 0: 
+                        $scope.types[0].active = true; 
+                        $scope.types[0].source = {
+                           id: $abcUpdate.obj.obj.id,
+                           name: $abcUpdate.obj.obj.name,
+                           shortname: $abcUpdate.obj.obj.title
+                       };
+                        break;
+                    case 1: $scope.types[1].active = true; break;
+                    case 2: $scope.types[2].active = true; break;
+                    case 3: 
+                        $scope.types[3].active = true; 
+                        $scope.types[3].source =  {
+                            id: $abcUpdate.obj.obj.id,
+                           name: $abcUpdate.obj.obj.area_desc,
+                           type: $abcUpdate.obj.obj.tipo === 'O' ? 0 : 1
+                       }
+                        break;
+                    case 4: $scope.types[4].active = true; break;
+                    case 5: $scope.types[5].active = true; break;
+                    default: $scope.types[0].active = true; break; 
+                }
+            }
         };
 
         $rootScope.showAlert = false;
@@ -69,6 +103,58 @@
                 $scope.contentAlert = {
                     title: 'DONE',
                     text: 'The element ' + name + ' was created.',
+                    button: 'OK',
+                    type: 'blue',
+                    event: function () {
+                        $scope.domainControl.clear();
+                    }
+                };
+            }, function (e) {
+                console.log(e);
+            });
+        };
+
+        $scope.updateDomain = function (id, name, shortname) {
+            var dominio = new $apidominio();
+            dominio.DOMID = id;
+            dominio.LNAME = name;
+            dominio.SNAME = shortname;
+            dominio.$update(function (data) {
+                // MARK: - GET Lista de los Dominios
+                $scope.listaDominios = $apidominio.query(function (data) {
+                    console.log(data);
+                }, function (e) {
+                    console.log(e);
+                });
+                console.log(data);
+                $rootScope.showAlert = true;
+                $scope.contentAlert = {
+                    title: 'DONE',
+                    text: 'The element ' + name + ' was update.',
+                    button: 'OK',
+                    type: 'blue',
+                    event: function () {
+                        $scope.domainControl.clear();
+                    }
+                };
+            }, function (e) {
+                console.log(e);
+            });
+        };
+        $scope.deleteDomain = function (id) {
+            var dominio = new $apidominio();
+            dominio.$delete({id:id}, function (data) {
+                // MARK: - GET Lista de los Dominios
+                $scope.listaDominios = $apidominio.query(function (data) {
+                    console.log(data);
+                }, function (e) {
+                    console.log(e);
+                });
+                console.log(data);
+                $rootScope.showAlert = true;
+                $scope.contentAlert = {
+                    title: 'DONE',
+                    text: 'The element ' + name + ' was delete.',
                     button: 'OK',
                     type: 'blue',
                     event: function () {
@@ -163,6 +249,63 @@
                 function (e) {
                     console.log(e);
                 });
+        };
+
+        $scope.updateArea = function (id, name, type) {
+            var area = new $apiarea();
+            area.ARID = id;
+            area.LDESC = name;
+            area.TIPO = type;
+            area.POS = 1;
+            console.log('updateArea');
+            area.$update(
+                function (data) {
+                    // MARK: - GET Lista de los Megaprocesos
+                    $scope.listaAreas = $apiarea.query(function (data) {
+                        console.log(data);
+                    }, function (e) {
+                        console.log(e);
+                    });
+                    console.log(data);
+                    $rootScope.showAlert = true;
+                    $scope.contentAlert = {
+                        title: 'DONE',
+                        text: 'The element ' + name + ' was created.',
+                        button: 'OK',
+                        type: 'blue',
+                        event: function () {
+                            $scope.areaControl.clear();
+                        }
+                    };
+                },
+                function (e) {
+                    console.log(e);
+                });
+        };
+
+        $scope.deleteArea = function (id) {
+            var area = new $apiarea();
+            area.$delete({id:id}, function (data) {
+                // MARK: - GET Lista de los Dominios
+                $scope.listaDominios = $apidominio.query(function (data) {
+                    console.log(data);
+                }, function (e) {
+                    console.log(e);
+                });
+                console.log(data);
+                $rootScope.showAlert = true;
+                $scope.contentAlert = {
+                    title: 'DONE',
+                    text: 'The element ' + name + ' was delete.',
+                    button: 'OK',
+                    type: 'blue',
+                    event: function () {
+                        $scope.domainControl.clear();
+                    }
+                };
+            }, function (e) {
+                console.log(e);
+            });
         };
 
         // MARK: - POST Guarda un KPI
@@ -264,8 +407,10 @@
                 });
         };
 
+        $scope.init();
+
     };
-    Controller.$inject = ['$scope', '$rootScope', '$abcCreate', '$apidominio', '$apimegaproceso', '$apimacroproceso', '$apiarea', '$apikpi', 'Upload', '$http', '$window', '$apiaplicaciones'];
+    Controller.$inject = ['$scope', '$rootScope', '$abcCreate', '$apidominio', '$apimegaproceso', '$apimacroproceso', '$apiarea', '$apikpi', 'Upload', '$http', '$window', '$abcUpdate', '$apiaplicaciones'];
     angular
         .module('mAbc')
         .controller('AbcCreateController', Controller);

@@ -21,12 +21,12 @@
                         </li>
                     </ul>
                 </section>
-                <section abc-domain event="saveDomain" control="domainControl" source="types[0].source" ng-show="types[0].active"></section>
-                <section abc-megaprocess event="saveMega" control="megaControl" source="types[1].source" dominios="listaDominios" ng-show="types[1].active"></section>
-                <section abc-macroprocess event="saveMacro" control="macroControl" source="types[2].source" megaprocesos="listaMegaprocesos" areas="listaAreas" ng-show="types[2].active"></section>
-                <section abc-area event="saveArea" control="areaControl" source="types[3].source" ng-show="types[3].active"></section>
-                <section abc-kpi event="saveKpi" control="kpiControl" source="types[4].source" ng-show="types[4].active"></section>
-                <section abc-application event="saveAplicacion" source="types[5].source" control="aplicacionControl" ng-show="types[5].active"></section>
+                <section abc-domain event="saveDomain" event-update="updateDomain" event-delete="deleteDomain" control="domainControl" source="types[0].source" ng-show="types[0].active" update="update"></section>
+                <section abc-megaprocess event="saveMega" control="megaControl" source="types[1].source" dominios="listaDominios" ng-show="types[1].active" update="update"></section>
+                <section abc-macroprocess event="saveMacro" control="macroControl" source="types[2].source" megaprocesos="listaMegaprocesos" areas="listaAreas" ng-show="types[2].active" update="update"></section>
+                <section abc-area event="saveArea" event-update="updateArea" event-delete="deleteArea" control="areaControl" source="types[3].source" ng-show="types[3].active" update="update"></section>
+                <section abc-kpi event="saveKpi" control="kpiControl" source="types[4].source" ng-show="types[4].active" update="update"></section>
+                <section abc-application event="saveAplicacion" source="types[5].source" control="aplicacionControl" ng-show="types[5].active" update="update"></section>
             </div>
         </div>
     </section>

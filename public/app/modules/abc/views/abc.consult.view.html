@@ -13,15 +13,29 @@
         </div>
         <div class="module-body">
             <div class="viewer" style="margin-top:10px;">
+                
+                <abc-special-select class="filter-type"
+            label="Type of content" 
+            holder="All contents" 
+            model="typeContent" 
+            options="typeContentList"
+            event="toggleActiveButton"
+            ></abc-special-select>
+
 
                 <ul class="filter-abc">
-                    <li ng-click="viewer.findAll()" ng-class="{active: (viewer.filterBy == 'all')}">View all</li>
-                    <li ng-repeat="letter in abc" ng-click="findByCapital(letter)" ng-class="{active: (viewer.filterBy == letter)}">{{letter}}</li>
+                    <!-- <li ng-click="viewer.findAll()" ng-class="{active: (viewer.filterBy == 'all')}">View all</li>
+                    <li ng-repeat="letter in abc" ng-click="findByCapital(letter)" ng-class="{active: (viewer.filterBy == letter)}">{{letter}}</li> -->
                 </ul>
 
+                <div class="filter">
+                    <input placeholder="Filter by name" type="text" ng-model="filterModel" ng-keyup="find(filterModel)">
+                    <i class=""></i>
+                </div>
+
                 <div class="row" style="min-height:420px;">
-                    <div ng-repeat="item in viewer.items" class="md-col-4 sm-col-6 ">
-                        <span class="link">{{item.name}}</span>
+                    <div ng-repeat="item in viewer.items" class="md-col-4 sm-col-6 link" ng-click="click(item)">
+                        <span class="text-gray">{{item.type}}</span> <span class="">{{item.name}}</span>
                     </div>
                 </div>
 

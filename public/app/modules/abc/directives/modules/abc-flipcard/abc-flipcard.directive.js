@@ -1,7 +1,7 @@
 /* global angular */
 
 (function () {
-    var Directive = function ($window) {
+    var Directive = function ($window, $abcUpdate) {
         var Link = function ($scope) {
         
             // Cerrar una tarjeta
@@ -18,6 +18,7 @@
             };
             
             $scope.createContents = function(){
+                $abcUpdate.update = false;
                 $window.location = '#/abc-create';
             };
             

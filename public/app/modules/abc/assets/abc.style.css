@@ -1080,3 +1080,14 @@ section.container-card > div.card > article.frontside.abc-edit-ta {
     width: 120px;
     top: 60px;
 }
+
+abc-special-select.filter-type {
+    /*margin-left: 20px;
+    margin-top: 20px;*/
+}
+abc-special-select.filter-type > div.abc-create-form-group{
+    display: inline-block;
+    float: left;
+    margin-left: 20px;
+    margin-top: 13px;
+}

@@ -126,9 +126,13 @@
 
 <ul class="abc-create-form">
     <li>
-        <div class="container-buttons-right">
+        <div class="container-buttons-right" ng-hide="update">
             <div class="abc-create-button" ng-click="clear()">Clear</div>
             <div class="abc-create-button" ng-class="{'disabled': !canSave}" ng-click="save()">Save</div>
+        </div>
+        <div class="container-buttons-right" ng-show="update">
+            <div class="abc-create-button" ng-click="delete()">Delete</div>
+            <div class="abc-create-button" ng-click="update()">Update</div>
         </div>
     </li>
 </ul>

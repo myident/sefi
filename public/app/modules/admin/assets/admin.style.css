@@ -8,6 +8,7 @@
 	padding-bottom:20px;
 	padding-top:1px;
 	border: 1px solid rgb(208,208,208);
+	position: relative;
 }
 
 .admin .viewer .row{
@@ -19,6 +20,7 @@
 .admin ul.filter-abc{
 	width: 550px;
 	margin:20px auto;
+	height: 26px;
 }
 
 .admin ul.filter-abc li{
@@ -29,17 +31,20 @@
 
 .admin .filter{
 	float: right;
-	border: 1px solid rgb(150,150,150);
+	border: 1px solid #CED1D2;
 	width: 200px;
-	height: 33px;
+	height: 40px;
 	background-color: rgb(255,255,255);
 	position: relative;
-	margin-top: 10px;
+	position: absolute;
+	right: 10px;
+	top:13px;
+
 }
 .admin .filter input{
 	background-color: transparent;
 	border: 0;
-	height: 33px;
+	height: 40px;
 	padding-left: 10px;
 	width: 200px;
 }
@@ -47,11 +52,12 @@
 .admin .filter i{
 	position: absolute;
 	right: 8px;
-	top: 7px;
+	top: 10px;
 	height: 20px;
 	width: 20px;
 	background-image: url(img/Shape.png);
 	background-repeat: no-repeat;
+	opacity: .5;
 }
 
 .link{

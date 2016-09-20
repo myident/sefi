@@ -206,7 +206,8 @@
                 areas: '=',
                 event: '=',
                 control: '=',
-                source: '='
+                source: '=',
+                update:'='
             },
             link: Link
         };
