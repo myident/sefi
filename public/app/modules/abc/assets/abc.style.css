@@ -641,6 +641,20 @@
     border-radius: 50px;
 }
 
+.dc-capacidad.paralelo {
+    -webkit-transform: skew(-20deg);
+    -moz-transform: skew(-20deg);
+    -o-transform: skew(-20deg);
+    transform: skew(-20deg);
+}
+.dc-capacidad.paralelo > span {
+    -webkit-transform: skew(20deg);
+    -moz-transform: skew(20deg);
+    -o-transform: skew(20deg);
+    transform: skew(20deg);
+    display: block;
+}
+
 .dc-capacidad.rombo,
 .dc-capacidad.rombo-tache {
     transform: rotate(135deg) skew(15deg, 15deg) translate(-17px, -17px);
@@ -1004,7 +1018,7 @@ section.container-card > div.card > article.frontside.abc-edit-ta {
 }
 
 .wrapper-formas {
-    width: 510px;
+    width: 650px;
     height: 95px;
     background: white;
 }
@@ -1014,6 +1028,7 @@ section.container-card > div.card > article.frontside.abc-edit-ta {
     overflow: auto;
     border: 1px solid #CED1D2;
     margin-bottom: 30px;
+    overflow-y: hidden;
 }
 
 .warning-text {
@@ -1044,6 +1059,12 @@ section.container-card > div.card > article.frontside.abc-edit-ta {
     margin-left: 60px;
     width: 54px;
     height: 54px;
+}
+
+.wrapper-formas > div.paralelo {
+    width: 100px;
+    height: 54px;
+    margin-left: 20px;
 }
 
 .wrapper-formas > div.rectangulo {
@@ -1085,7 +1106,8 @@ abc-special-select.filter-type {
     /*margin-left: 20px;
     margin-top: 20px;*/
 }
-abc-special-select.filter-type > div.abc-create-form-group{
+
+abc-special-select.filter-type > div.abc-create-form-group {
     display: inline-block;
     float: left;
     margin-left: 20px;

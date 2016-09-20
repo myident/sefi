@@ -43,10 +43,10 @@
         }, function (e) {
             console.log(e);
         });
-        
-        $scope.dominios = $apidominio.query(function(data){
+
+        $scope.dominios = $apidominio.query(function (data) {
             console.log(data);
-        }, function(e){
+        }, function (e) {
             console.log(e);
         });
 
@@ -71,22 +71,32 @@
 
         $scope.processEditing = true;
 
+
         $scope.optionsFiguras = [
             {
-                name: 'Redondeado',
-                id: 'redondeado'
+                name: 'Start',
+                id: 'redondeado',
+                shape: 4
             },
             {
-                name: 'Rectangulo',
-                id: 'rectangulo'
+                name: 'Process',
+                id: 'rectangulo',
+                shape: 1
             },
             {
-                name: 'Rombo',
-                id: 'rombo'
+                name: 'Decision',
+                id: 'rombo',
+                shape: 3
             },
             {
-                name: 'Rombo con tache',
-                id: 'rombo-tache'
+                name: 'End',
+                id: 'redondeado',
+                shape: 5
+            },
+            {
+                name: 'Data',
+                id: 'paralelo',
+                shape: 9
             }
         ];
 
@@ -99,6 +109,8 @@
                 reglas: []
             }
         ];
+
+        $scope.currentYes = $scope.currentYes = 'BR' + ($scope.currentBrule + 2);
 
         $scope.brules = [];
 
@@ -169,7 +181,8 @@
                             kpi: '',
                             forma: {
                                 id: 'rectangulo',
-                                name: 'Rectangulo'
+                                name: 'Process',
+                                shape: 1
                             }
                         }
                     ]
@@ -286,6 +299,10 @@
             $scope.showCapaDetails = false;
             $scope.currentProcess = parentIndex;
             $scope.currentBrule = index;
+
+            $scope.currentYes = 'BR' + ($scope.currentBrule + 2);
+
+
             for (var i in $scope.procesos) {
                 $scope.procesos[i].active = false;
                 for (var j in $scope.procesos[i].reglas) {
@@ -413,7 +430,7 @@
                                         };
                                         attrArray.push(atributoCap);
                                     }
-                                    if(capacidad.attributes[0].domain){
+                                    if (capacidad.attributes[0].domain) {
                                         var capacidadJson = {
                                             capid: Number(j),
                                             capaldesc: capacidad.name,
@@ -502,7 +519,7 @@
                                         desc_TYPE: ' ',
                                         pros_ID: 0,
                                         flow_ID: 0,
-                                        shape_ID: regla.attributes[0].forma.id == 'rectangulo' ? 1 : (regla.attributes[0].forma.id == 'redondeado' ? 2 : 3),
+                                        shape_ID: regla.attributes[0].forma.shape,
                                         dia_STEP_ID: Number(l),
                                         diagram_ID: 0,
                                         app_ID: Number(regla.attributes[0].application.id) || 0
@@ -593,31 +610,32 @@
 
             var macroprocesoDiagrama = new $apidiagrama(datosDiagrama);
             if (datosDiagrama.procRulesCap.length) {
-                macroprocesoDiagrama.$save(function (data) {
-                    console.log(data);
-                    $rootScope.showAlert = true;
-                    $scope.contentAlert = {
-                        title: 'DONE',
-                        text: 'The diagram was created.',
-                        button: 'OK',
-                        type: 'blue',
-                        event: function () {
-                            $scope.clear();
-                        }
-                    };
-                    return;
-                }, function (e) {
-                    $rootScope.showAlert = true;
-                    $scope.contentAlert = {
-                        title: 'ERROR',
-                        text: 'Error in DATABASE',
-                        button: 'OK',
-                        type: 'red',
-                        event: function () {}
-                    };
-                    console.log(e);
-                    return;
-                });
+                console.log(datosDiagrama);
+//                macroprocesoDiagrama.$save(function (data) {
+//                    console.log(data);
+//                    $rootScope.showAlert = true;
+//                    $scope.contentAlert = {
+//                        title: 'DONE',
+//                        text: 'The diagram was created.',
+//                        button: 'OK',
+//                        type: 'blue',
+//                        event: function () {
+//                            $scope.clear();
+//                        }
+//                    };
+//                    return;
+//                }, function (e) {
+//                    $rootScope.showAlert = true;
+//                    $scope.contentAlert = {
+//                        title: 'ERROR',
+//                        text: 'Error in DATABASE',
+//                        button: 'OK',
+//                        type: 'red',
+//                        event: function () {}
+//                    };
+//                    console.log(e);
+//                    return;
+//                });
             } else {
                 $rootScope.showAlert = true;
                 $scope.contentAlert = {

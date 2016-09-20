@@ -22,10 +22,11 @@
     <div class="to-left"></div>
     <div class="container-formas">
         <div class="wrapper-formas">
-            <div class="dc-capacidad redondeado" ng-class="{'active':redon}" ng-click="activateForma(0)"></div>
-            <div class="dc-capacidad rombo" ng-class="{'active':rombo}" ng-click="activateForma(2)"></div>
-            <div class="dc-capacidad rombo-tache" ng-class="{'active':romboTache}" ng-click="activateForma(3)"></div>
-            <div class="dc-capacidad rectangulo" ng-class="{'active':rectan}" ng-click="activateForma(1)"></div>
+            <div class="dc-capacidad redondeado" ng-class="{'active':redon}" ng-click="activateForma(0)"> <span class="dc-capacidad-name">Start</span> </div>
+            <div class="dc-capacidad rombo" ng-class="{'active':rombo}" ng-click="activateForma(2)"> <span class="dc-capacidad-name" style="left: 20px;top: -34px">Decision</span> </div>
+            <div class="dc-capacidad rectangulo" ng-class="{'active':rectan}" ng-click="activateForma(1)"> <span class="dc-capacidad-name">Process</span> </div>
+            <div class="dc-capacidad paralelo" ng-class="{'active':paralelo}"  ng-click="activateForma(4)"> <span class="dc-capacidad-name">Data</span> </div>
+            <div class="dc-capacidad redondeado" ng-class="{'active':redondo}"  ng-click="activateForma(3)"> <span class="dc-capacidad-name">End</span> </div>
         </div>
     </div>
     <div class="to-right"></div>
