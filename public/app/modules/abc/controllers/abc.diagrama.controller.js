@@ -454,7 +454,7 @@
                                     $rootScope.showAlert = true;
                                     $scope.contentAlert = {
                                         title: 'WARNING',
-                                        text: 'Capability can not be blank',
+                                        text: 'The Capabilitie\'s name can not be blank',
                                         button: 'OK',
                                         type: 'red',
                                         event: function () {}
@@ -552,7 +552,7 @@
                         $rootScope.showAlert = true;
                         $scope.contentAlert = {
                             title: 'WARNING',
-                            text: 'Process can not be blank',
+                            text: 'Process name can not be blank',
                             button: 'OK',
                             type: 'red',
                             event: function () {}
@@ -610,32 +610,31 @@
 
             var macroprocesoDiagrama = new $apidiagrama(datosDiagrama);
             if (datosDiagrama.procRulesCap.length) {
-                console.log(datosDiagrama);
-//                macroprocesoDiagrama.$save(function (data) {
-//                    console.log(data);
-//                    $rootScope.showAlert = true;
-//                    $scope.contentAlert = {
-//                        title: 'DONE',
-//                        text: 'The diagram was created.',
-//                        button: 'OK',
-//                        type: 'blue',
-//                        event: function () {
-//                            $scope.clear();
-//                        }
-//                    };
-//                    return;
-//                }, function (e) {
-//                    $rootScope.showAlert = true;
-//                    $scope.contentAlert = {
-//                        title: 'ERROR',
-//                        text: 'Error in DATABASE',
-//                        button: 'OK',
-//                        type: 'red',
-//                        event: function () {}
-//                    };
-//                    console.log(e);
-//                    return;
-//                });
+                macroprocesoDiagrama.$save(function (data) {
+                    console.log(data);
+                    $rootScope.showAlert = true;
+                    $scope.contentAlert = {
+                        title: 'DONE',
+                        text: 'The diagram was created.',
+                        button: 'OK',
+                        type: 'blue',
+                        event: function () {
+                            $scope.clear();
+                        }
+                    };
+                    return;
+                }, function (e) {
+                    $rootScope.showAlert = true;
+                    $scope.contentAlert = {
+                        title: 'ERROR',
+                        text: 'Error in DATABASE',
+                        button: 'OK',
+                        type: 'red',
+                        event: function () {}
+                    };
+                    console.log(e);
+                    return;
+                });
             } else {
                 $rootScope.showAlert = true;
                 $scope.contentAlert = {

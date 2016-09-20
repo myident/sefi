@@ -88,6 +88,15 @@
             console.log(data);
         }, function (e) {
             console.log(e);
+            $rootScope.showAlert = true;
+            $scope.contentAlert = {
+                title: 'ERROR',
+                text: 'An error ocurred during the load of the Domains.',
+                button: 'OK',
+                type: 'red',
+                event: function () {}
+            };
+            return;
         });
 
         // MARK: - GET Lista de los Megaprocesos
@@ -95,13 +104,31 @@
             console.log(data);
         }, function (e) {
             console.log(e);
+            $rootScope.showAlert = true;
+            $scope.contentAlert = {
+                title: 'ERROR',
+                text: 'An error ocurred during the load of the Megaprocesses.',
+                button: 'OK',
+                type: 'red',
+                event: function () {}
+            };
+            return;
         });
 
-        // MARK: - GET Lista de los Megaprocesos
+        // MARK: - GET Lista de las Areas
         $scope.listaAreas = $apiarea.query(function (data) {
             console.log(data);
         }, function (e) {
             console.log(e);
+            $rootScope.showAlert = true;
+            $scope.contentAlert = {
+                title: 'ERROR',
+                text: 'An error ocurred during the load of the Areas.',
+                button: 'OK',
+                type: 'red',
+                event: function () {}
+            };
+            return;
         });
 
 
@@ -117,6 +144,15 @@
                     console.log(data);
                 }, function (e) {
                     console.log(e);
+                    $rootScope.showAlert = true;
+                    $scope.contentAlert = {
+                        title: 'ERROR',
+                        text: 'An error ocurred during the load of the Domains.',
+                        button: 'OK',
+                        type: 'red',
+                        event: function () {}
+                    };
+                    return;
                 });
                 console.log(data);
                 $rootScope.showAlert = true;
@@ -131,6 +167,15 @@
                 };
             }, function (e) {
                 console.log(e);
+                $rootScope.showAlert = true;
+                $scope.contentAlert = {
+                    title: 'ERROR',
+                    text: 'An error ocurred during the save of the Domain.',
+                    button: 'OK',
+                    type: 'red',
+                    event: function () {}
+                };
+                return;
             });
         };
 
@@ -159,6 +204,15 @@
                 };
             }, function (e) {
                 console.log(e);
+                $rootScope.showAlert = true;
+                $scope.contentAlert = {
+                    title: 'ERROR',
+                    text: 'An error ocurred during the update of the Domain.',
+                    button: 'OK',
+                    type: 'red',
+                    event: function () {}
+                };
+                return;
             });
         };
         $scope.deleteDomain = function (id) {
@@ -174,7 +228,7 @@
                 $rootScope.showAlert = true;
                 $scope.contentAlert = {
                     title: 'DONE',
-                    text: 'The element ' + name + ' was delete.',
+                    text: 'The element was delete.',
                     button: 'OK',
                     type: 'blue',
                     event: function () {
@@ -183,6 +237,15 @@
                 };
             }, function (e) {
                 console.log(e);
+                $rootScope.showAlert = true;
+                $scope.contentAlert = {
+                    title: 'ERROR',
+                    text: 'An error ocurred during the delete of the Domain.',
+                    button: 'OK',
+                    type: 'red',
+                    event: function () {}
+                };
+                return;
             });
         };
 
@@ -213,6 +276,15 @@
                 };
             }, function (e) {
                 console.log(e);
+                $rootScope.showAlert = true;
+                $scope.contentAlert = {
+                    title: 'ERROR',
+                    text: 'An error ocurred during the save of the Megaprocess.',
+                    button: 'OK',
+                    type: 'red',
+                    event: function () {}
+                };
+                return;
             });
         };
 
@@ -258,7 +330,7 @@
                 $rootScope.showAlert = true;
                 $scope.contentAlert = {
                     title: 'DONE',
-                    text: 'The element ' + name + ' was delete.',
+                    text: 'The element was delete.',
                     button: 'OK',
                     type: 'blue',
                     event: function () {
@@ -267,6 +339,15 @@
                 };
             }, function (e) {
                 console.log(e);
+                $rootScope.showAlert = true;
+                $scope.contentAlert = {
+                    title: 'ERROR',
+                    text: 'An error ocurred during the delete of the Megaprocess.',
+                    button: 'OK',
+                    type: 'red',
+                    event: function () {}
+                };
+                return;
             });
         };
 
@@ -290,6 +371,15 @@
                 },
                 function (e) {
                     console.log(e);
+                    $rootScope.showAlert = true;
+                    $scope.contentAlert = {
+                        title: 'ERROR',
+                        text: 'An error ocurred during the save of the Macro.',
+                        button: 'OK',
+                        type: 'red',
+                        event: function () {}
+                    };
+                    return;
                 });
         };
 
@@ -322,6 +412,15 @@
                 },
                 function (e) {
                     console.log(e);
+                    $rootScope.showAlert = true;
+                    $scope.contentAlert = {
+                        title: 'ERROR',
+                        text: 'An error ocurred during the save of the Area.',
+                        button: 'OK',
+                        type: 'red',
+                        event: function () {}
+                    };
+                    return;
                 });
         };
 
@@ -353,6 +452,15 @@
                 },
                 function (e) {
                     console.log(e);
+                    $rootScope.showAlert = true;
+                    $scope.contentAlert = {
+                        title: 'ERROR',
+                        text: 'An error ocurred during the update of the Area.',
+                        button: 'OK',
+                        type: 'red',
+                        event: function () {}
+                    };
+                    return;
                 });
         };
 
@@ -369,7 +477,7 @@
                 $rootScope.showAlert = true;
                 $scope.contentAlert = {
                     title: 'DONE',
-                    text: 'The element ' + name + ' was delete.',
+                    text: 'The element was delete.',
                     button: 'OK',
                     type: 'blue',
                     event: function () {
@@ -378,6 +486,15 @@
                 };
             }, function (e) {
                 console.log(e);
+                $rootScope.showAlert = true;
+                $scope.contentAlert = {
+                    title: 'ERROR',
+                    text: 'An error ocurred during the delete of the Area.',
+                    button: 'OK',
+                    type: 'red',
+                    event: function () {}
+                };
+                return;
             });
         };
 
@@ -451,7 +568,7 @@
                 $rootScope.showAlert = true;
                 $scope.contentAlert = {
                     title: 'DONE',
-                    text: 'The element ' + name + ' was delete.',
+                    text: 'The element was delete.',
                     button: 'OK',
                     type: 'blue',
                     event: function () {
@@ -460,6 +577,15 @@
                 };
             }, function (e) {
                 console.log(e);
+                $rootScope.showAlert = true;
+                $scope.contentAlert = {
+                    title: 'ERROR',
+                    text: 'An error ocurred during the delete of the KPI.',
+                    button: 'OK',
+                    type: 'red',
+                    event: function () {}
+                };
+                return;
             });
         };
 
