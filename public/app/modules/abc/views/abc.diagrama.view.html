@@ -29,7 +29,7 @@
                         <div class="abc-create-form-title">P{{currentProcess + 1}} Process Details</div>
                         <abc-input title="Process name" model="procesos[currentProcess].name" label="Process name" event="toggleActiveButton">
                         </abc-input>
-                        <div style="color: red; font-family: 'SF Medium'; cursor: pointer;" ng-click="deleteProcess()">Delete Process</div>
+                        
                     </li>
                     <li ng-hide="processEditing">
                        
@@ -45,7 +45,6 @@
                                 event="toggleActiveButton">
                             </abc-input>
                         
-                            <div style="color: red; font-family: 'SF Medium'; cursor: pointer; margin-bottom: 30px;" ng-click="deleteCapabiliy()">Delete Capability</div>
                             
                             <div 
                                ng-repeat="attribute in procesos[currentProcess].capacidades[currentCapability].attributes">
@@ -53,6 +52,12 @@
                                 <div 
                                     class="abc-create-form-title" 
                                     ng-hide="processEditing">C{{currentCapability + 1}} Capability Attributes</div>
+                                
+                                <abc-special-select 
+                                    label="Domain" 
+                                    holder="Select Domain" 
+                                    model="attribute.domain" 
+                                    options="dominios"></abc-special-select>
                                     
                                 <abc-special-select 
                                     label="Area" 
@@ -65,28 +70,30 @@
                                     holder="Select application" 
                                     model="attribute.application" 
                                     options="aplicaciones"></abc-special-select>
-                                    
+                                            
+                            </div>
+                            
+                            
+                            <div>
+                               
                                 <abc-special-select 
                                     label="KPI" 
                                     holder="Select KPI" 
-                                    model="attribute.kpi" 
+                                    model="procesos[currentProcess].capacidades[currentCapability].attributes[0].kpi" 
                                     options="kpis"></abc-special-select>
-                                    
-                                <abc-special-select 
-                                    label="Domain" 
-                                    holder="Select Domain" 
-                                    model="attribute.domain" 
-                                    options="dominios"></abc-special-select>
-                                    
                                 
                             </div>
                             
-<!--
                             <div 
                                 ng-click="addMoreAttributes()" 
-                                style="text-decoration: underline; color: #30A3CF; cursor: pointer;">
-                                Repeat capability with different attributes</div>
--->
+                                style="text-decoration: underline; color: #30A3CF; cursor: pointer; width: 450px; height: 60px;">
+                                
+                                <span style="display:block; width:40px; height: 40px; background: #2CA2CF; border-radius: 4px; font-size: 30px; text-align: center; line-height: 37px; color: white; float: right;">+</span>
+                                <span style="float: right; color: #4E4E4E; font-size: 14px; display: block; width: 130px; margin-right: 10px; margin-top: 5px;">Repeat capability with different attributes</span>
+                            </div>
+                            
+
+                        
                         </div>
                         
                         <!--Procesos y reglas de negocio-->
@@ -183,21 +190,24 @@
                         </span>
                         <div class="dc-procesos" ng-repeat="proceso in procesos">
                             <div class="dc-procesos-flecha" ng-show="proceso.mode == 'on' ? true : false"></div>
-                            <div class="dc-process {{proceso.mode}}" ng-click="activateProcess($index)" ng-class="{'active': proceso.active}">
+                            <div class="dc-process {{proceso.mode}}" ng-click="activateProcess($index);" ng-class="{'active': proceso.active}">
                                 <span class="dc-process-number">P{{$index + 1}}</span>
                                 <span class="dc-process-name">{{proceso.name}}</span>
+                                <span class="dc-process-delete" ng-click="deleteProcess()"></span>
                             </div>
                             <div class="dc-capacidades" ng-repeat="capacidad in proceso.capacidades">
                                 <div class="dc-capacidad-connection"></div>
-                                <div class="dc-capacidad {{capacidad.mode}}" ng-click="activateCapability($parent.$index, $index)" ng-class="{'active': capacidad.active}">
+                                <div class="dc-capacidad {{capacidad.mode}}" ng-click="activateCapability($parent.$index, $index);" ng-class="{'active': capacidad.active}">
                                     <span class="dc-capacidad-number">C{{$index + 1}}</span>
                                     <span class="dc-capacidad-name">{{capacidad.name}}</span>
+                                    <span class="dc-process-delete" ng-click="deleteCapabiliy()"></span>
                                 </div>
                                 <div class="dc-capacidad-attributes" ng-repeat="attribute in capacidad.attributes">
+                                    <span class="dc-domain" ng-show="attribute.domain != '' ? true : false">{{attribute.domain.name}}</span>
                                     <span class="dc-area" ng-show="attribute.area != '' ? true : false">{{attribute.area.name}}</span>
                                     <span class="dc-app" ng-show="attribute.application != '' ? true : false">{{attribute.application.name}}</span>
                                     <span class="dc-kpi" ng-show="attribute.kpi != '' ? true : false">{{attribute.kpi.name}}</span>
-                                    <span class="dc-area" ng-show="attribute.domain != '' ? true : false">{{attribute.domain.name}}</span>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -218,6 +228,7 @@
                             <div class="dc-process {{proceso.mode}}" ng-click="activateProcess($index)" ng-class="{'active': proceso.active}">
                                 <span class="dc-process-number">P{{$index + 1}}</span>
                                 <span class="dc-process-name">{{proceso.name}}</span>
+                                <span class="dc-process-delete" ng-click="deleteProcess()"></span>
                             </div>
                             <div class="dc-capacidades" ng-repeat="regla in proceso.reglas">
                                 <div class="dc-capacidad-connection"></div>
@@ -227,6 +238,7 @@
                                    ng-class="{'active': regla.active}">
                                      <span class="dc-capacidad-number">BR{{$index + 1}}</span>
                                     <span class="dc-capacidad-name">{{regla.name}}</span>
+                                    <span class="dc-process-delete" ng-click="deleteBrule()"></span>
                                 </div>
                                 <div class="dc-capacidad-conector-no" ng-show="regla.attributes[0].forma.id == 'rombo' ? true : false">
                                     No {{regla.attributes[0].no.name | brules}}
