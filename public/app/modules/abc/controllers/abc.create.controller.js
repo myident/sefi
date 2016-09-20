@@ -1,6 +1,6 @@
 /* global angular */
 (function () {
-    var Controller = function ($scope, $rootScope, $abcCreate, $apidominio, $apimegaproceso, $apimacroproceso, $apiarea, $apikpi, Upload, $http, $window, $abcUpdate, apiaplicaciones) {
+    var Controller = function ($scope, $rootScope, $abcCreate, $apidominio, $apimegaproceso, $apimacroproceso, $apiarea, $apikpi, Upload, $http, $window, $abcUpdate, apiaplicaciones, $apimacroprocesodesc) {
 
         $scope.regresar = function () {
             $window.history.back();
@@ -37,36 +37,53 @@
                            };
                         break;
                     case 2: 
-                        $scope.types[2].active = true; 
-                        $scope.types[2].source = {
-                            id: $abcUpdate.obj.obj.area_id,
-                           mega_id: 0,
-                           macro_id: $abcUpdate.obj.obj.id,
-                           nombre_Macro: $abcUpdate.obj.obj.title,
-                           version_autor: 'Alan Olvera',
-                           version_vers: '',
-                           version_desc: '',
-                           objetivo_Macro: '',
-                           scope_Macro: '',
-                           security_Macro: '',
-                           operation_system_Macro: '',
+                        $scope.types[2].active = true;
+                        var macrodesc = new $apimacroprocesodesc();
+                        console.log($abcUpdate.obj.obj.id);
+                            macrodesc.$get({id:$abcUpdate.obj.obj.id}, function (data) {
+                                $rootScope.spin = false;
+                                
+                                console.log(data);
+                                
+                                $scope.types[2].source = {
+                                    id: $abcUpdate.obj.obj.area_id,
+                                   mega_id: data.ega_id,
+                                   macro_id: $abcUpdate.obj.obj.id,
+                                   nombre_Macro: data.nombre_Macro,
+                                   version_autor: data.version_autor,
+                                   version_vers: data.version_vers,
+                                   version_desc: data.version_desc,
+                                   objetivo_Macro: data.bjetivo_Macro,
+                                   scope_Macro: data.scope_Macro,
+                                   security_Macro: data.security_Macro,
+                                   operation_system_Macro: data.peration_system_Macro,
 
 
-                           attach: [],
-                           operative: [],
-                           process_change: [],
-                           SLA_service: [],
-                           glosary: [],
-                           assumtion: [],
-                           non_funtionals: [{
-                               mcro: 0,
-                               req_ID: 0,
-                               des_REQ: '',
-                               status: 0
-                           }],
-                           asosiate_buss: [],
-                           process_owner: []
-                       };
+                                   attach: data.attach,
+                                   operative: data.operative,
+                                   process_change: data.rocess_change,
+                                   SLA_service: data.SLA_service,
+                                   glosary: data.glosary,
+                                   assumtion: data.assumtion,
+                                   non_funtionals: data.non_funtionals,
+                                   asosiate_buss: data.asosiate_buss,
+                                   process_owner: data.process_owner
+                               };
+
+
+                            }, function (e) {
+                                console.log(e);
+                                $rootScope.showAlert = true;
+                                $scope.contentAlert = {
+                                    title: 'ERROR',
+                                    text: 'An error ocurred during the delete of the Domain.',
+                                    button: 'OK',
+                                    type: 'red',
+                                    event: function () {}
+                                };
+                                return;
+                            });
+
                         break;
                     case 3: 
                         $scope.types[3].active = true; 
@@ -829,7 +846,7 @@
         $scope.init();
 
     };
-    Controller.$inject = ['$scope', '$rootScope', '$abcCreate', '$apidominio', '$apimegaproceso', '$apimacroproceso', '$apiarea', '$apikpi', 'Upload', '$http', '$window', '$abcUpdate', '$apiaplicaciones'];
+    Controller.$inject = ['$scope', '$rootScope', '$abcCreate', '$apidominio', '$apimegaproceso', '$apimacroproceso', '$apiarea', '$apikpi', 'Upload', '$http', '$window', '$abcUpdate', '$apiaplicaciones', '$apimacroprocesodesc'];
     angular
         .module('mAbc')
         .controller('AbcCreateController', Controller);

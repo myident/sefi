@@ -171,6 +171,7 @@
 
 
                 };
+
                 $scope.event(macroproceso);
                 console.log(macroproceso);
             };
@@ -233,27 +234,33 @@
                     $scope.eventDelete($scope.id);
             };
 
-            if ($scope.source) {
-                $scope.id = $scope.source.id;
-                $scope.mega = $scope.source.mega_id;
-                $scope.macro = $scope.source.macro;
-                $scope.name = $scope.source.nombre_Macro;
-                $scope.author = $scope.source.version_autor;
-                $scope.version = $scope.source.version_vers;
-                $scope.version_desc = $scope.source.version_desc;
-                $scope.macroProcessObjective = $scope.source.objetivo_Macro;
-                $scope.macroprocessScope = $scope.source.scope_Macro;
-                $scope.security = $scope.source.security_Macro;
-                $scope.operationSystemReport = $scope.source.operation_system_Macro;
+            $scope.reset = function(){
+                if ($scope.source) {
+                    $scope.id = $scope.source.id;
+                    $scope.mega = $scope.source.mega_id;
+                    $scope.macro = $scope.source.macro;
+                    $scope.name = $scope.source.nombre_Macro;
+                    $scope.author = $scope.source.version_autor;
+                    $scope.version = $scope.source.version_vers;
+                    $scope.version_desc = $scope.source.version_desc;
+                    $scope.macroProcessObjective = $scope.source.objetivo_Macro;
+                    $scope.macroprocessScope = $scope.source.scope_Macro;
+                    $scope.security = $scope.source.security_Macro;
+                    $scope.operationSystemReport = $scope.source.operation_system_Macro;
 
-                $scope.attachments = $scope.source.attach;
-                $scope.operativeReports = $scope.source.operative;
-                $scope.processChanges = $scope.source.process_change;
-                $scope.sla = $scope.source.SLA_service;
-                $scope.termGlossary = $scope.source.glosary;
-                $scope.assumptions = $scope.source.assumtion;
+                    $scope.attachments = $scope.source.attach;
+                    $scope.operativeReports = $scope.source.operative;
+                    $scope.processChanges = $scope.source.process_change;
+                    $scope.sla = $scope.source.SLA_service;
+                    $scope.termGlossary = $scope.source.glosary;
+                    $scope.assumptions = $scope.source.assumtion;
 
-            }
+                }
+            };
+
+            $scope.$watch('source',function(){
+                $scope.reset();
+            });
 
             $scope.internalControl = $scope.control || {};
             $scope.internalControl.clear = function () {
