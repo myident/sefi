@@ -4,6 +4,12 @@
 
         $scope.regresar = function () {
             $window.history.back();
+            $scope.domainControl.clear();
+            $scope.megaControl.clear();
+            $scope.macroControl.clear();
+            $scope.areaControl.clear();
+            $scope.kpiControl.clear();
+            $scope.aplicacionControl.clear();
         };
 
 
