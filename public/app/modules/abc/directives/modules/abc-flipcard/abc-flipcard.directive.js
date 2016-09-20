@@ -19,7 +19,7 @@
             
             $scope.createContents = function(){
                 $abcUpdate.update = false;
-                for(var i in $abcUpdate.show){$abcUpdate.update[i] = true};
+                for(var i in $abcUpdate.show){$abcUpdate.show[i] = true};
                 $window.location = '#/abc-create';
             };
             

@@ -271,6 +271,7 @@
                     type: 'blue',
                     event: function () {
                         $scope.domainControl.clear();
+                        $window.history.back();
                     }
                 };
             }, function (e) {
@@ -281,7 +282,9 @@
                     text: 'An error ocurred during the update of the Domain.',
                     button: 'OK',
                     type: 'red',
-                    event: function () {}
+                    event: function () {
+                        $window.history.back();
+                    }
                 };
                 return;
             });
@@ -308,6 +311,7 @@
                     type: 'blue',
                     event: function () {
                         $scope.domainControl.clear();
+                        $window.history.back();
                     }
                 };
             }, function (e) {
@@ -318,7 +322,7 @@
                     text: 'An error ocurred during the delete of the Domain.',
                     button: 'OK',
                     type: 'red',
-                    event: function () {}
+                    event: function () {$window.history.back();}
                 };
                 return;
             });
@@ -389,10 +393,12 @@
                     type: 'blue',
                     event: function () {
                         $scope.megaControl.clear();
+                        $window.history.back();
                     }
                 };
             }, function (e) {
                 console.log(e);
+                $window.history.back();
             });
         };
 
@@ -403,21 +409,18 @@
                 id: id
             }, function (data) {
                 $rootScope.spin = false;
-                // MARK: - GET Lista de los Dominios
-                // $scope.listaDominios = $apidominio.query(function (data) {
-                //     console.log(data);
-                // }, function (e) {
-                //     console.log(e);
-                // });
+                
                 console.log(data);
+
                 $rootScope.showAlert = true;
                 $scope.contentAlert = {
                     title: 'DONE',
-                    text: 'The element was delete.',
+                    text: $scope.getMessage(data),
                     button: 'OK',
                     type: 'blue',
                     event: function () {
                         $scope.domainControl.clear();
+                        $window.history.back();
                     }
                 };
             }, function (e) {
@@ -428,7 +431,7 @@
                     text: 'An error ocurred during the delete of the Megaprocess.',
                     button: 'OK',
                     type: 'red',
-                    event: function () {}
+                    event: function () {$window.history.back();}
                 };
                 return;
             });
@@ -483,6 +486,7 @@
                         type: 'blue',
                         event: function () {
                             $scope.macroControl.clear();
+                            $window.history.back();
                         }
                     };
                 },
@@ -513,6 +517,7 @@
                     type: 'blue',
                     event: function () {
                         $scope.domainControl.clear();
+                        $window.history.back();
                     }
                 };
             }, function (e) {
@@ -588,6 +593,7 @@
                         type: 'blue',
                         event: function () {
                             $scope.areaControl.clear();
+                            $window.history.back();
                         }
                     };
                 },
@@ -627,6 +633,7 @@
                     type: 'blue',
                     event: function () {
                         $scope.domainControl.clear();
+                        $window.history.back();
                     }
                 };
             }, function (e) {
@@ -637,7 +644,7 @@
                     text: 'An error ocurred during the delete of the Area.',
                     button: 'OK',
                     type: 'red',
-                    event: function () {}
+                    event: function () {$window.history.back();}
                 };
                 return;
             });
@@ -696,6 +703,7 @@
                         type: 'blue',
                         event: function () {
                             $scope.areaControl.clear();
+                            $window.history.back();
                         }
                     };
                 },
@@ -726,6 +734,7 @@
                     type: 'blue',
                     event: function () {
                         $scope.domainControl.clear();
+                        $window.history.back();
                     }
                 };
             }, function (e) {
@@ -736,7 +745,7 @@
                     text: 'An error ocurred during the delete of the KPI.',
                     button: 'OK',
                     type: 'red',
-                    event: function () {}
+                    event: function () {$window.history.back();}
                 };
                 return;
             });
@@ -808,6 +817,7 @@
                         type: 'red',
                         event: function () {
                             $scope.aplicacionControl.clear();
+                            $window.history.back();
                         }
                     };
                 }, function (e) {
@@ -819,7 +829,7 @@
                         text: 'The element does not have permission to be updated in Database.',
                         button: 'OK',
                         type: 'red',
-                        event: function () {}
+                        event: function () {$window.history.back();}
                     };
                 });
             } else {
@@ -830,7 +840,7 @@
                     text: 'The element does not have permission to be updated in Database.',
                     button: 'OK',
                     type: 'red',
-                    event: function () {}
+                    event: function () {$window.history.back();}
                 };
             }
         };
@@ -848,7 +858,7 @@
                     text: 'The element does not have permission to be updated in Database.',
                     button: 'OK',
                     type: 'red',
-                    event: function () {}
+                    event: function () {$window.history.back();}
                 };
             }
         };
@@ -871,10 +881,12 @@
                     type: 'blue',
                     event: function () {
                         $scope.domainControl.clear();
+                        $window.history.back();
                     }
                 };
             }, function (e) {
                 console.log(e);
+                $window.history.back();
             });
         };
 
@@ -925,6 +937,14 @@
                 .error(function (e) {
                     console.log(e);
                 });
+        };
+
+        $scope.getMessage = function(data){
+            switch(data.respuesta){
+                case 0: return 'Existen Macroporcesos ligados al Megaproceso';
+                case 1: return 'Success';
+                default: break;
+                }
         };
 
         $scope.init();
