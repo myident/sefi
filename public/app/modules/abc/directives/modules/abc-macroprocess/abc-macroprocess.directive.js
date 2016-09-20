@@ -259,7 +259,6 @@
                     $scope.termGlossary = $scope.source.glosary;
                     $scope.assumptions = $scope.source.assumtion;
                     $scope.processOwner = $scope.source.processOwner;
-
                 }
             };
 

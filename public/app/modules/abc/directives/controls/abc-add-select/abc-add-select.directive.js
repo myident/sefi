@@ -7,16 +7,18 @@
                 {
                     modelSelected: false,
                     showOptions: false,
-                    model: ''
+                    model: '',
+                    status: 1
                 },
                 {
                     modelSelected: false,
                     showOptions: false,
-                    model: ''
+                    model: '',
+                    status: 1
                 }
             ];
             
-
+            // Muestra las opciones
             $scope.toggleShowOptions = function (index) {
                 if ($scope.options) {
                     $scope.source[index].showOptions = !$scope.source[index].showOptions;
@@ -25,6 +27,7 @@
                 }
             };
 
+            // Selecciona una opcion
             $scope.selectOption = function (parentIndex, index) {
                 $scope.source[parentIndex].modelSelected = true;
                 $scope.source[parentIndex].showOptions = false;
@@ -39,12 +42,14 @@
                 var element = {
                     modelSelected: false,
                     showOptions: false,
-                    model: ''
+                    model: '',
+                    status: 1
                 };
                 $scope.source.push(element);
                 $scope.canDelete = true;
             };
 
+            // Elimina un input del arreglo
             $scope.deleteElementFromSource = function (index) {
                 if ($scope.source.length > 1) {
                     $scope.source.splice(index, 1);
@@ -67,64 +72,51 @@
                 }
             };
 
+            // Actualiza el modelo que enviamos
             $scope.saveModel = function(){
                 var obj = {};
-                if ($scope.model){
-                    for (var j in $scope.source) {
-                        if ($scope.source[j].model !== '') {
-                            obj = {
-                                area_ID: $scope.source[j].model,
-                                mcro: $scope.model[j].mcro,
-                                status: 2
-                            };
-                            $scope.model.push(obj);
-                        }
-                    }
-                } else {
-                    $scope.model = [];
-                    for (var i in $scope.source) {
-                        if ($scope.source[i].model !== '') {
-                            obj = {
-                                area_ID: $scope.source[i].model,
-                                mcro: 0,
-                                status: 0
-                            };
-                            $scope.model.push(obj);
-                        }
-                    }
-                }
-                console.log($scope.model)
-
-            };
-            
-            
-            if ($scope.model){
-                if ($scope.model.length){
-                    $scope.source = [];
-                    for (var i in $scope.model){
-                        var obj = {
-                            modelSelected: false,
-                            showOptions: false,
-                            model: $scope.model[i].area_ID
+                // Reset del model para rellenar
+                $scope.model = [];
+                // Llenamos el model
+                for (var i in $scope.source) {
+                    if ($scope.source[i].model !== '' && $scope.source[i].model) {
+                        obj = {
+                            area_ID: $scope.source[i].model,
+                            mcro: $scope.source[i].mcro || 0,
+                            status: $scope.source[i].status
                         };
-                        $scope.source.push(obj);
+                        $scope.model.push(obj);
                     }
                 }
-
-            }
-
-            $scope.$watch('model',function(){
                 console.log($scope.model);
+            };
+    
+            // Recibe la configuracion del modelo
+            $scope.$watch('model',function(){
                 $scope.source = [];
+                var optionsTemp = $scope.options;
                 for (var i in $scope.model) {
                     obj = {
-                        model: $scope.model.area_ID,
-                        mcro:$scope.model.mcro,
-                        status: $scope.model.status
+                        model: $scope.model[i].area_ID,
+                        area_desc: $scope.getNameArea(optionsTemp, $scope.model[i].area_ID),
+                        mcro:$scope.model[i].mcro,
+                        status: 2,
+                        modelSelected: true,
+                        showOptions: false,
                     };
                     $scope.source.push(obj);
                 }
             });
+
+            $scope.getNameArea = function(optionsTemp, id){
+                var name = '';
+                for(var i in optionsTemp){
+                    if(optionsTemp[i].area_id == id){
+                        name = optionsTemp[i].area_desc
+                    }
+                }
+                return name;
+            };
 
         };
 
