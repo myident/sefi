@@ -237,7 +237,7 @@
             $scope.reset = function () {
                 if ($scope.source) {
                     $scope.id = $scope.source.id;
-                    $scope.mega = $scope.source.mega_id;
+                    $scope.mega = {id:$scope.source.mega_id, name: $scope.source.mega_name};
                     $scope.macro = $scope.source.macro;
                     $scope.name = $scope.source.nombre_Macro;
                     $scope.author = $scope.source.version_autor;

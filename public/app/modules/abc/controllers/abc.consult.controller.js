@@ -57,6 +57,7 @@
                     $scope.apimacroproceso = $apimacroproceso.query(function () {
                         $scope.join($scope.list, $scope.apimacroproceso, 'Macroproceso',2, 'title');
                         $scope.apiarea = $apiarea.query(function () {
+                            console.log($scope.apiarea);
                             $scope.join($scope.list, $scope.apiarea, 'Areas',3, 'area_desc');
                             $scope.apikpi = $apikpi.query(function () {
                             $scope.join($scope.list, $scope.apikpi, 'KPI',4, 'name');
@@ -88,7 +89,7 @@
        };
 
         $scope.join = function(list,listTemp, type, id, name){
-            for(var i in listTemp){
+            for(var i = 0; i < listTemp.length; i++){
                 var item = {
                     name: listTemp[i][name] || '',
                     type: type,
@@ -97,9 +98,6 @@
                 };
                 list.push(item);
             }
-            console.log(type);
-            console.log(list.length);
-            console.log(list);
         };
 
 

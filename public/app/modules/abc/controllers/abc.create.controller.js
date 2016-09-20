@@ -56,7 +56,7 @@
 
                         $scope.types[2].source = {
                             id: $abcUpdate.obj.obj.area_id,
-                            mega_id: data.ega_id,
+                            mega_id: $scope.getMegaModel(data.mega_id),
                             macro_id: $abcUpdate.obj.obj.id,
                             nombre_Macro: data.nombre_Macro,
                             version_autor: data.version_autor,
@@ -95,6 +95,7 @@
 
                     break;
                 case 3:
+                    console.log($abcUpdate.obj.obj.area_id);
                     $scope.types[3].active = true;
                     $scope.types[3].source = {
                         id: $abcUpdate.obj.obj.area_id,
@@ -125,6 +126,14 @@
                 }
             }
         };
+
+        $scope.getMegaModel = function(id){
+            for(var i in $scope.listaMegaprocesos){
+                if($scope.listaMegaprocesos[i].id === id){
+                    return $scope.listaMegaprocesos[i];
+                }
+            }
+        }
 
         $rootScope.showAlert = false;
         $scope.contentAlert = {
@@ -212,6 +221,7 @@
                 $scope.listaDominios = $apidominio.query(function (data) {
                     console.log(data);
                 }, function (e) {
+                    $rootScope.spin = false;
                     console.log(e);
                     $rootScope.showAlert = true;
                     $scope.contentAlert = {
@@ -223,6 +233,7 @@
                     };
                     return;
                 });
+                $rootScope.spin = false;
                 console.log(data);
                 $rootScope.showAlert = true;
                 $scope.contentAlert = {
@@ -235,6 +246,7 @@
                     }
                 };
             }, function (e) {
+                $rootScope.spin = false;
                 console.log(e);
                 $rootScope.showAlert = true;
                 $scope.contentAlert = {
@@ -275,6 +287,7 @@
                     }
                 };
             }, function (e) {
+                $rootScope.spin = false;
                 console.log(e);
                 $rootScope.showAlert = true;
                 $scope.contentAlert = {
@@ -315,6 +328,7 @@
                     }
                 };
             }, function (e) {
+                $rootScope.spin = false;
                 console.log(e);
                 $rootScope.showAlert = true;
                 $scope.contentAlert = {
@@ -356,6 +370,7 @@
                     }
                 };
             }, function (e) {
+                $rootScope.spin = false;
                 console.log(e);
                 $rootScope.showAlert = true;
                 $scope.contentAlert = {
@@ -397,6 +412,7 @@
                     }
                 };
             }, function (e) {
+                $rootScope.spin = false;
                 console.log(e);
                 $window.history.back();
             });
@@ -415,7 +431,7 @@
                 $rootScope.showAlert = true;
                 $scope.contentAlert = {
                     title: 'DONE',
-                    text: $scope.getMessage(data),
+                    text: $scope.getMessage(data, 'Megaproceso'),
                     button: 'OK',
                     type: 'blue',
                     event: function () {
@@ -424,6 +440,7 @@
                     }
                 };
             }, function (e) {
+                $rootScope.spin = false;
                 console.log(e);
                 $rootScope.showAlert = true;
                 $scope.contentAlert = {
@@ -459,6 +476,7 @@
                 },
                 function (e) {
                     console.log(e);
+                    $rootScope.spin = false;
                     $rootScope.showAlert = true;
                     $scope.contentAlert = {
                         title: 'ERROR',
@@ -491,6 +509,7 @@
                     };
                 },
                 function (e) {
+                    $rootScope.spin = false;
                     console.log(e);
                 });
         };
@@ -521,6 +540,7 @@
                     }
                 };
             }, function (e) {
+                $rootScope.spin = false;
                 console.log(e);
             });
         };
@@ -555,6 +575,7 @@
                     };
                 },
                 function (e) {
+                    $rootScope.spin = false;
                     console.log(e);
                     $rootScope.showAlert = true;
                     $scope.contentAlert = {
@@ -598,6 +619,7 @@
                     };
                 },
                 function (e) {
+                    $rootScope.spin = false;
                     console.log(e);
                     $rootScope.showAlert = true;
                     $scope.contentAlert = {
@@ -628,7 +650,7 @@
                 $rootScope.showAlert = true;
                 $scope.contentAlert = {
                     title: 'DONE',
-                    text: 'The element was delete.',
+                    text: $scope.getMessage(data, 'Area'),
                     button: 'OK',
                     type: 'blue',
                     event: function () {
@@ -637,6 +659,7 @@
                     }
                 };
             }, function (e) {
+                $rootScope.spin = false;
                 console.log(e);
                 $rootScope.showAlert = true;
                 $scope.contentAlert = {
@@ -674,6 +697,7 @@
                     };
                 },
                 function (e) {
+                    $rootScope.spin = false;
                     console.log(e);
                 });
         };
@@ -708,6 +732,7 @@
                     };
                 },
                 function (e) {
+                    $rootScope.spin = false;
                     console.log(e);
                 });
         };
@@ -729,7 +754,7 @@
                 $rootScope.showAlert = true;
                 $scope.contentAlert = {
                     title: 'DONE',
-                    text: 'The element was delete.',
+                    text: $scope.getMessage(data, 'KPI'),
                     button: 'OK',
                     type: 'blue',
                     event: function () {
@@ -738,6 +763,7 @@
                     }
                 };
             }, function (e) {
+                $rootScope.spin = false;
                 console.log(e);
                 $rootScope.showAlert = true;
                 $scope.contentAlert = {
@@ -845,29 +871,29 @@
             }
         };
 
-        $scope.deleteAplicacion = function () {
-            var isReady = false;
+        // $scope.deleteAplicacion = function () {
+        //     var isReady = false;
 
-            if (isReady) {
+        //     if (isReady) {
 
-            } else {
-                $rootScope.spin = false;
-                $rootScope.showAlert = true;
-                $scope.contentAlert = {
-                    title: 'ERROR',
-                    text: 'The element does not have permission to be updated in Database.',
-                    button: 'OK',
-                    type: 'red',
-                    event: function () {$window.history.back();}
-                };
-            }
-        };
+        //     } else {
+        //         $rootScope.spin = false;
+        //         $rootScope.showAlert = true;
+        //         $scope.contentAlert = {
+        //             title: 'ERROR',
+        //             text: 'The element does not have permission to be updated in Database.',
+        //             button: 'OK',
+        //             type: 'red',
+        //             event: function () {$window.history.back();}
+        //         };
+        //     }
+        // };
 
-        $scope.deleteKpi = function (id) {
+        $scope.deleteAplicacion = function (id) {
             $rootScope.spin = true;
             
             var aplicacion = new $apiaplicaciones();
-            
+            console.log('deleteKpi');
             aplicacion.$delete({
                 id: id
             }, function (data) {
@@ -932,16 +958,18 @@
                     }
                 })
                 .success(function (data) {
+                    $rootScope.spin = false;
                     console.log(data);
                 })
                 .error(function (e) {
+                    $rootScope.spin = false;
                     console.log(e);
                 });
         };
 
-        $scope.getMessage = function(data){
+        $scope.getMessage = function(data, type){
             switch(data.respuesta){
-                case 0: return 'Existen Macroporcesos ligados al Megaproceso';
+                case 0: return 'Existen macroprocesos ligados al '+type;
                 case 1: return 'Success';
                 default: break;
                 }
