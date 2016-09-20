@@ -112,6 +112,20 @@
                 }
 
             }
+
+            $scope.$watch('model',function(){
+                console.log($scope.model);
+                $scope.source = [];
+                for (var i in $scope.model) {
+                    obj = {
+                        model: $scope.model.area_ID,
+                        mcro:$scope.model.mcro,
+                        status: $scope.model.status
+                    };
+                    $scope.source.push(obj);
+                }
+            });
+
         };
 
         return {

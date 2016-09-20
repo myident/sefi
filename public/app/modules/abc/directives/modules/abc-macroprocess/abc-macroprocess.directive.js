@@ -172,7 +172,11 @@
 
                 };
 
-                $scope.event(macroproceso);
+                if($scope.hideWarningMega && $scope.hideWarningMacro && $scope.hideWarningAuthor && $scope.hideWarningVersion && $scope.hideWarningVersionDesc && $scope.hideWarningMacroObj && $scope.hideWarningAreaObj && $scope.hideWarningTerm){
+                     $scope.event(macroproceso);
+                }
+
+               
                 console.log(macroproceso);
             };
 
@@ -254,6 +258,7 @@
                     $scope.sla = $scope.source.SLA_service;
                     $scope.termGlossary = $scope.source.glosary;
                     $scope.assumptions = $scope.source.assumtion;
+                    $scope.processOwner = $scope.source.processOwner;
 
                 }
             };
