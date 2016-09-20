@@ -59,7 +59,9 @@
                 event: '=',
                 source: '=',
                 control: '=',
-                update:'='
+                update:'=',
+                eventUpdate: '=',
+                eventDelete: '='
             },
             link: Link
         };

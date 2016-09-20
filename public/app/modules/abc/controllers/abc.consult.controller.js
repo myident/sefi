@@ -7,7 +7,9 @@
             $window.history.back();
         };
         
-        $rootScope.spin = false;
+        $rootScope.showAlert = false;
+
+        $rootScope.spin = true;
         // $scope.aplicaciones = $aplicaciones.query(function () {
         //     $scope.viewer.setting($scope.aplicaciones);
         // });
@@ -46,6 +48,7 @@
         $scope.list = [];
         $scope.init = function(){
             $scope.apidominio = $apidominio.query(function () {
+                $rootScope.spin = false;
                 $scope.join($scope.list, $scope.apidominio, 'Dominio',0, 'name');
                 $scope.apimegaproceso = $apimegaproceso.query(function () {
                     console.log($scope.apimegaproceso);
@@ -65,6 +68,18 @@
                         });
                     });
                 });
+            }, function(e){
+                console.log(e);
+                $rootScope.spin = false;
+                $rootScope.showAlert = true;
+                $scope.contentAlert = {
+                    title: 'ERROR',
+                    text: 'An error ocurred with the connection.',
+                    button: 'OK',
+                    type: 'red',
+                    event: function () {}
+                };
+                return;
             });
             
        };
