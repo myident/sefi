@@ -95,18 +95,6 @@
 //                    type: 1
 //
 //                }
-            },
-            {
-                name: 'Application',
-                class: 'application',
-                image: [
-                    'assets/img/abc-create/create-application.png',
-                    'assets/img/abc-create/create-application-active.png'
-                ],
-                active: false,
-//                source: {
-//                    name: 'App'
-//                }
             }
         ];
     };
