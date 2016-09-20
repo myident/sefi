@@ -149,7 +149,7 @@
 
         // MARK: - activa un proceso
         $scope.activateProcess = function (index) {
-            if ($scope.isValid().status) {
+            
                 $scope.processEditing = true;
                 $scope.showBruleDetails = false;
                 $scope.showCapaDetails = false;
@@ -165,59 +165,61 @@
                 }
                 $scope.procesos[$scope.currentProcess].active = true;
                 if ($scope.procesos[index].mode == 'off') {
-                    var newProcess = {
-                        mode: 'off',
-                        active: false,
-                        name: '',
-                        capacidades: [],
-                        reglas: []
-                    };
-                    var newCapacidad = {
-                        mode: 'off',
-                        active: false,
-                        name: '',
-                        attributes: [
-                            {
-                                area: '',
-                                application: '',
-                                kpi: '',
-                                domain: ''
-                        }
-                    ]
-                    };
-                    var newReglas = {
-                        mode: 'off',
-                        active: false,
-                        name: '',
-                        attributes: [
-                            {
-                                area: '',
-                                application: '',
-                                kpi: '',
-                                forma: {
-                                    id: 'rectangulo',
-                                    name: 'Process',
-                                    shape: 1
-                                }
-                        }
-                    ]
-                    };
-                    $scope.procesos.push(newProcess);
-                    $scope.procesos[index].mode = 'on';
-                    $scope.procesos[index].capacidades.push(newCapacidad);
-                    $scope.procesos[index].reglas.push(newReglas);
+                    if ($scope.isValid().status) {
+                        var newProcess = {
+                            mode: 'off',
+                            active: false,
+                            name: '',
+                            capacidades: [],
+                            reglas: []
+                        };
+                        var newCapacidad = {
+                            mode: 'off',
+                            active: false,
+                            name: '',
+                            attributes: [
+                                {
+                                    area: '',
+                                    application: '',
+                                    kpi: '',
+                                    domain: ''
+                            }
+                        ]
+                        };
+                        var newReglas = {
+                            mode: 'off',
+                            active: false,
+                            name: '',
+                            attributes: [
+                                {
+                                    area: '',
+                                    application: '',
+                                    kpi: '',
+                                    forma: {
+                                        id: 'rectangulo',
+                                        name: 'Process',
+                                        shape: 1
+                                    }
+                            }
+                        ]
+                        };
+                        $scope.procesos.push(newProcess);
+                        $scope.procesos[index].mode = 'on';
+                        $scope.procesos[index].capacidades.push(newCapacidad);
+                        $scope.procesos[index].reglas.push(newReglas);
+                    } else {
+                        $rootScope.showAlert = true;
+                        $scope.contentAlert = {
+                            title: 'WARNING',
+                            text: $scope.isValid().message,
+                            button: 'OK',
+                            type: 'red',
+                            event: function () {}
+                        };
+                        return;
+                    }
                 }
-            } else {
-                $rootScope.showAlert = true;
-                $scope.contentAlert = {
-                    title: 'WARNING',
-                    text: $scope.isValid().message,
-                    button: 'OK',
-                    type: 'red',
-                    event: function () {}
-                };
-                return;
-            }
+            
 
         };
 
@@ -278,7 +280,7 @@
         // MARK: - activa una capacidad
         $scope.activateCapability = function (parentIndex, index) {
 
-            if ($scope.isValid().status) {
+            
                 $scope.processEditing = false;
                 $scope.showBruleDetails = false;
                 $scope.showCapaDetails = true;
@@ -292,33 +294,35 @@
                 }
                 $scope.procesos[$scope.currentProcess].capacidades[$scope.currentCapability].active = true;
                 if ($scope.procesos[$scope.currentProcess].capacidades[$scope.currentCapability].mode == 'off') {
-                    var newCapacidad = {
-                        mode: 'off',
-                        active: false,
-                        name: '',
-                        attributes: [
-                            {
-                                area: '',
-                                application: '',
-                                kpi: '',
-                                domain: ''
-                            }
-                        ]
-                    };
-                    $scope.procesos[$scope.currentProcess].capacidades[$scope.currentCapability].mode = 'on';
-                    $scope.procesos[$scope.currentProcess].capacidades.push(newCapacidad);
+                    if ($scope.isValid().status) {
+                        var newCapacidad = {
+                            mode: 'off',
+                            active: false,
+                            name: '',
+                            attributes: [
+                                {
+                                    area: '',
+                                    application: '',
+                                    kpi: '',
+                                    domain: ''
+                                }
+                            ]
+                        };
+                        $scope.procesos[$scope.currentProcess].capacidades[$scope.currentCapability].mode = 'on';
+                        $scope.procesos[$scope.currentProcess].capacidades.push(newCapacidad);
+                    } else {
+                        $rootScope.showAlert = true;
+                        $scope.contentAlert = {
+                            title: 'WARNING',
+                            text: $scope.isValid().message,
+                            button: 'OK',
+                            type: 'red',
+                            event: function () {}
+                        };
+                        return;
+                    }
                 }
-            } else {
-                $rootScope.showAlert = true;
-                $scope.contentAlert = {
-                    title: 'WARNING',
-                    text: $scope.isValid().message,
-                    button: 'OK',
-                    type: 'red',
-                    event: function () {}
-                };
-                return;
-            }
+            
         };
 
         // MARK: - Agrega nuevos atributos a la capacidad
