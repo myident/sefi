@@ -27,6 +27,17 @@
                 }
             };
 
+            $scope.edit = function () {
+                if ($scope.canSave) {
+                    $scope.eventUpdate($scope.id, $scope.name, $scope.domain);
+                }
+            };
+
+            $scope.delete = function () {
+                    $scope.eventDelete($scope.id);
+            };
+
+
             // Clear the data structure
             $scope.clear = function () {
                 $scope.name = '';
@@ -36,6 +47,7 @@
             
             // MARK: - Update
             if ($scope.source) {
+                $scope.id = $scope.source.id;
                 $scope.name = $scope.source.name;
                 $scope.domain = $scope.source.domain;
                 $scope.toggleActiveButton();
@@ -53,6 +65,8 @@
             scope: {
                 dominios: '=',
                 event: '=',
+                eventUpdate: '=',
+                eventDelete: '=',
                 source: '=',
                 control: '=',
                 update:'='

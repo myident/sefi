@@ -3,6 +3,7 @@
     var Directive = function () {
         var Link = function ($scope) {
 
+            console.log($scope.update);
             // MARK: - Create
             $scope.canSave = false;
             $scope.name      = '';
@@ -28,7 +29,7 @@
                 }
             };
 
-            $scope.update = function () {
+            $scope.edit = function () {
                 if ($scope.canSave) {
                     $scope.eventUpdate($scope.id, $scope.name, $scope.shortname);
                 }

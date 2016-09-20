@@ -37,13 +37,13 @@
                 }
             };
 
-            $scope.update = function () {
+            $scope.edit = function () {
                 var type = 'O';
+                console.log($scope.canSave);
                 if ($scope.canSave) {
                     if ($scope.type == 1) {
                         type = 'E';
                     }
-                    console.log('bdfubgurbs');
                     $scope.eventUpdate($scope.id, $scope.name, type);
                 }
             };

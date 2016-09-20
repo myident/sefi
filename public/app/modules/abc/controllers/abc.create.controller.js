@@ -8,7 +8,7 @@
 
         $scope.init = function(){
             console.log($abcUpdate);
-            $scope.update = $abcUpdate.update;
+            $scope.update = $abcUpdate.update || false;
             if($abcUpdate.update){
                 for(var i in $scope.types){
                     $scope.types[i].active = false;
@@ -22,17 +22,37 @@
                            shortname: $abcUpdate.obj.obj.title
                        };
                         break;
-                    case 1: $scope.types[1].active = true; break;
+                    case 1: 
+                        $scope.types[1].active = true;
+
+                        $scope.types[1].source = {
+                               id : $abcUpdate.obj.obj.id,
+                               domain: {
+                                   name: $abcUpdate.obj.obj.desc_dominio,
+                                   id: $abcUpdate.obj.obj.id_dominio
+                               },
+                               name: $abcUpdate.obj.obj.title
+                           };
+                        break;
                     case 2: $scope.types[2].active = true; break;
                     case 3: 
                         $scope.types[3].active = true; 
                         $scope.types[3].source =  {
-                            id: $abcUpdate.obj.obj.id,
-                           name: $abcUpdate.obj.obj.area_desc,
-                           type: $abcUpdate.obj.obj.tipo === 'O' ? 0 : 1
+                            id: $abcUpdate.obj.obj.area_id,
+                            name: $abcUpdate.obj.obj.area_desc,
+                            type: $abcUpdate.obj.obj.tipo === 'O' ? 0 : 1
                        }
                         break;
-                    case 4: $scope.types[4].active = true; break;
+                    case 4: 
+                        $scope.types[4].active = true; 
+                        $scope.types[4].source = {
+                            id : $abcUpdate.obj.obj.id,
+                            name: $abcUpdate.obj.obj.name,
+                            shortname: $abcUpdate.obj.obj.sname,
+                            type: $abcUpdate.obj.obj.kpi_TYPE === 'I' ? 0 : 1
+
+                       }
+                        break;
                     case 5: $scope.types[5].active = true; break;
                     default: $scope.types[0].active = true; break; 
                 }
@@ -196,6 +216,60 @@
             });
         };
 
+        $scope.updateMega = function (id, name, domain) {
+
+            var megaproceso = new $apimegaproceso();
+            megaproceso.MEGA = id;
+            megaproceso.DOMID = domain.id;
+            megaproceso.LDESC = name;
+            megaproceso.$update(function (data) {
+                console.log(data);
+                // MARK: - GET Lista de los Megaprocesos
+                $scope.listaMegaprocesos = $apimegaproceso.query(function (data) {
+                    console.log(data);
+                }, function (e) {
+                    console.log(e);
+                });
+                $rootScope.showAlert = true;
+                $scope.contentAlert = {
+                    title: 'DONE',
+                    text: 'The element ' + name + ' was update.',
+                    button: 'OK',
+                    type: 'blue',
+                    event: function () {
+                        $scope.megaControl.clear();
+                    }
+                };
+            }, function (e) {
+                console.log(e);
+            });
+        };
+
+        $scope.deleteMega = function (id) {
+            var megaproceso = new $apimegaproceso();
+            megaproceso.$delete({id:id}, function (data) {
+                // MARK: - GET Lista de los Dominios
+                $scope.listaDominios = $apidominio.query(function (data) {
+                    console.log(data);
+                }, function (e) {
+                    console.log(e);
+                });
+                console.log(data);
+                $rootScope.showAlert = true;
+                $scope.contentAlert = {
+                    title: 'DONE',
+                    text: 'The element ' + name + ' was delete.',
+                    button: 'OK',
+                    type: 'blue',
+                    event: function () {
+                        $scope.domainControl.clear();
+                    }
+                };
+            }, function (e) {
+                console.log(e);
+            });
+        };
+
         // MARK: - POST Guarda un Macroproceso
         $scope.macroControl = {};
         $scope.saveMacro = function (obj) {
@@ -257,7 +331,6 @@
             area.LDESC = name;
             area.TIPO = type;
             area.POS = 1;
-            console.log('updateArea');
             area.$update(
                 function (data) {
                     // MARK: - GET Lista de los Megaprocesos
@@ -270,7 +343,7 @@
                     $rootScope.showAlert = true;
                     $scope.contentAlert = {
                         title: 'DONE',
-                        text: 'The element ' + name + ' was created.',
+                        text: 'The element ' + name + ' was update.',
                         button: 'OK',
                         type: 'blue',
                         event: function () {
@@ -332,6 +405,62 @@
                 function (e) {
                     console.log(e);
                 });
+        };
+
+        $scope.updateKpi= function (id, name, shortname, level) {
+            var kpi = new $apikpi();
+            kpi.KPID = id;
+            kpi.LDESC = name;
+            kpi.SDESC = shortname;
+            kpi.TIPO = level;
+            kpi.$update(
+                function (data) {
+                    // MARK: - GET Lista de los Megaprocesos
+                    $scope.listaAreas = $apiarea.query(function (data) {
+                        console.log(data);
+                    }, function (e) {
+                        console.log(e);
+                    });
+                    console.log(data);
+                    $rootScope.showAlert = true;
+                    $scope.contentAlert = {
+                        title: 'DONE',
+                        text: 'The element ' + name + ' was update.',
+                        button: 'OK',
+                        type: 'blue',
+                        event: function () {
+                            $scope.areaControl.clear();
+                        }
+                    };
+                },
+                function (e) {
+                    console.log(e);
+                });
+        };
+
+        $scope.deleteKpi = function (id) {
+            var kpi = new $apikpi();
+            kpi.$delete({id:id}, function (data) {
+                // MARK: - GET Lista de los Dominios
+                $scope.listaDominios = $apidominio.query(function (data) {
+                    console.log(data);
+                }, function (e) {
+                    console.log(e);
+                });
+                console.log(data);
+                $rootScope.showAlert = true;
+                $scope.contentAlert = {
+                    title: 'DONE',
+                    text: 'The element ' + name + ' was delete.',
+                    button: 'OK',
+                    type: 'blue',
+                    event: function () {
+                        $scope.domainControl.clear();
+                    }
+                };
+            }, function (e) {
+                console.log(e);
+            });
         };
 
 

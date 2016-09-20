@@ -42,6 +42,20 @@
                 }
             };
 
+            $scope.edit = function () {
+                var type = 'I';
+                if ($scope.canSave) {
+                    if ($scope.type == 1){
+                        type = 'G';
+                    }
+                    $scope.eventUpdate($scope.id, $scope.name, $scope.shortname, type);
+                }
+            };
+
+            $scope.delete = function () {
+                    $scope.eventDelete($scope.id);
+            };
+
             // Clear the data structure
             $scope.clear = function () {
                 $scope.name = '';
@@ -52,6 +66,7 @@
             
             // MARK: - Update
             if ($scope.source) {
+                $scope.id      = $scope.source.id;
                 $scope.name      = $scope.source.name;
                 $scope.shortname = $scope.source.shortname;
                 $scope.type      = $scope.source.type;
@@ -69,6 +84,8 @@
             scope: {
                 title: '@',
                 event: '=',
+                eventUpdate: '=',
+                eventDelete: '=',
                 source: '=',
                 control: '=',
                 update:'='
