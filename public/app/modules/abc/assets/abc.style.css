@@ -278,8 +278,8 @@
 .abc-create-select > div > .abc-create-select-elements ul li {
     padding: 0 20px;
     border-bottom: 1px solid #CED1D2;
-    height: 32px;
-    line-height: 32px;
+    height: 42px;
+    line-height: 42px;
     color: #9B9B9B;
     cursor: pointer;
     transition: all ease 0.3s;
@@ -715,6 +715,8 @@
     color: white;
     width: 145px;
     font-size: 13px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .dc-capacidad-attributes > span.dc-area {
@@ -793,7 +795,7 @@ ul.header-diagrama > li.active {
     display: inline-block;
     overflow: auto;
     padding-bottom: 100px;
-    height: 550px;
+    height: calc(100vh - 130px);
 }
 
 .abc-diagrama-canvas {

@@ -71,6 +71,14 @@
                                     holder="Select KPI" 
                                     model="attribute.kpi" 
                                     options="kpis"></abc-special-select>
+                                    
+                                <abc-special-select 
+                                    label="Domain" 
+                                    holder="Select Domain" 
+                                    model="attribute.domain" 
+                                    options="dominios"></abc-special-select>
+                                    
+                                
                             </div>
                             
 <!--
@@ -192,6 +200,7 @@
                                     <span class="dc-area" ng-show="attribute.area != '' ? true : false">{{attribute.area.name}}</span>
                                     <span class="dc-app" ng-show="attribute.application != '' ? true : false">{{attribute.application.name}}</span>
                                     <span class="dc-kpi" ng-show="attribute.kpi != '' ? true : false">{{attribute.kpi.name}}</span>
+                                    <span class="dc-area" ng-show="attribute.domain != '' ? true : false">{{attribute.domain.name}}</span>
                                 </div>
                             </div>
                         </div>
