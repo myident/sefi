@@ -2,7 +2,7 @@
 (function () {
     var Directive = function () {
         var Link = function ($scope) {
-
+            $scope.eventUpdate = true;
             $scope.source = [
                 {
                     modelSelected: false,
@@ -17,7 +17,7 @@
                     status: 1
                 }
             ];
-            
+
             // Muestra las opciones
             $scope.toggleShowOptions = function (index) {
                 if ($scope.options) {
@@ -76,7 +76,8 @@
             };
 
             // Actualiza el modelo que enviamos
-            $scope.saveModel = function(){
+            $scope.saveModel = function () {
+                $scope.eventUpdate = false;
                 var obj = {};
                 // Reset del model para rellenar
                 $scope.model = [];
@@ -93,28 +94,34 @@
                 }
                 console.log($scope.model);
             };
-    
+
             // Recibe la configuracion del modelo
-            $scope.$watch('model',function(){
-                $scope.source = [];
-                var optionsTemp = $scope.options;
-                for (var i in $scope.model) {
-                    obj = {
-                        model: $scope.model[i].area_ID,
-                        area_desc: $scope.getNameArea(optionsTemp, $scope.model[i].area_ID),
-                        mcro:$scope.model[i].mcro,
-                        status: $scope.model[i].status === 0 ? 2 : $scope.model[i].status,
-                        modelSelected: true,
-                        showOptions: false,
-                    };
-                    $scope.source.push(obj);
+            $scope.$watch('model', function () {
+                if ($scope.eventUpdate && $scope.model && $scope.model.length) {
+                    $scope.source = [];
+                    var optionsTemp = $scope.options;
+                    for (var i in $scope.model) {
+                        obj = {
+                            model: $scope.model[i].area_ID,
+                            area_desc: $scope.getNameArea(optionsTemp, $scope.model[i].area_ID),
+                            mcro: $scope.model[i].mcro,
+                            status: $scope.model[i].status === 0 ? 2 : $scope.model[i].status,
+                            modelSelected: true,
+                            showOptions: false,
+                        };
+                        $scope.source.push(obj);
+                    }
                 }
+
+
+
+
             });
 
-            $scope.getNameArea = function(optionsTemp, id){
+            $scope.getNameArea = function (optionsTemp, id) {
                 var name = '';
-                for(var i in optionsTemp){
-                    if(optionsTemp[i].area_id == id){
+                for (var i in optionsTemp) {
+                    if (optionsTemp[i].area_id == id) {
                         name = optionsTemp[i].area_desc
                     }
                 }
