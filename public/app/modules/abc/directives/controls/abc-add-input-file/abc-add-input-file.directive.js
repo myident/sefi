@@ -7,13 +7,11 @@
             $scope.source = [
                 {
                     name: '',
-                    description: '',
-                    campo: ''
+                    description: ''
                 },
                 {
                     name: '',
-                    description: '',
-                    campo: ''
+                    description: ''
                 }
             ];
 
@@ -64,12 +62,13 @@
 
             $scope.saveModel = function () {
                 $scope.model = [];
-                
-                
+
+
                 for (var i in $scope.source) {
                     if ($scope.source[i].name !== '' && $scope.source[i].description !== '' && $scope.source[i].file !== undefined) {
                         var obj = {};
-                        if ($scope.tipo !== 'attach'){
+                        // Operative
+                        if ($scope.tipo !== 'attach') {
                             obj = {
                                 tipo: $scope.source[i].file.type,
                                 base64: '' + $scope.source[i].fileBase64,
@@ -82,7 +81,7 @@
                                 status: 0,
                                 opp: 0
                             };
-                        } else {
+                        } else { // Attach
                             obj = {
                                 tipo: $scope.source[i].file.type,
                                 attc_ID: 0,
@@ -101,6 +100,33 @@
                 }
                 console.log($scope.model);
             };
+
+            // Recibe la configuracion del modelo
+            $scope.$watch('model', function () {
+                if ($scope.model && $scope.model.length) {
+
+                    $scope.source = [];
+                    var obj = {};
+                    for (var i in $scope.model) {
+
+                        // Operative
+                        if ($scope.tipo !== 'attach') {
+                            obj = {
+                                name: $scope.model[i].oper_NAME,
+                                description: $scope.model[i].oper_DES,
+                            };
+                        } else { // Attach
+                            obj = {
+                                name: $scope.model[i].attc_NAME,
+                                description: $scope.model[i].attc_DES,
+                            };
+                        }
+
+                        $scope.source.push(obj);
+                    }
+
+                }
+            });
 
         };
 
