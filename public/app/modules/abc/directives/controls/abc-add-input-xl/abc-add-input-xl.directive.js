@@ -67,19 +67,22 @@
 
             // Recibe la configuracion del modelo
             $scope.$watch('model',function(){
-                $scope.source = [];
-                var optionsTemp = $scope.options;
-                for (var i in $scope.model) {
-                    obj = {
-                        name: $scope.model[i].assu_DES,
-                        mcro: $scope.model[i].mcro,
-                        assu_ID: $scope.model[i].assu_ID,
-                        status: $scope.model[i].status === 0 ? 2 : $scope.model[i].status,
-                        modelSelected: true,
-                        showOptions: false,
-                    };
-                    $scope.source.push(obj);
-                }
+                console.log($scope.model);
+                $scope.model && $scope.model.length && (function(){
+                    $scope.source = [];
+                    var optionsTemp = $scope.options;
+                    for (var i in $scope.model) {
+                        obj = {
+                            name: $scope.model[i].assu_DES,
+                            mcro: $scope.model[i].mcro,
+                            assu_ID: $scope.model[i].assu_ID,
+                            status: $scope.model[i].status === 0 ? 2 : $scope.model[i].status,
+                            modelSelected: true,
+                            showOptions: false,
+                        };
+                        $scope.source.push(obj);
+                    }
+                })();
             });
 
             

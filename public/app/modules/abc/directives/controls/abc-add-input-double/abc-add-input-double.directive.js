@@ -7,11 +7,13 @@
             $scope.source = [
                 {
                     name: '',
-                    definition: ''
+                    definition: '',
+                    status:1
                 },
                 {
                     name: '',
-                    definition: ''
+                    definition: '',
+                    status:1
                 }
             ];
             
@@ -20,7 +22,8 @@
             $scope.addElementToSource = function(){
                 var element = {
                     name: '',
-                    definition: ''
+                    definition: '',
+                    status:1
                 };
                 $scope.source.push(element);
                 $scope.canDelete = true;
@@ -52,19 +55,41 @@
             $scope.saveModel = function(){
                 $scope.model = [];
                 for (var i in $scope.source) {
-                    if ($scope.source[i].name !== '' && $scope.source[i].definition !== '') {
+                    //if ($scope.source[i].name !== '' && $scope.source[i].definition !== '') {
                         var obj = {
                             ter: $scope.source[i].name,
                             ter_DEF: $scope.source[i].definition,
-                            mcro: 0,
-                            ter_ID: 0,
-                            status: 0
+                            mcro: $scope.source[i].mcro,
+                            ter_ID: $scope.source[i].ter_ID,
+                            status: $scope.source[i].status
                         };
                         $scope.model.push(obj);
-                    }
+                    //}
                 }
                 console.log($scope.model);
             };
+
+            // Recibe la configuracion del modelo
+            $scope.$watch('model',function(){
+
+                 $scope.model && $scope.model.length && (function(){
+                    $scope.source = [];
+                    console.log($scope.model);
+                    var optionsTemp = $scope.options;
+                    for (var i in $scope.model) {
+                        obj = {
+                            ter_ID: $scope.model[i].ter_ID,
+                            name: $scope.model[i].ter,
+                            definition: $scope.model[i].ter_DEF,
+                            mcro:$scope.model[i].mcro,
+                            status: $scope.model[i].status === 0 ? 2 : $scope.model[i].status,
+                            modelSelected: true,
+                            showOptions: false,
+                        };
+                        $scope.source.push(obj);
+                    }
+                })();
+            });
             
         };
         
