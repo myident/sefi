@@ -42,5 +42,11 @@
             print="printPDF"
             set-hide-toggle="hideToggle"
             ></dg-ways>
+        <div class="kpis-bottom">
+            <div>Macroprocess KPI´s:</div>
+            <ul>
+                <li ng-repeat="kpi in kpis">{{kpi.name}}</li>
+            </ul>
+        </div>
     </div>
 </main>

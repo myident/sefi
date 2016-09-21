@@ -271,13 +271,16 @@
                     $scope.process_owner = $scope.source.process_owner;
                     $scope.associatedBusinessObjectives = $scope.source.asosiate_buss;
 
-                    $scope.hideWarningMacro = true;
-                    $scope.hideWarningAuthor = true;
-                    $scope.hideWarningVersion = true;
-                    $scope.hideWarningVersionDesc = true;
-                    $scope.hideWarningMacroObj = true;
-                    $scope.hideWarningAreaObj = true;
-                    $scope.hideWarningTerm = true;
+                    if($scope.update){
+                        $scope.hideWarningMacro = true;
+                        $scope.hideWarningAuthor = true;
+                        $scope.hideWarningVersion = true;
+                        $scope.hideWarningVersionDesc = true;
+                        $scope.hideWarningMacroObj = true;
+                        $scope.hideWarningAreaObj = true;
+                        $scope.hideWarningTerm = true;
+                        $scope.hideWarningMega = true;
+                    }
                 }
             };
 

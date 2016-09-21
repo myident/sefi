@@ -1,5 +1,6 @@
 .page-wrap {
 	position: relative;
+	height: calc(100vh - 128px);
 }
 
 .column-indice {
@@ -37,4 +38,24 @@ dg-ways.animate-width-full-w{
 	width: 100%;
 	left: 10px;
 	transition: .2s;
+}
+
+.kpis-bottom {
+	position: absolute;
+    left: 254px;
+    bottom: 40px;
+}
+.kpis-bottom ul{
+	text-align: center;
+}
+.kpis-bottom ul li{
+	width: 170px;
+	height: 20px;
+	text-align: center;
+	background-color: rgb(80, 190, 197);
+	color: rgb(255,255,255);
+	display: inline-block;
+	margin:5px;
+	font-size: 12px;
+	line-height: 1.5;
 }

@@ -13,7 +13,7 @@
         $scope.megaprocesos = [];
         $scope.macroprocesos = [];
         $scope.procesos = [];
-        
+        $scope.kpis = [];
         $scope.areasList = $indice.areasList();
 
         // historial
@@ -142,6 +142,7 @@
                     var process = JSON.parse(JSON.stringify(data.procesos));
 //                    console.log(process);
                     $scope.source = {procesos: process, kpis:data.procesos, areas: data.areas};
+                    $scope.kpis = data.kpis;
                 });
         };
 
