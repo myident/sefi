@@ -54,7 +54,7 @@
 
                         $scope.types[2].source = {
                             id: $abcUpdate.obj.obj.area_id,
-                            mega_id: $scope.getMegaModel(data.mega_id),
+                            mega_id: data.mega_id,
                             macro_id: $abcUpdate.obj.obj.id,
                             nombre_Macro: data.nombre_Macro,
                             version_autor: data.version_autor,
@@ -130,7 +130,7 @@
                     return $scope.listaMegaprocesos[i];
                 }
             }
-        }
+        };
 
         $rootScope.showAlert = false;
         $scope.contentAlert = {
