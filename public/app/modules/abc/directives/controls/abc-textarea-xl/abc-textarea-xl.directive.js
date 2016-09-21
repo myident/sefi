@@ -3,7 +3,7 @@
     var Directive = function () {
         
         var Link = function ($scope) {
-            
+            $scope.maxLength = $scope.maxLength || 2000;
             // Execute the event configured
             $scope.triggerEvent = function () {
                 if ($scope.event){
@@ -23,7 +23,8 @@
                 title: '@',
                 model: '=',
                 label: '@',
-                event: '='
+                event: '=',
+                maxLength: '=?'
             },
             link: Link
         };

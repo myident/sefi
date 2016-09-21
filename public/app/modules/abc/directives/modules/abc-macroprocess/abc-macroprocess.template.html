@@ -5,7 +5,7 @@
         <div class="warning-text" ng-hide="hideWarningMega">* Megaprocess is needed</div>
     </li>
     <li>
-        <abc-textarea title="Name (max. 100 characters)" model="name" label="Name" event="hideMacro"></abc-textarea>
+        <abc-textarea max-length="100" title="Name (max. 100 characters)" model="name" label="Name" event="hideMacro"></abc-textarea>
         <div class="warning-text" ng-hide="hideWarningMacro">* Macroprocess name is needed</div>
     </li>
 </ul>
@@ -25,7 +25,7 @@
         <div class="warning-text" ng-hide="hideWarningAuthor">* Author is needed</div>
     </li>
     <li>
-        <abc-input title="Version" model="version" label="Version" event="hideVersion">
+        <abc-input type-input="number" title="Version" model="version" label="Version" event="hideVersion">
         </abc-input>
         <div class="warning-text" ng-hide="hideWarningVersion">* Version is needed</div>
     </li>
@@ -50,7 +50,7 @@
 <div class="abc-separator-line"></div>
 <ul class="abc-create-form">
     <li>
-        <abc-textarea-xl label="Macroprocess Objective" title="Macroprocess Objective (max. 2000 characters)" model="macroProcessObjective" event="hideMacroObj"></abc-textarea-xl>
+        <abc-textarea-xl max-length="2000" label="Macroprocess Objective" title="Macroprocess Objective (max. 2000 characters)" model="macroProcessObjective" event="hideMacroObj"></abc-textarea-xl>
         <div class="warning-text" ng-hide="hideWarningMacroObj">* Macroprocess Objective is needed</div>
     </li>
     <li>
@@ -64,7 +64,7 @@
 <div class="abc-separator-line"></div>
 <ul class="abc-create-form">
     <li>
-        <abc-textarea-xl label="Scope" title="Scope (max. 2000 characters)" model="macroprocessScope" event="toggleActiveButton"></abc-textarea-xl>
+        <abc-textarea-xl max-length="2000" label="Scope" title="Scope (max. 2000 characters)" model="macroprocessScope" event="toggleActiveButton"></abc-textarea-xl>
     </li>
 </ul>
 
@@ -84,7 +84,7 @@
 <div class="abc-separator-line"></div>
 <ul class="abc-create-form">
     <li>
-        <abc-textarea-xl label="Non Functional Requeriments" title="Operation system report (max. 1000 characters)" model="nonFunctionalRequeriments" event="toggleActiveButton"></abc-textarea-xl>
+        <abc-textarea-xl max-length="2000" label="Non Functional Requeriments" title="Operation system report (max. 1000 characters)" model="nonFunctionalRequeriments" event="toggleActiveButton"></abc-textarea-xl>
     </li>
 </ul>
 
@@ -96,7 +96,7 @@
 <div class="abc-separator-line"></div>
 <ul class="abc-create-form">
     <li>
-        <abc-textarea label="Security" model="security" title="Security (max. 500 characters)" event="toggleActiveButton"></abc-textarea>
+        <abc-textarea max-length="500" label="Security" model="security" title="Security (max. 500 characters)" event="toggleActiveButton"></abc-textarea>
     </li>
 </ul>
 
@@ -110,7 +110,7 @@
 <div class="abc-separator-line"></div>
 <ul class="abc-create-form">
     <li>
-        <abc-textarea-xl label="Operation system report" title="Operation system report (max. 1000 characters)" model="operationSystemReport" event="toggleActiveButton"></abc-textarea-xl>
+        <abc-textarea-xl max-length="2000" label="Operation system report" title="Operation system report (max. 1000 characters)" model="operationSystemReport" event="toggleActiveButton"></abc-textarea-xl>
     </li>
 </ul>
 
