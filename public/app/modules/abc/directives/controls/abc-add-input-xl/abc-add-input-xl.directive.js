@@ -6,10 +6,12 @@
             
             $scope.source = [
                 {
-                    name: ''
+                    name: '',
+                    status: 1
                 },
                 {
-                    name: ''
+                    name: '',
+                    status: 1
                 }
             ];
             
@@ -17,7 +19,8 @@
             
             $scope.addElementToSource = function(){
                 var element = {
-                    name: ''
+                    name: '',
+                    status: 1
                 };
                 $scope.source.push(element);
                 $scope.canDelete = true;
@@ -51,16 +54,34 @@
                 for (var i in $scope.source) {
                     if ($scope.source[i].name !== '') {
                         var obj = {
-                            assu_ID: 0,
-                            mcro: 0,
+                            assu_ID:  $scope.source[i].assu_ID || 0,
+                            mcro: $scope.source[i].mcro || 0,
                             assu_DES: $scope.source[i].name,
-                            status: 0
+                            status: $scope.source[i].status
                         };
                         $scope.model.push(obj);
                     }
                 }
                 console.log($scope.model);
             };
+
+            // Recibe la configuracion del modelo
+            $scope.$watch('model',function(){
+                $scope.source = [];
+                var optionsTemp = $scope.options;
+                for (var i in $scope.model) {
+                    obj = {
+                        name: $scope.model[i].assu_DES,
+                        mcro: $scope.model[i].mcro,
+                        assu_ID: $scope.model[i].assu_ID,
+                        status: 2,
+                        modelSelected: true,
+                        showOptions: false,
+                    };
+                    $scope.source.push(obj);
+                }
+            });
+
             
         };
         

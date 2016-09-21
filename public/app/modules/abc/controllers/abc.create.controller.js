@@ -9,13 +9,12 @@
             $scope.macroControl.clear();
             $scope.areaControl.clear();
             $scope.kpiControl.clear();
-            $scope.aplicacionControl.clear();
         };
 
 
 
         $scope.init = function () {
-            console.log($abcUpdate);
+        
             $scope.update = $abcUpdate.update || false;
             $scope.showItems = $abcUpdate.show;
             if($abcUpdate.update){
@@ -46,7 +45,6 @@
                 case 2:
                     $scope.types[2].active = true;
                     var macrodesc = new $apimacroprocesodesc();
-                    console.log($abcUpdate.obj.obj.id);
                     macrodesc.$get({
                         id: $abcUpdate.obj.obj.id
                     }, function (data) {
@@ -62,7 +60,7 @@
                             version_autor: data.version_autor,
                             version_vers: data.version_vers,
                             version_desc: data.version_desc,
-                            objetivo_Macro: data.bjetivo_Macro,
+                            objetivo_Macro: data.objetivo_Macro,
                             scope_Macro: data.scope_Macro,
                             security_Macro: data.security_Macro,
                             operation_system_Macro: data.peration_system_Macro,
@@ -95,7 +93,6 @@
 
                     break;
                 case 3:
-                    console.log($abcUpdate.obj.obj.area_id);
                     $scope.types[3].active = true;
                     $scope.types[3].source = {
                         id: $abcUpdate.obj.obj.area_id,

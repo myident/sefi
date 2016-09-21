@@ -52,12 +52,10 @@
                 $rootScope.spin = false;
                 $scope.join($scope.list, $scope.apidominio, 'Dominio',0, 'name');
                 $scope.apimegaproceso = $apimegaproceso.query(function () {
-                    console.log($scope.apimegaproceso);
                     $scope.join($scope.list, $scope.apimegaproceso, 'Megaproceso',1, 'title');
                     $scope.apimacroproceso = $apimacroproceso.query(function () {
                         $scope.join($scope.list, $scope.apimacroproceso, 'Macroproceso',2, 'title');
                         $scope.apiarea = $apiarea.query(function () {
-                            console.log($scope.apiarea);
                             $scope.join($scope.list, $scope.apiarea, 'Areas',3, 'area_desc');
                             $scope.apikpi = $apikpi.query(function () {
                             $scope.join($scope.list, $scope.apikpi, 'KPI',4, 'name');
@@ -117,7 +115,6 @@
         $scope.viewer.items = [];
         $scope.viewer.change = function (index) {
 
-            console.log(index);
             $scope.viewer.start = index;
             $scope.viewer.items = [];
             var end = (index + $scope.viewer.itemsCount) < $scope.contents.length ? (index + $scope.viewer.itemsCount) : $scope.contents.length;
@@ -209,8 +206,6 @@
         };
 
         $scope.click = function(item){
-            //console.log(item);
-            console.log(item.id);
             $abcUpdate.update = true;
             for(var i in $abcUpdate.show){$abcUpdate.show[i] = false};
             $abcUpdate.show[item.id] = true;
