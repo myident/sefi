@@ -10,6 +10,8 @@
 
             $scope.clear = function () {
 
+                macro_id = 0;
+                mega_id = 0;
                 $scope.resetSelects = true;
                 $scope.macro = '';
                 $scope.name = '';
@@ -130,8 +132,8 @@
 
                 var macroproceso = {
 
-                    mega_id: $scope.mega.id || 0,
-                    macro_id: $scope.macro || 0,
+                    mega_id: $scope.mega_id || 0,
+                    macro_id: $scope.macro_id || 0,
                     nombre_Macro: $scope.name || '',
                     version_fecha: $scope.date,
                     version_autor: $scope.author || '',
@@ -188,9 +190,8 @@
                 }
 
                 var macroproceso = {
-                    MACRO: $scope.id,
-                    mega_id: $scope.mega.id || 0,
-                    macro_id: $scope.macro || 0,
+                    mega_id: $scope.mega_id || 0,
+                    macro_id: $scope.macro_id || 0,
                     nombre_Macro: $scope.name || '',
                     version_fecha: $scope.date,
                     version_autor: $scope.author || '',
@@ -215,11 +216,15 @@
                         status: 0
                     }],
                     asosiate_buss: $scope.associatedBusinessObjectives || [],
-                    process_owner: $scope.process_Owner || []
+                    process_owner: $scope.process_owner || []
 
 
                 };
-                $scope.eventUpdate(macroproceso);
+
+                if($scope.hideWarningMega && $scope.hideWarningMacro && $scope.hideWarningAuthor && $scope.hideWarningVersion && $scope.hideWarningVersionDesc && $scope.hideWarningMacroObj && $scope.hideWarningAreaObj && $scope.hideWarningTerm){
+                     $scope.eventUpdate(macroproceso);
+                }
+                
                 console.log(macroproceso);
             };
 
@@ -243,6 +248,8 @@
                         id: $scope.source.mega_id, 
                         name: $scope.getMegaModel($scope.source.mega_id)
                     };
+                    $scope.macro_id = $scope.source.macro_id;
+                    $scope.mega_id = $scope.source.mega_id;
                     $scope.macro = $scope.source.macro;
                     $scope.name = $scope.source.nombre_Macro;
                     $scope.author = $scope.source.version_autor;
@@ -263,6 +270,14 @@
                     $scope.assumptions = $scope.source.assumtion;
                     $scope.processOwner = $scope.source.processOwner;
                     $scope.associatedBusinessObjectives = $scope.source.asosiate_buss;
+
+                    $scope.hideWarningMacro = true;
+                    $scope.hideWarningAuthor = true;
+                    $scope.hideWarningVersion = true;
+                    $scope.hideWarningVersionDesc = true;
+                    $scope.hideWarningMacroObj = true;
+                    $scope.hideWarningAreaObj = true;
+                    $scope.hideWarningTerm = true;
                 }
             };
 

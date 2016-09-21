@@ -55,8 +55,8 @@
                     $scope.join($scope.list, $scope.apimegaproceso, 'Megaproceso',1, 'title');
                     $scope.apimacroproceso = $apimacroproceso.query(function () {
                         $scope.join($scope.list, $scope.apimacroproceso, 'Macroproceso',2, 'title');
-                        $scope.apiarea = $apiarea.query(function () {
-                            $scope.join($scope.list, $scope.apiarea, 'Areas',3, 'area_desc');
+                        // $scope.apiarea = $apiarea.query(function () {
+                        //     $scope.join($scope.list, $scope.apiarea, 'Areas',3, 'area_desc');
                             $scope.apikpi = $apikpi.query(function () {
                             $scope.join($scope.list, $scope.apikpi, 'KPI',4, 'name');
                             $scope.aplicaciones = $scope.list;
@@ -67,7 +67,7 @@
                                 //     $scope.viewer.setting($scope.list);
                                 // });
                             });
-                        });
+                        // });
                     });
                 });
             }, function(e){

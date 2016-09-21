@@ -488,8 +488,9 @@
 
         $scope.updateMacro = function (obj) {
             $rootScope.spin = true;
-            var macroproceso = new $apimacroproceso(obj);
-            macroproceso.$update(
+            var apimacroprocesodesc = new $apimacroprocesodesc(obj);
+            console.log(obj);
+            apimacroprocesodesc.$update(
                 function () {
                     $rootScope.spin = false;
                     console.log('Save succesfull');
