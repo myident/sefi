@@ -123,12 +123,11 @@
                                 event="toggleActiveButton">
                             </abc-input>
                             
-                            <div style="color: red; font-family: 'SF Medium'; cursor: pointer; margin-bottom: 30px;" ng-click="deleteBrule()">Delete Business Rule</div>
-                            
-                            <div 
-                               ng-repeat="attribute in procesos[currentProcess].reglas[currentBrule].attributes">
+                            <div ng-repeat="attribute in procesos[currentProcess].reglas[currentBrule].attributes">
                                
-                                <div class="abc-create-form-title">BR{{currentBrule + 1}} Business Rule Attributes</div>
+                                <div class="abc-create-form-title">
+                                   BR{{currentBrule + 1}} Business Rule Attributes
+                                </div>
                                     
                                 <abc-formas
                                     label="Container type"
@@ -150,8 +149,13 @@
                                     model="attribute.application" 
                                     options="aplicaciones"></abc-special-select>
                                     
+                                
                                 <div ng-show="showDecisions">
-                                    <div class="abc-create-form-title">BR{{currentBrule + 1}} Business Rule Connection</div>
+                                   
+                                    <div class="abc-create-form-title">
+                                        BR{{currentBrule + 1}} Business Rule Connection
+                                    </div>
+                                    
                                     <abc-nice-label 
                                         label="Yes" 
                                         model="currentYes"  
@@ -169,59 +173,107 @@
 
                             </div>
                                 
-                        </div>
-                    </li>
+                        </div><!-- END Capacidades -->
+                        
+                    </li> <!-- END Procesos y capacidades-->
                 </ul>
             </div>
         </article>
+        
+        
         <aside class="abc-diagrama-canvas">
             <header>
                 <ul class="header-diagrama">
-                    <li ng-class="{'active': hideBRule}" ng-click="switchViews(0)">Capabilities</li>
-                    <li ng-class="{'active': !hideBRule}" ng-click="switchViews(1)">Business Rules</li>
+                    <li ng-class="{'active': showCapaDetails}" ng-click="switchViews(0)">Capabilities</li>
+                    <li ng-class="{'active': showBruleDetails}" ng-click="switchViews(1)">Business Rules</li>
                 </ul>
             </header>
             <div class="diagrama-section">
                 <div class="diagrama-section-container" ng-show="macroprocess">
+                   
                     <div class="diagrama-section-data">
-                        <div class="diagrama-section-data-label">Domain:</div>
-                        <div class="diagrama-section-data-content">Customer Relationship Management (CRM)</div>
+                        <div class="diagrama-section-data-label">
+                            Domain:
+                        </div>
+                        <div class="diagrama-section-data-content">
+                            Customer Relationship Management (CRM)
+                        </div>
                     </div>
+                    
                     <div class="diagrama-section-data">
-                        <div class="diagrama-section-data-label">Megaprocess:</div>
-                        <div class="diagrama-section-data-content">{{macroprocesos[currentMacro].mega_desc}}</div>
+                        <div class="diagrama-section-data-label">
+                            Megaprocess:
+                        </div>
+                        <div class="diagrama-section-data-content">
+                            {{macroprocesos[currentMacro].mega_desc}}
+                        </div>
                     </div>
+                    
                     <div class="diagrama-section-macroprocess">{{macroprocess.name}}</div>
                     
                     <!--Procesos y capacidades-->
-                    <div class="diagrama-creation" style="width: {{(procesos.length * 200) + 50}}px; position: relative; padding-left: 50px; padding-bottom: 30px;" ng-show="hideBRule">
-                        <span style="position: absolute; width: 30px; height:  100%; top: 0; left: 0; display: inline-block;">
-                            <div style="width: 100%; position: absolute; height: 80px; background: #868686;; color: white; top: 0; left: 0">
+                    <div class="diagrama-creation"
+                         style="width: {{(procesos.length * 200) + 50}}px;" 
+                         ng-show="showCapaDetails">
+                         
+                        <span class="barra-lateral-procesos">
+                            <div class="linea-procesos">
                                 <span class="texto-barra-procesos">Procesos</span>
                             </div>
-                            <div style="width: 100%; position: absolute; height: calc(100% - 115px); background: #868686; color: white; top: 115px; left: 0;">
+                            <div class="linea-capacidades">
                                 <span class="texto-barra-capacidades">Capacidades</span>
                             </div>
                         </span>
-                        <div class="dc-procesos" ng-repeat="proceso in procesos">
-                            <div class="dc-procesos-flecha" ng-show="proceso.mode == 'on' ? true : false"></div>
-                            <div class="dc-process {{proceso.mode}}" ng-click="activateProcess($index);" ng-class="{'active': proceso.active}">
+                        
+                        <!-- Contenedor de proceso -->
+                        <div class="dc-procesos" 
+                             ng-repeat="proceso in procesos">
+                             
+                            <div class="dc-procesos-flecha" 
+                                 ng-show="proceso.mode == 'on' ? true : false"></div>
+                            
+                            <div class="dc-process {{proceso.mode}}" 
+                                 ng-click="activateProcess($index);" 
+                                 ng-class="{'active': proceso.active}">
+                                 
                                 <span class="dc-process-number">P{{$index + 1}}</span>
                                 <span class="dc-process-name">{{proceso.name}}</span>
-                                <span class="dc-process-delete" ng-click="deleteProcess()"></span>
+                                <span class="dc-process-delete" ng-click="deleteProcess($index)"></span>
+                                
                             </div>
-                            <div class="dc-capacidades" ng-repeat="capacidad in proceso.capacidades">
+                            
+                            <div class="dc-capacidades" 
+                                 ng-repeat="capacidad in proceso.capacidades">
+                                 
                                 <div class="dc-capacidad-connection"></div>
-                                <div class="dc-capacidad {{capacidad.mode}}" ng-click="activateCapability($parent.$index, $index);" ng-class="{'active': capacidad.active}">
+                                
+                                <div class="dc-capacidad {{capacidad.mode}}" 
+                                     ng-click="activateCapability($parent.$index, $index);" 
+                                     ng-class="{'active': capacidad.active}">
                                     <span class="dc-capacidad-number">C{{$index + 1}}</span>
                                     <span class="dc-capacidad-name">{{capacidad.name}}</span>
                                     <span class="dc-process-delete" ng-click="deleteCapabiliy()"></span>
                                 </div>
-                                <div class="dc-capacidad-attributes" ng-repeat="attribute in capacidad.attributes">
-                                    <span class="dc-domain" ng-show="attribute.domain != '' ? true : false">{{attribute.domain.name}}</span>
-                                    <span class="dc-area" ng-show="attribute.area != '' ? true : false">{{attribute.area.name}}</span>
-                                    <span class="dc-app" ng-show="attribute.application != '' ? true : false">{{attribute.application.name}}</span>
-                                    <span class="dc-kpi" ng-show="attribute.kpi != '' ? true : false">{{attribute.kpi.name}}</span>
+                                
+                                
+                                <div class="dc-capacidad-attributes" 
+                                     ng-repeat="attribute in capacidad.attributes">
+                                     
+                                    <span class="dc-domain" 
+                                          ng-show="attribute.domain != '' ? true : false">{{attribute.domain.name}}
+                                    </span>
+                                    
+                                    <span class="dc-area"
+                                          ng-show="attribute.area != '' ? true : false">{{attribute.area.name}}
+                                    </span>
+                                    
+                                    <span class="dc-app" 
+                                          ng-show="attribute.application != '' ? true : false">{{attribute.application.name}}
+                                    </span>
+                                    
+                                    <span class="dc-kpi" 
+                                          ng-show="attribute.kpi != '' ? true : false">{{attribute.kpi.name}}
+                                    </span>
                                     
                                 </div>
                             </div>
@@ -229,49 +281,76 @@
                     </div>
                     
                     <!--Procesos y reglas del negocio-->
-                    <div class="diagrama-creation" style="width: {{(procesos.length * 200) + 50}}px; position: relative; padding-left: 50px; padding-bottom: 30px;" ng-hide="hideBRule">
-                        <span style="position: absolute; width: 30px; height:  100%; top: 0; left: 0; display: inline-block;">
-                            <div style="width: 100%; position: absolute; height: 80px; background: #868686;; color: white; top: 0; left: 0">
+                    <div class="diagrama-creation" 
+                         style="width: {{(procesos.length * 200) + 50}}px;" 
+                         ng-show="showBruleDetails">
+                         
+                        <span class="barra-lateral-procesos">
+                            <div class="linea-procesos">
                                 <span class="texto-barra-procesos">Procesos</span>
                             </div>
-                            <div style="width: 100%; position: absolute; height: calc(100% - 115px); background: #868686; color: white; top: 115px; left: 0;">
+                            <div class="linea-brules">
                                 <span class="texto-barra-reglas">Reglas de negocio</span>
                             </div>
                         </span>
-                        <div class="dc-procesos" ng-repeat="proceso in procesos">
-                            <div class="dc-procesos-flecha" ng-show="proceso.mode == 'on' ? true : false"></div>
-                            <div class="dc-process {{proceso.mode}}" ng-click="activateProcess($index)" ng-class="{'active': proceso.active}">
+                        
+                        <div class="dc-procesos" 
+                             ng-repeat="proceso in procesos">
+                             
+                            <div class="dc-procesos-flecha" 
+                                 ng-show="proceso.mode == 'on' ? true : false"></div>
+                                 
+                            <div class="dc-process {{proceso.mode}}" 
+                                 ng-click="activateProcess($index)" 
+                                 ng-class="{'active': proceso.active}">
                                 <span class="dc-process-number">P{{$index + 1}}</span>
                                 <span class="dc-process-name">{{proceso.name}}</span>
-                                <span class="dc-process-delete" ng-click="deleteProcess()"></span>
+                                <span class="dc-process-delete" ng-click="deleteProcess($index)"></span>
                             </div>
-                            <div class="dc-capacidades" ng-repeat="regla in proceso.reglas">
+                            
+                            <div class="dc-capacidades"
+                                 ng-repeat="regla in proceso.reglas">
+                                 
                                 <div class="dc-capacidad-connection"></div>
-                                <div 
-                                   class="dc-capacidad {{regla.mode}} {{regla.attributes[0].forma.id}}" 
-                                   ng-click="activateBrule($parent.$index, $index)" 
-                                   ng-class="{'active': regla.active}">
-                                     <span class="dc-capacidad-number">BR{{$index + 1}}</span>
+                                
+                                <div class="dc-capacidad {{regla.mode}} {{regla.attributes[0].forma.id}}" 
+                                     ng-click="activateBrule($parent.$index, $index)" 
+                                     ng-class="{'active': regla.active}">
+                                    <span class="dc-capacidad-number">BR{{$index + 1}}</span>
                                     <span class="dc-capacidad-name">{{regla.name}}</span>
                                     <span class="dc-process-delete" ng-click="deleteBrule()"></span>
                                 </div>
-                                <div class="dc-capacidad-conector-no" ng-show="regla.attributes[0].forma.id == 'rombo' ? true : false">
+                                
+                                <div class="dc-capacidad-conector-no" 
+                                     ng-show="regla.attributes[0].forma.id == 'rombo' ? true : false">
                                     No {{regla.attributes[0].no.name | brules}}
                                 </div>
-                                <div class="dc-capacidad-conector-yes" ng-show="regla.attributes[0].forma.id == 'rombo' ? true : false">
+                                
+                                <div class="dc-capacidad-conector-yes" 
+                                     ng-show="regla.attributes[0].forma.id == 'rombo' ? true : false">
                                     Yes
                                 </div>
-                                <div class="dc-capacidad-attributes" ng-repeat="attribute in regla.attributes">
-                                    <span class="dc-area" ng-show="attribute.area != '' ? true : false">{{attribute.area.name}}</span>
-                                    <span class="dc-app" ng-show="attribute.application != '' ? true : false">{{attribute.application.name}}</span>
-                                    <!-- <span class="dc-kpi" ng-show="attribute.kpi != '' ? true : false">{{attribute.kpi.name}}</span>-->
+                                
+                                <div class="dc-capacidad-attributes" 
+                                     ng-repeat="attribute in regla.attributes">
+                                     
+                                    <span class="dc-area" 
+                                          ng-show="attribute.area != '' ? true : false">{{attribute.area.name}}
+                                    </span>
+                                    
+                                    <span class="dc-app" 
+                                          ng-show="attribute.application != '' ? true : false">{{attribute.application.name}}
+                                    </span>
+                                    
                                 </div>
+                                
                             </div>
                         </div>
                     </div>
                     
                 </div>
             </div>
+            
             <div class="container-buttons-right" style="margin-top: 30px;">
                 <div class="abc-create-button" ng-click="clear()">Clear</div>
                 <div class="abc-create-button" ng-class="{'disabled': !canSave}" ng-click="save()">Save</div>
@@ -280,6 +359,5 @@
         
     </section>
 </main>
-
 
 <abc-alert content="contentAlert" ng-show="showAlert"></abc-alert>
