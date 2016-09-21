@@ -8,12 +8,16 @@
                 {
                     name: '',
                     definition: '',
-                    status:1
+                    status:1,
+                    mcro:0,
+                    ter_ID: 0
                 },
                 {
                     name: '',
                     definition: '',
-                    status:1
+                    status:1,
+                    mcro:0,
+                    ter_ID: 0
                 }
             ];
             
@@ -23,7 +27,9 @@
                 var element = {
                     name: '',
                     definition: '',
-                    status:1
+                    status:1,
+                    mcro:0,
+                    ter_ID: 0
                 };
                 $scope.source.push(element);
                 $scope.canDelete = true;

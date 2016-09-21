@@ -8,12 +8,16 @@
                 {
                     description: '',
                     sla: '',
-                    status:1
+                    status:1,
+                    mcro:0,
+                    sl_ID: 0
                 },
                 {
                     description: '',
                     sla: '',
-                    status:1
+                    status:1,
+                    mcro:0,
+                    sl_ID: 0
                 }
             ];
             
@@ -23,7 +27,9 @@
                 var element = {
                     description: '',
                     sla: '',
-                    status:1
+                    status:1,
+                    mcro:0,
+                    sl_ID: 0
                 };
                 $scope.source.push(element);
                 $scope.canDelete = true;
