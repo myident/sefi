@@ -4,21 +4,15 @@
 
     var Controller = function ($scope, $apiarea, $apikpi, $apimacroproceso, $apiaplicaciones, $apidiagrama, $window, $rootScope, $apidominio) {
 
+        // MARK: - Regresar
         $scope.regresar = function () {
             $window.history.back();
         };
 
+        // Inicia el SPIN
         $rootScope.spin = true;
+        // Se oculta la alerta
         $rootScope.showAlert = false;
-        $scope.contentAlert = {
-            title: 'DONE',
-            text: 'The element Account Information (Capability) can not be deleted because it is being used by other elements.',
-            button: 'OK',
-            type: 'blue',
-            event: function () {
-                console.log('Cerraste alerta');
-            }
-        };
 
 
         // MARK: - Lista de macroprocesos, areas, aplicaciones y kpis
@@ -63,29 +57,7 @@
         }, function (e) {
             console.log(e);
         });
-
-
-        // MARK: Configuraciones iniciales
-        $scope.canSave = false;
-
-        $scope.hideBRule = true;
-
-        $scope.showBruleDetails = false;
-        $scope.showCapaDetails = false;
-
-        $scope.showDecisions = false;
-
-        $scope.currentMacro = 0;
-
-        $scope.currentProcess = 0;
-
-        $scope.currentCapability = 0;
-
-        $scope.currentBrule = 0;
-
-        $scope.processEditing = true;
-
-
+        
         $scope.optionsFiguras = [
             {
                 name: 'Start',
@@ -113,7 +85,7 @@
                 shape: 9
             }
         ];
-
+        
         $scope.procesos = [
             {
                 mode: 'off',
@@ -123,10 +95,27 @@
                 reglas: []
             }
         ];
-
+        
+        $scope.brules = [];
+        
+        
+        // MARK: Currents Positions
+        $scope.currentMacro = 0;
+        $scope.currentProcess = 0;
+        $scope.currentCapability = 0;
+        $scope.currentBrule = 0;
         $scope.currentYes = $scope.currentYes = 'BR' + ($scope.currentBrule + 2);
 
-        $scope.brules = [];
+        // MARK: Configuraciones iniciales
+        $scope.canSave = false;
+
+        $scope.hideBRule = true;
+
+        $scope.showBruleDetails = false;
+        $scope.showCapaDetails = false;
+        $scope.showDecisions = false;
+        $scope.processEditing = true;
+        
 
         // MARK: - regresa todas las reglas de negocio
         $scope.getBrules = function () {
@@ -146,10 +135,76 @@
             }
             return arreglo;
         };
+        
+        $scope.isValid = function () {
+            var obj = {
+                status: true,
+                message: 'All fine'
+            };
+            var procesos = $scope.procesos;
+            for (var i in procesos) {
+                var proceso = procesos[i];
+                if (proceso.mode == 'on') {
+                    if (proceso.name === '') {
+                        obj = {
+                            status: false,
+                            message: 'Process can not be blank'
+                        };
+                    } else {
+
+                        for (var j in proceso.capacidades) {
+                            var capacidad = proceso.capacidades[j];
+                            if (capacidad.mode == 'on') {
+                                if (capacidad.name === '') {
+                                    obj = {
+                                        status: false,
+                                        message: 'Capability can not be blank'
+                                    };
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return obj;
+        };
+        
+    
+        // MARK: Cambia las vistas y resetea el elemento seleccionado
+        $scope.switchViews = function (index) {
+            if (index === 0) {
+                $scope.hideBRule = true;
+            } else {
+                $scope.hideBRule = false;
+            }
+            $scope.processEditing = false;
+            $scope.showBruleDetails = false;
+            $scope.showCapaDetails = false;
+            for (var i in $scope.procesos) {
+                $scope.procesos[i].active = false;
+                for (var j in $scope.procesos[i].capacidades) {
+                    $scope.procesos[i].capacidades[j].active = false;
+                }
+                for (var k in $scope.procesos[i].reglas) {
+                    $scope.procesos[i].reglas[k].active = false;
+                }
+            }
+        };
+        
+        
+        
+        // MARK: - selecciona un macroproceso 
+        $scope.selectMacroprocess = function (model, index) {
+            $scope.canSave = true;
+            $scope.currentMacro = index;
+        };
+        
+        
+        
 
         // MARK: - activa un proceso
         $scope.activateProcess = function (index) {
-
+            
             $scope.processEditing = true;
             $scope.showBruleDetails = false;
             $scope.showCapaDetails = false;
@@ -226,42 +281,6 @@
 
         };
 
-
-        // MARK: - Borra la capacidad actual
-        $scope.deleteCapabiliy = function () {
-            $scope.processEditing = false;
-            $scope.showBruleDetails = false;
-            $scope.showCapaDetails = false;
-            for (var i in $scope.procesos) {
-                $scope.procesos[i].active = false;
-                for (var j in $scope.procesos[i].capacidades) {
-                    $scope.procesos[i].capacidades[j].active = false;
-                }
-                for (var k in $scope.procesos[i].reglas) {
-                    $scope.procesos[i].reglas[k].active = false;
-                }
-            }
-            $scope.procesos[$scope.currentProcess].capacidades.splice($scope.currentCapability, 1);
-        };
-
-        // MARK: - Borra la regla del negocio actual
-        $scope.deleteBrule = function () {
-            $scope.processEditing = false;
-            $scope.showBruleDetails = false;
-            $scope.showCapaDetails = false;
-            for (var i in $scope.procesos) {
-                $scope.procesos[i].active = false;
-                for (var j in $scope.procesos[i].capacidades) {
-                    $scope.procesos[i].capacidades[j].active = false;
-                }
-                for (var k in $scope.procesos[i].reglas) {
-                    $scope.procesos[i].reglas[k].active = false;
-                }
-            }
-            $scope.procesos[$scope.currentProcess].reglas.splice($scope.currentBrule, 1);
-        };
-
-
         // MARK: - Borra el proceso actual
         $scope.deleteProcess = function () {
             $scope.processEditing = false;
@@ -279,7 +298,10 @@
             $scope.procesos.splice($scope.currentProcess, 1);
             console.log($scope.currentProcess);
         };
-
+        
+        
+        
+        
         // MARK: - activa una capacidad
         $scope.activateCapability = function (parentIndex, index) {
 
@@ -347,9 +369,49 @@
             };
             $scope.procesos[$scope.currentProcess].capacidades[$scope.currentCapability].attributes.push(newAttributes);
         };
+        
+        // MARK: - Borra la capacidad actual
+        $scope.deleteCapabiliy = function () {
+            $scope.processEditing = false;
+            $scope.showBruleDetails = false;
+            $scope.showCapaDetails = false;
+            for (var i in $scope.procesos) {
+                $scope.procesos[i].active = false;
+                for (var j in $scope.procesos[i].capacidades) {
+                    $scope.procesos[i].capacidades[j].active = false;
+                }
+                for (var k in $scope.procesos[i].reglas) {
+                    $scope.procesos[i].reglas[k].active = false;
+                }
+            }
+            $scope.procesos[$scope.currentProcess].capacidades.splice($scope.currentCapability, 1);
+        };
+        
+        
+        
+        
+
+        // MARK: - Borra la regla del negocio actual
+        $scope.deleteBrule = function () {
+            $scope.processEditing = false;
+            $scope.showBruleDetails = false;
+            $scope.showCapaDetails = false;
+            for (var i in $scope.procesos) {
+                $scope.procesos[i].active = false;
+                for (var j in $scope.procesos[i].capacidades) {
+                    $scope.procesos[i].capacidades[j].active = false;
+                }
+                for (var k in $scope.procesos[i].reglas) {
+                    $scope.procesos[i].reglas[k].active = false;
+                }
+            }
+            $scope.procesos[$scope.currentProcess].reglas.splice($scope.currentBrule, 1);
+        };
+
 
         // MARK: - activa una regla de negocio
         $scope.activateBrule = function (parentIndex, index) {
+            
             $scope.brules = $scope.getBrules();
             $scope.processEditing = false;
             $scope.showBruleDetails = true;
@@ -397,6 +459,7 @@
                 $scope.procesos[$scope.currentProcess].reglas.push(newRegla);
             }
         };
+        
 
         // MARK: - Obtiene la forma
         $scope.getForma = function (a) {
@@ -415,12 +478,6 @@
             console.log(a);
         };
 
-        // MARK: - selecciona un macroproceso 
-        $scope.selectMacroprocess = function (model, index) {
-            $scope.canSave = true;
-            $scope.currentMacro = index;
-        };
-
         // MARK: - Limpia los campos actuales
         $scope.clear = function () {
             $scope.procesos = [
@@ -430,63 +487,11 @@
                     name: '',
                     capacidades: [],
                     reglas: []
-            }
-        ];
-        };
-
-        // MARK: Cambia las vistas y resetea el elemento seleccionado
-        $scope.switchViews = function (index) {
-            if (index === 0) {
-                $scope.hideBRule = true;
-            } else {
-                $scope.hideBRule = false;
-            }
-            $scope.processEditing = false;
-            $scope.showBruleDetails = false;
-            $scope.showCapaDetails = false;
-            for (var i in $scope.procesos) {
-                $scope.procesos[i].active = false;
-                for (var j in $scope.procesos[i].capacidades) {
-                    $scope.procesos[i].capacidades[j].active = false;
                 }
-                for (var k in $scope.procesos[i].reglas) {
-                    $scope.procesos[i].reglas[k].active = false;
-                }
-            }
+            ];
         };
-
-        $scope.isValid = function () {
-            var obj = {
-                status: true,
-                message: 'All fine'
-            };
-            var procesos = $scope.procesos;
-            for (var i in procesos) {
-                var proceso = procesos[i];
-                if (proceso.mode == 'on') {
-                    if (proceso.name === '') {
-                        obj = {
-                            status: false,
-                            message: 'Process can not be blank'
-                        };
-                    } else {
-
-                        for (var j in proceso.capacidades) {
-                            var capacidad = proceso.capacidades[j];
-                            if (capacidad.mode == 'on') {
-                                if (capacidad.name === '') {
-                                    obj = {
-                                        status: false,
-                                        message: 'Capability can not be blank'
-                                    };
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            return obj;
-        };
+        
+        
 
         // MARK: - Guarda el diagrama
         $scope.save = function () {
@@ -649,56 +654,14 @@
                         };
                         return;
                     }
-
-
                 }
-
             }
 
             var datosDiagrama = {
-
-                "procRulesCap": procRulesCapArray || [{
-                    "ldescproc": "",
-                    "domid": 0,
-                    "mega_ID": 0,
-                    "cat_PRO": 0,
-                    "pro_ID": 0,
-                    "macr_ID": 0,
-                    "desc_diagram": "",
-                    "diagram_id": 0,
-                    "capacidad": [{
-                        "atributosCap": [{
-                            "ar_ID": 0,
-                            "app_ID": 0,
-                            "kpi": 0
-                        }],
-                        "capid": 0,
-                        "cap_DOM_id": 0,
-                        "capaldesc": ""
-                    }],
-                    "reglas": [{
-                        "rules": [{
-                            "id_paso": 0,
-                            "nombre_regla": null,
-                            "flow": [{
-                                "area_ID": 0,
-                                "next_STEP": 0,
-                                "desc_TYPE": "",
-                                "pros_ID": 0,
-                                "flow_ID": 0,
-                                "shape_ID": 0,
-                                "dia_STEP_ID": 0,
-                                "diagram_ID": 0,
-                                "app_ID": 0
-                            }]
-                        }]
-                    }]
-                }]
-
+                procRulesCap: procRulesCapArray
             };
-
-
             var macroprocesoDiagrama = new $apidiagrama(datosDiagrama);
+            
             if (datosDiagrama.procRulesCap.length) {
                 macroprocesoDiagrama.$save(function (data) {
                     console.log(data);

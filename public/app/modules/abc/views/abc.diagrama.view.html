@@ -16,27 +16,49 @@
             <div class="abc-diagrama-options">
                 <ul class="abc-create-form">
                     <li>
-                        <abc-special-select label="Macroprocess" holder="Select a Macroprocess" model="macroprocess" options="macroprocesos" event="selectMacroprocess"></abc-special-select>
+                       
+                        <abc-special-select 
+                            label="Macroprocess"
+                            holder="Select a Macroprocess"
+                            model="macroprocess"
+                            options="macroprocesos"
+                            event="selectMacroprocess"></abc-special-select>
+                            
                     </li>
                 </ul>
             </div>
-            <div class="abc-diagrama-options" ng-show="procesos.length > 1 ? true : false">
+            
+            
+            <!--Muestra las opciones de configuración-->
+            <div class="abc-diagrama-options" 
+                 ng-show="procesos.length > 1 ? true : false">
+                
                 <ul class="abc-create-form">
                     <li>
                         <div class="abc-separator-line"></div>  
                     </li>
                     <li ng-show="processEditing">
-                        <div class="abc-create-form-title">P{{currentProcess + 1}} Process Details</div>
-                        <abc-input title="Process name" model="procesos[currentProcess].name" label="Process name" event="toggleActiveButton">
+                       
+                        <div class="abc-create-form-title">
+                            P{{currentProcess + 1}} Process Details
+                        </div>
+                        <abc-input
+                            title="Process name"
+                            model="procesos[currentProcess].name"
+                            label="Process name"
+                            event="toggleActiveButton">
                         </abc-input>
                         
                     </li>
+                    
                     <li ng-hide="processEditing">
-                       
                         <!--Procesos y capacidades-->
+                        
                         <div ng-show="showCapaDetails">
-                            <div 
-                                class="abc-create-form-title">C{{currentCapability + 1}} Capability Details</div>
+                           
+                            <div class="abc-create-form-title">
+                               C{{currentCapability + 1}} Capability Details
+                            </div>
                                 
                             <abc-input 
                                 title="Capability name" 
@@ -44,14 +66,13 @@
                                 label="Capability name" 
                                 event="toggleActiveButton">
                             </abc-input>
-                        
                             
-                            <div 
-                               ng-repeat="attribute in procesos[currentProcess].capacidades[currentCapability].attributes">
+                            <!-- Repite los atributos de las capacidades -->
+                            <div ng-repeat="attribute in procesos[currentProcess].capacidades[currentCapability].attributes">
                                
-                                <div 
-                                    class="abc-create-form-title" 
-                                    ng-hide="processEditing">C{{currentCapability + 1}} Capability Attributes</div>
+                                <div class="abc-create-form-title">
+                                    C{{currentCapability + 1}} Capability Attributes
+                                </div>
                                 
                                 <abc-special-select 
                                     label="Domain" 
@@ -70,36 +91,29 @@
                                     holder="Select application" 
                                     model="attribute.application" 
                                     options="aplicaciones"></abc-special-select>
-                                            
-                            </div>
-                            
-                            
-                            <div>
-                               
+
                                 <abc-special-select 
                                     label="KPI" 
                                     holder="Select KPI" 
-                                    model="procesos[currentProcess].capacidades[currentCapability].attributes[0].kpi" 
-                                    options="kpis"></abc-special-select>
-                                
+                                    model="attribute.kpi" 
+                                    options="kpis"></abc-special-select>   
+                                    
                             </div>
                             
-                            <div 
-                                ng-click="addMoreAttributes()" 
-                                style="text-decoration: underline; color: #30A3CF; cursor: pointer; width: 450px; height: 60px;">
-                                
-                                <span style="display:block; width:40px; height: 40px; background: #2CA2CF; border-radius: 4px; font-size: 30px; text-align: center; line-height: 37px; color: white; float: right;">+</span>
-                                <span style="float: right; color: #4E4E4E; font-size: 14px; display: block; width: 130px; margin-right: 10px; margin-top: 5px;">Repeat capability with different attributes</span>
+                            <div class="button-add-more-attributes" ng-click="addMoreAttributes()">
+                                <span class="button-add-more-label">+</span>
+                                <span class="button-add-more-label-text">
+                                    Repeat capability with different attributes
+                                </span>
                             </div>
                             
-
-                        
-                        </div>
+                        </div><!-- END Capacidades -->
                         
                         <!--Procesos y reglas de negocio-->
                         <div ng-show="showBruleDetails">
-                            <div 
-                                class="abc-create-form-title">BR{{currentBrule + 1}} Business Rule Details
+                           
+                            <div class="abc-create-form-title">
+                                BR{{currentBrule + 1}} Business Rule Details
                             </div>
                             
                             <abc-input 
@@ -108,6 +122,7 @@
                                 label="Business rule" 
                                 event="toggleActiveButton">
                             </abc-input>
+                            
                             <div style="color: red; font-family: 'SF Medium'; cursor: pointer; margin-bottom: 30px;" ng-click="deleteBrule()">Delete Business Rule</div>
                             
                             <div 

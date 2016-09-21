@@ -32,7 +32,7 @@
                 $scope.assumptions = [];
                 $scope.associatedBusinessObjectives = [];
 
-                
+                $scope.hideWarningMega = false;
                 $scope.hideWarningMacro = false;
                 $scope.hideWarningAuthor = false;
                 $scope.hideWarningVersion = false;
@@ -271,6 +271,7 @@
                     $scope.process_owner = $scope.source.process_owner;
                     $scope.associatedBusinessObjectives = $scope.source.asosiate_buss;
 
+                    $scope.hideWarningMega = true;
                     $scope.hideWarningMacro = true;
                     $scope.hideWarningAuthor = true;
                     $scope.hideWarningVersion = true;
