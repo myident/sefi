@@ -3,7 +3,6 @@
     var Directive = function () {
         var Link = function ($scope) {
 
-            console.log($scope.update);
             // MARK: - Create
             $scope.canSave = false;
             $scope.name      = '';

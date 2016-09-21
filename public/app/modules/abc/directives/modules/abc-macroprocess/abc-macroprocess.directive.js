@@ -3,17 +3,6 @@
     var Directive = function () {
         var Link = function ($scope) {
 
-            if ($scope.source) {
-                console.log($scope.source);
-                $scope.mega = {
-                    name: 'Accounting',
-                    id: 1
-                };
-                $scope.macro = $scope.source.nombre_Macro;
-                $scope.author = $scope.source.version_autor;
-
-            }
-
             $scope.processOwner = [{
                 "status": 0,
                 "mcro": 83,
@@ -237,11 +226,22 @@
             $scope.delete = function () {
                 $scope.eventDelete($scope.id);
             };
+            
+            $scope.getMegaModel = function(id){
+                for(var i in $scope.megaprocesos){
+                    if($scope.megaprocesos[i].id === id){
+                        return $scope.megaprocesos[i].title;
+                    }
+                }
+            };
 
             $scope.reset = function () {
                 if ($scope.source) {
                     $scope.id = $scope.source.id;
-                    $scope.mega = {id:$scope.source.mega_id, name: $scope.source.mega_name};
+                    $scope.mega = {
+                        id: $scope.source.mega_id, 
+                        name: $scope.getMegaModel($scope.source.mega_id)
+                    };
                     $scope.macro = $scope.source.macro;
                     $scope.name = $scope.source.nombre_Macro;
                     $scope.author = $scope.source.version_autor;

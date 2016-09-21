@@ -8,7 +8,6 @@
             $scope.showOptions = false;
             if ($scope.model) {
                 $scope.modelSelected = true;
-                
             } else {
                 $scope.modelSelected = false;
             }
@@ -51,6 +50,8 @@
                     if (newVal.name === undefined) {
                         $scope.modelSelected = false;
                         $scope.showOptions = false;
+                    } else {
+                        $scope.modelSelected = true;
                     }
                 }
 
