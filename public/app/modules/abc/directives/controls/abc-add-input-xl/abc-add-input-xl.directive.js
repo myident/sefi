@@ -4,20 +4,23 @@
         
         var Link = function ($scope) {
             $scope.eventUpdate = true;
-            $scope.source = [
-                {
-                    name: '',
-                    status: 1,
-                    assu_ID: 0,
-                    mcro:0
-                },
-                {
-                    name: '',
-                    status: 1,
-                    assu_ID: 0,
-                    mcro:0
-                }
-            ];
+            $scope.resetDirective = function(){
+                $scope.source = [
+                    {
+                        name: '',
+                        status: 1,
+                        assu_ID: 0,
+                        mcro:0
+                    },
+                    {
+                        name: '',
+                        status: 1,
+                        assu_ID: 0,
+                        mcro:0
+                    }
+                ];
+            };
+            $scope.resetDirective();
             
             $scope.canDelete = true;
             
@@ -75,7 +78,6 @@
 
             // Recibe la configuracion del modelo
             $scope.$watch('model',function(){
-                console.log($scope.model);
                 $scope.eventUpdate && $scope.model && $scope.model.length && (function(){
                     $scope.source = [];
                     var optionsTemp = $scope.options;
@@ -91,6 +93,9 @@
                         $scope.source.push(obj);
                     }
                 })();
+                $scope.eventUpdate && $scope.model && $scope.model.length === 0 && (function(){
+                    $scope.resetDirective();
+                })();
             });
 
             
@@ -103,7 +108,8 @@
                 label: '@',
                 model: '=',
                 holder: '=',
-                event: '='
+                event: '=',
+                eventUpdate:'='
             },
             link: Link
         };

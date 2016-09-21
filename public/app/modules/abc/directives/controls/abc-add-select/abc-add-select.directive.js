@@ -3,20 +3,23 @@
     var Directive = function () {
         var Link = function ($scope) {
             $scope.eventUpdate = true;
-            $scope.source = [
-                {
-                    modelSelected: false,
-                    showOptions: false,
-                    model: '',
-                    status: 1
-                },
-                {
-                    modelSelected: false,
-                    showOptions: false,
-                    model: '',
-                    status: 1
-                }
-            ];
+            $scope.resetDirective = function(){
+                $scope.source = [
+                    {
+                        modelSelected: false,
+                        showOptions: false,
+                        model: '',
+                        status: 1
+                    },
+                    {
+                        modelSelected: false,
+                        showOptions: false,
+                        model: '',
+                        status: 1
+                    }
+                ];
+            };
+            $scope.resetDirective();
 
             // Muestra las opciones
             $scope.toggleShowOptions = function (index) {
@@ -76,7 +79,9 @@
             };
 
             // Actualiza el modelo que enviamos
+
             $scope.saveModel = function () {
+
                 $scope.eventUpdate = false;
                 var obj = {};
                 // Reset del model para rellenar
@@ -96,8 +101,10 @@
             };
 
             // Recibe la configuracion del modelo
+
             $scope.$watch('model', function () {
                 if ($scope.eventUpdate && $scope.model && $scope.model.length) {
+
                     $scope.source = [];
                     var optionsTemp = $scope.options;
                     for (var i in $scope.model) {
@@ -111,7 +118,11 @@
                         };
                         $scope.source.push(obj);
                     }
+
                 }
+                $scope.eventUpdate && $scope.model && $scope.model.length === 0 && (function(){
+                    $scope.resetDirective();
+                })();
 
 
 
@@ -120,6 +131,7 @@
 
             $scope.getNameArea = function (optionsTemp, id) {
                 var name = '';
+
                 for (var i in optionsTemp) {
                     if (optionsTemp[i].area_id == id) {
                         name = optionsTemp[i].area_desc
@@ -138,7 +150,8 @@
                 model: '=',
                 holder: '=',
                 options: '=',
-                event: '='
+                event: '=',
+                eventUpdate:'='
             },
             link: Link
         };
