@@ -4,6 +4,7 @@
 
         var Link = function ($scope) {
 
+            $scope.eventUpdate = true;
             $scope.source = [
                 {
                     name: '',
@@ -50,7 +51,6 @@
             };
 
             $scope.convertBase64 = function (index) {
-                console.log($scope.source[index].file);
                 Upload
                     .base64DataUrl($scope.source[index].file)
                     .then(function (data) {
@@ -61,6 +61,7 @@
             };
 
             $scope.saveModel = function () {
+                $scope.eventUpdate = false;
                 $scope.model = [];
 
 
@@ -98,12 +99,11 @@
                         $scope.model.push(obj);
                     }
                 }
-                console.log($scope.model);
             };
 
             // Recibe la configuracion del modelo
             $scope.$watch('model', function () {
-                if ($scope.model && $scope.model.length) {
+                if ($scope.model && $scope.model.length && $scope.eventUpdate) {
 
                     $scope.source = [];
                     var obj = {};
