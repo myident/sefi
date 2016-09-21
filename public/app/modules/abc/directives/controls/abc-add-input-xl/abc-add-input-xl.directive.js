@@ -74,7 +74,7 @@
                         name: $scope.model[i].assu_DES,
                         mcro: $scope.model[i].mcro,
                         assu_ID: $scope.model[i].assu_ID,
-                        status: 2,
+                        status: $scope.model[i].status === 0 ? 2 : $scope.model[i].status,
                         modelSelected: true,
                         showOptions: false,
                     };

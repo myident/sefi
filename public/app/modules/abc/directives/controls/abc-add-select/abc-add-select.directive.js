@@ -100,7 +100,7 @@
                         model: $scope.model[i].area_ID,
                         area_desc: $scope.getNameArea(optionsTemp, $scope.model[i].area_ID),
                         mcro:$scope.model[i].mcro,
-                        status: 2,
+                        status: $scope.model[i].status === 0 ? 2 : $scope.model[i].status,
                         modelSelected: true,
                         showOptions: false,
                     };
