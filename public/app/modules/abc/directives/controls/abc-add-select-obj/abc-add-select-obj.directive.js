@@ -8,13 +8,17 @@
                     modelSelected: false,
                     showOptions: false,
                     model: '',
-                    objective: ''
+                    objective: '',
+                    status:1,
+                    mcro: 0
                 },
                 {
                     modelSelected: false,
                     showOptions: false,
                     model: '',
-                    objective: ''
+                    objective: '',
+                    status:1,
+                    mcro: 0
                 }
             ];
 
@@ -40,7 +44,9 @@
                 var element = {
                     modelSelected: false,
                     showOptions: false,
-                    model: ''
+                    model: '',
+                    status:1,
+                    mcro:0
                 };
                 $scope.source.push(element);
                 $scope.canDelete = true;
@@ -75,13 +81,42 @@
                     if ($scope.source[i].model !== '' && $scope.source[i].objective !== '') {
                         var obj = {
                             area_ID: $scope.source[i].model,
-                            mcro: 0,
+                            mcro: $scope.source[i].mcro,
                             obj: $scope.source[i].objective,
-                            status: 0
+                            status: $scope.source[i].status,
                         };
                         $scope.model.push(obj);
                     }
                 }
+                console.log($scope.model);
+            };
+
+            // Recibe la configuracion del modelo
+            $scope.$watch('model',function(){
+                $scope.source = [];
+                var optionsTemp = $scope.options;
+                for (var i in $scope.model) {
+                    obj = {
+                        model: $scope.model[i].area_ID,
+                        area_desc: $scope.getNameArea(optionsTemp, $scope.model[i].area_ID),
+                        mcro:$scope.model[i].mcro,
+                        status: $scope.model[i].status === 0 ? 2 : $scope.model[i].status,
+                        modelSelected: true,
+                        showOptions: false,
+                        objective: $scope.model[i].obj
+                    };
+                    $scope.source.push(obj);
+                }
+            });
+
+            $scope.getNameArea = function(optionsTemp, id){
+                var name = '';
+                for(var i in optionsTemp){
+                    if(optionsTemp[i].area_id == id){
+                        name = optionsTemp[i].area_desc
+                    }
+                }
+                return name;
             };
 
         };
