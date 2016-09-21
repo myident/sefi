@@ -4,22 +4,25 @@
         
         var Link = function ($scope) {
             $scope.eventUpdate = true;
-            $scope.source = [
-                {
-                    description: '',
-                    sla: '',
-                    status:1,
-                    mcro:0,
-                    sl_ID: 0
-                },
-                {
-                    description: '',
-                    sla: '',
-                    status:1,
-                    mcro:0,
-                    sl_ID: 0
-                }
-            ];
+            $scope.resetDirective = function(){
+                $scope.source = [
+                    {
+                        description: '',
+                        sla: '',
+                        status:1,
+                        mcro:0,
+                        sl_ID: 0
+                    },
+                    {
+                        description: '',
+                        sla: '',
+                        status:1,
+                        mcro:0,
+                        sl_ID: 0
+                    }
+                ];
+            };
+            $scope.resetDirective();
             
             $scope.canDelete = true;
             
@@ -96,6 +99,9 @@
                         $scope.source.push(obj);
                     }
                 })();
+                $scope.eventUpdate && $scope.model && $scope.model.length === 0 && (function(){
+                    $scope.resetDirective();
+                })();
                 
             });
             
@@ -108,7 +114,8 @@
                 label: '@',
                 model: '=',
                 holders: '=',
-                event: '='
+                event: '=',
+                eventUpdate:'='
             },
             link: Link
         };

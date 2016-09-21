@@ -3,24 +3,27 @@
     var Directive = function () {
         var Link = function ($scope) {
             $scope.eventUpdate = true;
-            $scope.source = [
-                {
-                    modelSelected: false,
-                    showOptions: false,
-                    model: '',
-                    objective: '',
-                    status:1,
-                    mcro: 0
-                },
-                {
-                    modelSelected: false,
-                    showOptions: false,
-                    model: '',
-                    objective: '',
-                    status:1,
-                    mcro: 0
-                }
-            ];
+            $scope.resetDirective = function(){
+                $scope.source = [
+                    {
+                        modelSelected: false,
+                        showOptions: false,
+                        model: '',
+                        objective: '',
+                        status:1,
+                        mcro: 0
+                    },
+                    {
+                        modelSelected: false,
+                        showOptions: false,
+                        model: '',
+                        objective: '',
+                        status:1,
+                        mcro: 0
+                    }
+                ];
+            };
+            $scope.resetDirective();
 
             $scope.toggleShowOptions = function (index) {
                 if ($scope.options) {
@@ -111,6 +114,9 @@
                         $scope.source.push(obj);
                     }
                 })();
+                $scope.eventUpdate && $scope.model && $scope.model.length === 0 && (function(){
+                    $scope.resetDirective();
+                })();
             });
 
             $scope.getNameArea = function(optionsTemp, id){
@@ -133,7 +139,8 @@
                 model: '=',
                 holders: '=',
                 options: '=',
-                event: '='
+                event: '=',
+                eventUpdate:'='
             },
             link: Link
         };

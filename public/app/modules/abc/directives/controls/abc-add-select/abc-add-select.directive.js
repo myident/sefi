@@ -2,22 +2,25 @@
 (function () {
     var Directive = function () {
         var Link = function ($scope) {
-
-            $scope.source = [
-                {
-                    modelSelected: false,
-                    showOptions: false,
-                    model: '',
-                    status: 1
-                },
-                {
-                    modelSelected: false,
-                    showOptions: false,
-                    model: '',
-                    status: 1
-                }
-            ];
+            $scope.eventUpdate = true;
             
+            $scope.resetDirective = function(){
+                $scope.source = [
+                    {
+                        modelSelected: false,
+                        showOptions: false,
+                        model: '',
+                        status: 1
+                    },
+                    {
+                        modelSelected: false,
+                        showOptions: false,
+                        model: '',
+                        status: 1
+                    }
+                ];
+            };
+            $scope.resetDirective();
             // Muestra las opciones
             $scope.toggleShowOptions = function (index) {
                 if ($scope.options) {
@@ -77,6 +80,7 @@
 
             // Actualiza el modelo que enviamos
             $scope.saveModel = function(){
+                $scope.eventUpdate = false;
                 var obj = {};
                 // Reset del model para rellenar
                 $scope.model = [];
@@ -96,26 +100,32 @@
     
             // Recibe la configuracion del modelo
             $scope.$watch('model',function(){
-                $scope.source = [];
-                var optionsTemp = $scope.options;
-                for (var i in $scope.model) {
-                    obj = {
-                        model: $scope.model[i].area_ID,
-                        area_desc: $scope.getNameArea(optionsTemp, $scope.model[i].area_ID),
-                        mcro:$scope.model[i].mcro,
-                        status: $scope.model[i].status === 0 ? 2 : $scope.model[i].status,
-                        modelSelected: true,
-                        showOptions: false,
-                    };
-                    $scope.source.push(obj);
-                }
+                console.log($scope.model);
+                $scope.eventUpdate && $scope.model && $scope.model.length && (function(){
+                    $scope.source = [];
+                    var optionsTemp = $scope.options;
+                    for (var i in $scope.model) {
+                        obj = {
+                            model: $scope.model[i].area_ID,
+                            area_desc: $scope.getNameArea(optionsTemp, $scope.model[i].area_ID),
+                            mcro:$scope.model[i].mcro,
+                            status: $scope.model[i].status === 0 ? 2 : $scope.model[i].status,
+                            modelSelected: true,
+                            showOptions: false,
+                        };
+                        $scope.source.push(obj);
+                    }
+                })();
+                $scope.eventUpdate && $scope.model && $scope.model.length === 0 && (function(){
+                    $scope.resetDirective();
+                })();
             });
 
             $scope.getNameArea = function(optionsTemp, id){
                 var name = '';
                 for(var i in optionsTemp){
                     if(optionsTemp[i].area_id == id){
-                        name = optionsTemp[i].area_desc
+                        name = optionsTemp[i].area_desc;
                     }
                 }
                 return name;
@@ -131,7 +141,8 @@
                 model: '=',
                 holder: '=',
                 options: '=',
-                event: '='
+                event: '=',
+                eventUpdate:'='
             },
             link: Link
         };

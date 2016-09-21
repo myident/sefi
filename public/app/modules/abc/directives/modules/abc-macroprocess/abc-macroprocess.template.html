@@ -41,7 +41,7 @@
 <span>4. Select an area and add it with the + button:</span>
 <ul class="abc-create-form">
     <li>
-        <abc-add-select label="Process owner (Area)" holder="'Select Area'" model="processOwner" event="toggleActiveButton" options="areas"></abc-add-select>
+        <abc-add-select event-update="resetSelects" label="Process owner (Area)" holder="'Select Area'" model="processOwner" event="toggleActiveButton" options="areas"></abc-add-select>
     </li>
 </ul>
 
@@ -54,7 +54,7 @@
         <div class="warning-text" ng-hide="hideWarningMacroObj">* Macroprocess Objective is needed</div>
     </li>
     <li>
-        <abc-add-select-obj label="Associated Business Objectives (Area)" holders="['Select Area', 'Objective']" model="associatedBusinessObjectives" event="hideAreaObj" options="areas"></abc-add-select-obj>
+        <abc-add-select-obj event-update="resetSelects" label="Associated Business Objectives (Area)" holders="['Select Area', 'Objective']" model="associatedBusinessObjectives" event="hideAreaObj" options="areas"></abc-add-select-obj>
         <div class="warning-text" ng-hide="hideWarningAreaObj">* The Area is optional but the objective is needed</div>
     </li>
 </ul>
@@ -71,12 +71,12 @@
 
 
 <div class="abc-separator-line"></div>
-<abc-add-input-xl label="Assumptions" holder="'Add an assumption'" model="assumptions" event="toggleActiveButton"></abc-add-input-xl>
+<abc-add-input-xl event-update="resetSelects" label="Assumptions" holder="'Add an assumption'" model="assumptions" event="toggleActiveButton"></abc-add-input-xl>
 
 
 
 <div class="abc-separator-line"></div>
-<abc-add-input-double label="Term Glossary" holders="['Term (max. 20 characters)', 'Definition (max. 200 characters)']" model="termGlossary" event="hideTerm"></abc-add-input-double>
+<abc-add-input-double event-update="resetSelects" label="Term Glossary" holders="['Term (max. 20 characters)', 'Definition (max. 200 characters)']" model="termGlossary" event="hideTerm"></abc-add-input-double>
 <div class="warning-text" ng-hide="hideWarningTerm">* You need to add at least one term with definition</div>
 
 
@@ -90,7 +90,7 @@
 
 
 <div class="abc-separator-line"></div>
-<abc-add-numeric-input label="SLA Service Level Agreement" holders="['Description', 'SLA']" model="sla" event="toggleActiveButton"></abc-add-numeric-input>
+<abc-add-numeric-input event-update="resetSelects" label="SLA Service Level Agreement" holders="['Description', 'SLA']" model="sla" event="toggleActiveButton"></abc-add-numeric-input>
 
 
 <div class="abc-separator-line"></div>

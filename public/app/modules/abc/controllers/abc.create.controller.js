@@ -17,6 +17,7 @@
         
             $scope.update = $abcUpdate.update || false;
             $scope.showItems = $abcUpdate.show;
+            $scope.types = JSON.parse(JSON.stringify($abcCreate.typesEmpty));
             if($abcUpdate.update){
                 for(var i in $scope.types){
                     $scope.types[i].active = false;
@@ -64,7 +65,7 @@
                             scope_Macro: data.scope_Macro,
                             security_Macro: data.security_Macro,
                             operation_system_Macro: data.operation_system_Macro,
-                            processOwner: data.process_owner,
+                            process_Owner: data.process_owner,
 
                             attach: data.attach,
                             operative: data.operative,
@@ -73,8 +74,7 @@
                             glosary: data.glosary,
                             assumtion: data.assumtion,
                             non_funtionals: data.non_funtionals,
-                            asosiate_buss: data.asosiate_buss,
-                            process_owner: data.process_owner
+                            asosiate_buss: data.asosiate_buss
                         };
 
 
@@ -145,7 +145,7 @@
 
 
         // MARK: - Configuración de los elementos que se muestran
-        $scope.types = $abcCreate.types;
+        // $scope.types = $abcCreate.types;
         $scope.toggleType = function (index) {
             for (var i in $scope.types) {
                 if (i == index) {
@@ -223,7 +223,7 @@
                     $rootScope.showAlert = true;
                     $scope.contentAlert = {
                         title: 'ERROR',
-                        text: 'An error ocurred during the load of the Domains.',
+                        text: e.data,
                         button: 'OK',
                         type: 'red',
                         event: function () {}
@@ -248,7 +248,7 @@
                 $rootScope.showAlert = true;
                 $scope.contentAlert = {
                     title: 'ERROR',
-                    text: 'An error ocurred during the save of the Domain.',
+                    text: e.data,
                     button: 'OK',
                     type: 'red',
                     event: function () {}
@@ -289,7 +289,7 @@
                 $rootScope.showAlert = true;
                 $scope.contentAlert = {
                     title: 'ERROR',
-                    text: 'An error ocurred during the update of the Domain.',
+                    text: e.data,
                     button: 'OK',
                     type: 'red',
                     event: function () {
@@ -330,7 +330,7 @@
                 $rootScope.showAlert = true;
                 $scope.contentAlert = {
                     title: 'ERROR',
-                    text: 'An error ocurred during the delete of the Domain.',
+                    text: e.data,
                     button: 'OK',
                     type: 'red',
                     event: function () {$window.history.back();}
@@ -372,7 +372,7 @@
                 $rootScope.showAlert = true;
                 $scope.contentAlert = {
                     title: 'ERROR',
-                    text: 'An error ocurred during the save of the Megaprocess.',
+                    text: e.data,
                     button: 'OK',
                     type: 'red',
                     event: function () {}
@@ -442,7 +442,7 @@
                 $rootScope.showAlert = true;
                 $scope.contentAlert = {
                     title: 'ERROR',
-                    text: 'An error ocurred during the delete of the Megaprocess.',
+                    text: e.data,
                     button: 'OK',
                     type: 'red',
                     event: function () {$window.history.back();}
@@ -477,7 +477,7 @@
                     $rootScope.showAlert = true;
                     $scope.contentAlert = {
                         title: 'ERROR',
-                        text: 'An error ocurred during the save of the Macro.',
+                        text: e.data,
                         button: 'OK',
                         type: 'red',
                         event: function () {}
@@ -577,7 +577,7 @@
                     $rootScope.showAlert = true;
                     $scope.contentAlert = {
                         title: 'ERROR',
-                        text: 'An error ocurred during the save of the Area.',
+                        text: e.data,
                         button: 'OK',
                         type: 'red',
                         event: function () {}
@@ -621,7 +621,7 @@
                     $rootScope.showAlert = true;
                     $scope.contentAlert = {
                         title: 'ERROR',
-                        text: 'An error ocurred during the update of the Area.',
+                        text: e.data,
                         button: 'OK',
                         type: 'red',
                         event: function () {}
@@ -661,7 +661,7 @@
                 $rootScope.showAlert = true;
                 $scope.contentAlert = {
                     title: 'ERROR',
-                    text: 'An error ocurred during the delete of the Area.',
+                    text: e.data,
                     button: 'OK',
                     type: 'red',
                     event: function () {$window.history.back();}
@@ -765,7 +765,7 @@
                 $rootScope.showAlert = true;
                 $scope.contentAlert = {
                     title: 'ERROR',
-                    text: 'An error ocurred during the delete of the KPI.',
+                    text: e.data,
                     button: 'OK',
                     type: 'red',
                     event: function () {$window.history.back();}
@@ -804,7 +804,7 @@
                     $rootScope.showAlert = true;
                     $scope.contentAlert = {
                         title: 'ERROR',
-                        text: 'You have not permission to create the Application in Database',
+                        text: e.data,
                         button: 'OK',
                         type: 'red',
                         event: function () {}
@@ -849,7 +849,7 @@
                     $rootScope.showAlert = true;
                     $scope.contentAlert = {
                         title: 'ERROR',
-                        text: 'The element does not have permission to be updated in Database.',
+                        text: e.data,
                         button: 'OK',
                         type: 'red',
                         event: function () {$window.history.back();}

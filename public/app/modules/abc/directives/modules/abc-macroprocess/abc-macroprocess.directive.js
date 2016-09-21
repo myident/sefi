@@ -3,12 +3,6 @@
     var Directive = function () {
         var Link = function ($scope) {
 
-            $scope.processOwner = [{
-                "status": 0,
-                "mcro": 83,
-                "area_ID": 19
-            }];
-
 
             $scope.canSave = true;
 
@@ -16,6 +10,7 @@
 
             $scope.clear = function () {
 
+                $scope.resetSelects = true;
                 $scope.macro = '';
                 $scope.name = '';
                 $scope.author = '';
@@ -26,13 +21,16 @@
                 $scope.security = '';
                 $scope.operationSystemReport = '';
 
+                $scope.processOwner = [];
                 $scope.attachments = [];
                 $scope.operativeReports = [];
                 $scope.processChanges = [];
                 $scope.sla = [];
                 $scope.termGlossary = [];
                 $scope.assumptions = [];
+                $scope.associatedBusinessObjectives = [];
 
+                
                 $scope.hideWarningMacro = false;
                 $scope.hideWarningAuthor = false;
                 $scope.hideWarningVersion = false;
@@ -40,6 +38,8 @@
                 $scope.hideWarningMacroObj = false;
                 $scope.hideWarningAreaObj = false;
                 $scope.hideWarningTerm = false;
+
+
             };
 
             $scope.hideMega = function () {
@@ -215,7 +215,7 @@
                         status: 0
                     }],
                     asosiate_buss: $scope.associatedBusinessObjectives || [],
-                    process_owner: $scope.processOwner || []
+                    process_owner: $scope.process_Owner || []
 
 
                 };
