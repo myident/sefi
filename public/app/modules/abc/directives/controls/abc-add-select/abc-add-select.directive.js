@@ -9,12 +9,14 @@
                         modelSelected: false,
                         showOptions: false,
                         model: '',
+                        mcro: 0,
                         status: 1
                     },
                     {
                         modelSelected: false,
                         showOptions: false,
                         model: '',
+                        mcro: 0,
                         status: 1
                     }
                 ];
@@ -46,6 +48,7 @@
                     modelSelected: false,
                     showOptions: false,
                     model: '',
+                    mcro: 0,
                     status: 1
                 };
                 $scope.source.push(element);
@@ -91,7 +94,7 @@
                     if ($scope.source[i].model !== '' && $scope.source[i].model) {
                         obj = {
                             area_ID: $scope.source[i].model,
-                            mcro: $scope.source[i].mcro || 0,
+                            mcro: $scope.source[i].mcro,
                             status: $scope.source[i].status
                         };
                         $scope.model.push(obj);
