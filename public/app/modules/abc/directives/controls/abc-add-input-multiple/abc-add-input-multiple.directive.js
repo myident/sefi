@@ -3,19 +3,23 @@
     var Directive = function () {
 
         var Link = function ($scope) {
-
+            $scope.eventUpdate = true;
             $scope.source = [
                 {
-                    id: '',
-                    activity: '',
-                    project: '',
-                    brule: ''
+                    act_ID: 0,
+                    pro_BUS: '',
+                    func_RES: '',
+                    chn_ID: '',
+                    mcro: 0,
+                    status: 1
                 },
                 {
-                    id: '',
-                    activity: '',
-                    project: '',
-                    brule: ''
+                    act_ID: 0,
+                    pro_BUS: '',
+                    func_RES: '',
+                    chn_ID: '',
+                    mcro: 0,
+                    status: 1
                 }
             ];
 
@@ -23,10 +27,12 @@
 
             $scope.addElementToSource = function () {
                 var element = {
-                    id: '',
-                    activity: '',
-                    project: '',
-                    brule: ''
+                    act_ID: 0,
+                    pro_BUS: '',
+                    func_RES: '',
+                    chn_ID: '',
+                    mcro: 0,
+                    status: 1
                 };
                 $scope.source.push(element);
                 $scope.canDelete = true;
@@ -56,23 +62,43 @@
             };
 
             $scope.saveModel = function () {
+                $scope.eventUpdate = false;
                 $scope.model = [];
                 for (var i in $scope.source) {
-                    if ($scope.source[i].id !== '' && $scope.source[i].activity !== '' && $scope.source[i].project !== '' && $scope.source[i].brule !== '') {
+                    if ($scope.source[i].id !== '' && $scope.source[i].activity !== '' && $scope.source[i].project !== '' && $scope.source[i].func_RES !== '') {
                         var obj = {
-                            act_ID: $scope.source[i].id,
-                            pro_BUS: $scope.source[i].project,
-                            mcro: 0,
-                            func_RES: $scope.source[i].activity,
-                            //brule: $scope.source[i].brule,
-                            chn_ID: 0,
-                            status: 0
+                            act_ID: Number($scope.source[i].act_ID),
+                            pro_BUS: $scope.source[i].pro_BUS,
+                            func_RES: $scope.source[i].func_RES,
+                            chn_ID: $scope.source[i].chn_ID,
+                            mcro: $scope.source[i].mcro,
+                            status: $scope.source[i].status
                         };
                         $scope.model.push(obj);
                     }
                 }
                 console.log($scope.model);
             };
+
+
+            $scope.$watch('model', function () {
+                if ($scope.eventUpdate && $scope.model && $scope.model.length) {
+                    $scope.source = [];
+                    var obj = {};
+                    for (var i in $scope.model) {
+                        obj = {
+                            act_ID: $scope.model[i].act_ID,
+                            pro_BUS: $scope.model[i].pro_BUS,
+                            func_RES: $scope.model[i].func_RES,
+                            chn_ID: $scope.model[i].chn_ID,
+                            mcro: $scope.model[i].mcro,
+                            status: $scope.model[i].status
+                        };
+                        $scope.source.push(obj);
+                    }
+                }
+            });
+
         };
 
         return {

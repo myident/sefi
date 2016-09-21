@@ -3,6 +3,7 @@
     var Directive = function () {
         var Link = function ($scope) {
             $scope.eventUpdate = true;
+<<<<<<< HEAD
             
             $scope.resetDirective = function(){
                 $scope.source = [
@@ -21,6 +22,23 @@
                 ];
             };
             $scope.resetDirective();
+=======
+            $scope.source = [
+                {
+                    modelSelected: false,
+                    showOptions: false,
+                    model: '',
+                    status: 1
+                },
+                {
+                    modelSelected: false,
+                    showOptions: false,
+                    model: '',
+                    status: 1
+                }
+            ];
+
+>>>>>>> vash
             // Muestra las opciones
             $scope.toggleShowOptions = function (index) {
                 if ($scope.options) {
@@ -79,7 +97,11 @@
             };
 
             // Actualiza el modelo que enviamos
+<<<<<<< HEAD
             $scope.saveModel = function(){
+=======
+            $scope.saveModel = function () {
+>>>>>>> vash
                 $scope.eventUpdate = false;
                 var obj = {};
                 // Reset del model para rellenar
@@ -97,35 +119,58 @@
                 }
                 console.log($scope.model);
             };
-    
+
             // Recibe la configuracion del modelo
+<<<<<<< HEAD
             $scope.$watch('model',function(){
                 console.log($scope.model);
                 $scope.eventUpdate && $scope.model && $scope.model.length && (function(){
+=======
+            $scope.$watch('model', function () {
+                if ($scope.eventUpdate && $scope.model && $scope.model.length) {
+>>>>>>> vash
                     $scope.source = [];
                     var optionsTemp = $scope.options;
                     for (var i in $scope.model) {
                         obj = {
                             model: $scope.model[i].area_ID,
                             area_desc: $scope.getNameArea(optionsTemp, $scope.model[i].area_ID),
+<<<<<<< HEAD
                             mcro:$scope.model[i].mcro,
+=======
+                            mcro: $scope.model[i].mcro,
+>>>>>>> vash
                             status: $scope.model[i].status === 0 ? 2 : $scope.model[i].status,
                             modelSelected: true,
                             showOptions: false,
                         };
                         $scope.source.push(obj);
                     }
+<<<<<<< HEAD
                 })();
                 $scope.eventUpdate && $scope.model && $scope.model.length === 0 && (function(){
                     $scope.resetDirective();
                 })();
+=======
+                }
+
+
+
+
+>>>>>>> vash
             });
 
-            $scope.getNameArea = function(optionsTemp, id){
+            $scope.getNameArea = function (optionsTemp, id) {
                 var name = '';
+<<<<<<< HEAD
                 for(var i in optionsTemp){
                     if(optionsTemp[i].area_id == id){
                         name = optionsTemp[i].area_desc;
+=======
+                for (var i in optionsTemp) {
+                    if (optionsTemp[i].area_id == id) {
+                        name = optionsTemp[i].area_desc
+>>>>>>> vash
                     }
                 }
                 return name;
