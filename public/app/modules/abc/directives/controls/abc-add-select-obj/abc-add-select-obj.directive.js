@@ -2,7 +2,7 @@
 (function () {
     var Directive = function () {
         var Link = function ($scope) {
-
+            $scope.eventUpdate = true;
             $scope.source = [
                 {
                     modelSelected: false,
@@ -76,6 +76,7 @@
             };
             
             $scope.saveModel = function(){
+                $scope.eventUpdate = false;
                 $scope.model = [];
                 for (var i in $scope.source) {
                     if ($scope.source[i].model !== '' && $scope.source[i].objective !== '') {
@@ -93,7 +94,7 @@
 
             // Recibe la configuracion del modelo
             $scope.$watch('model',function(){
-                $scope.model && $scope.model.length && (function(){
+                $scope.eventUpdate && $scope.model && $scope.model.length && (function(){
                 $scope.source = [];
                     var optionsTemp = $scope.options;
                     for (var i in $scope.model) {

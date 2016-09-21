@@ -3,7 +3,7 @@
     var Directive = function () {
         
         var Link = function ($scope) {
-            
+            $scope.eventUpdate = true;
             $scope.source = [
                 {
                     description: '',
@@ -53,6 +53,7 @@
             };
             
             $scope.saveModel = function(){
+                $scope.eventUpdate = false;
                 $scope.model = [];
                 for (var i in $scope.source) {
                     if ($scope.source[i].description !== '' && $scope.source[i].sla !== '') {
@@ -72,7 +73,7 @@
             // Recibe la configuracion del modelo
             $scope.$watch('model',function(){
                 
-                $scope.model && $scope.model.length && (function(){
+                $scope.eventUpdate && $scope.model && $scope.model.length && (function(){
                     $scope.source = [];
                     var optionsTemp = $scope.options;
                     for (var i in $scope.model) {
