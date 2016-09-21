@@ -63,7 +63,7 @@
                             objetivo_Macro: data.objetivo_Macro,
                             scope_Macro: data.scope_Macro,
                             security_Macro: data.security_Macro,
-                            operation_system_Macro: data.peration_system_Macro,
+                            operation_system_Macro: data.operation_system_Macro,
                             processOwner: data.process_owner,
 
                             attach: data.attach,
