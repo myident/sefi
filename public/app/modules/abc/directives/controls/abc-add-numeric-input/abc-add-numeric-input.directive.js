@@ -7,11 +7,13 @@
             $scope.source = [
                 {
                     description: '',
-                    sla: ''
+                    sla: '',
+                    status:1
                 },
                 {
                     description: '',
-                    sla: ''
+                    sla: '',
+                    status:1
                 }
             ];
             
@@ -20,7 +22,8 @@
             $scope.addElementToSource = function(){
                 var element = {
                     description: '',
-                    sla: ''
+                    sla: '',
+                    status:1
                 };
                 $scope.source.push(element);
                 $scope.canDelete = true;
@@ -55,16 +58,38 @@
                     if ($scope.source[i].description !== '' && $scope.source[i].sla !== '') {
                         var obj = {
                             sl_DES: $scope.source[i].description,
-                            mcro: 0,
+                            mcro: $scope.source[i].mcro,
                             sl_NAME: $scope.source[i].sla,
-                            sl_ID: 0,
-                            status: 0
+                            sl_ID: $scope.source[i].sl_ID,
+                            status: $scope.source[i].status
                         };
                         $scope.model.push(obj);
                     }
                 }
                 console.log($scope.model);
             };
+
+            // Recibe la configuracion del modelo
+            $scope.$watch('model',function(){
+                
+                $scope.model && $scope.model.length && (function(){
+                    $scope.source = [];
+                    var optionsTemp = $scope.options;
+                    for (var i in $scope.model) {
+                        obj = {
+                            sl_ID: $scope.model[i].sl_ID,
+                            description: $scope.model[i].sl_DES,
+                            sla: $scope.model[i].sl_NAME,
+                            mcro:$scope.model[i].mcro,
+                            status: $scope.model[i].status === 0 ? 2 : $scope.model[i].status,
+                            modelSelected: true,
+                            showOptions: false,
+                        };
+                        $scope.source.push(obj);
+                    }
+                })();
+                
+            });
             
         };
         

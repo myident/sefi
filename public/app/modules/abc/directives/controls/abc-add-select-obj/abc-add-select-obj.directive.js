@@ -83,7 +83,7 @@
                             area_ID: $scope.source[i].model,
                             mcro: $scope.source[i].mcro,
                             obj: $scope.source[i].objective,
-                            status: $scope.source[i].status,
+                            status: $scope.source[i].status
                         };
                         $scope.model.push(obj);
                     }
@@ -93,20 +93,22 @@
 
             // Recibe la configuracion del modelo
             $scope.$watch('model',function(){
+                $scope.model && $scope.model.length && (function(){
                 $scope.source = [];
-                var optionsTemp = $scope.options;
-                for (var i in $scope.model) {
-                    obj = {
-                        model: $scope.model[i].area_ID,
-                        area_desc: $scope.getNameArea(optionsTemp, $scope.model[i].area_ID),
-                        mcro:$scope.model[i].mcro,
-                        status: $scope.model[i].status === 0 ? 2 : $scope.model[i].status,
-                        modelSelected: true,
-                        showOptions: false,
-                        objective: $scope.model[i].obj
-                    };
-                    $scope.source.push(obj);
-                }
+                    var optionsTemp = $scope.options;
+                    for (var i in $scope.model) {
+                        obj = {
+                            model: $scope.model[i].area_ID,
+                            area_desc: $scope.getNameArea(optionsTemp, $scope.model[i].area_ID),
+                            mcro:$scope.model[i].mcro,
+                            status: $scope.model[i].status === 0 ? 2 : $scope.model[i].status,
+                            modelSelected: true,
+                            showOptions: false,
+                            objective: $scope.model[i].obj
+                        };
+                        $scope.source.push(obj);
+                    }
+                })();
             });
 
             $scope.getNameArea = function(optionsTemp, id){
