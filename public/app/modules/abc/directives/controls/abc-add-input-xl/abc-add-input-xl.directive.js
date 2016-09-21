@@ -34,7 +34,8 @@
             
             $scope.deleteElementFromSource = function(index){
                 if ($scope.source.length > 1){
-                    $scope.source.splice(index, 1);
+                    // $scope.source.splice(index, 1);
+                    $scope.source[index].status = 3;
                     if ($scope.source.length > 1){
                         $scope.canDelete = true;
                     } else {
