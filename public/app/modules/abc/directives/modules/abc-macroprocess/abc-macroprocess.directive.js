@@ -23,7 +23,7 @@
                 $scope.security = '';
                 $scope.operationSystemReport = '';
 
-                $scope.processOwner = [];
+                $scope.process_owner = [];
                 $scope.attachments = [];
                 $scope.operativeReports = [];
                 $scope.processChanges = [];
@@ -158,7 +158,7 @@
                         status: 0
                     }],
                     asosiate_buss: $scope.associatedBusinessObjectives || [],
-                    process_owner: $scope.processOwner || []
+                    process_owner: $scope.process_owner || []
 
 
                 };
@@ -268,7 +268,7 @@
                     $scope.sla = $scope.source.SLA_service;
                     $scope.termGlossary = $scope.source.glosary;
                     $scope.assumptions = $scope.source.assumtion;
-                    $scope.processOwner = $scope.source.processOwner;
+                    $scope.process_owner = $scope.source.process_owner;
                     $scope.associatedBusinessObjectives = $scope.source.asosiate_buss;
 
                     $scope.hideWarningMacro = true;
