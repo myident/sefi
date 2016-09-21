@@ -3,7 +3,7 @@
     var Directive = function () {
         
         var Link = function ($scope) {
-            
+            $scope.eventUpdate = true;
             $scope.source = [
                 {
                     name: '',
@@ -53,9 +53,10 @@
             };
             
             $scope.saveModel = function(){
+                $scope.eventUpdate = false;
                 $scope.model = [];
                 for (var i in $scope.source) {
-                    //if ($scope.source[i].name !== '' && $scope.source[i].definition !== '') {
+                    if ($scope.source[i].name !== '' && $scope.source[i].definition !== '') {
                         var obj = {
                             ter: $scope.source[i].name,
                             ter_DEF: $scope.source[i].definition,
@@ -64,7 +65,7 @@
                             status: $scope.source[i].status
                         };
                         $scope.model.push(obj);
-                    //}
+                    }
                 }
                 console.log($scope.model);
             };
@@ -72,7 +73,7 @@
             // Recibe la configuracion del modelo
             $scope.$watch('model',function(){
 
-                 $scope.model && $scope.model.length && (function(){
+                 $scope.eventUpdate && $scope.model && $scope.model.length && (function(){
                     $scope.source = [];
                     console.log($scope.model);
                     var optionsTemp = $scope.options;
