@@ -32,7 +32,7 @@
                 $scope.assumptions = [];
                 $scope.associatedBusinessObjectives = [];
 
-                
+                $scope.hideWarningMega = false;
                 $scope.hideWarningMacro = false;
                 $scope.hideWarningAuthor = false;
                 $scope.hideWarningVersion = false;
@@ -271,6 +271,7 @@
                     $scope.process_owner = $scope.source.process_owner;
                     $scope.associatedBusinessObjectives = $scope.source.asosiate_buss;
 
+<<<<<<< HEAD
                     if($scope.update){
                         $scope.hideWarningMacro = true;
                         $scope.hideWarningAuthor = true;
@@ -281,6 +282,16 @@
                         $scope.hideWarningTerm = true;
                         $scope.hideWarningMega = true;
                     }
+=======
+                    $scope.hideWarningMega = true;
+                    $scope.hideWarningMacro = true;
+                    $scope.hideWarningAuthor = true;
+                    $scope.hideWarningVersion = true;
+                    $scope.hideWarningVersionDesc = true;
+                    $scope.hideWarningMacroObj = true;
+                    $scope.hideWarningAreaObj = true;
+                    $scope.hideWarningTerm = true;
+>>>>>>> vash
                 }
             };
 

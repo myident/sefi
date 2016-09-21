@@ -1157,3 +1157,34 @@ abc-special-select.filter-type > div.abc-create-form-group {
 .dc-capacidad.rombo.active.on > span.dc-process-delete {
     display: block;
 }
+
+.button-add-more-attributes {
+    text-decoration: underline;
+    color: #30A3CF;
+    cursor: pointer;
+    width: 450px;
+    height: 60px;
+}
+
+.button-add-more-label {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: #2CA2CF;
+    border-radius: 4px;
+    font-size: 30px;
+    text-align: center;
+    line-height: 37px;
+    color: white;
+    float: right;
+}
+
+.button-add-more-label-text {
+    float: right;
+    color: #4E4E4E;
+    font-size: 14px;
+    display: block;
+    width: 130px;
+    margin-right: 10px;
+    margin-top: 5px;
+}

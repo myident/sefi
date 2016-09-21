@@ -77,7 +77,7 @@
                         $scope.model.push(obj);
                     }
                 }
-                console.log($scope.model);
+   
             };
 
             // Recibe la configuracion del modelo
@@ -85,7 +85,7 @@
 
                  $scope.eventUpdate && $scope.model && $scope.model.length && (function(){
                     $scope.source = [];
-                    console.log($scope.model);
+
                     var optionsTemp = $scope.options;
                     for (var i in $scope.model) {
                         obj = {
