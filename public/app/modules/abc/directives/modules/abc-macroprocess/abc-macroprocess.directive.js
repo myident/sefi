@@ -236,6 +236,7 @@
             };
 
             $scope.reset = function () {
+
                 if ($scope.source) {
                     $scope.id = $scope.source.id;
                     $scope.mega = {
@@ -251,6 +252,8 @@
                     $scope.macroprocessScope = $scope.source.scope_Macro;
                     $scope.security = $scope.source.security_Macro;
                     $scope.operationSystemReport = $scope.source.operation_system_Macro;
+                    $scope.nonFunctionalRequeriments = $scope.source.non_funtionals[0].des_REQ;
+                    
 
                     $scope.attachments = $scope.source.attach;
                     $scope.operativeReports = $scope.source.operative;
