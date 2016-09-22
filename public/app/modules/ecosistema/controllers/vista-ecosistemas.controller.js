@@ -20,6 +20,19 @@
             $vash.ecosistema = true;
             $window.location = '#/diagrama';
         };
+        $scope.getMacroprocessLength = function(){
+            var count = 0;
+            for(var i in $scope.dominios){
+                var dominio = $scope.dominios[i];
+                for(var j in dominio.megaprocesos){
+                    var megaproceso = dominio.megaprocesos[j];
+                    for(var k in megaproceso.macroprocesos){
+                        count++;
+                    }
+                }
+            }
+            return count;
+        };
     };
 
     Controller.$inject = ['$rootScope', '$scope', '$location', '$itbook', '$vash', '$arquitecturaseco', '$window', '$indice'];
