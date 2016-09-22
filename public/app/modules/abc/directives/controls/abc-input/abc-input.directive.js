@@ -3,7 +3,7 @@
     var Directive = function () {
 
         var Link = function ($scope) {
-
+            $scope.typeInput = $scope.typeInput || 'text';
             // Execute the event configured
             $scope.triggerEvent = function () {
                 if ($scope.event){
@@ -23,7 +23,8 @@
                 model: '=',
                 label: '@',
                 event: '=',
-                warning: '='
+                warning: '=',
+                typeInput:'@?'
             },
             link: Link
         };

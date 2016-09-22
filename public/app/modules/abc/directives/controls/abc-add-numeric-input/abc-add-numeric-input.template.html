@@ -3,7 +3,7 @@
         <span>{{label}}</span>
     </div>
     <div class="abc-create-input-xl">
-       <span ng-repeat="campo in source"  ng-show="campo.status!==3">
+       <span ng-repeat="campo in source"  ng-if="campo.status!==3">
            <span class="numeration">{{$index + 1}}</span><input class="short" type="text" placeholder="{{holders[0]}}" ng-model="campo.description" ng-keyup="saveModel()"><input class="medium" type="text" placeholder="{{holders[1]}}" ng-model="campo.sla" ng-keyup="saveModel()"><div class="abc-add-button" ng-click="addElementToSource()"><i></i></div>
            <div class="abc-delete-button" ng-show="canDelete" ng-click="deleteElementFromSource($index)"></div>
        </span>
