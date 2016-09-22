@@ -22,7 +22,7 @@
                             holder="Select a Macroprocess"
                             model="macroprocess"
                             options="macroprocesos"
-                            event="selectMacroprocess"></abc-special-select>
+                            event="activeMacroprocess"></abc-special-select>
                             
                     </li>
                 </ul>
@@ -196,7 +196,7 @@
                             Domain:
                         </div>
                         <div class="diagrama-section-data-content">
-                            Customer Relationship Management (CRM)
+                            {{dominioDelMacro.name}} ({{dominioDelMacro.title}})
                         </div>
                     </div>
                     
@@ -353,7 +353,7 @@
             
             <div class="container-buttons-right" style="margin-top: 30px;">
                 <div class="abc-create-button" ng-click="clear()">Clear</div>
-                <div class="abc-create-button" ng-class="{'disabled': !canSave}" ng-click="save()">Save</div>
+                <div class="abc-create-button" ng-class="{'disabled': !canSave}" ng-click="newSave()">Save</div>
             </div>
         </aside>
         
