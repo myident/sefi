@@ -3,7 +3,7 @@
         <span>{{label}}</span>
     </div>
     <div class="abc-create-multi-select large">
-        <span ng-repeat="campo in source" class="multi-select" ng-show="campo.status!==3">
+        <span ng-repeat="campo in source" class="multi-select" ng-if="campo.status!==3">
             <div class="abc-create-select">
                 <div class="abc-create-select-content">
                     <div class="abc-create-select-content-title" ng-click="toggleShowOptions($index)" ng-show="campo.modelSelected">{{campo.area_desc}}</div>

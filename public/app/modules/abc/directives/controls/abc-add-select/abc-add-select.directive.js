@@ -58,9 +58,8 @@
             // Elimina un input del arreglo
             $scope.deleteElementFromSource = function (index) {
                 if ($scope.source.length > 1) {
-                    // $scope.source.splice(index, 1);
                     $scope.source[index].status = 3;
-                    if ($scope.source.length > 1) {
+                    if ($scope.getLength() > 1) {
                         $scope.canDelete = true;
                     } else {
                         $scope.canDelete = false;
@@ -69,8 +68,18 @@
                 } else {
                     $scope.canDelete = false;
                 }
-
             };
+
+            $scope.getLength = function(){
+                var count = 0;
+                for(var i in $scope.source){
+                    if($scope.source.status !== 3){
+                        count++;
+                    }
+                }
+                return count;
+            };
+            
 
             // Execute the event configured
             $scope.triggerEvent = function () {
