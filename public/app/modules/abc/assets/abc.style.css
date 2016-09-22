@@ -569,6 +569,12 @@
     font-size: 30px;
 }
 
+.diagrama-creation {
+    position: relative;
+    padding-left: 50px;
+    padding-bottom: 30px;
+}
+
 .diagrama-creation > .dc-procesos:first-child {
     margin-left: 20px;
 }
@@ -1187,4 +1193,43 @@ abc-special-select.filter-type > div.abc-create-form-group {
     width: 130px;
     margin-right: 10px;
     margin-top: 5px;
+}
+
+.barra-lateral-procesos {
+    position: absolute;
+    width: 30px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: inline-block;
+}
+
+.barra-lateral-procesos > div.linea-procesos {
+    width: 100%;
+    position: absolute;
+    height: 80px;
+    background: #868686;
+    color: white;
+    top: 0;
+    left: 0
+}
+
+.barra-lateral-procesos > div.linea-capacidades {
+    width: 100%;
+    position: absolute;
+    height: calc(100% - 115px);
+    background: #868686;
+    color: white;
+    top: 115px;
+    left: 0;
+}
+
+.barra-lateral-procesos > div.linea-brules {
+    width: 100%;
+    position: absolute;
+    height: calc(100% - 115px);
+    background: #868686;
+    color: white;
+    top: 115px;
+    left: 0;
 }

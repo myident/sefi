@@ -109,12 +109,13 @@
         // MARK: Configuraciones iniciales
         $scope.canSave = false;
 
-        $scope.hideBRule = true;
-
         $scope.showBruleDetails = false;
-        $scope.showCapaDetails = false;
+        $scope.showCapaDetails = true;
+        
         $scope.showDecisions = false;
         $scope.processEditing = true;
+        
+        $scope.whoIsActive = 'p';
         
 
         // MARK: - regresa todas las reglas de negocio
@@ -172,23 +173,21 @@
     
         // MARK: Cambia las vistas y resetea el elemento seleccionado
         $scope.switchViews = function (index) {
+            
             if (index === 0) {
-                $scope.hideBRule = true;
+                $scope.showBruleDetails = false;
+                $scope.showCapaDetails = true;
             } else {
-                $scope.hideBRule = false;
+                $scope.showBruleDetails = true;
+                $scope.showCapaDetails = false;
             }
-            $scope.processEditing = false;
-            $scope.showBruleDetails = false;
-            $scope.showCapaDetails = false;
-            for (var i in $scope.procesos) {
-                $scope.procesos[i].active = false;
-                for (var j in $scope.procesos[i].capacidades) {
-                    $scope.procesos[i].capacidades[j].active = false;
-                }
-                for (var k in $scope.procesos[i].reglas) {
-                    $scope.procesos[i].reglas[k].active = false;
-                }
+            
+            if ($scope.whoIsActive == 'p'){
+                $scope.processEditing = true;
+            } else {
+                $scope.processEditing = false;
             }
+            
         };
         
         
@@ -199,29 +198,37 @@
             $scope.currentMacro = index;
         };
         
-        
+        $scope.deactiveAll = function(){
+            if ($scope.procesos.length){
+                for (var i in $scope.procesos) {
+                    $scope.procesos[i].active = false;
+                    if ($scope.procesos[i].capacidades.length){
+                        for (var j in $scope.procesos[i].capacidades) {
+                            $scope.procesos[i].capacidades[j].active = false;
+                        }
+                    }
+                    if ($scope.procesos[i].reglas.length){
+                        for (var k in $scope.procesos[i].reglas) {
+                            $scope.procesos[i].reglas[k].active = false;
+                        }
+                    }
+                }
+            }
+
+        };
         
 
         // MARK: - activa un proceso
         $scope.activateProcess = function (index) {
             
-            $scope.processEditing = true;
-            $scope.showBruleDetails = false;
-            $scope.showCapaDetails = false;
-            $scope.currentProcess = index;
-            for (var i in $scope.procesos) {
-                $scope.procesos[i].active = false;
-                for (var j in $scope.procesos[i].capacidades) {
-                    $scope.procesos[i].capacidades[j].active = false;
-                }
-                for (var k in $scope.procesos[i].reglas) {
-                    $scope.procesos[i].reglas[k].active = false;
-                }
-            }
-            $scope.procesos[$scope.currentProcess].active = true;
             if ($scope.procesos[index].mode == 'off') {
                 if ($scope.isValid().status) {
+                    
                     $scope.currentProcess = index;
+                    $scope.processEditing = true;
+                    $scope.deactiveAll();
+                    $scope.procesos[index].active = true;
+
                     var newProcess = {
                         mode: 'off',
                         active: false,
@@ -229,6 +236,7 @@
                         capacidades: [],
                         reglas: []
                     };
+                    
                     var newCapacidad = {
                         mode: 'off',
                         active: false,
@@ -242,6 +250,7 @@
                             }
                         ]
                     };
+                    
                     var newReglas = {
                         mode: 'off',
                         active: false,
@@ -259,10 +268,12 @@
                             }
                         ]
                     };
+                    
                     $scope.procesos.push(newProcess);
                     $scope.procesos[index].mode = 'on';
                     $scope.procesos[index].capacidades.push(newCapacidad);
                     $scope.procesos[index].reglas.push(newReglas);
+                    
                 } else {
                     $rootScope.showAlert = true;
                     $scope.contentAlert = {
@@ -270,33 +281,26 @@
                         text: $scope.isValid().message,
                         button: 'OK',
                         type: 'red',
-                        event: function () {
-                            $scope.processEditing = false;
-                        }
+                        event: function () {}
                     };
                     return;
                 }
+            } else {
+                $scope.currentProcess = index;
+                $scope.processEditing = true;
+                $scope.deactiveAll();
+                $scope.procesos[index].active = true;
             }
 
 
         };
 
         // MARK: - Borra el proceso actual
-        $scope.deleteProcess = function () {
-            $scope.processEditing = false;
-            $scope.showBruleDetails = false;
-            $scope.showCapaDetails = false;
-            for (var i in $scope.procesos) {
-                $scope.procesos[i].active = false;
-                for (var j in $scope.procesos[i].capacidades) {
-                    $scope.procesos[i].capacidades[j].active = false;
-                }
-                for (var k in $scope.procesos[i].reglas) {
-                    $scope.procesos[i].reglas[k].active = false;
-                }
-            }
+        $scope.deleteProcess = function (index) {
+            $scope.deactiveAll();
+            $scope.procesos[index].active = true;
             $scope.procesos.splice($scope.currentProcess, 1);
-            console.log($scope.currentProcess);
+            $scope.currentProcess = index - 1;
         };
         
         
@@ -306,8 +310,6 @@
         $scope.activateCapability = function (parentIndex, index) {
 
             // Activa
-            $scope.showBruleDetails = false;
-            $scope.showCapaDetails = true;
             $scope.processEditing = false;
             $scope.currentProcess = parentIndex;
             $scope.currentCapability = index;
@@ -373,8 +375,6 @@
         // MARK: - Borra la capacidad actual
         $scope.deleteCapabiliy = function () {
             $scope.processEditing = false;
-            $scope.showBruleDetails = false;
-            $scope.showCapaDetails = false;
             for (var i in $scope.procesos) {
                 $scope.procesos[i].active = false;
                 for (var j in $scope.procesos[i].capacidades) {
@@ -394,8 +394,6 @@
         // MARK: - Borra la regla del negocio actual
         $scope.deleteBrule = function () {
             $scope.processEditing = false;
-            $scope.showBruleDetails = false;
-            $scope.showCapaDetails = false;
             for (var i in $scope.procesos) {
                 $scope.procesos[i].active = false;
                 for (var j in $scope.procesos[i].capacidades) {
@@ -414,8 +412,6 @@
             
             $scope.brules = $scope.getBrules();
             $scope.processEditing = false;
-            $scope.showBruleDetails = true;
-            $scope.showCapaDetails = false;
             $scope.currentProcess = parentIndex;
             $scope.currentBrule = index;
 
