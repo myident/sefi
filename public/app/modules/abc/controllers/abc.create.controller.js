@@ -454,16 +454,18 @@
         // MARK: - POST Guarda un Macroproceso
         $scope.macroControl = {};
         $scope.saveMacro = function (obj) {
-            $rootScope.spin = true;
-            var macroproceso = new $apimacroproceso(obj);
-            macroproceso.$save(
-                function () {
+
+            if(obj!==false){
+                $rootScope.spin = true;
+                var macroproceso = new $apimacroproceso(obj);
+                macroproceso.$save(
+                function (data) {
                     $rootScope.spin = false;
                     console.log('Save succesfull');
                     $rootScope.showAlert = true;
                     $scope.contentAlert = {
                         title: 'DONE',
-                        text: 'The element ' + obj.nombre_Macro + ' was created.',
+                        text: data.data.length ?data.data : 'The element ' + name + ' was created.',
                         button: 'OK',
                         type: 'blue',
                         event: function () {
@@ -484,6 +486,17 @@
                     };
                     return;
                 });
+            }else{
+                $rootScope.showAlert = true;
+                    $scope.contentAlert = {
+                        title: 'ERROR',
+                        text: 'Missing any obligatory fields',
+                        button: 'OK',
+                        type: 'red',
+                        event: function () {}
+                    };
+            }
+            
         };
 
         $scope.updateMacro = function (obj) {

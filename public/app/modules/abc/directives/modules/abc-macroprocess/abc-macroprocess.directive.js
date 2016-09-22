@@ -12,6 +12,7 @@
 
                 macro_id = 0;
                 mega_id = 0;
+                $scope.mega = {};
                 $scope.resetSelects = true;
                 $scope.macro = '';
                 $scope.name = '';
@@ -132,7 +133,7 @@
 
                 var macroproceso = {
 
-                    mega_id: $scope.mega_id || 0,
+                    mega_id: $scope.mega.id || 0,
                     macro_id: $scope.macro_id || 0,
                     nombre_Macro: $scope.name || '',
                     version_fecha: $scope.date,
@@ -165,6 +166,8 @@
 
                 if($scope.hideWarningMega && $scope.hideWarningMacro && $scope.hideWarningAuthor && $scope.hideWarningVersion && $scope.hideWarningVersionDesc && $scope.hideWarningMacroObj && $scope.hideWarningAreaObj && $scope.hideWarningTerm){
                      $scope.event(macroproceso);
+                }else{
+                    $scope.event(false);
                 }
 
                
@@ -190,7 +193,7 @@
                 }
 
                 var macroproceso = {
-                    mega_id: $scope.mega_id || 0,
+                    mega_id: $scope.mega.id || 0,
                     macro_id: $scope.macro_id || 0,
                     nombre_Macro: $scope.name || '',
                     version_fecha: $scope.date,
@@ -223,6 +226,8 @@
 
                 if($scope.hideWarningMega && $scope.hideWarningMacro && $scope.hideWarningAuthor && $scope.hideWarningVersion && $scope.hideWarningVersionDesc && $scope.hideWarningMacroObj && $scope.hideWarningAreaObj && $scope.hideWarningTerm){
                      $scope.eventUpdate(macroproceso);
+                }else{
+                    $scope.event(false);
                 }
                 
                 console.log(macroproceso);
