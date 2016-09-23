@@ -120,11 +120,11 @@
         self.setReglasAProcesos = function (reglasPro, apps, areas) {
             var reglas = [];
             console.log(reglasPro);
-            for (var i in reglasPro) {
+            for (var i in reglasPro[0].rules) {
                 var regla = {
-                    name: reglasPro[i].rules[0].nombre_regla,
-                    id_paso: reglasPro[i].rules[0].id_paso,
-                    attributes: self.setFlowAReglas(reglasPro[i].rules[0].flow, apps, areas),
+                    name: reglasPro[0].rules[i].nombre_regla,
+                    id_paso: reglasPro[0].rules[i].id_paso,
+                    attributes: self.setFlowAReglas(reglasPro[0].rules[i].flow, apps, areas),
                     mode: 'on',
                     active: false
                 };
@@ -217,19 +217,25 @@
                     } else {
                         atributos = [
                             {
-                                area: flow[0].area_ID || '',
-                                application: flow[0].app_ID || '',
+                                area: {
+                                    id: flow[0].area_ID,
+                                    name: self.getAreaName(flow[0].area_ID, areas)
+                                },
+                                application: {
+                                    id: flow[0].app_ID,
+                                    name: self.getAppName(flow[0].app_ID, apps)
+                                },
                                 kpi: '',
                                 forma: {
-                                    id: flow[0].desc_TYPE || '',
+                                    id: '',
                                     name: 'Process',
-                                    shape: flow[0].shape_ID || 1
+                                    shape: 1
                                 },
-                                next_STEP: flow[0].next_STEP || 0,
-                                pros_ID: flow[0].pros_ID || 0,
-                                flow_ID: flow[0].flow_ID || 0,
-                                dia_STEP_ID: flow[0].dia_STEP_ID || 0,
-                                diagram_ID: flow[0].diagram_ID || 0
+                                next_STEP: 0,
+                                pros_ID: 0,
+                                flow_ID: 0,
+                                dia_STEP_ID: 0,
+                                diagram_ID: 0
                             }
                         ];
                     }

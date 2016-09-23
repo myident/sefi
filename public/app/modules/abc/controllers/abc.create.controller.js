@@ -201,6 +201,13 @@
             };
             return;
         });
+        
+        $scope.listaAplicaciones = $apiaplicaciones.query(function(data){
+            console.log('ao')
+            console.log(data);
+        }, function(e){
+            console.log(e);
+        });
 
 
         // MARK: - POST Guarda un Dominio
