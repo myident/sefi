@@ -160,8 +160,6 @@
                     }],
                     asosiate_buss: $scope.associatedBusinessObjectives || [],
                     process_owner: $scope.process_owner || []
-
-
                 };
 
                 if($scope.hideWarningMega && $scope.hideWarningMacro && $scope.hideWarningAuthor && $scope.hideWarningVersion && $scope.hideWarningVersionDesc && $scope.hideWarningMacroObj && $scope.hideWarningAreaObj && $scope.hideWarningTerm){
@@ -276,6 +274,7 @@
                     $scope.process_owner = $scope.source.process_owner;
                     $scope.associatedBusinessObjectives = $scope.source.asosiate_buss;
 
+                    console.log($scope.source.process_change);
                     if($scope.update){
                         $scope.hideWarningMacro = true;
                         $scope.hideWarningAuthor = true;

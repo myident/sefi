@@ -118,6 +118,7 @@
                 }
             };
 
+
             // Recibe la configuracion del modelo
             $scope.$watch('model', function () {
                 if ($scope.model && $scope.model.length && $scope.eventUpdate) {
@@ -136,7 +137,7 @@
                                 mcro: $scope.model[i].mcro,
                                 attc_ID: 0,
                                 oper_ID: $scope.model[i].oper_ID,
-                                urll: $scope.model[i].urll
+                                file: {name:$scope.model[i].urll}
                             };
                         } else { // Attach
                             obj = {
@@ -147,10 +148,9 @@
                                 mcro: $scope.model[i].mcro,
                                 attc_ID: $scope.model[i].attc_ID,
                                 oper_ID: 0,
-                                urll: $scope.model[i].urll
+                                file: {name:$scope.model[i].urll}
                             };
                         }
-
                         $scope.source.push(obj);
                     }
 
@@ -176,4 +176,20 @@
     angular
         .module('abcAddInputFile', [])
         .directive('abcAddInputFile', Directive);
+
+    angular
+        .module('abcAddInputFile')
+        .filter('fileName', function () {
+          return function (str) {
+            str = str || '';
+            var fileName = str;
+                for(var i = str.length; i > 0;--i){
+                    if(str[i] === "/" ){ 
+                        fileName = str.slice((i+1),str.length);
+                        break;
+                    }
+                }
+            return fileName;
+          };
+    });
 })();

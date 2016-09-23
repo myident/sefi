@@ -161,7 +161,7 @@
                     break;
                 case 2:
                     lengthCapability = $scope.sourceTemp.procesos[lengthProcess].reglas.length - 1;
-                    lastY = $scope.sourceTemp.procesos[lengthProcess].reglas[lengthCapability].html.rect.offset.y + 70;
+                    lastY = $scope.sourceTemp.procesos[lengthProcess].reglas[lengthCapability].html.rect.offset.y + 200;
                     break;
                 }
                 // var lengthCapability = ($scope.view !== 0) ? $scope.sourceTemp.procesos[lengthProcess].capacidades.length - 1 : 0;

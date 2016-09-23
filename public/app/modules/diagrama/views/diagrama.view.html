@@ -42,7 +42,7 @@
             print="printPDF"
             set-hide-toggle="hideToggle"
             ></dg-ways>
-        <div class="kpis-bottom">
+        <div class="kpis-bottom" ng-class="{'animate-width-full-w':!hideToggle}" ng-show="kpis.length">
             <div>Macroprocess KPI´s:</div>
             <ul>
                 <li ng-repeat="kpi in kpis">{{kpi.name}}</li>
