@@ -3,7 +3,6 @@
     var Directive = function () {
 
         var Link = function ($scope) {
-            console.log($scope.model)
 
             $scope.$watch('model', function (newVal) {
 
