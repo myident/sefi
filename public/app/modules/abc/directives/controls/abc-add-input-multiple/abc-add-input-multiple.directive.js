@@ -3,27 +3,57 @@
     var Directive = function () {
 
         var Link = function ($scope) {
+            console.log($scope.options)
             $scope.eventUpdate = true;
-            $scope.source = [
-                {
-                    act_ID: 0,
-                    pro_BUS: '',
-                    func_RES: '',
-                    chn_ID: '',
-                    mcro: 0,
-                    status: 1
-                },
-                {
-                    act_ID: 0,
-                    pro_BUS: '',
-                    func_RES: '',
-                    chn_ID: '',
-                    mcro: 0,
-                    status: 1
-                }
-            ];
+            $scope.resetDirective = function () {
+                $scope.source = [
+                    {
+                        act_ID: undefined,
+                        pro_BUS: '',
+                        func_RES: '',
+                        chn_ID: '',
+                        mcro: 0,
+                        status: 1,
+                        modelSelected: false,
+                        showOptions: false,
+                        model: ''
+                    },
+                    {
+                        act_ID: undefined,
+                        pro_BUS: '',
+                        func_RES: '',
+                        chn_ID: '',
+                        mcro: 0,
+                        status: 1,
+                        modelSelected: false,
+                        showOptions: false,
+                        model: ''
+                    }
+                ];
+            };
+            
+            $scope.resetDirective();
+
 
             $scope.canDelete = true;
+
+
+            $scope.toggleShowOptions = function (index) {
+                if ($scope.options) {
+                    $scope.source[index].showOptions = !$scope.source[index].showOptions;
+                } else {
+                    console.log('WARNING: Las opciones de la directiva Select ' + $scope.label + ', no están definidas');
+                }
+            };
+
+            $scope.selectOption = function (parentIndex, index) {
+                $scope.source[parentIndex].modelSelected = true;
+                $scope.source[parentIndex].showOptions = false;
+                $scope.source[parentIndex].model = $scope.options[index].id;
+                $scope.source[parentIndex].name = $scope.options[index].name;
+                $scope.saveModel();
+            };
+
 
             $scope.addElementToSource = function () {
                 var element = {
@@ -32,16 +62,22 @@
                     func_RES: '',
                     chn_ID: '',
                     mcro: 0,
-                    status: 1
+                    status: 1,
+                    modelSelected: false,
+                    showOptions: false,
+                    model: ''
                 };
                 $scope.source.push(element);
                 $scope.canDelete = true;
             };
 
+            // Elimina un input del arreglo
             $scope.deleteElementFromSource = function (index) {
+                console.log($scope.source[index].status)
                 if ($scope.source.length > 1) {
-                    $scope.source.splice(index, 1);
-                    if ($scope.source.length > 1) {
+                    $scope.source[index].status = 3;
+                    console.log($scope.source[index].status)
+                    if ($scope.getLength() > 1) {
                         $scope.canDelete = true;
                     } else {
                         $scope.canDelete = false;
@@ -50,6 +86,16 @@
                 } else {
                     $scope.canDelete = false;
                 }
+            };
+
+            $scope.getLength = function(){
+                var count = 0;
+                for(var i in $scope.source){
+                    if($scope.source[i].status !== 3){
+                        count++;
+                    }
+                }
+                return count;
             };
 
             // Execute the event configured
@@ -82,7 +128,7 @@
 
 
             $scope.$watch('model', function () {
-                console.log($scope.model);
+                //console.log($scope.model);
                 if ($scope.eventUpdate && $scope.model && $scope.model.length) {
                     $scope.source = [];
                     var obj = {};
@@ -93,12 +139,27 @@
                             func_RES: $scope.model[i].func_RES,
                             chn_ID: $scope.model[i].chn_ID,
                             mcro: $scope.model[i].mcro,
-                            status: $scope.model[i].status
+                            status: $scope.model[i].status === 0 ? 2 : $scope.model[i].status
                         };
                         $scope.source.push(obj);
                     }
                 }
+                $scope.eventUpdate && $scope.model && $scope.model.length === 0 && (function(){
+                    $scope.resetDirective();
+                })();
             });
+
+
+            $scope.getNameApp = function (optionsTemp, id) {
+                var name = '';
+
+                for (var i in optionsTemp) {
+                    if (optionsTemp[i].id == id) {
+                        name = optionsTemp[i].name;
+                    }
+                }
+                return name;
+            };
 
         };
 
@@ -109,7 +170,8 @@
                 label: '@',
                 model: '=',
                 holders: '=',
-                event: '='
+                event: '=',
+                options: '='
             },
             link: Link
         };

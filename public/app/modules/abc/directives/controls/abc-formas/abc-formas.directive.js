@@ -8,7 +8,7 @@
             $scope.showOptions = false;
             $scope.rectan = true;
             
-            console.log($scope.model);
+         
 
 
             if ($scope.model) {

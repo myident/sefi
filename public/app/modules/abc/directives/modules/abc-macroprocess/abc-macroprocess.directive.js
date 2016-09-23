@@ -306,6 +306,7 @@
                 title: '@',
                 megaprocesos: '=',
                 areas: '=',
+                aplicaciones: '=',
                 event: '=',
                 eventUpdate: '=',
                 eventDelete: '=',

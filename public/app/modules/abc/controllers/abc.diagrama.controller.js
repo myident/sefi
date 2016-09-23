@@ -2,12 +2,14 @@
 
 (function () {
 
-    var Controller = function ($scope, $apiarea, $apikpi, $apimacroproceso, $apiaplicaciones, $apidiagrama, $window, $rootScope, $apidominio, $apimegaproceso, $abcParseLocal, $abcdiagramadesc, $abcParseRemote) {
+    var Controller = function ($scope, $apiarea, $apikpi, $apimacroproceso, $apiaplicaciones, $apidiagrama, $window, $rootScope, $apidominio, $apimegaproceso, $abcParseLocal, $abcdiagramadesc, $abcParseRemote, $getdiagrama) {
 
         // MARK: - Regresar
         $scope.regresar = function () {
             $window.history.back();
         };
+
+
 
         // Inicia el SPIN
         $rootScope.spin = true;
@@ -16,8 +18,8 @@
 
         $scope.megaprocesos = $apimegaproceso.query(
             function (data) {
-                console.log('Megas');
-                console.log(data);
+                //                console.log('Megas');
+                //                console.log(data);
             },
             function (e) {
                 console.log(e);
@@ -26,8 +28,8 @@
         // MARK: - Lista de macroprocesos, areas, aplicaciones y kpis
         $scope.macroprocesos = $apimacroproceso.query(
             function (data) {
-                console.log('Macros');
-                console.log(data);
+                //                console.log('Macros');
+                //                console.log(data);
                 $rootScope.spin = false;
             },
             function (e) {
@@ -48,16 +50,16 @@
 
         $scope.areas = $apiarea.query(
             function (data) {
-                console.log('Areas');
-                console.log(data);
+                //                console.log('Areas');
+                //                console.log(data);
             },
             function (e) {
                 console.log(e);
             });
         $scope.aplicaciones = $apiaplicaciones.query(
             function (data) {
-                console.log('Aplicaciones');
-                console.log(data);
+                //                console.log('Aplicaciones');
+                //                console.log(data);
             },
             function (e) {
                 console.log(e);
@@ -65,8 +67,8 @@
 
         $scope.kpis = $apikpi.query(
             function (data) {
-                console.log('KPI');
-                console.log(data);
+                //                console.log('KPI');
+                //                console.log(data);
             },
             function (e) {
                 console.log(e);
@@ -74,20 +76,19 @@
 
         $scope.dominios = $apidominio.query(
             function (data) {
-                console.log('Dominios');
-                console.log(data);
+                //                console.log('Dominios');
+                //                console.log(data);
             },
             function (e) {
                 console.log(e);
             });
 
         $scope.optionsFiguras = $abcdiagramadesc.optionsFiguras;
-        var data = $abcdiagramadesc.getAll();
 
-        //        $scope.procesos = $abcParseLocal.setProcesosFromService(data);
         $scope.procesos = $abcdiagramadesc.getInitial();
 
-        console.log($scope.procesos);
+
+
 
         $scope.brules = [];
 
@@ -238,9 +239,31 @@
 
         // MARK: - activa un macroproceso 
         $scope.activeMacroprocess = function (model, index) {
-            $scope.canSave = true;
+
             $scope.currentMacro = index;
             $scope.dominioDelMacro = $scope.getMegaDomain(index);
+            console.log($scope.macroprocesos[index]);
+
+            $getdiagrama.get({
+                id: $scope.macroprocesos[index].id
+            }, function (data) {
+                //$scope.macroDiagrama = data.procRulesCap;
+                //console.log(data);
+                if (data.procRulesCap && data.procRulesCap.length) {
+                    $scope.procesos = $abcParseLocal.setProcesosFromService(data.procRulesCap, $scope.aplicaciones, $scope.areas, $scope.dominios, $scope.kpis);
+                    $scope.canSave = false;
+                    $scope.canUpdate = true;
+                } else {
+                    $scope.procesos = $abcdiagramadesc.getInitial();
+                    $scope.canSave = true;
+                    $scope.canUpdate = false;
+                }
+            }, function (e) {
+                console.log(e);
+                $scope.procesos = $abcdiagramadesc.getInitial();
+                $scope.canSave = true;
+                $scope.canUpdate = false;
+            });
         };
 
         // MARK: - activa un proceso
@@ -466,7 +489,9 @@
 
                     $scope.procesos[parentIndex].reglas.push(newRegla);
                     $scope.procesos[parentIndex].reglas[index].mode = 'on';
+
                 } else {
+
                     $rootScope.showAlert = true;
                     $scope.contentAlert = {
                         title: 'WARNING',
@@ -476,18 +501,19 @@
                         event: function () {}
                     };
                     return;
-                }
 
+                }
             } else {
+
                 $scope.currentProcess = parentIndex;
                 $scope.currentBrule = index;
                 $scope.processEditing = false;
                 $scope.deactiveAll();
                 $scope.procesos[parentIndex].reglas[index].active = true;
-
                 $scope.brules = $scope.getBrules();
                 $scope.currentYes = 'BR' + ($scope.currentBrule + 2);
                 $scope.showDecisions = $scope.getShowDecisions(parentIndex, index);
+
             }
             $scope.setSteps();
         };
@@ -532,6 +558,29 @@
             ];
         };
 
+        $scope.update = function () {
+            var obj = {
+                "procRulesCap": []
+            };
+            obj.procRulesCap = $abcParseRemote
+                .fillProcesos(
+                    $scope.procesos,
+                    $scope.macroprocess,
+                    $scope.dominioDelMacro,
+                    $scope.macroprocesos,
+                    $scope.currentMacro);
+            
+            if ($scope.canUpdate) {
+                console.log(obj.procRulesCap);
+                var macroprocesoDiagrama = new $apidiagrama(obj);
+                macroprocesoDiagrama.$update(function(data){
+                    console.log(data);
+                }, function(e){
+                    console.log(e);
+                });
+            }
+        };
+
         $scope.newSave = function () {
             $rootScope.spin = true;
             var obj = {
@@ -544,9 +593,8 @@
                     $scope.dominioDelMacro,
                     $scope.macroprocesos,
                     $scope.currentMacro);
-            //console.log(JSON.stringify(obj.procRulesCap));
-            console.log(obj.procRulesCap);
-
+            console.log(JSON.stringify(obj.procRulesCap));
+            //console.log(obj.procRulesCap);
             if ($scope.procesos.length > 1) {
                 var canSave = false;
                 for (var m in $scope.procesos) {
@@ -616,13 +664,11 @@
                     event: function () {}
                 };
             }
-
-
         };
 
 
     };
-    Controller.$inject = ['$scope', '$apiarea', '$apikpi', '$apimacroproceso', '$apiaplicaciones', '$apidiagrama', '$window', '$rootScope', '$apidominio', '$apimegaproceso', '$abcParseLocal', '$abcdiagramadesc', '$abcParseRemote'];
+    Controller.$inject = ['$scope', '$apiarea', '$apikpi', '$apimacroproceso', '$apiaplicaciones', '$apidiagrama', '$window', '$rootScope', '$apidominio', '$apimegaproceso', '$abcParseLocal', '$abcdiagramadesc', '$abcParseRemote', '$getdiagrama'];
     angular
         .module('mAbc')
         .controller('AbcDiagramaController', Controller);

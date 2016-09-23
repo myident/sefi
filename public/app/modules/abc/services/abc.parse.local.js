@@ -6,7 +6,7 @@
     var Service = function () {
         var self = this;
 
-        self.setProcesosFromService = function (data) {
+        self.setProcesosFromService = function (data, apps, areas, dominios, kpis) {
             var procesos = [];
             for (var i in data) {
                 var proceso = {
@@ -19,8 +19,8 @@
                     macr_ID: data[i].macr_ID,
                     mode: 'on',
                     active: false,
-                    capacidades: self.setCapacidadesAProcesos(data[i].capacidad),
-                    reglas: self.setReglasAProcesos(data[i].reglas)
+                    capacidades: self.setCapacidadesAProcesos(data[i].capacidad, apps, areas, dominios, kpis),
+                    reglas: self.setReglasAProcesos(data[i].reglas, apps, areas)
                 };
                 procesos.push(proceso);
             }
@@ -40,14 +40,14 @@
             procesos.push(lastProcess);
             return procesos;
         };
-        self.setCapacidadesAProcesos = function (capacidad) {
+        self.setCapacidadesAProcesos = function (capacidad, apps, areas, dominios, kpis) {
             var capacidades = [];
             for (var i in capacidad) {
                 var newCapacidad = {
                     name: capacidad[i].capaldesc,
                     cap_DOM_ID: capacidad[i].cap_DOM_ID,
                     capid: capacidad[i].capid,
-                    attributes: self.setAtributosACapacidades(capacidad[i].atributosCap),
+                    attributes: self.setAtributosACapacidades(capacidad[i].atributosCap, apps, areas, dominios, kpis),
                     mode: 'on',
                     active: false
                 };
@@ -71,22 +71,43 @@
             capacidades.push(lastCapability);
             return capacidades;
         };
-        self.setAtributosACapacidades = function (atributosCap) {
+
+        self.getAppName = function (id, apps) {
+            var application = 'Unknown';
+            for (var i in apps) {
+                if (id === apps[i].id) {
+                    application = apps[i].name;
+                }
+            }
+            return application;
+        };
+
+        self.getAreaName = function (id, areas) {
+            var area = 'Unknown';
+            for (var i in areas) {
+                if (id === areas[i].area_id) {
+                    area = areas[i].area_desc;
+                }
+            }
+            return area;
+        };
+
+        self.setAtributosACapacidades = function (atributosCap, apps, areas, dominios, kpis) {
             var atributos = [];
 
             for (var i in atributosCap) {
 
                 var atributo = {
                     area: atributosCap[i].ar_ID === 0 ? '' : {
-                        name: 'Gato con botas',
+                        name: self.getAreaName(atributosCap[i].ar_ID, areas),
                         id: atributosCap[i].ar_ID
                     },
                     application: atributosCap[i].app_ID === 0 ? '' : {
-                        name: '',
+                        name: self.getAppName(atributosCap[i].app_ID, apps),
                         id: atributosCap[i].app_ID
                     },
                     kpi: atributosCap[i].kpi === 0 ? '' : {
-                        name: '',
+                        name: self.getAppName(atributosCap[i].kpi, kpis),
                         id: atributosCap[i].kpi
                     },
                     domain: ''
@@ -96,13 +117,14 @@
             }
             return atributos;
         };
-        self.setReglasAProcesos = function (reglasPro) {
+        self.setReglasAProcesos = function (reglasPro, apps, areas) {
             var reglas = [];
-            for (var i in reglasPro) {
+            console.log(reglasPro);
+            for (var i in reglasPro[0].rules) {
                 var regla = {
-                    name: reglasPro[i].rules[0].nombre_regla,
-                    id_paso: reglasPro[i].rules[0].id_paso,
-                    attributes: self.setFlowAReglas(reglasPro[i].rules[0].flow),
+                    name: reglasPro[0].rules[i].nombre_regla,
+                    id_paso: reglasPro[0].rules[i].id_paso,
+                    attributes: self.setFlowAReglas(reglasPro[0].rules[i].flow, apps, areas),
                     mode: 'on',
                     active: false
                 };
@@ -135,7 +157,7 @@
             return reglas;
         };
 
-        self.setFlowAReglas = function (flow) {
+        self.setFlowAReglas = function (flow, apps, areas) {
             var atributos = [];
             if (flow) {
                 var longitud = flow.length;
@@ -144,17 +166,21 @@
                         {
                             area: {
                                 id: flow[0].area_ID,
-                                name: 'Zaddy'
+                                name: self.getAreaName(flow[0].area_ID, areas)
                             },
                             application: {
                                 id: flow[0].app_ID,
-                                name: 'Ty Dollar'
+                                name: self.getAppName(flow[0].app_ID, apps)
                             },
                             kpi: '',
                             forma: {
                                 id: 'rombo',
                                 name: 'Decision',
                                 shape: flow[0].shape_ID
+                            },
+                            no:{
+                                id: flow[1].next_STEP,
+                                name: 'Roy Wood'
                             },
                             next_STEP: flow[0].next_STEP,
                             pros_ID: flow[0].pros_ID,
@@ -167,8 +193,14 @@
                     if (longitud === 0) {
                         atributos = [
                             {
-                                area: '',
-                                application: '',
+                                area: {
+                                    id: flow[0].area_ID,
+                                    name: self.getAreaName(flow[0].area_ID, areas)
+                                },
+                                application: {
+                                    id: flow[0].app_ID,
+                                    name: self.getAppName(flow[0].app_ID, apps)
+                                },
                                 kpi: '',
                                 forma: {
                                     id: '',
@@ -185,19 +217,25 @@
                     } else {
                         atributos = [
                             {
-                                area: flow[0].area_ID || '',
-                                application: flow[0].app_ID || '',
+                                area: {
+                                    id: flow[0].area_ID,
+                                    name: self.getAreaName(flow[0].area_ID, areas)
+                                },
+                                application: {
+                                    id: flow[0].app_ID,
+                                    name: self.getAppName(flow[0].app_ID, apps)
+                                },
                                 kpi: '',
                                 forma: {
-                                    id: flow[0].desc_TYPE || '',
+                                    id: '',
                                     name: 'Process',
-                                    shape: flow[0].shape_ID || 1
+                                    shape: 1
                                 },
-                                next_STEP: flow[0].next_STEP || 0,
-                                pros_ID: flow[0].pros_ID || 0,
-                                flow_ID: flow[0].flow_ID || 0,
-                                dia_STEP_ID: flow[0].dia_STEP_ID || 0,
-                                diagram_ID: flow[0].diagram_ID || 0
+                                next_STEP: 0,
+                                pros_ID: 0,
+                                flow_ID: 0,
+                                dia_STEP_ID: 0,
+                                diagram_ID: 0
                             }
                         ];
                     }

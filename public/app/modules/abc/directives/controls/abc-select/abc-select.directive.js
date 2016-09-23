@@ -18,13 +18,11 @@
             };
 
             $scope.toggleShowOptions = function () {
-
                 if ($scope.options) {
                     $scope.showOptions = !$scope.showOptions;
                 } else {
                     console.log('WARNING: Las opciones de la directiva Select ' + $scope.label + ', no están definidas');
                 }
-                
             };
 
             $scope.selectOption = function (index) {

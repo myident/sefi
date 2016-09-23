@@ -2,7 +2,7 @@
 
 // Se ocupa para enviar al homs
 
-(function() {
+(function () {
     var Service = function () {
         var self = this;
         var contador = 1;
@@ -10,7 +10,7 @@
         self.fillProcesos = function (scopeProcesos, scopeMacroprocess, dominioMacro, macroprocesos, currentMacro) {
             var procesos = [];
             for (var i in scopeProcesos) {
-                
+
                 if (scopeProcesos[i].mode == 'on') {
                     var proceso = {
                         ldescproc: scopeProcesos[i].name,
@@ -19,12 +19,12 @@
                         mega_ID: Number(macroprocesos[currentMacro].mega_id),
                         macr_ID: Number(scopeMacroprocess.id),
                         capacidad: self.fillCapacidadesDeProceso(scopeProcesos[i], dominioMacro),
-                        reglas: self.fillReglasDeProceso(scopeProcesos[i]),
-                        //reglas: [
-                        //{
-                        //rules: self.fillReglasDeProceso(scopeProcesos[i])
-                        //}
-                        //],
+                        //reglas: self.fillReglasDeProceso(scopeProcesos[i]),
+                        reglas: [
+                            {
+                                rules: self.fillReglasDeProceso(scopeProcesos[i])
+                            }
+                        ],
                         pro_ID: scopeProcesos[i].pro_ID,
                         diagram_id: scopeProcesos[i].diagram_id,
                         cat_PRO: scopeProcesos[i].cat_PRO
@@ -78,7 +78,7 @@
                         next_STEP: contador + 1,
                         desc_TYPE: 'YES',
                         pros_ID: regla.attributes[0].pros_ID,
-                        flow_ID: regla.attributes[0].flow_ID,
+                        flow_ID: contador + 1,
                         shape_ID: regla.attributes[0].forma.shape,
                         dia_STEP_ID: regla.attributes[0].dia_STEP_ID,
                         diagram_ID: regla.attributes[0].diagram_ID,
@@ -89,7 +89,7 @@
                         next_STEP: regla.attributes[0].no ? regla.attributes[0].no.id : contador,
                         desc_TYPE: 'NO',
                         pros_ID: regla.attributes[0].pros_ID,
-                        flow_ID: regla.attributes[0].flow_ID,
+                        flow_ID: regla.attributes[0].no ? regla.attributes[0].no.id : contador,
                         shape_ID: regla.attributes[0].forma.shape,
                         dia_STEP_ID: regla.attributes[0].dia_STEP_ID,
                         diagram_ID: regla.attributes[0].diagram_ID,
@@ -103,7 +103,7 @@
                         next_STEP: contador + 1,
                         desc_TYPE: ' ',
                         pros_ID: regla.attributes[0].pros_ID,
-                        flow_ID: regla.attributes[0].flow_ID,
+                        flow_ID: contador + 1,
                         shape_ID: regla.attributes[0].forma.shape,
                         dia_STEP_ID: regla.attributes[0].dia_STEP_ID,
                         diagram_ID: regla.attributes[0].diagram_ID,
@@ -119,20 +119,20 @@
             var reglas = [];
             for (var i in proceso.reglas) {
                 if (proceso.reglas[i].mode == 'on') {
+                    //                    var regla = {
+                    //                        rules: [
+                    //                            {
+                    //                                id_paso: contador,
+                    //                                nombre_regla: proceso.reglas[i].name,
+                    //                                flow: self.fillFlowDeReglas(proceso.reglas[i])
+                    //                            }
+                    //                        ]
+                    //                    };
                     var regla = {
-                        rules: [
-                            {
-                                id_paso: contador,
-                                nombre_regla: proceso.reglas[i].name,
-                                flow: self.fillFlowDeReglas(proceso.reglas[i])
-                            }
-                        ]
+                        id_paso: contador,
+                        nombre_regla: proceso.reglas[i].name,
+                        flow: self.fillFlowDeReglas(proceso.reglas[i])
                     };
-                    //var regla = {
-                    //id_paso: 0,
-                    //nombre_regla: proceso.reglas[i].name,
-                    //flow: $scope.fillFlowDeReglas(proceso.reglas[i])
-                    //};
                     reglas.push(regla);
                     contador++;
                 }
