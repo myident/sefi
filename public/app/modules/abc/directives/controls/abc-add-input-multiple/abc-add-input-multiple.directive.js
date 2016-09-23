@@ -82,6 +82,7 @@
 
 
             $scope.$watch('model', function () {
+                console.log($scope.model);
                 if ($scope.eventUpdate && $scope.model && $scope.model.length) {
                     $scope.source = [];
                     var obj = {};

@@ -51,8 +51,6 @@
                     }, function (data) {
                         $rootScope.spin = false;
 
-                        console.log(data);
-
                         $scope.types[2].source = {
                             id: $abcUpdate.obj.obj.area_id,
                             mega_id: data.mega_id,
@@ -69,7 +67,7 @@
 
                             attach: data.attach,
                             operative: data.operative,
-                            process_change: data.rocess_change,
+                            process_change: data.process_change,
                             SLA_service: data.SLA_service,
                             glosary: data.glosary,
                             assumtion: data.assumtion,
