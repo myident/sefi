@@ -1,34 +1,11 @@
 /* global angular */
+
+// Se ocupa para recibir el objeto
+
 (function () {
     var Service = function () {
         var self = this;
-        self.optionsFiguras = [
-            {
-                name: 'Start',
-                id: 'redondeado',
-                shape: 4
-            },
-            {
-                name: 'Process',
-                id: 'rectangulo',
-                shape: 1
-            },
-            {
-                name: 'Decision',
-                id: 'rombo',
-                shape: 3
-            },
-            {
-                name: 'End',
-                id: 'redondeado',
-                shape: 5
-            },
-            {
-                name: 'Data',
-                id: 'paralelo',
-                shape: 9
-            }
-        ];
+
         self.setProcesosFromService = function (data) {
             var procesos = [];
             for (var i in data) {
@@ -80,7 +57,14 @@
                 name: '',
                 cap_DOM_ID: 0,
                 capid: 0,
-                attributes: [],
+                attributes: [
+                    {
+                        area: '',
+                        application: '',
+                        kpi: '',
+                        domain: ''
+                    }
+                ],
                 mode: 'off',
                 active: false
             };
@@ -116,18 +100,36 @@
             var reglas = [];
             for (var i in reglasPro) {
                 var regla = {
-                    mode: 'on',
-                    active: false,
                     name: reglasPro[i].rules[0].nombre_regla,
-                    attributes: self.setFlowAReglas(reglasPro[i].rules[0].flow)
+                    id_paso: reglasPro[i].rules[0].id_paso,
+                    attributes: self.setFlowAReglas(reglasPro[i].rules[0].flow),
+                    mode: 'on',
+                    active: false
                 };
                 reglas.push(regla);
             }
             var lastRegla = {
-                mode: 'off',
-                active: false,
                 name: '',
-                attributes: self.setFlowAReglas([])
+                id_paso: 0,
+                attributes: [
+                    {
+                        area: '',
+                        application: '',
+                        kpi: '',
+                        forma: {
+                            id: 'rectangulo',
+                            name: 'Process',
+                            shape: 1
+                        },
+                        next_STEP: 0,
+                        pros_ID: 0,
+                        flow_ID: 0,
+                        dia_STEP_ID: 0,
+                        diagram_ID: 0
+                    }
+                ],
+                mode: 'off',
+                active: false
             };
             reglas.push(lastRegla);
             return reglas;
@@ -216,12 +218,12 @@
                         flow_ID: 0,
                         dia_STEP_ID: 0,
                         diagram_ID: 0
-                            }
-                        ];
+                    }
+                ];
             }
             return atributos;
         };
 
     };
-    angular.module('mAbc').service('$abcdiagrama', Service);
+    angular.module('mAbc').service('$abcParseLocal', Service);
 })();

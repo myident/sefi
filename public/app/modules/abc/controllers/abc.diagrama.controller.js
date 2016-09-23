@@ -2,7 +2,7 @@
 
 (function () {
 
-    var Controller = function ($scope, $apiarea, $apikpi, $apimacroproceso, $apiaplicaciones, $apidiagrama, $window, $rootScope, $apidominio, $apimegaproceso, $abcdiagrama, $abcdiagramadesc) {
+    var Controller = function ($scope, $apiarea, $apikpi, $apimacroproceso, $apiaplicaciones, $apidiagrama, $window, $rootScope, $apidominio, $apimegaproceso, $abcParseLocal, $abcdiagramadesc, $abcParseRemote) {
 
         // MARK: - Regresar
         $scope.regresar = function () {
@@ -33,7 +33,7 @@
             function (e) {
                 console.log(e);
                 $rootScope.spin = false;
-                $rootScope.showAlert = false;
+                $rootScope.showAlert = true;
                 $scope.contentAlert = {
                     title: 'ERROR',
                     text: 'An error ocurred with the connection.',
@@ -81,10 +81,12 @@
                 console.log(e);
             });
 
-        $scope.optionsFiguras = $abcdiagrama.optionsFiguras;
+        $scope.optionsFiguras = $abcdiagramadesc.optionsFiguras;
         var data = $abcdiagramadesc.getAll();
-        $scope.procesos = $abcdiagrama.setProcesosFromService(data);
-        $scope.procesosInitial = $abcdiagramadesc.getInitial();
+
+        //        $scope.procesos = $abcParseLocal.setProcesosFromService(data);
+        $scope.procesos = $abcdiagramadesc.getInitial();
+
         console.log($scope.procesos);
 
         $scope.brules = [];
@@ -141,7 +143,9 @@
 
         // MARK: - regresa todas las reglas de negocio que se han creado para agregarlas al select
         $scope.getBrules = function () {
+            $scope.setSteps();
             var arreglo = [];
+            var contador = 1;
             for (var i in $scope.procesos) {
                 var proceso = $scope.procesos[i];
                 for (var j in proceso.reglas) {
@@ -149,9 +153,10 @@
                     if (regla.mode == 'on' && regla.name !== '') {
                         var obj = {
                             name: 'BR' + (Number(j) + 1) + ' ' + regla.name,
-                            id: j
+                            id: regla.step
                         };
                         arreglo.push(obj);
+                        contador++;
                     }
                 }
             }
@@ -264,9 +269,9 @@
                     };
 
                     var newCapacidad = {
-                        mode: 'off',
-                        active: false,
                         name: '',
+                        cap_DOM_ID: 0,
+                        capid: 0,
                         attributes: [
                             {
                                 area: '',
@@ -274,13 +279,15 @@
                                 kpi: '',
                                 domain: ''
                             }
-                        ]
+                        ],
+                        mode: 'off',
+                        active: false
                     };
 
                     var newReglas = {
-                        mode: 'off',
-                        active: false,
                         name: '',
+                        id_paso: 0,
+                        step: 0,
                         attributes: [
                             {
                                 area: '',
@@ -290,9 +297,16 @@
                                     id: 'rectangulo',
                                     name: 'Process',
                                     shape: 1
-                                }
+                                },
+                                next_STEP: 0,
+                                pros_ID: 0,
+                                flow_ID: 0,
+                                dia_STEP_ID: 0,
+                                diagram_ID: 0
                             }
-                        ]
+                        ],
+                        mode: 'off',
+                        active: false
                     };
 
                     $scope.procesos.push(newProcess);
@@ -339,9 +353,9 @@
                     $scope.procesos[parentIndex].capacidades[index].active = true;
 
                     var newCapacidad = {
-                        mode: 'off',
-                        active: false,
                         name: '',
+                        cap_DOM_ID: 0,
+                        capid: 0,
                         attributes: [
                             {
                                 area: '',
@@ -349,7 +363,9 @@
                                 kpi: '',
                                 domain: ''
                             }
-                        ]
+                        ],
+                        mode: 'off',
+                        active: false
                     };
 
                     $scope.procesos[parentIndex].capacidades.push(newCapacidad);
@@ -397,9 +413,20 @@
                 .capacidades.splice($scope.currentCapability, 1);
         };
 
+        $scope.setSteps = function () {
+            var counter = 1;
+            for (var i = 0; i < $scope.procesos.length; i++) {
+                for (var j = 0; j < $scope.procesos[i].reglas.length; j++) {
+                    if ($scope.procesos[i].reglas[j].mode == 'on') {
+                        $scope.procesos[i].reglas[j].step = counter;
+                        counter++;
+                    }
+                }
+            }
+        };
+
         // MARK: - activa una regla de negocio
         $scope.activateBrule = function (parentIndex, index) {
-            console.log($scope.procesos[parentIndex].reglas[index]);
             if ($scope.procesos[parentIndex].reglas[index].mode == 'off') {
                 if ($scope.isValid().status) {
                     $scope.currentProcess = parentIndex;
@@ -413,16 +440,28 @@
                     $scope.showDecisions = $scope.getShowDecisions(parentIndex, index);
 
                     var newRegla = {
-                        mode: 'off',
-                        active: false,
                         name: '',
+                        id_paso: 0,
+                        step: 0,
                         attributes: [
                             {
                                 area: '',
                                 application: '',
-                                kpi: ''
+                                kpi: '',
+                                forma: {
+                                    id: 'rectangulo',
+                                    name: 'Process',
+                                    shape: 1
+                                },
+                                next_STEP: 0,
+                                pros_ID: 0,
+                                flow_ID: 0,
+                                dia_STEP_ID: 0,
+                                diagram_ID: 0
                             }
-                        ]
+                        ],
+                        mode: 'off',
+                        active: false
                     };
 
                     $scope.procesos[parentIndex].reglas.push(newRegla);
@@ -450,6 +489,7 @@
                 $scope.currentYes = 'BR' + ($scope.currentBrule + 2);
                 $scope.showDecisions = $scope.getShowDecisions(parentIndex, index);
             }
+            $scope.setSteps();
         };
 
         // MARK: - Borra la regla del negocio actual
@@ -458,6 +498,7 @@
             $scope
                 .procesos[$scope.currentProcess]
                 .reglas.splice($scope.currentBrule, 1);
+            $scope.setSteps();
         };
 
         // MARK: - Obtiene la forma
@@ -475,6 +516,7 @@
         };
         $scope.getNo = function (a) {
             console.log(a);
+
         };
 
         // MARK: - Limpia los campos actuales
@@ -490,270 +532,97 @@
             ];
         };
 
-        // MARK: - Llena los procesos
-        $scope.fillProcesos = function () {
-            var procesos = [];
-            for (var i in $scope.procesos) {
-                if ($scope.procesos[i].mode == 'on') {
-                    var proceso = {
-                        ldescproc: $scope.procesos[i].name,
-                        desc_diagram: $scope.macroprocess.name,
-                        domid: Number($scope.dominioDelMacro.id),
-                        mega_ID: Number($scope.macroprocesos[$scope.currentMacro].mega_id),
-                        macr_ID: Number($scope.macroprocess.id),
-                        capacidad: $scope.fillCapacidadesDeProceso($scope.procesos[i]),
-                        reglas: $scope.fillReglasDeProceso($scope.procesos[i]),
-                        //reglas: [
-                        //{
-                        //rules: $scope.fillReglasDeProceso($scope.procesos[i])
-                        //}
-                        //],
-                        pro_ID: 0,
-                        diagram_id: 0,
-                        cat_PRO: 0
-                    };
-                    procesos.push(proceso);
-                }
-            }
-            return procesos;
-        };
-
-        // MARK: - Llena los atributos de la capacidad
-        $scope.fillAtributosDeCapacidad = function (capacidad) {
-            var atributos = [];
-            for (var i in capacidad.attributes) {
-                var atributo = {
-                    ar_ID: capacidad.attributes[i].area.id || 0,
-                    app_ID: capacidad.attributes[i].application.id || 0,
-                    kpi: capacidad.attributes[i].kpi.id || 0
-                };
-                atributos.push(atributo);
-            }
-            return atributos;
-        };
-
-        // MARK: - LLena las capacidades
-        $scope.fillCapacidadesDeProceso = function (proceso) {
-            var capacidades = [];
-            for (var i in proceso.capacidades) {
-                if (proceso.capacidades[i].mode == 'on') {
-                    var capacidad = {
-                        capaldesc: proceso.capacidades[i].name,
-                        capid: 0,
-                        cap_DOM_ID: $scope.dominioDelMacro.id,
-                        atributosCap: $scope.fillAtributosDeCapacidad(proceso.capacidades[i])
-                    };
-                    capacidades.push(capacidad);
-                }
-            }
-            return capacidades;
-        };
-
-        // MARK: - Llena el flow de las reglas
-        $scope.fillFlowDeReglas = function (regla) {
-
-            var flow = [];
-
-            if (regla.attributes[0].forma.id == 'rombo') {
-                flow = [
-                    {
-                        area_ID: regla.attributes[0].area.id || 0,
-                        next_STEP: 0,
-                        desc_TYPE: 'YES',
-                        pros_ID: 0,
-                        flow_ID: 0,
-                        shape_ID: regla.attributes[0].forma.shape,
-                        dia_STEP_ID: 0,
-                        diagram_ID: 0,
-                        app_ID: regla.attributes[0].application.id || 0
-                    },
-                    {
-                        area_ID: regla.attributes[0].area.id || 0,
-                        next_STEP: 0,
-                        desc_TYPE: 'NO',
-                        pros_ID: 0,
-                        flow_ID: 0,
-                        shape_ID: regla.attributes[0].forma.shape,
-                        dia_STEP_ID: 0,
-                        diagram_ID: 0,
-                        app_ID: regla.attributes[0].application.id || 0
-                    }
-                ];
-            } else {
-                flow = [
-                    {
-                        area_ID: regla.attributes[0].area.id || 0,
-                        next_STEP: 0,
-                        desc_TYPE: '',
-                        pros_ID: 0,
-                        flow_ID: 0,
-                        shape_ID: regla.attributes[0].forma.shape,
-                        dia_STEP_ID: 0,
-                        diagram_ID: 0,
-                        app_ID: regla.attributes[0].application.id || 0
-                    }
-                ];
-            }
-            return flow;
-        };
-
-        // MARK: - Llena las reglas del proceso
-        $scope.fillReglasDeProceso = function (proceso) {
-            var reglas = [];
-            for (var i in proceso.reglas) {
-                if (proceso.reglas[i].mode == 'on') {
-                    var regla = {
-                        rules: [
-                            {
-                                id_paso: 0,
-                                nombre_regla: proceso.reglas[i].name,
-                                flow: $scope.fillFlowDeReglas(proceso.reglas[i])
-                            }
-                        ]
-                    };
-                    //var regla = {
-                    //id_paso: 0,
-                    //nombre_regla: proceso.reglas[i].name,
-                    //flow: $scope.fillFlowDeReglas(proceso.reglas[i])
-                    //};
-                    reglas.push(regla);
-                }
-            }
-            return reglas;
-        };
-
-
         $scope.newSave = function () {
             $rootScope.spin = true;
             var obj = {
-                "procRulesCap": [
-                    {
-                        "desc_diagram": "",
-                        "diagram_id": 0,
-                        "capacidad": [
-                            {
-                                "atributosCap": [
-                                    {
-                                        "ar_ID": 0,
-                                        "app_ID": 0,
-                                        "kpi": 0
-                                    }
-                                ],
-                                "cap_DOM_ID": 0,
-                                "capid": 0,
-                                "capaldesc": ""
-                            }
-                        ],
-                        "reglas": [
-                            {
-                                "rules": [
-                                    {
-                                        "id_paso": 0,
-                                        "nombre_regla": null,
-                                        "flow": [
-                                            {
-                                                "area_ID": 0,
-                                                "next_STEP": 0,
-                                                "desc_TYPE": "",
-                                                "pros_ID": 0,
-                                                "flow_ID": 0,
-                                                "shape_ID": 0,
-                                                "dia_STEP_ID": 0,
-                                                "diagram_ID": 0,
-                                                "app_ID": 0
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                        ],
-                        "ldescproc": "",
-                        "mega_ID": 0,
-                        "domid": 0,
-                        "cat_PRO": 0,
-                        "pro_ID": 0,
-                        "macr_ID": 0
-                    }
-                ]
+                "procRulesCap": []
             };
-            obj.procRulesCap = $scope.fillProcesos();
-            console.log(JSON.stringify($scope.fillProcesos()));
-            //            if ($scope.procesos.length > 1){
-            //                var canSave = false;
-            //                for (var m in $scope.procesos){
-            //                    if ($scope.procesos[m].capacidades.length > 1){
-            //                        canSave = true;
-            //                    }
-            //                }
-            //                if (canSave){
-            //                    if ($scope.isValid().status){
-            //                        var macroprocesoDiagrama = new $apidiagrama(obj);
-            //                        macroprocesoDiagrama.$save(function(data){
-            //                            console.log('Listo');
-            //                            console.log(data);
-            //                            $rootScope.spin = false;
-            //                            $rootScope.showAlert = true;
-            //                            $scope.contentAlert = {
-            //                                title: 'DONE',
-            //                                text: 'The diagram was created',
-            //                                button: 'OK',
-            //                                type: 'blue',
-            //                                event: function () {}
-            //                            };
-            //                        }, function(e){
-            //                            console.log(e);
-            //                            $rootScope.spin = false;
-            //                            $rootScope.showAlert = true;
-            //                            $scope.contentAlert = {
-            //                                title: 'ERROR',
-            //                                text: 'An error ocurred with the connection.',
-            //                                button: 'OK',
-            //                                type: 'red',
-            //                                event: function () {
-            //                                    console.log('Cerraste alerta');
-            //                                }
-            //                            };
-            //                        });
-            //                    } else {
-            //                        $rootScope.spin = false;
-            //                        $rootScope.showAlert = true;
-            //                        $scope.contentAlert = {
-            //                            title: 'ERROR',
-            //                            text: $scope.isValid().message,
-            //                            button: 'OK',
-            //                            type: 'red',
-            //                            event: function () {}
-            //                        };
-            //                    }
-            //                } else {
-            //                    $rootScope.spin = false;
-            //                    $rootScope.showAlert = true;
-            //                    $scope.contentAlert = {
-            //                        title: 'ERROR',
-            //                        text: 'You need to add at least one capability',
-            //                        button: 'OK',
-            //                        type: 'red',
-            //                        event: function () {}
-            //                    };
-            //                }
-            //            } else {
-            //                $rootScope.spin = false;
-            //                $rootScope.showAlert = true;
-            //                $scope.contentAlert = {
-            //                    title: 'ERROR',
-            //                    text: 'You need to add at least one Process and One Capability',
-            //                    button: 'OK',
-            //                    type: 'red',
-            //                    event: function () {}
-            //                };
-            //            }
+            obj.procRulesCap = $abcParseRemote
+                .fillProcesos(
+                    $scope.procesos,
+                    $scope.macroprocess,
+                    $scope.dominioDelMacro,
+                    $scope.macroprocesos,
+                    $scope.currentMacro);
+            //console.log(JSON.stringify(obj.procRulesCap));
+            console.log(obj.procRulesCap);
+
+            if ($scope.procesos.length > 1) {
+                var canSave = false;
+                for (var m in $scope.procesos) {
+                    if ($scope.procesos[m].capacidades.length > 1) {
+                        canSave = true;
+                    }
+                }
+                if (canSave) {
+                    if ($scope.isValid().status) {
+                        var macroprocesoDiagrama = new $apidiagrama(obj);
+                        macroprocesoDiagrama.$save(function (data) {
+                            console.log('Listo');
+                            console.log(data);
+                            $rootScope.spin = false;
+                            $rootScope.showAlert = true;
+                            $scope.contentAlert = {
+                                title: 'DONE',
+                                text: 'The diagram was created',
+                                button: 'OK',
+                                type: 'blue',
+                                event: function () {}
+                            };
+                        }, function (e) {
+                            console.log(e);
+                            $rootScope.spin = false;
+                            $rootScope.showAlert = true;
+                            $scope.contentAlert = {
+                                title: 'ERROR',
+                                text: 'An error ocurred with the connection.',
+                                button: 'OK',
+                                type: 'red',
+                                event: function () {
+                                    console.log('Cerraste alerta');
+                                }
+                            };
+                        });
+                    } else {
+                        $rootScope.spin = false;
+                        $rootScope.showAlert = true;
+                        $scope.contentAlert = {
+                            title: 'ERROR',
+                            text: $scope.isValid().message,
+                            button: 'OK',
+                            type: 'red',
+                            event: function () {}
+                        };
+                    }
+                } else {
+                    $rootScope.spin = false;
+                    $rootScope.showAlert = true;
+                    $scope.contentAlert = {
+                        title: 'ERROR',
+                        text: 'You need to add at least one capability',
+                        button: 'OK',
+                        type: 'red',
+                        event: function () {}
+                    };
+                }
+            } else {
+                $rootScope.spin = false;
+                $rootScope.showAlert = true;
+                $scope.contentAlert = {
+                    title: 'ERROR',
+                    text: 'You need to add at least one Process and One Capability',
+                    button: 'OK',
+                    type: 'red',
+                    event: function () {}
+                };
+            }
 
 
         };
 
 
     };
-    Controller.$inject = ['$scope', '$apiarea', '$apikpi', '$apimacroproceso', '$apiaplicaciones', '$apidiagrama', '$window', '$rootScope', '$apidominio', '$apimegaproceso', '$abcdiagrama', '$abcdiagramadesc'];
+    Controller.$inject = ['$scope', '$apiarea', '$apikpi', '$apimacroproceso', '$apiaplicaciones', '$apidiagrama', '$window', '$rootScope', '$apidominio', '$apimegaproceso', '$abcParseLocal', '$abcdiagramadesc', '$abcParseRemote'];
     angular
         .module('mAbc')
         .controller('AbcDiagramaController', Controller);
