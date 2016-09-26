@@ -1,0 +1,11 @@
+
+<div class="login">
+	<div class="content">
+		<input ng-model="data.user" type="text" placeholder="Usuario" autofocus>
+		<input ng-model="data.password" type="password" placeholder="Contraseña" ng-keypress="keypress($event)">
+		<button ng-click="send()"><i class="fa fa-arrow-circle-right fa-2x"></i></button>
+	</div>
+</div>
+<div class="alert" ng-show="toggleAlert">
+	<span>{{message}}</span>
+</div>

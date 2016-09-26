@@ -1,191 +1,131 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
-
+<html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>{{appName}}</title>	
+	<title>Myidenti | Beta 2</title>
 
 	<meta name="format-detection" content="telephone=no" />
-	<meta name="msapplication-tap-highlight" content="no" />
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
-
-	<!-- Style -->
-	<link rel="stylesheet" href="assets/css/style.css">
-	<!-- Libs -->
-	<link rel="stylesheet" href="./bower_components/angular-parallax/styles/main.css">
-	<!-- Modules Style -->
-	<link rel="stylesheet" href="app/modules/home/assets/home.style.css">
-	<link rel="stylesheet" href="app/modules/processes/assets/processes.style.css">
-	<link rel="stylesheet" href="app/modules/processes/assets/processes.detail.style.css">
-	<link rel="stylesheet" href="app/modules/ecosistema/assets/ecosistema.style.css">
-	<link rel="stylesheet" href="app/modules/admin/assets/admin.style.css">
-	<link rel="stylesheet" href="app/modules/our-areas/assets/trayectoria.style.css">
-	<link rel="stylesheet" href="app/modules/our-areas/assets/our-areas.style.css">
-	<link rel="stylesheet" href="app/modules/diagrama/assets/diagrama.style.css">
-	<!-- Directives Style -->
-	<link rel="stylesheet" href="app/shared/directives/main/ng-header/ng-header.style.css">
-	<link rel="stylesheet" href="app/shared/directives/main/ng-background/ng-background.style.css">
-	<link rel="stylesheet" href="app/shared/directives/main/spin/assets/spin.style.css">
-	<link rel="stylesheet" href="app/shared/directives/main/ng-slideview/ng-slideview.style.css">
-    <!-- Directives Diagrama -->
-	<link rel="stylesheet" href="app/modules/diagrama/directives/dg-indice/dg-indice.style.css">
-	<link rel="stylesheet" href="app/modules/diagrama/directives/dg-historial/dg-historial.style.css">
-	<link rel="stylesheet" href="app/modules/diagrama/directives/dg-barra-herramientas/dg-barra-herramientas.style.css">
-	<link rel="stylesheet" href="app/modules/diagrama/directives/dg-ways/dg-ways.style.css">
-	
-	<link rel="stylesheet" href="app/modules/abc/assets/abc.style.css">
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    
+	<link rel="stylesheet" href="./assets/css/normalize.css">
+	<link rel="stylesheet" href="./assets/css/style.css">
+	<link rel="stylesheet" href="./assets/css/spin.css">
+	<link rel="stylesheet" href="./assets/css/login.css">
+	<link rel="stylesheet" type="text/css" href="./assets/css/font-awesome.min.css">
+	<script src="./assets/js/angular.min.js"></script>
+	<script src="./assets/js/jquery-1.8.1.min.js"></script>
+	<script src="./assets/js/jquery.foggy.min.js"></script>
+	<script src="./app/services/http.service.js"></script>
+	<script src="./app/services/login.service.js"></script>
+	<script src="./app/directives/components.directive.js"></script>
+	<script src="./app/controllers/form.controller.js"></script>
+	<script src="./app/controllers/header.controller.js"></script>
+	<script src="./app/controllers/login.controller.js"></script>
 
 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
-
-<body ng-controller="AppController">
-
-	<!-- Render view -->
-	<spin ng-show="spin"></spin>
-	<div class="main" ng-view></div> 
-
-	<!-- References any -->
-	<script src="./bower_components/snap.svg/dist/snap.svg-min.js"></script>
-	<script src="./app/shared/extensions/multitext.extension.js"></script>
-	<script src="./bower_components/savesvgaspng/saveSvgAsPng.js"></script>
-	<script src="./bower_components/jspdf/dist/jspdf.debug.js"></script>
-	<script src="./bower_components/jspdf-autotable/dist/jspdf.plugin.autotable.js"></script>
-	<script src="./bower_components/pdfmake/build/pdfmake.js"></script>
-	<script src="./bower_components/pdfmake/build/vfs_fonts.js"></script>
-	<!-- References angular.js -->
-	<script src="./bower_components/angular/angular.min.js"></script>
-	<script src="./bower_components/angular-route/angular-route.min.js"></script>
-	<script src="./bower_components/angular-touch/angular-touch.min.js"></script>
-	<script src="./bower_components/angular-resource/angular-resource.min.js"></script>
-	<script src="./bower_components/angular-animate/angular-animate.min.js"></script>
-	<script src="./bower_components/angular-parallax/scripts/angular-parallax.js"></script>
-	<script src="./bower_components/ng-file-upload-shim/ng-file-upload-shim.min.js"></script>
-	<script src="./bower_components/ng-file-upload/ng-file-upload.min.js"></script>
-	<!-- app config -->
-	<script src="app/config/app.module.js"></script>
-	<script src="app/config/app.router.js"></script>
-	<script src="app/config/app.controller.js"></script>
-	<script src="app/config/app.service.js"></script>
-	<script src="app/config/app.singleton.js"></script>
-	<script src="app/config/app.resourceProvider.js"></script>
-	<!-- Directives main -->
-	<script src="app/shared/directives/main/ng-header/ng-header.directive.js"></script>
-	<script src="app/shared/directives/main/ng-background/ng-background.directive.js"></script>
-	<script src="app/shared/directives/main/spin/spin.directive.js"></script>
-	<script src="app/shared/directives/main/ng-slideview/ng-slideview.directive.js"></script>
-	<script src="app/shared/directives/main/ng-paragraph/ng-paragraph.directive.js"></script>
-	<script src="app/shared/directives/main/ng-getdimensions/ng-getdimensions.directive.js"></script>
-	<!-- Directives procesos -->
-	<script src="app/shared/directives/procesos/ng-flipcard/ng-flipcard.directive.js"></script>
-	<script src="app/shared/directives/procesos/ng-mapside/ng-mapside.directive.js"></script>
-	<script src="app/shared/directives/procesos/ng-breadcrumb/ng-breadcrumb.directive.js"></script>
-	<script src="app/shared/directives/procesos/ng-index/ng-index.directive.js"></script>
-	<script src="app/shared/directives/procesos/ng-ways/ng-ways_vash.directive.js"></script>
-	<script src="app/shared/directives/procesos/ng-layouts/ng-layouts.directive.js"></script>
-	<script src="app/shared/directives/procesos/ng-print/ng-print.directive.js"></script>
-	<!-- Directives Diagrama -->
-	<script src="app/modules/diagrama/directives/dg-indice/dg-indice.directive.js"></script>
-	<script src="app/modules/diagrama/directives/dg-historial/dg-historial.directive.js"></script>
-	<script src="app/modules/diagrama/directives/dg-barra-herramientas/dg-barra-herramientas.directive.js"></script>
-	<script src="app/modules/diagrama/directives/dg-ways/dg-ways.directive.js"></script>
-	<!-- Directives Control ABC -->
-	<script src="app/modules/abc/directives/controls/abc-input/abc-input.directive.js"></script>
-	<script src="app/modules/abc/directives/controls/abc-text-area/abc-textarea.directive.js"></script>
-	<script src="app/modules/abc/directives/controls/abc-select/abc-select.directive.js"></script>
-	<script src="app/modules/abc/directives/controls/abc-textarea-xl/abc-textarea-xl.directive.js"></script>
-	<script src="app/modules/abc/directives/controls/abc-add-input-double/abc-add-input-double.directive.js"></script>
-	<script src="app/modules/abc/directives/controls/abc-add-input-xl/abc-add-input-xl.directive.js"></script>
-	<script src="app/modules/abc/directives/controls/abc-add-input-multiple/abc-add-input-multiple.directive.js"></script>
-	<script src="app/modules/abc/directives/controls/abc-add-numeric-input/abc-add-numeric-input.directive.js"></script>
-	<script src="app/modules/abc/directives/controls/abc-add-input-file/abc-add-input-file.directive.js"></script>
-	<script src="app/modules/abc/directives/controls/abc-add-select/abc-add-select.directive.js"></script>
-	<script src="app/modules/abc/directives/controls/abc-radio/abc-radio.directive.js"></script>
-	<script src="app/modules/abc/directives/controls/abc-add-select-obj/abc-add-select-obj.directive.js"></script>
-	<script src="app/modules/abc/directives/controls/abc-special-select/abc-special-select.directive.js"></script>
-	<script src="app/modules/abc/directives/controls/abc-alert/abc-alert.directive.js"></script>
-	<script src="app/modules/abc/directives/controls/abc-formas/abc-formas.directive.js"></script>
-	<script src="app/modules/abc/directives/controls/abc-nice-label/abc-nice-label.directive.js"></script>
-	<script src="app/shared/extensions/brules.filter.js"></script>
-	<!-- Directives Modules ABC -->
-	<script src="app/modules/abc/directives/modules/abc-domain/abc-domain.directive.js"></script>
-	<script src="app/modules/abc/directives/modules/abc-application/abc-application.directive.js"></script>
-	<script src="app/modules/abc/directives/modules/abc-area/abc-area.directive.js"></script>
-	<script src="app/modules/abc/directives/modules/abc-brule/abc-brule.directive.js"></script>
-	<script src="app/modules/abc/directives/modules/abc-capability/abc-capability.directive.js"></script>
-	<script src="app/modules/abc/directives/modules/abc-kpi/abc-kpi.directive.js"></script>
-	<script src="app/modules/abc/directives/modules/abc-macroprocess/abc-macroprocess.directive.js"></script>
-	<script src="app/modules/abc/directives/modules/abc-megaprocess/abc-megaprocess.directive.js"></script>
-	<script src="app/modules/abc/directives/modules/abc-process/abc-process.directive.js"></script>
-	<script src="app/modules/abc/directives/modules/abc-flipcard/abc-flipcard.directive.js"></script>
+<body ng-app="app">
 	
+	<section ng-controller="LoginController" ng-hide="signed">
+			<login ng-model="data" message="message" toggle-alert="toggleAlert" btn-send="login()"></login>
+	</section>
 	
-	<!-- Modules  -->
-	<script src="app/modules/home/home.module.js"></script>
-	<script src="app/modules/processes/processes.module.js"></script>
-	<script src="app/modules/ecosistema/ecosistema.module.js"></script>
-	<script src="app/modules/admin/admin.module.js"></script>
-    <script src="app/modules/our-areas/our-areas.module.js"></script>
-    <script src="app/modules/diagrama/diagrama.module.js"></script>
-	<!-- Controllers -->
-	<script src="app/modules/home/controllers/home.controller.js"></script>
-	<script src="app/modules/processes/controllers/processes.controller.js"></script>
-	<script src="app/modules/processes/controllers/processes.detail.controller.js"></script>
-	<script src="app/modules/ecosistema/controllers/vista-ecosistemas.controller.js"></script>
-	<script src="app/modules/admin/controllers/aplicaciones.controller.js"></script>
-	<script src="app/modules/our-areas/controllers/trayectoria.controller.js"></script>
-	<script src="app/modules/our-areas/controllers/architecture.controller.js"></script>
-	<script src="app/modules/diagrama/controllers/diagrama.controller.js"></script>
-	<script src="app/modules/diagrama/services/settings.service.js"></script>
-	<script src="app/modules/diagrama/services/builder.service.js"></script>
-	<script src="app/modules/diagrama/services/paint.service.js"></script>
-	<!-- Services -->
-	<script src="app/config/app.service.js"></script>
-	<script src="app/modules/home/services/home.service.js"></script>
-	<script src="app/modules/processes/services/arquitecuras.service.js"></script>
-	<script src="app/modules/processes/services/dominios.service.js"></script>
-	<script src="app/modules/processes/services/megaprocesos.service.js"></script>
-	<script src="app/modules/processes/services/macroprocesos.service.js"></script>
-	<script src="app/modules/processes/services/procesos.service.js"></script>
-	<script src="app/modules/ecosistema/services/ecosistema.service.js"></script>
-	<script src="app/modules/admin/services/aplicaciones.service.js"></script>
-	<script src="app/modules/our-areas/services/cvnombres.service.js"></script>
-	<script src="app/modules/our-areas/services/cvs.service.js"></script>
-	<!-- Services for Ways-->
-	<script src="app/shared/services/ways/vash.service.js"></script>
-	<script src="app/shared/services/ways/shapes.service.js"></script>
-	<script src="app/shared/services/ways/build.service.js"></script>
-	<script src="app/shared/services/ways/layouts.service.js"></script>
-	<script src="app/shared/services/ways/settings.services.js"></script>
-	<script src="app/shared/services/ways/print.service.js"></script>
-    <!-- Services Diagram -->
-    <script src="app/modules/diagrama/services/indice.service.js"></script>
-    <script src="app/modules/diagrama/services/historial.service.js"></script>
-    <script src="app/modules/diagrama/services/barra-herramientas.service.js"></script>
-    <script src="app/modules/diagrama/services/procesos-kpi.service.js"></script>
-    <script src="app/modules/diagrama/services/word.service.js"></script>
-    <!-- Modulo ABC -->
-    <script src="app/modules/abc/abc.module.js"></script>
-    <script src="app/modules/abc/controllers/abc.create.controller.js"></script>
-    <script src="app/modules/abc/controllers/abc.diagrama.controller.js"></script>
-    <script src="app/modules/abc/controllers/abc.consult.controller.js"></script>
-    <script src="app/modules/abc/controllers/abc.edit.controller.js"></script>
-    <script src="app/modules/abc/services/abc.create.service.js"></script>
-    <script src="app/modules/abc/services/abc.update.service.js"></script>
-    <script src="app/modules/abc/services/api/dominio.service.js"></script>
-    <script src="app/modules/abc/services/api/megaproceso.service.js"></script>
-    <script src="app/modules/abc/services/api/macroprocesos.service.js"></script>
-    <script src="app/modules/abc/services/api/proceso.service.js"></script>
-    <script src="app/modules/abc/services/api/capacidad.service.js"></script>
-    <script src="app/modules/abc/services/api/area.service.js"></script>
-    <script src="app/modules/abc/services/api/aplicacion.service.js"></script>
-    <script src="app/modules/abc/services/api/kpi.service.js"></script>
-    <script src="app/modules/abc/services/api/diagrama.service.js"></script>
-    <script src="app/modules/abc/services/api/getdiagrama.service.js"></script>
-    <script src="app/modules/abc/services/abc.parse.local.js"></script>
-    <script src="app/modules/abc/services/internal/diagramadesc.internal.js"></script>
-    <script src="app/modules/abc/services/abc.parse.remote.service.js"></script>
+	<section class="cover" ng-hide="signed"></section>
 
+	<header ng-controller="HeaderController">
+		<section class="logo">
+			<span class="name">Myidenti</span>
+			<i class="icon"></i>
+		</section>
+		<section class="content">
+			<span class="user">{{name}}</span>
+			<i class="logout" ng-click="logout()">
+				<i class="fa fa-power-off fa-2x"></i>
+			</i>
+		</section>
+	</header>
+
+	<div class="content" ng-controller="FormController">
+		<section class="form">
+			<ul>
+				<li><span>Apellidos</span><input type="text" ng-model="data.lastName" ></li>
+				<li><span>Nombre</span><input type="text" ng-model="data.name"></li>
+				<!-- <li class="wrapper" ><span>Fecha de nacimiento</span>
+					<input maxlength="2" placeholder="aa" type="text" ng-model="data.birthdate.year"><input maxlength="2" placeholder="mm" type="text" ng-model="data.birthdate.month"><input maxlength="2" placeholder="dd" type="text" ng-model="data.birthdate.day">
+				</li> -->
+				<!-- <li><span>Año de registro</span><input type="text"  ng-model="data.registerYear"></li> -->
+				<li><span>Edad</span><input type="text"  ng-model="data.old"></li>
+				<li><span>Calle</span><input type="text" ng-model="data.street"></li>
+				<li><span>Genero</span>
+					<select name="repeatSelect" ng-model="data.sex" >
+				    	<option ng-repeat="option in sexList" value="{{option}}">{{option.name}}</option>
+				    </select>
+				</li>
+				<li>
+				<span>Sube una foto</span>
+				<span class="custom-label">Click para subir una foto</span>
+				<span class="custom-img" ng-style="backgroundPicture"></span>
+				<input class="transparent" type="file" ng-model="anyObj" onchange="angular.element(this).scope().readURL(this)">
+				</li>
+				<li class="content">
+					<span ng-click="toggleContent()">Dirección base</span>
+					<i class="fa fa-chevron-up" ng-class="{'fa-chevron-down':isToggleContent()}"></i>
+					<hr>
+					<ul ng-class="{'animate-hide':isToggleContent()}">
+						
+						<li><span>Colonia / Localidad</span><input type="text" ng-model="data.baseAddress.local"></li>
+						<!-- <li><span>Localidad</span><input type="text" ng-model="data.baseAddress.localN"></li> -->
+						<li><span>Delegación / Municipio</span><input type="text" ng-model="data.baseAddress.del"></li>
+						<!-- <li><span>Municipio</span><input type="text" ng-model="data.baseAddress.delN"></li> -->
+						<li><span>Codigo postal</span><input type="text" ng-model="data.baseAddress.cp"></li>
+						<li><span>Sección</span><input type="text" ng-model="data.baseAddress.section" maxlength="6"></li>
+						<li><span>Estado</span>
+							<select name="repeatSelect" ng-model="data.baseAddress.state" >
+					        	<option ng-repeat="option in statesList" value="{{option}}">{{option.name}}</option>
+					    	</select>
+					    </li>
+					</ul>
+				</li>
+				<li class="content"></li>
+				<li>
+					<button class="cancel" ng-click="clear()">Limpiar</button>
+					<button class="agree" ng-click="create()">Generar</button>
+				</li>
+			</ul>
+		</section>
+		<section class="result">
+			<div class="content">
+				<div class="lines"></div>
+				<span class="lastName1">{{result.lastName1}}</span>
+				<span class="lastName2">{{result.lastName2}}</span>
+				<span class="name">{{result.name}}</span>
+				<span class="address1">{{result.address1}}</span>
+				<span class="address2">{{result.address2}}</span>
+				<span class="address3">{{result.address3}}</span>
+				<span class="folio">{{result.folio}}</span>
+				<span class="registerYear">{{result.registerYear}}</span>
+				<span class="folioIFE">{{result.folioIFE}}</span>
+				<span class="no">{{result.no}}</span>
+				<span class="localN">{{result.localN}}</span>
+				<span class="delN">{{result.delN}}</span>
+				<span class="section">{{result.section}}</span>
+				<span class="old">{{result.old}}</span>
+				<span class="sex">{{result.sex}}</span>
+				<span class="sign" ng-style="result.pictureSign"></span>
+				<span class="picture" ng-style="result.picture"></span>
+				<div class="picture-lines"></div>
+				<span class="id" >{{result.ID}}</span>
+			</div>
+			<div class="anexos">
+				<ul>
+					<li><span class="title">CURP</span><span class="title-result">{{result.curp}}</span></li>
+				</ul>
+			</div>
+		</section>
+	</div>
+	<spin ng-model="spin"></spin>
 </body>
-
 </html>
